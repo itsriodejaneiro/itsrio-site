@@ -8,6 +8,8 @@ cd $DIR
 
 cat config/plugins | while read plugin
 do
+	[[ "$plugin" =~ ^#.*$ ]] && continue
+
 	IFS='@' read -r -a pl <<< "$plugin"
 	plugin_name=${pl[0]// }
 	plugin_version=${pl[1]// }
@@ -45,6 +47,8 @@ cd $DIR
 
 cat config/themes | while read theme
 do
+	[[ "$theme" =~ ^#.*$ ]] && continue
+	
 	IFS='@' read -r -a pl <<< "$theme"
 	theme_name=${pl[0]// }
 	theme_url=${pl[1]// }
