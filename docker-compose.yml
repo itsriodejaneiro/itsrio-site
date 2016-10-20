@@ -1,0 +1,22 @@
+web:
+  image: montefuscolo/wordpress
+  volumes:
+   - ./wp-content/:/var/www/html/wp-content/
+   - ./docker/confs/htaccess_dev:/var/www/html/.htaccess
+  environment:
+   - WORDPRESS_WP_DEBUG=true
+   - WORDPRESS_WP_DEBUG_DISPLAY=true
+  links:
+   - db:mysql
+  ports:
+   - "80:80"
+db:
+  image: mariadb
+  environment:
+   - MYSQL_USER=wordpress
+   - MYSQL_PASSWORD=wordpress
+   - MYSQL_DATABASE=wordpress
+   - MYSQL_ROOT_PASSWORD=wordpress
+   - TERM=xterm
+  volumes:
+   - ./docker/data/base.sql:/docker-entrypoint-initdb.d/base.sql
