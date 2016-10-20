@@ -1,3 +1,5 @@
 .tmp/*
 
 wp-content/themes/divi3*
+
+wp-content/plugins/custom-post-type-ui
