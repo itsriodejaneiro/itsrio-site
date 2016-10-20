@@ -17,7 +17,7 @@ do
 	
 	if [[ -z "${plugin_version}" ]]; then
 		echo "find the latest $plugin_name version"
-		filename=$(curl -s  https://wordpress.org/plugins/polylang/ | grep -o "https:\/\/downloads\.wordpress\.org\/plugin\/.*\.zip" | egrep -o "[^\/]*.zip")
+		filename=$(curl -s  https://wordpress.org/plugins/$plugin_name/ | grep -o "https:\/\/downloads\.wordpress\.org\/plugin\/.*\.zip" | egrep -o "[^\/]*.zip")
 	else
 		filename="$plugin_name.$plugin_version.zip"
 	fi
@@ -48,7 +48,7 @@ cd $DIR
 cat config/themes | while read theme
 do
 	[[ "$theme" =~ ^#.*$ ]] && continue
-	
+
 	IFS='@' read -r -a pl <<< "$theme"
 	theme_name=${pl[0]// }
 	theme_url=${pl[1]// }
