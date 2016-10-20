@@ -35,7 +35,8 @@ do
 
 	    cd $DIR
 
-	    grep -q -F "wp-content/plugins/$plugin_name-$plugin_version" .gitignore || echo "wp-content/plugins/$plugin_name-$plugin_version" >> .gitignore
+	    grep -q -F "wp-content/plugins/$plugin_name" .gitignore || echo "
+wp-content/plugins/$plugin_name" >> .gitignore
 	fi
 	
 done
@@ -63,7 +64,8 @@ do
 
 	    cd $DIR
 
-	    grep -q -F "wp-content/themes/$theme_name" .gitignore || echo "wp-content/themes/$theme_name*" >> .gitignore
+	    grep -q -F "wp-content/themes/$theme_name" .gitignore || echo "
+wp-content/themes/$theme_name*" >> .gitignore
 	fi
 	
 done
