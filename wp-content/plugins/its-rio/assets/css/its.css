@@ -1,0 +1,52 @@
+* {
+  /*background-color: black !important;*/ }
+
+#sidebar {
+  display: none; }
+
+body #page-container #left-area {
+  width: 100% !important; }
+
+#main-content .container:before {
+  display: none !important; }
+
+.post-type-archive-varandas #main-header, .post-type-archive-varandas #main-header .nav li ul, .post-type-archive-varandas #main-header .et-search-form, .post-type-archive-varandas #main-header .et_mobile_menu, .post-type-archive-varandas #top-header, .post-type-archive-varandas #top-header .nav li ul, .post-type-archive-varandas #top-header .et-search-form, .post-type-archive-varandas #top-header .et_mobile_menu, .page-id-58 #main-header, .page-id-58 #main-header .nav li ul, .page-id-58 #main-header .et-search-form, .page-id-58 #main-header .et_mobile_menu, .page-id-58 #top-header, .page-id-58 #top-header .nav li ul, .page-id-58 #top-header .et-search-form, .page-id-58 #top-header .et_mobile_menu {
+  background-color: #00958a; }
+
+.post-type-archive-varandas .highlights .info, .page-id-58 .highlights .info {
+  background-color: #00958a; }
+
+.page-id-47 #main-header, .page-id-47 #main-header .nav li ul, .page-id-47 #main-header .et-search-form, .page-id-47 #main-header .et_mobile_menu, .page-id-47 #main-header .highlights .info, .page-id-47 #top-header, .page-id-47 #top-header .nav li ul, .page-id-47 #top-header .et-search-form, .page-id-47 #top-header .et_mobile_menu, .page-id-47 #top-header .highlights .info {
+  background-color: #9a258f; }
+
+.post-type-archive-projetos #main-header, .post-type-archive-projetos #main-header .nav li ul, .post-type-archive-projetos #main-header .et-search-form, .post-type-archive-projetos #main-header .et_mobile_menu, .post-type-archive-projetos #main-header .highlights .info, .post-type-archive-projetos #top-header, .post-type-archive-projetos #top-header .nav li ul, .post-type-archive-projetos #top-header .et-search-form, .post-type-archive-projetos #top-header .et_mobile_menu, .post-type-archive-projetos #top-header .highlights .info {
+  background-color: #fbaf17; }
+
+.post-type-archive-publicacoes #main-header, .post-type-archive-publicacoes #main-header .nav li ul, .post-type-archive-publicacoes #main-header .et-search-form, .post-type-archive-publicacoes #main-header .et_mobile_menu, .post-type-archive-publicacoes #main-header .highlights .info, .post-type-archive-publicacoes #top-header, .post-type-archive-publicacoes #top-header .nav li ul, .post-type-archive-publicacoes #top-header .et-search-form, .post-type-archive-publicacoes #top-header .et_mobile_menu, .post-type-archive-publicacoes #top-header .highlights .info {
+  background-color: #f5821f; }
+
+h1.list-title {
+  border-bottom: 10px solid black;
+  display: table;
+  font-weight: bold; }
+
+.highlights {
+  background-color: black;
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .highlights img {
+    width: 100%;
+    height: 100%; }
+  .highlights .img, .highlights .info {
+    background-color: #9a258f;
+    width: calc(50% - 15px); }
+  .highlights .info {
+    padding: 20px 15px; }
+  .highlights h2 {
+    font-weight: bold;
+    color: white; }
+
+/*# sourceMappingURL=its.css.map */

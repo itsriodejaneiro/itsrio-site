@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * !!!!!!!!!! MAIS IMPORTANTE DE TUDO! Esse negócio salva um cache ferrado no navegador, é bom sempre limpar !!!!!!!!!!!!!!!
+ *
  * 1. Métodos obrigatórios:
  *
  * > init()

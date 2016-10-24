@@ -9,8 +9,24 @@ Author URI:
 */
 
 
+// Register Style
+function its_ctm_css() {
+
+	wp_enqueue_style( 'its', esc_url_raw('/wp-content/plugins/its-rio/assets/css/its.css'), array(), null );
+	wp_enqueue_style( 'foundation', esc_url_raw('/wp-content/plugins/its-rio/assets/css/foundation.min.css'), array(), null );
+
+
+}
+add_action( 'wp_enqueue_scripts', 'its_ctm_css' );
+
+
+
 function my_et_builder_post_types( $post_types ) {
-	$post_types[] = 'varandas';
+	$post_types[] = 'varandas_ctp';
+	$post_types[] = 'projetos_ctp';
+	$post_types[] = 'cursos_ctp';
+	$post_types[] = 'publicacoes_ctp';
+
 
 	return $post_types;
 }
@@ -18,20 +34,28 @@ add_filter( 'et_builder_post_types', 'my_et_builder_post_types' );
 
 
 // Register Custom Post Type
-function custom_post_type() {
+function custom_post_type()
+{
+	register_custom_post_type('varandas_ctp','Varanda','Varandas');
+	register_custom_post_type('projetos_ctp','Projeto','Projetos');
+	register_custom_post_type('cursos_ctp','Curso','Cursos');
+	register_custom_post_type('publicacoes_ctp','Publicação','Publicações');
+}
+
+function register_custom_post_type($id, $singular, $plural, $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields']) {
 
 	$labels = array(
-		'name'                  => _x( 'Varandas', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Varanda', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Varandas', 'text_domain' ),
-		'name_admin_bar'        => __( 'Varandas', 'text_domain' ),
+		'name'                  => _x( $plural, 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( $singular, 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( $plural, 'text_domain' ),
+		'name_admin_bar'        => __( $plural, 'text_domain' ),
 		'archives'              => __( 'Arquivos', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'All Items', 'text_domain' ),
-		'add_new_item'          => __( 'Nova Varanda', 'text_domain' ),
-		'add_new'               => __( 'Nova Varante', 'text_domain' ),
+		'parent_item_colon'     => __( 'Item pai:', 'text_domain' ),
+		'all_items'             => __( 'Todos os Items', 'text_domain' ),
+		'add_new_item'          => __( 'Adicionar '.$singular, 'text_domain' ),
+		'add_new'               => __( 'Adicionar '.$singular, 'text_domain' ),
 		'new_item'              => __( 'New Item', 'text_domain' ),
-		'edit_item'             => __( 'Editar Varanda', 'text_domain' ),
+		'edit_item'             => __( 'Editar '.$singular, 'text_domain' ),
 		'update_item'           => __( 'Atualizar', 'text_domain' ),
 		'view_item'             => __( 'Ver', 'text_domain' ),
 		'search_items'          => __( 'Buscar', 'text_domain' ),
@@ -48,16 +72,16 @@ function custom_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 		);
 	$args = array(
-		'label'                 => __( 'Varanda', 'text_domain' ),
+		'label'                 => __( $singular, 'text_domain' ),
 		'description'           => __( 'Post type de varandas', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', ),
+		'supports'              => $supports,
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
-		'menu_position'         => 5,
+		'menu_position'         => rand(0,5),
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -66,15 +90,18 @@ function custom_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		);
-	register_post_type( 'varandas', $args );
+	register_post_type($id, $args );
 
 }
+
+
+
 add_action( 'init', 'custom_post_type', 0 );
 
 
 function DS_Custom_Modules(){
 	if(class_exists("ET_Builder_Module")){
-		include("ds-custom-modules.php");
+		include("components/latest_posts/its_lastest_post.php");
 	}
 }
 
@@ -97,3 +124,11 @@ function Prep_DS_Custom_Modules(){
 
 
 Prep_DS_Custom_Modules();
+
+
+
+function dd($a)
+{
+	var_dump($a);
+	die;
+}
