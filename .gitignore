@@ -7,3 +7,5 @@ wp-content/plugins/custom-post-type-ui
 node_modules/
 
 uploads/
+
+wp-content/plugins/meta-box

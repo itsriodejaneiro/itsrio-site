@@ -1,0 +1,157 @@
+
+#sidebar
+	display: none;
+
+
+body #page-container #left-area
+	width: 100% !important;
+
+
+#main-content .container:before
+	display: none !important;
+
+#main-header
+	box-shadow 0 0 13px #383838 !important
+
+.et_pb_section
+	padding 0 !important
+
+.et_pb_row, .et_pb_row_0
+	max-width 100% !important
+	width 100% !important
+
+.row
+	max-width 1080px
+	width 100%
+
+
+area = {
+	'58' : {
+		'type' : 'varandas',
+		'bgc' : #00958a,
+		'color' : white,
+		'submenu_img' : ''
+	},
+	'47' : {
+		'type' : 'cursos',
+		'bgc' : #9a258f,
+		'color' : white,
+		'submenu_img' : ''
+	},
+	'64' : {
+		'type' : 'projetos',
+		'bgc' : #fbaf17,
+		'color' : black,
+		'submenu_img' : ''
+	},
+	'66' : {
+		'type' : 'publicacoes',
+		'bgc' : #f5821f,
+		'color' : black,
+		'submenu_img' : ''
+	}
+}
+
+for key, value in area
+	.post-type-archive-{value.type}, .page-id-{key}
+		#main-header, #top-header
+			&, .highlights .info
+				background-color:  value.bgc !important;
+
+			#top-menu li a
+				color: value.color !important;
+
+		.highlights .info, .submenu
+			background-color: value.bgc !important;
+			& > div
+				border-color: value.color;
+			&, h1, p, a
+				color: value.color !important
+
+h1.list-title
+	border-bottom: 10px solid black;
+	display: table;
+	font-weight: bold;
+	margin-top 120px
+
+
+.highlights
+	background-color: black;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	position relative
+
+	.categories
+		position absolute
+		bottom 10px
+		left 30px
+
+		ul
+			margin 0
+			padding 0
+			list-style-type none
+			display flex
+
+			li
+				padding 0px 8px
+				border 1px solid white
+				margin 5px
+
+				a
+					color white
+
+	img
+		width: 100%;
+		height: 100%;
+
+
+	.img, .info
+		background-color: #9a258f;
+		width: calc(50% - 15px);
+
+	.info
+		padding: 25px 20px;
+
+		hr
+			border-width 5px
+			border-color white
+
+	h2
+		font-weight: bold;
+		color: white;
+
+
+.submenu
+	display:flex
+	align-items center
+	padding 10px
+	height 100px
+	width 100%
+	position absolute
+	top -30px
+
+	& > div
+		border-right 1px solid white
+		padding 10px 20px
+		align-items center
+		display flex
+
+		&:last-child
+			border-right: none
+
+		img
+			margin 0 20px
+
+	p, h1
+		margin-bottom 0
+		padding 0
+
+	.show-hide
+		position absolute
+		bottom 10px
+		right 10px
+
+
+
+

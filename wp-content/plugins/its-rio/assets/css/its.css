@@ -1,52 +1,300 @@
-* {
-  /*background-color: black !important;*/ }
-
 #sidebar {
-  display: none; }
-
+  display: none;
+}
 body #page-container #left-area {
-  width: 100% !important; }
-
+  width: 100% !important;
+}
 #main-content .container:before {
-  display: none !important; }
-
-.post-type-archive-varandas #main-header, .post-type-archive-varandas #main-header .nav li ul, .post-type-archive-varandas #main-header .et-search-form, .post-type-archive-varandas #main-header .et_mobile_menu, .post-type-archive-varandas #top-header, .post-type-archive-varandas #top-header .nav li ul, .post-type-archive-varandas #top-header .et-search-form, .post-type-archive-varandas #top-header .et_mobile_menu, .page-id-58 #main-header, .page-id-58 #main-header .nav li ul, .page-id-58 #main-header .et-search-form, .page-id-58 #main-header .et_mobile_menu, .page-id-58 #top-header, .page-id-58 #top-header .nav li ul, .page-id-58 #top-header .et-search-form, .page-id-58 #top-header .et_mobile_menu {
-  background-color: #00958a; }
-
-.post-type-archive-varandas .highlights .info, .page-id-58 .highlights .info {
-  background-color: #00958a; }
-
-.page-id-47 #main-header, .page-id-47 #main-header .nav li ul, .page-id-47 #main-header .et-search-form, .page-id-47 #main-header .et_mobile_menu, .page-id-47 #main-header .highlights .info, .page-id-47 #top-header, .page-id-47 #top-header .nav li ul, .page-id-47 #top-header .et-search-form, .page-id-47 #top-header .et_mobile_menu, .page-id-47 #top-header .highlights .info {
-  background-color: #9a258f; }
-
-.post-type-archive-projetos #main-header, .post-type-archive-projetos #main-header .nav li ul, .post-type-archive-projetos #main-header .et-search-form, .post-type-archive-projetos #main-header .et_mobile_menu, .post-type-archive-projetos #main-header .highlights .info, .post-type-archive-projetos #top-header, .post-type-archive-projetos #top-header .nav li ul, .post-type-archive-projetos #top-header .et-search-form, .post-type-archive-projetos #top-header .et_mobile_menu, .post-type-archive-projetos #top-header .highlights .info {
-  background-color: #fbaf17; }
-
-.post-type-archive-publicacoes #main-header, .post-type-archive-publicacoes #main-header .nav li ul, .post-type-archive-publicacoes #main-header .et-search-form, .post-type-archive-publicacoes #main-header .et_mobile_menu, .post-type-archive-publicacoes #main-header .highlights .info, .post-type-archive-publicacoes #top-header, .post-type-archive-publicacoes #top-header .nav li ul, .post-type-archive-publicacoes #top-header .et-search-form, .post-type-archive-publicacoes #top-header .et_mobile_menu, .post-type-archive-publicacoes #top-header .highlights .info {
-  background-color: #f5821f; }
-
+  display: none !important;
+}
+#main-header {
+  box-shadow: 0 0 13px #383838 !important;
+}
+.et_pb_section {
+  padding: 0 !important;
+}
+.et_pb_row,
+.et_pb_row_0 {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.row {
+  max-width: 1080px;
+  width: 100%;
+}
+.post-type-archive-cursos #main-header,
+.page-id-47 #main-header,
+.post-type-archive-cursos #top-header,
+.page-id-47 #top-header,
+.post-type-archive-cursos #main-header .highlights .info,
+.page-id-47 #main-header .highlights .info,
+.post-type-archive-cursos #top-header .highlights .info,
+.page-id-47 #top-header .highlights .info {
+  background-color: #9a258f !important;
+}
+.post-type-archive-cursos #main-header #top-menu li a,
+.page-id-47 #main-header #top-menu li a,
+.post-type-archive-cursos #top-header #top-menu li a,
+.page-id-47 #top-header #top-menu li a {
+  color: #fff !important;
+}
+.post-type-archive-cursos .highlights .info,
+.page-id-47 .highlights .info,
+.post-type-archive-cursos .submenu,
+.page-id-47 .submenu {
+  background-color: #9a258f !important;
+}
+.post-type-archive-cursos .highlights .info > div,
+.page-id-47 .highlights .info > div,
+.post-type-archive-cursos .submenu > div,
+.page-id-47 .submenu > div {
+  border-color: #fff;
+}
+.post-type-archive-cursos .highlights .info,
+.page-id-47 .highlights .info,
+.post-type-archive-cursos .submenu,
+.page-id-47 .submenu,
+.post-type-archive-cursos .highlights .info h1,
+.page-id-47 .highlights .info h1,
+.post-type-archive-cursos .submenu h1,
+.page-id-47 .submenu h1,
+.post-type-archive-cursos .highlights .info p,
+.page-id-47 .highlights .info p,
+.post-type-archive-cursos .submenu p,
+.page-id-47 .submenu p,
+.post-type-archive-cursos .highlights .info a,
+.page-id-47 .highlights .info a,
+.post-type-archive-cursos .submenu a,
+.page-id-47 .submenu a {
+  color: #fff !important;
+}
+.post-type-archive-varandas #main-header,
+.page-id-58 #main-header,
+.post-type-archive-varandas #top-header,
+.page-id-58 #top-header,
+.post-type-archive-varandas #main-header .highlights .info,
+.page-id-58 #main-header .highlights .info,
+.post-type-archive-varandas #top-header .highlights .info,
+.page-id-58 #top-header .highlights .info {
+  background-color: #00958a !important;
+}
+.post-type-archive-varandas #main-header #top-menu li a,
+.page-id-58 #main-header #top-menu li a,
+.post-type-archive-varandas #top-header #top-menu li a,
+.page-id-58 #top-header #top-menu li a {
+  color: #fff !important;
+}
+.post-type-archive-varandas .highlights .info,
+.page-id-58 .highlights .info,
+.post-type-archive-varandas .submenu,
+.page-id-58 .submenu {
+  background-color: #00958a !important;
+}
+.post-type-archive-varandas .highlights .info > div,
+.page-id-58 .highlights .info > div,
+.post-type-archive-varandas .submenu > div,
+.page-id-58 .submenu > div {
+  border-color: #fff;
+}
+.post-type-archive-varandas .highlights .info,
+.page-id-58 .highlights .info,
+.post-type-archive-varandas .submenu,
+.page-id-58 .submenu,
+.post-type-archive-varandas .highlights .info h1,
+.page-id-58 .highlights .info h1,
+.post-type-archive-varandas .submenu h1,
+.page-id-58 .submenu h1,
+.post-type-archive-varandas .highlights .info p,
+.page-id-58 .highlights .info p,
+.post-type-archive-varandas .submenu p,
+.page-id-58 .submenu p,
+.post-type-archive-varandas .highlights .info a,
+.page-id-58 .highlights .info a,
+.post-type-archive-varandas .submenu a,
+.page-id-58 .submenu a {
+  color: #fff !important;
+}
+.post-type-archive-projetos #main-header,
+.page-id-64 #main-header,
+.post-type-archive-projetos #top-header,
+.page-id-64 #top-header,
+.post-type-archive-projetos #main-header .highlights .info,
+.page-id-64 #main-header .highlights .info,
+.post-type-archive-projetos #top-header .highlights .info,
+.page-id-64 #top-header .highlights .info {
+  background-color: #fbaf17 !important;
+}
+.post-type-archive-projetos #main-header #top-menu li a,
+.page-id-64 #main-header #top-menu li a,
+.post-type-archive-projetos #top-header #top-menu li a,
+.page-id-64 #top-header #top-menu li a {
+  color: #000 !important;
+}
+.post-type-archive-projetos .highlights .info,
+.page-id-64 .highlights .info,
+.post-type-archive-projetos .submenu,
+.page-id-64 .submenu {
+  background-color: #fbaf17 !important;
+}
+.post-type-archive-projetos .highlights .info > div,
+.page-id-64 .highlights .info > div,
+.post-type-archive-projetos .submenu > div,
+.page-id-64 .submenu > div {
+  border-color: #000;
+}
+.post-type-archive-projetos .highlights .info,
+.page-id-64 .highlights .info,
+.post-type-archive-projetos .submenu,
+.page-id-64 .submenu,
+.post-type-archive-projetos .highlights .info h1,
+.page-id-64 .highlights .info h1,
+.post-type-archive-projetos .submenu h1,
+.page-id-64 .submenu h1,
+.post-type-archive-projetos .highlights .info p,
+.page-id-64 .highlights .info p,
+.post-type-archive-projetos .submenu p,
+.page-id-64 .submenu p,
+.post-type-archive-projetos .highlights .info a,
+.page-id-64 .highlights .info a,
+.post-type-archive-projetos .submenu a,
+.page-id-64 .submenu a {
+  color: #000 !important;
+}
+.post-type-archive-publicacoes #main-header,
+.page-id-66 #main-header,
+.post-type-archive-publicacoes #top-header,
+.page-id-66 #top-header,
+.post-type-archive-publicacoes #main-header .highlights .info,
+.page-id-66 #main-header .highlights .info,
+.post-type-archive-publicacoes #top-header .highlights .info,
+.page-id-66 #top-header .highlights .info {
+  background-color: #f5821f !important;
+}
+.post-type-archive-publicacoes #main-header #top-menu li a,
+.page-id-66 #main-header #top-menu li a,
+.post-type-archive-publicacoes #top-header #top-menu li a,
+.page-id-66 #top-header #top-menu li a {
+  color: #000 !important;
+}
+.post-type-archive-publicacoes .highlights .info,
+.page-id-66 .highlights .info,
+.post-type-archive-publicacoes .submenu,
+.page-id-66 .submenu {
+  background-color: #f5821f !important;
+}
+.post-type-archive-publicacoes .highlights .info > div,
+.page-id-66 .highlights .info > div,
+.post-type-archive-publicacoes .submenu > div,
+.page-id-66 .submenu > div {
+  border-color: #000;
+}
+.post-type-archive-publicacoes .highlights .info,
+.page-id-66 .highlights .info,
+.post-type-archive-publicacoes .submenu,
+.page-id-66 .submenu,
+.post-type-archive-publicacoes .highlights .info h1,
+.page-id-66 .highlights .info h1,
+.post-type-archive-publicacoes .submenu h1,
+.page-id-66 .submenu h1,
+.post-type-archive-publicacoes .highlights .info p,
+.page-id-66 .highlights .info p,
+.post-type-archive-publicacoes .submenu p,
+.page-id-66 .submenu p,
+.post-type-archive-publicacoes .highlights .info a,
+.page-id-66 .highlights .info a,
+.post-type-archive-publicacoes .submenu a,
+.page-id-66 .submenu a {
+  color: #000 !important;
+}
 h1.list-title {
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid #000;
   display: table;
-  font-weight: bold; }
-
+  font-weight: bold;
+  margin-top: 120px;
+}
 .highlights {
-  background-color: black;
+  background-color: #000;
   overflow: hidden;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
-  justify-content: space-between; }
-  .highlights img {
-    width: 100%;
-    height: 100%; }
-  .highlights .img, .highlights .info {
-    background-color: #9a258f;
-    width: calc(50% - 15px); }
-  .highlights .info {
-    padding: 20px 15px; }
-  .highlights h2 {
-    font-weight: bold;
-    color: white; }
+  justify-content: space-between;
+  position: relative;
+}
+.highlights .categories {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+}
+.highlights .categories ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: -ms-flexbox;
+  display: flex;
+}
+.highlights .categories ul li {
+  padding: 0px 8px;
+  border: 1px solid #fff;
+  margin: 5px;
+}
+.highlights .categories ul li a {
+  color: #fff;
+}
+.highlights img {
+  width: 100%;
+  height: 100%;
+}
+.highlights .img,
+.highlights .info {
+  background-color: #9a258f;
+  width: calc(50% - 15px);
+}
+.highlights .info {
+  padding: 25px 20px;
+}
+.highlights .info hr {
+  border-width: 5px;
+  border-color: #fff;
+}
+.highlights h2 {
+  font-weight: bold;
+  color: #fff;
+}
+.submenu {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  top: -30px;
+}
+.submenu > div {
+  border-right: 1px solid #fff;
+  padding: 10px 20px;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+}
+.submenu > div:last-child {
+  border-right: none;
+}
+.submenu > div img {
+  margin: 0 20px;
+}
+.submenu p,
+.submenu h1 {
+  margin-bottom: 0;
+  padding: 0;
+}
+.submenu .show-hide {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 
 /*# sourceMappingURL=its.css.map */

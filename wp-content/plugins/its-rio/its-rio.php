@@ -102,6 +102,7 @@ add_action( 'init', 'custom_post_type', 0 );
 function DS_Custom_Modules(){
 	if(class_exists("ET_Builder_Module")){
 		include("components/latest_posts/its_lastest_post.php");
+		include("components/submenu/its_submenu.php");
 	}
 }
 
@@ -131,4 +132,69 @@ function dd($a)
 {
 	var_dump($a);
 	die;
+}
+
+add_filter( 'rwmb_meta_boxes', 'your_prefix_meta_boxes' );
+function your_prefix_meta_boxes( $meta_boxes ) {
+    $meta_boxes[] = array(
+        'title'      => __( 'Test Meta Box', 'textdomain' ),
+        'post_types' => 'cursos_ctp',
+        'fields'     => array(
+            array(
+                'id'   => 'name',
+                'name' => __( 'Name', 'textdomain' ),
+                'type' => 'text',
+            ),
+            array(
+                'id'      => 'gender',
+                'name'    => __( 'Gender', 'textdomain' ),
+                'type'    => 'radio',
+                'options' => array(
+                    'm' => __( 'Male', 'textdomain' ),
+                    'f' => __( 'Female', 'textdomain' ),
+                ),
+            ),
+            array(
+                'id'   => 'email',
+                'name' => __( 'Email', 'textdomain' ),
+                'type' => 'email',
+            ),
+            array(
+                'id'   => 'bio',
+                'name' => __( 'Biography', 'textdomain' ),
+                'type' => 'textarea',
+            ),
+        ),
+    );
+    return $meta_boxes;
+}
+
+
+
+add_filter( 'rwmb_meta_boxes', 'your_prefix_map_demo' );
+function your_prefix_map_demo( $meta_boxes ) {
+	$meta_boxes[] = array(
+		'title'  => __( 'Google Map', 'your-prefix' ),
+        'post_types' => 'cursos_ctp',
+		'fields' => array(
+			// Map requires at least one address field (with type = text)
+			array(
+				'id'   => 'address',
+				'name' => __( 'Endereço', 'your-prefix' ),
+				'type' => 'text',
+				'std'  => __( 'São Paulo, Brasil', 'your-prefix' ),
+			),
+			array(
+				'id'            => 'map',
+				'name'          => __( 'Local', 'your-prefix' ),
+				'type'          => 'map',
+				// Default location: 'latitude,longitude[,zoom]' (zoom is optional)
+				'std'           => '-6.233406,-35.049906,15',
+				// Name of text field where address is entered. Can be list of text fields, separated by commas (for ex. city, state)
+				'address_field' => 'address',
+				'api_key'       => 'AIzaSyBfjsyakP5UtWJnUJuvY3uPPOUIMCa9DOg', // https://metabox.io/docs/define-fields/#section-map
+			),
+		),
+	);
+	return $meta_boxes;
 }
