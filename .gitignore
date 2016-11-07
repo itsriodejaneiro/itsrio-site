@@ -9,3 +9,9 @@ node_modules/
 uploads/
 
 wp-content/plugins/meta-box
+
+wp-content/plugins
+
+wp-content/gallery-bank/
+
+wp-content/languages/
