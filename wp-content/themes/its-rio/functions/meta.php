@@ -32,15 +32,18 @@ function its_meta_boxes($meta_boxes) {
 		'title'      => __('Informações', 'textdomain' ),
 		'post_types' => ['cursos_ctp'],
 		'fields'     => array(
-			['id'   => 'info_header', 'name' => __('Horário e Inscrições', 'textdomain'), 'type' => 'text'],
-			['id'   => 'info_valor', 'name' => __('Valor', 'textdomain'), 'type' => 'wysiwyg']
+			['id'   => 'info_datahorario', 'name' => __('Data e Horário', 'textdomain'), 'type' => 'text'],
+			['id'   => 'info_inscricoes', 'name' => __('Inscrições até dia', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_inicio', 'name' => __('Início dia', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_valor', 'name' => __('Coluna com informações de valor', 'textdomain'), 'type' => 'wysiwyg']
 			)
 		],
 		[
 		'title'      => __('Informações', 'textdomain' ),
 		'post_types' => ['varandas_ctp'],
 		'fields'     => array(
-			['id'   => 'info_header', 'name' => __('Horário e Inscrições', 'textdomain'), 'type' => 'text']
+			['id'   => 'info_inscricoes', 'name' => __('Inscrições até dia', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_inicio', 'name' => __('Início dia', 'textdomain'), 'type' => 'date'],
 			)
 		],
 		[

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono');
+
+html, body{
+	margin-top: 0 !important;
+	background-color: #ededed;
+}
+
+html, body, h1{
+	font-family: 'Roboto Mono';
+}
+
+
+a{
+	color: white;
+	&:hover, &:active{
+		text-decoration: underline;
+		color: white;
+	}
+}
+
+.list-title{
+	border-bottom: 10px solid black;
+	display: table;
+	font-weight: bold;
+	margin-top: 50px;
+	font-size: 25px;
+	padding-right: 30px;
+}
+
+.center{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-big{
+	background-color: #fbaf17;
+	font-weight: bold;
+	padding: 10px 25px;
+	font-size: 26px;
+	color: black;
+
+	&:hover{
+		color: black;
+		text-decoration: underline;
+	}
+}
+
+.spread-items{
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	align-items: center;
+
+	& > ul{
+		margin: 0;
+		list-style-type: none;
+		li{
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	.fill-space{
+		flex: 1
+	}
+}
+
+@import '_menu';
+@import '_archive';
+@import '_single';
+@import '_specials';

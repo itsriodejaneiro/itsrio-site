@@ -22,7 +22,8 @@
 		html{ margin-top: 0 !important;  }
 	</style>
 	<?php
-	$postType = get_post_type();
+	$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
+
 	$titles = [
 	'cursos_ctp' => 	['gender' => 'o', 'plural' => 'cursos', 'singular' => 'curso'],
 	'varandas_ctp' => 	['gender' => 'a', 'plural' => 'varandas', 'singular' => 'varanda'],
