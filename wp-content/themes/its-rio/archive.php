@@ -40,22 +40,30 @@ get_header();
 					$posts->the_post();
 					$meta = get_post_meta(get_the_ID());
 					?>
-					<div class="img"> <?php the_post_thumbnail(); ?> </div>
+					<a href="<?= get_post_permalink() ?>">
+						<div class="img">
+							<?php the_post_thumbnail(); ?>
+						</div>
+					</a>
 					<div class="info">
+						<a href="<?= get_post_permalink() ?>">
+							<div class="column large-8">
+								<h2><?= the_title(); ?></h2>
+								<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
+							</div>
+							<div class="no-p horario">
+								<p><b>horário</b></p>
+								<span class="black box"><?= $meta['info_datahorario'][0] ?></span>
+							</div>
+						</a>
+						<div class="column large-12 no-p-r"><hr></div>
 						<div class="column large-8">
-							<h2><?= the_title(); ?></h2>
-							<?php include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
+							<a href="<?= get_post_permalink() ?>">
+								<p class="excerpt raleway"><?= get_the_excerpt(); ?></p>
+							</a>
 						</div>
-						<div class="column large-4">
-							<p><b>horário</b></p>
-							<span class="box"><?= $meta['info_datahorario'][0] ?></span>
-						</div>
-						<div class="column large-12"><hr></div>
-						<div class="column large-8">
-							<p class="excerpt"><?= the_excerpt(); ?></p>
-						</div>
-						<div class="column large-4">
-							<?php include('inc/categories.php'); ?>
+						<div class="column large-4 no-p categories">
+							<?php $cat_classes = 'black'; include('inc/categories.php'); ?>
 						</div>
 					</div>
 					<?php
@@ -64,8 +72,10 @@ get_header();
 			?>
 		</div>
 	</div>
-	<div class="column large-12">
-		<h1 class="list-title"><?= "{$title['plural']} antig{$title['gender']}s" ?></h1>
+	<div class="older-posts">
+		<div class="column large-12">
+			<h1 class="list-title"><?= "{$title['plural']} antig{$title['gender']}s" ?></h1>
+		</div>
 		<?php
 		query_posts(array(
 			'post_type' => $post_type,
@@ -78,18 +88,8 @@ get_header();
 		if (have_posts()) {
 			while (have_posts()) {
 				the_post();
-				?>
-				<div class="column large-4 list-item end">
-					<div class="img"><?= the_post_thumbnail(); ?></div>
-					<?php include('inc/categories.php') ?>
-					<div class="info">
-						<?php include('inc/categories.php') ?>
-						<h2><?= the_title(); ?></h2>
-						<hr>
-						<p class="excerpt"><?= the_excerpt(); ?></p>
-					</div>
-				</div>
-				<?php
+
+				include(ROOT .'inc/post-box.php');
 			}
 		}
 		?>

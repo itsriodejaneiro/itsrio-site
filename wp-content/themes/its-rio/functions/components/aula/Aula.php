@@ -62,6 +62,7 @@ class Aula extends ET_Builder_Module {
 		global $paged;
 		global $post;
 		global $aulas;
+		global $data;
 
 		$wp_filter_cache = $wp_filter;
 		$title = $this->shortcode_atts['title'];
@@ -71,6 +72,9 @@ class Aula extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_atts['content']);
 
 		$aulas[] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
+
+		if(!in_array('aulas', $data['its_tabs']))
+			$data['its_tabs'][] = 'aulas';
 
 		ob_start();
 

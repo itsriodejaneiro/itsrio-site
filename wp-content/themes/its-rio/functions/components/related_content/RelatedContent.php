@@ -44,10 +44,13 @@ class RelatedContent extends ET_Builder_Module {
 		global $wp_filter;
 		global $paged;
 		global $post;
+		global $data;
 
 		$wp_filter_cache = $wp_filter;
 		$posts_type        = $this->shortcode_atts['posts_type'];
 		$count        	 = $this->shortcode_atts['count'];
+
+		$data['its_tabs'][] = 'relacionados';
 
 		ob_start();
 
@@ -65,11 +68,12 @@ class RelatedContent extends ET_Builder_Module {
 			'post__not_in' => [$post->ID],
 			'posts_per_page' =>  $count,
 			];
+
+			$query = new wp_query($args);
+
+			include(__DIR__.'/view_related_content.php');
 		}
 
-		$query = new wp_query($args);
-
-		include(__DIR__.'/view_related_content.php');
 
 		$output = ob_get_contents();
 

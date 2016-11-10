@@ -1,14 +1,28 @@
 <?php
-/* $data para implantação de vuejs ou angular */
-$data = '';
+/*
+* $data para implantação de VueJS
+*
+* $data['its_tabs'] se refere aos módulos Divi adicionados
+* que devem aparecer como abas no submenu das internas.
+*
+*/
+$data = [ 'single_menu_active' => '0' ];
+
 $aulas = [];
+$title = '';
 
-add_theme_support( 'post-thumbnails' );
+define('ROOT',__DIR__.'/');
 
-include 'functions/enqueued_scripts.php';
 include 'functions/post_types.php';
 include 'functions/meta.php';
 include 'functions/components/components.php';
+include 'functions/enqueued_scripts.php';
+
+add_theme_support( 'post-thumbnails' );
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
 
 function get_post_number($postID){
 	$postNumberQuery = new WP_Query(array ( 'orderby' => 'date', 'order' => 'ASC', 'post_type' => 'any','posts_per_page' => '-1' ));

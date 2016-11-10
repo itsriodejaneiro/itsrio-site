@@ -1,92 +1,110 @@
 .highlights{
 	overflow: hidden;
 	position: relative;
-	margin-top: 30px;
-
-	.categories{
-		ul{
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-			display: flex;
-
-			li{
-				padding: 0px 8px;
-				border: 1px solid white;
-				margin: 5px;
-
-				a{
-					color: white;
-				}
-			}
-		}
-	}
-
+	margin: 30px 0px;
+	transition: box-shadow .3s;
 
 	.img, .info{
-		background-color: #9a258f;
+		background-color: white;
 		width: 100%;
 		overflow: hidden;
 		max-height: 265px;
+
+		img{
+			width: 100%;
+		}
 	}
 
 	.info{
-		padding: 25px 20px;
-
-		hr{
-			border-width: 5px;
-			border-color: white;
-		}
+		padding: 13px 25px;
 	}
 
-	h2{
-		font-weight: bold;
-		color: white;
+	a { color: black;  }
+
+	&:hover{
+		box-shadow: 0 0 15px #8a8a8a;
+
+		a, .box, h2, ul li a, .categories { color: white !important; }
+
+		hr, .box, ul li { border-color: white !important; }
 	}
-}
 
-.submenu{
-	display: flex;
-	align-items: center;
-	padding: 30px;
-	height: 100px;
-	width: 100%;
-	position: relative;
-
-
-	& > div{
-		border-right: 1px solid white;
-		align-items: center;
+	.categories{
 		display: flex;
-		padding: 10px 20px;
-
-		&:first-child{
-			padding: 0 20px 0 0;
-			width: calc(100% - 800px);
-		}
-		&:last-child{
-			border-right: none;
-		}
-
-		img{
-			margin: 0 20px;
-		}
-	}
-	h1, &_filter, &_description{
-		font-size: 23px;
+		justify-content: flex-end;
+		align-items: baseline;
 		font-weight: bold;
-	}
-	&_filter, &_description{
-		font-size: 20px;
+
+		&, &  a{
+			font-size: 15px;
+		}
 	}
 
-	h1, p{
-		margin: 0;
-		padding: 0;
-	}
-	.show-hide{
-		position: absolute;
-		bottom: 10px;
-		right: 10px;
+	.horario{
+		font-size: 13px;
+		font-weight: bold;
+		float: right;
+		span{
+			float: right;
+			margin: 0;
+		}
 	}
 }
+
+.info_border{
+	border-bottom: 5px solid black;
+}
+
+.older-posts{
+	margin-bottom: 50px;
+}
+
+.post-type-archive{
+	.list-title {
+		margin-top: 30px !important;
+	}
+}
+
+// .submenu{
+// 	display: flex;
+// 	align-items: center;
+// 	padding: 30px;
+// 	height: 100px;
+// 	width: 100%;
+// 	position: relative;
+
+
+// 	& > div{
+// 		border-right: 1px solid white;
+// 		align-items: center;
+// 		display: flex;
+// 		padding: 10px 20px;
+
+// 		&:first-child{
+// 			padding: 0 20px 0 0;
+// 			width: calc(100% - 800px);
+// 		}
+// 		&:last-child{
+// 			border-right: none;
+// 		}
+
+// 		img{
+// 			margin: 0 20px;
+// 		}
+// 	}
+
+// 	h1, &_filter, &_description{
+// 		font-size: 23px;
+// 		font-weight: bold;
+// 	}
+
+// 	&_filter, &_description{
+// 		font-size: 20px;
+// 	}
+
+// 	.show-hide{
+// 		position: absolute;
+// 		bottom: 10px;
+// 		right: 10px;
+// 	}
+// }

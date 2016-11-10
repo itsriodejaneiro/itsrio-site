@@ -1,7 +1,8 @@
+$menu-height : 75px;
 
-.menu{
-	height: 75px;
-	box-shadow: 0 4px 6px -2px black;
+.menu-container{
+	height: $menu-height;
+	box-shadow: 0 4px 7px -5px black;
 	padding: 17px 35px; //estranho
 	position: relative;
 	z-index: 1;
@@ -12,32 +13,62 @@
 	}
 
 	.menu-social{
+		position: absolute;
+		right: 35px;
+		top: 10px;
 
+		ul{
+			width: 380px;
+		}
+		.text{
+			font-size: 13px;
+			a{ padding-bottom: 5px; }
+
+			a.selected {
+				font-weight: bold;
+				border-bottom: 2px solid black;
+			}
+		}
+	}
+
+	.menu-search {
+		i.fa-search{
+			position: absolute;
+			right: 35px;
+			font-size: 20px;
+			bottom: 10px;
+
+			&::after{
+				content: 'buscar';
+				font-family: 'Roboto Mono';
+				font-size: 14px;
+				margin-left: 10px;
+			}
+		}
 	}
 
 	.menu-nav{
 		position: absolute;
 		bottom: 0px;
-		right: 35px;
+		left: 130px;
+
 		ul{
-			list-style-type: none;
-			display: flex;
-			width: 800px;
-			justify-content: space-between;
-			margin: 0;
+			width: 700px;
+		}
+	}
 
-			li {
-				padding-bottom: 2px;
+	.menu-social ul, .menu-nav 	ul{
+		list-style-type: none;
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
 
-				a{ color: black; }
+		li {
+			padding-bottom: 2px;
 
-				&.selected{
-					border-bottom: 5px solid #9A258F;
-					font-weight: bold;
+			i{ font-size: 18px; }
 
-					a{ color: #9A258F; }
-				}
-			}
+			a{ color: black; }
 		}
 	}
 }
@@ -47,8 +78,18 @@
 
 .row-menu{
 	max-width: 1295px !important;
+	&.fixed{
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 100000;
+		margin: 0px calc((100% - 1295px) / 2);
+	}
 }
 
+#content{
+	margin-top: $menu-height;
+}
 
 // area = {
 	// 	'58' : {

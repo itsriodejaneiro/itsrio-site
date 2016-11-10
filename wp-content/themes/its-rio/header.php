@@ -15,6 +15,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<?php wp_head(); ?>
 
+	<script src="https://use.fontawesome.com/cb38949964.js"></script>
+	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
 
 </head>
 <body <?php body_class(); ?>>
@@ -35,18 +37,39 @@
 	$title = $titles[$postType];
 	?>
 
-
-	<div class="row row-menu">
-		<div class="column large-12 menu">
+	<div class="row row-menu fixed">
+		<div class="column large-12 menu-container">
 			<img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="logo">
-			<div class="menu-social"></div>
+			<div class="menu-social">
+				<ul>
+					<li>
+						<a href="#"><i class="fa fa-youtube-play"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-facebook"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-medium"></i></a>
+					</li>
+					<li class="text">
+						<a href="#" class="selected">português</a> | <a href="#"> inglês</a>
+					</li>
+				</ul>
+			</div>
 			<nav class="menu-nav">
 				<ul>
-					<li class="<?= $postType == 'cursos_ctp' ? 'selected' : '' ?>">
-						<a href="/cursos_ctp/curso-01">cursos</a>
+					<?php wp_nav_menu('main') ?>
+					<!-- <li class="<?= $postType == 'cursos_ctp' ? 'selected' : '' ?>">
+						<a href="/cursos_ctp">cursos</a>
 					</li>
 					<li class="<?= $postType == 'varandas_ctp' ? 'selected' : '' ?>">
-						<a href="/varandas_ctp/varanda-01">varandas</a>
+						<a href="/varandas_ctp">varandas</a>
 					</li>
 					<li>
 						<a href="#">projetos</a>
@@ -56,12 +79,12 @@
 					</li>
 					<li>
 						<a href="#">institucional</a>
-					</li>
-					<li>
-						<a href="#">buscar </a>
-					</li>
+					</li> -->
 				</ul>
 			</nav>
+			<div class="menu-search">
+				<i class="fa fa-search"></i>
+			</div>
 		</div>
 	</div>
 

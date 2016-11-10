@@ -18,6 +18,8 @@ function DS_Custom_Modules(){
 	if(class_exists("ET_Builder_Module")){
 		include("related_content/RelatedContent.php");
 		include("aula/Aula.php");
+		include("publicacoes/Publicacoes.php");
+		include("palestrantes/Palestrantes.php");
 	}
 }
 

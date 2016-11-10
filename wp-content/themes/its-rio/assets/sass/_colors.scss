@@ -1,0 +1,83 @@
+$color_cursos : #522E91;
+$color_varandas : #00958A;
+$color_publicacoes : #F5821F;
+$color_projetos : #9A258F;
+
+.single-cursos_ctp, .post-type-archive-cursos_ctp{
+	.highlights:hover {
+		.img, .info{
+			background-color: $color_cursos;
+		}
+	}
+
+	.menu-container .menu-nav ul li.current-menu-item {
+		border-bottom: 5px solid $color_cursos;
+		font-weight: bold;
+
+		a{ color: $color_cursos; }
+	}
+
+	.list-item:hover, .header-single-menu {
+		background-color: $color_cursos !important;
+	}
+	 .header-single-menu {
+		background-color: #9A248E !important;
+	}
+}
+
+.single-varandas_ctp, .post-type-archive-varandas_ctp{
+	.highlights:hover {
+		.img, .info{
+			background-color: $color_varandas;
+		}
+	}
+
+	.menu-container .menu-nav ul li.current-menu-item {
+		border-bottom: 5px solid $color_varandas;
+		font-weight: bold;
+
+		a{ color: $color_varandas; }
+	}
+
+	.list-item:hover, .header-single-menu {
+		background-color: $color_varandas !important;
+	}
+}
+
+.single-publicacoes_ctp, .post-type-archive-publicacoes_ctp{
+	.highlights:hover {
+		.img, .info{
+			background-color: $color_publicacoes;
+		}
+	}
+
+	.menu-container .menu-nav ul li.current-menu-item {
+		border-bottom: 5px solid $color_publicacoes;
+		font-weight: bold;
+
+		a{ color: $color_publicacoes; }
+	}
+
+	.list-item:hover, .header-single-menu {
+		background-color: $color_publicacoes !important;
+	}
+}
+
+.single-projetos_ctp, .post-type-archive-projetos_ctp{
+	.highlights:hover {
+		.img, .info{
+			background-color: $color_projetos;
+		}
+	}
+
+	.menu-container .menu-nav ul li.current-menu-item {
+		border-bottom: 5px solid $color_projetos;
+		font-weight: bold;
+
+		a{ color: $color_projetos; }
+	}
+
+	.list-item:hover, .header-single-menu {
+		background-color: $color_projetos !important;
+	}
+}
