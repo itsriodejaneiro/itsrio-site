@@ -72,6 +72,9 @@ class Aula extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_atts['content']);
 
 		$aulas[] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
+		$data['its_tabs'][] = 'aulas';
+		$data['its_aulas'][] = $aulas;
+
 
 		if(!in_array('aulas', $data['its_tabs']))
 			$data['its_tabs'][] = 'aulas';
