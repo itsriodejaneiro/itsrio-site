@@ -72,27 +72,26 @@ class Aula extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_atts['content']);
 
 		$aulas[] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
-		$data['its_tabs'][] = 'aulas';
-		$data['its_aulas'][] = $aulas;
+
+		if(!isset($data['its_tabs'])){
+			$data['its_tabs'][] = 'aulas';
+			ob_start();
+			include(__DIR__.'/view_aula.php');
+			$output = ob_get_contents();
+			ob_end_clean();
+		}
+		else
+			$data['its_tabs'][] = !in_array('aulas', $data['its_tabs']) ? 'aulas' : '';
 
 
 		if(!in_array('aulas', $data['its_tabs']))
 			$data['its_tabs'][] = 'aulas';
 
-		ob_start();
-
 		$palestrante = new WP_Query( ['p' => $palestrante, 'post_type' => 'palestrantes'] );
-
 		$palestrante->have_posts();
 		$palestrante->the_post();
 		$palestrante = get_the_title();
-
-		include(__DIR__.'/view_aula.php');
-
-		$output = ob_get_contents();
-
-		ob_end_clean();
-
+		
 		$wp_filter = $wp_filter_cache;
 		unset($wp_filter_cache);
 

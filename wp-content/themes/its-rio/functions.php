@@ -7,8 +7,8 @@
 *
 */
 $data = [ 'single_menu_active' => '0' ];
-
 $aulas = [];
+
 $title = '';
 
 define('ROOT',__DIR__.'/');
