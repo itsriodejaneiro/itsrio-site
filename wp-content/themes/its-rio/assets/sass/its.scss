@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900|Roboto+Mono');
 
-@import '../../node_modules/foundation-sites/scss/util/util';
-@import '../../node_modules/foundation-sites/scss/settings/_settings';
-@import '../../node_modules/foundation-sites/scss/foundation';
+@import 'foundation/util/util';
+@import 'foundation/settings/_settings';
+@import 'foundation/foundation';
 
 @include foundation-global-styles;
 @include foundation-grid;
