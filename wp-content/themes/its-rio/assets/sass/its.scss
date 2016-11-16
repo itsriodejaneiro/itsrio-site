@@ -1,40 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900|Roboto+Mono');
 
-html, body{
-	margin-top: 0 !important;
-	background-color: #ededed;
-}
+@import '../../node_modules/foundation-sites/scss/util/util';
+@import '../../node_modules/foundation-sites/scss/settings/_settings';
+@import '../../node_modules/foundation-sites/scss/foundation';
 
-html, body, h1, h2, h3{
-	font-family: 'Roboto Mono';
-}
-
-h1, h2, h3{
-	margin: 0;
-	font-weight: bold;
-}
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-typography;
+@include foundation-button;
 
 h2{
 	font-weight: bold;
-	color: black;
 	font-size: 24px;
 }
 
-h3{ font-size: 19px; }
-
-a{
-	color: black;
-	&:hover, &:active{
-		color: black;
-	}
+h3{
+	font-size: 20px;
+	padding-bottom: 5px;
 }
 
 .list-title{
 	border-bottom: 10px solid black !important;
 	display: table;
 	font-weight: bold;
-	margin-top: 30px;
-	font-size: 25px;
 	padding-right: 30px;
 }
 
@@ -43,19 +33,6 @@ a{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.btn-big{
-	background-color: black;
-	font-weight: bold;
-	padding: 5px 25px;
-	font-size: 18px;
-	color: white;
-
-	&:hover{
-		color: white;
-		text-decoration: underline;
-	}
 }
 
 .list-item{
@@ -121,6 +98,16 @@ a{
 	}
 }
 
+.label{
+	padding: 5px;
+	font-size: 15px;
+	display: inline-block;
+	color: #000;
+	font-weight: bold;
+	background-color: #fbaf17;
+	letter-spacing: -0.5px;
+}
+
 .box{
 	padding: 0px 8px;
 	border: 1px solid white;
@@ -131,14 +118,6 @@ a{
 		border: 1px solid black;
 		color: black;
 	}
-}
-
-.no-p{
-	padding: 0;
-}
-
-.no-p-r{
-	padding-right: 0;
 }
 
 .categories{
@@ -164,9 +143,6 @@ a{
 	}
 }
 
-.raleway{
-	font-family: 'Raleway'
-}
 
 p, hr{
 	margin: 0;
@@ -175,18 +151,14 @@ p, hr{
 	word-wrap: break-word;
 }
 
-hr{
-	border: 3px solid black !important;
-}
+hr{ border: 3px solid black !important; }
 
-.submenu{
-	display: none;
-}
-
-.left{
-	float: left;
-}
-
+.raleway{font-family: 'Raleway'}
+.submenu{ display: none; }
+.left{float: left; }
+.right{float: right; }
+.no-p{ padding: 0; }
+.no-p-r{ padding-right: 0; }
 
 @import '_menu';
 @import '_archive';

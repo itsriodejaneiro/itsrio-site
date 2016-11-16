@@ -61,7 +61,7 @@ class Aula extends ET_Builder_Module {
 		global $wp_filter;
 		global $paged;
 		global $post;
-		global $aulas;
+		global $components;
 		global $data;
 
 		$wp_filter_cache = $wp_filter;
@@ -69,31 +69,32 @@ class Aula extends ET_Builder_Module {
 		$subtitle = $this->shortcode_atts['subtitle'];
 		$palestrante = $this->shortcode_atts['palestrante'];
 		$date = $this->shortcode_atts['data'];
-		$content   = wpautop($this->shortcode_atts['content']);
+		$content   = wpautop($this->shortcode_content);
 
-		$aulas[] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
+		$output = '';
 
-		if(!isset($data['its_tabs'])){
+		$palestrante = new WP_Query( ['p' => $palestrante, 'post_type' => 'palestrantes'] );
+		$palestrante->have_posts();
+		$palestrante->the_post();
+		$palestrante = get_the_title();
+
+		$components['aulas'][] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
+
+		if(!in_array('aulas', $data['its_tabs'])){
 			$data['its_tabs'][] = 'aulas';
 			ob_start();
 			include(__DIR__.'/view_aula.php');
 			$output = ob_get_contents();
 			ob_end_clean();
 		}
-		else
-			$data['its_tabs'][] = !in_array('aulas', $data['its_tabs']) ? 'aulas' : '';
 
 
 		if(!in_array('aulas', $data['its_tabs']))
 			$data['its_tabs'][] = 'aulas';
 
-		$palestrante = new WP_Query( ['p' => $palestrante, 'post_type' => 'palestrantes'] );
-		$palestrante->have_posts();
-		$palestrante->the_post();
-		$palestrante = get_the_title();
-		
 		$wp_filter = $wp_filter_cache;
 		unset($wp_filter_cache);
+		wp_reset_postdata();
 
 		return $output;
 	}

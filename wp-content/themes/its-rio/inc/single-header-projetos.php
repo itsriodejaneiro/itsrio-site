@@ -19,8 +19,8 @@
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
 		<div class="sidebar">
-			<a href="#" class="btn-big curved-shadow">baixe o pdf</a>
+			<a href="#" class="button large curved-shadow">baixe o pdf</a>
 		</div>
 	</div>
-
 </div>
+<div class="header-single-menu-fix"></div>

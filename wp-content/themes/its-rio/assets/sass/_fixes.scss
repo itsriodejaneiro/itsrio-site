@@ -3,12 +3,17 @@
 	max-width: 100% !important;
 }
 
-.et_divi_builder #et_builder_outer_content .et_pb_section{
+.et_divi_builder #et_builder_outer_content .et_pb_section, .et_divi_builder #et_builder_outer_content .et_pb_row.et_pb_row_0{
 	padding: 0 !important;
 }
 
+
+
 ul{
-	margin: 0;
-	list-style-type: none;
 	display: flex;
+	margin: 0px;
+}
+
+h3,h4,h5{
+	font-weight: bold;
 }

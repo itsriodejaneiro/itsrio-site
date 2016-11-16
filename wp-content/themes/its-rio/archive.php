@@ -4,7 +4,7 @@ get_header();
 <div class="row row-menu">
 	<div class="column large-12 submenu">
 		<div class="submenu_info">
-			<h1>cursos</h1>
+			<h2>cursos</h2>
 			<img src="http://localhost/wp-content/themes/divi3-master-52cd5a7ba82bf112c8a84aa3d9b0239e5961febc/images/logo.png" alt="">
 			<p>Lorem ipsum dolor sit amet</p>
 		</div>
@@ -23,11 +23,11 @@ get_header();
 </div>
 <div class="row">
 	<div class="column large-12">
-		<h1 class="list-title"><?= "próxim{$title['gender']}s {$title['plural']}" ?></h1>
+		<h2 class="list-title"><?= "próxim{$title['gender']}s {$title['plural']}" ?></h2>
 		<?php
 		$posts = new WP_Query(array(
 			'post_type' => $post_type,
-			'meta_key' => 'info_inscricoes',
+			'meta_key' => 'info_inscfim',
 			'meta_value' => date('Y-m-d'),
 			'meta_compare' => '>='
 			)
@@ -53,7 +53,21 @@ get_header();
 							</div>
 							<div class="no-p horario">
 								<p><b>horário</b></p>
-								<span class="black box"><?= $meta['info_datahorario'][0] ?></span>
+								<span class="black box">
+									<?php
+									if($postType == 'cursos_ctp'){
+										?>
+										inscrições até
+										<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
+										<br>
+										início do curso
+										<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
+										<?php
+									}elseif($postType == 'varandas_ctp'){
+										echo $meta['info_datahorario'][0];
+									}
+									?>
+								</span>
 							</div>
 						</a>
 						<div class="column large-12 no-p-r"><hr></div>
@@ -74,12 +88,12 @@ get_header();
 	</div>
 	<div class="older-posts">
 		<div class="column large-12">
-			<h1 class="list-title"><?= "{$title['plural']} antig{$title['gender']}s" ?></h1>
+			<h2 class="list-title"><?= "{$title['plural']} antig{$title['gender']}s" ?></h2>
 		</div>
 		<?php
 		query_posts(array(
 			'post_type' => $post_type,
-			'meta_key' => 'info_inscricoes',
+			'meta_key' => 'info_inscfim',
 			'meta_value' => date('Y-m-d'),
 			'meta_compare' => '<'
 			)

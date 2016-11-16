@@ -24,6 +24,8 @@
 		html{ margin-top: 0 !important;  }
 	</style>
 	<?php
+	global $postType;
+
 	$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
 	$titles = [

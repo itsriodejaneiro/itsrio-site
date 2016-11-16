@@ -1,7 +1,7 @@
 <?php
 if(in_array($title['singular'], ['curso','varanda'])){
 	?>
-	<div class="content-area tab content-palestrantes">
+	<div class="content-area tab content-palestrantes" id="tab_<?= array_search('palestrantes', $data['its_tabs']) ?>">
 		<div class="row">
 			<h2 class="tab-title list-title left"><?= $title['singular'] == 'curso' ? 'professores' : 'palestrantes' ?></h2>
 			<div class="tab-content">
@@ -22,7 +22,7 @@ if(in_array($title['singular'], ['curso','varanda'])){
 						<div class="palestrante-info">
 							<div class="palestrante-info-content">
 								<img src="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ))[0]; ?>" alt="">
-								<h4><?= get_the_title(); ?></h4>
+								<h3><?= get_the_title(); ?></h3>
 								<p><?= $a['post_content']; ?></p>
 							</div>
 						</div>

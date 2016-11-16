@@ -1,5 +1,5 @@
 
-<div class="content-area tab content-publicacoes">
+<div class="content-area tab content-publicacoes" id="tab_<?= array_search('publicações', $data['its_tabs']) ?>">
 	<div class="row">
 		<h2 class="tab-title list-title left">
 			publicações
@@ -14,7 +14,7 @@
 				<div class="publicacao">
 					<a href="javascript:void(0);">
 						<img src="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ))[0]; ?>" alt="">
-						<h4><?= get_the_title(); ?></h4>
+						<h3><?= get_the_title(); ?></h3>
 						<p><?= get_the_excerpt(); ?></p>
 					</a>
 				</div>

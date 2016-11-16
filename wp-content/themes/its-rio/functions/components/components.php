@@ -1,12 +1,41 @@
 <?php
 
+/**
+ * !!!!!!!!!! MAIS IMPORTANTE DE TUDO! Esse negócio salva um cache ferrado no navegador, é bom sempre limpar !!!!!!!!!!!!!!!
+ *
+ * O arquivo main-modules.php contém todos os módulos Divi. Ótimo para consultas em caso de dúvida.
+ *
+ * 1. Métodos obrigatórios:
+ *
+ * > init()
+ * > get_fields()
+ * > shortcode_callback()
+ *
+ *
+ * 2. Finalidade dos métodos:
+ *
+ * > init() - Definir informações que aparecerão na lista de Módulos no Construtor Divi
+ * > get_filds() - Após um módulo ser adicionado, esse método definirá os campos com
+ *   informações relevantes para serem definidas pelo usuário para esse módulo.
+ * > shortcode_callback() - Aqui é definido todo output do módulo no front.
+ *
+ *
+ * 3. Observações:
+ *
+ * > No arquivo class-et-builder-element.php é possível encontrar
+ *   e criar novos campos pela variável $field['type'] para a
+ *   variável $fields_defaults e para $whitelisted_fields.
+ *
+ * > É possível usar reflection para ver a estrutura de um ET_BUilder_Module
+ *   com var_dump(get_class_vars('ET_Builder_Module_Blog_CUSTOMIZADO'));
+ *
+ */
 
 function my_et_builder_post_types( $post_types ) {
 	$post_types[] = 'varandas_ctp';
 	$post_types[] = 'projetos_ctp';
 	$post_types[] = 'cursos_ctp';
 	$post_types[] = 'publicacoes_ctp';
-
 
 	return $post_types;
 }
@@ -20,6 +49,8 @@ function DS_Custom_Modules(){
 		include("aula/Aula.php");
 		include("publicacoes/Publicacoes.php");
 		include("palestrantes/Palestrantes.php");
+		include("informacoes/Informacoes.php");
+		include("tema/Tema.php");
 	}
 }
 
@@ -42,8 +73,7 @@ function Prep_DS_Custom_Modules(){
 
 Prep_DS_Custom_Modules();
 
-function dd($a)
-{
+function dd($a){
 	var_dump($a);
 	die;
 }

@@ -1,23 +1,25 @@
 <its-aulas inline-template>
-	<div class="content-area tab content-palestrantes">
+	<div class="content-area component-tabs aulas" id="tab_<?= array_search('aulas', $data['its_tabs']) ?>">
 		<div class="row">
-			<div>
-				<h2 class="tab-title list-title left">aulas</h2>
-				<h5 class="list-title">agenda <i class="fa fa-calendar"></i></h5>
+			<div class="component-tabs-title">
+				<h2 class="tab-title list-title">aulas</h2>
+				<h5 class="tab-title">agenda <i class="fa fa-calendar"></i></h5>
 				<ul>
 					<li v-for="(aula, i) in aulas">
-						<b>{{ i }}º aula</b>
+						<b>{{ i + 1 }}º aula</b>
 						<br>
 						<p>{{ aula.date }}</p>
 					</li>
 				</ul>
 			</div>
-			<div style="display: block; flex: 1">
-			<div class="tab-content" v-for="aula in aulas"> 
-				<h1 class="list-title">{{ aula.title }}</h1>
-				<p>{{ aula.subtitle }} | {{ aula.palestrante }}</p>
-				<div class="aula-content"> {{ aula.content }} </div>
-			</div>
+			<div class="tab-content">
+				<div v-for="(aula, i) in aulas" class="component-tabs-tab">
+					<h2 class="list-title">{{ aula.title }}</h2>
+					<p class="left">{{ aula.subtitle }}</p> <p class="right"> com {{ aula.palestrante }}</p>
+					<input type="checkbox" v-bind:id="'check_aula_' + i">
+					<label v-bind:for="'check_aula_' + i"></label>
+					<div class="component-tabs-content" v-html="aula.content"> </div>
+				</div>
 			</div>
 		</div>
 	</div>

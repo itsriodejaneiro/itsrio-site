@@ -20,3 +20,4 @@
 		<?php include(ROOT . 'inc/single/menu.php') ?>
 	</div>
 </div>
+<div class="header-single-menu-fix"></div>

@@ -1,15 +1,18 @@
 <?php
 /*
-* $data para implantação de VueJS
+* $data para implantação de VueJS. Essa variável deve conter informações de aspectos globais.
+* Para informações usadas internamente em componentes deve ser usada a $components.
 *
 * $data['its_tabs'] se refere aos módulos Divi adicionados
 * que devem aparecer como abas no submenu das internas.
 *
 */
+setlocale(LC_ALL, 'pt_BR');
 $data = [ 'single_menu_active' => '0' ];
-$aulas = [];
+$components = [];
 
 $title = '';
+$postType;
 
 define('ROOT',__DIR__.'/');
 

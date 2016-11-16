@@ -1,6 +1,6 @@
-<div class="related-content content-area">
+<div class="related-content content-area" id="tab_<?= array_search('relacionados', $data['its_tabs']) ?>">
 	<div class="row">
-		<h1 class="list-title">conteúdo relacionado</h1>
+		<h2 class="list-title">conteúdo relacionado</h2>
 		<div class="related-post">
 			<?php
 			if ($query->have_posts() ) {

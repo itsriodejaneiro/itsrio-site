@@ -24,6 +24,7 @@ class RelatedContent extends ET_Builder_Module {
 				'option_category'   => 'configuration',
 				'description'       => esc_html__( 'Choose how much posts you would like to display per page.', 'et_builder' ),
 				'options'         => array(
+					'0' => esc_html__( 'Tudo', 'et_builder' ),
 					'varandas_ctp' => esc_html__( 'Varandas', 'et_builder' ),
 					'cursos_ctp'      => esc_html__( 'Cursos', 'et_builder' ),
 					'projetos_ctp'     => esc_html__( 'Projetos', 'et_builder' ),
@@ -63,13 +64,18 @@ class RelatedContent extends ET_Builder_Module {
 				$tag_ids[] = $individual_tag->term_id;
 
 			$args = [
-			'post_type' => $posts_type,
 			'tag__in' => $tag_ids,
 			'post__not_in' => [$post->ID],
 			'posts_per_page' =>  $count,
 			];
 
-			$query = new wp_query($args);
+			$args['post_type'] = ['cursos_ctp','varandas_ctp','publicacoes_ctp','projetos_ctp'];
+
+			if($posts_type != '0')
+				$args['post_type'] = $posts_type;
+
+
+				$query = new wp_query($args);
 
 			include(__DIR__.'/view_related_content.php');
 		}
