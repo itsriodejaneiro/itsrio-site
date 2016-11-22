@@ -48,9 +48,12 @@ function DS_Custom_Modules(){
 		include("related_content/RelatedContent.php");
 		include("aula/Aula.php");
 		include("publicacoes/Publicacoes.php");
-		include("palestrantes/Palestrantes.php");
+		include("pessoas/Pessoas.php");
+		// include("people_list/PeopleList.php");
 		include("informacoes/Informacoes.php");
 		include("tema/Tema.php");
+		include("text/Text.php");
+		include("map/Map.php");
 	}
 }
 

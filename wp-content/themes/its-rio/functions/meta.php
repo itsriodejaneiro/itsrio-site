@@ -12,11 +12,11 @@ function its_meta_boxes($meta_boxes) {
 	wp_reset_postdata();
 	endwhile;
 
-	$query_palestrantes = new WP_Query(['post_type' => 'palestrantes', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
-	$palestrantes = [];
+	$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
+	$pessoas = [];
 
-	while ( $query_palestrantes->have_posts() ) : $query_palestrantes->the_post();
-	$palestrantes[get_the_ID()]=get_the_title();
+	while ( $query_pessoas->have_posts() ) : $query_pessoas->the_post();
+	$pessoas[get_the_ID()]=get_the_title();
 	wp_reset_query();
 	wp_reset_postdata();
 	endwhile;
@@ -66,18 +66,18 @@ function its_meta_boxes($meta_boxes) {
 			)
 		],
 		[
-		'id'         => 'its_palestrantes',
-		'title'      => __( 'Palestrantes e Autores', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp' ],
+		'id'         => 'its_pessoas',
+		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,
 		'fields'     => array(
 			array(
 				'name'        => __( 'Palestrantes e Autores', 'batuta_' ),
-				'id'          => "its_palestrantes",
+				'id'          => "its_pessoas",
 				'type'        => 'select_advanced',
-				'options'     => $palestrantes,
+				'options'     => $pessoas,
 				'multiple'    => true,
 				'std'         => 'value2',
 				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),

@@ -2,6 +2,7 @@ $color_cursos : #522E91;
 $color_varandas : #00958A;
 $color_publicacoes : #F5821F;
 $color_projetos : #9A258F;
+$color_institucionais : #522e91;
 
 .single-cursos_ctp, .post-type-archive-cursos_ctp{
 	.highlights:hover {
@@ -79,5 +80,24 @@ $color_projetos : #9A258F;
 
 	.list-item:hover, .header-single-menu {
 		background-color: $color_projetos !important;
+	}
+}
+
+.page{
+	.highlights:hover {
+		.img, .info{
+			background-color: $color_institucionais;
+		}
+	}
+
+	.menu-container .menu-nav ul li.current-menu-item {
+		border-bottom: 5px solid $color_institucionais;
+		font-weight: bold;
+
+		a{ color: $color_institucionais; }
+	}
+
+	.list-item:hover, .header-single-menu {
+		background-color: $color_institucionais !important;
 	}
 }

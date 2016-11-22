@@ -5,7 +5,7 @@ function custom_post_type() {
 	register_custom_post_type('projetos_ctp','Projeto','Projetos', 'dashicons-portfolio');
 	register_custom_post_type('cursos_ctp','Curso','Cursos', 'dashicons-book');
 	register_custom_post_type('publicacoes_ctp','Publicação','Publicações','dashicons-book-alt');
-	register_custom_post_type('palestrantes','Palestrante','Palestrantes e Autores', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail']);
+	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail']);
 }
 
 function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-admin-post', $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail']) {
