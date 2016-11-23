@@ -49,7 +49,7 @@ function DS_Custom_Modules(){
 		include("aula/Aula.php");
 		include("publicacoes/Publicacoes.php");
 		include("pessoas/Pessoas.php");
-		// include("people_list/PeopleList.php");
+		include("partner/Partner.php");
 		include("informacoes/Informacoes.php");
 		include("tema/Tema.php");
 		include("text/Text.php");

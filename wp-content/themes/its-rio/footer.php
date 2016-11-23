@@ -6,6 +6,7 @@
 	let aulas = <?= isset($components['aulas']) ? json_encode($components['aulas']) : '""' ?>;
 	let informacoes =  <?= isset($components['informacoes']) ? json_encode($components['informacoes']) : '""' ?>;
 	let pessoas =  <?= isset($components['pessoas']) ? json_encode($components['pessoas']) : '""' ?>;
+
 	Vue.component('its-aulas', {
 		data(){
 			return { aulas };
