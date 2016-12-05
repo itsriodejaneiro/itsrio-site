@@ -2701,10 +2701,68 @@ hr {
   margin-right: 10px;
 }
 
-.main-carousel button.flickity-prev-next-button, .main-carousel button.flickity-prev-next-button:focus {
+button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   background: none;
   border: 1px solid black;
   border-radius: 0;
+}
+
+.home-area {
+  padding-top: 50px;
+}
+
+.home-area h3 {
+  font-size: 25px;
+}
+
+.home-area h2, .home-area p {
+  font-family: 'Raleway';
+  font-weight: normal;
+}
+
+.home-area h2 b, .home-area p b {
+  color: #00958a;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.home-area h2 {
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.home-area-item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0 90px;
+}
+
+.home-area .list-title {
+  position: absolute;
+  left: 250px;
+  margin-top: 20px;
+}
+
+.home-area .area-left {
+  padding-top: 80px;
+  -webkit-box-flex: 0;
+  flex: 0;
+  min-width: 340px;
+}
+
+.home-area .area-midia {
+  width: 484px;
+  height: 295px;
+  display: block;
+  background-color: teal;
+  margin-left: 40px;
+}
+
+.home-area a {
+  margin-top: 25px;
+  font-weight: bold;
 }
 
 .highlights {

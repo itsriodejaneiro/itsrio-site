@@ -66,25 +66,6 @@ function its_meta_boxes($meta_boxes) {
 			)
 		],
 		[
-		'id'         => 'its_pessoas',
-		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp' ],
-		'context'    => 'normal',
-		'priority'   => 'high',
-		'autosave'   => true,
-		'fields'     => array(
-			array(
-				'name'        => __( 'Palestrantes e Autores', 'batuta_' ),
-				'id'          => "its_pessoas",
-				'type'        => 'select_advanced',
-				'options'     => $pessoas,
-				'multiple'    => true,
-				'std'         => 'value2',
-				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
-				),
-			)
-		],
-		[
 		'id'         => 'home_destaques',
 		'title'      => __( 'É um destaque na home?', 'batuta_' ),
 		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp' ],
@@ -107,6 +88,30 @@ function its_meta_boxes($meta_boxes) {
 			)
 		],
 		);
+
+	// dd(get_permalink($_GET['post']));
+	// dd("http://" . $_SERVER['SERVER_NAME'] ."/");
+	if(!in_array(strtolower(get_the_title($_GET['post'])), ['home','página inicial','homepage'])){
+		$meta_boxes[] = [
+		'id'         => 'its_pessoas',
+		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp' ],
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'autosave'   => true,
+		'fields'     => array(
+			array(
+				'name'        => __( 'Palestrantes e Autores', 'batuta_' ),
+				'id'          => "its_pessoas",
+				'type'        => 'select_advanced',
+				'options'     => $pessoas,
+				'multiple'    => true,
+				'std'         => 'value2',
+				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
+				),
+			)
+		];
+	}
 	return $meta_boxes;
 }
 

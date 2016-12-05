@@ -29,12 +29,59 @@
 		height: 400px; 
 		margin-right: 10px;
 	}
+}
 
-	button.flickity-prev-next-button {
-		&, &:focus{
-			background: none;
-			border: 1px solid black;
-			border-radius: 0;
+button.flickity-prev-next-button {
+	&, &:focus{
+		background: none;
+		border: 1px solid black;
+		border-radius: 0;
+	}
+}
+
+.home-area{
+	padding-top: 50px;
+	h3 { font-size: 25px; }
+	h2, p{
+		font-family: 'Raleway';
+		font-weight: normal;
+		b{ 
+			color: #00958a; 
+			font-weight: bold; 
+			font-size: 50px;
 		}
+	}
+
+	h2 { font-size: 40px; line-height: 60px }
+	
+	&-item{
+		display: flex;
+		align-items: center;
+		padding: 0 90px;
+	}
+
+	.list-title{
+		position: absolute;
+		left: 250px;
+		margin-top: 20px;
+	}
+
+	.area-left{
+		padding-top: 80px;
+		flex: 0;
+		min-width: 340px;
+	}
+
+	.area-midia	 {
+		width: 484px;
+		height: 295px;
+		display: block;
+		background-color: teal;
+		margin-left: 40px;
+	}
+
+	a{
+		margin-top: 25px;
+		font-weight: bold;
 	}
 }

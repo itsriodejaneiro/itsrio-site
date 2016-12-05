@@ -65,7 +65,8 @@ class ET_Builder_Module_Home_Areas extends ET_Builder_Module {
 	function shortcode_callback( $atts, $content = null, $function_name ) {
 		$module_id                         = $this->shortcode_atts['module_id'];
 		$module_class                      = $this->shortcode_atts['module_class'];
-		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
+		$title                      = $this->shortcode_atts['title'];
+		$module_class = ET_Builder_Element::add_module_order_class($module_class, $function_name);
 
 		$all_tabs_content = $this->shortcode_content;
 
@@ -145,7 +146,7 @@ class ET_Builder_Module_Home_Areas_Item extends ET_Builder_Module {
 		$i = 0;
 		$title = $this->shortcode_atts['title'];
 		$link_title = $this->shortcode_atts['link_title'];
-		$link = $this->shortcode_atts['link_title'];
+		$link = $this->shortcode_atts['link'];
 		$midia = $this->shortcode_atts['midia'];
 
 		$module_class = ET_Builder_Element::add_module_order_class( '', $function_name );
