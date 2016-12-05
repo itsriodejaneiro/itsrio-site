@@ -1,0 +1,22 @@
+.wpfs.posts-cycle{
+	.slick-slide{
+		margin-left:rem-calc(8);
+		margin-right:rem-calc(8);
+		hr{
+			display:none;
+		}
+
+		.meta-wrapper{
+                        border-top:1px dotted $iron;
+                        border-bottom:1px dotted $iron;
+                        margin-bottom:rem-calc(8);
+                        font-size:rem-calc(14);
+                        color:$iron;
+                        font-style:italic;
+
+                        .author{
+                                margin-bottom:0;
+                        }
+	        }
+	}
+}

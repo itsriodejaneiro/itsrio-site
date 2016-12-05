@@ -2,18 +2,13 @@
 
 wp-content/themes/divi3*
 
-wp-content/plugins/custom-post-type-ui
-
 node_modules/
 
 uploads/
 
-wp-content/plugins/meta-box
-
-wp-content/plugins
 
 wp-content/gallery-bank/
 
 wp-content/languages/
 
-wp-content/plugins/wp-foundation-shortcodes
+

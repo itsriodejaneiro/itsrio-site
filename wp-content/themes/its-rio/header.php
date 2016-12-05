@@ -19,6 +19,7 @@
 
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
+	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
 
 </head>
 <body <?php body_class(); ?>>
@@ -41,12 +42,15 @@
 
 	global $title;
 	$title = $titles[$postType];
+
+	if(is_front_page())
+		include (ROOT.'inc/home-cover.php');
 	?>
 
-	<div class="row row-menu fixed">
+	<div class="row row-menu <?= is_front_page() ? 'home' : 'fixed' ?>">
 		<div class="column large-12 menu-container">
 			<i class="fa fa-bars show-for-small-only"></i>
-			<img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="logo">
+			<a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="logo"></a>
 			<div class="menu-social hide-for-small-only" >
 				<ul>
 					<li>

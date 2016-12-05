@@ -1,0 +1,101 @@
+.wpfs.posts-grid, .wpfs.posts-list, .wpfs.posts-cycle{
+	.meta-wrapper{
+		& > span{
+			margin-right:rem-calc(8);
+		}
+		.updated:not(.published) {
+    			display: none;
+		}
+		.entry-format{
+			a{
+				display: inline-block;
+        	                font-family: FontAwesome;
+	                        font-feature-settings: normal;
+                        	font-kerning: auto;
+                	        font-language-override: normal;
+        	                font-size: inherit;
+	                        font-size-adjust: none;
+                        	font-stretch: normal;
+                	        font-style: normal;
+        	                font-synthesis: weight style;
+	                        font-variant: normal;
+                        	font-weight: normal;
+                	        line-height: 1;
+        	                text-rendering: auto;
+			}
+		}
+		&.format-chat{
+	                .entry-format{
+        	                a:before{
+                	                content: "\f075";
+	                        }
+        	        }
+	        }
+        	&.format-audio{
+                	.entry-format{
+                        	a:before{
+                                	content: "\f1c7";
+	                        }
+        	        }
+	        }
+        	&.format-video{
+                	.entry-format{
+                        	a:before{
+                                	content: "\f1c8";
+	                        }
+        	        }
+       		}
+	        &.format-status{
+        	        .entry-format{
+                	        a:before{
+                        	        content: "\f006";
+	                        }
+        	        }
+	        }
+	        &.format-quote{ 
+        	        .entry-format{
+                	        a:before{
+                        	        content: "\f10d"; 
+	                        }
+        	        }
+	        } 
+        	&.format-image{
+                	.entry-format{
+                        	a:before{
+                                	content: "\f1c5";
+	                        }
+        	        }
+	        }
+        	&.format-link{
+                	.entry-format{
+                        	a:before{
+                                	content: "\f0c1";
+	                        }
+        	        }
+	        }
+		&.format-gallery{
+	                .entry-format{
+        	                a:before{
+                	                content: "\f18c";
+                        	}
+	                }
+        	}
+	        &.format-aside{
+        	        .entry-format{
+                	        a:before{
+                        	        content: "\f1ce";
+	                        }
+        	        }
+	        }
+	}
+}
+[dir=rtl]{
+	.wpfs.posts-grid, .wpfs.posts-list, .wpfs.posts-cycle{
+        	.meta-wrapper{
+                	& > span{
+	                        margin-left:rem-calc(8);
+	                        margin-right:0;
+        	        }
+		}
+	}
+}

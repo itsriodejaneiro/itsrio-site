@@ -1,0 +1,27 @@
+.wpfs.posts-list{
+	.list-item{
+		.thumbnail{
+			margin-bottom:rem-calc(16);
+		}
+		header{
+			h2{
+				font-size:rem-calc(28);
+			}
+		}
+		.meta-wrapper{
+			border-top:1px dotted $iron;
+			border-bottom:1px dotted $iron;
+			margin-bottom:rem-calc(8);
+			font-size:rem-calc(14);
+			color:$iron;
+			font-style:italic;
+
+			.author{
+				margin-bottom:0;
+			}
+		}
+		footer{
+			color:$iron;
+		}
+	} // li
+}

@@ -1,0 +1,176 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Foundation Shortcodes\n"
+"POT-Creation-Date: 2016-07-03 11:34+0300\n"
+"PO-Revision-Date: 2016-07-03 11:39+0300\n"
+"Last-Translator: Adam Pery <adam@tadam.co.il>\n"
+"Language-Team: adam@tadam.co.il\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;_c;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../js/custom/foundation.min.js:19
+msgid "fndtn-"
+msgstr ""
+
+#: ../admin/pages/dashboard.php:7 ../class.foundation_plugin_admin.php:34
+msgid "WP Foundation Shortcodes"
+msgstr ""
+
+#: ../admin/pages/dashboard.php:9
+msgid "Follow us, and do not miss anything!"
+msgstr "עקוב אחרינו ולא תפספס שום דבר!"
+
+#: ../admin/pages/dashboard.php:23
+msgid "We love stars"
+msgstr "אנחנו אוהבים כוכבים"
+
+#: ../admin/pages/dashboard.php:25
+#, php-format
+msgid "Please write %s review %s"
+msgstr "אנא כתוב %s סיקור %s"
+
+#: ../admin/pages/dashboard.php:27
+msgid "Please help us to continue develop this free wordpress plug-in"
+msgstr "אנא עזרו לנו להמשיך לפתח את התוסף וורדפרס חינמי"
+
+#: ../admin/pages/dashboard.php:37
+msgid "Enable Google Map"
+msgstr "אפשר מפות גוגל"
+
+#: ../admin/pages/dashboard.php:44
+msgid "Enable Slick Slider"
+msgstr "אפשר סליידר סליק"
+
+#: ../admin/pages/dashboard.php:51
+msgid "Enable Font Awesome"
+msgstr "אפשר Font Awesome"
+
+#: ../admin/pages/dashboard.php:58
+msgid ""
+"You should enable it to work <strong>[google_map]</strong>, "
+"<strong>[slick_slider]</strong> shortcodes and font awesome icons (some "
+"theme load font awesome by default). It is important to not upload "
+"unnecessary CSS and JS."
+msgstr ""
+"אנא אפשרו כדי שיעבדו קודים קצרים  <strong>[google_map]</strong>, "
+"<strong>[slick_slider]</strong>  ואייקונים font awesome (ישנם ערכות עיצוב "
+"המטעינות את font awesome בברירת מחדל). חשוב כדי להימנע מלטעון CSS ו-JS כפול."
+
+#: ../class.foundation_TinyMCE_shortcodes.php:90
+msgid "Cancel"
+msgstr "לבטל"
+
+#: ../class.foundation_TinyMCE_shortcodes.php:91
+msgid "Insert"
+msgstr "הכנס"
+
+#: ../class.foundation_TinyMCE_shortcodes.php:95
+msgid "Shortcode Options"
+msgstr "אפשרויות קוד קצר"
+
+#: ../class.foundation_plugable.php:99
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "השאירו תגובה<span class=\"screen-reader-text\"> על %s</span>"
+
+#: ../class.foundation_plugin_admin.php:21
+msgid "Wordpress Plugin Page"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:22
+msgid "Full Documantation & Demo"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:34
+msgid "WP Foundation"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:90
+msgid "Settings"
+msgstr "הגדרות"
+
+#: ../class.foundation_shortcodes.php:166
+msgid "Alert box"
+msgstr "תיבת התראה"
+
+#: ../class.foundation_shortcodes.php:421
+msgid "Recommended"
+msgstr "מומלץ"
+
+#: ../class.foundation_shortcodes.php:446
+#: ../class.foundation_shortcodes.php:1804
+#: ../class.foundation_shortcodes.php:1850
+msgid "Read more"
+msgstr "קרא עוד"
+
+#: ../class.foundation_shortcodes.php:474
+msgid "Label"
+msgstr "תווית"
+
+#: ../class.foundation_shortcodes.php:549
+msgid "Dropdown"
+msgstr ""
+
+#: ../class.foundation_shortcodes.php:607
+msgid "Split Button"
+msgstr "לחצן מפוצל"
+
+#: ../class.foundation_shortcodes.php:639
+msgid ""
+"Those people who think they know everything are a great annoyance to those "
+"of us who do."
+msgstr ""
+
+#: ../class.foundation_shortcodes.php:850
+#, php-format
+msgid ""
+"Warning: you should enable Google Map first. Go to <a href=\"%s\" target="
+"\"_blank\">WP Foundation Shortcodes Settings</a> page."
+msgstr ""
+"אזהרה: יש לאפשר 'מפות גוגל' קודם. העבור אל הדף <a href=\"%s\" target=\"_blank"
+"\">הגדרות WP Foundation Shortcodes</a>."
+
+#: ../class.foundation_shortcodes.php:988
+#: ../class.foundation_shortcodes.php:1475
+#, php-format
+msgid ""
+"Warning: you should enable Slick Slider first. Go to <a href=\"%s\" target="
+"\"_blank\">WP Foundation Shortcodes Settings</a> page."
+msgstr ""
+"אזהרה: יש לאפשר 'סליידר סליק' קודם. העבור אל הדף <a href=\"%s\" target="
+"\"_blank\">הגדרות WP Foundation Shortcodes</a>."
+
+#: ../class.foundation_shortcodes.php:1778
+msgid "on"
+msgstr "על"
+
+#: ../includes/post-list-content.php:49
+msgid "Continue reading..."
+msgstr "המשך לקרוא..."
+
+#: ../wp-foundation-shortcodes.php:43
+msgid "Please enable this plugin from your wp-admin."
+msgstr "אנא אפשר תוסף הזה ממערכת ניהול."
+
+#~ msgid ""
+#~ "You should enable it to work <strong>[google_map]</strong> and "
+#~ "<strong>[slick_slider]</strong> shortcodes. It is important to not upload "
+#~ "unnecessary CSS and JS."
+#~ msgstr ""
+#~ "יש לאפשר אותם כדי שקודים קצרים <strong>[google_map]</strong> ו "
+#~ "<strong>[slick_slider]</strong> יעבדו. חשוב כדי שלא להעלות CSS ו JS "
+#~ "מיותרים."
+
+#~ msgid "Posted on %s at %s."
+#~ msgstr "פורסם ב %s בשעה %s."
+
+#~ msgid "Written by"
+#~ msgstr "נכתב ע\"י"

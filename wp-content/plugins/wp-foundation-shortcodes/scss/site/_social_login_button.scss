@@ -1,0 +1,96 @@
+$facebook-color: #3b5998;
+$twitter-color: #55acee;
+$google-color: #d50f25;
+$text-transform: uppercase;
+
+$icon-size: rem-calc(32);
+$line-height: rem-calc(54);
+$icon-size-tiny: rem-calc(23);
+$line-height-tiny: rem-calc(36);
+$icon-size-small: rem-calc(30);
+$line-height-small: rem-calc(46);
+$icon-size-large: rem-calc(40);
+$line-height-large: rem-calc(63);
+
+.split.button.social-login-button.wp-foundation-shortcodes {
+	width: 100%;
+	text-transform: $text-transform;
+	span{
+		&:after {
+	                border: none;
+                        content: "";
+                        margin-left: rem-calc(-11);
+                }
+                .fa{
+                        font-size: $icon-size;
+                        line-height: $line-height;
+                }
+	}
+	&.tiny{
+		span {
+			.fa{
+        	                font-size: $icon-size-tiny;
+                	        line-height: $line-height-tiny;
+	                }
+		}
+	}
+	&.small{
+                span {
+                        .fa{
+                                font-size: $icon-size-small;
+                                line-height: $line-height-small;
+                        }
+                }
+        }
+	&.large{
+                span {
+                        .fa{
+                                font-size: $icon-size-large;
+                                line-height: $line-height-large;
+                        }
+                }
+        }
+
+
+	&.facebook {
+		background: $facebook-color;
+
+		span {
+			background: darken( $facebook-color, 10% );
+		}
+		&:hover{
+			background: lighten($facebook-color, 10%);
+		}
+	}
+
+	&.twitter {
+		background: $twitter-color;
+
+		span {
+			background: darken( $twitter-color, 10% );
+    		}
+		&:hover{
+                        background: lighten($twitter-color, 10%);
+                }
+  	}
+
+	&.google {
+		background: $google-color;
+
+		span {
+                        background: darken( $google-color, 10% );
+                }
+		&:hover{
+                        background: lighten($google-color, 10%);
+                }
+  	}
+
+  	&.left-icon {
+		padding-left:rem-calc(81);
+		padding-right:rem-calc(32);
+		span {
+			left: 0;
+
+    		}
+  	}
+}

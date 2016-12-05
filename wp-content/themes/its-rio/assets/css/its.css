@@ -2663,16 +2663,16 @@ hr {
 }
 
 #content {
-  margin-top: 75px;
+  margin: 75px;
 }
 
-.home-banner {
+.home-cover {
   width: 100%;
-  height: calc(100% - 75px);
+  height: 100%;
   background-color: purple;
 }
 
-.home-banner h1 {
+.home-cover h1 {
   color: white;
   font-family: 'Raleway';
   font-weight: 900;
@@ -2686,9 +2686,25 @@ hr {
   margin: 0 auto;
 }
 
-.home-banner h1 p {
+.home-cover h1 p {
   font-size: 18px;
   font-weight: 400;
+}
+
+.main-carousel {
+  padding-top: 40px;
+}
+
+.main-carousel .carousel-cell {
+  width: 100%;
+  height: 400px;
+  margin-right: 10px;
+}
+
+.main-carousel button.flickity-prev-next-button, .main-carousel button.flickity-prev-next-button:focus {
+  background: none;
+  border: 1px solid black;
+  border-radius: 0;
 }
 
 .highlights {
@@ -3304,7 +3320,7 @@ hr {
   transform: rotate(3deg);
 }
 
-html, body, #content {
+html, body {
   height: 100%;
 }
 
@@ -3335,7 +3351,7 @@ h3, h4, h5 {
 }
 
 .row-menu {
-  max-width: 1295px !important;
+  max-width: 100% !important;
 }
 
 .row-menu.fixed {
@@ -3344,12 +3360,6 @@ h3, h4, h5 {
   position: fixed;
   z-index: 100000;
   margin: 0;
-}
-
-@media screen and (min-width: 64em) {
-  .row-menu.fixed {
-    margin: 0px calc((100% - 1295px) / 2);
-  }
 }
 
 footer {

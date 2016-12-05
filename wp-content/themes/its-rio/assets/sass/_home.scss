@@ -1,6 +1,6 @@
-.home-banner{
+.home-cover{
 	width: 100%;
-	height: calc(100% - 75px);
+	height: 100%;
 	background-color: purple;
 
 	h1{
@@ -20,4 +20,21 @@
 			font-weight: 400;
 		}
 	} 
+}
+.main-carousel{
+	padding-top: 40px;
+
+	.carousel-cell {
+		width: 100%; 
+		height: 400px; 
+		margin-right: 10px;
+	}
+
+	button.flickity-prev-next-button {
+		&, &:focus{
+			background: none;
+			border: 1px solid black;
+			border-radius: 0;
+		}
+	}
 }

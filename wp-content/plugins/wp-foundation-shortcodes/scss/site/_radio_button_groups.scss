@@ -1,0 +1,22 @@
+$selected-color: #FA8072;
+
+.button-group.toggle li:not(first-child) {
+   	margin: 0 rem-calc(-14);
+}
+
+.button-group.wp-foundation-shortcodes {
+	input[data-toggle] {
+		display: none;
+	}
+	input[data-toggle]:checked + label,
+	input[data-toggle]:checked + label:active {
+		background-color: $selected-color;
+		@include box-shadow(rgba(0, 0, 0, 0.15) 0 rem-calc(2) rem-calc(4) inset, rgba(0, 0, 0, 0.05) 0 rem-calc(1) rem-calc(2));
+	}
+	.button-group.toggle {
+		li:not(first-child) {
+			margin: 0 rem-calc(-14);
+  		}
+	}
+}
+

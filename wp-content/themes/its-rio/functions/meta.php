@@ -84,6 +84,28 @@ function its_meta_boxes($meta_boxes) {
 				),
 			)
 		],
+		[
+		'id'         => 'home_destaques',
+		'title'      => __( 'É um destaque na home?', 'batuta_' ),
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp' ],
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'autosave'   => true,
+		'fields'     => array(
+			array(
+				'name'        => __( 'É um Banner', 'batuta_' ),
+				'id'          => "home_banner",
+				'type'        => 'checkbox',
+				'value'		  => '1'
+				),
+			array(
+				'name'        => __( 'É um Card', 'batuta_' ),
+				'id'          => "home_cards",
+				'type'        => 'checkbox',
+				'value'		  => '1'
+				),
+			)
+		],
 		);
 	return $meta_boxes;
 }

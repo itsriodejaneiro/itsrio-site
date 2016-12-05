@@ -57,6 +57,9 @@ function DS_Custom_Modules(){
 		include("tema/Tema.php");
 		include("text/Text.php");
 		include("map/Map.php");
+		include("home_banner/HomeBanner.php");
+		include("home_cards/HomeCards.php");
+		include("home_areas/HomeAreas.php");
 	}
 }
 

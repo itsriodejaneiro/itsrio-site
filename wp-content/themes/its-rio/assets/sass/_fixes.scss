@@ -1,4 +1,4 @@
-html, body, #content{
+html, body{
 	height: 100%;
 }
 
@@ -27,7 +27,7 @@ h3,h4,h5{
 }
 
 .row-menu{
-	max-width: 1295px !important;
+	max-width: 100% !important;
 	&.fixed{
 		top: 0;
 		width: 100%;
@@ -35,8 +35,8 @@ h3,h4,h5{
 		z-index: 100000;
 		margin: 0;			
 
-		@media #{$large-up} { 
-			margin: 0px calc((100% - 1295px) / 2);
-		}
+		// @media #{$large-up} { 
+		// 	margin: 0px calc((100% - 1295px) / 2);
+		// }
 	}
 }
