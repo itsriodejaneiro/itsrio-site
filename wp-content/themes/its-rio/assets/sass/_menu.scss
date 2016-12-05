@@ -7,10 +7,15 @@ $menu-height : 75px;
 	position: relative;
 	z-index: 1;
 	background-color: #EBEBEB;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-	img{
-		float: left;
+	@media#{$large-up}{
+		img{ float: left; }
+		display: block;
 	}
+
 
 	.menu-social{
 		position: absolute;
@@ -31,13 +36,13 @@ $menu-height : 75px;
 		}
 	}
 
-	.menu-search {
-		i.fa-search{
-			position: absolute;
-			right: 35px;
-			font-size: 20px;
-			bottom: 10px;
+	i.fa-search{
+		right: 35px;
+		font-size: 20px;
+		bottom: 10px;
 
+		@media #{$medium-up}{
+			position: absolute;
 			&::after{
 				content: 'buscar';
 				font-family: 'Roboto Mono';
@@ -51,10 +56,21 @@ $menu-height : 75px;
 		position: absolute;
 		bottom: 0px;
 		left: 130px;
-
-		ul{
-			width: 700px;
+		
+		@media #{$small-only}{
+			&::before{
+				content: '';
+				width: 1000px;
+				height: 1000px;
+				background: #ebebeb;
+				position: absolute;
+				z-index: -1;
+				left: -50px;
+				top: -25px;
+			}
 		}
+
+		ul{ width: 700px; }
 	}
 
 	.menu-social ul, .menu-nav 	ul{
@@ -70,20 +86,6 @@ $menu-height : 75px;
 
 			a{ color: black; }
 		}
-	}
-}
-.row{
-	max-width: 1060px !important;
-}
-
-.row-menu{
-	max-width: 1295px !important;
-	&.fixed{
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: 100000;
-		margin: 0px calc((100% - 1295px) / 2);
 	}
 }
 

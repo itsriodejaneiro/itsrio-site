@@ -36,6 +36,7 @@ function my_et_builder_post_types( $post_types ) {
 	$post_types[] = 'projetos_ctp';
 	$post_types[] = 'cursos_ctp';
 	$post_types[] = 'publicacoes_ctp';
+	$post_types[] = 'comunicados_ctp';
 
 	return $post_types;
 }
@@ -50,6 +51,8 @@ function DS_Custom_Modules(){
 		include("publicacoes/Publicacoes.php");
 		include("pessoas/Pessoas.php");
 		include("partner/Partner.php");
+		include("midias/Midias.php");
+		include("comunicados/Comunicados.php");
 		include("informacoes/Informacoes.php");
 		include("tema/Tema.php");
 		include("text/Text.php");

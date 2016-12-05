@@ -1,4 +1,10 @@
+html, body, #content{
+	height: 100%;
+}
 
+.row.row-menu.spread-items.header-single-menu.fixed {
+	top: 75px;
+}
 .et_divi_builder #et_builder_outer_content .et_pb_row{
 	max-width: 100% !important;
 }
@@ -7,8 +13,6 @@
 	padding: 0 !important;
 }
 
-
-
 ul{
 	display: flex;
 	margin: 0px;
@@ -16,4 +20,23 @@ ul{
 
 h3,h4,h5{
 	font-weight: bold;
+}
+
+.row{
+	max-width: 1060px !important;
+}
+
+.row-menu{
+	max-width: 1295px !important;
+	&.fixed{
+		top: 0;
+		width: 100%;
+		position: fixed;
+		z-index: 100000;
+		margin: 0;			
+
+		@media #{$large-up} { 
+			margin: 0px calc((100% - 1295px) / 2);
+		}
+	}
 }

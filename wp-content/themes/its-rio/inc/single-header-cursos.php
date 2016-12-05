@@ -1,4 +1,6 @@
-<div class="row row-menu header-single">
+<?php $img = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full'); ?>
+<div class="row row-menu header-single" 
+	style="background: url(<?= isset($img[0]) ? $img[0] : ''; ?>)">
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
@@ -6,17 +8,17 @@
 			<hr>
 		</div>
 		<div class="column large-4">
-			<p>data</p>
+			<p class="box-title">data</p>
 			<p class="box">
 					inscrições até
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-					<br>
+					|
 					início do curso
 					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
 			</p>
 		</div>
 		<div class="column large-4 end">
-			<p>categorias</p>
+			<p class="box-title">categorias</p>
 			<?php $no_label = true; include('categories.php') ?>
 		</div>
 	</div>

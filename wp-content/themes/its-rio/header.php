@@ -13,6 +13,8 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<?php wp_head(); ?>
 
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
@@ -33,6 +35,7 @@
 	'varandas_ctp' => 	['gender' => 'a', 'plural' => 'varandas', 'singular' => 'varanda'],
 	'projetos_ctp' => 	['gender' => 'o', 'plural' => 'projetos', 'singular' => 'projeto'],
 	'publicacoes_ctp' =>['gender' => 'a', 'plural' => 'publicações', 'singular' => 'publicação'],
+	'comunicados_ctp' =>['gender' => 'a', 'plural' => 'comunicados', 'singular' => 'comunicado'],
 	'page' =>['gender' => 'o', 'plural' => 'institucionais', 'singular' => 'institucional']
 	];
 
@@ -42,8 +45,9 @@
 
 	<div class="row row-menu fixed">
 		<div class="column large-12 menu-container">
+			<i class="fa fa-bars show-for-small-only"></i>
 			<img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="logo">
-			<div class="menu-social">
+			<div class="menu-social hide-for-small-only" >
 				<ul>
 					<li>
 						<a href="#"><i class="fa fa-youtube-play"></i></a>
@@ -65,7 +69,7 @@
 					</li>
 				</ul>
 			</div>
-			<nav class="menu-nav">
+			<nav class="menu-nav hide-for-small-only">
 				<ul>
 					<?php wp_nav_menu('main') ?>
 					<!-- <li class="<?= $postType == 'cursos_ctp' ? 'selected' : '' ?>">
@@ -85,9 +89,7 @@
 					</li> -->
 				</ul>
 			</nav>
-			<div class="menu-search">
-				<i class="fa fa-search"></i>
-			</div>
+			<i class="fa fa-search"></i>
 		</div>
 	</div>
 

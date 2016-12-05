@@ -1,12 +1,12 @@
-<p class="raleway">
-	<?php if(isset($meta['its_palestrantes'])): ?>
+<p class="raleway pessoas">
+	<?php if(isset($meta['its_pessoas'])): ?>
 		<?= $label ?>
 		<b>
 			<?php
-			$ids = $meta['its_palestrantes'];
+			$ids = $meta['its_pessoas'];
 			$html = '';
-			$query_palestrantes = get_posts(['post_type' => 'palestrantes', 'post__in' => $ids ]);
-			foreach ($query_palestrantes as $post)
+			$query_pessoas = get_posts(['post_type' => 'pessoas', 'post__in' => $ids ]);
+			foreach ($query_pessoas as $post)
 				$html .= ' '. get_the_title() . ',';
 			echo rtrim($html,',');
 			?>

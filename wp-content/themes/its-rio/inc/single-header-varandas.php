@@ -1,4 +1,5 @@
-<div class="row row-menu header-single">
+<?php $img = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full'); ?>
+<div class="row row-menu header-single" style="background: url(<?= isset($img[0]) ? $img[0] : ''; ?>)">
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>

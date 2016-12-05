@@ -1,37 +1,49 @@
 .header-single{
-	padding-top: 70px;
+	display: flex;
+	align-items: center;
+	background-size: cover;
 
-	.row{ margin: 0 auto; }
+	.row{ margin: 0 auto; width: 100%; }
+
+	a { text-shadow: 0px 0px 5px black; text-transform: lowercase; }
 
 	h1, p{
-		color: white;
 		margin: 0;
 		padding: 0;
-		font-family: 'Raleway';
-		font-weight: 700;
+		color: white;
 		font-size: 17px;
+		font-weight: 700;
+		font-family: 'Raleway';
+		text-shadow: 0px 0px 5px black;
 
-		&.raleway{
-			font-weight: 400;
-		}
+		&.raleway{ font-weight: 400; }
 	}
 
+	.pessoas{
+		line-height: 1;
+		font-size: 20px;
+		margin-top: 10px;
+	}
+
+	.box-title { font-size: 14px; }
+	
 	.box{
-		display: inline-block;
-		padding: 0px 5px;
 		font-size: 14px;
+		padding: 0px 5px;
+		display: inline-block;
 		text-transform: lowercase;
 	}
 
 	h1{
-		font-size: 60px;
+		font-size: 50px;
 		font-weight: 900;
+		line-height: 60px;
 	}
 
 	hr{
-		border-color: white !important;
+		background-color: white !important;
 		width: 60%;
-		margin: 15px 0px;
+		margin: 10px 0px;
 	}
 }
 
@@ -45,10 +57,10 @@
 	background-color: purple;
 
 	&-menu{
-		height: 40px;
-		font-weight: bold;
-		color: black;
 		width: 100%;
+		height: 40px;
+		color: black;
+		font-weight: bold;
 
 		&.fixed + &-fix{
 			width: 100%;
@@ -67,32 +79,27 @@
 .single-menu{
 	flex: 1;
 	ul{
+		display: flex;
 		list-style-type: none;
 		// margin: 0 50px 0 0;
-		display: flex;
 		// justify-content: space-between;
 
 		li{
-			font-weight: initial;
 			display: block;
 			padding: 0px 30px;
-
-			&:first-child{
-				padding-left: 10px;
-			}
+			font-weight: initial;
 
 			a {
 				color: white;
 				&.active{
-					border-bottom: 5px inset white;
-					padding-bottom: 4px;
 					font-weight: bold;
+					padding-bottom: 4px;
+					border-bottom: 5px inset white;
 				}
 			}
 
-			&:last-child{
-				border-right: none;
-			}
+			&:first-child{ padding-left: 10px; }
+			&:last-child{ border-right: none; }
 		}
 	}
 }
@@ -101,11 +108,15 @@
 	width: 320px;
 	display: flex;
 	align-items: center;
+
+	@media #{$small-only}{
+		display: none;
+	}
 }
 
 .tab{
-	overflow: hidden;
 	display: flex;
+	overflow: hidden;
 	align-items: baseline;
 
 	&-title{
@@ -124,15 +135,13 @@
 }
 
 .content-area{
-	padding: 50px 0px;
+	padding-top: 50px;
 
-	&:nth-of-type(even){
-		background-color: #D9D9D9 !important;
-	}
+	// &:nth-of-type(even){// 	background-color: #D9D9D9 !important; // }
 
 	.row{
-		margin: 0 auto !important;
 		width: 100% !important;
+		margin: 0 auto !important;
 	}
 
 	&.tab .row{ display: flex; }
@@ -144,9 +153,9 @@
 /* COMPONENTE PALESTRANTES */
 .content-publicacoes{
 	img{
-		box-shadow: 0px 0px 5px gray;
-		margin-right: 50px;
 		float: left;
+		margin-right: 50px;
+		box-shadow: 0px 0px 5px gray;
 	}
 
 	p{
@@ -159,8 +168,8 @@
 
 /* COMPONENTE PALESTRANTES */
 .pessoa{
-	max-width: 100px;
 	float:left;
+	max-width: 100px;
 	text-align: center;
 	position: relative;
 	margin-right: 25px;
@@ -171,22 +180,22 @@
 
 	input[type="radio"]:checked {
 		& + .pessoa-mini:before{
+			left: 0;
+			width: 0;
+			bottom: 0;
+			height: 0;
 			content: '';
 			position: absolute;
-			bottom: 0;
-			width: 0;
-			left: 0;
-			height: 0;
 			border-style: solid;
 			border-width: 0 17.5px 20px 17.5px;
 			border-color: transparent transparent #000000 transparent;
 		}
 
 		& + .pessoa-mini img{
-			filter: grayscale(0%);
 			opacity: 1;
 			display: block;
 			margin: 0 auto;
+			filter: grayscale(0%);
 		}
 	}
 
@@ -194,34 +203,36 @@
 		margin-bottom: 25px;
 
 		img{
-			border-radius: 50%;
 			width: 100px;
+			filter: gray;
+			opacity: 0.7;
 			height: 100px;
+			border-radius: 50%;
 			filter: grayscale(100%);
 			-webkit-filter: grayscale(1);
 			-webkit-filter: grayscale(100%);
-			filter: gray;
-			opacity: 0.7;
 		}
 
 		p{
 			font-size: 14px;
+			margin-top: 15px;
 			font-weight: bold;
 			text-align: center;
-			margin-top: 15px;
 		}
 	}
 }
 
 .pessoa-info{
 	// display: none;
-	background-color: black;
-	color: white;
 	width: 100%;
+	color: white;
 	height: auto;
-	overflow: hidden;
-	transition: max-height .3s;
 	max-height: 0px;
+	font-size: 14px;
+	overflow: hidden;
+	font-family: 'Raleway';
+	background-color: black;
+	transition: max-height .3s;
 	
 	&.active{
 		max-height: 215px;
@@ -237,17 +248,17 @@
 	
 	&-content{
 		float: right;
-		width: calc(100% - 340px);
 		padding: 20px;
+		width: calc(100% - 340px);
 
 		img{
-			border-radius: 50%;
+			float: left;
 			width: 160px;
 			height: 160px;
-			float: left;
-			margin: 0 25px 25px 0;
-			box-shadow: none;
 			outline: none;
+			box-shadow: none;
+			border-radius: 50%;
+			margin: 0 25px 25px 0;
 		}
 	}
 }
@@ -264,7 +275,10 @@
 
 /* COMPONENT AULAS E COMPONENTS*/
 .component-tabs{
-	.tab-content { padding: 0 20px; overflow: hidden; }
+	.tab-content { 
+		padding: 0 20px; overflow: hidden;
+		position: relative;
+	}
 
 	.columns:nth-of-type(even){
 		padding-right: 0px;
@@ -281,8 +295,8 @@
 		ul {
 			display: block;
 			li{
-				font-family: 'Raleway';
 				font-size: 15px;
+				font-family: 'Raleway';
 			}
 		}
 
@@ -296,8 +310,8 @@
 	}
 
 	.component-tabs-tab{
-		margin-bottom: 50px;
 		position: relative;
+		margin-bottom: 50px;
 
 		&:last-child{
 			margin-bottom: 0;
@@ -309,10 +323,20 @@
 			margin: 0 !important;
 		}
 
+		.tab-subtitle {
+			display: flex;
+			justify-content: space-between;
+			.right{
+				height: 100%;
+				margin-left: 20px;
+				white-space: nowrap;
+			}
+		}
+
 		label.label-tab{
-			position: absolute;
 			top: 0px;
 			right: 0px;
+			position: absolute;
 			margin: 0 !important;
 
 			&:before, &:after{
@@ -349,16 +373,12 @@
 		}
 
 		p.right{
-			border-bottom: 1px solid black;
 			font-size: 12px;
+			border-bottom: 1px solid black;
 		}
 
 		p.left{
 			font-size: 18px;
-		}
-
-		p.left, p.right{
-			margin-top: 10px;
 		}
 
 		.component-tabs-content, p.left{
@@ -366,11 +386,23 @@
 		}
 
 		.component-tabs-content{
-			max-height: 500px;
-			font-size: 15px;
 			width: 100%;
-			transition: all .3s;
+			font-size: 15px;
 			overflow: hidden;
+			max-height: 500px;
+			transition: all .3s;
+			
+			ul{
+				display: initial;
+				
+				li{
+					float: none;	
+					padding: 5px;
+					display: initial;
+					margin-bottom: 5px;
+					background-color: #d9d9d9;
+				}
+			}
 		}
 	}
 }

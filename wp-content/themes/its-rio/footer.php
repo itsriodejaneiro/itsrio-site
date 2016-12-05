@@ -1,73 +1,58 @@
 </div>
+<footer>
+	<div class="column large-3">
+		<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
+		<ul>
+			<li><a href="#" class="box">equipe</a></li>
+			<li><a href="#" class="box">onde estivemos</a></li>
+			<li><a href="#" class="box">comunicados</a></li>
+		</ul>
+	</div>
+
+	<div class="column large-3">
+		<p><b>contatos: </b> <?= esc_attr(get_option('footer_contacts')) ?></p>
+	</div>
+	<div class="column large-6">
+		<input type="text" placeholder="escreva seu e-mail para receber nossos comunicados">
+		<a href="#" class="box">inscreva-se</a>
+		<br>
+		<br>
+		<br>
+	</div>
+	<div class="column large-3">
+		<p><b>últimos artigos (Medium)</b></p>
+		<p class="desc"></p>
+	</div>
+	<div class="column large-3">
+		<p><b>últimos vídeos (YouTube)</b></p>
+		<p class="desc"></p>
+	</div>
+	<div class="column large-3">
+		<p><b>#trending tags</b></p>
+		<p class="desc"></p>
+	</div>
+	<div style="overflow: hidden; clear: both">
+		<div class="column large-3"><small>desenvolvido por <a href="#">Hacklab</a></small></div>
+		<div class="column large-9 raleway"><?= esc_attr( get_option('footer_adress') );  ?></div>
+	</div>
+</footer>
+
 <?php global $data; global $components; global $postType; ?>
+
 <script>
-	'use strict';
 
-	let aulas = <?= isset($components['aulas']) ? json_encode($components['aulas']) : '""' ?>;
-	let informacoes =  <?= isset($components['informacoes']) ? json_encode($components['informacoes']) : '""' ?>;
-	let pessoas =  <?= isset($components['pessoas']) ? json_encode($components['pessoas']) : '""' ?>;
+	<?php 
+	foreach ($components as $variable => $value) {
+		?>
+		var <?= $variable ?> = <?= json_encode($value) ?>;
+		<?php
+	}
+	?>
 
-	Vue.component('its-aulas', {
-		data(){
-			return { aulas };
-		}
-	});	
-
-	Vue.component('its-pessoas', {
-		data(){
-			return { pessoas };
-		}
-	});
-
-	Vue.component('its-informacoes', {
-		data(){
-			return {
-				informacoes,
-				aulas
-			};
-		}
-	});
-
-	let vue = new Vue({
-		el : '#content',
-		data : <?= json_encode($data) ?>,
-		mounted(){
-			$ = jQuery;
-
-			//Fixa o menu interno no menu global ao dar scroll
-			var menu = $('.header-single-menu');
-			var top = menu.position().top;
-			$(window).scroll(function(){
-				if($(this).scrollTop() >= top - 65)
-					menu.addClass('fixed');
-				else
-					menu.removeClass('fixed');
-			});
-
-			//Adiciona a classe de active ao post type correspondente no menu global.
-			$('a[href="/<?= $postType ?>"]').parent().addClass('current-menu-item');
-
-			//Smooth scroll
-			$('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
-				var el =  $(this).is('a') ? this : $(this).find('a')[0];
-
-				if (location.pathname.replace(/^\//,'') == el.pathname.replace(/^\//,'') && location.hostname == el.hostname) {
-					var target = $(el.hash);
-					target = target.length ? target : $('[name=' + el.hash.slice(1) +']');
-					if (target.length) {
-						$('.single-menu ul li a').removeClass('active');
-						$(el).addClass('active');
-
-						$('html, body').animate({
-							scrollTop: target.offset().top - 100
-						}, 300);
-						return false;
-					}
-				}
-			});
-		}
-	});
+	var site_data =  <?= json_encode($data) ?>;
 </script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
+<script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 </body>
 </html>

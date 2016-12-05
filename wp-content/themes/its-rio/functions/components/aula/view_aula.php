@@ -15,7 +15,9 @@
 			<div class="tab-content">
 				<div v-for="(aula, i) in aulas" class="component-tabs-tab">
 					<h2 class="list-title">{{ aula.title }}</h2>
-					<p class="left">{{ aula.subtitle }}</p> <p class="right"> com {{ aula.palestrante }}</p>
+					<div class="tab-subtitle">
+						<p class="left">{{ aula.subtitle }}</p> <p class="right"> com {{ aula.palestrante }}</p>
+					</div>
 					<input type="checkbox" v-bind:id="'check_aula_' + i">
 					<label v-bind:for="'check_aula_' + i"></label>
 					<div class="component-tabs-content" v-html="aula.content"> </div>

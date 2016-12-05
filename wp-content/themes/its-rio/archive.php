@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div class="row row-menu">
+<!-- <div class="row row-menu">
 	<div class="column large-12 submenu">
 		<div class="submenu_info">
 			<h2>cursos</h2>
@@ -10,7 +10,6 @@ get_header();
 		</div>
 		<div class="submenu_description">
 			<p>o quê são os cursos?</p>
-			<!-- <p class="o-que-sao_description"><?= $o_que_sao ?></p> -->
 		</div>
 		<div class="submenu_filter">
 			filtrar cursos
@@ -20,7 +19,7 @@ get_header();
 			<a href="javascript:void(0);">mostrar</a>
 		</div>
 	</div>
-</div>
+</div> -->
 <div class="row">
 	<div class="column large-12">
 		<h2 class="list-title"><?= "próxim{$title['gender']}s {$title['plural']}" ?></h2>
@@ -33,21 +32,18 @@ get_header();
 			)
 		);
 		?>
-		<div class="highlights">
-			<?php
-			if ($posts->have_posts()) {
+		<?php
+		if ($posts->have_posts()) {
+			?>
+			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+				<?php
 				while ($posts->have_posts()) {
 					$posts->the_post();
 					$meta = get_post_meta(get_the_ID());
 					?>
-					<a href="<?= get_post_permalink() ?>">
-						<div class="img">
-							<?php the_post_thumbnail(); ?>
-						</div>
-					</a>
 					<div class="info">
 						<a href="<?= get_post_permalink() ?>">
-							<div class="column large-8">
+							<div class="">
 								<h2><?= the_title(); ?></h2>
 								<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
 							</div>
@@ -59,19 +55,17 @@ get_header();
 										?>
 										inscrições até
 										<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-										<br>
-										início do curso
+										| início do curso
 										<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
 										<?php
-									}elseif($postType == 'varandas_ctp'){
-										echo $meta['info_datahorario'][0];
-									}
+									}elseif($postType == 'varandas_ctp')
+									echo $meta['info_datahorario'][0];
 									?>
 								</span>
 							</div>
 						</a>
-						<div class="column large-12 no-p-r"><hr></div>
-						<div class="column large-8">
+						<hr>
+						<div class="column large-8 no-p">
 							<a href="<?= get_post_permalink() ?>">
 								<p class="excerpt raleway"><?= get_the_excerpt(); ?></p>
 							</a>
@@ -82,9 +76,11 @@ get_header();
 					</div>
 					<?php
 				}
-			}
-			?>
-		</div>
+				?>
+			</div>
+			<?php
+		}
+		?>
 	</div>
 	<div class="older-posts">
 		<div class="column large-12">
@@ -92,10 +88,18 @@ get_header();
 		</div>
 		<?php
 		query_posts(array(
-			'post_type' => $post_type,
-			'meta_key' => 'info_inscfim',
-			'meta_value' => date('Y-m-d'),
-			'meta_compare' => '<'
+			'post_type' 	=> $post_type,
+			'relation'		=> 'OR',
+			'meta_query'	=> array(
+				['meta_key' => 'info_inscfim',
+				'meta_value' => date('Y-m-d'),
+				'meta_compare' => '>='
+				],
+				['meta_key' => 'info_inscfim',
+				'meta_value' => '',
+				'meta_compare' => '='
+				],
+				)
 			)
 		);
 
@@ -109,5 +113,14 @@ get_header();
 		?>
 	</div>
 </div>
-
+<script>
+	'use strict';
+	setTimeout(()=>{
+		$('.older-posts').masonry({
+			columnWidth : '.large-4',
+			selector : '.large-4',
+			percentPosition: true,
+		});
+	}, 500);
+</script>
 <?php get_footer(); ?>

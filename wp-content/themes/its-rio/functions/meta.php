@@ -49,7 +49,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'its_publicacoes',
 		'title'      => __( 'Publicações', 'batuta_' ),
-		'post_types' => [ 'projetos_ctp', 'varandas_ctp', 'cursos_ctp' ],
+		'post_types' => [ 'projetos_ctp', 'varandas_ctp', 'cursos_ctp'],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,
@@ -68,7 +68,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'its_pessoas',
 		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page' ],
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,

@@ -8,7 +8,9 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-$data = [ 'single_menu_active' => '0' ];
+error_reporting(E_ERROR);
+
+$data = [ 'single_menu_active' => '0', 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
 
 $title = '';
@@ -20,6 +22,11 @@ include 'functions/post_types.php';
 include 'functions/meta.php';
 include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
+
+function wpdocs_custom_excerpt_length( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 add_theme_support( 'post-thumbnails' );
 
@@ -43,7 +50,9 @@ function get_post_number($postID){
 	return (int)$postCount < 10 ? '0'.$postCount : $postCount;
 }
 
-
+function get_thumbnail_url_full($id){
+	return wp_get_attachment_image_src(get_post_thumbnail_id($id),'full')[0];
+}
 
 
 

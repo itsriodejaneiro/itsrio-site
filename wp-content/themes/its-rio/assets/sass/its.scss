@@ -3,6 +3,7 @@
 @import 'foundation/util/util';
 @import 'foundation/settings/_settings';
 @import 'foundation/foundation';
+@import "foundation/components/visibility";
 
 @include foundation-global-styles;
 @include foundation-grid;
@@ -13,7 +14,7 @@
 
 h2{
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 25px;
 }
 
 h3{
@@ -28,13 +29,25 @@ p, hr{
 	word-wrap: break-word;
 }
 
-hr{ border: 3px solid black !important; }
+hr{ 
+    display: block;
+    height: 3px;
+    border: none !important;
+    background: black;
+}
+
 
 .list-title{
-	border-bottom: 10px solid black !important;
+	border-bottom: 5px solid black !important;
 	display: table;
 	font-weight: bold;
 	padding-right: 30px;
+
+	a{
+		font-size: 14px;
+		font-weight: initial;
+		text-decoration: underline;
+	}
 }
 
 .center{
@@ -54,12 +67,16 @@ hr{ border: 3px solid black !important; }
 		box-shadow: 0 0 15px #8a8a8a !important;
 
 		a, .box, h3, p { color: white !important; }
-		hr { border-color: white !important; }
+		hr { background-color: white !important; }
 	}
 
 	.info{
 		padding: 25px !important;
 		padding-bottom: 15px !important;
+
+		p{
+			font-family: 'Raleway';
+		}
 	}
 
 	hr{
@@ -81,13 +98,10 @@ hr{ border: 3px solid black !important; }
 	}
 
 	.categories{
-		font-weight: bold !important;
 		display: flex !important;
 		align-items: center !important;
 		margin-left: 10px !important;
 		margin-bottom: 5px !important;
-
-		a{ color: white !important; }
 	}
 }
 
@@ -124,12 +138,14 @@ hr{ border: 3px solid black !important; }
 	color: white;
 
 	&.black{
-		border: 1px solid black;
-		color: black;
+		background-color: black;
+		border: 1px solid black !important;
 	}
 }
 
 .categories{
+	font-size: 14px;
+
 	&.black{
 		ul li {
 			border-color: black !important;
@@ -140,10 +156,12 @@ hr{ border: 3px solid black !important; }
 		padding: 0px 8px !important;
 		border: 1px solid white !important;
 		margin: 5px !important;
+		border-color: white !important;
 
 		a{
 			color: white !important;
-			font-weight: bold !important;
+			font-weight: bold !important;	
+			text-transform: lowercase;	
 		}
 
 		&:last-child{
@@ -177,9 +195,11 @@ hr{ border: 3px solid black !important; }
 .no-p-r{ padding-right: 0; }
 
 @import '_menu';
+@import '_home';
 @import '_archive';
 @import '_single';
 @import '_colors';
 @import '_specials';
 @import '_fixes';
+@import '_footer';
 
