@@ -1,0 +1,23 @@
+.home-banner{
+	width: 100%;
+	height: calc(100% - 75px);
+	background-color: purple;
+
+	h1{
+		color: white;
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 60px;
+		display: block;
+		width: 60%;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		margin: 0 auto;
+
+		p{
+			font-size: 18px;
+			font-weight: 400;
+		}
+	} 
+}

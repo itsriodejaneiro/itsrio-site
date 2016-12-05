@@ -1,0 +1,28 @@
+footer{
+	width: 100%;
+	background-color: rgb(38, 38, 38);
+	padding: 40px 30px;
+	overflow: hidden;
+
+	&, p, b, li, a, input {
+		color: white;
+		font-size: 15px;
+	}
+
+	a:hover, a:active{ color: white; }
+
+	input[type=text]{
+		border: none;
+		border-bottom: 1px solid white; 
+		background-color: transparent;
+		width: 470px;
+		font-family: 'Raleway';
+		outline: none;
+	}
+
+	ul, li{
+		display: block;
+		padding-bottom: 10px;
+		a { margin: 0 !important; }
+	}
+}
