@@ -87,12 +87,7 @@ function its_meta_boxes($meta_boxes) {
 				),
 			)
 		],
-		);
-
-	// dd(get_permalink($_GET['post']));
-	// dd("http://" . $_SERVER['SERVER_NAME'] ."/");
-	if(!in_array(strtolower(get_the_title($_GET['post'])), ['home','página inicial','homepage'])){
-		$meta_boxes[] = [
+		[
 		'id'         => 'its_pessoas',
 		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
 		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp' ],
@@ -110,8 +105,9 @@ function its_meta_boxes($meta_boxes) {
 				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
 				),
 			)
-		];
-	}
+		]
+		);
+
 	return $meta_boxes;
 }
 
