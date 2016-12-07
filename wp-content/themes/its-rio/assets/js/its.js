@@ -44,18 +44,17 @@ Vue.component('its-pessoas', {
 
 Vue.component('its-informacoes', {
 	data: function data() {
-		return {
-			informacoes: informacoes,
-			aulas: aulas
-		};
+		return aulas !== undefined ? { informacoes: informacoes, aulas: aulas } : { informacoes: informacoes };
 	}
 });
 
 new Vue({
-	el: '#content',
+	el: '#content_all',
 	data: site_data,
 	mounted: function mounted() {
 		$ = jQuery;
+
+		$('.home-cover').css('height', $(window).height() + 'px');
 
 		$('.related-post .large-4:gt(2)').hide();
 

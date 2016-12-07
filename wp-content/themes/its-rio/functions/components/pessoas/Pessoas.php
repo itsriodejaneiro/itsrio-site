@@ -6,7 +6,7 @@ class Pessoas extends ET_Builder_Module {
 		$this->slug = 'et_pb_pessoas';
 		$this->fb_support = true;
 
-		$this->whitelisted_fields = ['title','excerpt'];
+		$this->whitelisted_fields = ['title','excerpt','categorized'];
 
 		$this->fields_defaults = [];
 
@@ -23,6 +23,14 @@ class Pessoas extends ET_Builder_Module {
 				'label'             => esc_html__( 'Texto (opcional)', 'et_builder' ),
 				'type'              => 'text',
 				),
+			'categorized' => array(
+				'label'             => esc_html__( 'Agrupar pessoas por categoria?', 'et_builder' ),
+				'type'              => 'yes_no_button',
+				'options'           => array(
+					'off' => esc_html__( "Não", 'et_builder' ),
+					'on'  => esc_html__( 'Sim', 'et_builder' ),
+					),
+				),
 			);
 		return $fields;
 	}
@@ -37,6 +45,7 @@ class Pessoas extends ET_Builder_Module {
 
 		$moduleTitle = $this->shortcode_atts['title'];
 		$moduleExcerpt = $this->shortcode_atts['excerpt'];
+		$moduleExcerpt = $this->shortcode_atts['categorized'];
 
 		$data['its_tabs'][] = $moduleTitle;
 
@@ -59,7 +68,6 @@ class Pessoas extends ET_Builder_Module {
 					'content' => $p['post_content'],
 					'thumb' => get_the_post_thumbnail_url($p['ID']),
 					);
-
 			foreach($cat as $c){
 				$cc = (array)$c;
 				$listaCategorizada = true;
@@ -79,7 +87,7 @@ class Pessoas extends ET_Builder_Module {
 
 		ob_start();
 
-		if($listaCategorizada)
+		if($listaCategorizada && $categorized == 'on')
 			include(__DIR__.'/view_pessoas_cat.php');
 		else
 			include(__DIR__.'/view_pessoas.php');

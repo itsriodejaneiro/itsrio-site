@@ -23,6 +23,7 @@
 
 </head>
 <body <?php body_class(); ?>>
+<div id="content_all">
 	<style>
 		html{ margin-top: 0 !important;  }
 	</style>
@@ -43,8 +44,12 @@
 	global $title;
 	$title = $titles[$postType];
 
-	if(is_front_page())
-		include (ROOT.'inc/home-cover.php');
+
+	if(is_front_page()){
+		?>
+		<div v-html="home_cover"></div>
+		<?php
+	}
 	?>
 
 	<div class="row row-menu <?= is_front_page() ? 'home' : 'fixed' ?>">

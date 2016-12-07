@@ -4,7 +4,7 @@ $tabs_content = '';
 
 class ET_Builder_Module_Home_Areas extends ET_Builder_Module {
 	function init() {
-		$this->name            = esc_html__( 'ITS - Home Areas', 'et_builder' );
+		$this->name            = esc_html__( 'Home ITS - Areas', 'et_builder' );
 		$this->slug            = 'et_pb_home_areas';
 		$this->child_slug      = 'et_pb_home_areas_item';
 		$this->child_item_text = esc_html__( 'Área', 'et_builder' );

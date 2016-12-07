@@ -36,6 +36,7 @@
 		<div class="column large-9 raleway"><?= esc_attr( get_option('footer_adress') );  ?></div>
 	</div>
 </footer>
+</div>
 
 <?php global $data; global $components; global $postType; ?>
 

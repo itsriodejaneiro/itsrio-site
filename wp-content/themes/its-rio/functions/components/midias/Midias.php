@@ -1,114 +1,111 @@
-<?php 
+<?php
 
-class Midias extends ET_Builder_Module {
+$tabs_content = '';
+
+class ET_Builder_Module_Midias extends ET_Builder_Module {
 	function init() {
-		$this->name       = esc_html__( 'ITS - Midias', 'et_builder' );
-		$this->slug       = 'et_pb_its_midias';
+		$this->name            = esc_html__( 'ITS - Mídias', 'et_builder' );
+		$this->slug            = 'et_pb_midias';
+		$this->child_slug      = 'et_pb_midias_item';
+		$this->child_item_text = esc_html__( 'Mídia', 'et_builder' );
 
 		$this->whitelisted_fields = array(
-			'src',
-			'gallery_ids',
-			'gallery_orderby',
-			'title',
-			'module_id',
-			'module_class',
+			'par_title',
 			);
-
-		$this->fields_defaults = [];
-		$this->main_css_element = '%%order_class%%.et_pb_its_midias';
-		$this->advanced_options = [];
-		$this->custom_css_options = [];
 	}
 
 	function get_fields() {
 		$fields = array(
-			'src' => array(
-				'label'           => esc_html__( 'Gallery Images', 'et_builder' ),
-				'renderer'        => 'et_builder_get_gallery_settings',
-				'option_category' => 'basic_option',
-				),
-			'title' => array(
-				'label'             => esc_html__( 'Título', 'et_builder' ),
-				'type'              => 'text',
-				),
-			'gallery_ids' => array(
-				'type'  => 'hidden',
-				'class' => array( 'et-pb-gallery-ids-field' ),
-				),
-			'gallery_orderby' => array(
-				'label' => esc_html__( 'Gallery Images', 'et_builder' ),
-				'type'  => 'hidden',
-				'class' => array( 'et-pb-gallery-ids-field' ),
-				),
-			'module_id' => array(
-				'label'           => esc_html__( 'CSS ID', 'et_builder' ),
-				'type'            => 'text',
-				'option_category' => 'configuration',
-				'tab_slug'        => 'custom_css',
-				'option_class'    => 'et_pb_custom_css_regular',
-				),
-			'module_class' => array(
-				'label'           => esc_html__( 'CSS Class', 'et_builder' ),
-				'type'            => 'text',
-				'option_category' => 'configuration',
-				'tab_slug'        => 'custom_css',
-				'option_class'    => 'et_pb_custom_css_regular',
+			'par_title' => array(
+				'label'       => esc_html__( 'Título da seção', 'et_builder' ),
+				'type'        => 'text',
 				),
 			);
-
 		return $fields;
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
-		$module_id              = $this->shortcode_atts['module_id'];
-		$module_class           = $this->shortcode_atts['module_class'];
-		$gallery_ids            = $this->shortcode_atts['gallery_ids'];
-		$title 		            = $this->shortcode_atts['title'];
-
 		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
 
-		$attachments = array();
-		if ( ! empty( $gallery_ids ) ) {
-			$attachments_args = array(
-				'include'        => $gallery_ids,
-				'post_status'    => 'inherit',
-				'post_type'      => 'attachment',
-				'post_mime_type' => 'image',
-				'order'          => 'ASC',
-				'orderby'        => 'post__in',
-				);
+		$par_title = $this->shortcode_atts['par_title'];
+		$all_tabs_content = $this->shortcode_content;
+		
+		$data['its_tabs'][] = $par_title;
 
-			$_attachments = get_posts( $attachments_args );
-
-			foreach ( $_attachments as $key => $val ) {
-				$attachments[$val->ID] = $_attachments[$key];
-			}
-		}
-
-		if ( empty($attachments) )
-			return '';
-
-		wp_enqueue_script( 'hashchange' );
-
-
-		$i = 0;
-		foreach ( $attachments as $id => $attachment ) {
-			$width =  1080;
-			$width = (int) apply_filters( 'et_pb_its_midias_image_width', $width );
-
-			$height = 9999;
-			$height = (int) apply_filters( 'et_pb_its_midias_image_height', $height );
-
-			list($full_src, $full_width, $full_height) = wp_get_attachment_image_src( $id, 'full' );
-			$gallery[] = ['src' => esc_url($full_src), 'title' => esc_attr($attachment->post_excerpt) ];
-		}
+		global $et_pb_tab_titles;
+		global $et_pb_tab_classes;
+		global $tabs_content;
+		global $data;
+		global $components;
+		global $meta;
 
 		ob_start();
 		include(__DIR__.'/view_midias.php');
 		$output = ob_get_contents();
 		ob_end_clean();
 
+		// for ($i=0; $i < count($tabs_content); $i++) {
+		// 	$components['informacoes'][] = [
+		// 	'title' => $et_pb_tab_titles[$i],
+		// 	'content' => trim(preg_replace('/\s+/', ' ', $tabs_content[$i]))
+		// 	];
+		// }
+
+		// wp_reset_postdata();
+
 		return $output;
 	}
 }
-new Midias;
+new ET_Builder_Module_Midias;
+
+class ET_Builder_Module_Midias_Item extends ET_Builder_Module {
+	function init() {
+		$this->name = esc_html__( 'Home ITS - Capa', 'et_builder' );
+		$this->slug = 'et_pb_midias_item';
+		$this->type                        = 'child';
+		$this->child_title_var             = 'title';
+
+		$this->whitelisted_fields = ['title','url', 'description'];
+		
+		$this->advanced_setting_title_text = esc_html__( 'Nova Mídia', 'et_builder' );
+		$this->settings_text               = esc_html__( 'Configurações', 'et_builder' );
+	}
+
+	function get_fields() {
+		$fields = array(
+			'title' => array(
+				'label'             => esc_html__( 'Título', 'et_builder' ),
+				'type'              => 'text',
+				),
+			'description' => array(
+				'label'             => esc_html__( 'Descrição', 'et_builder' ),
+				'type'              => 'tiny_mce',
+				),
+			'url' => array(
+				'label'             => esc_html__( 'ID do vídeo no YouTube', 'et_builder' ),
+				'type'              => 'text',
+				'description'		=> esc_html__('O ID do vídeo é o que vem depoisdo "?v=" na URL, aqui representado por "XXXXX": "www.youtube.com/watch?v=XXXXX"', 'et_builder')
+				),
+			);
+		return $fields;
+	}
+
+	function shortcode_callback( $atts, $content = null, $function_name ) {
+		global $et_pb_tab_titles;
+		global $et_pb_tab_classes;
+		global $tabs_content;
+
+		$i = 0;
+		$title = $this->shortcode_atts['title'];
+		$url = $this->shortcode_atts['url'];
+
+		$module_class = ET_Builder_Element::add_module_order_class( '', $function_name );
+
+		$et_pb_tab_titles[]  = '' !== $title ? $title : esc_html__( 'Mídia', 'et_builder' );
+		$et_pb_tab_classes[] = $module_class;
+		$description = $this->shortcode_content;
+		$tabs_content[] = compact('title','description','url');
+
+	}
+}
+new ET_Builder_Module_Midias_Item;

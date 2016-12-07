@@ -51,7 +51,6 @@ function DS_Custom_Modules(){
 		include("publicacoes/Publicacoes.php");
 		include("pessoas/Pessoas.php");
 		include("partner/Partner.php");
-		include("midias/Midias.php");
 		include("comunicados/Comunicados.php");
 		include("informacoes/Informacoes.php");
 		include("tema/Tema.php");
@@ -60,6 +59,8 @@ function DS_Custom_Modules(){
 		include("home_banner/HomeBanner.php");
 		include("home_cards/HomeCards.php");
 		include("home_areas/HomeAreas.php");
+		include("home_cover/HomeCover.php");
+		include("midias/Midias.php");
 	}
 }
 
