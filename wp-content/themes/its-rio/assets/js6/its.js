@@ -118,11 +118,7 @@ new Vue({
 		var _this = this;
 		$.ajax({
 			type:"POST",
-			beforeSend: function (request) {
-				request.setRequestHeader("Accept","application/json");
-				request.setRequestHeader("Content-Type","application/json");
-			},
-			url: 'https://medium.com/@ev/latest',
+			url: 'https://medium.com/@ITSriodejaneiro/latest?format=json',
 			success: function(data) {
 				console.log(data);
 				_this.footer.medium = data.payload.references.User.Collection;

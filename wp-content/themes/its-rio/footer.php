@@ -13,7 +13,7 @@
 		<p><b>contatos: </b> <?= esc_attr(get_option('footer_contacts')) ?></p>
 	</div>
 	<div class="column large-6">
-		<input type="text" placeholder="escreva seu e-mail para receber nossos comunicados">
+		<input type="text" placeholder="newsletter">
 		<a href="#" class="box">inscreva-se</a>
 		<br>
 		<br>

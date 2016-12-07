@@ -2845,6 +2845,19 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   -webkit-box-align: center;
   align-items: center;
   background-size: cover;
+  position: relative;
+  z-index: -2;
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+}
+
+.header-single:before {
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  opacity: 0.75;
+  position: absolute;
 }
 
 .header-single .row {
@@ -2853,7 +2866,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 }
 
 .header-single a {
-  text-shadow: 0px 0px 5px black;
   text-transform: lowercase;
 }
 
@@ -2864,7 +2876,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   font-size: 17px;
   font-weight: 700;
   font-family: 'Raleway';
-  text-shadow: 0px 0px 5px black;
 }
 
 .header-single h1.raleway, .header-single p.raleway {
@@ -3306,7 +3317,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   color: #522E91;
 }
 
-.single-cursos_ctp .list-item:hover, .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .post-type-archive-cursos_ctp .list-item:hover, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single {
+.single-cursos_ctp .list-item:hover, .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .single-cursos_ctp .header-single:before, .post-type-archive-cursos_ctp .list-item:hover, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single:before {
   background-color: #522E91 !important;
 }
 
@@ -3323,7 +3334,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   color: #00958A;
 }
 
-.single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single {
+.single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single, .single-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single, .post-type-archive-varandas_ctp .header-single:before {
   background-color: #00958A !important;
 }
 
@@ -3336,7 +3347,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   color: #F5821F;
 }
 
-.single-publicacoes_ctp .list-item:hover, .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .list-item:hover, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single {
+.single-publicacoes_ctp .list-item:hover, .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .list-item:hover, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
   background-color: #F5821F !important;
 }
 
@@ -3349,7 +3360,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   color: #9A258F;
 }
 
-.single-projetos_ctp .list-item:hover, .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .post-type-archive-projetos_ctp .list-item:hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single {
+.single-projetos_ctp .list-item:hover, .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .list-item:hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
   background-color: #9A258F !important;
 }
 

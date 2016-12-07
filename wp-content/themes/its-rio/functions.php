@@ -8,7 +8,7 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-// error_reporting(E_ERROR);
+error_reporting(E_ERROR);
 
 $data = [ 'single_menu_active' => '0', 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
