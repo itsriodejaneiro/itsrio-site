@@ -44,7 +44,7 @@ Vue.component('its-pessoas', {
 
 Vue.component('its-informacoes', {
 	data: function data() {
-		return aulas !== undefined ? { informacoes: informacoes, aulas: aulas } : { informacoes: informacoes };
+		return typeof aulas != 'undefined' ? { informacoes: informacoes, aulas: aulas } : { informacoes: informacoes };
 	}
 });
 

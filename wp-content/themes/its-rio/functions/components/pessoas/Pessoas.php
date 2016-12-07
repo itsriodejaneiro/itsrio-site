@@ -45,7 +45,7 @@ class Pessoas extends ET_Builder_Module {
 
 		$moduleTitle = $this->shortcode_atts['title'];
 		$moduleExcerpt = $this->shortcode_atts['excerpt'];
-		$moduleExcerpt = $this->shortcode_atts['categorized'];
+		$categorized = $this->shortcode_atts['categorized'];
 
 		$data['its_tabs'][] = $moduleTitle;
 
@@ -57,37 +57,38 @@ class Pessoas extends ET_Builder_Module {
 		$listaCategorizada = false;
 
 		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'post__in' => $ids ]);
-
+		
 		foreach ($query_palestrantes as $postt) {
 			$p = (array)$postt;
 			$cat = get_the_category($p['ID']);
-			if(!$cat)
+			if(!$cat || $categorized == 'off')
 				$cats[] =  array(
 					'ID' => $p['ID'],
 					'title' => $p['post_title'],
 					'content' => $p['post_content'],
 					'thumb' => get_the_post_thumbnail_url($p['ID']),
 					);
-			foreach($cat as $c){
-				$cc = (array)$c;
-				$listaCategorizada = true;
-				$cats[$cc['name']]['pessoaActive'] = '';
+			if($categorized == 'on'){
+				foreach($cat as $c){
+					$cc = (array)$c;
+					$listaCategorizada = true;
+					$cats[$cc['name']]['pessoaActive'] = '';
 
-				$cats[$cc['name']][] = array(
-					'ID' => $p['ID'],
-					'title' => $p['post_title'],
-					'content' => $p['post_content'],
-					'thumb' => get_the_post_thumbnail_url($p['ID']) 
-					);
-			}		
+					$cats[$cc['name']][] = array(
+						'ID' => $p['ID'],
+						'title' => $p['post_title'],
+						'content' => $p['post_content'],
+						'thumb' => get_the_post_thumbnail_url($p['ID']) 
+						);
+				}		
+			}
 		}
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
 
-
 		ob_start();
 
-		if($listaCategorizada && $categorized == 'on')
+		if($listaCategorizada)
 			include(__DIR__.'/view_pessoas_cat.php');
 		else
 			include(__DIR__.'/view_pessoas.php');
