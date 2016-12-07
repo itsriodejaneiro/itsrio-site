@@ -1,17 +1,12 @@
-<div class="home-cover"  
-data-flickity='{ "freeScroll": false, "autoPlay" : true, "prevNextButtons": false,"pageDots": false 
-}'>
+<div class="home-cover" >
 	<?php
-	foreach ($gallery as $image){
-		?>
-		<div class="home-cover-carousel-item" style="background-image: url(<?= $image['src'] ?>)">
-			<h1>
-				<?= $image['title'] ?>
-				<br>
-				<p class="subtitle"><?= $title ?></p>
-			</h1>
-		</div>
-		<?php
-	}
+	$image = $gallery[rand(0,count($gallery) -1)];
 	?>
+	<div class="home-cover-carousel-item" style="background-image: url(<?= $image['src'] ?>)">
+		<h1>
+			<?= $image['title'] ?>
+			<br>
+			<p class="subtitle"><?= $title ?></p>
+		</h1>
+	</div>
 </div>
