@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="component-tabs-title">
 				<h2 class="tab-title list-title">informações</h2>
-				<h5 class="label">vagas limitadas</h5>
+				<h5 class="label">mais informações</h5>
 			</div>
 			<div class="tab-content">
 				<div v-for="(informacao, i) in informacoes" class="component-tabs-tab">
@@ -38,6 +38,15 @@
 						else: ?>
 						<div class="columns large-12"><?= $meta['info_datahorario'][0] ?></div>
 					<?php endif; ?>
+				</div>
+			</div>
+			<div class="fazer-minha-inscricao">
+				<div class="column large-5 no-p">
+					<h1>gostou do tema  deste curso?</h1>
+				</div>
+				<div class="column large-7 no-p end">
+					<a href="#" class="button large orange">fazer minha inscrição</a>
+					<span>só leva um minuto : )</span>
 				</div>
 			</div>
 		</div>

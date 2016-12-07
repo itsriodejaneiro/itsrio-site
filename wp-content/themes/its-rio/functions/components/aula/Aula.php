@@ -58,6 +58,7 @@ class Aula extends ET_Builder_Module {
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
+		global $closed;
 		global $wp_filter;
 		global $paged;
 		global $post;

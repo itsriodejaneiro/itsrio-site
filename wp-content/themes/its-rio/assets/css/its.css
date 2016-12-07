@@ -2554,7 +2554,7 @@ hr {
 }
 
 .menu-container {
-  height: 75px;
+  height: 75px 0px;
   box-shadow: 0 4px 7px -5px black;
   padding: 17px 35px;
   position: relative;
@@ -2663,12 +2663,11 @@ hr {
 }
 
 #content {
-  margin: 75px;
+  margin: 75px 0px;
 }
 
 .home-cover {
   width: 100%;
-  margin-top: -32px;
   background-color: purple;
 }
 
@@ -2936,7 +2935,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 
 .header-single-menu.fixed {
   position: fixed;
-  top: 75px;
+  top: 75px 0px;
   box-shadow: 0 4px 7px -5px black;
 }
 
@@ -3308,6 +3307,30 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   cursor: pointer;
 }
 
+.fazer-minha-inscricao h1 {
+  font-family: 'Raleway';
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1.33;
+  color: #9a258f;
+}
+
+.fazer-minha-inscricao a, .fazer-minha-inscricao span {
+  font-weight: bold;
+  font-family: 'Roboto Mono';
+  display: block;
+  color: black !important;
+}
+
+.fazer-minha-inscricao a {
+  margin: 20px 20px 10px 20px;
+}
+
+.fazer-minha-inscricao span {
+  text-align: center;
+  font-size: 18px;
+}
+
 .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522E91;
   font-weight: bold;
@@ -3409,8 +3432,12 @@ html, body {
   height: 100%;
 }
 
+body {
+  margin-top: -32px;
+}
+
 .row.row-menu.spread-items.header-single-menu.fixed {
-  top: 75px;
+  top: 82px;
 }
 
 .et_divi_builder #et_builder_outer_content .et_pb_row {

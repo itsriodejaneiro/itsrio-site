@@ -4,8 +4,8 @@
 	background-size: cover;
 	position: relative;
 	z-index: -2;
-    filter: grayscale(50%);
-    
+	filter: grayscale(50%);
+
 	&:before{
 		top: 0;
 		width: 100%;
@@ -430,7 +430,6 @@
 	}
 }
 
-
 /* COMPONENT PARTNERS */
 .content-partners{
 	img{
@@ -443,5 +442,29 @@
 .midias-thumbs{
 	img{
 		cursor: pointer;
+	}
+}
+
+.fazer-minha-inscricao{
+	h1{
+		font-family: 'Raleway';
+		font-size: 36px;
+		font-weight: normal;
+		line-height: 1.33;
+		color: #9a258f;
+	}
+
+	a, span{
+		font-weight: bold;
+		font-family: 'Roboto Mono';
+		display: block;
+		color: black !important;
+	}
+
+	a{ margin: 20px 20px 10px 20px; }
+
+	span{
+		text-align: center;
+		font-size: 18px;
 	}
 }

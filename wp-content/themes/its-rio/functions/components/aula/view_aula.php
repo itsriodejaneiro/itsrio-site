@@ -3,14 +3,16 @@
 		<div class="row">
 			<div class="component-tabs-title">
 				<h2 class="tab-title list-title">aulas</h2>
-				<h5 class="tab-title">agenda <i class="fa fa-calendar"></i></h5>
-				<ul>
-					<li v-for="(aula, i) in aulas">
-						<b>{{ i + 1 }}º aula</b>
-						<br>
-						<p>{{ aula.date }}</p>
-					</li>
-				</ul>
+				<?php if(!closed): ?>
+					<h5 class="tab-title">agenda <i class="fa fa-calendar"></i></h5>
+					<ul>
+						<li v-for="(aula, i) in aulas">
+							<b>{{ i + 1 }}º aula</b>
+							<br>
+							<p>{{ aula.date }}</p>
+						</li>
+					</ul>
+				<?php endif; ?>
 			</div>
 			<div class="tab-content">
 				<div v-for="(aula, i) in aulas" class="component-tabs-tab">

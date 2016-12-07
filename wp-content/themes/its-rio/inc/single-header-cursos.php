@@ -1,6 +1,5 @@
 <?php $img = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full'); ?>
-<div class="row row-menu header-single" 
-	style="background: url(<?= isset($img[0]) ? $img[0] : ''; ?>)">
+<div class="row row-menu header-single" style="background: url(<?= isset($img[0]) ? $img[0] : ''; ?>)">
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
@@ -8,14 +7,18 @@
 			<hr>
 		</div>
 		<div class="column large-4">
-			<p class="box-title">data</p>
-			<p class="box">
+			<?php if(!closed): ?>
+				<p class="box-title">data</p>
+				<p class="box">
 					inscrições até
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
 					|
 					início do curso
 					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
-			</p>
+				</p>
+			<?php else: ?>
+				<p class="box-title">Curso encerrado</p>
+			<?php endif; ?>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>
@@ -27,7 +30,11 @@
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
 		<div class="sidebar">
-			<a href="#" class="button large curved-shadow">inscreva-se</a>
+			<?php if(!$closed): ?>
+				<a href="#" class="button large curved-shadow">inscreva-se</a>
+			<?php else: ?>
+				<a href="#" class="button large curved-shadow">novas turmas</a>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

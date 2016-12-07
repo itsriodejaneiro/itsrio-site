@@ -7,8 +7,12 @@
 			<hr>
 		</div>
 		<div class="column large-4">
-			<p>horário</p>
-			<p class="box">direito e technologia</p>
+			<?php if(!closed): ?>
+				<p>horário</p>
+				<p class="box">direito e technologia</p>
+			<?php else: ?>
+				<p style="font-size: 20px">Varanda encerrada</p>
+			<?php endif; ?>
 		</div>
 		<div class="column large-4 end">
 			<p>categorias</p>
@@ -19,9 +23,11 @@
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
-		<div class="sidebar">
+		<?php if(!$closed): ?>
 			<a href="#" class="button large curved-shadow">inscreva-se</a>
-		</div>
+		<?php else: ?>
+			<a href="#" class="button large curved-shadow">sugira um tema</a>
+		<?php endif; ?>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

@@ -2,8 +2,12 @@ html, body{
 	height: 100%;
 }
 
+body{
+	margin-top: -32px;
+}
+
 .row.row-menu.spread-items.header-single-menu.fixed {
-	top: 75px;
+	top: 82px;
 }
 .et_divi_builder #et_builder_outer_content .et_pb_row{
 	max-width: 100% !important;
