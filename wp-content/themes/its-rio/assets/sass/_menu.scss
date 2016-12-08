@@ -1,7 +1,5 @@
-$menu-height : 75px 0px;
-
 .menu-container{
-	height: $menu-height;
+	height: 75px;
 	box-shadow: 0 4px 7px -5px black;
 	padding: 17px 35px; //estranho
 	position: relative;
@@ -90,7 +88,7 @@ $menu-height : 75px 0px;
 }
 
 #content{
-	margin: $menu-height;
+	margin: 75px 0px;
 }
 
 // area = {

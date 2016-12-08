@@ -30,10 +30,10 @@ p, hr{
 }
 
 hr{ 
-    display: block;
-    height: 3px;
-    border: none !important;
-    background: black;
+	display: block;
+	height: 3px;
+	border: none !important;
+	background: black;
 }
 
 
@@ -62,7 +62,7 @@ hr{
 	margin-top: 35px !important;
 	position: relative !important;
 	transition: box-shadow .3s !important;
-
+	
 	&:hover{
 		box-shadow: 0 0 15px #8a8a8a !important;
 
@@ -102,6 +102,7 @@ hr{
 		align-items: center !important;
 		margin-left: 10px !important;
 		margin-bottom: 5px !important;
+		a { color: white };
 	}
 }
 

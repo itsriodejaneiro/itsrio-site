@@ -6,9 +6,14 @@ body{
 	margin-top: -32px;
 }
 
-.row.row-menu.spread-items.header-single-menu.fixed {
-	top: 82px;
+.home-cover + .row-menu.home + #content{
+	margin: 0px;
 }
+
+.row.row-menu.spread-items.header-single-menu.fixed {
+	top: 75px;
+}
+
 .et_divi_builder #et_builder_outer_content .et_pb_row{
 	max-width: 100% !important;
 }

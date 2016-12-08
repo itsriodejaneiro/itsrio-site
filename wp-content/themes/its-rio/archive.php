@@ -13,7 +13,30 @@ get_header();
 	if ($posts->have_posts()) {
 		?>
 		<div class="column large-12">
-			<h2 class="list-title"><?= "próxim{$title['gender']}s {$title['plural']}" ?></h2>
+			<?php 
+			switch ($postType) {
+				case 'projetos_ctp':
+					$bannerTitle = 'projetos em destaque';
+					$bannerCards = 'outros projetos';				
+				break;
+				case 'cursos_ctp':
+					$bannerTitle = 'cursos em destaque';
+					$bannerCards = 'outros cursos';				
+				break;
+				case 'publicacoes_ctp':
+					$bannerTitle = 'publicações em destaque';
+					$bannerCards = 'outras publicações';				
+				break;
+				case 'varandas_ctp':
+					$bannerTitle = 'varandas em destaque';
+					$bannerCards = 'outros varandas';				
+				break;
+
+				default:
+				break;
+			}
+			?>
+			<h2 class="list-title"><?= "{$title['plural']} em destaque" ?></h2>
 
 			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 				<?php
@@ -64,7 +87,7 @@ get_header();
 	?>
 	<div class="older-posts">
 		<div class="column large-12">
-			<h2 class="list-title"><?= "{$title['plural']} antig{$title['gender']}s" ?></h2>
+			<h2 class="list-title"><?= "outr{$title['gender']}s {$title['plural']}" ?></h2>
 		</div>
 		<?php
 		query_posts(array(

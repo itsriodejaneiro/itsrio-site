@@ -40,15 +40,6 @@
 					<?php endif; ?>
 				</div>
 			</div>
-			<div class="fazer-minha-inscricao">
-				<div class="column large-5 no-p">
-					<h1>gostou do tema  deste curso?</h1>
-				</div>
-				<div class="column large-7 no-p end">
-					<a href="#" class="button large orange">fazer minha inscrição</a>
-					<span>só leva um minuto : )</span>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

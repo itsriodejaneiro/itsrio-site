@@ -21,7 +21,7 @@
 						<p class="left">{{ aula.subtitle }}</p> <p class="right"> com {{ aula.palestrante }}</p>
 					</div>
 					<input type="checkbox" v-bind:id="'check_aula_' + i">
-					<label v-bind:for="'check_aula_' + i"></label>
+					<label class="label-tab" v-bind:for="'check_aula_' + i"></label>
 					<div class="component-tabs-content" v-html="aula.content"> </div>
 				</div>
 			</div>

@@ -2441,6 +2441,10 @@ hr {
   margin-bottom: 5px !important;
 }
 
+.list-item .categories a {
+  color: white;
+}
+
 .spread-items {
   display: -webkit-box;
   display: flex;
@@ -2554,7 +2558,7 @@ hr {
 }
 
 .menu-container {
-  height: 75px 0px;
+  height: 75px;
   box-shadow: 0 4px 7px -5px black;
   padding: 17px 35px;
   position: relative;
@@ -2796,7 +2800,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 }
 
 .highlights hr {
-  border-color: white !important;
+  background: white !important;
 }
 
 .highlights:hover {
@@ -2935,7 +2939,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 
 .header-single-menu.fixed {
   position: fixed;
-  top: 75px 0px;
+  top: 75px;
   box-shadow: 0 4px 7px -5px black;
 }
 
@@ -3011,7 +3015,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 }
 
 .content-area {
-  padding-top: 50px;
+  padding: 40px;
 }
 
 .content-area .row {
@@ -3090,6 +3094,11 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   -webkit-filter: grayscale(1);
   -webkit-filter: grayscale(100%);
   cursor: pointer;
+}
+
+.pessoa .pessoa-mini img:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 .pessoa .pessoa-mini img:img {
@@ -3375,16 +3384,16 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
 }
 
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #9A258F;
+  border-bottom: 5px solid #553292;
   font-weight: bold;
 }
 
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a {
-  color: #9A258F;
+  color: #553292;
 }
 
 .single-projetos_ctp .list-item:hover, .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .list-item:hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
-  background-color: #9A258F !important;
+  background-color: #553292 !important;
 }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -3436,8 +3445,12 @@ body {
   margin-top: -32px;
 }
 
+.home-cover + .row-menu.home + #content {
+  margin: 0px;
+}
+
 .row.row-menu.spread-items.header-single-menu.fixed {
-  top: 82px;
+  top: 75px;
 }
 
 .et_divi_builder #et_builder_outer_content .et_pb_row {

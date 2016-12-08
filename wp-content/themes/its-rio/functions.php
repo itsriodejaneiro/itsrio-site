@@ -14,9 +14,14 @@ $data = [ 'single_menu_active' => '0', 'footer' => [ 'medium' => [], 'youtube' =
 $components = [];
 
 $title = '';
+$titles = '';
 $postType;
 
 define('ROOT',__DIR__.'/');
+define('YOUTUBE_KEY', 'AIzaSyCiKcRsuOdRuo0qWGR6n09UdiCiz5A4uzY');
+define('YOUTUBE_ID', 'UC61OfX5yfm-G8O1sZ7TKlGQ');
+
+// include('medium.php');
 
 include 'functions/post_types.php';
 include 'functions/meta.php';
@@ -24,7 +29,7 @@ include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
 
 function wpdocs_custom_excerpt_length( $length ) {
-    return 30;
+	return 30;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
@@ -54,7 +59,14 @@ function get_thumbnail_url_full($id){
 	return wp_get_attachment_image_src(get_post_thumbnail_id($id),'full')[0];
 }
 
-
+function curl($url){
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$output = curl_exec($ch);
+	curl_close($ch);
+	return $output;
+}
 
 
 

@@ -93,7 +93,7 @@ new Vue({
 		} catch (e) {}
 
 		//Adiciona a classe de active ao post type correspondente no menu global.
-		$("a[href=<?= $postType ?>]").parent().addClass('current-menu-item');
+		$("a[href='/" + post_type + "']").parent().addClass('current-menu-item');
 
 		//Smooth scroll
 		$('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function () {
@@ -116,7 +116,7 @@ new Vue({
 
 		var _this = this;
 		$.ajax({
-			type: "POST",
+			type: "GET",
 			url: 'https://medium.com/@ITSriodejaneiro/latest?format=json',
 			success: function success(data) {
 				console.log(data);

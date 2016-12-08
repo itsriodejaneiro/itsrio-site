@@ -1,6 +1,6 @@
-<?php global $title; ?>
+<?php global $titles; ?>
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
-	<?= !isset($no_label) ? $title['plural'] : '' ?>
+	<?= !isset($no_label) && !$no_label ? $titles[get_post_type()]['plural'] : ''  ?>
 	<ul>
 		<?php
 		$categories = get_the_category();

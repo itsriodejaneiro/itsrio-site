@@ -17,7 +17,7 @@
 			</div>
 			<?php
 		} ?>
-		<div class="tab-content raleway">
+		<div class="tab-content raleway" style="padding: 0;">
 			<h3 class="raleway"><b><?= $title ?></b></h3>
 			<p><?= $content ?></p>
 		</div>

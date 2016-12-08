@@ -65,7 +65,7 @@ class Comunicados extends ET_Builder_Module {
 					'title' => $post['post_title'],
 					'permalink' => get_permalink($post['ID']),
 					'excerpt' => $post['post_excerpt'],
-					'thumb' => wp_get_attachment_image_src( get_post_thumbnail_id( $post['ID'] ))[0],
+					'thumb' => get_thumbnail_url_full( $post['ID'] ),
 					);
 			}
 		}

@@ -29,7 +29,8 @@
 	</style>
 	<?php
 	global $postType;
-
+	global $titles; 
+	
 	$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
 	$titles = [
@@ -47,7 +48,7 @@
 
 	if(is_front_page()){
 		?>
-		<div v-html="home_cover"></div>
+		<div class="home-cover" v-html="home_cover"></div>
 		<?php
 	}
 	?>
