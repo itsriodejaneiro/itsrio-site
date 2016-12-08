@@ -19,18 +19,7 @@
 		<br>
 		<br>
 	</div>
-	<div class="column large-3">
-		<p><b>últimos artigos (Medium)</b></p>
-		<p class="desc"></p>
-	</div>
-	<div class="column large-3">
-		<p><b>últimos vídeos (YouTube)</b></p>
-		<p class="desc"></p>
-	</div>
-	<div class="column large-3">
-		<p><b>#trending tags</b></p>
-		<p class="desc"></p>
-	</div>
+	<?php include 'latest-social-content.php'; ?>
 	<div style="overflow: hidden; clear: both">
 		<div class="column large-3"><small>desenvolvido por <a href="#">Hacklab</a></small></div>
 		<div class="column large-9 raleway"><?= esc_attr( get_option('footer_adress') );  ?></div>
