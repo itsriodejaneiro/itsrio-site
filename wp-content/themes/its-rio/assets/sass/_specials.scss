@@ -1,55 +1,35 @@
-// .curved-shadow{
-//     position: relative;
-
-//     &:before, &:after{
-//         z-index: -1;
-//         position: absolute;
-//         content: "";
-//         bottom: 14px;
-//         left: 0px;
-//         width: 50%;
-//         height: 1px;
-//         max-width:300px;
-//         background: black;
-//         box-shadow: 0 14px 8px #000;
-//         transform: rotate(-3deg);
-//     }
-
-//     &:after{
-//         transform: rotate(3deg);
-//         right: 0px;
-//         left: auto;
-//     }
-// }
-
 .curved-shadow {
     position: absolute;
-}
+    
+    &:before,
+    &:after {
+        bottom: 15px;
+        content: "";
+        height: 50%;
+        max-width: 300px;
+        position: absolute;
+        z-index: -1;
+        width: 50%;
+        -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+    }
 
-.curved-shadow::before,
-.curved-shadow::after {
-    bottom:15px;
-    left:10px;
-    content: "";
-    width:50%;
-    height:20%;
-    max-width:300px;
-    -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
-    box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
-    -webkit-transform:rotate(-3deg);
-    -moz-transform:rotate(-3deg);
-    -ms-transform:rotate(-3deg);
-    -o-transform:rotate(-3deg);
-    transform:rotate(-3deg);
-}
+    &:before {
+        left: 0px;
+        -webkit-transform: rotate(-6deg);
+        -moz-transform: rotate(-6deg);
+        -ms-transform: rotate(-6deg);
+        -o-transform: rotate(-6deg);
+        transform: rotate(-6deg);
+    }
 
-.curved-shadow::after {
-    right:10px;
-    left:auto;
-    -webkit-transform:rotate(3deg);
-    -moz-transform:rotate(3deg);
-    -ms-transform:rotate(3deg);
-    -o-transform:rotate(3deg);
-    transform:rotate(3deg);
+    &:after {
+        right: 0px;
+        -webkit-transform: rotate(6deg);
+        -moz-transform: rotate(6deg);
+        -ms-transform: rotate(6deg);
+        -o-transform: rotate(6deg);
+        transform: rotate(6deg);
+    }
 }
