@@ -116,16 +116,6 @@ new Vue({
 			}
 		});
 
-		var _this = this;
-		$.ajax({
-			type:"GET",
-			url: 'https://medium.com/@ITSriodejaneiro/latest?format=json',
-			success: function(data) {
-				console.log(data);
-				_this.footer.medium = data.payload.references.User.Collection;
-			}
-		});
-
 		$('.comunicados .related-post').masonry({
 			columnWidth : '.large-4',
 			selector : '.large-4',

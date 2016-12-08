@@ -17,7 +17,7 @@
 			</div>
 			<?php
 		} ?>
-		<div class="tab-content raleway" style="padding: 0;">
+		<div class="tab-content raleway" <?php if($closed): ?> style="padding: 0;" <?php endif; ?> >
 			<h3 class="raleway"><b><?= $title ?></b></h3>
 			<p><?= $content ?></p>
 		</div>

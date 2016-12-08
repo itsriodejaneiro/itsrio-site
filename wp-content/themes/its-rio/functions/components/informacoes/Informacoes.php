@@ -10,92 +10,13 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 		$this->child_item_text = esc_html__( 'Tab', 'et_builder' );
 
 		$this->whitelisted_fields = array(
-			'admin_label',
 			'module_id',
 			'module_class',
-			'active_tab_background_color',
-			'inactive_tab_background_color',
-			);
-
-		$this->main_css_element = '%%order_class%%.et_pb_tabs';
-		$this->advanced_options = array(
-			'fonts' => array(
-				'tab' => array(
-					'label'    => esc_html__( 'Tab', 'et_builder' ),
-					'css'      => array(
-						'main' => "{$this->main_css_element} .et_pb_tabs_controls li",
-						'color' => "{$this->main_css_element} .et_pb_tabs_controls li a",
-						),
-					),
-				'body'   => array(
-					'label'    => esc_html__( 'Body', 'et_builder' ),
-					'css'      => array(
-						'main' => "{$this->main_css_element} .et_pb_all_tabs",
-						'line_height' => "{$this->main_css_element} p",
-						),
-					),
-				),
-			'background' => array(
-				'css' => array(
-					'main' => "{$this->main_css_element} .et_pb_all_tabs",
-					),
-				'settings' => array(
-					'color' => 'alpha',
-					),
-				),
-			'border' => array(),
-			);
-		$this->custom_css_options = array(
-			'tabs_controls' => array(
-				'label'    => esc_html__( 'Tabs Controls', 'et_builder' ),
-				'selector' => '.et_pb_tabs_controls',
-				),
-			'tab' => array(
-				'label'    => esc_html__( 'Tab', 'et_builder' ),
-				'selector' => '.et_pb_tabs_controls li',
-				),
-			'active_tab' => array(
-				'label'    => esc_html__( 'Active Tab', 'et_builder' ),
-				'selector' => '.et_pb_tabs_controls li.et_pb_tab_active',
-				),
-			'tabs_content' => array(
-				'label'    => esc_html__( 'Tabs Content', 'et_builder' ),
-				'selector' => '.et_pb_all_tabs',
-				),
 			);
 	}
 
 	function get_fields() {
 		$fields = array(
-			'active_tab_background_color' => array(
-				'label'             => esc_html__( 'Active Tab Background Color', 'et_builder' ),
-				'type'              => 'color-alpha',
-				'custom_color'      => true,
-				'tab_slug'          => 'advanced',
-				),
-			'inactive_tab_background_color' => array(
-				'label'             => esc_html__( 'Inactive Tab Background Color', 'et_builder' ),
-				'type'              => 'color-alpha',
-				'custom_color'      => true,
-				'tab_slug'          => 'advanced',
-				),
-			'disabled_on' => array(
-				'label'           => esc_html__( 'Disable on', 'et_builder' ),
-				'type'            => 'multiple_checkboxes',
-				'options'         => array(
-					'phone'   => esc_html__( 'Phone', 'et_builder' ),
-					'tablet'  => esc_html__( 'Tablet', 'et_builder' ),
-					'desktop' => esc_html__( 'Desktop', 'et_builder' ),
-					),
-				'additional_att'  => 'disable_on',
-				'option_category' => 'configuration',
-				'description'     => esc_html__( 'This will disable the module on selected devices', 'et_builder' ),
-				),
-			'admin_label' => array(
-				'label'       => esc_html__( 'Admin Label', 'et_builder' ),
-				'type'        => 'text',
-				'description' => esc_html__( 'This will change the label of the module in the builder for easy identification.', 'et_builder' ),
-				),
 			'module_id' => array(
 				'label'           => esc_html__( 'CSS ID', 'et_builder' ),
 				'type'            => 'text',
@@ -117,8 +38,6 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 	function shortcode_callback( $atts, $content = null, $function_name ) {
 		$module_id                         = $this->shortcode_atts['module_id'];
 		$module_class                      = $this->shortcode_atts['module_class'];
-		$active_tab_background_color       = $this->shortcode_atts['active_tab_background_color'];
-		$inactive_tab_background_color     = $this->shortcode_atts['inactive_tab_background_color'];
 
 		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
 

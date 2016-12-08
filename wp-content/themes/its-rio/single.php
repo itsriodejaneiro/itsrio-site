@@ -3,11 +3,11 @@ get_header();
 the_post();
 
 $meta = get_post_meta(get_the_ID());
-$closed = true;
+$closed = false;
 
 if(isset($meta['info_inscfim'])){
 	$fim = strtotime($meta['info_inscfim'][0]);
-	if($fim < time())
+	if((int)$fim < time())
 		$closed = true;
 }
 
