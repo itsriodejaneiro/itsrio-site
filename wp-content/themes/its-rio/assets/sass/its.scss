@@ -12,6 +12,10 @@
 @include foundation-typography;
 @include foundation-button;
 
+body {
+	background-color: #eee;
+}
+
 h2{
 	font-weight: bold;
 	font-size: 25px;

@@ -24,9 +24,6 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="content_all">
-	<style>
-		html{ margin-top: 0 !important;  }
-	</style>
 	<?php
 	global $postType;
 	global $titles; 
