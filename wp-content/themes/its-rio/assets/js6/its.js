@@ -46,6 +46,72 @@ Vue.component('its-informacoes', {
 	}
 });
 
+Vue.component('its-map', {
+	data(){
+		return {
+			editor : {
+				editing : false,
+				editingMarker : {
+					top : '',
+					left : '',
+					coordinates : '',
+					newInfo : {
+						image : '',
+						title : '',
+						text : ''
+					},
+					infos : [],
+				},
+				deletingMarker : '',
+				markers,
+				markerInfoEdit : false
+			}
+		}
+	},
+	methods:{
+		positionMarker(event){
+			var editor = this.editor;
+			if(editor.editing != false){
+				jQuery('#marker').css('left', event.pageX - 20).css('top', event.pageY - 20).show();
+				var posx = jQuery('#marker').offset().left - jQuery('#mapa').offset().left;
+				var posy = jQuery('#marker').offset().top - jQuery('#mapa').offset().top;
+				editor.editingMarker.top = posy;
+				editor.editingMarker.left = posx;
+				editor.editingMarker.coordinates = [event.pageX - 20, event.pageY - 20];
+				editor.markerInfoEdit = true;
+			}
+		},
+		addMarkerInfo(){
+			var editor = this.editor;
+			editor.editingMarker.infos.push(editor.editingMarker.newInfo);
+			editor.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
+		},
+		editMarker(i, event){
+			this.editor.editing = 'editar';
+			this.editor.deletingMarker = i;
+			$('.markers').removeClass('selected');
+			$(event.target).addClass('selected');
+		},
+		deleteMarker(){
+			var editor = this.editor;
+			if(editor.editing != false){
+				editor.markers.splice(editor.deletingMarker, 1);
+				editor.editing = false;
+				$('.markers').removeClass('selected');
+				$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });
+			}
+		},
+		finishEditing(){
+			var editor = this.editor;
+			editor.editing = false;
+			editor.markerInfoEdit = false;
+			editor.markers.push(editor.editingMarker)
+			editor.editingMarker = { newInfo : { image : '', title : '', text : ''}, infos : [] };
+			$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });
+		}
+	}
+});
+
 new Vue({
 	el : '#content_all',
 	data : site_data ,
@@ -113,16 +179,6 @@ new Vue({
 					}, 300);
 					return false;
 				}
-			}
-		});
-
-		var _this = this;
-		$.ajax({
-			type:"GET",
-			url: 'https://medium.com/@ITSriodejaneiro/latest?format=json',
-			success: function(data) {
-				console.log(data);
-				_this.footer.medium = data.payload.references.User.Collection;
 			}
 		});
 

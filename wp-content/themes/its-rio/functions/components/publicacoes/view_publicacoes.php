@@ -13,7 +13,7 @@
 				?>
 				<div class="publicacao">
 					<a href="javascript:void(0);">
-						<img src="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ))[0]; ?>" alt="">
+						<img src="<?= get_thumbnail_url_full($post->ID); ?>" alt="">
 						<h3><?= get_the_title(); ?></h3>
 						<p><?= get_the_excerpt(); ?></p>
 					</a>

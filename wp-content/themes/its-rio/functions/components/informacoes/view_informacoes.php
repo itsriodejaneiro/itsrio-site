@@ -30,7 +30,7 @@
 								<?= date('d \\d\\e F',strtotime($meta['info_inscfim'][0]))	 ?>
 							</p>
 						</div>
-						<div v-for="(aula, i) in aulas" class="columns large-6">
+						<div v-if="typeof aulas !== undefined" v-for="(aula, i) in aulas" class="columns large-6 left">
 							<b>{{ i + 1 }}ª aula</b>
 							<p>{{ aula.date }}</p>
 						</div>

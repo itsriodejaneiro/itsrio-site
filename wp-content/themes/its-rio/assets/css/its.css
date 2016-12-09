@@ -3034,11 +3034,21 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   float: left;
   margin-right: 50px;
   box-shadow: 0px 0px 5px gray;
+  max-width: 300px;
+}
+
+.content-publicacoes p, .content-publicacoes h3 {
+  max-width: 580px;
+  font-family: 'Raleway';
+}
+
+.content-publicacoes h3 {
+  margin-bottom: 15px;
 }
 
 .content-publicacoes p {
-  max-width: 580px;
-  font-family: 'Raleway';
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .content-publicacoes .publicacao {
@@ -3340,6 +3350,58 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   font-size: 18px;
 }
 
+.markers {
+  position: absolute;
+  width: 40px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border-radius: 50%;
+}
+
+.markers.selected {
+  padding: 4px;
+  border: 3px solid #4e0a03;
+  background-color: #7d0c00;
+}
+
+#mapa {
+  border: 1px solid;
+  margin: 0 auto;
+  display: block;
+}
+
+#marker-editor .button.lock {
+  opacity: 0.5;
+}
+
+#markerInfoBox {
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  opacity: 0.9;
+  position: absolute;
+  overflow: auto;
+}
+
+#markerInfoBox * {
+  margin-top: 5px;
+}
+
+#markerInfoBox .close {
+  color: black;
+}
+
+#markerInfoBox .box-info {
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  padding: 10px;
+  overflow: hidden;
+  font-family: 'Raleway';
+}
+
 .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522E91;
   font-weight: bold;
@@ -3417,24 +3479,27 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   position: absolute;
 }
 
-.curved-shadow::before,
-.curved-shadow::after {
+.curved-shadow:before, .curved-shadow:after {
   bottom: 15px;
-  left: 10px;
   content: "";
-  width: 50%;
-  height: 20%;
+  height: 50%;
   max-width: 300px;
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-  -webkit-transform: rotate(-3deg);
-  transform: rotate(-3deg);
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
 }
 
-.curved-shadow::after {
-  right: 10px;
-  left: auto;
-  -webkit-transform: rotate(3deg);
-  transform: rotate(3deg);
+.curved-shadow:before {
+  left: 0px;
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+}
+
+.curved-shadow:after {
+  right: 0px;
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
 }
 
 html, body {
@@ -3519,6 +3584,13 @@ footer ul, footer li {
 
 footer ul a, footer li a {
   margin: 0 !important;
+}
+
+footer .latest ul li a {
+  font-family: 'Raleway';
+  font-size: 15px;
+  font-weight: 500;
+  color: #9b9b9b;
 }
 
 /*# sourceMappingURL=its.css.map */
