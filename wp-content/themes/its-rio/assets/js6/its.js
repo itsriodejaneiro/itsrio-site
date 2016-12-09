@@ -27,6 +27,22 @@ Vue.component('its-aulas', {
 	}
 });	
 
+Vue.component('its-map', {
+	data(){
+		return { markers, selectedMarker : false }
+	},
+	methods:{
+		openMarker(marker){
+			this.selectedMarker = marker;
+			setTimeout(function(){
+				jQuery('.map-info-carousel').flickity({
+					wrapAround: true,
+					cellSelector: '.map-info-carousel-item'
+				});
+			},1000);
+		}
+	}
+});
 
 Vue.component('its-comunicados', {
 	data(){
@@ -43,72 +59,6 @@ Vue.component('its-pessoas', {
 Vue.component('its-informacoes', {
 	data(){
 		return typeof aulas != 'undefined' ? { informacoes, aulas } : { informacoes } ;
-	}
-});
-
-Vue.component('its-map', {
-	data(){
-		return {
-			editor : {
-				editing : false,
-				editingMarker : {
-					top : '',
-					left : '',
-					coordinates : '',
-					newInfo : {
-						image : '',
-						title : '',
-						text : ''
-					},
-					infos : [],
-				},
-				deletingMarker : '',
-				markers,
-				markerInfoEdit : false
-			}
-		}
-	},
-	methods:{
-		positionMarker(event){
-			var editor = this.editor;
-			if(editor.editing != false){
-				jQuery('#marker').css('left', event.pageX - 20).css('top', event.pageY - 20).show();
-				var posx = jQuery('#marker').offset().left - jQuery('#mapa').offset().left;
-				var posy = jQuery('#marker').offset().top - jQuery('#mapa').offset().top;
-				editor.editingMarker.top = posy;
-				editor.editingMarker.left = posx;
-				editor.editingMarker.coordinates = [event.pageX - 20, event.pageY - 20];
-				editor.markerInfoEdit = true;
-			}
-		},
-		addMarkerInfo(){
-			var editor = this.editor;
-			editor.editingMarker.infos.push(editor.editingMarker.newInfo);
-			editor.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
-		},
-		editMarker(i, event){
-			this.editor.editing = 'editar';
-			this.editor.deletingMarker = i;
-			$('.markers').removeClass('selected');
-			$(event.target).addClass('selected');
-		},
-		deleteMarker(){
-			var editor = this.editor;
-			if(editor.editing != false){
-				editor.markers.splice(editor.deletingMarker, 1);
-				editor.editing = false;
-				$('.markers').removeClass('selected');
-				$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });
-			}
-		},
-		finishEditing(){
-			var editor = this.editor;
-			editor.editing = false;
-			editor.markerInfoEdit = false;
-			editor.markers.push(editor.editingMarker)
-			editor.editingMarker = { newInfo : { image : '', title : '', text : ''}, infos : [] };
-			$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });
-		}
 	}
 });
 

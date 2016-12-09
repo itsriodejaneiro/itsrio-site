@@ -482,7 +482,8 @@
 }
 
 
-// MAPA
+
+//COMPONENT MAPA
 .markers {
 	position: absolute;
 	width:40px;
@@ -496,36 +497,15 @@
 		background-color: #7d0c00;
 	}
 }
+#map-editor{
+position: relative;
+}
 
 #mapa{
-	border: 1px solid;
 	margin: 0 auto; 
 	display: block;
 }
 
-#marker-editor .button.lock{
-	opacity: 0.5;
-}
-
-#markerInfoBox{
-	width: 700px; 
-	height: 500px;
-	background-color: white;
-	border: 1px solid black;
-	padding: 20px;
-	opacity: 0.9;
-	position: absolute;
-	overflow: auto;
-	
-	* { margin-top: 5px; }
-
-	.close{ color: black; }
-
-	.box-info{
-		border-radius: 3px;
-		border: 1px solid lightgray;
-		padding: 10px;
-		overflow: hidden;
-		font-family: 'Raleway';
-	}
+.map-info-carousel-item{
+	width: 100%;
 }

@@ -25,6 +25,8 @@ include 'functions/post_types.php';
 include 'functions/meta.php';
 include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
+include 'functions/menu-footer.php';
+include 'functions/menu-map.php';
 
 function wpdocs_custom_excerpt_length( $length ) {
 	return 30;

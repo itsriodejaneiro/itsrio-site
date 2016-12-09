@@ -3365,41 +3365,17 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus {
   background-color: #7d0c00;
 }
 
+#map-editor {
+  position: relative;
+}
+
 #mapa {
-  border: 1px solid;
   margin: 0 auto;
   display: block;
 }
 
-#marker-editor .button.lock {
-  opacity: 0.5;
-}
-
-#markerInfoBox {
-  width: 700px;
-  height: 500px;
-  background-color: white;
-  border: 1px solid black;
-  padding: 20px;
-  opacity: 0.9;
-  position: absolute;
-  overflow: auto;
-}
-
-#markerInfoBox * {
-  margin-top: 5px;
-}
-
-#markerInfoBox .close {
-  color: black;
-}
-
-#markerInfoBox .box-info {
-  border-radius: 3px;
-  border: 1px solid lightgray;
-  padding: 10px;
-  overflow: hidden;
-  font-family: 'Raleway';
+.map-info-carousel-item {
+  width: 100%;
 }
 
 .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item {

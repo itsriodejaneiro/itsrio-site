@@ -30,7 +30,6 @@
 <?php global $data; global $components; global $postType; ?>
 
 <script>
-
 	<?php 
 	foreach ($components as $variable => $value) {
 		?>
@@ -38,6 +37,7 @@
 		<?php
 	}
 	?>
+
 	var markers = <?= file_get_contents(ROOT.'/functions/components/map/markers.json') ?>;
 	var site_data =  <?= json_encode($data) ?>;
 	var post_type = '<?= $postType ?>';
