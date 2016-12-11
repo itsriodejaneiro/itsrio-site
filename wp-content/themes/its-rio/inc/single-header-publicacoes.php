@@ -7,11 +7,11 @@
 			<hr>
 		</div>
 		<div class="column large-4">
-			<p>linha de pesquisa</p>
+			<p class="box-title">linha de pesquisa</p>
 			<p class="box">direito e technologia</p>
 		</div>
 		<div class="column large-4 end">
-			<p>categorias</p>
+			<p class="box-title">categorias</p>
 			<?php $no_label = true; include('inc/categories.php') ?>
 		</div>
 	</div>
