@@ -2060,7 +2060,7 @@ hr {
     right: 35px;
     top: 10px; }
     .menu-container .menu-social ul {
-      width: 380px; }
+      width: 340px; }
     .menu-container .menu-social .text {
       font-size: 10px; }
       .menu-container .menu-social .text a {
@@ -2079,7 +2079,7 @@ hr {
           content: 'buscar';
           font-family: 'Roboto Mono';
           font-size: 14px;
-          margin-left: 10px; } }
+          margin-left: 5px; } }
   .menu-container .menu-nav {
     position: absolute;
     bottom: 0px;
