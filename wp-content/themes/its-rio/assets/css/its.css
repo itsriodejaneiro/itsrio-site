@@ -2705,8 +2705,8 @@ footer {
   overflow: hidden; }
   footer, footer p, footer b, footer li, footer a, footer input {
     color: white;
-    font-size: 15px; }
-  footer a:hover, footer a:active {
+    font-size: 14px; }
+  footer a:focus, footer a:active, footer a:hover {
     color: white; }
   footer input[type=text] {
     border: none;
@@ -2715,15 +2715,25 @@ footer {
     width: 445px;
     font-family: 'Raleway';
     outline: none; }
-  footer ul, footer li {
-    display: block;
-    padding-bottom: 10px; }
-    footer ul a, footer li a {
-      margin: 0 !important; }
+  footer ul {
+    display: block; }
+    footer ul li {
+      display: inline-block;
+      margin-bottom: 5px; }
+      footer ul li a {
+        font-weight: bold;
+        margin: 0 !important; }
   footer .latest ul li a {
     font-family: 'Raleway';
     font-size: 15px;
     font-weight: 500;
     color: #9b9b9b; }
+  footer .contact a {
+    text-decoration: underline; }
+  footer small {
+    font-size: 10px; }
+    footer small a {
+      font-size: 10px;
+      text-decoration: underline; }
 
 /*# sourceMappingURL=its.css.map */
