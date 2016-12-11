@@ -75,8 +75,8 @@ hr{
 	}
 
 	.info{
-		padding: 25px !important;
-		padding-bottom: 15px !important;
+		padding: 20px !important;
+		padding-bottom: 5px !important;
 
 		p{
 			font-family: 'Raleway';
@@ -84,10 +84,7 @@ hr{
 	}
 
 	hr{
-		position: relative !important;
-		left: -25px !important;
-		margin: 20px 0px !important;
-		width: 100% !important;
+		margin: 5px 5px 10px -20px;
 	}
 
 	.img{
@@ -99,14 +96,6 @@ hr{
 		padding: 10px 20px;
 		display: flex;
 		align-items: flex-end;
-	}
-
-	.categories{
-		display: flex !important;
-		align-items: center !important;
-		margin-left: 10px !important;
-		margin-bottom: 5px !important;
-		a { color: white };
 	}
 }
 
@@ -149,15 +138,11 @@ hr{
 }
 
 .categories{
+	display: flex !important;
+	align-items: center !important;
 	font-size: 14px;
-
-	&.black{
-		ul li {
-			a {
-				border-color: #000;
-				color: #000;
-			}
-		}
+	a {
+		color: #fff;
 	}
 	ul {
 		margin-left: 10px; 
@@ -165,14 +150,23 @@ hr{
 			margin-left: 10px;
 		}
 		li {
+			border: 1px solid;
+			border-color: #fff;
+			padding: 0px 8px;
 			a {
-				border: 1px solid;
-				border-color: #fff;
 				color: #fff;		
 				font-weight: bold;
-				padding: 0px 8px;	
 				text-transform: lowercase;	
 			}
+		}
+	}
+	&.black{
+		a {
+			color: #000;
+		}
+		ul li {
+			border-color: #000;
+			color: #000;
 		}
 	}
 }
