@@ -2062,9 +2062,9 @@ hr {
     .menu-container .menu-social ul {
       width: 380px; }
     .menu-container .menu-social .text {
-      font-size: 13px; }
+      font-size: 10px; }
       .menu-container .menu-social .text a {
-        padding-bottom: 5px; }
+        padding-bottom: 1px; }
       .menu-container .menu-social .text a.selected {
         font-weight: bold;
         border-bottom: 2px solid black; }

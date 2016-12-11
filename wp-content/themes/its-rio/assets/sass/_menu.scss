@@ -15,17 +15,19 @@
 	}
 
 
-	.menu-social{
+	.menu-social {
 		position: absolute;
 		right: 35px;
 		top: 10px;
 
-		ul{
+		ul {
 			width: 380px;
 		}
-		.text{
-			font-size: 13px;
-			a{ padding-bottom: 5px; }
+		.text {
+			font-size: 10px;
+			a {
+				padding-bottom: 1px;
+			}
 
 			a.selected {
 				font-weight: bold;
