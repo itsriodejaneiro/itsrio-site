@@ -16,7 +16,7 @@
 						<div class="column large-8 no-p">
 							<a href="<?= get_permalink() ?>"><p class="excerpt raleway"><?= get_the_excerpt() ?></p></a>
 						</div> 
-						<?php $cat_classes = ''; include(ROOT. 'inc/categories.php') ?>
+						<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
 					</div>
 				</div>
 				<?php

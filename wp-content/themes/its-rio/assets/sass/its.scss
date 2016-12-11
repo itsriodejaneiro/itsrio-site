@@ -18,7 +18,7 @@ body {
 
 h2{
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 24px;
 }
 
 h3{
@@ -28,7 +28,7 @@ h3{
 
 p, hr{
 	margin: 0;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 15px;
 	word-wrap: break-word;
 }
@@ -153,24 +153,26 @@ hr{
 
 	&.black{
 		ul li {
-			border-color: black !important;
-			a { color: black !important; }
+			a {
+				border-color: #000;
+				color: #000;
+			}
 		}
 	}
-	ul li{
-		padding: 0px 8px !important;
-		border: 1px solid white !important;
-		margin: 5px !important;
-		border-color: white !important;
-
-		a{
-			color: white !important;
-			font-weight: bold !important;	
-			text-transform: lowercase;	
+	ul {
+		margin-left: 10px; 
+		li + li {
+			margin-left: 10px;
 		}
-
-		&:last-child{
-			margin-right: 0px !important;
+		li {
+			a {
+				border: 1px solid;
+				border-color: #fff;
+				color: #fff;		
+				font-weight: bold;
+				padding: 0px 8px;	
+				text-transform: lowercase;	
+			}
 		}
 	}
 }

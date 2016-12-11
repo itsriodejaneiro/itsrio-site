@@ -6,17 +6,24 @@
 	height: 400px;
 
 	.info{
-		overflow: hidden;
-		max-height: 265px;
-		padding: 20px 40px;
+		background: rgba(255,255,255,0.7);
 		bottom: 0;
+		left: 0;
+		right: 0;
+		max-height: 265px;
+		overflow: hidden;
+		padding: 40px 20px 20px 40px;
 		position: absolute;
 
 		& > a { display: flex; }
 	}
 
-	a, h2, ul li a, .categories { color: white !important; }
-	hr { background: white !important; }
+	a, h2, ul li a, .categories { 
+		color: #000 !important;
+	}
+	hr { 
+		background: #000 !important;
+	}
 
 	&:hover{
 		box-shadow: 0 0 15px #8a8a8a;
