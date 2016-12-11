@@ -2108,7 +2108,7 @@ hr {
         color: black; }
 
 #content {
-  margin: 105px 0px; }
+  margin: 75px 0px; }
 
 .home-cover {
   width: 100%;
@@ -2660,10 +2660,8 @@ button.flickity-prev-next-button {
     transform: rotate(6deg); }
 
 html, body {
-  height: 100%; }
-
-body {
-  margin-top: -32px; }
+  height: 100%;
+  margin-top: 0 !important; }
 
 .home-cover + .row-menu.home + #content {
   margin: 0px; }
