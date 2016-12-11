@@ -27,7 +27,7 @@
 	} 
 }
 .main-carousel{
-	padding-top: 40px;
+	padding-top: 15px;
 
 	.carousel-cell {
 		width: 100%; 
@@ -56,6 +56,10 @@ button.flickity-prev-next-button {
 	&, &:focus, &:hover {
 		background: transparent;
 	}
+}
+
+.flickity-page-dots {
+	display: none;
 }
 
 .home-area{
