@@ -2133,11 +2133,9 @@ hr {
       font-size: 18px;
       font-weight: 400; }
 
-.main-carousel {
-  padding-top: 15px; }
-  .main-carousel .carousel-cell {
-    width: 100%;
-    height: 400px; }
+.main-carousel .carousel-cell {
+  width: 100%;
+  height: 400px; }
 
 button.flickity-prev-next-button {
   border-radius: 0;
