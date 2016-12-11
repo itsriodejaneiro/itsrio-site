@@ -99,6 +99,15 @@ hr{
 		display: flex;
 		align-items: flex-end;
 	}
+
+	.categories {
+		ul {
+			margin-left: 5px; 
+			li + li {
+				margin-left: 5px;
+			}
+		}
+	}
 }
 
 .spread-items{
@@ -147,7 +156,6 @@ hr{
 		color: #fff;
 	}
 	ul {
-		margin-left: 10px; 
 		li + li {
 			margin-left: 10px;
 		}
