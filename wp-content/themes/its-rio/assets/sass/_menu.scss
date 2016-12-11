@@ -3,7 +3,7 @@
 	box-shadow: 0 4px 7px -5px black;
 	padding: 17px 35px; //estranho
 	position: relative;
-	z-index: 1;
+	z-index: 20;
 	background-color: #eee;
 	display: flex;
 	align-items: center;
@@ -26,6 +26,7 @@
 		.text {
 			font-size: 10px;
 			a {
+				line-height: 250%;
 				padding-bottom: 1px;
 			}
 
@@ -36,7 +37,8 @@
 		}
 	}
 
-	i.fa-search{
+	.search-button {
+		cursor: pointer;
 		right: 35px;
 		font-size: 20px;
 		bottom: 10px;
@@ -92,6 +94,10 @@
 			a{ color: black; }
 		}
 	}
+}
+
+#content_all {
+	position: relative;
 }
 
 #content{

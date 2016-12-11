@@ -96,7 +96,58 @@
 					</li> -->
 				</ul>
 			</nav>
-			<i class="fa fa-search"></i>
+			<i class="search-button fa fa-search"></i>
+		</div>
+	</div>
+
+	<div class="search-box hide">
+		<div class="row">
+			<div class="column large-12">
+				<button class="close-button">fechar <span class="icon">&times;</span></button>
+				<label for="search">
+					<h2>buscar por:</h2>
+					<input type="text" id="search" placeholder="digite sua palavra-chave">
+					<button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+				</label>
+
+				<div class="filter-options">
+					<h2>filtragem de conteúdo:</h2>
+
+					<div class="filter">
+						<h3>área</h3>
+						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+						<div class="line"></div>
+						<span class="box">cursos</span>
+						<span class="box">varandas</span>
+						<span class="box">projetos</span>
+						<span class="box">publicações</span>
+					</div>
+					<div class="filter">
+						<h3>linhas de pesquisa</h3>
+						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+						<div class="line"></div>
+						<span class="box">direito e tecnologia</span>
+						<span class="box">repensando inovação</span>
+						<span class="box">educação</span>
+					</div>
+					<div class="filter">
+						<h3>categorias de assunto</h3>
+						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+						<div class="line"></div>
+						<span class="box">lorem ipsum</span>
+						<span class="box">lorem ipsum</span>
+						<span class="box">lorem ipsum</span>
+						<span class="box">lorem ipsum</span>
+						<span class="box">lorem ipsum</span>
+						<span class="box">lorem ipsum</span>
+					</div>
+				</div>
+
+				<button class="button large advanced-search">busca avançada 
+					<i class="fa fa-angle-up" aria-hidden="true"></i>
+					<!--<i class="fa fa-angle-down" aria-hidden="true"></i>-->
+				</button>
+			</div>
 		</div>
 	</div>
 
