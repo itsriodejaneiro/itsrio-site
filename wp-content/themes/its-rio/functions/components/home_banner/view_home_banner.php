@@ -1,5 +1,5 @@
 <div class="column large-12">
-	<div class=" main-carousel">
+	<div class="main-carousel">
 		<?php
 		if ($query->have_posts() ) {
 			while( $query->have_posts() ) {
