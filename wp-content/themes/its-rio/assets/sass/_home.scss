@@ -1,30 +1,81 @@
 .home-cover{
-	width: 100%;
 	background-color: purple;
+	position: relative;
+	width: 100%;
 
-	.home-cover-carousel-item{
+	.home-cover-carousel-item {
 		width: 100%;
 		height: 100%;
 		background-size: cover;
-		background-repeat: no-repeat;	}
+		background-repeat: no-repeat;
+	}
 
-	h1{
+	.logo-cover {
+		height: auto;
+		width: 130px;
+		position: absolute;
+		top: 75px;
+		left: 35px;
+	}
+
+	h1 {
 		top: 50%;
 		width: 60%;
-		color: white;
+		color: #262626;
 		display: block;
 		margin: 0 auto;
 		font-size: 60px;
 		font-weight: 900;
+		line-height: 1.2;
 		position: relative;
 		font-family: 'Raleway';
 		transform: translateY(-50%);
 
-		p{
-			font-size: 18px;
+		p {
+			font-size: 20px;
 			font-weight: 400;
 		}
 	} 
+
+	.button-english {
+		height: 45px;
+		width: 200px;
+		position: absolute;
+		top: 30px;
+		right: 25px;
+		&.curved-shadow {
+			z-index: 0;
+		}
+		.button {
+			background-color: #262626;
+			font-weight: bold;
+			padding: 12px 62px;
+			height: 45px;
+			width: 200px;
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.arrow {
+		background-color: #262626;
+		box-sizing: border-box; 
+		box-shadow: 0px 6px 6px 3px rgba(0,0,0,0.3);
+		color: #fff;
+		height: 120px;
+		width: 55px;
+		padding-top: 50px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -30px;
+		text-align: center; 
+
+		img {
+			display: block;
+			margin: 8px auto 0; 
+		}
+	}
 }
 
 .main-carousel{
