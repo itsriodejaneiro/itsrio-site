@@ -10,8 +10,10 @@
 	</div>
 
 	<div class="column large-3">
-		<p><b>contatos: </b> <?= esc_attr(get_option('footer_contacts')) ?></p>
+		<p class="contact"><b>contatos:</b><br>
+		<?= esc_attr(get_option('footer_contacts')) ?></p>
 	</div>
+
 	<div class="column large-6">
 		<input type="text" placeholder="newsletter">
 		<a href="#" class="box">inscreva-se</a>

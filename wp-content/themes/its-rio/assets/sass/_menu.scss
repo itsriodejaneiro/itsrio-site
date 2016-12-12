@@ -3,7 +3,7 @@
 	box-shadow: 0 4px 7px -5px black;
 	padding: 17px 35px; //estranho
 	position: relative;
-	z-index: 1;
+	z-index: 20;
 	background-color: #eee;
 	display: flex;
 	align-items: center;
@@ -15,17 +15,20 @@
 	}
 
 
-	.menu-social{
+	.menu-social {
 		position: absolute;
 		right: 35px;
 		top: 10px;
 
-		ul{
-			width: 380px;
+		ul {
+			width: 340px;
 		}
-		.text{
-			font-size: 13px;
-			a{ padding-bottom: 5px; }
+		.text {
+			font-size: 10px;
+			a {
+				line-height: 250%;
+				padding-bottom: 1px;
+			}
 
 			a.selected {
 				font-weight: bold;
@@ -34,7 +37,8 @@
 		}
 	}
 
-	i.fa-search{
+	.search-button {
+		cursor: pointer;
 		right: 35px;
 		font-size: 20px;
 		bottom: 10px;
@@ -45,7 +49,7 @@
 				content: 'buscar';
 				font-family: 'Roboto Mono';
 				font-size: 14px;
-				margin-left: 10px;
+				margin-left: 5px;
 			}
 		}
 	}
@@ -90,6 +94,10 @@
 			a{ color: black; }
 		}
 	}
+}
+
+#content_all {
+	position: relative;
 }
 
 #content{

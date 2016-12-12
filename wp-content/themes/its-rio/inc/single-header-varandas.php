@@ -8,14 +8,14 @@
 		</div>
 		<div class="column large-4">
 			<?php if(!closed): ?>
-				<p>horário</p>
+				<p class="box-title">horário</p>
 				<p class="box">direito e technologia</p>
 			<?php else: ?>
-				<p style="font-size: 20px">Varanda encerrada</p>
+				<p class="box-title">Varanda encerrada</p>
 			<?php endif; ?>
 		</div>
 		<div class="column large-4 end">
-			<p>categorias</p>
+			<p class="box-title">categorias</p>
 			<?php $no_label = true; include('categories.php') ?>
 		</div>
 	</div>

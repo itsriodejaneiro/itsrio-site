@@ -18,7 +18,7 @@ body {
 
 h2{
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 24px;
 }
 
 h3{
@@ -28,7 +28,7 @@ h3{
 
 p, hr{
 	margin: 0;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 15px;
 	word-wrap: break-word;
 }
@@ -63,7 +63,8 @@ hr{
 
 .list-item{
 	background-color: white !important;
-	margin-top: 35px !important;
+	border-radius: 3px;
+	margin-top: 25px !important;
 	position: relative !important;
 	transition: box-shadow .3s !important;
 	
@@ -75,8 +76,8 @@ hr{
 	}
 
 	.info{
-		padding: 25px !important;
-		padding-bottom: 15px !important;
+		padding: 20px !important;
+		padding-bottom: 5px !important;
 
 		p{
 			font-family: 'Raleway';
@@ -84,10 +85,7 @@ hr{
 	}
 
 	hr{
-		position: relative !important;
-		left: -25px !important;
-		margin: 20px 0px !important;
-		width: 100% !important;
+		margin: 5px 5px 10px -20px;
 	}
 
 	.img{
@@ -96,17 +94,19 @@ hr{
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
+		border-radius: 0 0 3px 3px;
 		padding: 10px 20px;
 		display: flex;
 		align-items: flex-end;
 	}
 
-	.categories{
-		display: flex !important;
-		align-items: center !important;
-		margin-left: 10px !important;
-		margin-bottom: 5px !important;
-		a { color: white };
+	.categories {
+		ul {
+			margin-left: 5px; 
+			li + li {
+				margin-left: 5px;
+			}
+		}
 	}
 }
 
@@ -149,28 +149,35 @@ hr{
 }
 
 .categories{
+	display: flex !important;
+	align-items: center !important;
 	font-size: 14px;
-
-	&.black{
-		ul li {
-			border-color: black !important;
-			a { color: black !important; }
+	a {
+		color: #fff;
+	}
+	ul {
+		li + li {
+			margin-left: 10px;
+		}
+		li {
+			border: 1px solid;
+			border-color: #fff;
+			line-height: 100%;
+			padding: 2px 8px;
+			a {
+				color: #fff;		
+				font-weight: bold;
+				text-transform: lowercase;	
+			}
 		}
 	}
-	ul li{
-		padding: 0px 8px !important;
-		border: 1px solid white !important;
-		margin: 5px !important;
-		border-color: white !important;
-
-		a{
-			color: white !important;
-			font-weight: bold !important;	
-			text-transform: lowercase;	
+	&.black{
+		a {
+			color: #000;
 		}
-
-		&:last-child{
-			margin-right: 0px !important;
+		ul li {
+			border-color: #000;
+			color: #000;
 		}
 	}
 }
@@ -207,4 +214,5 @@ hr{
 @import '_specials';
 @import '_fixes';
 @import '_footer';
+@import '_search';
 
