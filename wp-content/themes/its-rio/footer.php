@@ -38,9 +38,10 @@
 		var <?= $variable ?> = <?= json_encode($value) ?>;
 		<?php
 	}
+	$markers = file_get_contents(ROOT.'/functions/components/map/markers.json');
 	?>
 
-	var markers = <?= file_get_contents(ROOT.'/functions/components/map/markers.json') ?>;
+	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
 	var post_type = '<?= $postType ?>';
 </script>
