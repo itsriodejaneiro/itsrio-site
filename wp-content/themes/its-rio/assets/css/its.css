@@ -2146,6 +2146,15 @@ hr {
   height: 400px; }
 .main-carousel .categories ul {
   margin-left: 10px; }
+.main-carousel button.flickity-prev-next-button.previous {
+  left: 20px; }
+.main-carousel button.flickity-prev-next-button.next {
+  right: 20px; }
+
+.home-area-carousel button.flickity-prev-next-button.previous {
+  left: 0; }
+.home-area-carousel button.flickity-prev-next-button.next {
+  right: 0; }
 
 button.flickity-prev-next-button {
   border-radius: 0;
@@ -2153,10 +2162,6 @@ button.flickity-prev-next-button {
   height: 35px;
   top: 53%;
   width: 35px; }
-  button.flickity-prev-next-button.previous {
-    left: 20px; }
-  button.flickity-prev-next-button.next {
-    right: 20px; }
   button.flickity-prev-next-button:disabled {
     opacity: 0.7; }
   button.flickity-prev-next-button:hover {
@@ -2168,27 +2173,27 @@ button.flickity-prev-next-button {
   display: none; }
 
 .home-area {
-  padding-top: 50px; }
-  .home-area h3 {
-    font-size: 25px; }
+  margin-top: 50px;
+  position: relative; }
+  .home-area-item {
+    display: flex;
+    align-items: center;
+    padding: 0 90px; }
   .home-area h2, .home-area p {
     font-weight: normal;
     font-family: 'Raleway'; }
     .home-area h2 b, .home-area p b {
       color: #00958a; }
   .home-area h2 {
-    font-size: 40px;
+    font-size: 50px;
     line-height: 60px; }
-  .home-area-item {
-    display: flex;
-    align-items: center;
-    padding: 0 90px; }
   .home-area .list-title {
+    font-size: 24px;
+    padding: 0;
     position: absolute;
-    left: 250px;
-    margin-top: 20px; }
+    top: 0;
+    left: 100px; }
   .home-area .area-left {
-    padding-top: 80px;
     flex: 0;
     min-width: 340px; }
   .home-area .area-midia {

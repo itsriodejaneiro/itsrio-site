@@ -7,7 +7,7 @@
 			<div class="carousel-cell home-area-item">
 				<div class="area-left">
 					<h2 class="area-title"><?= $tab['title'] ?></h2>
-					<a href="<?= $tab['link'] ?>" class="button large"><?= $tab['link_title'] ?></a>
+					<a href="<?= $tab['link'] ?>" class="button large curved-shadow"><?= $tab['link_title'] ?></a>
 					</div>
 				<div class="area-midia">
 					<img src="<?= $tab['midia'] ?>" alt="">

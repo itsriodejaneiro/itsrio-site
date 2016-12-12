@@ -26,6 +26,7 @@
 		}
 	} 
 }
+
 .main-carousel{
 	.carousel-cell {
 		width: 100%; 
@@ -36,6 +37,25 @@
 			margin-left: 10px; 
 		}
 	}
+	button.flickity-prev-next-button {
+		&.previous {
+			left: 20px;
+		}
+		&.next {
+			right: 20px;
+		}
+	}
+}
+
+.home-area-carousel {
+	button.flickity-prev-next-button {
+		&.previous {
+			left: 0;
+		}
+		&.next {
+			right: 0;
+		}
+	}
 }
 
 button.flickity-prev-next-button {
@@ -44,12 +64,6 @@ button.flickity-prev-next-button {
 	height: 35px;
 	top: 53%;
 	width: 35px;
-	&.previous {
-		left: 20px;
-	}
-	&.next {
-		right: 20px;
-	}
 	&:disabled {
 		opacity: 0.7;
 	}
@@ -66,9 +80,15 @@ button.flickity-prev-next-button {
 }
 
 .home-area{
-	padding-top: 50px;
+	margin-top: 50px;
+	position: relative;
 	
-	h3 { font-size: 25px; }
+	&-item{
+		display: flex;
+		align-items: center;
+		padding: 0 90px;
+	}
+
 	h2, p{
 		font-weight: normal;
 		font-family: 'Raleway';
@@ -77,22 +97,20 @@ button.flickity-prev-next-button {
 		}
 	}
 
-	h2 { font-size: 40px; line-height: 60px }
-	
-	&-item{
-		display: flex;
-		align-items: center;
-		padding: 0 90px;
+	h2 {
+		font-size: 50px;
+		line-height: 60px;
 	}
 
-	.list-title{
+	.list-title {
+		font-size: 24px;
+		padding: 0;
 		position: absolute;
-		left: 250px;
-		margin-top: 20px;
+		top: 0;
+		left: 100px;
 	}
 
 	.area-left{
-		padding-top: 80px;
 		flex: 0;
 		min-width: 340px;
 	}
