@@ -2336,6 +2336,10 @@ p + .stat {
   top: -0.1em;
 }
 
+body {
+  background-color: #eee;
+}
+
 h2 {
   font-weight: bold;
   font-size: 25px;
@@ -2563,7 +2567,7 @@ hr {
   padding: 17px 35px;
   position: relative;
   z-index: 1;
-  background-color: #EBEBEB;
+  background-color: #eee;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -2645,6 +2649,10 @@ hr {
   width: 700px;
 }
 
+.menu-container .menu-nav ul li {
+  border-bottom: 5px solid transparent;
+}
+
 .menu-container .menu-social ul, .menu-container .menu-nav ul {
   list-style-type: none;
   display: -webkit-box;
@@ -2655,7 +2663,7 @@ hr {
 }
 
 .menu-container .menu-social ul li, .menu-container .menu-nav ul li {
-  padding-bottom: 2px;
+  padding-bottom: 4px;
 }
 
 .menu-container .menu-social ul li i, .menu-container .menu-nav ul li i {

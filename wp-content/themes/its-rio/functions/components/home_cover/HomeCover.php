@@ -83,7 +83,7 @@ class ET_Builder_Module_Home_Cover extends ET_Builder_Module {
 		include(__DIR__.'/view_home_cover.php');
 		$output = ob_get_contents();
 		ob_end_clean();
-		$data['home_cover'] = $output;
+		$data['home_cover'] = $output;	
 
 		return '';
 	}
