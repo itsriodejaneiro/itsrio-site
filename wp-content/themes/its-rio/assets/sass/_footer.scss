@@ -38,7 +38,7 @@ footer{
 	}
 
 	.contact {
-		flex-grow: 0.6;
+		flex-grow: 0.5;
 		a {
 			text-decoration: underline;
 		}
@@ -51,8 +51,8 @@ footer{
 		font-family: 'Raleway';
 		outline: none;
 		line-height: 1.5;
-		width: 48%;
-		flex-grow: 0;
+		flex-grow: 2.5;
+		margin-right: 10px; 
 		&::placeholder { 
         	color: #fff;
         }

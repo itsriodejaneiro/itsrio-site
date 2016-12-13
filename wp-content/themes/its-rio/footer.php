@@ -16,7 +16,7 @@
 					<b>contatos:</b><br>
 					<?= esc_attr(get_option('footer_contacts')) ?>
 				</div>
-				<input type="text" placeholder="escreva seu email para receber nossos comunicados" class="newsletter-input">
+				<input type="text" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
 				<a href="#" class="box newsletter-button">inscreva-se</a>
 			</div>
 		</div>
