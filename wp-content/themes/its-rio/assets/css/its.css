@@ -2647,7 +2647,7 @@ button.flickity-prev-next-button {
   font-weight: bold; }
   .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item a {
     color: #522E91; }
-.single-cursos_ctp .list-item:hover, .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .single-cursos_ctp .header-single:before, .post-type-archive-cursos_ctp .list-item:hover, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single:before {
+.single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .single-cursos_ctp .header-single:before, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single:before {
   background-color: #522E91 !important; }
 .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single {
   background-color: #9A248E !important; }
@@ -2665,7 +2665,7 @@ button.flickity-prev-next-button {
   font-weight: bold; }
   .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item a {
     color: #F5821F; }
-.single-publicacoes_ctp .list-item:hover, .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .list-item:hover, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
+.single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
   background-color: #F5821F !important; }
 
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -2673,7 +2673,7 @@ button.flickity-prev-next-button {
   font-weight: bold; }
   .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a {
     color: #553292; }
-.single-projetos_ctp .list-item:hover, .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .list-item:hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
+.single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
   background-color: #553292 !important; }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -2685,6 +2685,15 @@ button.flickity-prev-next-button {
   background-color: #522e91 !important; }
 .page .list-item:hover, .single-comunicados_ctp .list-item:hover {
   background-color: #262626 !important; }
+
+.list-item.type-cursos_ctp:hover {
+  background-color: #522E91 !important; }
+.list-item.type-varandas_ctp:hover {
+  background-color: #00958A !important; }
+.list-item.type-projetos_ctp:hover {
+  background-color: #553292 !important; }
+.list-item.type-publicacoes_ctp:hover {
+  background-color: #F5821F !important; }
 
 .curved-shadow {
   position: absolute; }
