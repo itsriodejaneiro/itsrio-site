@@ -2299,7 +2299,7 @@ button.flickity-prev-next-button {
   background-size: cover;
   position: relative;
   z-index: -2;
-  filter: grayscale(50%); }
+  filter: grayscale(10%); }
   .header-single:before {
     top: 0;
     width: 100%;
