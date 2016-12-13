@@ -5,6 +5,7 @@
 				<div class="component-tabs-title">
 					<h2 class="tab-title left list-title">
 						<span><?= $moduleTitle; ?></span>
+						<div class="line"></div>
 					</h2>
 				</div>
 				<div class="tab-content">

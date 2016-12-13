@@ -36,7 +36,10 @@ get_header();
 				break;
 			}
 			?>
-			<h2 class="list-title"><?= "{$title['plural']} em destaque" ?></h2>
+			<h2 class="list-title">
+				<?= "{$title['plural']} em destaque" ?>
+				<div class="line"></div>
+			</h2>
 
 			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 				<?php
@@ -67,7 +70,7 @@ get_header();
 								</span>
 							</div>
 						</a>
-						<hr>
+						<div class="line"></div>
 						<div class="column large-8 no-p">
 							<a href="<?= get_post_permalink() ?>">
 								<p class="excerpt raleway"><?= get_the_excerpt(); ?></p>
@@ -87,7 +90,10 @@ get_header();
 	?>
 	<div class="older-posts">
 		<div class="column large-12">
-			<h2 class="list-title"><?= "outr{$title['gender']}s {$title['plural']}" ?></h2>
+			<h2 class="list-title">
+				<?= "outr{$title['gender']}s {$title['plural']}" ?>
+				<div class="line"></div>		
+			</h2>
 		</div>
 		<?php
 		query_posts(array(

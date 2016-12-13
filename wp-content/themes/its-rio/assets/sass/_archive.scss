@@ -21,10 +21,13 @@
 	a, h2, ul li a, .categories { 
 		color: #000 !important;
 	}
-	hr { 
-		background: #000 !important;
+	h2 {
+		line-height: 1.5;
+		.line { 
+			background: #000 !important;
+			margin: 5px 0 10px;
+		}
 	}
-
 	&:hover{
 		box-shadow: 0 0 15px #8a8a8a;
 	}

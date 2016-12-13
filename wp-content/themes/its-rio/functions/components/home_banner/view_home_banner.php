@@ -7,12 +7,10 @@
 				?>
 				<div class="carousel-cell highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 					<div class="info">
-						<a href="<?= get_permalink() ?>">
-							<div>
-								<h2><?= get_the_title() ?></h2> 
-							</div> 
-						</a> 
-						<hr> 
+						<h2>
+							<a href="<?= get_permalink() ?>"><?= get_the_title() ?></a>
+							<div class="line"></div>
+						</h2> 						
 						<div class="column large-8 no-p">
 							<a href="<?= get_permalink() ?>"><p class="excerpt raleway"><?= get_the_excerpt() ?></p></a>
 						</div> 

@@ -3,7 +3,7 @@
 		<a href="<?= get_permalink() ?>">
 			<div class="info">
 				<h3><?= the_title(); ?></h3>
-				<hr>
+				<div class="line"></div>
 				<p class="excerpt"><?= the_excerpt(); ?></p>
 			</div>
 			<div class="img" style="background-image: url('<?= get_thumbnail_url_full( $post->ID ); ?>')">

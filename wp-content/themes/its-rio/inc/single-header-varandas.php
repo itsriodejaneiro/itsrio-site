@@ -4,7 +4,7 @@
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
 			<?php $label = 'palestrantes'; include('palestrantes.php'); wp_reset_postdata(); ?>
-			<hr>
+			<div class="line"></div>
 		</div>
 		<div class="column large-4">
 			<?php if(!closed): ?>

@@ -51,7 +51,7 @@
 		line-height: 60px;
 	}
 
-	hr{
+	.line {
 		background-color: white !important;
 		width: 60%;
 		margin: 10px 0px;
@@ -329,11 +329,11 @@
 			}
 		}
 
-		h5{
+		h5 {
 			font-size: 15px;
 			margin: 10px 0px !important;
-			&:not(.label){
-				border-bottom: 2px solid black !important;
+			&:not(.label) {
+				border-bottom: 1px solid black !important;
 			}
 		}
 	}

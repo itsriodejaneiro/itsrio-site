@@ -6,10 +6,14 @@
 				<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
 						<span v-if="e == 0"><?= $moduleTitle; ?></span>
 						<span v-else>&nbsp;</span>
+						<div class="line"></div>
 					</h2>
 				</div>
 				<div class="tab-content">
-					<h3 class="list-title">{{ i }}</h3>
+					<h3 class="list-title">
+						{{ i }}
+						<div class="line"></div>
+					</h3>
 					<p><?= $moduleExcerpt; ?></p>
 					<input type="checkbox" v-bind:id="'check_informacoes_' + i">
 					<label v-bind:for="'check_informacoes_' + i" class="label-tab" ></label>
