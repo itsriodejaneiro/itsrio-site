@@ -2643,38 +2643,38 @@ button.flickity-prev-next-button {
   width: 100%; }
 
 .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #522E91;
+  border-bottom: 5px solid #9a258f;
   font-weight: bold; }
   .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item a {
-    color: #522E91; }
+    color: #9a258f; }
 .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .single-cursos_ctp .header-single:before, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single:before {
-  background-color: #522E91 !important; }
+  background-color: #9a258f !important; }
 .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single {
   background-color: #9A248E !important; }
 
 .single-varandas_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-varandas_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #00958A;
+  border-bottom: 5px solid #00958a;
   font-weight: bold; }
   .single-varandas_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-varandas_ctp .menu-container .menu-nav ul li.current-menu-item a {
-    color: #00958A; }
+    color: #00958a; }
 .single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single, .single-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single, .post-type-archive-varandas_ctp .header-single:before {
-  background-color: #00958A !important; }
+  background-color: #00958a !important; }
 
 .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #F5821F;
+  border-bottom: 5px solid #f5821f;
   font-weight: bold; }
   .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item a {
-    color: #F5821F; }
+    color: #f5821f; }
 .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
-  background-color: #F5821F !important; }
+  background-color: #f5821f !important; }
 
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #553292;
+  border-bottom: 5px solid #522e91;
   font-weight: bold; }
   .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a {
-    color: #553292; }
+    color: #522e91; }
 .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
-  background-color: #553292 !important; }
+  background-color: #522e91 !important; }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522e91;
@@ -2687,13 +2687,13 @@ button.flickity-prev-next-button {
   background-color: #262626 !important; }
 
 .list-item.type-cursos_ctp:hover {
-  background-color: #522E91 !important; }
+  background-color: #9a258f !important; }
 .list-item.type-varandas_ctp:hover {
-  background-color: #00958A !important; }
+  background-color: #00958a !important; }
 .list-item.type-projetos_ctp:hover {
-  background-color: #553292 !important; }
+  background-color: #522e91 !important; }
 .list-item.type-publicacoes_ctp:hover {
-  background-color: #F5821F !important; }
+  background-color: #f5821f !important; }
 
 .curved-shadow {
   position: absolute; }
