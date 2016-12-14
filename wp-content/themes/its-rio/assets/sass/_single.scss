@@ -119,6 +119,7 @@
 	width: 320px;
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
 
 	@media #{$small-only}{
 		display: none;

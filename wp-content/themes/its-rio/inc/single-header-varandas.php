@@ -23,11 +23,13 @@
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
-		<?php if(!$closed): ?>
-			<a href="#" class="button large curved-shadow">inscreva-se</a>
-		<?php else: ?>
-			<a href="#" class="button large curved-shadow">sugira um tema</a>
-		<?php endif; ?>
+		<div class="sidebar">
+			<?php if(!$closed): ?>
+				<a href="#" class="button large curved-shadow">inscreva-se</a>
+			<?php else: ?>
+				<a href="#" class="button large curved-shadow">sugira um tema</a>
+			<?php endif; ?>
+			</div>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

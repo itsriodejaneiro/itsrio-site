@@ -2397,7 +2397,8 @@ button.flickity-prev-next-button {
 .sidebar {
   width: 320px;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: flex-end; }
   @media screen and (max-width: 39.9375em) {
     .sidebar {
       display: none; } }
