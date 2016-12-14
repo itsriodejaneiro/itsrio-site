@@ -4,11 +4,16 @@
 </div>
 
 <script>
-	jQuery(window).scroll(function(){
+	var scrolling = true;
+	jQuery(window).scroll(function(e){
+		if(!scrolling) e.preventDefault();
 		if(jQuery(this).scrollTop() >= jQuery(window).height() && jQuery('.row.row-menu').hasClass('home')){
+			scrolling = false;
 			jQuery('.row.row-menu').addClass('fixed').removeClass('home');
 			jQuery('.home-cover').remove();
-			jQuery('html, body').animate({scrollTop: 0}, 5);
+			jQuery('html, body').animate({ scrollTop: 0}, 500, function(){
+				scrolling = true;
+			});
 		}
 	});
 	jQuery(document).ready(function(){

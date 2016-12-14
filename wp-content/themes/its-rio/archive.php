@@ -3,13 +3,26 @@ get_header();
 ?>
 <div class="row">
 	<?php
-	$posts = new WP_Query(array(
-		'post_type' => $post_type,
-		'meta_key' => 'info_inscfim',
-		'meta_value' => date('Y-m-d'),
-		'meta_compare' => '>='
-		)
-	);
+	$destaque_id = 0; 
+
+	$args = array(
+		'numberposts' => 1,
+		'orderby' => $post_type,
+		'order' => 'DESC',
+		'post_type' => 'post',
+		);
+
+	if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
+		$args = array(
+			'post_type' => $post_type,
+			'meta_key' => 'info_inscfim',
+			'meta_value' => date('Y-m-d'),
+			'meta_compare' => '>='
+			);
+	}
+	
+	$posts = new WP_Query($args);
+
 	if ($posts->have_posts()) {
 		?>
 		<div class="column large-12">
@@ -20,8 +33,8 @@ get_header();
 				$bannerCards = 'outros projetos';				
 				break;
 				case 'cursos_ctp':
-				$bannerTitle = 'cursos em destaque';
-				$bannerCards = 'outros cursos';				
+				$bannerTitle = 'inscrições abertas';
+				$bannerCards = 'cursos encerrados';				
 				break;
 				case 'publicacoes_ctp':
 				$bannerTitle = 'publicações em destaque';
@@ -46,6 +59,7 @@ get_header();
 				while ($posts->have_posts()) {
 					$posts->the_post();
 					$meta = get_post_meta(get_the_ID());
+					$destaque_id = get_the_ID();
 					?>
 					<div class="info">
 						<a href="<?= get_post_permalink() ?>">
@@ -96,21 +110,26 @@ get_header();
 			</h2>
 		</div>
 		<?php
-		query_posts(array(
-			'post_type' 	=> $post_type,
-			'relation'		=> 'OR',
-			'meta_query'	=> array(
-				['meta_key' => 'info_inscfim',
-				'meta_value' => date('Y-m-d'),
-				'meta_compare' => '>='
-				],
-				['meta_key' => 'info_inscfim',
-				'meta_value' => '',
-				'meta_compare' => '='
-				],
-				)
-			)
-		);
+		if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
+			$args = array(
+				'post_type' 	=> $post_type,
+				'relation'		=> 'OR',
+				'post__not_in'	=> [$destaque_id],
+				'meta_query'	=> array(
+					['meta_key' => 'info_inscfim',
+					'meta_value' => date('Y-m-d'),
+					'meta_compare' => '<'
+					],
+					['meta_key' => 'info_inscfim',
+					'meta_value' => '',
+					'meta_compare' => '='
+					],
+					)
+				);
+		}else{
+			$args[] = ['exclude' => $destaque_id];
+		}
+		query_posts($args);
 
 		if (have_posts()) {
 			while (have_posts()) {
