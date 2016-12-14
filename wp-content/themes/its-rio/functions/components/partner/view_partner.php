@@ -1,7 +1,10 @@
 
 <div class="content-area tab content-partners">
 	<div class="row">
-		<h2 class="tab-title list-title left"><?= $title ?></h2>
+		<h2 class="tab-title list-title left">
+			<?= $title ?>
+			<div class="line"></div>	
+		</h2>
 		<div class="tab-content">
 			<?php
 			foreach ($gallery as $image){

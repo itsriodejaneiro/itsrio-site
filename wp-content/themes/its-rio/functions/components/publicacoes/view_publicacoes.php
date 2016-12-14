@@ -3,6 +3,7 @@
 	<div class="row">
 		<h2 class="tab-title list-title left">
 			publicações
+			<div class="line"></div>
 		</h2>
 		<div class="tab-content">
 			<?php

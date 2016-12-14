@@ -4,7 +4,7 @@
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
 			<?php $label = 'palestrantes'; include('palestrantes.php'); wp_reset_postdata(); ?>
-			<hr>
+			<div class="line"></div>
 		</div>
 		<div class="column large-4">
 			<?php if(!closed): ?>
@@ -23,11 +23,13 @@
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
-		<?php if(!$closed): ?>
-			<a href="#" class="button large curved-shadow">inscreva-se</a>
-		<?php else: ?>
-			<a href="#" class="button large curved-shadow">sugira um tema</a>
-		<?php endif; ?>
+		<div class="sidebar">
+			<?php if(!$closed): ?>
+				<a href="#" class="button large curved-shadow">inscreva-se</a>
+			<?php else: ?>
+				<a href="#" class="button large curved-shadow">sugira um tema</a>
+			<?php endif; ?>
+			</div>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

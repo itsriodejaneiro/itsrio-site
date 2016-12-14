@@ -4,6 +4,10 @@ footer{
 	padding: 40px 30px;
 	overflow: hidden;
 
+	.row {
+		max-width: 1280px !important;
+	}
+
 	&, p, b, li, a, input {
 		color: white;
 		font-size: 14px;
@@ -13,15 +17,6 @@ footer{
 		&:focus, &:active, &:hover {
 			color: white;
 		}
-	}
-
-	input[type=text]{
-		border: none;
-		border-bottom: 1px solid white; 
-		background-color: transparent;
-		width: 445px;
-		font-family: 'Raleway';
-		outline: none;
 	}
 
 	ul {
@@ -35,17 +30,71 @@ footer{
 			}
 		}
 	}
-
-	.latest ul li a{
-		font-family: 'Raleway';
-		font-size: 15px;
-		font-weight: 500;
-		color: #9b9b9b;
+	.contact-wrapper {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 35px;
 	}
 
 	.contact {
+		flex-grow: 0.5;
 		a {
 			text-decoration: underline;
+		}
+	}
+
+	.newsletter-input {
+		border: none;
+		border-bottom: 1px solid white; 
+		background-color: transparent;
+		font-family: 'Raleway';
+		outline: none;
+		line-height: 1.5;
+		flex-grow: 2.5;
+		margin-right: 10px; 
+		&::placeholder { 
+        	color: #fff;
+        }
+        &::-webkit-input-placeholder { 
+            color: #fff;
+        }
+        &::-moz-placeholder { 
+            color: #fff;
+        }
+        &:-ms-input-placeholder { 
+            color: #fff;
+        }
+        &:-moz-placeholder { 
+            color: #fff;
+        }
+	}
+	.newsletter-button {
+		flex-grow: 0;
+		margin: 0; 
+		padding: 0 12px;
+		white-space: nowrap;
+	}
+
+	.social-content {
+		margin-bottom: 50px;
+		overflow: hidden;
+		.latest {
+			float: left;
+			ul li a {
+				font-family: 'Raleway';
+				font-size: 15px;
+				font-weight: 500;
+				color: #9b9b9b;
+			}
+		}
+		.articles, .videos {
+			box-sizing: border-box;
+			padding-right: 4%;
+			width: 34%;
+		}
+		.tags {
+			width: 26%;
 		}
 	}
 
@@ -55,5 +104,10 @@ footer{
 			font-size: 10px;
 			text-decoration: underline;
 		}
+	}
+
+	.creative-commons {
+		margin-right: 5px;
+		vertical-align: sub;
 	}
 }

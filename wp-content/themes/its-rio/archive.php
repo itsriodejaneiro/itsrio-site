@@ -16,27 +16,30 @@ get_header();
 			<?php 
 			switch ($postType) {
 				case 'projetos_ctp':
-					$bannerTitle = 'projetos em destaque';
-					$bannerCards = 'outros projetos';				
+				$bannerTitle = 'projetos em destaque';
+				$bannerCards = 'outros projetos';				
 				break;
 				case 'cursos_ctp':
-					$bannerTitle = 'cursos em destaque';
-					$bannerCards = 'outros cursos';				
+				$bannerTitle = 'cursos em destaque';
+				$bannerCards = 'outros cursos';				
 				break;
 				case 'publicacoes_ctp':
-					$bannerTitle = 'publicações em destaque';
-					$bannerCards = 'outras publicações';				
+				$bannerTitle = 'publicações em destaque';
+				$bannerCards = 'outras publicações';				
 				break;
 				case 'varandas_ctp':
-					$bannerTitle = 'varandas em destaque';
-					$bannerCards = 'varandas antigas';				
+				$bannerTitle = 'varandas em destaque';
+				$bannerCards = 'varandas antigas';				
 				break;
 
 				default:
 				break;
 			}
 			?>
-			<h2 class="list-title"><?= "{$bannerTitle ?></h2>
+			<h2 class="list-title">
+				<?= "$bannerTitle" ?>
+				<div class="line"></div>
+			</h2>
 
 			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 				<?php
@@ -67,7 +70,7 @@ get_header();
 								</span>
 							</div>
 						</a>
-						<hr>
+						<div class="line"></div>
 						<div class="column large-8 no-p">
 							<a href="<?= get_post_permalink() ?>">
 								<p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p>
@@ -87,7 +90,10 @@ get_header();
 	?>
 	<div class="older-posts">
 		<div class="column large-12">
-			<h2 class="list-title"><?= $bannerCards ?></h2>
+			<h2 class="list-title">
+				<?= $bannerCards ?>
+				<div class="line"></div>		
+			</h2>
 		</div>
 		<?php
 		query_posts(array(

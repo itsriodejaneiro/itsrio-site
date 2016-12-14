@@ -2,12 +2,18 @@
 <div class="content-area tab component-tabs informacoes" id="tab_palestrantes">
 	<div class="row">
 		<div class="component-tabs-title">
-			<h2 class="tab-title list-title">equipe</h2>
+			<h2 class="tab-title list-title">
+				equipe
+				<div class="line"></div>
+			</h2>
 		</div>
 		<div class="tab-content ">
 			<!-- isso tudo replicar 3x -->
 			<div class="component-tabs-tab">
-				<h3 class="list-title">board</h3>
+				<h3 class="list-title">
+					board
+					<div class="line"></div>
+				</h3>
 				<input type="checkbox" id="check_informacoes_1">
 				<label for="check_informacoes_1"></label>
 				<div class="component-tabs-content">

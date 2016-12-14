@@ -2,12 +2,18 @@
 	<div class="content-area component-tabs informacoes" id="tab_<?= array_search('informações', $data['its_tabs']) ?>">
 		<div class="row">
 			<div class="component-tabs-title">
-				<h2 class="tab-title list-title">informações</h2>
+				<h2 class="tab-title list-title">
+					informações
+					<div class="line"></div>
+				</h2>
 				<h5 class="label">mais informações</h5>
 			</div>
 			<div class="tab-content">
 				<div v-for="(informacao, i) in informacoes" class="component-tabs-tab">
-					<h3 class="list-title">{{ informacao.title }}</h3>
+					<h3 class="list-title">
+						{{ informacao.title }}
+						<div class="line"></div>
+					</h3>
 					<input type="checkbox" v-bind:id="'check_informacoes_' + i">
 					<label v-bind:for="'check_informacoes_' + i"></label>
 					<div

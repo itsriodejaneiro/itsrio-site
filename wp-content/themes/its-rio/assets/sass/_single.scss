@@ -4,7 +4,7 @@
 	background-size: cover;
 	position: relative;
 	z-index: -2;
-	filter: grayscale(50%);
+	filter: grayscale(10%);
 
 	&:before{
 		top: 0;
@@ -51,7 +51,7 @@
 		line-height: 60px;
 	}
 
-	hr{
+	.line {
 		background-color: white !important;
 		width: 60%;
 		margin: 10px 0px;
@@ -119,6 +119,7 @@
 	width: 320px;
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
 
 	@media #{$small-only}{
 		display: none;
@@ -146,7 +147,7 @@
 }
 
 .content-area{
-	padding: 40px;
+	padding: 50px 40px 60px;
 
 	// &:nth-of-type(even){// 	background-color: #D9D9D9 !important; // }
 
@@ -292,10 +293,8 @@
 	}
 }
 
-
-
-
-.related-content{
+.related-content {
+	background-color: #d9d9d9;
 	.large-4:nth-child(3n + 1){
 		padding-left: 0px !important;
 	}
@@ -329,11 +328,11 @@
 			}
 		}
 
-		h5{
+		h5 {
 			font-size: 15px;
 			margin: 10px 0px !important;
-			&:not(.label){
-				border-bottom: 2px solid black !important;
+			&:not(.label) {
+				border-bottom: 1px solid black !important;
 			}
 		}
 	}

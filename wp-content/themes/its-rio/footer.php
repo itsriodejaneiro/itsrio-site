@@ -1,30 +1,33 @@
 </div>
 <footer>
-	<div class="column large-3">
-		<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
-		<ul>
-			<li><a href="#" class="box">equipe</a></li>
-			<li><a href="#" class="box">onde estivemos</a></li>
-			<li><a href="#" class="box">comunicados</a></li>
-		</ul>
-	</div>
+	<div class="row">
+		<div class="column large-3">
+			<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
+			<ul>
+				<li><a href="#" class="box">equipe</a></li>
+				<li><a href="#" class="box">onde estivemos</a></li>
+				<li><a href="#" class="box">comunicados</a></li>
+			</ul>
+		</div>
 
-	<div class="column large-3">
-		<p class="contact"><b>contatos:</b><br>
-		<?= esc_attr(get_option('footer_contacts')) ?></p>
+		<div class="column large-9">
+			<div class="contact-wrapper">
+				<div class="contact">
+					<b>contatos:</b><br>
+					<?= esc_attr(get_option('footer_contacts')) ?>
+				</div>
+				<input type="text" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
+				<a href="#" class="box newsletter-button">inscreva-se</a>
+			</div>
+		</div>
+		<?php include 'latest-social-content.php'; ?>
 	</div>
-
-	<div class="column large-6">
-		<input type="text" placeholder="newsletter">
-		<a href="#" class="box">inscreva-se</a>
-		<br>
-		<br>
-		<br>
-	</div>
-	<?php include 'latest-social-content.php'; ?>
-	<div style="overflow: hidden; clear: both">
+	<div class="row">
 		<div class="column large-3"><small>desenvolvido por <a href="#">Hacklab</a></small></div>
-		<div class="column large-9 raleway"><?= esc_attr( get_option('footer_adress') );  ?></div>
+		<div class="column large-9 raleway">
+			<img src="<?= get_template_directory_uri() ?>/assets/images/cc-footer.png" alt="Licença CC BY 3.0 BR" class="creative-commons">
+			<?= esc_attr( get_option('footer_adress') ); ?>	
+		</div>
 	</div>
 </footer>
 </div>

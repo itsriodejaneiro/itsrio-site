@@ -1,7 +1,10 @@
 <its-map inline-template>	
 	<div class="content-area component-tabs map" id="tab_<?= array_search('tema', jQuerydata['its_tabs']) ?>">
 		<div class="row" style="padding-bottom: 25px;">
-			<h2 class="tab-title list-title left"><?= $title ?></h2>
+			<h2 class="tab-title list-title left">
+				<?= $title ?>
+				<div class="line"></div>	
+			</h2>
 			<div class="tab-content raleway" style="width: calc(100% - 240px);">
 				<p><?= $content ?></p>
 			</div>
