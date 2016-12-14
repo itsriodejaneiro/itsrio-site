@@ -74,6 +74,12 @@ p, hr{
 
 		a, .box, h3, p { color: white !important; }
 		.line { background-color: white !important; }
+
+		.img {
+			.color-hover {
+				opacity: 0.5;
+			}
+		}
 	}
 
 	.info{
@@ -98,9 +104,13 @@ p, hr{
 		background-size: cover;
 		background-position: center;
 		border-radius: 0 0 3px 3px;
-		padding: 10px 20px;
-		display: flex;
-		align-items: flex-end;
+		.color-hover {
+			background-color: rgb(38, 38, 38);
+			border-radius: 0 0 3px 3px;
+			height: 220px;
+			width: 100%;
+			opacity: 0;
+		}
 	}
 
 	.categories {
