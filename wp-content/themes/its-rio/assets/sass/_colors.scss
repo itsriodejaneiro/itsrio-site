@@ -109,21 +109,41 @@ $color_institucionais : #522e91;
 
 .list-item {
 	&.type-cursos_ctp {
+		.img {
+			.color-hover {
+				background-color: $color_cursos;
+			}
+		}
 		&:hover {
 			background-color: $color_cursos !important;
 		}
 	}
 	&.type-varandas_ctp {
+		.img {
+			.color-hover {
+				background-color: $color_varandas;
+			}
+		}
 		&:hover {
 			background-color: $color_varandas !important;
 		}
 	}
 	&.type-projetos_ctp {
+		.img {
+			.color-hover {
+				background-color: $color_projetos;
+			}
+		}
 		&:hover {
 			background-color: $color_projetos !important;
 		}
 	}
 	&.type-publicacoes_ctp {
+		.img {
+			.color-hover {
+				background-color: $color_publicacoes;
+			}
+		}
 		&:hover {
 			background-color: $color_publicacoes !important;
 		}

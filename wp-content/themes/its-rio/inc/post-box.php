@@ -11,7 +11,9 @@
 					<?php endif; ?>
 				</p>
 			</div>
-			<div class="img" style="background-image: url('<?= get_thumbnail_url_full( $post->ID ); ?>')"></div>
+			<div class="img" style="background-image: url('<?= get_thumbnail_url_full( $post->ID ); ?>')">
+				<div class="color-hover"></div>
+			</div>
 			<?php $cat_classes = ''; include(ROOT. 'inc/categories.php') ?>
 		</a>
 	</div>

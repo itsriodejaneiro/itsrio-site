@@ -1931,6 +1931,8 @@ p, hr {
       color: white !important; }
     .list-item:hover .line {
       background-color: white !important; }
+    .list-item:hover .img .color-hover {
+      opacity: 0.5; }
   .list-item .info {
     padding: 20px !important;
     padding-bottom: 5px !important; }
@@ -1946,10 +1948,13 @@ p, hr {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 0 0 3px 3px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: flex-end; }
+    border-radius: 0 0 3px 3px; }
+    .list-item .img .color-hover {
+      background-color: #262626;
+      border-radius: 0 0 3px 3px;
+      height: 220px;
+      width: 100%;
+      opacity: 0; }
   .list-item .categories {
     position: absolute;
     bottom: 10px;
@@ -2706,12 +2711,20 @@ button.flickity-prev-next-button {
 .page .list-item:hover, .single-comunicados_ctp .list-item:hover {
   background-color: #262626 !important; }
 
+.list-item.type-cursos_ctp .img .color-hover {
+  background-color: #9a258f; }
 .list-item.type-cursos_ctp:hover {
   background-color: #9a258f !important; }
+.list-item.type-varandas_ctp .img .color-hover {
+  background-color: #00958a; }
 .list-item.type-varandas_ctp:hover {
   background-color: #00958a !important; }
+.list-item.type-projetos_ctp .img .color-hover {
+  background-color: #522e91; }
 .list-item.type-projetos_ctp:hover {
   background-color: #522e91 !important; }
+.list-item.type-publicacoes_ctp .img .color-hover {
+  background-color: #f5821f; }
 .list-item.type-publicacoes_ctp:hover {
   background-color: #f5821f !important; }
 
