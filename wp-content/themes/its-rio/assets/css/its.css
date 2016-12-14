@@ -1956,6 +1956,7 @@ p, hr {
       width: 100%;
       opacity: 0; }
   .list-item .categories {
+    color: #fff;
     position: absolute;
     bottom: 10px;
     left: 20px; }
