@@ -14,7 +14,7 @@
 						</a> 
 						<hr> 
 						<div class="column large-8 no-p">
-							<a href="<?= get_permalink() ?>"><p class="excerpt raleway"><?= get_the_excerpt() ?></p></a>
+							<a href="<?= get_permalink() ?>"><p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p></a>
 						</div> 
 						<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
 					</div>

@@ -10,6 +10,8 @@
 								<h3 v-html="item.title"></h3>
 								<hr>
 								<p class="excerpt" v-html="item.excerpt"></p>
+								<a v-bind:href="item.permalink"><b>Saiba Mais</b></a>
+
 							</div>
 							<div class="img" v-bind:style="{ 'background-image': 'url('+item.thumb+')' }">
 							</div>

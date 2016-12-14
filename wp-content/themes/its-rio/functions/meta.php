@@ -74,13 +74,13 @@ function its_meta_boxes($meta_boxes) {
 		'autosave'   => true,
 		'fields'     => array(
 			array(
-				'name'        => __( 'É um Banner', 'batuta_' ),
+				'name'        => __( 'É um banner da home', 'batuta_' ),
 				'id'          => "home_banner",
 				'type'        => 'checkbox',
 				'value'		  => '1'
 				),
 			array(
-				'name'        => __( 'É um Card', 'batuta_' ),
+				'name'        => __( 'É um card da home', 'batuta_' ),
 				'id'          => "home_cards",
 				'type'        => 'checkbox',
 				'value'		  => '1'

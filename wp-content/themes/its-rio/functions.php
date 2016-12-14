@@ -68,10 +68,15 @@ function curl($url){
 	return $output;
 }
 
+function limit_excerpt($s, $max_length){
+	if (strlen($s) > $max_length)
+	{
+		$offset = ($max_length - 3) - strlen($s);
+		$s = substr($s, 0, strrpos($s, ' ', $offset)) . '...';
+	}
 
-
-
-
+	return $s;
+}
 
 
 

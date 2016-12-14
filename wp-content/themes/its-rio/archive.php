@@ -29,14 +29,14 @@ get_header();
 				break;
 				case 'varandas_ctp':
 					$bannerTitle = 'varandas em destaque';
-					$bannerCards = 'outros varandas';				
+					$bannerCards = 'varandas antigas';				
 				break;
 
 				default:
 				break;
 			}
 			?>
-			<h2 class="list-title"><?= "{$title['plural']} em destaque" ?></h2>
+			<h2 class="list-title"><?= "{$bannerTitle ?></h2>
 
 			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 				<?php
@@ -70,7 +70,7 @@ get_header();
 						<hr>
 						<div class="column large-8 no-p">
 							<a href="<?= get_post_permalink() ?>">
-								<p class="excerpt raleway"><?= get_the_excerpt(); ?></p>
+								<p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p>
 							</a>
 						</div>
 						<div class="column large-4 no-p categories">
@@ -87,7 +87,7 @@ get_header();
 	?>
 	<div class="older-posts">
 		<div class="column large-12">
-			<h2 class="list-title"><?= "outr{$title['gender']}s {$title['plural']}" ?></h2>
+			<h2 class="list-title"><?= $bannerCards ?></h2>
 		</div>
 		<?php
 		query_posts(array(
