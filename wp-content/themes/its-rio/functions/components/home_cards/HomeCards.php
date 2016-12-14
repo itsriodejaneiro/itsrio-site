@@ -39,12 +39,14 @@ class HomeCards extends ET_Builder_Module {
 		$args = array(
 			'meta_query' => array(
 				array(
-					'key' => 'home_banner',
+					'key' => 'home_cards',
 					'value' => '1',
 					'compare' => '=',
 					)
 				),
 			'posts_per_page' => $count,
+			'orderby' => 'post_date',
+			'order' => 'DESC',
 			'post_type' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp' ],
 			);
 

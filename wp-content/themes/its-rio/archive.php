@@ -7,9 +7,9 @@ get_header();
 
 	$args = array(
 		'numberposts' => 1,
-		'orderby' => $post_type,
+		'orderby' => 'post_date',
 		'order' => 'DESC',
-		'post_type' => 'post',
+		'post_type' => $post_type,
 		);
 
 	if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
