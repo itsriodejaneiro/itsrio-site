@@ -2408,7 +2408,7 @@ button.flickity-prev-next-button {
       margin: 0 0 20px 0 !important; }
 
 .content-area {
-  padding: 40px; }
+  padding: 50px 40px 60px; }
   .content-area .row {
     width: 100% !important;
     margin: 0 auto !important; }
@@ -2512,8 +2512,10 @@ button.flickity-prev-next-button {
       border-radius: 50%;
       margin: 0 25px 25px 0; }
 
-.related-content .large-4:nth-child(3n + 1) {
-  padding-left: 0px !important; }
+.related-content {
+  background-color: #d9d9d9; }
+  .related-content .large-4:nth-child(3n + 1) {
+    padding-left: 0px !important; }
 
 /* COMPONENT AULAS E COMPONENTS*/
 .component-tabs .tab-content {
