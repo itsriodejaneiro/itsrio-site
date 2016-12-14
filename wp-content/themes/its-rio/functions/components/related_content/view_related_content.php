@@ -1,7 +1,7 @@
 <div class="related-content content-area" id="tab_<?= array_search('relacionados', $data['its_tabs']) ?>">
 	<div class="row">
 		<h2 class="list-title">
-			conteúdo relacionado
+			conteúdos relacionados
 			<div class="line"></div>
 		</h2>
 		<div class="related-post">
