@@ -104,6 +104,9 @@ p, hr{
 	}
 
 	.categories {
+		position: absolute;
+		bottom: 10px;
+		left: 20px;
 		ul {
 			margin-left: 5px; 
 			li + li {

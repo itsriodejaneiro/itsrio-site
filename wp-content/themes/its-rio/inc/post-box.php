@@ -6,9 +6,8 @@
 				<div class="line"></div>
 				<p class="excerpt"><?= the_excerpt(); ?></p>
 			</div>
-			<div class="img" style="background-image: url('<?= get_thumbnail_url_full( $post->ID ); ?>')">
-				<?php $cat_classes = ''; include(ROOT. 'inc/categories.php') ?>
-			</div>
+			<div class="img" style="background-image: url('<?= get_thumbnail_url_full( $post->ID ); ?>')"></div>
+			<?php $cat_classes = ''; include(ROOT. 'inc/categories.php') ?>
 		</a>
 	</div>
 </div>

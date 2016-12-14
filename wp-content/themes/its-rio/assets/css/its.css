@@ -1950,10 +1950,14 @@ p, hr {
     padding: 10px 20px;
     display: flex;
     align-items: flex-end; }
-  .list-item .categories ul {
-    margin-left: 5px; }
-    .list-item .categories ul li + li {
+  .list-item .categories {
+    position: absolute;
+    bottom: 10px;
+    left: 20px; }
+    .list-item .categories ul {
       margin-left: 5px; }
+      .list-item .categories ul li + li {
+        margin-left: 5px; }
 
 .spread-items {
   display: flex;
