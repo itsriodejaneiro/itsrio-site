@@ -2469,8 +2469,8 @@ button.flickity-prev-next-button {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 0 17.5px 20px 17.5px;
-    border-color: transparent transparent #000000 transparent; }
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #000 transparent; }
   .pessoa input[type="radio"]:checked + .pessoa-mini img {
     opacity: 1;
     display: block;
@@ -2510,25 +2510,36 @@ button.flickity-prev-next-button {
   background-color: black;
   transition: max-height .3s; }
   .pessoa-info.active {
-    max-height: 215px; }
+    max-height: 220px; }
     .pessoa-info.active img {
-      box-shadow: 0 0 0 3px white, 0 0 0 7px lightgray, 0 0 0 11px gray; }
+      box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
     .pessoa-info.active .close {
       display: block; }
   .pessoa-info .close {
     display: none; }
   .pessoa-info-content {
     float: right;
-    padding: 20px;
-    width: calc(100% - 340px); }
-    .pessoa-info-content img {
+    margin: 20px 0;
+    width: calc(100% - 21%); }
+    @media screen and (min-width: 1367px) {
+      .pessoa-info-content {
+        width: calc(100% - 30%); } }
+    .pessoa-info-content .pessoa-thumb {
+      box-sizing: border-box;
       float: left;
+      margin: 0 35px 0 0;
+      padding: 10px; }
+    .pessoa-info-content img {
       width: 160px;
       height: 160px;
       outline: none;
       box-shadow: none;
-      border-radius: 50%;
-      margin: 0 25px 25px 0; }
+      border-radius: 50%; }
+    .pessoa-info-content .pessoa-text {
+      float: left;
+      max-width: 480px; }
+      .pessoa-info-content .pessoa-text h3 {
+        margin-bottom: 5px; }
 
 .related-content {
   background-color: #d9d9d9; }

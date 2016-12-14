@@ -23,10 +23,14 @@
 				<div v-if="pessoas.pessoaActive != ''" v-bind:class="{ 'active' : pessoas.pessoaActive != '' }"  class="pessoa-info" >
 					<div class="close" @click="pessoas.pessoaActive = ''">&times;</div>
 					<div class="pessoa-info-content">
-						<img v-if="pessoas.pessoaActive.thumb != ''" 
-						v-bind:src="pessoas.pessoaActive.thumb" alt="">
-						<h3>{{ pessoas.pessoaActive.title }}</h3> 	
-						<div v-html="pessoas.pessoaActive.content"></div>
+						<div class="pessoa-thumb">
+							<img v-if="pessoas.pessoaActive.thumb != ''" 
+							v-bind:src="pessoas.pessoaActive.thumb" alt="">
+						</div>
+						<div class="pessoa-text">
+							<h3 class="raleway">{{ pessoas.pessoaActive.title }}</h3> 	
+							<div v-html="pessoas.pessoaActive.content"></div>
+						</div>
 					</div>
 				</div>
 		</div>
