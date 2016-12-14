@@ -2321,7 +2321,6 @@ button.flickity-prev-next-button {
   align-items: center;
   background-size: cover;
   position: relative;
-  z-index: -2;
   filter: grayscale(10%); }
   .header-single:before {
     top: 0;
