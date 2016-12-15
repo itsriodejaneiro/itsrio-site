@@ -52,7 +52,7 @@
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
 <style>
-	.carousel-cell {
+/*	.carousel-cell {
 		height: 400px;
 		width: 100%;
 	}
@@ -76,7 +76,7 @@
 	.carousel-cell.is-selected {
 		opacity: 1;
 		z-index: 0
-	}
+	}*/
 </style>
 </body>
 </html>
