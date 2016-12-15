@@ -18,7 +18,15 @@
 </div>
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
-		<?php include(ROOT . 'inc/single/menu.php') ?>
+		<?php 
+		include(ROOT . 'inc/single/menu.php');
+		if(isset($meta['pdf']) && $meta['pdf'][0] != ''){
+			?>
+			<div class="sidebar">
+				<a href="<?= $meta['pdf'][0] ?>" target="_blank" class="button large curved-shadow">baixe o pdf</a>
+			</div>
+			<?php 
+		} ?>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

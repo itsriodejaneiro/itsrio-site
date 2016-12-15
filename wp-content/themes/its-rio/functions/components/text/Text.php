@@ -52,7 +52,6 @@ class Text extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_content);
 
 		$output = '';
-		if(!isset($data['its_tabs'])) $data['its_tabs'] = ['equipe','no mundo', 'fellows', 'comunicados', 'parceiros']; 
 
 		ob_start();
 		include(__DIR__.'/view_text.php');

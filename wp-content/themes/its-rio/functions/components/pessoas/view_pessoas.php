@@ -20,7 +20,7 @@
 					</div>
 				</div>
 			</div> 
-				<div v-if="pessoas.pessoaActive != ''" v-bind:class="{ 'active' : pessoas.pessoaActive != '' }"  class="pessoa-info" >
+				<div v-bind:class="{ 'active' : pessoas.pessoaActive != '' }"  class="pessoa-info" >
 					<div class="close" @click="pessoas.pessoaActive = ''">&times;</div>
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">

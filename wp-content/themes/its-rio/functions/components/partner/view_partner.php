@@ -1,5 +1,4 @@
-
-<div class="content-area tab content-partners">
+<div class="content-area tab content-partners" id="tab_<?= array_search($title, $data['its_tabs']) ?>">
 	<div class="row">
 		<h2 class="tab-title list-title left">
 			<?= $title ?>

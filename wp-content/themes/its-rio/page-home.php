@@ -5,16 +5,25 @@
 
 <script>
 	var scrolling = true;
+	var lastScrollTop = 0;
+
 	jQuery(window).scroll(function(e){
 		if(!scrolling) e.preventDefault();
+		var st = $(this).scrollTop();
 		if(jQuery(this).scrollTop() >= jQuery(window).height() && jQuery('.row.row-menu').hasClass('home')){
-			scrolling = false;
-			jQuery('.row.row-menu').addClass('fixed').removeClass('home');
-			jQuery('.home-cover').remove();
-			jQuery('html, body').animate({ scrollTop: 0}, 500, function(){
-				scrolling = true;
-			});
+				jQuery('.row.row-menu').addClass('fixed');
+			if (st <= lastScrollTop){
+				jQuery('.row.row-menu').removeClass('home');
+				// scrolling = false;
+				jQuery('.home-cover').remove();
+					// jQuery('html, body').animate({ scrollTop: 0}, 500, function(){
+				// 	scrolling = true;
+				// });
+				console.log('descendo');
+			}
 		}
+
+		lastScrollTop = st;
 	});
 	jQuery(document).ready(function(){
 		jQuery('.main-carousel,.home-area-carousel').flickity({

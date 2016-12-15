@@ -52,7 +52,7 @@ class Map extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_content);
 
 		$output = '';
-		if(!isset($data['its_tabs'])) $data['its_tabs'] = ['equipe','no mundo', 'fellows', 'comunicados', 'parceiros']; 
+		$data['its_tabs'][] = $title; 
 
 		ob_start();
 		include(__DIR__.'/view_map.php');

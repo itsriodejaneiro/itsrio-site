@@ -80,9 +80,12 @@ class Pessoas extends ET_Builder_Module {
 						'content' => $p['post_content'],
 						'thumb' => get_the_post_thumbnail_url($p['ID']) 
 						);
+
+					var_dump($cats);
 				}		
 			}
 		}
+		die;
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
 

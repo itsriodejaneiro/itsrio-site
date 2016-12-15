@@ -60,6 +60,7 @@ class Partner extends ET_Builder_Module {
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
+		global $data;	
 		$module_id              = $this->shortcode_atts['module_id'];
 		$module_class           = $this->shortcode_atts['module_class'];
 		$gallery_ids            = $this->shortcode_atts['gallery_ids'];
@@ -90,6 +91,7 @@ class Partner extends ET_Builder_Module {
 
 		wp_enqueue_script( 'hashchange' );
 
+		$data['its_tabs'][] = $title;
 
 		$i = 0;
 		foreach ( $attachments as $id => $attachment ) {
