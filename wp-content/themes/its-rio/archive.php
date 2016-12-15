@@ -41,7 +41,7 @@ get_header();
 				$bannerCards = 'outras publicações';				
 				break;
 				case 'varandas_ctp':
-				$bannerTitle = 'varandas em destaque';
+				$bannerTitle = 'inscrições';
 				$bannerCards = 'varandas antigas';				
 				break;
 
