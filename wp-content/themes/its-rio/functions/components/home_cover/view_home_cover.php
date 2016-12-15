@@ -11,7 +11,7 @@ $image = $gallery[rand(0,count($gallery) -1)];
 		<br>
 		<p class="subtitle"><?= $title ?></p>
 	</h1>
-    <div class="arrow">
+    <div class="arrow" onclick="jQuery('html, body').animate({ scrollTop : jQuery(window).height() + 1 })">
         <img src="<?= get_template_directory_uri() ?>/assets/images/cover-arrow.svg" aria-hidden="true">
         <img src="<?= get_template_directory_uri() ?>/assets/images/cover-arrow.svg" aria-hidden="true">
         <img src="<?= get_template_directory_uri() ?>/assets/images/cover-arrow.svg" aria-hidden="true">

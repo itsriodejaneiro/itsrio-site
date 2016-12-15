@@ -1,5 +1,5 @@
 <its-map inline-template>	
-	<div class="content-area component-tabs map" id="tab_<?= array_search('tema', jQuerydata['its_tabs']) ?>">
+	<div class="content-area component-tabs map" id="tab_<?= array_search($title, $data['its_tabs']) ?>">
 		<div class="row" style="padding-bottom: 25px;">
 			<h2 class="tab-title list-title left">
 				<?= $title ?>

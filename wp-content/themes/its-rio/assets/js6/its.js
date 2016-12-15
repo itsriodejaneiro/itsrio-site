@@ -99,15 +99,16 @@ new Vue({
 			//Fixa o menu interno no menu global ao dar scroll
 		var menu = $('.header-single-menu');
 
-		try{
-			var top = menu.position().top;
-			$(window).scroll(function(){
-				if($(this).scrollTop() >= top - 65)
-					menu.addClass('fixed');
-				else
-					menu.removeClass('fixed');
-			});
-		}catch(e){}
+		// try{
+		var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
+
+		$(window).scroll(function(){
+			if($(this).scrollTop() >= top - 65)
+				menu.addClass('fixed');
+			else
+				menu.removeClass('fixed');
+		});
+		// }catch(e){}
 
 			//Adiciona a classe de active ao post type correspondente no menu global.
 		$("a[href='/"+post_type+"']").parent().addClass('current-menu-item');

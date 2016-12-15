@@ -1,5 +1,5 @@
 <its-comunicados inline-template>
-	<div class="related-content content-area comunicados" id="tab_<?= array_search('relacionados', $data['its_tabs']) ?>">
+	<div class="related-content content-area comunicados" id="tab_<?= array_search('comunicados', $data['its_tabs']) ?>">
 		<div class="row">
 			<h2 class="list-title">
 				comunicados <a href="javascript:void(0);">ver todos</a>

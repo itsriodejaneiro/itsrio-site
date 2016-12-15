@@ -25,7 +25,8 @@ function its_meta_boxes($meta_boxes) {
 		'title'      => __('Informações', 'textdomain' ),
 		'post_types' => ['publicacoes_ctp','projetos_ctp'],
 		'fields'     => array(
-			['id'   => 'info_header', 'name' => __('Linha de Pesquisa', 'textdomain'), 'type' => 'text']
+			['id'   => 'info_header', 'name' => __('Linha de Pesquisa', 'textdomain'), 'type' => 'text'],
+			['id'   => 'pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text']
 			),
 		],
 		[
