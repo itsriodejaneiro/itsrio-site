@@ -55,12 +55,13 @@ get_header();
 			</h2>
 			<div class="highlights-carousel">
 				<?php
+				$postsQtd = count($posts);
 				while ($posts->have_posts()) {
 					$posts->the_post();
 					$meta = get_post_meta(get_the_ID());
 					$destaque_id = get_the_ID();
 					?>
-					<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+					<div class="carousel-cell highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
 								<div class="">
