@@ -55,13 +55,15 @@ get_header();
 			</h2>
 			<div class="highlights-carousel">
 				<?php
-				$postsQtd = count($posts);
+				$postsQtd = 0;
 				while ($posts->have_posts()) {
 					$posts->the_post();
+					$postsQtd++;
 					$meta = get_post_meta(get_the_ID());
 					$destaque_id = get_the_ID();
 					?>
 					<div class="carousel-cell highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
 								<div class="">
@@ -103,13 +105,14 @@ get_header();
 		</div>
 		<?php
 	}
-
 	if($postsQtd > 1){
 		?>
 		<script>
 			jQuery(document).ready(function(){
 				jQuery('.highlights-carousel').flickity({
 					wrapAround: true,
+					cellSelector: '.carousel-cell',
+					setGallerySize : false
 				});
 			});
 		</script>

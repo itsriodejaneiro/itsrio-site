@@ -50,5 +50,16 @@
 </script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
+
+		<style>
+			.carousel-cell {
+				height: 400px;
+				width: 100%;
+			}
+			.highlights-carousel{
+				width: 100%;
+				height: 400px;
+			}
+		</style>
 </body>
 </html>
