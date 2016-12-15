@@ -2500,6 +2500,8 @@ button.flickity-prev-next-button {
       text-align: center; }
 
 .pessoa-info {
+  display: flex;
+  justify-content: center;
   width: 100%;
   color: white;
   height: auto;
@@ -2519,11 +2521,7 @@ button.flickity-prev-next-button {
     display: none; }
   .pessoa-info-content {
     float: right;
-    margin: 20px 0;
-    width: calc(100% - 21%); }
-    @media screen and (min-width: 1367px) {
-      .pessoa-info-content {
-        width: calc(100% - 30%); } }
+    margin: 20px 0; }
     .pessoa-info-content .pessoa-thumb {
       box-sizing: border-box;
       float: left;

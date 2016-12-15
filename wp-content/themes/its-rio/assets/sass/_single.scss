@@ -252,7 +252,8 @@
 }
 
 .pessoa-info{
-	// display: none;
+	display: flex;
+	justify-content: center;
 	width: 100%;
 	color: white;
 	height: auto;
@@ -280,12 +281,6 @@
 	&-content{
 		float: right;
 		margin: 20px 0;
-		width: calc(100% - 21%);
-
-		@media screen and (min-width: 1367px) {
-			width: calc(100% - 30%);
-		}
-
 		.pessoa-thumb {
 			box-sizing: border-box; 
 			float: left;
