@@ -68,6 +68,7 @@ class Pessoas extends ET_Builder_Module {
 					'content' => $p['post_content'],
 					'thumb' => get_the_post_thumbnail_url($p['ID']),
 					);
+			
 			if($categorized == 'on'){
 				foreach($cat as $c){
 					$cc = (array)$c;
@@ -80,8 +81,6 @@ class Pessoas extends ET_Builder_Module {
 						'content' => $p['post_content'],
 						'thumb' => get_the_post_thumbnail_url($p['ID']) 
 						);
-
-					var_dump($cats);
 				}		
 			}
 		}
