@@ -85,7 +85,6 @@ class Pessoas extends ET_Builder_Module {
 				}		
 			}
 		}
-		die;
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
 
