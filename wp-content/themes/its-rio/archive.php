@@ -55,6 +55,7 @@ get_header();
 			</h2>
 
 			<div class="highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+				<div class="color-hover"></div>
 				<?php
 				while ($posts->have_posts()) {
 					$posts->the_post();

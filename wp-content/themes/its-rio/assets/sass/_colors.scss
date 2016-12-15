@@ -4,10 +4,19 @@ $color_publicacoes : #f5821f;
 $color_projetos : #522e91;
 $color_institucionais : #522e91;
 
-.single-cursos_ctp, .post-type-archive-cursos_ctp{
+.single-cursos_ctp, .post-type-archive-cursos_ctp {
 	.highlights:hover {
-		.img, .info{
-			// background-color: $color_cursos;
+		.color-hover, .info {
+			background-color: $color_cursos !important;
+		}
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color_cursos !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -29,8 +38,17 @@ $color_institucionais : #522e91;
 
 .single-varandas_ctp, .post-type-archive-varandas_ctp{
 	.highlights:hover {
-		.img, .info{
-			// background-color: $color_varandas;
+		.color-hover, .info {
+			background-color: $color_varandas;
+		}
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color_varandas !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -48,8 +66,17 @@ $color_institucionais : #522e91;
 
 .single-publicacoes_ctp, .post-type-archive-publicacoes_ctp{
 	.highlights:hover {
-		.img, .info{
-			// background-color: $color_publicacoes;
+		.color-hover, .info {
+			background-color: $color_publicacoes;
+		}
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color_publicacoes !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -65,10 +92,19 @@ $color_institucionais : #522e91;
 	}
 }
 
-.single-projetos_ctp, .post-type-archive-projetos_ctp{
+.single-projetos_ctp, .post-type-archive-projetos_ctp {
 	.highlights:hover {
-		.img, .info{
-			// background-color: $color_projetos;
+		.color-hover, .info {
+			background-color: $color_projetos;
+		}
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color_projetos !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -84,12 +120,7 @@ $color_institucionais : #522e91;
 	}
 }
 
-.page, .single-comunicados_ctp{
-	.highlights:hover {
-		.img, .info{
-			// background-color: $color_institucionais;
-		}
-	}
+.page, .single-comunicados_ctp {
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid $color_institucionais;
 		font-weight: bold;
@@ -146,6 +177,31 @@ $color_institucionais : #522e91;
 		}
 		&:hover {
 			background-color: $color_publicacoes !important;
+		}
+	}
+}
+
+.highlights {
+	&:hover {
+		&.type-cursos_ctp {
+			.color-hover, .info {
+				background-color: $color_cursos;
+			}
+		}
+		&.type-varandas_ctp {
+			.color-hover, .info {
+				background-color: $color_varandas;
+			}
+		}
+		&.type-projetos_ctp {
+			.color-hover, .info {
+				background-color: $color_projetos;
+			}
+		}
+		&.type-publicacoes_ctp {
+			.color-hover, .info {
+				background-color: $color_publicacoes;
+			}
 		}
 	}
 }

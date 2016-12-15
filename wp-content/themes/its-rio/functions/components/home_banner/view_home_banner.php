@@ -5,7 +5,8 @@
 			while( $query->have_posts() ) {
 				$query->the_post();
 				?>
-				<div class="carousel-cell highlights" style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+				<div <?php post_class( 'carousel-cell highlights' ); ?> style="background-image: url(<?= get_thumbnail_url_full(get_the_ID()) ?>)">
+					<div class="color-hover"></div>
 					<div class="info">
 						<h2>
 							<a href="<?= get_permalink() ?>"><?= get_the_title() ?></a>

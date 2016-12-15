@@ -2007,8 +2007,7 @@ p, hr {
     border: 1px solid;
     border-color: #fff;
     line-height: 100%;
-    padding: 2px 8px;
-    transition: all 0.5s ease; }
+    padding: 2px 8px; }
     .categories ul li a {
       color: #fff;
       font-weight: bold;
@@ -2267,20 +2266,29 @@ button.flickity-prev-next-button {
     font-weight: bold; }
 
 .highlights {
+  border-radius: 3px;
   overflow: hidden;
   position: relative;
   margin: 25px 0px;
-  transition: box-shadow .3s;
+  transition: all .3s ease;
   height: 400px; }
+  .highlights .color-hover {
+    background-color: #262626;
+    border-radius: 3px;
+    height: 400px;
+    width: 100%;
+    opacity: 0; }
   .highlights .info {
     background: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 3px 3px;
     bottom: 0;
     left: 0;
     right: 0;
     max-height: 265px;
     overflow: hidden;
     padding: 40px 20px 20px 40px;
-    position: absolute; }
+    position: absolute;
+    transition: all .3s ease; }
     .highlights .info > a {
       display: flex;
       align-items: flex-end; }
@@ -2288,16 +2296,18 @@ button.flickity-prev-next-button {
       margin: 10px 0 0; }
     .highlights .info .box {
       border-color: #000;
-      color: #000; }
+      color: #000;
+      transition: all .3s ease; }
   .highlights a, .highlights h2, .highlights ul li a, .highlights .categories {
-    color: #000 !important; }
+    color: #000 !important;
+    transition: all .3s ease; }
   .highlights h2 {
-    line-height: 1.5; }
+    line-height: 1.5;
+    transition: all .3s ease; }
     .highlights h2 .line {
       background: #000 !important;
-      margin: 5px 0 10px; }
-  .highlights:hover {
-    box-shadow: 0 0 15px #8a8a8a; }
+      margin: 5px 0 10px;
+      transition: all .3s ease; }
   .highlights .categories {
     display: flex;
     justify-content: flex-end;
@@ -2314,6 +2324,26 @@ button.flickity-prev-next-button {
     .highlights .horario span {
       margin: 0 0 5px 0;
       white-space: nowrap; }
+  .highlights:hover {
+    box-shadow: 0 0 15px #8a8a8a;
+    color: #fff; }
+    .highlights:hover .color-hover {
+      opacity: 0.5; }
+    .highlights:hover .info {
+      background-color: #262626; }
+    .highlights:hover a, .highlights:hover h2, .highlights:hover ul li a, .highlights:hover .categories {
+      color: #fff !important; }
+    .highlights:hover .line {
+      background-color: #fff !important; }
+    .highlights:hover .box {
+      border-color: #fff;
+      color: #fff; }
+    .highlights:hover .categories.black ul li {
+      border-color: #fff; }
+      .highlights:hover .categories.black ul li:hover {
+        background-color: #fff; }
+        .highlights:hover .categories.black ul li:hover a {
+          color: #000 !important; }
 
 .archive .highlights .info {
   background: #f8f8f8;
@@ -2693,6 +2723,10 @@ button.flickity-prev-next-button {
 .map-info-carousel-item {
   width: 100%; }
 
+.single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
+  background-color: #9a258f !important; }
+.single-cursos_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-cursos_ctp .highlights:hover .categories.black ul li:hover a {
+  color: #9a258f !important; }
 .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #9a258f;
   font-weight: bold; }
@@ -2703,6 +2737,10 @@ button.flickity-prev-next-button {
 .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single {
   background-color: #9A248E !important; }
 
+.single-varandas_ctp .highlights:hover .color-hover, .single-varandas_ctp .highlights:hover .info, .post-type-archive-varandas_ctp .highlights:hover .color-hover, .post-type-archive-varandas_ctp .highlights:hover .info {
+  background-color: #00958a; }
+.single-varandas_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-varandas_ctp .highlights:hover .categories.black ul li:hover a {
+  color: #00958a !important; }
 .single-varandas_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-varandas_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #00958a;
   font-weight: bold; }
@@ -2711,6 +2749,10 @@ button.flickity-prev-next-button {
 .single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single, .single-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single, .post-type-archive-varandas_ctp .header-single:before {
   background-color: #00958a !important; }
 
+.single-publicacoes_ctp .highlights:hover .color-hover, .single-publicacoes_ctp .highlights:hover .info, .post-type-archive-publicacoes_ctp .highlights:hover .color-hover, .post-type-archive-publicacoes_ctp .highlights:hover .info {
+  background-color: #f5821f; }
+.single-publicacoes_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-publicacoes_ctp .highlights:hover .categories.black ul li:hover a {
+  color: #f5821f !important; }
 .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #f5821f;
   font-weight: bold; }
@@ -2719,6 +2761,10 @@ button.flickity-prev-next-button {
 .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
   background-color: #f5821f !important; }
 
+.single-projetos_ctp .highlights:hover .color-hover, .single-projetos_ctp .highlights:hover .info, .post-type-archive-projetos_ctp .highlights:hover .color-hover, .post-type-archive-projetos_ctp .highlights:hover .info {
+  background-color: #522e91; }
+.single-projetos_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-projetos_ctp .highlights:hover .categories.black ul li:hover a {
+  color: #522e91 !important; }
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522e91;
   font-weight: bold; }
@@ -2753,6 +2799,15 @@ button.flickity-prev-next-button {
   background-color: #f5821f; }
 .list-item.type-publicacoes_ctp:hover {
   background-color: #f5821f !important; }
+
+.highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
+  background-color: #9a258f; }
+.highlights:hover.type-varandas_ctp .color-hover, .highlights:hover.type-varandas_ctp .info {
+  background-color: #00958a; }
+.highlights:hover.type-projetos_ctp .color-hover, .highlights:hover.type-projetos_ctp .info {
+  background-color: #522e91; }
+.highlights:hover.type-publicacoes_ctp .color-hover, .highlights:hover.type-publicacoes_ctp .info {
+  background-color: #f5821f; }
 
 .curved-shadow {
   position: absolute; }
