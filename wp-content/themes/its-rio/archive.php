@@ -68,8 +68,8 @@ get_header();
 								<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
 							</div>
 							<div class="no-p horario">
-								<p><b>horário</b></p>
-								<span class="black box">
+								<p>data</p>
+								<span class="box">
 									<?php
 									if($postType == 'cursos_ctp'){
 										?>
@@ -90,7 +90,7 @@ get_header();
 								<p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p>
 							</a>
 						</div>
-						<div class="column large-4 no-p categories">
+						<div class="column large-4 no-p">
 							<?php $cat_classes = 'black'; include('inc/categories.php'); ?>
 						</div>
 					</div>

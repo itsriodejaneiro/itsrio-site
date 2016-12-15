@@ -2282,7 +2282,13 @@ button.flickity-prev-next-button {
     padding: 40px 20px 20px 40px;
     position: absolute; }
     .highlights .info > a {
-      display: flex; }
+      display: flex;
+      align-items: flex-end; }
+    .highlights .info .excerpt {
+      margin: 10px 0 0; }
+    .highlights .info .box {
+      border-color: #000;
+      color: #000; }
   .highlights a, .highlights h2, .highlights ul li a, .highlights .categories {
     color: #000 !important; }
   .highlights h2 {
@@ -2299,12 +2305,23 @@ button.flickity-prev-next-button {
   .highlights .horario {
     font-size: 12px;
     font-weight: bold;
-    float: right;
-    margin-left: 15px; }
+    margin: 0 0 15px 15px; }
+    .highlights .horario p {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 5px; }
     .highlights .horario span {
-      float: right;
       margin: 0 0 5px 0;
       white-space: nowrap; }
+
+.archive .highlights .info {
+  background: #f8f8f8;
+  padding-top: 30px; }
+.archive .highlights .categories {
+  margin-top: 8px; }
+  .archive .highlights .categories ul {
+    margin-left: 8px; }
 
 .info_border {
   border-bottom: 5px solid black; }
