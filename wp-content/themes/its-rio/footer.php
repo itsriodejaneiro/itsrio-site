@@ -51,15 +51,32 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
-		<style>
-			.carousel-cell {
-				height: 400px;
-				width: 100%;
-			}
-			.highlights-carousel{
-				width: 100%;
-				height: 400px;
-			}
-		</style>
+<style>
+	.carousel-cell {
+		height: 400px;
+		width: 100%;
+	}
+	.highlights-carousel{
+		width: 100%;
+		height: 400px;
+	}
+
+	.flickity-slider {
+		transform: none !important;
+	}
+
+
+	.carousel-cell {
+		left: 0 !important;
+		opacity: 0;
+		transition: opacity 0.6s ease-in-out;
+		z-index: -1;
+	}
+
+	.carousel-cell.is-selected {
+		opacity: 1;
+		z-index: 0
+	}
+</style>
 </body>
 </html>
