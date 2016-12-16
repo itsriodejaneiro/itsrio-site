@@ -20,9 +20,6 @@
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php include(ROOT . 'inc/single/menu.php') ?>
-		<div class="sidebar">
-			<a href="#" class="button large curved-shadow">baixe o pdf</a>
-		</div>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>
