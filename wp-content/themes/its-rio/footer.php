@@ -57,14 +57,13 @@
 		width: 100%;
 	}
 	.highlights-carousel{
+		height: 450px;
 		width: 100%;
-		height: 400px;
 	}
 
 	.flickity-slider {
 		transform: none !important;
 	}
-
 
 	.carousel-cell {
 		left: 0 !important;
