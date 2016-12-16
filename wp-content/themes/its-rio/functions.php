@@ -59,6 +59,16 @@ function get_thumbnail_url_full($id){
 	return wp_get_attachment_image_src(get_post_thumbnail_id($id),'full')[0];
 }
 
+function get_thumbnail_url_card($id){
+	global $dynamic_featured_image;
+	return $dynamic_featured_image->get_featured_images($id)[0]['full'];
+}
+
+function get_thumbnail_url_banner($id){
+	global $dynamic_featured_image;
+	return $dynamic_featured_image->get_featured_images($id)[1]['full'];
+}
+
 function curl($url){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
