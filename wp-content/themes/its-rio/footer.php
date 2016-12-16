@@ -61,7 +61,7 @@
 		width: 100%;
 	}
 
-	.flickity-slider {
+/*	.flickity-slider {
 		transform: none !important;
 	}
 
@@ -75,7 +75,7 @@
 	.carousel-cell.is-selected {
 		opacity: 1;
 		z-index: 0
-	}
+	}*/
 </style>
 </body>
 </html>
