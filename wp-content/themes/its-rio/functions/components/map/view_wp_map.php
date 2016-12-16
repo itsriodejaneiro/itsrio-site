@@ -58,12 +58,12 @@
 					</div>
 				</div>	
 			</div>
-			<img @click="positionMarker" id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.svg">
+			<img @click="positionMarker" id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.png">
 			<img v-show="editor.editing == 'adicionar'" src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png" id="marker" class="markers" />
 			
 			<img
 			v-for="(marker, i) in editor.markers" 
-			v-bind:style="{ left : marker.coordinates[0]+'px', top : marker.coordinates[1]+'px' }" 
+			v-bind:style="{ left : marker.left+'px', top : marker.top+'px' }" 
 			src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png"
 			@click="editMarker(i, $event)"
 			class="markers" />
@@ -84,7 +84,6 @@
 					editingMarker : {
 						top : '',
 						left : '',
-						coordinates : '',
 						newInfo : {
 							image : '',
 							title : '',
@@ -102,12 +101,12 @@
 			positionMarker(event){
 				var editor = this.editor;
 				if(editor.editing != false){
-					jQuery('#marker').css('left', event.pageX - 200).css('top', event.pageY - 50).show();
-					var posx = jQuery('#marker').offset().left - jQuery('#mapa').offset().left;
-					var posy = jQuery('#marker').offset().top - jQuery('#mapa').offset().top;
+					var posx = event.pageX - jQuery('#mapa').offset().left - 20;
+					var posy = event.pageY - jQuery('#mapa').offset().top - 20;
+
+					jQuery('#marker').css('left', posx).css('top', posy).show();
 					editor.editingMarker.top = posy;
 					editor.editingMarker.left = posx;
-					editor.editingMarker.coordinates = [event.pageX - 200, event.pageY - 50];
 					editor.markerInfoEdit = true;
 				}
 			},

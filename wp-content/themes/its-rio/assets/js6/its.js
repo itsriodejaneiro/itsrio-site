@@ -35,10 +35,7 @@ Vue.component('its-map', {
 		openMarker(marker){
 			this.selectedMarker = marker;
 			setTimeout(function(){
-				jQuery('.map-info-carousel').flickity({
-					wrapAround: true,
-					cellSelector: '.map-info-carousel-item'
-				});
+				// jQuery('.map-info-carousel').flickity({});
 			},1000);
 		}
 	}

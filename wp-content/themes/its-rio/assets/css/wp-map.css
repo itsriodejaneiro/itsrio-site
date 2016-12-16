@@ -13,9 +13,12 @@
   background-color: #7d0c00;
 }
 
+#map-editor {
+  position: relative;
+}
+
 #mapa {
   border: 1px solid;
-  margin: 0 auto;
   display: block;
 }
 
