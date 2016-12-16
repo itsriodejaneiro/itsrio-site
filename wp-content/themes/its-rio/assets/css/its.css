@@ -2551,7 +2551,8 @@ button.flickity-prev-next-button {
 .pessoa-info {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc(100% + 80px);
+  margin-left: -40px;
   color: white;
   height: auto;
   max-height: 0px;
@@ -2562,7 +2563,7 @@ button.flickity-prev-next-button {
   transition: max-height .3s; }
   .pessoa-info.active {
     max-height: 220px; }
-    .pessoa-info.active img {
+    .pessoa-info.active .pessoa-thumb img {
       box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
     .pessoa-info.active .close {
       display: block; }
@@ -2576,12 +2577,12 @@ button.flickity-prev-next-button {
       float: left;
       margin: 0 35px 0 0;
       padding: 10px; }
-    .pessoa-info-content img {
-      width: 160px;
-      height: 160px;
-      outline: none;
-      box-shadow: none;
-      border-radius: 50%; }
+      .pessoa-info-content .pessoa-thumb img {
+        width: 160px;
+        height: 160px;
+        outline: none;
+        box-shadow: none;
+        border-radius: 50%; }
     .pessoa-info-content .pessoa-text {
       float: left;
       max-width: 480px; }
@@ -2722,8 +2723,11 @@ button.flickity-prev-next-button {
   margin: 0 auto;
   display: block; }
 
-.map-info-carousel-item {
-  width: 100%; }
+.map-info-carousel {
+  background-color: #9a258f; }
+  .map-info-carousel .carousel-cell {
+    height: auto;
+    width: auto; }
 
 .single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
   background-color: #9a258f !important; }

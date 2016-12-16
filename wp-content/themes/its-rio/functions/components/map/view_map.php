@@ -22,7 +22,7 @@
 			<div class="map-info-carousel pessoa-info" v-bind:class="{ 'active' : selectedMarker != false }">
 				<div class="map-info-carousel-item carousel-cell" v-for="(info, i) in selectedMarker.infos" v-bind:style="{ 'background-image' : 'url('+ info.image +')' }">
 					<div class="close" @click="selectedMarker = false">&times;</div>
-					<div class="pessoa-info-content">
+					<div class="map-info-content">
 						<img v-if="info.image != ''" 
 						v-bind:src="info.image" alt="">
 						<h3>{{ info.title }}</h3> 	

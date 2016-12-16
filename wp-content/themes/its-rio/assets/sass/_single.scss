@@ -251,10 +251,11 @@
 	}
 }
 
-.pessoa-info{
+.pessoa-info {
 	display: flex;
 	justify-content: center;
-	width: 100%;
+	width: calc(100% + 80px);
+    margin-left: -40px;
 	color: white;
 	height: auto;
 	max-height: 0px;
@@ -267,8 +268,10 @@
 	&.active{
 		max-height: 220px;
 
-		img {
-			box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444;
+		.pessoa-thumb {
+			img {
+				box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444;
+			}
 		}
 
 		.close{
@@ -286,13 +289,13 @@
 			float: left;
 			margin: 0 35px 0 0; 
 			padding: 10px;
-		}
-		img{
-			width: 160px;
-			height: 160px;
-			outline: none;
-			box-shadow: none;
-			border-radius: 50%;
+			img{
+				width: 160px;
+				height: 160px;
+				outline: none;
+				box-shadow: none;
+				border-radius: 50%;
+			}
 		}
 		.pessoa-text {
 			float: left;
@@ -515,7 +518,10 @@ position: relative;
 	margin: 0 auto; 
 	display: block;
 }
-
-.map-info-carousel-item{
-	width: 100%;
+.map-info-carousel {
+	background-color: #9a258f;
+	.carousel-cell {
+		height: auto;
+		width: auto;
+	}
 }
