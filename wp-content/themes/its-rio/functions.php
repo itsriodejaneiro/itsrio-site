@@ -61,11 +61,21 @@ function get_thumbnail_url_full($id){
 
 function get_thumbnail_url_card($id){
 	global $dynamic_featured_image;
+	$images = $dynamic_featured_image->get_featured_images($id);
+	
+	if(empty($images) || !isset($images[0]))
+		return get_thumbnail_url_full($id);
+
 	return $dynamic_featured_image->get_featured_images($id)[0]['full'];
 }
 
 function get_thumbnail_url_banner($id){
 	global $dynamic_featured_image;
+	$images = $dynamic_featured_image->get_featured_images($id);
+	
+	if(empty($images) || !isset($images[0]))
+		return get_thumbnail_url_full($id);
+
 	return $dynamic_featured_image->get_featured_images($id)[1]['full'];
 }
 
