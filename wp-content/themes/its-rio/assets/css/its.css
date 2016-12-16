@@ -2793,8 +2793,11 @@ button.flickity-prev-next-button {
   background-color: #00958a; }
 .list-item.type-varandas_ctp:hover {
   background-color: #00958a !important; }
-.list-item.type-projetos_ctp .img .color-hover {
-  background-color: #522e91; }
+.list-item.type-projetos_ctp .img {
+  background-image: url("../images/project-default-bg.jpg");
+  background-size: cover; }
+  .list-item.type-projetos_ctp .img .color-hover {
+    background-color: #522e91; }
 .list-item.type-projetos_ctp:hover {
   background-color: #522e91 !important; }
 .list-item.type-publicacoes_ctp .img .color-hover {

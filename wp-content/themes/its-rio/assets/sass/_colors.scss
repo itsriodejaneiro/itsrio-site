@@ -161,6 +161,8 @@ $color_institucionais : #522e91;
 	}
 	&.type-projetos_ctp {
 		.img {
+			background-image: url('../images/project-default-bg.jpg');
+			background-size: cover;
 			.color-hover {
 				background-color: $color_projetos;
 			}
