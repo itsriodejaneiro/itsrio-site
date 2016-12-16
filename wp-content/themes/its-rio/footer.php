@@ -61,21 +61,23 @@
 		width: 100%;
 	}
 
-/*	.flickity-slider {
+
+
+.flickity-slider {
 		transform: none !important;
 	}
 
-	.carousel-cell {
+.flickity-slider .carousel-cell {
 		left: 0 !important;
 		opacity: 0;
 		transition: opacity 0.6s ease-in-out;
 		z-index: -1;
 	}
 
-	.carousel-cell.is-selected {
+.flickity-slider .carousel-cell.is-selected {
 		opacity: 1;
 		z-index: 0
-	}*/
+	}
 </style>
 </body>
 </html>
