@@ -54,7 +54,7 @@ get_header();
 				<div class="line"></div>
 			</h2>
 
-			<div class="main-carousel">
+			<div class="main-carousel highlights-carousel">
 				<?php
 				$postsQtd = 0;
 				while ($posts->have_posts()) {
