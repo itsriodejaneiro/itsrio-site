@@ -55,13 +55,7 @@ class Pessoas extends ET_Builder_Module {
 		$ids = $meta['its_pessoas'];
 		$cats = [];
 		$listaCategorizada = false;
-
-		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'post__in' => $ids ]);
-		echo '<!--';
-		var_dump($ids);
-		echo '-->';
-
-		
+		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) ]);
 		foreach ($query_palestrantes as $postt) {
 			$p = (array)$postt;
 			$cat = get_the_category($p['ID']);
