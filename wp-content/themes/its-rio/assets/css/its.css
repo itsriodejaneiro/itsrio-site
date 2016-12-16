@@ -1942,6 +1942,8 @@ p, hr {
     line-height: 1.5; }
   .list-item .line {
     margin: 8px 5px 10px -20px; }
+  .list-item .excerpt a:hover b {
+    text-decoration: underline; }
   .list-item .img {
     width: 100%;
     height: 220px;

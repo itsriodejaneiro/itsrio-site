@@ -97,6 +97,14 @@ p, hr{
 		margin: 8px 5px 10px -20px;
 	}
 
+	.excerpt {
+		a:hover {
+			b {
+				text-decoration: underline;
+			}
+		}
+	}
+
 	.img{
 		width: 100%;
 		height: 220px;
