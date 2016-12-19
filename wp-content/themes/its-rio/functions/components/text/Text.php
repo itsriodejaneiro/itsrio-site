@@ -33,7 +33,7 @@ class Text extends ET_Builder_Module {
 				'label'             => esc_html__( 'Título (lateral)', 'et_builder' ),
 				'type'              => 'text',
 				),
-			'title' => array(
+			'subtitle' => array(
 				'label'             => esc_html__( 'Subtítulo', 'et_builder' ),
 				'type'              => 'text',
 				),
