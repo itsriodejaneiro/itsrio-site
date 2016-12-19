@@ -30,7 +30,7 @@ get_header();
 			switch ($postType) {
 				case 'projetos_ctp':
 				$bannerTitle = 'áreas de pesquisa';
-				$bannerCards = '';				
+				$bannerCards = 'projetos';				
 				// $bannerCards = 'outros projetos';				
 				break;
 				case 'cursos_ctp':
