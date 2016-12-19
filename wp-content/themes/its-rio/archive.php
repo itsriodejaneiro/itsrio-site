@@ -29,7 +29,7 @@ get_header();
 			<?php 
 			switch ($postType) {
 				case 'projetos_ctp':
-				$bannerTitle = 'projetos em destaque';
+				$bannerTitle = 'áreas de pesquisa';
 				$bannerCards = '';				
 				// $bannerCards = 'outros projetos';				
 				break;
@@ -38,10 +38,8 @@ get_header();
 				$bannerCards = 'cursos futuros';				
 				break;
 				case 'publicacoes_ctp':
-				$bannerTitle = '';
-				$bannerCards = '';				
-				// $bannerTitle = 'publicações em destaque';
-				// $bannerCards = 'outras publicações';				
+				$bannerTitle = 'publicações recentes';
+				$bannerCards = 'publicações';
 				break;
 				case 'varandas_ctp':
 				$bannerTitle = 'inscrições abertas';

@@ -62,6 +62,7 @@ function DS_Custom_Modules(){
 		include("home_cover/HomeCover.php");
 		include("midias/Midias.php");
 		include("box_inscreva/BoxInscreva.php");
+		include("socialmedias/SocialMedias.php");
 	}
 }
 
