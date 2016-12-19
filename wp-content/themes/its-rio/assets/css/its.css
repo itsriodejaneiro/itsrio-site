@@ -2281,7 +2281,7 @@ button.flickity-prev-next-button {
     width: 100%;
     opacity: 0; }
   .highlights .info {
-    background: rgba(255, 255, 255, 0.7);
+    background: #fff;
     border-radius: 0 0 3px 3px;
     bottom: 0;
     left: 0;
@@ -2295,7 +2295,7 @@ button.flickity-prev-next-button {
       display: flex;
       align-items: flex-end; }
     .highlights .info .excerpt {
-      margin: 10px 0 0; }
+      margin: 5px 0 0; }
     .highlights .info .box {
       border-color: #000;
       color: #000;
@@ -2308,7 +2308,7 @@ button.flickity-prev-next-button {
     transition: all .3s ease; }
     .highlights h2 .line {
       background: #000 !important;
-      margin: 5px 0 10px;
+      margin: 5px 0;
       transition: all .3s ease; }
   .highlights .categories {
     display: flex;
@@ -2760,6 +2760,13 @@ button.flickity-prev-next-button {
     max-width: 530px; }
     .map-info-carousel .map-text h3 {
       margin-bottom: 5px; }
+
+.purple-text {
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: #9a258f; }
 
 .single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
   background-color: #9a258f !important; }
