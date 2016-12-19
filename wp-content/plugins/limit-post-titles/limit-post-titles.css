@@ -1,0 +1,13 @@
+/*-----------------------------------
+| #YOLO
+------------------------------------*/
+
+#sr-title-limiter{
+	background: #fff;
+	display: block;
+	color: #999;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	padding: 8px;
+}

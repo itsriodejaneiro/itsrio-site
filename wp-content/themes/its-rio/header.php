@@ -35,7 +35,7 @@
 	'varandas_ctp' => 	['gender' => 'a', 'plural' => 'varandas', 'singular' => 'varanda'],
 	'projetos_ctp' => 	['gender' => 'o', 'plural' => 'projetos', 'singular' => 'projeto'],
 	'publicacoes_ctp' =>['gender' => 'a', 'plural' => 'publicações', 'singular' => 'publicação'],
-	'comunicados_ctp' =>['gender' => 'a', 'plural' => 'comunicados', 'singular' => 'comunicado'],
+	'comunicados_ctp' =>['gender' => 'a', 'plural' => 'acontece', 'singular' => 'acontece'],
 	'page' =>['gender' => 'o', 'plural' => 'institucionais', 'singular' => 'institucional']
 	];
 

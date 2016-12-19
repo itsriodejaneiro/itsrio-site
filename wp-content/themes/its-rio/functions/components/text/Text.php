@@ -10,6 +10,7 @@ class Text extends ET_Builder_Module {
 
 		$this->fields_defaults = array(
 			'title' => ['', 'add_default_setting'],
+			'subtitle' => ['', 'add_default_setting'],
 			'content' => ['', 'add_default_setting'],
 			);
 
@@ -29,7 +30,11 @@ class Text extends ET_Builder_Module {
 
 		$fields = array(
 			'title' => array(
-				'label'             => esc_html__( 'Título', 'et_builder' ),
+				'label'             => esc_html__( 'Título (lateral)', 'et_builder' ),
+				'type'              => 'text',
+				),
+			'title' => array(
+				'label'             => esc_html__( 'Subtítulo', 'et_builder' ),
 				'type'              => 'text',
 				),
 			'content' => array(
@@ -49,7 +54,11 @@ class Text extends ET_Builder_Module {
 
 		$wp_filter_cache = $wp_filter;
 		$title = $this->shortcode_atts['title'];
+		$subtitle = $this->shortcode_atts['subtitle'];
 		$content   = wpautop($this->shortcode_content);
+
+		if($title != '')
+			$data['its_tabs'][] = $title;
 
 		$output = '';
 

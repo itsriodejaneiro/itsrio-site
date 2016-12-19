@@ -30,29 +30,36 @@ get_header();
 			switch ($postType) {
 				case 'projetos_ctp':
 				$bannerTitle = 'projetos em destaque';
-				$bannerCards = 'outros projetos';				
+				$bannerCards = '';				
+				// $bannerCards = 'outros projetos';				
 				break;
 				case 'cursos_ctp':
 				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'cursos encerrados';				
+				$bannerCards = 'cursos futuros';				
 				break;
 				case 'publicacoes_ctp':
-				$bannerTitle = 'publicações em destaque';
-				$bannerCards = 'outras publicações';				
+				$bannerTitle = '';
+				$bannerCards = '';				
+				// $bannerTitle = 'publicações em destaque';
+				// $bannerCards = 'outras publicações';				
 				break;
 				case 'varandas_ctp':
 				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'varandas antigas';				
+				$bannerCards = 'varandas ITS';				
 				break;
 
 				default:
 				break;
 			}
-			?>
-			<h2 class="list-title">
-				<?= "$bannerTitle" ?>
-				<div class="line"></div>
-			</h2>
+
+			if($bannerTitle != ""){
+				?>
+				<h2 class="list-title">
+					<?= $bannerTitle ?>
+					<div class="line"></div>
+				</h2>
+				<?php 
+			} ?>
 
 			<div class="main-carousel highlights-carousel">
 				<?php
@@ -122,13 +129,17 @@ get_header();
 	?>
 
 	<div class="older-posts">
-		<div class="column large-12">
-			<h2 class="list-title">
-				<?= $bannerCards ?>
-				<div class="line"></div>		
-			</h2>
-		</div>
-		<?php
+		<?php 
+		if($bannerTitle != ""){
+			?>
+			<div class="column large-12">
+				<h2 class="list-title">
+					<?= $bannerCards ?>
+					<div class="line"></div>		
+				</h2>
+			</div>
+			<?php
+		}
 		if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
 			$args = array(
 				'post_type' 	=> $post_type,

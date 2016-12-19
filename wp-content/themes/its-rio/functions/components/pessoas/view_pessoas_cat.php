@@ -1,6 +1,6 @@
 <its-pessoas inline-template>
 	<div class="content-area component-tabs informacao" id="tab_<?= array_search($moduleTitle, $data['its_tabs']) ?>">
-		<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive'" class="component-tabs-tab">
+		<div v-for="(pessoas_, i, e) in _.orderBy(pessoas, [],['asc'])" v-if="i != 'pessoaActive'" class="component-tabs-tab">
 			<div class="row">
 				<div class="component-tabs-title">
 				<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
@@ -38,6 +38,9 @@
 					<div v-html="pessoas_.pessoaActive.content"></div>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			a.center
 		</div>
 	</div>
 </its-pessoas>

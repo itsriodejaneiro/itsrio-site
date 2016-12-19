@@ -7,12 +7,14 @@
     "laravel-elixir": "^6.0.0-15",
     "gulp": "^3.9.1",
     "vue": "*",
-    "babel-plugin-pipe-operator" : ""
+    "babel-plugin-pipe-operator": ""
   },
   "browser": {
     "vue": "vue/dist/vue.common"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "laravel-elixir-browserify-official": "^0.1.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

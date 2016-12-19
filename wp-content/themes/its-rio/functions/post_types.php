@@ -6,7 +6,7 @@ function custom_post_type() {
 	register_custom_post_type('cursos_ctp','Curso','Cursos', 'dashicons-book');
 	register_custom_post_type('publicacoes_ctp','Publicação','Publicações','dashicons-book-alt');
 	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail']);
-	register_custom_post_type('comunicados_ctp','Comunicado','Comunicados','dashicons-megaphone');
+	register_custom_post_type('comunicados_ctp','Acontece','Acontece','dashicons-megaphone');
 	// register_custom_post_type('footer','Footer','Comunicados','dashicons-megaphone');
 }
 
