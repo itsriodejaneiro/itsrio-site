@@ -2724,10 +2724,42 @@ button.flickity-prev-next-button {
   display: block; }
 
 .map-info-carousel {
-  background-color: #9a258f; }
+  background-color: #9a258f;
+  overflow: inherit; }
   .map-info-carousel .carousel-cell {
     height: auto;
     width: auto; }
+  .map-info-carousel .map-thumb {
+    float: left;
+    margin-right: 35px;
+    position: relative; }
+    .map-info-carousel .map-thumb .color-hover {
+      background-color: #9a258f;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.5; }
+    .map-info-carousel .map-thumb img {
+      height: auto;
+      max-width: 400px; }
+    .map-info-carousel .map-thumb:before {
+      top: -15px;
+      right: 25px;
+      width: 0;
+      height: 0;
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 0 15px 15px 15px;
+      border-color: transparent transparent #9a258f transparent; }
+  .map-info-carousel .map-text {
+    float: left;
+    margin: 30px 0;
+    max-width: 530px; }
+    .map-info-carousel .map-text h3 {
+      margin-bottom: 5px; }
 
 .single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
   background-color: #9a258f !important; }
