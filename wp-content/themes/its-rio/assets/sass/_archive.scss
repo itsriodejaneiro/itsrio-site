@@ -15,7 +15,7 @@
 	}
 
 	.info {
-		background: rgba(255,255,255,0.7);
+		background: #fff;
 		border-radius: 0 0 3px 3px;
 		bottom: 0;
 		left: 0;
@@ -32,7 +32,7 @@
 		}
 
 		.excerpt {
-			margin: 10px 0 0;
+			margin: 5px 0 0;
 		}
 
 		.box {
@@ -52,7 +52,7 @@
 		transition: all .3s ease;
 		.line { 
 			background: #000 !important;
-			margin: 5px 0 10px;
+			margin: 5px 0;
 			transition: all .3s ease;
 		}
 	}
