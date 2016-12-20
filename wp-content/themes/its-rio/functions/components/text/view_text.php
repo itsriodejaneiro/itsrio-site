@@ -7,7 +7,7 @@
         </h2>
 		
 		<div class="tab-content raleway">
-			<h3 class="raleway purple-text"><b><?= $subtitle ?></b></h3>
+			<h3 class="raleway purple-text"><?= $subtitle ?></h3>
 			<p><?= $content ?></p>
 		</div>
 	</div>
