@@ -13,11 +13,11 @@
 						<input 
 						type="radio" 
 						v-bind:checked="pessoa.pessoaActive == ''" 
-						v-bind:name="'<?= $moduleTitle ?>_'+ ip" 
+						v-bind:name="'<?= $moduleTitle ?>'" 
 						v-bind:id="'pessoa_'+ip+'_' + pessoa.ID"
 						/>
 						<div class="pessoa-mini">
-							<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click="pessoas.pessoaActive == '' ? pessoa : ''">
+							<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
 								<img v-bind:src="pessoa.thumb" alt="">
 								<p><b>{{ pessoa.title }}</b></p>
 							</label>
