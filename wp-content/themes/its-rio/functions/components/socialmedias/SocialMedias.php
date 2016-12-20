@@ -35,7 +35,7 @@ class SocialMedias extends ET_Builder_Module {
 			);
 
 		foreach ($this->sociais as $social) {
-			$fields[] = [ $social =>  ['label' => esc_html__('Link do '. ucfirst($social), 'et_builder'), 'type' => 'text'] ];
+			$fields[$social] = ['label' => esc_html__('Link do '. ucfirst($social), 'et_builder'), 'type' => 'text'];
 		}
 
 		return $fields;
