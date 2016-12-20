@@ -39,8 +39,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<a href="" class="button large purple curved-shadow float-center">trabalhe conosco</a>
+		<div class="work-with-us">
+			<a href="" class="button large purple curved-shadow">trabalhe conosco</a>
 		</div>
 	</div>
 </its-pessoas>

@@ -2723,6 +2723,11 @@ button.flickity-prev-next-button {
   text-align: center;
   font-size: 18px; }
 
+.work-with-us {
+  margin-bottom: 70px;
+  overflow: hidden;
+  text-align: center; }
+
 .markers {
   position: absolute;
   width: 40px;
