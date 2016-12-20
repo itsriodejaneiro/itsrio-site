@@ -1,9 +1,21 @@
-.error-404 {
+.error404 {
+    #content_all {
+        height: calc(100% - 75px);
+    }
+    #content {
+        height: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.error-404-wrapper {
     background-image: url('../images/error-404.jpg');
     background-size: cover;
-    margin-bottom: -75px;
-    padding: 130px 0;
+    height: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .color-hover {
         background-color: rgba(154, 36, 143, 0.6);
@@ -15,7 +27,7 @@
         left: 0;
         z-index: 1;
     }
-    &-content {
+    .error-404-content {
         position: relative;
         z-index: 2;
     }
@@ -49,7 +61,7 @@
         width: 320px;
         height: 370px;
         position: absolute;
-        top: -90px;
-        right: 85px; 
+        top: -100px;
+        right: -230px;
     }
 }

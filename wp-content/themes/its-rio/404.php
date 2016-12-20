@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="error-404">
+<div class="error-404-wrapper">
     <div class="color-hover"></div>
     <div class="error-404-content">
         <h2>Página não encontrada</h2>
