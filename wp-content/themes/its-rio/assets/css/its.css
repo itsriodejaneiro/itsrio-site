@@ -1775,6 +1775,12 @@ kbd {
     .button.orange:hover, .button.orange:focus {
       background-color: #d79104;
       color: #fefefe; }
+  .button.purple {
+    background-color: #522e91;
+    color: #fefefe; }
+    .button.purple:hover, .button.purple:focus {
+      background-color: #422574;
+      color: #fefefe; }
   .button.hollow {
     border: 1px solid black;
     color: black; }
@@ -1819,6 +1825,12 @@ kbd {
       .button.hollow.orange:hover, .button.hollow.orange:focus {
         border-color: #875b02;
         color: #875b02; }
+    .button.hollow.purple {
+      border: 1px solid #522e91;
+      color: #522e91; }
+      .button.hollow.purple:hover, .button.hollow.purple:focus {
+        border-color: #291749;
+        color: #291749; }
   .button.disabled, .button[disabled] {
     opacity: 0.25;
     cursor: not-allowed; }
@@ -1860,6 +1872,12 @@ kbd {
       cursor: not-allowed; }
       .button.disabled.orange:hover, .button.disabled.orange:focus, .button[disabled].orange:hover, .button[disabled].orange:focus {
         background-color: #fbaf17;
+        color: #fefefe; }
+    .button.disabled.purple, .button[disabled].purple {
+      opacity: 0.25;
+      cursor: not-allowed; }
+      .button.disabled.purple:hover, .button.disabled.purple:focus, .button[disabled].purple:hover, .button[disabled].purple:focus {
+        background-color: #522e91;
         color: #fefefe; }
   .button.dropdown::after {
     content: '';
@@ -2634,7 +2652,7 @@ button.flickity-prev-next-button {
       white-space: nowrap; }
   .component-tabs .component-tabs-tab label.label-tab {
     top: 0px;
-    right: 0px;
+    right: 20px;
     position: absolute;
     margin: 0 !important; }
     .component-tabs .component-tabs-tab label.label-tab:before, .component-tabs .component-tabs-tab label.label-tab:after {

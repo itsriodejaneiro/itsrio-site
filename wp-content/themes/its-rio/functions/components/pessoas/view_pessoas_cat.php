@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<a href="" class="button large">Trabalhe Conosco</a>
+			<a href="" class="button large purple curved-shadow float-center">trabalhe conosco</a>
 		</div>
 	</div>
 </its-pessoas>
