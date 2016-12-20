@@ -33,7 +33,7 @@
 							v-bind:src="pessoas.pessoaActive.thumb" alt="">
 						</div>
 						<div class="pessoa-text">
-							<h3 class="raleway">{{ pessoas.pessoaActive.title }}</h3> 	
+							<h2 class="raleway">{{ pessoas.pessoaActive.title }}</h2> 	
 							<div v-html="pessoas.pessoaActive.content"></div>
 						</div>
 					</div>

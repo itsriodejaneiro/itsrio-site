@@ -1775,6 +1775,12 @@ kbd {
     .button.orange:hover, .button.orange:focus {
       background-color: #d79104;
       color: #fefefe; }
+  .button.purple {
+    background-color: #522e91;
+    color: #fefefe; }
+    .button.purple:hover, .button.purple:focus {
+      background-color: #422574;
+      color: #fefefe; }
   .button.hollow {
     border: 1px solid black;
     color: black; }
@@ -1819,6 +1825,12 @@ kbd {
       .button.hollow.orange:hover, .button.hollow.orange:focus {
         border-color: #875b02;
         color: #875b02; }
+    .button.hollow.purple {
+      border: 1px solid #522e91;
+      color: #522e91; }
+      .button.hollow.purple:hover, .button.hollow.purple:focus {
+        border-color: #291749;
+        color: #291749; }
   .button.disabled, .button[disabled] {
     opacity: 0.25;
     cursor: not-allowed; }
@@ -1860,6 +1872,12 @@ kbd {
       cursor: not-allowed; }
       .button.disabled.orange:hover, .button.disabled.orange:focus, .button[disabled].orange:hover, .button[disabled].orange:focus {
         background-color: #fbaf17;
+        color: #fefefe; }
+    .button.disabled.purple, .button[disabled].purple {
+      opacity: 0.25;
+      cursor: not-allowed; }
+      .button.disabled.purple:hover, .button.disabled.purple:focus, .button[disabled].purple:hover, .button[disabled].purple:focus {
+        background-color: #522e91;
         color: #fefefe; }
   .button.dropdown::after {
     content: '';
@@ -2634,7 +2652,7 @@ button.flickity-prev-next-button {
       white-space: nowrap; }
   .component-tabs .component-tabs-tab label.label-tab {
     top: 0px;
-    right: 0px;
+    right: 20px;
     position: absolute;
     margin: 0 !important; }
     .component-tabs .component-tabs-tab label.label-tab:before, .component-tabs .component-tabs-tab label.label-tab:after {
@@ -2704,6 +2722,11 @@ button.flickity-prev-next-button {
 .fazer-minha-inscricao span {
   text-align: center;
   font-size: 18px; }
+
+.work-with-us {
+  margin-bottom: 70px;
+  overflow: hidden;
+  text-align: center; }
 
 .markers {
   position: absolute;
@@ -3082,5 +3105,60 @@ footer {
       border-width: 2px;
       font-size: 14px;
       margin: 0; }
+
+.error404 #content_all {
+  height: calc(100% - 75px); }
+.error404 #content {
+  height: 100%;
+  margin-bottom: 0; }
+
+.error-404-wrapper {
+  background-image: url("../images/error-404.jpg");
+  background-size: cover;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .error-404-wrapper .color-hover {
+    background-color: rgba(154, 36, 143, 0.6);
+    box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; }
+  .error-404-wrapper .error-404-content {
+    position: relative;
+    z-index: 2; }
+  .error-404-wrapper h2 {
+    color: #ffffff;
+    font-family: Raleway, sans-serif;
+    font-size: 60px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center; }
+    .error-404-wrapper h2:before {
+      content: '\f071';
+      display: block;
+      font-family: FontAwesome;
+      font-size: 80px;
+      text-align: center;
+      color: #fbaf17; }
+  .error-404-wrapper p {
+    font-family: Raleway, sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    color: #ffffff; }
+  .error-404-wrapper .seta-404 {
+    background-image: url("../images/seta-404.png");
+    width: 320px;
+    height: 370px;
+    position: absolute;
+    top: -100px;
+    right: -230px; }
 
 /*# sourceMappingURL=its.css.map */
