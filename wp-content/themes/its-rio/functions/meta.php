@@ -23,10 +23,21 @@ function its_meta_boxes($meta_boxes) {
 
 	$meta_boxes = array([
 		'title'      => __('Informações', 'textdomain' ),
-		'post_types' => ['publicacoes_ctp','projetos_ctp'],
+		'post_types' => ['publicacoes_ctp'],
 		'fields'     => array(
-			['id'   => 'info_header', 'name' => __('Linha de Pesquisa', 'textdomain'), 'type' => 'text'],
 			['id'   => 'pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text']
+			),
+		],
+		[
+		'title'      => __('Informações', 'textdomain' ),
+		'post_types' => ['projetos_ctp'],
+		'fields'     => array(
+			[
+			'id'   => 'info_header', 
+			'name' => __('Linha de Pesquisa', 'textdomain'), 
+			'type'        => 'select',
+			'options'     => ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
+			]
 			),
 		],
 		[
