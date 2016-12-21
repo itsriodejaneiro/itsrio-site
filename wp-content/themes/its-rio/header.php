@@ -53,7 +53,7 @@
 	<div class="row row-menu <?= is_front_page() ? 'home' : 'fixed' ?>">
 		<div class="column large-12 menu-container">
 			<i class="fa fa-bars show-for-small-only"></i>
-			<a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="logo"></a>
+			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<div class="menu-social hide-for-small-only" >
 				<ul>
 					<li>
