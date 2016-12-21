@@ -32,12 +32,19 @@ Vue.component('its-map', {
         return { markers, selectedMarker : false }
     },
     methods:{
-        openMarker(marker){
+        openMarker(marker, obj){
             this.selectedMarker = marker;
-            setTimeout(function(){
-                // jQuery('.map-info-carousel').flickity({});
-            },1000);
+        },
+        closeMarker(){
+            this.selectedMarker = false; 
+            jQuery('.markers').attr('src','/wp-content/themes/its-rio/functions/components/map/map-pin.svg');
         }
+    },
+    mounted(){
+        jQuery('.markers').click(function(){
+            jQuery('.markers').attr('src',"/wp-content/themes/its-rio/functions/components/map/map-pin.svg");
+            jQuery(this).attr('src',"/wp-content/themes/its-rio/functions/components/map/map-pin-active.svg");
+        });
     }
 });
 
@@ -50,6 +57,20 @@ Vue.component('its-comunicados', {
 Vue.component('its-pessoas', {
     data(){
         return { pessoas };
+    },
+    methods: {
+        openPessoa(pessoa, ip){
+            if(pessoas.pessoaActive == "" || pessoas.pessoaActive.ID != pessoa.ID){
+                pessoas.pessoaActive = pessoa;
+            }
+            else {
+                pessoas.pessoaActive = "";
+                setTimeout(function(){
+                    jQuery('#pessoa_'+ip+'_' + pessoa.ID).removeAttr('checked');
+                }, 100);
+            }
+
+        }
     }
 });
 

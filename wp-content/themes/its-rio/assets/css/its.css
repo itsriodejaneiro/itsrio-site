@@ -2727,7 +2727,7 @@ button.flickity-prev-next-button {
 
 .markers {
   position: absolute;
-  width: 40px;
+  width: 20px;
   cursor: pointer;
   transition: all .3s;
   border-radius: 50%; }
@@ -2741,7 +2741,8 @@ button.flickity-prev-next-button {
 
 #mapa {
   margin: 0 auto;
-  display: block; }
+  display: block;
+  width: 100%; }
 
 .map-info-carousel {
   background-color: #9a258f;
