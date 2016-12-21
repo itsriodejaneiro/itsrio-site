@@ -2299,14 +2299,14 @@ button.flickity-prev-next-button {
     width: 100%;
     opacity: 0; }
   .highlights .info {
-    background: #fff;
+    background: #f8f8f8;
     border-radius: 0 0 3px 3px;
     bottom: 0;
     left: 0;
     right: 0;
     max-height: 265px;
     overflow: hidden;
-    padding: 40px 20px 20px 40px;
+    padding: 25px 20px 20px 40px;
     position: absolute;
     transition: all .3s ease; }
     .highlights .info > a {
@@ -2365,9 +2365,6 @@ button.flickity-prev-next-button {
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
 
-.archive .highlights .info {
-  background: #f8f8f8;
-  padding-top: 30px; }
 .archive .highlights .categories {
   margin-top: 8px; }
   .archive .highlights .categories ul {
