@@ -3884,7 +3884,9 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 }
 
 .highlights.type-projetos_ctp {
-  background-image: url("../images/project-default-bg.jpg"); }
+  background-image: url("../images/project-default-bg.jpg");
+}
+
 .highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
   background-color: #9a258f;
 }

@@ -5,8 +5,8 @@
 				<div class="component-tabs-title">
 				<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
 						<span v-if="e == 0"><?= $moduleTitle; ?></span>
+						<div v-if="e != 0" class="line"></div>
 						<span v-else>&nbsp;</span>
-						<div class="line"></div>
 					</h2>
 				</div>
 				<div class="tab-content">

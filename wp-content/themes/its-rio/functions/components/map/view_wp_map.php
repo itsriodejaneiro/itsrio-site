@@ -115,11 +115,17 @@
 				editor.editingMarker.infos.push(editor.editingMarker.newInfo);
 				editor.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
 			},
-			editMarker(i, event){
-				this.editor.editing = 'editar';
-				this.editor.deletingMarker = i;
-				$('.markers').removeClass('selected');
-				$(event.target).addClass('selected');
+			editMarker(i, event){				
+				if($(event.target).hasClass('selected')){
+					this.editor.deletingMarker = '';
+					this.editor.editing = false;
+					$('.markers').removeClass('selected');
+				}else{
+					this.editor.editing = 'editar';
+					this.editor.deletingMarker = i;
+					$('.markers').removeClass('selected');
+					$(event.target).addClass('selected');
+				}
 			},
 			deleteMarker(){
 				var editor = this.editor;
