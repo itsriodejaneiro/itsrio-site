@@ -2941,6 +2941,7 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 }
 
 .highlights {
+  background-size: cover;
   border-radius: 3px;
   overflow: hidden;
   position: relative;
@@ -3882,6 +3883,8 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   background-color: #f5821f !important;
 }
 
+.highlights.type-projetos_ctp {
+  background-image: url("../images/project-default-bg.jpg"); }
 .highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
   background-color: #9a258f;
 }
