@@ -26,7 +26,6 @@
 				</div>
 			</div> 
 				<div v-bind:class="{ 'active' : pessoas.pessoaActive != '' }"  class="pessoa-info" >
-					<div class="close" @click="pessoas.pessoaActive = ''">&times;</div>
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
 							<img v-if="pessoas.pessoaActive.thumb != ''" 
@@ -36,6 +35,7 @@
 							<h2 class="raleway">{{ pessoas.pessoaActive.title }}</h2> 	
 							<div v-html="pessoas.pessoaActive.content"></div>
 						</div>
+						<div class="close" @click="pessoas.pessoaActive = ''">&times;</div>
 					</div>
 				</div>
 		</div>
