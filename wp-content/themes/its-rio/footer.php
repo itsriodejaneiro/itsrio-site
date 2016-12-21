@@ -1,7 +1,7 @@
 </div>
 <footer>
 	<div class="row">
-		<div class="column large-3">
+		<div class="column large-2">
 			<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
 			<ul>
 				<li><a href="#" class="box">equipe</a></li>
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 
-		<div class="column large-9">
+		<div class="column large-9 large-offset-1">
 			<div class="contact-wrapper">
 				<div class="contact">
 					<b>contatos:</b><br>

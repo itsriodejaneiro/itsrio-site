@@ -7,7 +7,7 @@ $youtubeJSON = curl("https://www.googleapis.com/youtube/v3/search?order=date&par
 $medium = json_decode(str_replace('])}while(1);</x>', '', $mediumJSON))->payload->references->Post;
 $youtube = json_decode($youtubeJSON);
 ?>
-<div class="column large-9">
+<div class="column large-9 large-offset-1">
 	<div class="social-content">
 		<div class="articles latest">
 			<p><b>últimos artigos (Medium)</b></p>
