@@ -184,6 +184,9 @@ $color_institucionais : #522e91;
 }
 
 .highlights {
+	&.type-projetos_ctp {
+		background-image: url('../images/project-default-bg.jpg');
+	}
 	&:hover {
 		&.type-cursos_ctp {
 			.color-hover, .info {

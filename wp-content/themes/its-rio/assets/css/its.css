@@ -2286,6 +2286,7 @@ button.flickity-prev-next-button {
     font-weight: bold; }
 
 .highlights {
+  background-size: cover;
   border-radius: 3px;
   overflow: hidden;
   position: relative;
@@ -2881,6 +2882,8 @@ button.flickity-prev-next-button {
 .list-item.type-publicacoes_ctp:hover {
   background-color: #f5821f !important; }
 
+.highlights.type-projetos_ctp {
+  background-image: url("../images/project-default-bg.jpg"); }
 .highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
   background-color: #9a258f; }
 .highlights:hover.type-varandas_ctp .color-hover, .highlights:hover.type-varandas_ctp .info {

@@ -68,7 +68,7 @@ get_header();
 					$meta = get_post_meta(get_the_ID());
 					$destaque_id = get_the_ID();
 					?>
-					<div class="carousel-cell highlights" style="background-image: url(<?= get_thumbnail_url_banner($destaque_id) ?>)">
+					<div <?php post_class( 'carousel-cell highlights' ); ?> style="background-image: url(<?= get_thumbnail_url_banner($destaque_id) ?>)">
 						<div class="color-hover"></div>
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
