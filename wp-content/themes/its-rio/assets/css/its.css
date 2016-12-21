@@ -2411,6 +2411,10 @@ button.flickity-prev-next-button {
     line-height: 1;
     font-size: 20px;
     margin-top: 10px; }
+    .header-single .pessoas a {
+      color: #fff; }
+      .header-single .pessoas a:hover {
+        text-decoration: underline; }
   .header-single .box-title {
     font-size: 14px; }
   .header-single .box {
