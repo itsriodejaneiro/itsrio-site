@@ -58,13 +58,13 @@
 					</div>
 				</div>	
 			</div>
-			<img @click="positionMarker" id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.png">
-			<img v-show="editor.editing == 'adicionar'" src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png" id="marker" class="markers" />
+			<img @click="positionMarker" id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.svg">
+			<img v-show="editor.editing == 'adicionar'" src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg" id="marker" class="markers" />
 			
 			<img
 			v-for="(marker, i) in editor.markers" 
 			v-bind:style="{ left : marker.left+'px', top : marker.top+'px' }" 
-			src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png"
+			src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg"
 			@click="editMarker(i, $event)"
 			class="markers" />
 

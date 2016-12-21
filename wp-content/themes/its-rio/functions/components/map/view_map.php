@@ -27,7 +27,7 @@
 							<div class="color-hover"></div><!--  -->
 							<!-- <img v-if="info.image != ''" 
 							v-bind:src="info.image" alt=""> -->
-							<img src="http://localhost/wp-content/uploads/2016/07/site2-direitos-autorais-na-pratica-05-1.png" alt="">
+							<img src="/wp-content/uploads/2016/07/site2-direitos-autorais-na-pratica-05-1.png" alt="">
 						</div>
 						<div class="map-text">
 							<h3>Convenção XYZ Tecnologia (Recife, PE)</h3>
