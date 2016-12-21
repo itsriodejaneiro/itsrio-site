@@ -2963,8 +2963,9 @@ footer {
   footer, footer p, footer b, footer li, footer a, footer input {
     color: white;
     font-size: 14px; }
-  footer a:focus, footer a:active, footer a:hover {
-    color: white; }
+  footer .box:focus, footer .box:active, footer .box:hover {
+    background-color: #fff;
+    color: #000; }
   footer ul {
     display: block; }
     footer ul li {

@@ -13,9 +13,10 @@ footer{
 		font-size: 14px;
 	}
 
-	a { 
+	.box { 
 		&:focus, &:active, &:hover {
-			color: white;
+			background-color: #fff;
+			color: #000;
 		}
 	}
 
