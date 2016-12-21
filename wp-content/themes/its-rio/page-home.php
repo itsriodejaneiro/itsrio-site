@@ -7,7 +7,7 @@
 	var scrolling = true;
 	var lastScrollTop = 0;
 
-	jQuery(window).scroll(function(e){
+	/*jQuery(window).scroll(function(e){
 		if(!scrolling) e.preventDefault();
 		var st = $(this).scrollTop();
 		if(jQuery(this).scrollTop() >= jQuery(window).height() && jQuery('.row.row-menu').hasClass('home')){
@@ -24,7 +24,7 @@
 		}
 
 		lastScrollTop = st;
-	});
+	});*/
 	jQuery(document).ready(function(){
 		jQuery('.main-carousel,.home-area-carousel').flickity({
 			wrapAround: true,
