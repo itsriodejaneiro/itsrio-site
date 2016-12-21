@@ -16,8 +16,6 @@
 		</b>
 	</p>
 	<?php
-	else:
-		the_excerpt();
 	endif;
 	?>
 	<script>
