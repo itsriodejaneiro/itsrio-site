@@ -31,10 +31,6 @@
 			align-items: flex-end;
 		}
 
-		.excerpt {
-			margin: 5px 0 0;
-		}
-
 		.box {
 			border-color: #000;
 			color: #000;
@@ -57,6 +53,11 @@
 		}
 	}
 
+	.header {
+		display: flex;
+
+	}
+
 	.categories{
 		display: flex;
 		justify-content: flex-end;
@@ -66,7 +67,7 @@
 	.horario {
 		font-size: 12px;
 		font-weight: bold;
-		margin: 0 0 15px 15px;
+		margin: 8px 0 15px 15px;
 		p {
 			font-size: 14px;
 			font-weight: bold;

@@ -2312,8 +2312,6 @@ button.flickity-prev-next-button {
     .highlights .info > a {
       display: flex;
       align-items: flex-end; }
-    .highlights .info .excerpt {
-      margin: 5px 0 0; }
     .highlights .info .box {
       border-color: #000;
       color: #000;
@@ -2328,6 +2326,8 @@ button.flickity-prev-next-button {
       background: #000 !important;
       margin: 5px 0;
       transition: all .3s ease; }
+  .highlights .header {
+    display: flex; }
   .highlights .categories {
     display: flex;
     justify-content: flex-end;
@@ -2335,7 +2335,7 @@ button.flickity-prev-next-button {
   .highlights .horario {
     font-size: 12px;
     font-weight: bold;
-    margin: 0 0 15px 15px; }
+    margin: 8px 0 15px 15px; }
     .highlights .horario p {
       font-size: 14px;
       font-weight: bold;

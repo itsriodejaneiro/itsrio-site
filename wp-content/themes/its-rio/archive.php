@@ -72,34 +72,31 @@ get_header();
 						<div class="color-hover"></div>
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
-								<div class="">
-									<h2><?= the_title(); ?></h2>
-									<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
-								</div>
-								<div class="no-p horario">
-									<p><b>data</b></p>
-									<span class="box">
-										<?php
-										if($postType == 'cursos_ctp'){
-											?>
-											inscrições até
-											<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-											| início do curso
-											<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
+								<div class="header">
+									<div class="left">
+										<h2><?= the_title(); ?></h2>
+										<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
+									</div>
+									<div class="right horario">
+										<p><b>data</b></p>
+										<span class="box">
 											<?php
-										}elseif($postType == 'varandas_ctp')
-										echo $meta['info_datahorario'][0];
-										?>
-									</span>
+											if($postType == 'cursos_ctp'){
+												?>
+												inscrições até
+												<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
+												| início do curso
+												<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
+												<?php
+											}elseif($postType == 'varandas_ctp')
+											echo $meta['info_datahorario'][0];
+											?>
+										</span>
+									</div>
 								</div>
 							</a>
 							<div class="line"></div>
-							<div class="column large-8 no-p">
-								<a href="<?= get_post_permalink() ?>">
-									<p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p>
-								</a>
-							</div>
-							<div class="column large-4 no-p">
+							<div class="column large-12 no-p">
 								<?php $cat_classes = 'black'; include('inc/categories.php'); ?>
 							</div>
 						</div>
