@@ -2488,7 +2488,7 @@ button.flickity-prev-next-button {
     width: 200px;
     margin-right: 30px; }
   .tab-content {
-    width: calc(100% - 200px); }
+    width: calc(100% - 380px); }
     .tab-content .list-title {
       display: block;
       margin: 0 0 20px 0 !important; }
@@ -2653,7 +2653,7 @@ button.flickity-prev-next-button {
       white-space: nowrap; }
   .component-tabs .component-tabs-tab label.label-tab {
     top: 0px;
-    right: 20px;
+    right: 0px;
     position: absolute;
     margin: 0 !important; }
     .component-tabs .component-tabs-tab label.label-tab:before, .component-tabs .component-tabs-tab label.label-tab:after {
