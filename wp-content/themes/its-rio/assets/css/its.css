@@ -2400,8 +2400,6 @@ button.flickity-prev-next-button {
   .header-single .row {
     margin: 0 auto;
     width: 100%; }
-  .header-single a {
-    text-transform: lowercase; }
   .header-single h1, .header-single p {
     margin: 0;
     padding: 0;
