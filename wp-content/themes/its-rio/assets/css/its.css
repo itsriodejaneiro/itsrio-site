@@ -2366,6 +2366,9 @@ button.flickity-prev-next-button {
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
 
+.home .highlights {
+  margin-top: 40px; }
+
 .archive .highlights .categories {
   margin-top: 8px; }
   .archive .highlights .categories ul {

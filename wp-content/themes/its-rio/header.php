@@ -43,14 +43,14 @@
 	$title = $titles[$postType];
 
 
-	if(is_front_page()){
+	/*if(is_front_page()){
 		?>
 		<div class="home-cover" v-html="home_cover"></div>
 		<?php
-	}
+	}*/
 	?>
 
-	<div class="row row-menu <?= is_front_page() ? 'home' : 'fixed' ?>">
+	<div class="row row-menu fixed">
 		<div class="column large-12 menu-container">
 			<i class="fa fa-bars show-for-small-only"></i>
 			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
