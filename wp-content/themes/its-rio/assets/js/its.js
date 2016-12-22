@@ -73,6 +73,16 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
+        },
+        openPessoaCat: function openPessoaCat(pessoa, ip, pessoa_) {
+            if (pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID) {
+                pessoa_.pessoaActive = pessoa;
+            } else {
+                pessoa_.pessoaActive = "";
+                setTimeout(function () {
+                    jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
+                }, 100);
+            }
         }
     }
 });
