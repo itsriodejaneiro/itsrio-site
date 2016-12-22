@@ -118,6 +118,9 @@ $color_institucionais : #522e91;
 	.header-single-menu, .header-single, .header-single:before {
 		background-color: $color_projetos !important;
 	}
+	.header-single {
+		background-image: url('../images/project-default-bg.jpg');
+	}
 }
 
 .page, .single-comunicados_ctp {
@@ -162,6 +165,7 @@ $color_institucionais : #522e91;
 	&.type-projetos_ctp {
 		.img {
 			background-image: url('../images/project-default-bg.jpg');
+			background-position: center;
 			background-size: cover;
 			.color-hover {
 				background-color: $color_projetos;
@@ -186,6 +190,7 @@ $color_institucionais : #522e91;
 .highlights {
 	&.type-projetos_ctp {
 		background-image: url('../images/project-default-bg.jpg');
+		background-position: center;
 	}
 	&:hover {
 		&.type-cursos_ctp {
