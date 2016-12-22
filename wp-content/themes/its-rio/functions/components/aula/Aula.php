@@ -22,7 +22,8 @@ class Aula extends ET_Builder_Module {
 	function get_fields() {
 		$pessoas = [];
 		$query_pessoas = new WP_Query([
-			'post_type' => 'pessoas'
+			'post_type' => 'pessoas',
+			'posts_per_page' => 1000,
 			]);
 
 		while ($query_pessoas->have_posts()) {
@@ -30,6 +31,7 @@ class Aula extends ET_Builder_Module {
 			$pessoas[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
 		}
 
+		dd($pessoas);
 
 		$fields = array(
 			'title' => array(
