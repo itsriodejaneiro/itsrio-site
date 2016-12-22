@@ -129,7 +129,7 @@
 	}
 }
 
-.tab{
+.tab {
 	display: flex;
 	overflow: hidden;
 	align-items: baseline;
@@ -144,7 +144,7 @@
 
 		.list-title{
 			display: block;
-			margin: 0 0 20px 0 !important;
+			margin: 0 0 15px 0 !important;
 		}
 	}
 }
@@ -452,10 +452,11 @@
 			transition: all .3s;
 			
 			ul{
-				display: initial;
+				display: flex;
+    			flex-direction: column;
 				
 				li{
-					float: none;	
+					display: inline-table;
 					padding: 5px;
 					display: initial;
 					margin-bottom: 5px;
@@ -466,8 +467,14 @@
 	}
 }
 
-.component-tabs.aulas{
-	.component-tabs-content, p.left{
+.component-tabs.aulas {
+	.list-title {
+		text-transform: lowercase; 
+	}
+	p.left, p.right {
+		font-weight: bold;
+	}
+	.component-tabs-content {
 		font-weight: 600;
 	}
 }
