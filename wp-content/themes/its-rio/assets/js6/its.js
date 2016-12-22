@@ -69,7 +69,6 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_'+ip+'_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
-
         },
         openPessoaCat(pessoa, ip, pessoa_){
             if(pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID){

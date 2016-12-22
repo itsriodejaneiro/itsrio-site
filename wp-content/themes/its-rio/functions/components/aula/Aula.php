@@ -20,14 +20,14 @@ class Aula extends ET_Builder_Module {
 	}
 
 	function get_fields() {
-		$palestrantes = [];
-		$query_palestrantes = new WP_Query([
-			'post_type' => 'palestrantes'
+		$pessoas = [];
+		$query_pessoas = new WP_Query([
+			'post_type' => 'pessoas'
 			]);
 
-		while ($query_palestrantes->have_posts()) {
-			$query_palestrantes->the_post();
-			$palestrantes[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
+		while ($query_pessoas->have_posts()) {
+			$query_pessoas->the_post();
+			$pessoas[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
 		}
 
 
