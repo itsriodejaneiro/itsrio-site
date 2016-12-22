@@ -70,6 +70,18 @@ Vue.component('its-pessoas', {
                 }, 100);
             }
 
+        },
+        openPessoa(pessoa, ip, pessoa_){
+            if(pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID){
+                pessoa_.pessoaActive = pessoa;
+            }
+            else {
+                pessoa_.pessoaActive = "";
+                setTimeout(function(){
+                    jQuery('#pessoa_'+ip+'_' + pessoa.ID).removeAttr('checked');
+                }, 100);
+            }
+
         }
     }
 });

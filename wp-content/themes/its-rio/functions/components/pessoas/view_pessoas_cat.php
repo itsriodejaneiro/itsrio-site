@@ -15,13 +15,13 @@
 						<div class="line"></div>
 					</h3>
 					<p><?= $moduleExcerpt; ?></p>
-					<input type="checkbox" v- bind:id="'check_informacoes_' + i">
+					<input type="checkbox" v-bind:id="'check_informacoes_' + i">
 					<label v-bind:for="'check_informacoes_' + i" class="label-tab" ></label>
 					<div class="component-tabs-content">
 						<div v-for="(pessoa, ip) in pessoas_" v-if="i != 'pessoaActive' && ip != 'pessoaActive'" class="pessoa">
 							<input type="radio" v-bind:checked="pessoa.pessoaActive == ''" v-bind:name="'<? $moduleTitle ?>_'+ i" v-bind:id="'pessoa_'+i+'_' + pessoa.ID">
 							<div class="pessoa-mini">
-								<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoa(pessoa, i)">
+								<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoaCat(pessoa, i,pessoas_)">
 									<img v-bind:src="pessoa.thumb" alt="">
 									<p>{{ pessoa.title }}</p>
 								</label>
