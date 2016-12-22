@@ -2525,10 +2525,10 @@ button.flickity-prev-next-button {
 /* COMPONENTE PALESTRANTES */
 .pessoa {
   float: left;
-  max-width: 100px;
-  text-align: center;
   position: relative;
-  margin-right: 25px; }
+  margin-right: 25px;
+  height: 135px;
+  width: 100px; }
   .pessoa input[type="radio"] {
     display: none; }
   .pessoa input[type="radio"]:checked + .pessoa-mini:before {
@@ -2544,15 +2544,14 @@ button.flickity-prev-next-button {
   .pessoa input[type="radio"]:checked + .pessoa-mini img {
     opacity: 1;
     display: block;
-    margin: 0 auto;
     filter: grayscale(0%); }
   .pessoa .pessoa-mini {
     margin-bottom: 25px; }
     .pessoa .pessoa-mini img {
-      width: 100px;
+      width: 85px;
       filter: gray;
       opacity: 0.7;
-      height: 100px;
+      height: 85px;
       border-radius: 50%;
       filter: grayscale(100%);
       -webkit-filter: grayscale(1);
@@ -2565,9 +2564,9 @@ button.flickity-prev-next-button {
         filter: grayscale(0%); }
     .pessoa .pessoa-mini p {
       font-size: 14px;
-      margin-top: 15px;
-      font-weight: bold;
-      text-align: center; }
+      margin: 5px 0 0; }
+  .pessoa:hover p {
+    font-weight: bold; }
 
 .pessoa-info {
   display: flex;
@@ -2580,7 +2579,7 @@ button.flickity-prev-next-button {
   font-size: 14px;
   overflow: hidden;
   font-family: 'Raleway';
-  background-color: black;
+  background-color: #000;
   transition: max-height .3s; }
   .pessoa-info.active {
     max-height: 220px; }
@@ -2592,25 +2591,24 @@ button.flickity-prev-next-button {
       margin-top: 0; }
   .pessoa-info .close {
     display: none; }
-  .pessoa-info-content {
+  .pessoa-info .pessoa-info-content {
     float: right;
     margin: 20px 0;
     position: relative; }
-    .pessoa-info-content .pessoa-thumb {
+    .pessoa-info .pessoa-info-content .pessoa-thumb {
       box-sizing: border-box;
       float: left;
       margin: 0 35px 0 0;
       padding: 10px; }
-      .pessoa-info-content .pessoa-thumb img {
-        width: 160px;
+      .pessoa-info .pessoa-info-content .pessoa-thumb img {
+        border-radius: 50%;
         height: 160px;
-        outline: none;
-        box-shadow: none;
-        border-radius: 50%; }
-    .pessoa-info-content .pessoa-text {
+        width: 160px;
+        outline: none; }
+    .pessoa-info .pessoa-info-content .pessoa-text {
       float: left;
       max-width: 480px; }
-      .pessoa-info-content .pessoa-text h3 {
+      .pessoa-info .pessoa-info-content .pessoa-text h3 {
         margin-bottom: 5px; }
 
 .related-content {
@@ -2689,7 +2687,7 @@ button.flickity-prev-next-button {
     width: 100%;
     font-size: 15px;
     overflow: hidden;
-    max-height: 500px;
+    max-height: 615px;
     transition: all .3s; }
     .component-tabs .component-tabs-tab .component-tabs-content ul {
       display: initial; }
@@ -2702,6 +2700,22 @@ button.flickity-prev-next-button {
 
 .component-tabs.aulas .component-tabs-content, .component-tabs.aulas p.left {
   font-weight: 600; }
+
+.component-tabs.informacao .tab-content {
+  width: calc(100% - 270px); }
+  .component-tabs.informacao .tab-content .list-title {
+    width: calc(100% - 90px); }
+  .component-tabs.informacao .tab-content label.label-tab {
+    right: 110px; }
+  .component-tabs.informacao .tab-content .component-tabs-content {
+    margin-bottom: 30px; }
+
+.component-tabs.informacao.equipe .tab-content .component-tabs-content {
+  margin: 30px 0 30px 30px; }
+.component-tabs.informacao.equipe .tab-content .pessoa-info {
+  background-color: #522e91; }
+.component-tabs.informacao.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini:before {
+  border-color: transparent transparent #522e91 transparent; }
 
 /* COMPONENT PARTNERS */
 .content-partners img {

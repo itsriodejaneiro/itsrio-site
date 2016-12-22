@@ -9,18 +9,20 @@
 					</h2>
 				</div>
 				<div class="tab-content">
-					<div v-for="(pessoa, ip, i) in pessoas" v-if="parseInt(ip) > 0 || ip == 0" class="pessoa">
-						<input 
-						type="radio" 
-						v-bind:checked="pessoa.pessoaActive == ''" 
-						v-bind:name="'<?= $moduleTitle ?>'" 
-						v-bind:id="'pessoa_'+ip+'_' + pessoa.ID"
-						/>
-						<div class="pessoa-mini">
-							<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
-								<img v-bind:src="pessoa.thumb" alt="">
-								<p><b>{{ pessoa.title }}</b></p>
-							</label>
+					<div class="component-tabs-content">
+						<div v-for="(pessoa, ip, i) in pessoas" v-if="parseInt(ip) > 0 || ip == 0" class="pessoa">
+							<input 
+							type="radio" 
+							v-bind:checked="pessoa.pessoaActive == ''" 
+							v-bind:name="'<?= $moduleTitle ?>'" 
+							v-bind:id="'pessoa_'+ip+'_' + pessoa.ID"
+							/>
+							<div class="pessoa-mini">
+								<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
+									<img v-bind:src="pessoa.thumb" alt="">
+									<p>{{ pessoa.title }}</p>
+								</label>
+							</div>
 						</div>
 					</div>
 				</div>
