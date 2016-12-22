@@ -223,7 +223,6 @@
 			}
 		}
 		.name {
-			display: inline-block;
 			font-size: 14px;
 			font-weight: 600;
 			margin: 5px 0 0;
@@ -449,7 +448,7 @@
 			width: 100%;
 			font-size: 15px;
 			overflow: hidden;
-			max-height: 615px;
+			max-height: 620px;
 			transition: all .3s;
 			
 			ul{
@@ -497,6 +496,13 @@
 					background-color: #522e91;
 				}
 	    	}
+	    	input[type="radio"]:checked {
+				& + .pessoa-mini {
+					.name {
+						color: #522e91;
+					}
+				}
+			}
 	    }
 	}
 	.pessoa-info {
