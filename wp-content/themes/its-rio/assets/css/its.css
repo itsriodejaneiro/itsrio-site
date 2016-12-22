@@ -2656,7 +2656,7 @@ button.flickity-prev-next-button {
       margin-left: 20px;
       white-space: nowrap; }
   .component-tabs .component-tabs-tab label.label-tab {
-    top: 0px;
+    top: 5px;
     right: 0px;
     position: absolute;
     margin: 0 !important; }
@@ -2696,12 +2696,15 @@ button.flickity-prev-next-button {
       .component-tabs .component-tabs-tab .component-tabs-content ul li {
         display: inline-table;
         padding: 5px;
-        display: initial;
         margin-bottom: 5px;
         background-color: #d9d9d9; }
 
+.component-tabs.aulas label.label-tab {
+  top: 10px; }
 .component-tabs.aulas .list-title {
   text-transform: lowercase; }
+.component-tabs.aulas p.left {
+  max-width: 410px; }
 .component-tabs.aulas p.left, .component-tabs.aulas p.right {
   font-weight: bold; }
 .component-tabs.aulas .component-tabs-content {
@@ -2750,9 +2753,11 @@ button.flickity-prev-next-button {
   font-size: 18px; }
 
 .work-with-us {
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   overflow: hidden;
   text-align: center; }
+  .work-with-us a {
+    position: relative; }
 
 .markers {
   position: absolute;
