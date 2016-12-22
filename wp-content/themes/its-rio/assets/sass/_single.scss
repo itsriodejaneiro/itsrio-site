@@ -480,16 +480,13 @@
 	    label.label-tab {
 	    	right: 110px;
 	    }
-	    .component-tabs-content {
-	    	margin-bottom: 30px;
-	    }
 	}
 }
 
 .component-tabs.equipe {
 	.tab-content {
 		.component-tabs-content {
-	    	margin: 30px 0 30px 30px; 
+	    	margin: 30px 0 0 30px; 
 	    }
 		.pessoa input[type="radio"]:checked + .pessoa-mini:before {
 			border-color: transparent transparent #522e91 transparent;
