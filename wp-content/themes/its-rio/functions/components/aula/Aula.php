@@ -31,8 +31,6 @@ class Aula extends ET_Builder_Module {
 			$pessoas[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
 		}
 
-		dd($pessoas);
-
 		$fields = array(
 			'title' => array(
 				'label'             => esc_html__( 'Título', 'et_builder' ),
