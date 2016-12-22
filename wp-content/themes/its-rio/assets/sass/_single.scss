@@ -393,7 +393,7 @@
 		}
 
 		label.label-tab{
-			top: 0px;
+			top: 5px;
 			right: 0px;
 			position: absolute;
 			margin: 0 !important;
@@ -458,7 +458,6 @@
 				li{
 					display: inline-table;
 					padding: 5px;
-					display: initial;
 					margin-bottom: 5px;
 					background-color: #d9d9d9;
 				}
@@ -468,8 +467,14 @@
 }
 
 .component-tabs.aulas {
+	label.label-tab {
+		top: 10px;
+	}
 	.list-title {
 		text-transform: lowercase; 
+	}
+	p.left {
+		max-width: 410px;
 	}
 	p.left, p.right {
 		font-weight: bold;
@@ -557,9 +562,13 @@
 }
 
 .work-with-us {
-	margin-bottom: 70px;
+	margin-bottom: 60px;
 	overflow: hidden;
 	text-align: center;
+
+	a {
+		position: relative;
+	}
 }
 
 //COMPONENT MAPA
