@@ -20,7 +20,10 @@
 							<div class="pessoa-mini">
 								<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
 									<img v-bind:src="pessoa.thumb" alt="">
-									<p>{{ pessoa.title }}</p>
+									<div class="name">
+										{{ pessoa.title }}
+										<div class="line"></div>
+									</div>
 								</label>
 							</div>
 						</div>

@@ -23,7 +23,10 @@
 							<div class="pessoa-mini">
 								<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoaCat(pessoa, i,pessoas_)">
 									<img v-bind:src="pessoa.thumb" alt="">
-									<p>{{ pessoa.title }}</p>
+									<div class="name">
+										{{ pessoa.title }}
+										<div class="line"></div>
+									</div>
 								</label>
 							</div>
 						</div>

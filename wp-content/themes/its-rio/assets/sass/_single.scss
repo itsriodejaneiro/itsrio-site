@@ -197,32 +197,11 @@
 	height: 135px;
 	width: 100px;
 
-	input[type="radio"]{
+	input[type="radio"] {
 		display: none;
 	}
 
-	input[type="radio"]:checked {
-		& + .pessoa-mini:before{
-			left: 0;
-			width: 0;
-			bottom: 0;
-			height: 0;
-			content: '';
-			position: absolute;
-			border-style: solid;
-			border-width: 0 15px 15px 15px;
-			border-color: transparent transparent #000 transparent;
-		}
-
-		& + .pessoa-mini img{
-			opacity: 1;
-			display: block;
-			filter: grayscale(0%);
-		}
-	}
-
 	.pessoa-mini {
-
 		img {
 			width: 85px;
 			filter: gray;
@@ -243,17 +222,39 @@
 				filter: grayscale(0%);
 			}
 		}
-
-		p {
+		.name {
 			font-size: 14px;
-			font-weight: bold;
+			font-weight: 600;
 			margin: 5px 0 0;
 			opacity: 0.75;
+		}
+		.line {
+			border-radius: 5px;
+    		height: 5px;
+			opacity: 0;
+		}
+	}
+
+	input[type="radio"]:checked {
+		& + .pessoa-mini {
+			.name {
+				font-weight: 700;
+				opacity: 1;
+			}
+			.line {
+				opacity: 1;
+			}
+		}
+		& + .pessoa-mini img {
+			opacity: 1;
+			display: block;
+			filter: grayscale(0%);
 		}
 	}
 
 	&:hover {
-		p {
+		.name {
+			font-weight: 700;
 			opacity: 1;
 		}
 	}
@@ -272,22 +273,6 @@
 	font-family: 'Raleway';
 	background-color: #000;
 	transition: max-height .3s;
-	
-	&.active {
-		max-height: 220px;
-
-		.pessoa-thumb {
-			img {
-				box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444;
-			}
-		}
-
-		.close {
-			display: block;
-			right: -70px;
-    		margin-top: 0;
-		}
-	}
 
 	.close {
 		display: none;
@@ -305,6 +290,7 @@
 			padding: 10px;
 
 			img {
+				border: 0;
 				border-radius: 50%;
 				height: 160px;
 				width: 160px;
@@ -317,6 +303,22 @@
 			max-width: 480px;
 			h3 {
 				margin-bottom: 5px;
+			}
+		}
+	}
+	&.active {
+		max-height: 220px;
+		
+		.pessoa-info-content {
+			.pessoa-thumb {
+				img {
+					box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444;
+				}
+			}
+			.close {
+				display: block;
+				right: -70px;
+	    		margin-top: 0;
 			}
 		}
 	}
@@ -446,7 +448,7 @@
 			width: 100%;
 			font-size: 15px;
 			overflow: hidden;
-			max-height: 615px;
+			max-height: 620px;
 			transition: all .3s;
 			
 			ul{
@@ -488,9 +490,20 @@
 		.component-tabs-content {
 	    	margin: 30px 0 0 30px; 
 	    }
-		.pessoa input[type="radio"]:checked + .pessoa-mini:before {
-			border-color: transparent transparent #522e91 transparent;
-		}
+		.pessoa {
+	    	.pessoa-mini {
+	    		.line {
+					background-color: #522e91;
+				}
+	    	}
+	    	input[type="radio"]:checked {
+				& + .pessoa-mini {
+					.name {
+						color: #522e91;
+					}
+				}
+			}
+	    }
 	}
 	.pessoa-info {
 		background-color: #522e91;
