@@ -2526,7 +2526,7 @@ button.flickity-prev-next-button {
 .pessoa {
   float: left;
   position: relative;
-  margin-right: 25px;
+  margin: 0 25px 25px 0;
   height: 135px;
   width: 100px; }
   .pessoa input[type="radio"] {
@@ -2545,28 +2545,28 @@ button.flickity-prev-next-button {
     opacity: 1;
     display: block;
     filter: grayscale(0%); }
-  .pessoa .pessoa-mini {
-    margin-bottom: 25px; }
-    .pessoa .pessoa-mini img {
-      width: 85px;
-      filter: gray;
-      opacity: 0.7;
-      height: 85px;
-      border-radius: 50%;
-      filter: grayscale(100%);
-      -webkit-filter: grayscale(1);
-      -webkit-filter: grayscale(100%);
-      cursor: pointer; }
-      .pessoa .pessoa-mini img:hover {
-        filter: grayscale(0%); }
-      .pessoa .pessoa-mini img:img {
-        opacity: 1;
-        filter: grayscale(0%); }
-    .pessoa .pessoa-mini p {
-      font-size: 14px;
-      margin: 5px 0 0; }
+  .pessoa .pessoa-mini img {
+    width: 85px;
+    filter: gray;
+    opacity: 0.7;
+    height: 85px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    cursor: pointer; }
+    .pessoa .pessoa-mini img:hover {
+      filter: grayscale(0%); }
+    .pessoa .pessoa-mini img:img {
+      opacity: 1;
+      filter: grayscale(0%); }
+  .pessoa .pessoa-mini p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 0;
+    opacity: 0.75; }
   .pessoa:hover p {
-    font-weight: bold; }
+    opacity: 1; }
 
 .pessoa-info {
   display: flex;
@@ -2707,15 +2707,13 @@ button.flickity-prev-next-button {
     width: calc(100% - 90px); }
   .component-tabs.informacao .tab-content label.label-tab {
     right: 110px; }
-  .component-tabs.informacao .tab-content .component-tabs-content {
-    margin-bottom: 30px; }
 
-.component-tabs.informacao.equipe .tab-content .component-tabs-content {
-  margin: 30px 0 30px 30px; }
-.component-tabs.informacao.equipe .tab-content .pessoa-info {
-  background-color: #522e91; }
-.component-tabs.informacao.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini:before {
+.component-tabs.equipe .tab-content .component-tabs-content {
+  margin: 30px 0 0 30px; }
+.component-tabs.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini:before {
   border-color: transparent transparent #522e91 transparent; }
+.component-tabs.equipe .pessoa-info {
+  background-color: #522e91; }
 
 /* COMPONENT PARTNERS */
 .content-partners img {
@@ -2873,6 +2871,8 @@ button.flickity-prev-next-button {
     color: #522e91; }
 .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single, .single-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single:before {
   background-color: #522e91 !important; }
+.single-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single {
+  background-image: url("../images/project-default-bg.jpg"); }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522e91;
@@ -2894,6 +2894,7 @@ button.flickity-prev-next-button {
   background-color: #00958a !important; }
 .list-item.type-projetos_ctp .img {
   background-image: url("../images/project-default-bg.jpg");
+  background-position: center;
   background-size: cover; }
   .list-item.type-projetos_ctp .img .color-hover {
     background-color: #522e91; }
@@ -2905,7 +2906,8 @@ button.flickity-prev-next-button {
   background-color: #f5821f !important; }
 
 .highlights.type-projetos_ctp {
-  background-image: url("../images/project-default-bg.jpg"); }
+  background-image: url("../images/project-default-bg.jpg");
+  background-position: center; }
 .highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
   background-color: #9a258f; }
 .highlights:hover.type-varandas_ctp .color-hover, .highlights:hover.type-varandas_ctp .info {

@@ -193,7 +193,7 @@
 .pessoa {
 	float: left;
 	position: relative;
-	margin-right: 25px;
+	margin: 0 25px 25px 0;
 	height: 135px;
 	width: 100px;
 
@@ -222,7 +222,6 @@
 	}
 
 	.pessoa-mini {
-		margin-bottom: 25px;
 
 		img {
 			width: 85px;
@@ -247,13 +246,15 @@
 
 		p {
 			font-size: 14px;
+			font-weight: bold;
 			margin: 5px 0 0;
+			opacity: 0.75;
 		}
 	}
 
 	&:hover {
 		p {
-			font-weight: bold;
+			opacity: 1;
 		}
 	}
 }
@@ -479,23 +480,20 @@
 	    label.label-tab {
 	    	right: 110px;
 	    }
-	    .component-tabs-content {
-	    	margin-bottom: 30px;
-	    }
 	}
 }
 
-.component-tabs.informacao.equipe {
+.component-tabs.equipe {
 	.tab-content {
 		.component-tabs-content {
-	    	margin: 30px 0 30px 30px; 
+	    	margin: 30px 0 0 30px; 
 	    }
-	    .pessoa-info {
-			background-color: #522e91;
-		}
 		.pessoa input[type="radio"]:checked + .pessoa-mini:before {
 			border-color: transparent transparent #522e91 transparent;
 		}
+	}
+	.pessoa-info {
+		background-color: #522e91;
 	}
 }
 
