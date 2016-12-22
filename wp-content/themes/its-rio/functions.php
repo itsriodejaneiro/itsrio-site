@@ -107,7 +107,15 @@ function limit_excerpt($s, $max_length){
 	return $s;
 }
 
-
+function clear_divi_cache($hook){
+    global $post; 
+    if ($hook == 'post-new.php' || $hook == 'post.php') {
+        if ('pessoas' === $post->post_type ) { 
+            echo "<script>window.localStorage.clear();</script>";
+        }
+    }
+}
+add_action('admin_enqueue_scripts', 'clear_divi_cache');
 
 
 
