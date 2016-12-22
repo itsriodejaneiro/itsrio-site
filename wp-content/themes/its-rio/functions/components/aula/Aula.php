@@ -47,7 +47,7 @@ class Aula extends ET_Builder_Module {
 			'palestrante' => array(
 				'label'             => esc_html__( 'Palestrante', 'et_builder' ),
 				'type'              => 'select',
-				'options'         => $palestrantes
+				'options'         => $pessoas
 				),
 			'content' => array(
 				'label'             => esc_html__( 'Conteúdo', 'et_builder' ),
