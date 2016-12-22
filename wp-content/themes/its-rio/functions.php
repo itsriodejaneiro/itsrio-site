@@ -79,6 +79,15 @@ function get_thumbnail_url_banner($id){
 	return $dynamic_featured_image->get_featured_images($id)[1]['full'];
 }
 
+function get_thumbnail_style($id, $size){
+	$fun = 'get_thumbnail_url_'.$size;
+	$url = $fun($id);
+
+	if($url == '')
+		return $fun;
+	return ' style="background-image:url(\''.$url.'\')" ';
+}
+
 function curl($url){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
