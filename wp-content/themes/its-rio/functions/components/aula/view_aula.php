@@ -25,9 +25,10 @@
 					</h2>
 					<div class="tab-subtitle">
 						<p class="left">{{ aula.subtitle }}</p> 
-						<p class="right">
+						<p class="right" v-if="aula.palestrante_1 != ''">
 							<span v-if="aula.palestrante_1 != ''"> com {{ aula.palestrante_1 }}</span>
-							<span v-if="aula.palestrante_3 == ''"> e</span> <span v-else>,</span>
+							<span v-if="aula.palestrante_3 == '' && aula.palestrante_2 != ''"> e</span> 
+							<span v-if="aula.palestrante_3 == '' && aula.palestrante_2 == ''">,</span>
 							<span v-if="aula.palestrante_2 != ''"> {{ aula.palestrante_2 }} </span>
 							<span v-if="aula.palestrante_3 != ''"> e {{ aula.palestrante_3 }} </span>
 						</p>
