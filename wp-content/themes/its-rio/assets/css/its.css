@@ -2493,7 +2493,7 @@ button.flickity-prev-next-button {
     width: calc(100% - 380px); }
     .tab-content .list-title {
       display: block;
-      margin: 0 0 20px 0 !important; }
+      margin: 0 0 15px 0 !important; }
 
 .content-area {
   padding: 50px 40px 60px; }
@@ -2691,15 +2691,20 @@ button.flickity-prev-next-button {
     max-height: 620px;
     transition: all .3s; }
     .component-tabs .component-tabs-tab .component-tabs-content ul {
-      display: initial; }
+      display: flex;
+      flex-direction: column; }
       .component-tabs .component-tabs-tab .component-tabs-content ul li {
-        float: none;
+        display: inline-table;
         padding: 5px;
         display: initial;
         margin-bottom: 5px;
         background-color: #d9d9d9; }
 
-.component-tabs.aulas .component-tabs-content, .component-tabs.aulas p.left {
+.component-tabs.aulas .list-title {
+  text-transform: lowercase; }
+.component-tabs.aulas p.left, .component-tabs.aulas p.right {
+  font-weight: bold; }
+.component-tabs.aulas .component-tabs-content {
   font-weight: 600; }
 
 .component-tabs.informacao .tab-content {
