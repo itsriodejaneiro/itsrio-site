@@ -2531,12 +2531,6 @@ button.flickity-prev-next-button {
   width: 100px; }
   .pessoa input[type="radio"] {
     display: none; }
-  .pessoa input[type="radio"]:checked + .pessoa-mini .line {
-    display: block; }
-  .pessoa input[type="radio"]:checked + .pessoa-mini img {
-    opacity: 1;
-    display: block;
-    filter: grayscale(0%); }
   .pessoa .pessoa-mini img {
     width: 85px;
     filter: gray;
@@ -2552,12 +2546,27 @@ button.flickity-prev-next-button {
     .pessoa .pessoa-mini img:img {
       opacity: 1;
       filter: grayscale(0%); }
-  .pessoa .pessoa-mini p {
+  .pessoa .pessoa-mini .name {
+    display: inline-block;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
     margin: 5px 0 0;
     opacity: 0.75; }
-  .pessoa:hover p {
+  .pessoa .pessoa-mini .line {
+    border-radius: 5px;
+    height: 5px;
+    opacity: 0; }
+  .pessoa input[type="radio"]:checked + .pessoa-mini .name {
+    font-weight: 700;
+    opacity: 1; }
+  .pessoa input[type="radio"]:checked + .pessoa-mini .line {
+    opacity: 1; }
+  .pessoa input[type="radio"]:checked + .pessoa-mini img {
+    opacity: 1;
+    display: block;
+    filter: grayscale(0%); }
+  .pessoa:hover .name {
+    font-weight: 700;
     opacity: 1; }
 
 .pessoa-info {
@@ -2573,14 +2582,6 @@ button.flickity-prev-next-button {
   font-family: 'Raleway';
   background-color: #000;
   transition: max-height .3s; }
-  .pessoa-info.active {
-    max-height: 220px; }
-    .pessoa-info.active .pessoa-thumb img {
-      box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
-    .pessoa-info.active .close {
-      display: block;
-      right: -70px;
-      margin-top: 0; }
   .pessoa-info .close {
     display: none; }
   .pessoa-info .pessoa-info-content {
@@ -2593,6 +2594,7 @@ button.flickity-prev-next-button {
       margin: 0 35px 0 0;
       padding: 10px; }
       .pessoa-info .pessoa-info-content .pessoa-thumb img {
+        border: 0;
         border-radius: 50%;
         height: 160px;
         width: 160px;
@@ -2602,6 +2604,14 @@ button.flickity-prev-next-button {
       max-width: 480px; }
       .pessoa-info .pessoa-info-content .pessoa-text h3 {
         margin-bottom: 5px; }
+  .pessoa-info.active {
+    max-height: 220px; }
+    .pessoa-info.active .pessoa-info-content .pessoa-thumb img {
+      box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
+    .pessoa-info.active .pessoa-info-content .close {
+      display: block;
+      right: -70px;
+      margin-top: 0; }
 
 .related-content {
   background-color: #d9d9d9; }
@@ -2702,8 +2712,8 @@ button.flickity-prev-next-button {
 
 .component-tabs.equipe .tab-content .component-tabs-content {
   margin: 30px 0 0 30px; }
-.component-tabs.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini:before {
-  border-color: transparent transparent #522e91 transparent; }
+.component-tabs.equipe .tab-content .pessoa .pessoa-mini .line {
+  background-color: #522e91; }
 .component-tabs.equipe .pessoa-info {
   background-color: #522e91; }
 
