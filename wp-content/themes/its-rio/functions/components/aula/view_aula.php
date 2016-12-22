@@ -24,7 +24,7 @@
 						<div class="line"></div>
 					</h2>
 					<div class="tab-subtitle">
-						<p class="left">{{ aula.subtitle }}</p> <p class="right"> com {{ aula.palestrante }}</p>
+						<p class="left">{{ aula.subtitle }}</p> <p class="right" @click="goToPerson(i)"> com {{ aula.palestrante }}</p>
 					</div>
 					<input type="checkbox" v-bind:id="'check_aula_' + i">
 					<label class="label-tab" v-bind:for="'check_aula_' + i"></label>
