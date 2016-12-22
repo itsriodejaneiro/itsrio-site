@@ -15,7 +15,7 @@
 						<div class="line"></div>
 					</h3>
 					<p><?= $moduleExcerpt; ?></p>
-					<input type="checkbox" v-bind:id="'check_informacoes_' + i">
+					<input type="checkbox" v- bind:id="'check_informacoes_' + i">
 					<label v-bind:for="'check_informacoes_' + i" class="label-tab" ></label>
 					<div class="component-tabs-content">
 						<div v-for="(pessoa, ip) in pessoas_" v-if="i != 'pessoaActive' && ip != 'pessoaActive'" class="pessoa">
