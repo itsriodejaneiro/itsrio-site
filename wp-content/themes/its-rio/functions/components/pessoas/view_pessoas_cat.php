@@ -3,7 +3,7 @@
 		<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive'" class="component-tabs-tab">
 			<div class="row">
 				<div class="component-tabs-title">
-				<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
+					<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
 						<span v-if="e == 0"><?= $moduleTitle; ?></span>
 						<div v-if="e != 0" class="line"></div>
 						<span v-else>&nbsp;</span>
@@ -15,13 +15,13 @@
 						<div class="line"></div>
 					</h3>
 					<p><?= $moduleExcerpt; ?></p>
-					<input type="checkbox" v-bind:id="'check_informacoes_' + i">
+					<input type="checkbox" v- bind:id="'check_informacoes_' + i">
 					<label v-bind:for="'check_informacoes_' + i" class="label-tab" ></label>
 					<div class="component-tabs-content">
 						<div v-for="(pessoa, ip) in pessoas_" v-if="i != 'pessoaActive' && ip != 'pessoaActive'" class="pessoa">
 							<input type="radio" v-bind:checked="pessoa.pessoaActive == ''" v-bind:name="'<? $moduleTitle ?>_'+ i" v-bind:id="'pessoa_'+i+'_' + pessoa.ID">
 							<div class="pessoa-mini">
-								<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="pessoas_.pessoaActive = pessoa">
+								<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoa(pessoa, i)">
 									<img v-bind:src="pessoa.thumb" alt="">
 									<p>{{ pessoa.title }}</p>
 								</label>

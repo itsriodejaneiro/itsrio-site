@@ -1,6 +1,6 @@
 .markers {
   position: absolute;
-  width: 40px;
+  width: 20px;
   cursor: pointer;
   -webkit-transition: all .3s;
   transition: all .3s;

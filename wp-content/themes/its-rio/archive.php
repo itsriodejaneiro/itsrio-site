@@ -67,8 +67,9 @@ get_header();
 					$postsQtd++;
 					$meta = get_post_meta(get_the_ID());
 					$destaque_id = get_the_ID();
+					$banner = get_thumbnail_url_banner($destaque_id);
 					?>
-					<div <?php post_class( 'carousel-cell highlights' ); ?> style="background-image: url(<?= get_thumbnail_url_banner($destaque_id) ?>)">
+					<div <?php post_class( 'carousel-cell highlights'); if($banner != ''){ ?>style="background-image: url(<?= $banner ?>)" <?php } ?> >
 						<div class="color-hover"></div>
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
@@ -153,6 +154,7 @@ get_header();
 				);
 		}else{
 			$args[] = ['exclude' => $destaque_id];
+			$args['posts_per_page'] = '100';
 		}
 		query_posts($args);
 
