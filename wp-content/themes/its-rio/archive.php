@@ -154,6 +154,7 @@ get_header();
 				);
 		}else{
 			$args[] = ['exclude' => $destaque_id];
+			$args['posts_per_page'] = '100';
 		}
 		query_posts($args);
 
