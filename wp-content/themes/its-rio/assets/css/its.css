@@ -2336,7 +2336,7 @@ button.flickity-prev-next-button {
   .highlights .horario {
     font-size: 12px;
     font-weight: bold;
-    margin: 8px 0 15px 15px; }
+    margin: 8px 0 15px 30px; }
     .highlights .horario p {
       font-size: 14px;
       font-weight: bold;
@@ -2531,16 +2531,8 @@ button.flickity-prev-next-button {
   width: 100px; }
   .pessoa input[type="radio"] {
     display: none; }
-  .pessoa input[type="radio"]:checked + .pessoa-mini:before {
-    left: 0;
-    width: 0;
-    bottom: 0;
-    height: 0;
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 0 15px 15px 15px;
-    border-color: transparent transparent #000 transparent; }
+  .pessoa input[type="radio"]:checked + .pessoa-mini .line {
+    display: block; }
   .pessoa input[type="radio"]:checked + .pessoa-mini img {
     opacity: 1;
     display: block;
@@ -3200,4 +3192,3 @@ footer {
     right: -230px; }
 
 /*# sourceMappingURL=its.css.map */
->>>>>>> 67f70b68f876b75503b55a49756d04d244879dbd

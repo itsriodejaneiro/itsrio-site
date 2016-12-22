@@ -197,24 +197,18 @@
 	height: 135px;
 	width: 100px;
 
-	input[type="radio"]{
+	input[type="radio"] {
 		display: none;
 	}
 
 	input[type="radio"]:checked {
-		& + .pessoa-mini:before{
-			left: 0;
-			width: 0;
-			bottom: 0;
-			height: 0;
-			content: '';
-			position: absolute;
-			border-style: solid;
-			border-width: 0 15px 15px 15px;
-			border-color: transparent transparent #000 transparent;
+		& + .pessoa-mini {
+			.line {
+				display: block;
+			}
 		}
 
-		& + .pessoa-mini img{
+		& + .pessoa-mini img {
 			opacity: 1;
 			display: block;
 			filter: grayscale(0%);
