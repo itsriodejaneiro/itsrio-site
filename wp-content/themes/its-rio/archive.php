@@ -31,7 +31,6 @@ get_header();
 				case 'projetos_ctp':
 				$bannerTitle = 'áreas de pesquisa';
 				$bannerCards = 'projetos';				
-				// $bannerCards = 'outros projetos';				
 				break;
 				case 'cursos_ctp':
 				$bannerTitle = 'inscrições abertas';
@@ -152,7 +151,6 @@ get_header();
 					)
 				);
 		}else{
-			$args[] = ['exclude' => $destaque_id];
 			$args['posts_per_page'] = '100';
 		}
 		query_posts($args);
@@ -160,7 +158,8 @@ get_header();
 		if (have_posts()) {
 			while (have_posts()) {
 				the_post();
-				include(ROOT .'inc/post-box.php');
+				if($destaque_id != get_the_ID())
+					include(ROOT .'inc/post-box.php');
 			}
 		}
 		?>
