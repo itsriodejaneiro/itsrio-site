@@ -2615,7 +2615,7 @@ button.flickity-prev-next-button {
       .pessoa-info .pessoa-info-content .pessoa-text h3 {
         margin-bottom: 5px; }
   .pessoa-info.active {
-    max-height: 220px; }
+    max-height: 440px; }
     .pessoa-info.active .pessoa-info-content .pessoa-thumb .img {
       box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
     .pessoa-info.active .pessoa-info-content .close {
@@ -2729,13 +2729,15 @@ button.flickity-prev-next-button {
     right: 110px; }
 
 .component-tabs.equipe .tab-content .component-tabs-content {
-  margin: 30px 0 0 30px; }
+  margin: 30px 0 30px 30px; }
 .component-tabs.equipe .tab-content .pessoa .pessoa-mini .line {
   background-color: #522e91; }
 .component-tabs.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini .name {
   color: #522e91; }
 .component-tabs.equipe .pessoa-info {
   background-color: #522e91; }
+  .component-tabs.equipe .pessoa-info.active .pessoa-thumb .img {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 7px #bfb1d6, 0 0 0 11px #7e63ad; }
 
 /* COMPONENT PARTNERS */
 .content-partners img {

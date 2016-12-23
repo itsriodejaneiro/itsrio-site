@@ -317,7 +317,7 @@
 		}
 	}
 	&.active {
-		max-height: 220px;
+		max-height: 440px;
 		
 		.pessoa-info-content {
 			.pessoa-thumb {
@@ -510,7 +510,7 @@
 .component-tabs.equipe {
 	.tab-content {
 		.component-tabs-content {
-	    	margin: 30px 0 0 30px; 
+	    	margin: 30px 0 30px 30px; 
 	    }
 		.pessoa {
 	    	.pessoa-mini {
@@ -529,6 +529,13 @@
 	}
 	.pessoa-info {
 		background-color: #522e91;
+		&.active {
+			.pessoa-thumb {
+				.img {
+					box-shadow: 0 0 0 3px #fff, 0 0 0 7px #bfb1d6, 0 0 0 11px #7e63ad;
+				}
+			}
+		}
 	}
 }
 
