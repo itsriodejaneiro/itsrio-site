@@ -2331,6 +2331,8 @@ button.flickity-prev-next-button {
     display: flex;
     justify-content: space-between;
     width: 100%; }
+    .highlights .header .info-left {
+      flex-grow: 2; }
   .highlights .categories {
     display: flex;
     justify-content: flex-end;

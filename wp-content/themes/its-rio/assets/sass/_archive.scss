@@ -58,6 +58,9 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		.info-left {
+			flex-grow: 2;
+		}
 	}
 
 	.categories{
