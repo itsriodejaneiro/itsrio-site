@@ -6,21 +6,13 @@ class Aula extends ET_Builder_Module {
 		$this->slug = 'et_pb_aula';
 		$this->fb_support = true;
 
-		$this->whitelisted_fields = ['title', 'subtitle','palestrante','data','content'];
-
-		$this->fields_defaults = array(
-			'title' => ['', 'add_default_setting'],
-			'subtitle' => ['', 'add_default_setting'],
-			'palestrante' => ['', 'add_default_setting'],
-			'data' => ['', 'add_default_setting'],
-			'content' => ['', 'add_default_setting'],
-			);
+		$this->whitelisted_fields = ['title', 'subtitle','palestrante_1','palestrante_2','palestrante_3','data','content'];
 
 		$this->main_css_element = '%%order_class%% .et_pb_post';
 	}
 
 	function get_fields() {
-		$pessoas = [];
+		$pessoas = ['0' => ''];
 		$query_pessoas = new WP_Query([
 			'post_type' => 'pessoas',
 			'posts_per_page' => 1000,
@@ -30,8 +22,6 @@ class Aula extends ET_Builder_Module {
 			$query_pessoas->the_post();
 			$pessoas[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
 		}
-
-		dd($pessoas);
 
 		$fields = array(
 			'title' => array(
@@ -46,8 +36,18 @@ class Aula extends ET_Builder_Module {
 				'label'             => esc_html__( 'Data e Hora', 'et_builder' ),
 				'type'              => 'text',
 				),
-			'palestrante' => array(
-				'label'             => esc_html__( 'Palestrante', 'et_builder' ),
+			'palestrante_1' => array(
+				'label'             => esc_html__( 'Palestrante 1', 'et_builder' ),
+				'type'              => 'select',
+				'options'         => $pessoas
+				),
+			'palestrante_2' => array(
+				'label'             => esc_html__( 'Palestrante 2', 'et_builder' ),
+				'type'              => 'select',
+				'options'         => $pessoas
+				),
+			'palestrante_3' => array(
+				'label'             => esc_html__( 'Palestrante 3', 'et_builder' ),
 				'type'              => 'select',
 				'options'         => $pessoas
 				),
@@ -70,18 +70,24 @@ class Aula extends ET_Builder_Module {
 		$wp_filter_cache = $wp_filter;
 		$title = $this->shortcode_atts['title'];
 		$subtitle = $this->shortcode_atts['subtitle'];
-		$palestrante = $this->shortcode_atts['palestrante'];
+		$palestrante_1 = $this->shortcode_atts['palestrante_1'];
+		$palestrante_2 = $this->shortcode_atts['palestrante_2'];
+		$palestrante_3 = $this->shortcode_atts['palestrante_3'];
 		$date = $this->shortcode_atts['data'];
-		$content   = wpautop($this->shortcode_content);
-
+		$content = wpautop($this->shortcode_content);
 		$output = '';
 
-		$palestrante = new WP_Query( ['p' => $palestrante, 'post_type' => 'palestrantes'] );
-		$palestrante->have_posts();
-		$palestrante->the_post();
-		$palestrante = get_the_title();
+		for ($i=1; $i <= 3; $i++) { 
+			if(${'palestrante_'.$i} != '' && ${'palestrante_'.$i} != '0'){
+				$palestrante = new WP_Query( ['p' => ${'palestrante_'.$i}, 'post_type' => 'pessoas'] );
+				$palestrante->have_posts();
+				$palestrante->the_post();
+				${'palestrante_'.$i} = get_the_title();
+			}else
+				${'palestrante_'.$i} = '';
+		}
 
-		$components['aulas'][] = compact('title', 'subtitle', 'palestrante', 'date', 'content');
+		$components['aulas'][] = compact('title', 'subtitle', 'palestrante_1', 'palestrante_2', 'palestrante_3', 'date', 'content');
 
 		if(!in_array('aulas', $data['its_tabs'])){
 			$data['its_tabs'][] = 'aulas';
