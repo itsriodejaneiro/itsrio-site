@@ -90,6 +90,9 @@ $color_institucionais : #522e91;
 	.header-single-menu, .header-single, .header-single:before {
 		background-color: $color_publicacoes !important;
 	}
+	.header-single {
+		background-image: url('../images/publications-default-bg.png');
+	}
 }
 
 .single-projetos_ctp, .post-type-archive-projetos_ctp {
@@ -177,6 +180,9 @@ $color_institucionais : #522e91;
 	}
 	&.type-publicacoes_ctp {
 		.img {
+			background-image: url('../images/publications-default-thumb.png');
+			background-position: center;
+			background-size: cover;
 			.color-hover {
 				background-color: $color_publicacoes;
 			}
@@ -190,6 +196,10 @@ $color_institucionais : #522e91;
 .highlights {
 	&.type-projetos_ctp {
 		background-image: url('../images/project-default-bg.jpg');
+		background-position: center;
+	}
+	&.type-publicacoes_ctp {
+		background-image: url('../images/publications-default-bg.png');
 		background-position: center;
 	}
 	&:hover {

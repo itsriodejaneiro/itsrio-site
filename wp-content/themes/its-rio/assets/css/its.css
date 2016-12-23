@@ -2874,6 +2874,8 @@ button.flickity-prev-next-button {
     color: #f5821f; }
 .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single, .single-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single:before {
   background-color: #f5821f !important; }
+.single-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single {
+  background-image: url("../images/publications-default-bg.png"); }
 
 .single-projetos_ctp .highlights:hover .color-hover, .single-projetos_ctp .highlights:hover .info, .post-type-archive-projetos_ctp .highlights:hover .color-hover, .post-type-archive-projetos_ctp .highlights:hover .info {
   background-color: #522e91; }
@@ -2915,13 +2917,20 @@ button.flickity-prev-next-button {
     background-color: #522e91; }
 .list-item.type-projetos_ctp:hover {
   background-color: #522e91 !important; }
-.list-item.type-publicacoes_ctp .img .color-hover {
-  background-color: #f5821f; }
+.list-item.type-publicacoes_ctp .img {
+  background-image: url("../images/publications-default-thumb.png");
+  background-position: center;
+  background-size: cover; }
+  .list-item.type-publicacoes_ctp .img .color-hover {
+    background-color: #f5821f; }
 .list-item.type-publicacoes_ctp:hover {
   background-color: #f5821f !important; }
 
 .highlights.type-projetos_ctp {
   background-image: url("../images/project-default-bg.jpg");
+  background-position: center; }
+.highlights.type-publicacoes_ctp {
+  background-image: url("../images/publications-default-bg.png");
   background-position: center; }
 .highlights:hover.type-cursos_ctp .color-hover, .highlights:hover.type-cursos_ctp .info {
   background-color: #9a258f; }
