@@ -2328,7 +2328,9 @@ button.flickity-prev-next-button {
       margin: 5px 0;
       transition: all .3s ease; }
   .highlights .header {
-    display: flex; }
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
   .highlights .categories {
     display: flex;
     justify-content: flex-end;

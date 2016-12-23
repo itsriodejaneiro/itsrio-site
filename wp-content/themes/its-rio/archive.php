@@ -72,11 +72,11 @@ get_header();
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
 								<div class="header">
-									<div class="left">
+									<div class="info-left">
 										<h2><?= the_title(); ?></h2>
 										<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
 									</div>
-									<div class="right horario">
+									<div class="info-right horario">
 										<p><b>data</b></p>
 										<span class="box">
 											<?php
