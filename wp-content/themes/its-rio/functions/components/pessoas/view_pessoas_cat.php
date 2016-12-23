@@ -23,7 +23,7 @@
 								<input type="radio" v-bind:checked="pessoa.pessoaActive == ''" v-bind:name="'<? $moduleTitle ?>_'+ i" v-bind:id="'pessoa_'+i+'_' + pessoa.ID">
 								<div class="pessoa-mini">
 									<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoaCat(pessoa, i,pessoas_)">
-										<img v-bind:src="pessoa.thumb" alt="">
+										<div class="img" v-bind:style="{ 'background-image': 'url('+pessoa.thumb+')' }"></div>
 										<div class="name">
 											{{ pessoa.title }}
 											<div class="line"></div>
@@ -37,7 +37,7 @@
 				<div v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
-							<img v-bind:src="pessoas_.pessoaActive.thumb" alt="">
+						<div class="img" v-bind:style="{ 'background-image': 'url('+pessoas_.pessoaActive.thumb+')' }"></div>
 						</div>
 						<div class="pessoa-text">
 							<h3>{{ pessoas_.pessoaActive.title }}</h3>

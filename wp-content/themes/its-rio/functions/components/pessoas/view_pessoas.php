@@ -19,7 +19,7 @@
 							/>
 							<div class="pessoa-mini">
 								<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
-									<img v-bind:src="pessoa.thumb" alt="">
+									<div class="img" v-bind:style="{ 'background-image': 'url('+pessoa.thumb+')' }"></div>
 									<div class="name">
 										{{ pessoa.title }}
 										<div class="line"></div>
@@ -33,8 +33,9 @@
 				<div v-bind:class="{ 'active' : pessoas.pessoaActive != '' }"  class="pessoa-info" >
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
-							<img v-if="pessoas.pessoaActive.thumb != ''" 
-							v-bind:src="pessoas.pessoaActive.thumb" alt="">
+							<div class="img"
+								v-if="pessoas.pessoaActive.thumb != ''" 
+								v-bind:style="{ 'background-image': 'url('+pessoas.pessoaActive.thumb+')' }"></div>
 						</div>
 						<div class="pessoa-text">
 							<h2 class="raleway">{{ pessoas.pessoaActive.title }}</h2> 	
