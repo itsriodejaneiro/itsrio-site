@@ -2829,13 +2829,12 @@ button.flickity-prev-next-button {
   line-height: 2;
   color: #9a258f; }
 
-.component-social-medias .tab-content {
-  display: flex;
-  justify-content: center; }
 .component-social-medias ul li {
   font-size: 40px;
   line-height: 1.3;
-  margin: 0 30px; }
+  margin: 0 30px;
+  text-align: center;
+  width: 40px; }
 
 .single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
   background-color: #9a258f !important; }
