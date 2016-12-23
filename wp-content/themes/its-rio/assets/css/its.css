@@ -2388,6 +2388,9 @@ button.flickity-prev-next-button {
 .post-type-archive .list-title {
   margin-top: 30px !important; }
 
+.single #content {
+  margin-bottom: 0; }
+
 .header-single {
   display: flex;
   align-items: center;
@@ -2908,15 +2911,17 @@ button.flickity-prev-next-button {
 .single-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single {
   background-image: url("../images/project-default-bg.jpg"); }
 
-.page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
-  border-bottom: 5px solid #522e91;
-  font-weight: bold; }
-  .page .menu-container .menu-nav ul li.current-menu-item a, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a {
-    color: #522e91; }
-.page .header-single-menu, .page .header-single, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .header-single {
-  background-color: #522e91 !important; }
-.page .list-item:hover, .single-comunicados_ctp .list-item:hover {
-  background-color: #262626 !important; }
+.page, .single-comunicados_ctp {
+  	/* .menu-container .menu-nav ul li.current-menu-item {
+  		border-bottom: 5px solid $color_institucionais;
+  		font-weight: bold;
+  
+  		a { color: $color_institucionais; }
+  	} */ }
+  .page .header-single-menu, .page .header-single, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .header-single {
+    background-color: #522e91 !important; }
+  .page .list-item:hover, .single-comunicados_ctp .list-item:hover {
+    background-color: #262626 !important; }
 
 .list-item.type-cursos_ctp .img .color-hover {
   background-color: #9a258f; }
