@@ -36,7 +36,7 @@ $color_institucionais : #522e91;
 	}
 }
 
-.single-varandas_ctp, .post-type-archive-varandas_ctp{
+.single-varandas_ctp, .post-type-archive-varandas_ctp {
 	.highlights:hover {
 		.color-hover, .info {
 			background-color: $color_varandas;
@@ -64,7 +64,7 @@ $color_institucionais : #522e91;
 	}
 }
 
-.single-publicacoes_ctp, .post-type-archive-publicacoes_ctp{
+.single-publicacoes_ctp, .post-type-archive-publicacoes_ctp {
 	.highlights:hover {
 		.color-hover, .info {
 			background-color: $color_publicacoes;
@@ -128,10 +128,10 @@ $color_institucionais : #522e91;
 
 .page, .single-comunicados_ctp {
 	.menu-container .menu-nav ul li.current-menu-item {
-		border-bottom: 5px solid $color_institucionais;
+		border-bottom: 5px solid #000;
 		font-weight: bold;
 
-		a{ color: $color_institucionais; }
+		a { color: #000; }
 	}
 
 	.header-single-menu, .header-single {
