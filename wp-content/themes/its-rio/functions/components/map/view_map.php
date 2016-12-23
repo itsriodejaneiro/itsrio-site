@@ -1,11 +1,11 @@
 <its-map inline-template>	
 	<div class="content-area component-tabs map" id="tab_<?= array_search($title, $data['its_tabs']) ?>">
-		<div class="row" style="padding-bottom: 25px;">
+		<div class="row">
 			<h2 class="tab-title list-title left">
 				<?= $title ?>
 				<div class="line"></div>	
 			</h2>
-			<div class="tab-content raleway" style="width: calc(100% - 240px);">
+			<div class="tab-content raleway">
 				<p><?= $content ?></p>
 			</div>
 			<div id="map-editor">
@@ -20,6 +20,7 @@
 		</div>
 		<div class="map-info">
 			<div class="map-info-carousel pessoa-info" v-bind:class="{ 'active' : selectedMarker != false }">
+				<div class="seta-mapa"></div>
 				<div class="map-info-carousel-item carousel-cell" v-for="(info, i) in selectedMarker.infos" v-bind:style="{ 'background-image' : 'url('+ info.image +')' }">
 					<div class="map-info-content">
 						<div class="map-thumb">
