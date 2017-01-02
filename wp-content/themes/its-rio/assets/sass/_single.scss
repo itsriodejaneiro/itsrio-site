@@ -344,12 +344,16 @@
 
 .related-content {
 	background-color: #d9d9d9;
-	.large-4:nth-child(3n + 1){
-		padding-left: 0px !important;
+	.large-4{
+        
+        &:nth-child(3n + 1){
+    		padding-left: 0px !important;
+    	}
+
         @media #{$small-only}{
             padding: 0px;
         }
-	}
+    }
 }
 
 
