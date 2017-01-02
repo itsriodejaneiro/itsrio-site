@@ -1,4 +1,4 @@
-<div class="column large-12">
+<div class="column small-12 large-12">
 	<div class="main-carousel">
 		<?php
 		if ($query->have_posts() ) {

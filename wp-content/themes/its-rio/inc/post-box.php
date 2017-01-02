@@ -1,4 +1,4 @@
-<div class="column large-4 end">
+<div class="column small-12 large-4 end">
 	<div <?php post_class( 'list-item' ); ?>>
 		<a href="<?= get_permalink() ?>">
 			<div class="info">
