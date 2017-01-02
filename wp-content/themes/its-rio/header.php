@@ -100,11 +100,11 @@
 					</li> -->
 				</ul>
 			</nav>
-			<i class="search-button fa fa-search"></i>
+			<i class="search-button fa fa-search" @click="search.query = true"></i>
 		</div>
 	</div>
 
-	<div class="search-box hide">
+	<div class="search-box" v-bind:class="{ 'hide' : search.query == false }">
 		<div class="row">
 			<div class="column large-12">
 				<button class="close-button">fechar <span class="icon">&times;</span></button>
