@@ -2308,8 +2308,7 @@ button.flickity-prev-next-button {
     max-height: 265px;
     overflow: hidden;
     padding: 25px 20px 20px 40px;
-    position: absolute;
-    transition: all .3s ease; }
+    position: absolute; }
     .highlights .info > a {
       display: flex;
       align-items: flex-end; }
