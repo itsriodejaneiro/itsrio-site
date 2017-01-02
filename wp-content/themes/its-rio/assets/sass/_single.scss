@@ -76,6 +76,11 @@
 	height: 300px;
 	background-color: purple;
 
+    @media #{$small-only}{
+        height: auto;
+        padding: 40px 20px;
+    }
+
 	&-menu{
 		width: 100%;
 		height: 40px;
@@ -101,6 +106,9 @@
 	ul{
 		display: flex;
 		list-style-type: none;
+        @media #{$small-only}{
+            display:none;
+        }
 		// margin: 0 50px 0 0;
 		// justify-content: space-between;
 
@@ -338,6 +346,9 @@
 	background-color: #d9d9d9;
 	.large-4:nth-child(3n + 1){
 		padding-left: 0px !important;
+        @media #{$small-only}{
+            padding: 0px;
+        }
 	}
 }
 
@@ -347,6 +358,11 @@
 	.tab-content { 
 		padding: 0 20px; overflow: hidden;
 		position: relative;
+
+        @media #{$small-only}{
+            width: 100%;
+            padding: 20px 40px !important;
+        }
 	}
 
 	.columns:nth-of-type(even){
@@ -360,6 +376,10 @@
 	.component-tabs-title{
 		width:200px;
 		float: left;
+
+        @media #{$small-only}{
+            display: none !important;
+        }
 
 		ul {
 			display: block;
