@@ -402,28 +402,6 @@
 			}
 		}
 
-		label.label-tab{
-			top: 5px;
-			right: 0px;
-			position: absolute;
-			margin: 0 !important;
-
-			&:before, &:after{
-				color: #4a4a4a;
-			}
-
-			&:before{
-				content: 'ocultar';
-				margin-right: 5px;
-			}
-
-			&:after{
-				content: "\f077";
-				display: inline-block;
-				font: normal normal normal 14px/1 FontAwesome;
-			}
-		}
-
 		input[type="checkbox"]{
 			display: none;
 
@@ -473,6 +451,29 @@
 				}
 			}
 		}
+	}
+}
+
+label.label-tab{
+	cursor: pointer;
+	top: 5px;
+	right: 0px;
+	position: absolute;
+	margin: 0 !important;
+
+	&:before, &:after{
+		color: #4a4a4a;
+	}
+
+	&:before{
+		content: 'ocultar';
+		margin-right: 5px;
+	}
+
+	&:after{
+		content: "\f077";
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
 	}
 }
 

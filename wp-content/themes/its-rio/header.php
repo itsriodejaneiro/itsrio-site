@@ -104,11 +104,11 @@
 		</div>
 	</div>
 
-	<div class="search-box" v-bind:class="{ 'hide' : search.query == false }">
+	<div class="search-box" v-bind:class="{ 'hide' : search.query == false }" class="hide">
 		<div class="row">
 			<div class="column large-12">
 				<button class="close-button">fechar <span class="icon">&times;</span></button>
-				<label for="search">
+				<label class="search-label" for="search">
 					<h2>buscar por:</h2>
 					<input type="text" id="search" placeholder="digite sua palavra-chave">
 					<button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -119,31 +119,51 @@
 
 					<div class="filter">
 						<h3>área</h3>
-						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+
+						<input type="checkbox" id="hide-area">
+						<label class="label-tab" for="hide-area"></label>
+						
 						<div class="line"></div>
-						<span class="box">cursos</span>
-						<span class="box">varandas</span>
-						<span class="box">projetos</span>
-						<span class="box">publicações</span>
+
+						<input type="checkbox" id="area-cursos">
+						<label for="area-cursos" class="box">cursos</label>
+
+						<input type="checkbox" id="area-varandas">
+						<label for="area-varandas" class="box">varandas</label>
+						
+						<input type="checkbox" id="area-projetos">
+						<label for="area-projetos" class="box">projetos</label>
+						
+						<input type="checkbox" id="area-publicacoes">
+						<label for="area-publicacoes" class="box">publicações</label>
 					</div>
 					<div class="filter">
 						<h3>linhas de pesquisa</h3>
-						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+
+						<input type="checkbox" id="hide-linhas">
+						<label class="label-tab" for="hide-linhas"></label>
+
 						<div class="line"></div>
-						<span class="box">direito e tecnologia</span>
-						<span class="box">repensando inovação</span>
-						<span class="box">educação</span>
+
+						<input type="checkbox" id="direito-tecnologia">
+						<label for="direito-tecnologia" class="box">direito e tecnologia</label>
+
+						<input type="checkbox" id="repensando-inovacao">
+						<label for="repensando-inovacao" class="box">repensando inovação</label>
+
+						<input type="checkbox" id="educacao">
+						<label for="educacao" class="box">educação</label>
 					</div>
 					<div class="filter">
 						<h3>categorias de assunto</h3>
-						<span class="hide-option">ocultar <i class="fa fa-angle-up" aria-hidden="true"></i></span>
+
+						<input type="checkbox" id="hide-categorias">
+						<label class="label-tab" for="hide-categorias"></label>
+
 						<div class="line"></div>
-						<span class="box">lorem ipsum</span>
-						<span class="box">lorem ipsum</span>
-						<span class="box">lorem ipsum</span>
-						<span class="box">lorem ipsum</span>
-						<span class="box">lorem ipsum</span>
-						<span class="box">lorem ipsum</span>
+						
+						<input type="checkbox" id="lorem-ipsum">
+						<label for="lorem-ipsum" class="box">lorem ipsum</label>
 					</div>
 				</div>
 
