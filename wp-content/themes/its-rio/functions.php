@@ -83,8 +83,6 @@ function get_thumbnail_style($id, $size){
 	$fun = 'get_thumbnail_url_'.$size;
 	$url = $fun($id);
 
-	if($url == '')
-		return $fun;
 	return ' style="background-image:url(\''.$url.'\')" ';
 }
 
