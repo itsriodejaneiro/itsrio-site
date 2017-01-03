@@ -243,6 +243,46 @@ p, hr{
 .no-p{ padding: 0; }
 .no-p-r{ padding-right: 0; }
 
+.component-tabs-tab input[type="checkbox"], input[type="checkbox"].ocultar{
+    display: none;
+
+    &:checked + label{
+        & + .component-tabs-content, & + div{
+            max-height: 0px;
+        }
+        &:before{
+            content: 'mostrar';
+        }
+
+        &:after{
+            content: "\f078";
+        }
+    }
+}
+
+label.label-tab{
+    cursor: pointer;
+    top: 5px;
+    right: 0px;
+    position: absolute;
+    margin: 0 !important;
+
+    &:before, &:after{
+        color: #4a4a4a;
+    }
+
+    &:before{
+        content: 'ocultar';
+        margin-right: 5px;
+    }
+
+    &:after{
+        content: "\f077";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+    }
+}
+
 @import '_menu';
 @import '_home';
 @import '_archive';
