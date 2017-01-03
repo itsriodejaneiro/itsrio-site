@@ -116,7 +116,7 @@
 
 			$(function() {
 
-				var dd = new DropDown( $('#dd') );
+				var dd = new DropDown( $('.single-header-dropdown') );
 
 				$(document).click(function() {
 					// all dropdowns

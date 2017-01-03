@@ -52,13 +52,13 @@
 
 	<div class="row row-menu fixed">
 		<div class="column large-12 menu-container">
-			<i class="fa fa-bars show-for-small-only"></i>
+			<i class="fa fa-bars hide-for-large"></i>
 			<?php if(is_front_page()){ ?>
 				<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } else { ?>
 				<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } ?>
-			<div class="menu-social hide-for-small-only" >
+			<div class="menu-social show-for-large" >
 				<ul>
 					<li>
 						<a href="#"><i class="fa fa-youtube-play"></i></a>
@@ -80,7 +80,7 @@
 					</li>
 				</ul>
 			</div>
-			<nav class="menu-nav hide-for-small-only">
+			<nav class="menu-nav show-for-large">
 				<ul>
 					<?php wp_nav_menu('main') ?>
 					<!-- <li class="<?= $postType == 'cursos_ctp' ? 'selected' : '' ?>">
