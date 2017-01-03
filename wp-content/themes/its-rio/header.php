@@ -122,9 +122,9 @@
 							área
 							<div class="line"></div>
 						</h3>
-						<input type="checkbox" id="search_check_area">
+						<input type="checkbox" id="search_check_area" class="ocultar">
 						<label class="label-tab" for="search_check_area"></label>
-						<div style="overflow: hidden"> 
+						<div style="overflow: hidden; width: 100%;"> 
 							<div class="box">cursos</div>
 
 							<div class="box">varandas</div>
