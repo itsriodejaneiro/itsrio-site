@@ -118,29 +118,20 @@
 					<h2>filtragem de conteúdo:</h2>
 
 					<div class="filter">
-						<h3 class="list-title">
+						<h3 class="list-title" style="display: block; width: 100%;">
 							área
 							<div class="line"></div>
 						</h3>
 						<input type="checkbox" id="search_check_area">
 						<label class="label-tab" for="search_check_area"></label>
-						<div> 
-							<input type="checkbox" id="hide-area">
-							<label class="label-tab" for="hide-area"></label>
+						<div style="overflow: hidden"> 
+							<div class="box">cursos</div>
 
-							<div class="line"></div>
+							<div class="box">varandas</div>
 
-							<input type="checkbox" id="area-cursos">
-							<label for="area-cursos" class="box">cursos</label>
+							<div class="box">projetos</div>
 
-							<input type="checkbox" id="area-varandas">
-							<label for="area-varandas" class="box">varandas</label>
-
-							<input type="checkbox" id="area-projetos">
-							<label for="area-projetos" class="box">projetos</label>
-
-							<input type="checkbox" id="area-publicacoes">
-							<label for="area-publicacoes" class="box">publicações</label>
+							<div class="box">publicações</div>
 						</div>
 						
 					</div>

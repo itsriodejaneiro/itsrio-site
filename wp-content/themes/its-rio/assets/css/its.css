@@ -2631,6 +2631,45 @@ p, hr {
   padding-right: 0;
 }
 
+.component-tabs-tab input[type="checkbox"], input[type="checkbox"].ocultar {
+  display: none;
+}
+
+.component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content, .component-tabs-tab input[type="checkbox"]:checked + label + div, input[type="checkbox"].ocultar:checked + label + .component-tabs-content, input[type="checkbox"].ocultar:checked + label + div {
+  max-height: 0px;
+}
+
+.component-tabs-tab input[type="checkbox"]:checked + label:before, input[type="checkbox"].ocultar:checked + label:before {
+  content: 'mostrar';
+}
+
+.component-tabs-tab input[type="checkbox"]:checked + label:after, input[type="checkbox"].ocultar:checked + label:after {
+  content: "\f078";
+}
+
+label.label-tab {
+  cursor: pointer;
+  top: 5px;
+  right: 0px;
+  position: absolute;
+  margin: 0 !important;
+}
+
+label.label-tab:before, label.label-tab:after {
+  color: #4a4a4a;
+}
+
+label.label-tab:before {
+  content: 'ocultar';
+  margin-right: 5px;
+}
+
+label.label-tab:after {
+  content: "\f077";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
 .menu-container {
   height: 75px;
   box-shadow: 0 4px 7px -5px black;
@@ -3573,22 +3612,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   white-space: nowrap;
 }
 
-.component-tabs .component-tabs-tab input[type="checkbox"] {
-  display: none;
-}
-
-.component-tabs .component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content {
-  max-height: 0px;
-}
-
-.component-tabs .component-tabs-tab input[type="checkbox"]:checked + label:before {
-  content: 'mostrar';
-}
-
-.component-tabs .component-tabs-tab input[type="checkbox"]:checked + label:after {
-  content: "\f078";
-}
-
 .component-tabs .component-tabs-tab p.right {
   font-size: 12px;
   border-bottom: 1px solid black;
@@ -3624,29 +3647,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   padding: 5px;
   margin-bottom: 5px;
   background-color: #d9d9d9;
-}
-
-label.label-tab {
-  cursor: pointer;
-  top: 5px;
-  right: 0px;
-  position: absolute;
-  margin: 0 !important;
-}
-
-label.label-tab:before, label.label-tab:after {
-  color: #4a4a4a;
-}
-
-label.label-tab:before {
-  content: 'ocultar';
-  margin-right: 5px;
-}
-
-label.label-tab:after {
-  content: "\f077";
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
 }
 
 .component-tabs.aulas label.label-tab {
