@@ -87,6 +87,12 @@
             margin: 20px 0 40px;
             position: relative;
         }
+        
+        .filter [type=checkbox]:checked + label.box {
+            background-color: black;
+            border-color: black;
+        }
+
         .label-tab {
             top: 0;
         }

@@ -107,7 +107,7 @@
 	<div class="search-box hide"> <!-- v-bind:class="{ 'hide' : search.query == false }" -->
 		<div class="row">
 			<div class="column large-12">
-				<button class="close-button">fechar <span class="icon">&times;</span></button>
+				<button class="close-button" onclick="jQuery('.search-box').addClass('hide');">fechar <span class="icon">&times;</span></button>
 				<label class="search-label" for="search">
 					<h2>buscar por:</h2>
 					<input type="text" id="search" placeholder="digite sua palavra-chave">
@@ -122,16 +122,20 @@
 							área
 							<div class="line"></div>
 						</h3>
-						<input type="checkbox" id="search_check_area" class="ocultar">
-						<label class="label-tab" for="search_check_area"></label>
+						<input type="checkbox" id="search_title_area" class="ocultar">
+						<label class="label-tab" for="search_title_area"></label>
 						<div style="overflow: hidden; width: 100%;"> 
-							<div class="box">cursos</div>
+							<input type="checkbox" id="search_cursos" name="search_area">
+							<label for="search_cursos" class="box">cursos</label>
 
-							<div class="box">varandas</div>
+							<input type="checkbox" id="search_varandas" name="search_area">
+							<label for="search_varandas" class="box">varandas</label>
 
-							<div class="box">projetos</div>
+							<input type="checkbox" id="search_projetos" name="search_area">
+							<label for="search_projetos" class="box">projetos</label>
 
-							<div class="box">publicações</div>
+							<input type="checkbox" id="search_publicações" name="search_area">
+							<label for="search_publicações" class="box">publicações</label>
 						</div>
 						
 					</div>
