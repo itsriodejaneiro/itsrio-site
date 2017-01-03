@@ -10,7 +10,7 @@
 setlocale(LC_ALL, 'pt_BR');
 error_reporting(E_ERROR);
 
-$data = [ 'single_menu_active' => '0', 'search' => [ 'title' => false ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
+$data = [ 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
 
 $title = '';
