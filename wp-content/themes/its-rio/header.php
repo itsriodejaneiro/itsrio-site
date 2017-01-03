@@ -140,32 +140,34 @@
 						
 					</div>
 					<div class="filter">
-						<h3>linhas de pesquisa</h3>
+						<h3 class="list-title" style="display: block; width: 100%;">
+							linhas de pesquisa
+							<div class="line"></div>
+						</h3>
+						<input type="checkbox" id="search_title_area" class="ocultar">
+						<label class="label-tab" for="search_title_area"></label>
+						<div style="overflow: hidden; width: 100%;"> 
+							<input type="checkbox" id="direito-tecnologia">
+							<label for="direito-tecnologia" class="box">direito e tecnologia</label>
 
-						<input type="checkbox" id="hide-linhas">
-						<label class="label-tab" for="hide-linhas"></label>
+							<input type="checkbox" id="repensando-inovacao">
+							<label for="repensando-inovacao" class="box">repensando inovação</label>
 
-						<div class="line"></div>
-
-						<input type="checkbox" id="direito-tecnologia">
-						<label for="direito-tecnologia" class="box">direito e tecnologia</label>
-
-						<input type="checkbox" id="repensando-inovacao">
-						<label for="repensando-inovacao" class="box">repensando inovação</label>
-
-						<input type="checkbox" id="educacao">
-						<label for="educacao" class="box">educação</label>
+							<input type="checkbox" id="educacao">
+							<label for="educacao" class="box">educação</label>
+						</div>
 					</div>
 					<div class="filter">
-						<h3>categorias de assunto</h3>
-
-						<input type="checkbox" id="hide-categorias">
-						<label class="label-tab" for="hide-categorias"></label>
-
-						<div class="line"></div>
-						
-						<input type="checkbox" id="lorem-ipsum">
-						<label for="lorem-ipsum" class="box">lorem ipsum</label>
+						<h3 class="list-title" style="display: block; width: 100%;">
+							categorias de assunto
+							<div class="line"></div>
+						</h3>
+						<input type="checkbox" id="search_title_area" class="ocultar">
+						<label class="label-tab" for="search_title_area"></label>
+						<div style="overflow: hidden; width: 100%;"> 
+							<input type="checkbox" id="lorem-ipsum">
+							<label for="lorem-ipsum" class="box">lorem ipsum</label>
+						</div>
 					</div>
 				</div>
 
