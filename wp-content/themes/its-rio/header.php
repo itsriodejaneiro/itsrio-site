@@ -107,7 +107,7 @@
 	<div class="search-box hide"> <!-- v-bind:class="{ 'hide' : search.query == false }" -->
 		<div class="row">
 			<div class="column large-12">
-				<button class="close-button">fechar <span class="icon">&times;</span></button>
+				<button class="close-button" onclick="jQuery('.search-box').addClass('hide');">fechar <span class="icon">&times;</span></button>
 				<label class="search-label" for="search">
 					<h2>buscar por:</h2>
 					<input type="text" id="search" placeholder="digite sua palavra-chave">
@@ -118,29 +118,24 @@
 					<h2>filtragem de conteúdo:</h2>
 
 					<div class="filter">
-						<h3 class="list-title">
+						<h3 class="list-title" style="display: block; width: 100%;">
 							área
 							<div class="line"></div>
 						</h3>
-						<input type="checkbox" id="search_check_area">
-						<label class="label-tab" for="search_check_area"></label>
-						<div> 
-							<input type="checkbox" id="hide-area">
-							<label class="label-tab" for="hide-area"></label>
+						<input type="checkbox" id="search_title_area" class="ocultar">
+						<label class="label-tab" for="search_title_area"></label>
+						<div style="overflow: hidden; width: 100%;"> 
+							<input type="checkbox" id="search_cursos" name="search_area">
+							<label for="search_cursos" class="box">cursos</label>
 
-							<div class="line"></div>
+							<input type="checkbox" id="search_varandas" name="search_area">
+							<label for="search_varandas" class="box">varandas</label>
 
-							<input type="checkbox" id="area-cursos">
-							<label for="area-cursos" class="box">cursos</label>
+							<input type="checkbox" id="search_projetos" name="search_area">
+							<label for="search_projetos" class="box">projetos</label>
 
-							<input type="checkbox" id="area-varandas">
-							<label for="area-varandas" class="box">varandas</label>
-
-							<input type="checkbox" id="area-projetos">
-							<label for="area-projetos" class="box">projetos</label>
-
-							<input type="checkbox" id="area-publicacoes">
-							<label for="area-publicacoes" class="box">publicações</label>
+							<input type="checkbox" id="search_publicações" name="search_area">
+							<label for="search_publicações" class="box">publicações</label>
 						</div>
 						
 					</div>
