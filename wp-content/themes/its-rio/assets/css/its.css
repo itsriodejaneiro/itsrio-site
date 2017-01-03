@@ -362,7 +362,7 @@ th {
   padding: 0; }
 
 .foundation-mq {
-  font-family: "small=0em&medium=40em&large=64em&xlarge=75em&xxlarge=90em"; }
+  font-family: "small=0em&medium=48.0625em&large=64em&xlarge=75em&xxlarge=90em"; }
 
 html {
   font-size: 100%;
@@ -443,7 +443,7 @@ button {
   .row .row {
     margin-left: -0.625rem;
     margin-right: -0.625rem; }
-    @media screen and (min-width: 40em) {
+    @media screen and (min-width: 48.0625em) {
       .row .row {
         margin-left: -0.9375rem;
         margin-right: -0.9375rem; } }
@@ -461,7 +461,7 @@ button {
   float: left;
   padding-left: 0.625rem;
   padding-right: 0.625rem; }
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 48.0625em) {
     .column, .columns {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem; } }
@@ -749,7 +749,7 @@ button {
   margin-right: 0;
   float: left; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 48.0625em) {
   .medium-1 {
     width: 8.33333%; }
 
@@ -1295,27 +1295,27 @@ button {
 .invisible {
   visibility: hidden; }
 
-@media screen and (max-width: 39.9375em) {
+@media screen and (max-width: 48em) {
   .hide-for-small-only {
     display: none !important; } }
 
-@media screen and (max-width: 0em), screen and (min-width: 40em) {
+@media screen and (max-width: 0em), screen and (min-width: 48.0625em) {
   .show-for-small-only {
     display: none !important; } }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 48.0625em) {
   .hide-for-medium {
     display: none !important; } }
 
-@media screen and (max-width: 39.9375em) {
+@media screen and (max-width: 48em) {
   .show-for-medium {
     display: none !important; } }
 
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+@media screen and (min-width: 48.0625em) and (max-width: 63.9375em) {
   .hide-for-medium-only {
     display: none !important; } }
 
-@media screen and (max-width: 39.9375em), screen and (min-width: 64em) {
+@media screen and (max-width: 48em), screen and (min-width: 64em) {
   .show-for-medium-only {
     display: none !important; } }
 
@@ -1474,7 +1474,7 @@ h5 {
 h6 {
   font-size: 1rem; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 48.0625em) {
   h1 {
     font-size: 3rem; }
 
@@ -1607,7 +1607,7 @@ kbd {
 .text-justify {
   text-align: justify; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 48.0625em) {
   .medium-text-left {
     text-align: left; }
 
@@ -2079,6 +2079,31 @@ p, hr {
 .no-p-r {
   padding-right: 0; }
 
+.component-tabs-tab input[type="checkbox"], input[type="checkbox"].ocultar {
+  display: none; }
+  .component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content, .component-tabs-tab input[type="checkbox"]:checked + label + div, input[type="checkbox"].ocultar:checked + label + .component-tabs-content, input[type="checkbox"].ocultar:checked + label + div {
+    max-height: 0px; }
+  .component-tabs-tab input[type="checkbox"]:checked + label:before, input[type="checkbox"].ocultar:checked + label:before {
+    content: 'mostrar'; }
+  .component-tabs-tab input[type="checkbox"]:checked + label:after, input[type="checkbox"].ocultar:checked + label:after {
+    content: "\f078"; }
+
+label.label-tab {
+  cursor: pointer;
+  top: 5px;
+  right: 0px;
+  position: absolute;
+  margin: 0 !important; }
+  label.label-tab:before, label.label-tab:after {
+    color: #4a4a4a; }
+  label.label-tab:before {
+    content: 'ocultar';
+    margin-right: 5px; }
+  label.label-tab:after {
+    content: "\f077";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome; }
+
 .menu-container {
   height: 75px;
   box-shadow: 0 4px 7px -5px black;
@@ -2113,7 +2138,7 @@ p, hr {
     right: 35px;
     font-size: 20px;
     bottom: 10px; }
-    @media screen and (min-width: 40em) {
+    @media screen and (min-width: 48.0625em) {
       .menu-container .search-button {
         position: absolute; }
         .menu-container .search-button::after {
@@ -2125,7 +2150,7 @@ p, hr {
     position: absolute;
     bottom: 0px;
     left: 130px; }
-    @media screen and (max-width: 39.9375em) {
+    @media screen and (max-width: 48em) {
       .menu-container .menu-nav::before {
         content: '';
         width: 1000px;
@@ -2220,15 +2245,42 @@ p, hr {
       display: block;
       margin: 8px auto 0; }
 
+.main-carousel-wrapper {
+  padding: 0; }
+  .main-carousel-wrapper .flickity-page-dots {
+    bottom: initial;
+    top: 5px;
+    left: 20px;
+    right: 20px;
+    text-align: left; }
+    .main-carousel-wrapper .flickity-page-dots .dot {
+      background-color: #fff !important;
+      width: 6px;
+      height: 6px;
+      margin: 0 6px 0 0; }
+    .main-carousel-wrapper .flickity-page-dots:after {
+      color: #fff;
+      content: 'deslize para mais destaques';
+      font-size: 10px;
+      margin-left: 5px; }
+    @media screen and (min-width: 48.0625em) {
+      .main-carousel-wrapper .flickity-page-dots {
+        display: none; } }
+
 .main-carousel .carousel-cell {
   width: 100%;
   height: 400px; }
 .main-carousel .categories ul {
   margin-left: 10px; }
-.main-carousel button.flickity-prev-next-button.previous {
-  left: -50px; }
-.main-carousel button.flickity-prev-next-button.next {
-  right: -50px; }
+.main-carousel button.flickity-prev-next-button {
+  display: none; }
+  @media screen and (min-width: 64em) {
+    .main-carousel button.flickity-prev-next-button {
+      display: block; } }
+  .main-carousel button.flickity-prev-next-button.previous {
+    left: -50px; }
+  .main-carousel button.flickity-prev-next-button.next {
+    right: -50px; }
 
 .home-area-carousel button.flickity-prev-next-button.previous {
   left: 0; }
@@ -2247,9 +2299,6 @@ button.flickity-prev-next-button {
     cursor: pointer; }
   button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button.flickity-prev-next-button:hover {
     background: transparent; }
-
-.flickity-page-dots {
-  display: none; }
 
 .home-area {
   margin-top: 50px;
@@ -2287,28 +2336,36 @@ button.flickity-prev-next-button {
 
 .highlights {
   background-size: cover;
-  border-radius: 3px;
+  background-position: center;
   overflow: hidden;
   position: relative;
-  margin: 25px 0px;
   transition: all .3s ease;
   height: 400px; }
+  @media screen and (min-width: 48.0625em) {
+    .highlights {
+      border-radius: 3px;
+      margin: 25px 0px; } }
   .highlights .color-hover {
     background-color: #262626;
-    border-radius: 3px;
     height: 400px;
     width: 100%;
     opacity: 0; }
+    @media screen and (min-width: 48.0625em) {
+      .highlights .color-hover {
+        border-radius: 3px; } }
   .highlights .info {
     background: #f8f8f8;
-    border-radius: 0 0 3px 3px;
     bottom: 0;
     left: 0;
     right: 0;
     max-height: 265px;
     overflow: hidden;
-    padding: 25px 20px 20px 40px;
+    padding: 20px;
     position: absolute; }
+    @media screen and (min-width: 48.0625em) {
+      .highlights .info {
+        border-radius: 0 0 3px 3px;
+        padding: 25px 20px 20px 40px; } }
     .highlights .info > a {
       display: flex;
       align-items: flex-end; }
@@ -2320,22 +2377,44 @@ button.flickity-prev-next-button {
     color: #000 !important;
     transition: all .3s ease; }
   .highlights h2 {
+    font-size: 20px;
     line-height: 1.5;
     transition: all .3s ease; }
+    @media screen and (min-width: 48.0625em) {
+      .highlights h2 {
+        font-size: 24px; } }
     .highlights h2 .line {
       background: #000 !important;
+      display: none;
       margin: 5px 0;
       transition: all .3s ease; }
+      @media screen and (min-width: 48.0625em) {
+        .highlights h2 .line {
+          display: block; } }
   .highlights .header {
     display: flex;
     justify-content: space-between;
     width: 100%; }
     .highlights .header .info-left {
       flex-grow: 2; }
-  .highlights .categories {
-    display: flex;
-    justify-content: flex-end;
-    align-items: baseline; }
+  @media screen and (max-width: 48em) {
+    .highlights .categories {
+      position: absolute;
+      top: 30px;
+      left: 10px; }
+      .highlights .categories ul li {
+        border-color: #fff;
+        color: #fff; }
+        .highlights .categories ul li a {
+          color: #fff !important; }
+        .highlights .categories ul li:hover {
+          background-color: #000;
+          border-color: #000; } }
+  @media screen and (min-width: 48.0625em) {
+    .highlights .categories {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline; } }
   .highlights .horario {
     font-size: 12px;
     font-weight: bold;
@@ -2369,8 +2448,9 @@ button.flickity-prev-next-button {
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
 
-.home .highlights {
-  margin-top: 40px; }
+@media screen and (min-width: 48.0625em) {
+  .home .highlights {
+    margin-top: 40px; } }
 
 .archive .highlights .categories {
   margin-top: 8px; }
@@ -2446,7 +2526,7 @@ button.flickity-prev-next-button {
 .header-single {
   height: 300px;
   background-color: purple; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .header-single {
       height: auto;
       padding: 40px 20px; } }
@@ -2463,7 +2543,7 @@ button.flickity-prev-next-button {
       top: 75px;
       box-shadow: 0 4px 7px -5px black; }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 48.0625em) {
   .single-menu {
     flex: 1; }
     .single-menu ul {
@@ -2488,7 +2568,7 @@ button.flickity-prev-next-button {
   display: flex;
   align-items: center;
   justify-content: flex-end; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .sidebar {
       display: none; } }
 
@@ -2507,7 +2587,7 @@ button.flickity-prev-next-button {
 
 .content-area {
   padding: 50px 40px 60px; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .content-area {
       padding: 40px 20px !important; } }
   .content-area .row {
@@ -2633,7 +2713,7 @@ button.flickity-prev-next-button {
   background-color: #d9d9d9; }
   .related-content .large-4:nth-child(3n + 1) {
     padding-left: 0px !important; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .related-content .large-4 {
       padding: 0px; } }
 
@@ -2642,7 +2722,7 @@ button.flickity-prev-next-button {
   padding: 0 20px;
   overflow: hidden;
   position: relative; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .component-tabs .tab-content {
       width: 100%;
       padding: 0px !important; } }
@@ -2653,7 +2733,7 @@ button.flickity-prev-next-button {
 .component-tabs .component-tabs-title {
   width: 200px;
   float: left; }
-  @media screen and (max-width: 39.9375em) {
+  @media screen and (max-width: 48em) {
     .component-tabs .component-tabs-title {
       display: none !important; } }
   .component-tabs .component-tabs-title ul {
@@ -2682,14 +2762,6 @@ button.flickity-prev-next-button {
       height: 100%;
       margin-left: 20px;
       white-space: nowrap; }
-  .component-tabs .component-tabs-tab input[type="checkbox"] {
-    display: none; }
-    .component-tabs .component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content {
-      max-height: 0px; }
-    .component-tabs .component-tabs-tab input[type="checkbox"]:checked + label:before {
-      content: 'mostrar'; }
-    .component-tabs .component-tabs-tab input[type="checkbox"]:checked + label:after {
-      content: "\f078"; }
   .component-tabs .component-tabs-tab p.right {
     font-size: 12px;
     border-bottom: 1px solid black; }
@@ -2711,22 +2783,6 @@ button.flickity-prev-next-button {
         padding: 5px;
         margin-bottom: 5px;
         background-color: #d9d9d9; }
-
-label.label-tab {
-  cursor: pointer;
-  top: 5px;
-  right: 0px;
-  position: absolute;
-  margin: 0 !important; }
-  label.label-tab:before, label.label-tab:after {
-    color: #4a4a4a; }
-  label.label-tab:before {
-    content: 'ocultar';
-    margin-right: 5px; }
-  label.label-tab:after {
-    content: "\f077";
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome; }
 
 .component-tabs.aulas label.label-tab {
   top: 10px; }

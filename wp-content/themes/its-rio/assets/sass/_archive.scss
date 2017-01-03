@@ -1,30 +1,38 @@
 .highlights {
 	background-size: cover;
-	border-radius: 3px;
+	background-position: center;
 	overflow: hidden;
 	position: relative;
-	margin: 25px 0px;
 	transition: all .3s ease;
 	height: 400px;
+	@include breakpoint(medium) {
+		border-radius: 3px;
+		margin: 25px 0px;
+	}
 
 	.color-hover {
 		background-color: rgb(38, 38, 38);
-		border-radius: 3px;
 		height: 400px;
 		width: 100%;
 		opacity: 0;
+		@include breakpoint(medium) {
+			border-radius: 3px;
+		}
 	}
 
 	.info {
 		background: #f8f8f8;
-		border-radius: 0 0 3px 3px;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		max-height: 265px;
 		overflow: hidden;
-		padding: 25px 20px 20px 40px;
+		padding: 20px;
 		position: absolute;
+		@include breakpoint(medium) {
+			border-radius: 0 0 3px 3px;
+			padding: 25px 20px 20px 40px;
+		}
 
 		& > a {
 			display: flex;
@@ -44,12 +52,20 @@
 	}
 
 	h2 {
+		font-size: 20px;
 		line-height: 1.5;
 		transition: all .3s ease;
+		@include breakpoint(medium) {
+			font-size: 24px;
+		}
 		.line { 
 			background: #000 !important;
+			display: none;
 			margin: 5px 0;
 			transition: all .3s ease;
+			@include breakpoint(medium) {
+				display: block;
+			}
 		}
 	}
 
@@ -63,9 +79,27 @@
 	}
 
 	.categories{
-		display: flex;
-		justify-content: flex-end;
-		align-items: baseline;
+		@include breakpoint(small only) {
+			position: absolute;
+		    top: 30px;
+		    left: 10px;
+		    ul li {
+		    	border-color: #fff;
+		    	color: #fff;
+		    	a {
+		    		color: #fff !important;
+		    	}
+		    	&:hover {
+		    		background-color: #000;
+		    		border-color: #000;
+		    	}
+		    }
+		}
+		@include breakpoint(medium) {
+			display: flex;
+			justify-content: flex-end;
+			align-items: baseline;
+		}
 	}
 
 	.horario {
@@ -119,7 +153,9 @@
 
 .home {
 	.highlights {
-		margin-top: 40px;
+		@include breakpoint(medium) {
+			margin-top: 40px;
+		}
 	}
 }
 

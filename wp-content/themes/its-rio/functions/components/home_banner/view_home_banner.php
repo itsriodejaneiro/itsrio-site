@@ -1,4 +1,4 @@
-<div class="column small-12 large-12">
+<div class="main-carousel-wrapper column small-12">
 	<div class="main-carousel">
 		<?php
 		if ($query->have_posts() ) {
@@ -12,9 +12,11 @@
 							<a href="<?= get_permalink() ?>"><?= get_the_title() ?></a>
 							<div class="line"></div>
 						</h2> 						
-						<div class="column large-8 no-p">
-							<a href="<?= get_permalink() ?>"><p class="excerpt raleway"><?= limit_excerpt(get_the_excerpt(), 270) ?></p></a>
-						</div> 
+						<div class="categories-wrapper show-for-medium">
+							<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
+						</div>
+					</div>
+					<div class="categories-wrapper show-for-small-only">
 						<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
 					</div>
 				</div>
