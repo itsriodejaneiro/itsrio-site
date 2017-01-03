@@ -24,7 +24,7 @@
             width: 20px;
         }
     }
-    label {
+    .search-label {
         display: block;
         margin-top: 50px;
         width: 100%;
@@ -32,7 +32,7 @@
     h2 {
         font-size: 20px;
     }
-    input {
+    #search {
         background-color: transparent;
         border: 0;
         border-bottom: 4px solid #000;
@@ -85,12 +85,10 @@
         }
         .filter {
             margin: 20px 0 40px;
+            position: relative;
         }
-        .hide-option {
-            float: right;
-            .fa {
-                font-size: 20px;
-            }
+        .label-tab {
+            top: 0;
         }
         .line {
             background-color: #000;
@@ -99,9 +97,13 @@
             height: 8px;
             margin-bottom: 10px;
         }
+        input {
+            display: none;
+        }
         .box {
             border-width: 2px;
             cursor: pointer;
+            display: inline;
             font-size: 14px;
             margin: 0; 
 

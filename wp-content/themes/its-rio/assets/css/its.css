@@ -2665,20 +2665,6 @@ button.flickity-prev-next-button {
       height: 100%;
       margin-left: 20px;
       white-space: nowrap; }
-  .component-tabs .component-tabs-tab label.label-tab {
-    top: 5px;
-    right: 0px;
-    position: absolute;
-    margin: 0 !important; }
-    .component-tabs .component-tabs-tab label.label-tab:before, .component-tabs .component-tabs-tab label.label-tab:after {
-      color: #4a4a4a; }
-    .component-tabs .component-tabs-tab label.label-tab:before {
-      content: 'ocultar';
-      margin-right: 5px; }
-    .component-tabs .component-tabs-tab label.label-tab:after {
-      content: "\f077";
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome; }
   .component-tabs .component-tabs-tab input[type="checkbox"] {
     display: none; }
     .component-tabs .component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content {
@@ -2708,6 +2694,22 @@ button.flickity-prev-next-button {
         padding: 5px;
         margin-bottom: 5px;
         background-color: #d9d9d9; }
+
+label.label-tab {
+  cursor: pointer;
+  top: 5px;
+  right: 0px;
+  position: absolute;
+  margin: 0 !important; }
+  label.label-tab:before, label.label-tab:after {
+    color: #4a4a4a; }
+  label.label-tab:before {
+    content: 'ocultar';
+    margin-right: 5px; }
+  label.label-tab:after {
+    content: "\f077";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome; }
 
 .component-tabs.aulas label.label-tab {
   top: 10px; }
@@ -3127,13 +3129,13 @@ footer {
       height: 20px;
       vertical-align: middle;
       width: 20px; }
-  .search-box label {
+  .search-box .search-label {
     display: block;
     margin-top: 50px;
     width: 100%; }
   .search-box h2 {
     font-size: 20px; }
-  .search-box input {
+  .search-box #search {
     background-color: transparent;
     border: 0;
     border-bottom: 4px solid #000;
@@ -3145,15 +3147,15 @@ footer {
     max-width: 820px;
     padding-bottom: 5px;
     width: 80%; }
-    .search-box input::placeholder {
+    .search-box #search::placeholder {
       color: #555; }
-    .search-box input::-webkit-input-placeholder {
+    .search-box #search::-webkit-input-placeholder {
       color: #555; }
-    .search-box input::-moz-placeholder {
+    .search-box #search::-moz-placeholder {
       color: #555; }
-    .search-box input:-ms-input-placeholder {
+    .search-box #search:-ms-input-placeholder {
       color: #555; }
-    .search-box input:-moz-placeholder {
+    .search-box #search:-moz-placeholder {
       color: #555; }
   .search-box .search-button {
     float: left;
@@ -3174,20 +3176,22 @@ footer {
       font-family: 'Raleway', sans-serif;
       font-size: 18px; }
     .search-box .filter-options .filter {
-      margin: 20px 0 40px; }
-    .search-box .filter-options .hide-option {
-      float: right; }
-      .search-box .filter-options .hide-option .fa {
-        font-size: 20px; }
+      margin: 20px 0 40px;
+      position: relative; }
+    .search-box .filter-options .label-tab {
+      top: 0; }
     .search-box .filter-options .line {
       background-color: #000;
       border-radius: 8px;
       clear: both;
       height: 8px;
       margin-bottom: 10px; }
+    .search-box .filter-options input {
+      display: none; }
     .search-box .filter-options .box {
       border-width: 2px;
       cursor: pointer;
+      display: inline;
       font-size: 14px;
       margin: 0; }
       .search-box .filter-options .box:hover {
