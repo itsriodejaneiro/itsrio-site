@@ -23,24 +23,24 @@
 
 </head>
 <body <?php body_class(); ?>>
-<div id="content_all">
-	<?php
-	global $postType;
-	global $titles; 
-	
-	$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
+	<div id="content_all">
+		<?php
+		global $postType;
+		global $titles; 
 
-	$titles = [
-	'cursos_ctp' => 	['gender' => 'o', 'plural' => 'cursos', 'singular' => 'curso'],
-	'varandas_ctp' => 	['gender' => 'a', 'plural' => 'varandas', 'singular' => 'varanda'],
-	'projetos_ctp' => 	['gender' => 'o', 'plural' => 'projetos', 'singular' => 'projeto'],
-	'publicacoes_ctp' =>['gender' => 'a', 'plural' => 'publicações', 'singular' => 'publicação'],
-	'comunicados_ctp' =>['gender' => 'a', 'plural' => 'acontece', 'singular' => 'acontece'],
-	'page' =>['gender' => 'o', 'plural' => 'institucionais', 'singular' => 'institucional']
-	];
+		$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
-	global $title;
-	$title = $titles[$postType];
+		$titles = [
+		'cursos_ctp' => 	['gender' => 'o', 'plural' => 'cursos', 'singular' => 'curso'],
+		'varandas_ctp' => 	['gender' => 'a', 'plural' => 'varandas', 'singular' => 'varanda'],
+		'projetos_ctp' => 	['gender' => 'o', 'plural' => 'projetos', 'singular' => 'projeto'],
+		'publicacoes_ctp' =>['gender' => 'a', 'plural' => 'publicações', 'singular' => 'publicação'],
+		'comunicados_ctp' =>['gender' => 'a', 'plural' => 'acontece', 'singular' => 'acontece'],
+		'page' =>['gender' => 'o', 'plural' => 'institucionais', 'singular' => 'institucional']
+		];
+
+		global $title;
+		$title = $titles[$postType];
 
 
 	/*if(is_front_page()){
@@ -54,9 +54,9 @@
 		<div class="column large-12 menu-container">
 			<i class="fa fa-bars hide-for-large"></i>
 			<?php if(is_front_page()){ ?>
-				<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
+			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } else { ?>
-				<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
+			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } ?>
 			<div class="menu-social show-for-large" >
 				<ul>
@@ -118,24 +118,31 @@
 					<h2>filtragem de conteúdo:</h2>
 
 					<div class="filter">
-						<h3>área</h3>
+						<h3 class="list-title">
+							área
+							<div class="line"></div>
+						</h3>
+						<input type="checkbox" id="search_check_area">
+						<label class="label-tab" for="search_check_area"></label>
+						<div> 
+							<input type="checkbox" id="hide-area">
+							<label class="label-tab" for="hide-area"></label>
 
-						<input type="checkbox" id="hide-area">
-						<label class="label-tab" for="hide-area"></label>
-						
-						<div class="line"></div>
+							<div class="line"></div>
 
-						<input type="checkbox" id="area-cursos">
-						<label for="area-cursos" class="box">cursos</label>
+							<input type="checkbox" id="area-cursos">
+							<label for="area-cursos" class="box">cursos</label>
 
-						<input type="checkbox" id="area-varandas">
-						<label for="area-varandas" class="box">varandas</label>
+							<input type="checkbox" id="area-varandas">
+							<label for="area-varandas" class="box">varandas</label>
+
+							<input type="checkbox" id="area-projetos">
+							<label for="area-projetos" class="box">projetos</label>
+
+							<input type="checkbox" id="area-publicacoes">
+							<label for="area-publicacoes" class="box">publicações</label>
+						</div>
 						
-						<input type="checkbox" id="area-projetos">
-						<label for="area-projetos" class="box">projetos</label>
-						
-						<input type="checkbox" id="area-publicacoes">
-						<label for="area-publicacoes" class="box">publicações</label>
 					</div>
 					<div class="filter">
 						<h3>linhas de pesquisa</h3>
