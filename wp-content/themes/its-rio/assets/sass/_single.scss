@@ -104,31 +104,29 @@
 @media #{$medium-up}{
     .single-menu{
         flex: 1;
+        span { display: none; }
         ul{
             display: flex;
             list-style-type: none;
         }
-// margin: 0 50px 0 0;
-// justify-content: space-between;
+        li{
+            display: block;
+            padding: 0px 30px;
+            font-weight: initial;
 
-li{
-    display: block;
-    padding: 0px 30px;
-    font-weight: initial;
+            a {
+                color: white;
+                &.active{
+                    font-weight: bold;
+                    padding-bottom: 4px;
+                    border-bottom: 5px inset white;
+                }
+            }
 
-    a {
-        color: white;
-        &.active{
-            font-weight: bold;
-            padding-bottom: 4px;
-            border-bottom: 5px inset white;
+            &:first-child{ padding-left: 10px; }
+            &:last-child{ border-right: none; }
         }
     }
-
-    &:first-child{ padding-left: 10px; }
-    &:last-child{ border-right: none; }
-}
-}
 }
 
 .sidebar{
