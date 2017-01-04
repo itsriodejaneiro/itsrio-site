@@ -99,12 +99,12 @@
 						return false;
 					});
 
-					obj.opts.on('click',function(){
-						var opt = $(this);
-						obj.val = opt.text();
-						obj.index = opt.index();
-						obj.placeholder.text('Gender: ' + obj.val);
-					});
+					// obj.opts.on('click',function(){
+					// 	var opt = $(this);
+					// 	obj.val = opt.text();
+					// 	obj.index = opt.index();
+					// 	obj.placeholder.text('Gender: ' + obj.val);
+					// });
 				},
 				getValue : function() {
 					return this.val;
