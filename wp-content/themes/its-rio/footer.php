@@ -116,11 +116,11 @@
 
 			$(function() {
 
-				var dd = new DropDown( $('.single-header-dropdown') );
+				var dd = new DropDown( $('.single-header-drop-down') );
 
 				$(document).click(function() {
-					// all dropdowns
-					$('.single-header-dropdown').removeClass('active');
+					// all drop-downs
+					$('.single-header-drop-down').removeClass('active');
 				});
 
 			});
