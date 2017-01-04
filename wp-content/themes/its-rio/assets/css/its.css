@@ -3238,8 +3238,11 @@ h3, h4, h5 {
 footer {
   width: 100%;
   background-color: #262626;
-  padding: 40px 30px;
+  padding: 30px 20px;
   overflow: hidden; }
+  @media screen and (min-width: 48.0625em) {
+    footer {
+      padding: 40px 30px; } }
   footer .row {
     max-width: 1280px !important; }
   footer, footer p, footer b, footer li, footer a, footer input {
@@ -3256,6 +3259,16 @@ footer {
       footer ul li a {
         font-weight: bold;
         margin: 0 !important; }
+  footer .social-icons {
+    margin-bottom: 40px; }
+    footer .social-icons .line {
+      background-color: #fff;
+      margin: 5px 0 15px; }
+    footer .social-icons ul {
+      display: flex;
+      justify-content: space-between; }
+      footer .social-icons ul .fa {
+        font-size: 24px; }
   footer .contact-wrapper {
     display: flex;
     align-items: flex-end;
@@ -3271,9 +3284,15 @@ footer {
     background-color: transparent;
     font-family: 'Raleway';
     outline: none;
-    line-height: 1.5;
-    flex-grow: 2.5;
-    margin-right: 10px; }
+    line-height: 1.5; }
+    @media screen and (max-width: 48em) {
+      footer .newsletter-input {
+        margin-bottom: 10px;
+        width: 100%; } }
+    @media screen and (min-width: 48.0625em) {
+      footer .newsletter-input {
+        flex-grow: 2.5;
+        margin-right: 10px; } }
     footer .newsletter-input::placeholder {
       color: #fff; }
     footer .newsletter-input::-webkit-input-placeholder {
@@ -3285,10 +3304,16 @@ footer {
     footer .newsletter-input:-moz-placeholder {
       color: #fff; }
   footer .newsletter-button {
-    flex-grow: 0;
     margin: 0;
     padding: 0 12px;
     white-space: nowrap; }
+    @media screen and (max-width: 48em) {
+      footer .newsletter-button {
+        display: inline-block;
+        margin-bottom: 50px; } }
+    @media screen and (min-width: 48.0625em) {
+      footer .newsletter-button {
+        flex-grow: 0; } }
   footer .social-content {
     margin-bottom: 50px;
     overflow: hidden; }
@@ -3310,9 +3335,18 @@ footer {
     footer small a {
       font-size: 10px;
       text-decoration: underline; }
-  footer .creative-commons {
-    margin-right: 5px;
-    vertical-align: sub; }
+    @media screen and (max-width: 48em) {
+      footer small {
+        display: block;
+        margin-top: 50px; } }
+  @media screen and (max-width: 48em) {
+    footer .creative-commons {
+      display: block;
+      margin: 50px 0 10px; } }
+  @media screen and (min-width: 48.0625em) {
+    footer .creative-commons {
+      margin-right: 5px;
+      vertical-align: sub; } }
 
 .search-box {
   background-color: rgba(150, 150, 150, 0.98);
@@ -3466,4 +3500,3 @@ footer {
     right: -230px; }
 
 /*# sourceMappingURL=its.css.map */
->>>>>>> 84d7637e65b527ae866dcc6e54d481656273e8fc

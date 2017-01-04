@@ -1,8 +1,11 @@
 footer{
 	width: 100%;
 	background-color: rgb(38, 38, 38);
-	padding: 40px 30px;
+	padding: 30px 20px;
 	overflow: hidden;
+	@include breakpoint(medium) {
+		padding: 40px 30px;
+	}
 
 	.row {
 		max-width: 1280px !important;
@@ -31,6 +34,22 @@ footer{
 			}
 		}
 	}
+
+	.social-icons {
+		margin-bottom: 40px;
+		.line {
+			background-color: #fff;
+			margin: 5px 0 15px;
+		}
+		ul {
+			display: flex;
+    		justify-content: space-between;
+    		.fa {
+    			font-size: 24px;
+    		}
+		}
+	}
+
 	.contact-wrapper {
 		display: flex;
 		align-items: flex-end;
@@ -52,8 +71,14 @@ footer{
 		font-family: 'Raleway';
 		outline: none;
 		line-height: 1.5;
-		flex-grow: 2.5;
-		margin-right: 10px; 
+		@include breakpoint(small only) {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		@include breakpoint(medium) {
+			flex-grow: 2.5;
+			margin-right: 10px; 
+		}
 		&::placeholder { 
         	color: #fff;
         }
@@ -71,10 +96,16 @@ footer{
         }
 	}
 	.newsletter-button {
-		flex-grow: 0;
 		margin: 0; 
 		padding: 0 12px;
 		white-space: nowrap;
+		@include breakpoint(small only) {
+			display: inline-block;
+			margin-bottom: 50px;
+		}
+		@include breakpoint(medium) {
+			flex-grow: 0;
+		}
 	}
 
 	.social-content {
@@ -93,10 +124,6 @@ footer{
 			box-sizing: border-box;
 			padding-right: 4%;
 			width: 34%;
-            @media #{$small-only}{
-                width: 100%;
-                margin-bottom: 25px;
-            }
 		}
 		.tags {
 			width: 26%;
@@ -109,10 +136,20 @@ footer{
 			font-size: 10px;
 			text-decoration: underline;
 		}
+		@include breakpoint(small only) {
+			display: block; 
+			margin-top: 50px; 
+		}
 	}
 
 	.creative-commons {
-		margin-right: 5px;
-		vertical-align: sub;
+		@include breakpoint(small only) {
+			display: block;
+			margin: 50px 0 10px; 
+		}
+		@include breakpoint(medium) {
+			margin-right: 5px;
+			vertical-align: sub;
+		}
 	}
 }
