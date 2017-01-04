@@ -101,7 +101,10 @@
 }
 
 #content{
-	margin: 75px 0px;
+	margin: 75px 0px 20px;
+	@include breakpoint(medium) {
+		margin: 75px 0px;
+	}
 }
 
 // area = {

@@ -78,94 +78,19 @@
 	}
 }
 
-.main-carousel-wrapper {
-	@include breakpoint(small) {
-		padding: 0;
-	}
-	.flickity-page-dots {
-		bottom: initial;
-		top: 5px;
-		left: 20px;
-		right: 20px;
-	    text-align: left;
-		.dot {
-			background-color: #fff !important;
-			width: 6px;
-		    height: 6px;
-		    margin: 0 6px 0 0;
-		}
-		&:after {
-			color: #fff;
-			content: 'deslize para mais destaques';
-			font-size: 10px;
-    		margin-left: 5px;
-		}
-		@include breakpoint(medium) {
-			display: none;
-		}
-	}
-}
-
-.main-carousel {
-	.carousel-cell {
-		width: 100%; 
-		height: 400px; 
-	}
-	.categories {
-		ul {
-			margin-left: 10px; 
-		}
-	}
-	button.flickity-prev-next-button {
-		display: none;
-		@include breakpoint(large) {
-			display: block;
-		}
-		&.previous {
-			left: -50px;
-		}
-		&.next {
-			right: -50px;
-		}
-	}
-}
-
-.home-area-carousel {
-	button.flickity-prev-next-button {
-		&.previous {
-			left: 0;
-		}
-		&.next {
-			right: 0;
-		}
-	}
-}
-
-button.flickity-prev-next-button {
-	border-radius: 0;
-	border: 1px solid black;
-	height: 35px;
-	top: 50%;
-	width: 35px;
-	&:disabled {
-		opacity: 0.7;
-	}
-	&:hover {
-		cursor: pointer;
-	}
-	&, &:focus, &:hover {
-		background: transparent;
-	}
-}
-
-.home-area{
-	margin-top: 50px;
+.home-area {
+	margin-top: 30px;
 	position: relative;
+	@include breakpoint(medium) {
+		margin-top: 50px;
+	}
 	
 	&-item{
-		display: flex;
-		align-items: center;
-		padding: 0 90px;
+		@include breakpoint(medium) {
+			display: flex;
+			align-items: center;
+			padding: 0 90px;
+		}
 	}
 
 	h2, p{
@@ -177,8 +102,11 @@ button.flickity-prev-next-button {
 	}
 
 	h2 {
-		font-size: 44px;
-		line-height: 60px;
+		font-size: 20px;
+		@include breakpoint(medium) {
+			font-size: 44px;
+			line-height: 60px;
+		}
 	}
 
 	.list-title {
@@ -189,21 +117,65 @@ button.flickity-prev-next-button {
 		left: 100px;
 	}
 
+	.carousel-cell {
+		@include breakpoint(small only) {
+			height: initial;
+		}
+	}
+
 	.area-left{
-		flex: 0;
-		min-width: 340px;
+		padding: 50px 20px 0;
+		@include breakpoint(medium) {
+			flex: 0;
+			min-width: 340px;
+			padding: 0;
+		}
 	}
 
 	.area-midia	 {
-		width: 484px;
-		height: 295px;
-		display: block;
-		background-color: teal;
-		margin-left: 40px;
+		display: none;
+		@include breakpoint(medium) {
+			width: 484px;
+			height: 295px;
+			display: block;
+			background-color: teal;
+			margin-left: 40px;
+		}
 	}
 
-	a{
-		margin-top: 25px;
+	a {
+		margin-top: 15px;
 		font-weight: bold;
+		position: relative;
+		@include breakpoint(medium) {
+			margin-top: 25px;
+		}
+	}
+
+	.color-line {
+		height: 5px;
+		width: 100%;
+		position: absolute;
+    	top: 20px;
+		span {
+			display: inline-block;
+			height: 5px;
+			&:nth-child(1) {
+				background-color: #9a258f;
+				width: calc(100% - 39%);
+			}
+			&:nth-child(2) {
+				background-color: #00958a;
+				width: 13%;
+			}
+			&:nth-child(3) {
+				background-color: #522e91;
+				width: 13%;
+			}
+			&:nth-child(4) {
+				background-color: #f5821f;
+				width: 13%;
+			}
+		}
 	}
 }

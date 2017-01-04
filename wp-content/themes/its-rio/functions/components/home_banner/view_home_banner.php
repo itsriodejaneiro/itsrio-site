@@ -15,6 +15,9 @@
 						<div class="categories-wrapper show-for-medium">
 							<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
 						</div>
+						<div class="more-info">
+							<a href="<?= get_permalink() ?>">mais sobre a publicação</a>
+						</div>
 					</div>
 					<div class="categories-wrapper show-for-small-only">
 						<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
