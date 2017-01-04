@@ -62,6 +62,12 @@ p, hr{
 	justify-content: center;
 }
 
+.list-item-wrapper {
+	@media screen and (min-width: 414px) and (max-width: 1023px) {
+		width: 50% !important;
+	}
+}
+
 .list-item{
 	background-color: white !important;
 	border-radius: 3px;
