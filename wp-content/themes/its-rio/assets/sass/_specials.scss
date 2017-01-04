@@ -37,19 +37,13 @@
 
 
 .single-header-drop-down {
-    /* Size and position */
-    position: relative; /* Enable absolute positionning for children and pseudo elements */
-    width: 200px;
+    position: relative;
+    width: 100%;
     padding: 10px;
     margin: 0 auto;
-
-    /* Styles */
-    background: #9bc7de;
     color: #fff;
     outline: none;
     cursor: pointer;
-
-    /* Font settings */
     font-weight: bold;
 }
 
@@ -67,18 +61,13 @@
 }
 
 .single-header-drop-down .dropdown {
-    /* Size & position */
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-
-    /* Styles */
     background: #fff;
     list-style: none;
-    font-weight: normal; /* Cancels previous font-weight: bold; */
-
-    /* Hiding */
+    font-weight: normal;
     opacity: 0;
     pointer-events: none;
 }
@@ -90,12 +79,10 @@
     padding: 10px 20px;
 }
 
-/* Hover state */
 .single-header-drop-down .dropdown li:hover a {
     background: #f3f8f8;
 }
 
-/* Active state */
 .single-header-drop-down.active .dropdown {
     opacity: 1;
     pointer-events: auto;
