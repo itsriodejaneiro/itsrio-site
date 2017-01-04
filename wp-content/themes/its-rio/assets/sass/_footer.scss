@@ -93,6 +93,10 @@ footer{
 			box-sizing: border-box;
 			padding-right: 4%;
 			width: 34%;
+            @media #{$small-only}{
+                width: 100%;
+                margin-bottom: 25px;
+            }
 		}
 		.tags {
 			width: 26%;
