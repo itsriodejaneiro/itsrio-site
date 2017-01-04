@@ -152,7 +152,7 @@
 }
 
 .main-carousel-wrapper, .home-area {
-	@include breakpoint(small) {
+	@include breakpoint(small only) {
 		padding: 0;
 	}
 	button.flickity-prev-next-button {

@@ -2445,29 +2445,30 @@ label.label-tab {
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
 
-.main-carousel-wrapper, .home-area {
-  padding: 0; }
-  .main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
-    display: none; }
-    @media screen and (min-width: 64em) {
-      .main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
-        display: block; } }
-  .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
-    bottom: initial;
-    top: 5px;
-    left: 20px;
-    right: 20px;
-    text-align: left; }
-    .main-carousel-wrapper .flickity-page-dots .dot, .home-area .flickity-page-dots .dot {
-      width: 6px;
-      height: 6px;
-      margin: 0 6px 0 0; }
-    .main-carousel-wrapper .flickity-page-dots:after, .home-area .flickity-page-dots:after {
-      font-size: 10px;
-      margin-left: 5px; }
-    @media screen and (min-width: 48.0625em) {
-      .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
-        display: none; } }
+@media screen and (max-width: 48em) {
+  .main-carousel-wrapper, .home-area {
+    padding: 0; } }
+.main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+  display: none; }
+  @media screen and (min-width: 64em) {
+    .main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+      display: block; } }
+.main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
+  bottom: initial;
+  top: 5px;
+  left: 20px;
+  right: 20px;
+  text-align: left; }
+  .main-carousel-wrapper .flickity-page-dots .dot, .home-area .flickity-page-dots .dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 6px 0 0; }
+  .main-carousel-wrapper .flickity-page-dots:after, .home-area .flickity-page-dots:after {
+    font-size: 10px;
+    margin-left: 5px; }
+  @media screen and (min-width: 48.0625em) {
+    .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
+      display: none; } }
 
 .main-carousel-wrapper .flickity-page-dots .dot {
   background-color: #fff !important; }
