@@ -206,7 +206,10 @@
 .main-carousel {
 	.carousel-cell {
 		width: 100%; 
-		height: 400px; 
+		height: 340px; 
+		@include breakpoint(medium) {
+			height: 400px; 
+		}
 	}
 	.categories {
 		ul {
