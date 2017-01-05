@@ -35,7 +35,7 @@
 }
 
 
-#{$small-only}{
+@media #{$small-only}{
     .single-header-drop-down {
         position: relative;
         width: 100%;
