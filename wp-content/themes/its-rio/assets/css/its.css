@@ -2392,12 +2392,28 @@ label.label-tab {
       @media screen and (min-width: 48.0625em) {
         .highlights h2 .line {
           display: block; } }
-  .highlights .header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; }
-    .highlights .header .info-left {
-      flex-grow: 2; }
+  @media screen and (min-width: 48.0625em) {
+    .highlights .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+      .highlights .header .info-left {
+        flex-grow: 2; } }
+  .highlights .horario {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 10px; }
+    @media screen and (min-width: 48.0625em) {
+      .highlights .horario {
+        margin: 8px 0 15px 30px; } }
+    .highlights .horario p {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 5px; }
+    .highlights .horario span {
+      margin: 0 0 5px 0;
+      white-space: nowrap; }
   @media screen and (max-width: 48em) {
     .highlights .categories {
       position: absolute;
@@ -2416,18 +2432,6 @@ label.label-tab {
       display: flex;
       justify-content: flex-end;
       align-items: baseline; } }
-  .highlights .horario {
-    font-size: 12px;
-    font-weight: bold;
-    margin: 8px 0 15px 30px; }
-    .highlights .horario p {
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1;
-      margin-bottom: 5px; }
-    .highlights .horario span {
-      margin: 0 0 5px 0;
-      white-space: nowrap; }
   .highlights:hover {
     box-shadow: 0 0 15px #8a8a8a;
     color: #fff; }
@@ -2448,6 +2452,13 @@ label.label-tab {
         background-color: #fff; }
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
+
+.highlights-carousel {
+  height: 340px;
+  width: 100%; }
+  @media screen and (min-width: 48.0625em) {
+    .highlights-carousel {
+      height: 450px; } }
 
 @media screen and (max-width: 48em) {
   .main-carousel-wrapper, .home-area {
@@ -2521,17 +2532,24 @@ button.flickity-prev-next-button {
 
 .archive .list-title {
   margin-top: 30px !important; }
-.archive .highlights .categories {
-  margin-top: 8px; }
-  .archive .highlights .categories ul {
-    margin-left: 8px; }
+@media screen and (max-width: 48em) {
+  .archive .highlights .categories {
+    color: #fff !important;
+    margin-left: 10px; } }
+@media screen and (min-width: 48.0625em) {
+  .archive .highlights .categories {
+    margin-top: 8px; } }
+.archive .highlights .categories ul {
+  margin-left: 8px; }
 
 .info_border {
   border-bottom: 5px solid black; }
 
 .older-posts {
-  margin-bottom: 50px;
   clear: both; }
+  @media screen and (min-width: 48.0625em) {
+    .older-posts {
+      margin-bottom: 50px; } }
 
 .single #content {
   margin-bottom: 0; }

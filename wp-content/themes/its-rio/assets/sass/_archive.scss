@@ -70,11 +70,32 @@
 	}
 
 	.header {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-		.info-left {
-			flex-grow: 2;
+		@include breakpoint(medium) {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			.info-left {
+				flex-grow: 2;
+			}
+		}
+	}
+
+	.horario {
+		font-size: 12px;
+		font-weight: bold;
+		margin: 0 0 10px;
+		@include breakpoint(medium) {
+			margin: 8px 0 15px 30px;
+		}
+		p {
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 1;
+			margin-bottom: 5px;
+		}
+		span {
+			margin: 0 0 5px 0;
+			white-space: nowrap;
 		}
 	}
 
@@ -99,22 +120,6 @@
 			display: flex;
 			justify-content: flex-end;
 			align-items: baseline;
-		}
-	}
-
-	.horario {
-		font-size: 12px;
-		font-weight: bold;
-		margin: 8px 0 15px 30px;
-		p {
-			font-size: 14px;
-			font-weight: bold;
-			line-height: 1;
-			margin-bottom: 5px;
-		}
-		span {
-			margin: 0 0 5px 0;
-			white-space: nowrap;
 		}
 	}
 
@@ -148,6 +153,14 @@
 				}
 			}
 		}
+	}
+} 
+
+.highlights-carousel {
+	height: 340px;
+	width: 100%;
+	@include breakpoint(medium) {
+		height: 450px;
 	}
 }
 
@@ -260,9 +273,18 @@ button.flickity-prev-next-button {
 
 // ajustes nas intermediárias
 .archive {
+	.list-title {
+		margin-top: 30px !important;
+	}
 	.highlights {
 		.categories {
-			margin-top: 8px;
+			@include breakpoint(small only) {
+				color: #fff !important;
+				margin-left: 10px;
+			}
+			@include breakpoint(medium) {
+				margin-top: 8px;
+			}
 			ul {
 				margin-left: 8px;
 			}
@@ -274,14 +296,10 @@ button.flickity-prev-next-button {
 	border-bottom: 5px solid black;
 }
 
-.older-posts{
-	margin-bottom: 50px;
+.older-posts {
 	clear: both;
-}
-
-.post-type-archive{
-	.list-title {
-		margin-top: 30px !important;
+	@include breakpoint(medium) {
+		margin-bottom: 50px;
 	}
 }
 
