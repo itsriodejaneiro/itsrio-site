@@ -76,7 +76,7 @@
 						<a href="#"><i class="fa fa-medium"></i></a>
 					</li>
 					<li class="text">
-						<a href="#" class="selected">português</a> | <a href="#"> inglês</a>
+						<a href="/pt/home" class="selected">português</a> | <a href="/en/home"> inglês</a>
 					</li>
 				</ul>
 			</div>
