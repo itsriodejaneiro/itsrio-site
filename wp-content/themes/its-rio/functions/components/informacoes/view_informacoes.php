@@ -6,7 +6,7 @@
 					informações
 					<div class="line"></div>
 				</h2>
-				<h5 class="label">mais informações</h5>
+				<!-- <h5 class="label">mais informações</h5> -->
 			</div>
 			<div class="tab-content">
 				<div v-for="(informacao, i) in informacoes" class="component-tabs-tab">

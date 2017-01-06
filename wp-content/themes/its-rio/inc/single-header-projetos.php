@@ -6,8 +6,8 @@
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
-			<p class="box-title">linha de pesquisa</p>
-			<p class="box">direito e technologia</p>
+			<p class="box-title">área de pesquisa</p>
+			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>

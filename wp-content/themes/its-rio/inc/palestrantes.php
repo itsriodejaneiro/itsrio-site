@@ -8,7 +8,7 @@
 			$query_pessoas = get_posts(['post_type' => 'pessoas', 'post__in' => $ids ]);
 			$i = 0;
 			foreach ($query_pessoas as $post){
-				$html .= ' <span onclick="goToPerson('.$i.')"> <a href="javascript:void(0);">'. get_the_title() . '</a>,</span>';
+				$html .= ' <span onclick="goToPerson('.$i.')"> <a href="javascript:void(0);">'. get_the_title() . '</a></span>,';
 				$i++;
 			}
 			echo rtrim($html,',');

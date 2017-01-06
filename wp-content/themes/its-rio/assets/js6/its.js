@@ -135,7 +135,7 @@ new Vue({
                 menu.addClass('fixed');
             else
                 menu.removeClass('fixed');
-        });
+        }); 
 
         //Adiciona a classe de active ao post type correspondente no menu global.
         $("a[href='/"+post_type+"']").parent().addClass('current-menu-item');

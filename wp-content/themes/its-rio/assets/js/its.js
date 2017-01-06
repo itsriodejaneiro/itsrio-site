@@ -139,6 +139,11 @@ new Vue({
         //Adiciona a classe de active ao post type correspondente no menu global.
         $("a[href='/" + post_type + "']").parent().addClass('current-menu-item');
 
+        $('.menu-nav li').each(function () {
+            var a = $(this).find('a');
+            a.attr('href', '/' + lang + a.attr('href'));
+        });
+
         //Smooth scroll
         $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function () {
             var el = $(this).is('a') ? this : $(this).find('a')[0];

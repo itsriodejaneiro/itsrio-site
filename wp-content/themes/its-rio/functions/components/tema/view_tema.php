@@ -16,12 +16,14 @@
 					tema
 					<div class="line"></div>
 				</h2>
-				<h5 class="tab-title list-title">
-					valor <i class="fa fa-tag"></i>
-				</h5>
-				<ul>
-					<li><?= $meta['info_valor'][0]; ?></li>
-				</ul>
+				<?php if(isset($meta['info_valor']) && $meta['info_valor'][0] != ''): ?>
+					<h5 class="tab-title list-title">
+						valor <i class="fa fa-tag"></i>
+					</h5>
+					<ul>
+						<li><?= $meta['info_valor'][0]; ?></li>
+					</ul>
+				<?php endif; ?>
 			</div>
 			<?php
 		} ?>
