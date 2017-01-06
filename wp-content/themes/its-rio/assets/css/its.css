@@ -3129,7 +3129,7 @@ button.flickity-prev-next-button {
 
 .curved-shadow {
   position: absolute; }
-  .curved-shadow:before, .curved-shadow:after {
+  .curved-shadow:hover:before, .curved-shadow:hover:after {
     bottom: 15px;
     content: "";
     height: 50%;
@@ -3140,14 +3140,14 @@ button.flickity-prev-next-button {
     -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7); }
-  .curved-shadow:before {
+  .curved-shadow:hover:before {
     left: 0px;
     -webkit-transform: rotate(-6deg);
     -moz-transform: rotate(-6deg);
     -ms-transform: rotate(-6deg);
     -o-transform: rotate(-6deg);
     transform: rotate(-6deg); }
-  .curved-shadow:after {
+  .curved-shadow:hover:after {
     right: 0px;
     -webkit-transform: rotate(6deg);
     -moz-transform: rotate(6deg);

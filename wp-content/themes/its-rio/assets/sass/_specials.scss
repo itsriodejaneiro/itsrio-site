@@ -1,36 +1,38 @@
 .curved-shadow {
     position: absolute;
     
-    &:before,
-    &:after {
-        bottom: 15px;
-        content: "";
-        height: 50%;
-        max-width: 300px;
-        position: absolute;
-        z-index: -1;
-        width: 50%;
-        -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-        -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-    }
+    &:hover {
+        &:before,
+        &:after {
+            bottom: 15px;
+            content: "";
+            height: 50%;
+            max-width: 300px;
+            position: absolute;
+            z-index: -1;
+            width: 50%;
+            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+        }
 
-    &:before {
-        left: 0px;
-        -webkit-transform: rotate(-6deg);
-        -moz-transform: rotate(-6deg);
-        -ms-transform: rotate(-6deg);
-        -o-transform: rotate(-6deg);
-        transform: rotate(-6deg);
-    }
+        &:before {
+            left: 0px;
+            -webkit-transform: rotate(-6deg);
+            -moz-transform: rotate(-6deg);
+            -ms-transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            transform: rotate(-6deg);
+        }
 
-    &:after {
-        right: 0px;
-        -webkit-transform: rotate(6deg);
-        -moz-transform: rotate(6deg);
-        -ms-transform: rotate(6deg);
-        -o-transform: rotate(6deg);
-        transform: rotate(6deg);
+        &:after {
+            right: 0px;
+            -webkit-transform: rotate(6deg);
+            -moz-transform: rotate(6deg);
+            -ms-transform: rotate(6deg);
+            -o-transform: rotate(6deg);
+            transform: rotate(6deg);
+        }
     }
 }
 
