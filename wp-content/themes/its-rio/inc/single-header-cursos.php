@@ -16,7 +16,7 @@
 					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
 				</p>
 			<?php else: ?>
-				<p class="box-title">Curso encerrado</p>
+				<p class="box-title">Curso sem previsão de lançamento</p>
 			<?php endif; ?>
 		</div>
 		<div class="column large-4 end">
