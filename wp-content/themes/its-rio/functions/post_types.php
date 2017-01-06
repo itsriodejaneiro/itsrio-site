@@ -5,12 +5,12 @@ function custom_post_type() {
 	register_custom_post_type('projetos_ctp','Projeto','Projetos', 'dashicons-portfolio');
 	register_custom_post_type('cursos_ctp','Curso','Cursos', 'dashicons-book');
 	register_custom_post_type('publicacoes_ctp','Publicação','Publicações','dashicons-book-alt');
-	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail']);
 	register_custom_post_type('comunicados_ctp','Acontece','Acontece','dashicons-megaphone');
+	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail'], false);
 	// register_custom_post_type('footer','Footer','Comunicados','dashicons-megaphone');
 }
 
-function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-admin-post', $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail']) {
+function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-admin-post', $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail'], $public = true) {
 	$labels = array(
 		'name'                  => _x( $plural, 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( $singular, 'Post Type Singular Name', 'text_domain' ),
@@ -57,6 +57,15 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		);
+
+	if(!$public){
+		$args['exclude_from_search'] = true;
+		$args['public'] = false;
+		$args['has_archive'] = false;
+		$args['publicaly_queryable'] = false;
+		$args['query_var'] = false;
+	}
+
 	register_post_type($id, $args);
 }
 

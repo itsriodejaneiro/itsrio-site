@@ -25,16 +25,17 @@ function its_meta_boxes($meta_boxes) {
 		'title'      => __('Informações', 'textdomain' ),
 		'post_types' => ['publicacoes_ctp'],
 		'fields'     => array(
-			['id'   => 'pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text']
+			['id'   => 'pt_pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text'],
+			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text']
 			),
 		],
 		[
 		'title'      => __('Informações', 'textdomain' ),
-		'post_types' => ['projetos_ctp'],
+		'post_types' => ['projetos_ctp','publicacoes_ctp'],
 		'fields'     => array(
 			[
-			'id'   => 'info_header', 
-			'name' => __('Linha de Pesquisa', 'textdomain'), 
+			'id'   => 'info_areapesquisa', 
+			'name' => __('Área de Pesquisa', 'textdomain'), 
 			'type'        => 'select',
 			'options'     => ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
 			]
@@ -80,7 +81,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'home_destaques',
 		'title'      => __( 'É um destaque na home?', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp' ],
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,

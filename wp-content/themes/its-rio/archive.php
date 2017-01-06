@@ -31,18 +31,22 @@ get_header();
 				case 'projetos_ctp':
 				$bannerTitle = 'áreas de pesquisa';
 				$bannerCards = 'projetos';				
+				$label = '';
 				break;
 				case 'cursos_ctp':
 				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'cursos futuros';				
+				$bannerCards = 'cursos futuros';
+				$label = 'professores';				
 				break;
 				case 'publicacoes_ctp':
 				$bannerTitle = 'publicações recentes';
 				$bannerCards = 'publicações';
+				$label = 'autores';
 				break;
 				case 'varandas_ctp':
 				$bannerTitle = 'inscrições abertas';
 				$bannerCards = 'varandas ITS';				
+				$label = 'palestrantes';
 				break;
 
 				default:
@@ -87,7 +91,7 @@ get_header();
 									<div class="info-left">
 										<h2><?= the_title(); ?></h2>
 										<div class="show-for-medium">
-											<?php $label = 'professores'; include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
+											<?php include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
 										</div>
 									</div>
 									<div class="info-right horario show-for-medium">
