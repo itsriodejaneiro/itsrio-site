@@ -2674,7 +2674,7 @@ button.flickity-prev-next-button {
       margin: 0 0 15px 0 !important; }
 
 .content-area {
-  padding: 50px 40px 60px; }
+  padding: 30px 40px; }
   @media screen and (max-width: 48em) {
     .content-area {
       padding: 40px 20px !important; } }
