@@ -54,7 +54,7 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		'can_export'            => true,
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
+		'publicly_queryable'    => false,
 		'capability_type'       => 'page',
 		);
 
@@ -62,7 +62,7 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		$args['exclude_from_search'] = true;
 		$args['public'] = false;
 		$args['has_archive'] = false;
-		$args['publicaly_queryable'] = false;
+		$args['publicly_queryable'] = false;
 		$args['query_var'] = false;
 	}
 
