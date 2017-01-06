@@ -1,6 +1,6 @@
 <div class="content-area component-tabs informacoes">
 	<div class="row">
-	<div class="fazer-minha-inscricao tab-content right">
+	<div class="fazer-minha-inscricao tab-content">
 			<div class="column large-5 no-p">
 				<h1><?= $title ?></h1>
 			</div>

@@ -541,6 +541,8 @@
 }
 
 .fazer-minha-inscricao{
+    margin: 0 auto;
+
     h1{
         font-family: 'Raleway';
         font-size: 36px;
@@ -556,11 +558,11 @@
         color: black !important;
     }
 
-    a{ margin: 20px 20px 10px 20px; }
+    a{ margin: 15px 20px 10px 20px; }
 
     span{
         text-align: center;
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 

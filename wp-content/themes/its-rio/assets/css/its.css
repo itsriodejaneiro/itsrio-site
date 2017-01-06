@@ -2910,22 +2910,24 @@ button.flickity-prev-next-button {
 .midias-thumbs img {
   cursor: pointer; }
 
-.fazer-minha-inscricao h1 {
-  font-family: 'Raleway';
-  font-size: 36px;
-  font-weight: normal;
-  line-height: 1.33;
-  color: #9a258f; }
-.fazer-minha-inscricao a, .fazer-minha-inscricao span {
-  font-weight: bold;
-  font-family: 'Roboto Mono';
-  display: block;
-  color: black !important; }
-.fazer-minha-inscricao a {
-  margin: 20px 20px 10px 20px; }
-.fazer-minha-inscricao span {
-  text-align: center;
-  font-size: 18px; }
+.fazer-minha-inscricao {
+  margin: 0 auto; }
+  .fazer-minha-inscricao h1 {
+    font-family: 'Raleway';
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.33;
+    color: #9a258f; }
+  .fazer-minha-inscricao a, .fazer-minha-inscricao span {
+    font-weight: bold;
+    font-family: 'Roboto Mono';
+    display: block;
+    color: black !important; }
+  .fazer-minha-inscricao a {
+    margin: 15px 20px 10px 20px; }
+  .fazer-minha-inscricao span {
+    text-align: center;
+    font-size: 14px; }
 
 .work-with-us {
   margin-bottom: 60px;
