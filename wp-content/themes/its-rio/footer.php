@@ -59,7 +59,7 @@
 </footer>
 </div>
 
-<?php global $data; global $components; global $postType; ?>
+<?php global $data; global $components; global $postType; global $lang; ?>
 
 <script>
 	<?php 
@@ -74,6 +74,7 @@
 	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
 	var post_type = '<?= $postType ?>';
+	var lang = '<?= $lang ?>';
 </script>
 <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>

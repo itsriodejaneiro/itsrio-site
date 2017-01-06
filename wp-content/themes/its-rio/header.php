@@ -77,9 +77,9 @@
 						<a href="#"><i class="fa fa-medium"></i></a>
 					</li>
 					<li class="text">
-						<a href="/pt/home" <?= $lang == 'pt_br' ? 'class="selected"' : '' ?>>português</a> 
+						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a> 
 						| 
-						<a href="/en/en-home" <?= $lang == 'en_us' ? 'class="selected"' : '' ?>> inglês</a>
+						<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> inglês</a>
 					</li>
 				</ul>
 			</div>
