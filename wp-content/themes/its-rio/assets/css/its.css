@@ -1994,8 +1994,10 @@ p, hr {
     position: absolute;
     bottom: 10px;
     left: 20px; }
-    .list-item .categories ul li + li {
-      margin-left: 5px; }
+    .list-item .categories ul {
+      margin-right: 5px; }
+      .list-item .categories ul li + li {
+        margin-left: 5px; }
 
 .spread-items {
   display: flex;
