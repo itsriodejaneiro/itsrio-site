@@ -118,55 +118,55 @@ function clear_divi_cache($hook){
 add_action('admin_enqueue_scripts', 'clear_divi_cache');
 
 
-//IMPEDE ACESSO DO CPT 'PESSOAS' PELO FRONT 
-function rkv_slideshow_redirect() {
-    global $wp_query;
+// //IMPEDE ACESSO DO CPT 'PESSOAS' PELO FRONT 
+// function rkv_slideshow_redirect() {
+//     global $wp_query;
 
-    // redirect from 'slideshow' CPT to home page
-    if ( is_archive('pessoas') || is_singular('pessoas') ) :
-        $url   = get_bloginfo('url');
+//     // redirect from 'slideshow' CPT to home page
+//     if ( is_archive('pessoas') || is_singular('pessoas') ) :
+//         $url   = get_bloginfo('url');
 
-        wp_redirect( esc_url_raw( $url ), 301 );
-        exit();
-    endif;
-}
+//         wp_redirect( esc_url_raw( $url ), 301 );
+//         exit();
+//     endif;
+// }
 
-add_action ( 'template_redirect', 'rkv_slideshow_redirect', 1);
-
-
-// Removes from admin menu
-add_action( 'admin_menu', 'my_remove_admin_menus' );
-function my_remove_admin_menus() {
-    remove_menu_page( 'edit-comments.php' );
-}
-// Removes from post and pages
-add_action('init', 'remove_comment_support', 100);
-
-function remove_comment_support() {
-    remove_post_type_support( 'post', 'comments' );
-    remove_post_type_support( 'page', 'comments' );
-}
-// Removes from admin bar
-function mytheme_admin_bar_render() {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
-}
-add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
+// add_action ( 'template_redirect', 'rkv_slideshow_redirect', 1);
 
 
-add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
-function wpse22764_gettext( $translation, $original )
-{
-    if ( 'Excerpt' == $original ) {
-        return 'Subtítulo';
-    }else{
-        $pos = strpos($original, '');
-        if ($pos !== false) {
-            return  'Subtítulo';
-        }
-    }
-    return $translation;
-}
+// // Removes from admin menu
+// add_action( 'admin_menu', 'my_remove_admin_menus' );
+// function my_remove_admin_menus() {
+//     remove_menu_page( 'edit-comments.php' );
+// }
+// // Removes from post and pages
+// add_action('init', 'remove_comment_support', 100);
+
+// function remove_comment_support() {
+//     remove_post_type_support( 'post', 'comments' );
+//     remove_post_type_support( 'page', 'comments' );
+// }
+// // Removes from admin bar
+// function mytheme_admin_bar_render() {
+//     global $wp_admin_bar;
+//     $wp_admin_bar->remove_menu('comments');
+// }
+// add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
+
+
+// add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
+// function wpse22764_gettext( $translation, $original )
+// {
+//     if ( 'Excerpt' == $original ) {
+//         return 'Subtítulo';
+//     }else{
+//         $pos = strpos($original, '');
+//         if ($pos !== false) {
+//             return  'Subtítulo';
+//         }
+//     }
+//     return $translation;
+// }
 
 
 
