@@ -27,6 +27,7 @@
 		<?php
 		global $postType;
 		global $titles; 
+		global $lang; 
 
 		$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
@@ -76,7 +77,9 @@
 						<a href="#"><i class="fa fa-medium"></i></a>
 					</li>
 					<li class="text">
-						<a href="/pt/home" class="selected">português</a> | <a href="/en/home"> inglês</a>
+						<a href="/pt/home" <?= $lang == 'pt_br' ? 'class="selected"' : '' ?>>português</a> 
+						| 
+						<a href="/en/en-home" <?= $lang == 'en_us' ? 'class="selected"' : '' ?>> inglês</a>
 					</li>
 				</ul>
 			</div>

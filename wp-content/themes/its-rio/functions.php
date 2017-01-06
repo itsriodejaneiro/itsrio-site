@@ -9,7 +9,7 @@
 */
 setlocale(LC_ALL, 'pt_BR');
 // error_reporting(E_ERROR);
-$lang = str_replace('-', '_', get_bloginfo('language'));
+$lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 
 $data = [ 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
