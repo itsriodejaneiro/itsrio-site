@@ -80,17 +80,6 @@
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
 <style>
-	.carousel-cell {
-		height: 450px;
-		width: 100%;
-	}
-	.highlights-carousel{
-		height: 450px;
-		width: 100%;
-	}
-
-
-
 .flickity-slider {
 		transform: none !important;
 	}
