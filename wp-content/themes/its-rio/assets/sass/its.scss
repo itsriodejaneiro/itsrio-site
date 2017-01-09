@@ -143,6 +143,7 @@ p, hr{
 		position: absolute;
 		bottom: 10px;
 		left: 20px;
+		z-index: 1;
 		ul {
 			margin-right: 5px;
 			li + li {

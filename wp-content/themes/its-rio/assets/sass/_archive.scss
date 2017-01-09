@@ -120,6 +120,8 @@
 			display: flex;
 			justify-content: flex-end;
 			align-items: baseline;
+			position: relative;
+			z-index: 1;
 		}
 	}
 
