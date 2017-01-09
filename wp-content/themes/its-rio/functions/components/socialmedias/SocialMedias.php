@@ -1,14 +1,15 @@
 <?php
 class SocialMedias extends ET_Builder_Module {
 
-	public $sociais = ["youtube", "twitter", "facebook", "instagram", "medium"];
+	public $sociais = ["youtube", "twitter", "facebook", "instagram", "medium","github"];
 
 	function init() {
 		$this->name = esc_html__( 'ITS - Nas redes sociais', 'et_builder' );
 		$this->slug = 'et_pb_social_medias';
 		$this->fb_support = true;
 
-		$this->whitelisted_fields = ['title', 'subtitle','palestrante','data','content'];
+		$this->whitelisted_fields = ['title'];
+		$this->whitelisted_fields[] = $this->sociais;
 
 		$this->fields_defaults = ['title'];
 		$this->fields_defaults[] = $this->sociais;
@@ -17,16 +18,6 @@ class SocialMedias extends ET_Builder_Module {
 	}
 
 	function get_fields() {
-		$palestrantes = [];
-		$query_palestrantes = new WP_Query([
-			'post_type' => 'palestrantes'
-			]);
-
-		while ($query_palestrantes->have_posts()) {
-			$query_palestrantes->the_post();
-			$palestrantes[get_the_ID()] = esc_html__( get_the_title(), 'et_builder' );
-		}
-
 		$fields = array(
 			'title' => array(
 				'label'             => esc_html__( 'Título', 'et_builder' ),

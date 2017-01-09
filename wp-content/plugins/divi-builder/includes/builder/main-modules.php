@@ -1493,6 +1493,7 @@ class ET_Builder_Module_Text extends ET_Builder_Module {
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
+		global $data;
 		$title 			      = $this->shortcode_atts['title'];
 		$module_id            = $this->shortcode_atts['module_id'];
 		$module_class         = $this->shortcode_atts['module_class'];
@@ -1532,10 +1533,11 @@ class ET_Builder_Module_Text extends ET_Builder_Module {
 			<div class="component-tabs-title">
 				<h2 class="tab-title list-title left">'.$title.'</h2>
 			</div>';
+			$data['its_tabs'][] = $title;
 		}
 
 		$output = sprintf(
-			'<div%3$s class="content-area et_pb_text%2$s%4$s  component-tabs tab">
+			'<div%3$s class="content-area et_pb_text%2$s%4$s  component-tabs tab" id="tab_'.array_search($title, $data['its_tabs']).'">
 			<div class="row">
 				'.$side.'
 				<div class="tab-content right raleway">%1$s</div>
