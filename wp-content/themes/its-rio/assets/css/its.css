@@ -3140,7 +3140,7 @@ button.flickity-prev-next-button {
 
 .curved-shadow {
   position: absolute; }
-  .curved-shadow:hover:before, .curved-shadow:hover:after {
+  .curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:active:before, .curved-shadow:active:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
     bottom: 15px;
     content: "";
     height: 50%;
@@ -3151,20 +3151,24 @@ button.flickity-prev-next-button {
     -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7); }
-  .curved-shadow:hover:before {
+  .curved-shadow:hover:before, .curved-shadow:active:before, .curved-shadow:focus:before {
     left: 0px;
     -webkit-transform: rotate(-6deg);
     -moz-transform: rotate(-6deg);
     -ms-transform: rotate(-6deg);
     -o-transform: rotate(-6deg);
     transform: rotate(-6deg); }
-  .curved-shadow:hover:after {
+  .curved-shadow:hover:after, .curved-shadow:active:after, .curved-shadow:focus:after {
     right: 0px;
     -webkit-transform: rotate(6deg);
     -moz-transform: rotate(6deg);
     -ms-transform: rotate(6deg);
     -o-transform: rotate(6deg);
     transform: rotate(6deg); }
+  .curved-shadow:active:before, .curved-shadow:active:after {
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9); }
 
 @media screen and (max-width: 48em) {
   .single-header-drop-down {
