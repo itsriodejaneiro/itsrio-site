@@ -8,7 +8,7 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-// error_reporting(E_ERROR);
+error_reporting(E_ERROR);
 $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
@@ -118,23 +118,6 @@ function clear_divi_cache($hook){
 }
 add_action('admin_enqueue_scripts', 'clear_divi_cache');
 
-
-//IMPEDE ACESSO DO CPT 'PESSOAS' PELO FRONT 
-function rkv_slideshow_redirect() {
-    global $wp_query;
-
-    // redirect from 'slideshow' CPT to home page
-    if ( is_archive('pessoas') || is_singular('pessoas') ) :
-        $url   = get_bloginfo('url');
-
-        wp_redirect( esc_url_raw( $url ), 301 );
-        exit();
-    endif;
-}
-
-add_action ( 'template_redirect', 'rkv_slideshow_redirect', 1);
-
-
 // Removes from admin menu
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
@@ -147,6 +130,8 @@ function remove_comment_support() {
     remove_post_type_support( 'post', 'comments' );
     remove_post_type_support( 'page', 'comments' );
 }
+
+
 // Removes from admin bar
 function mytheme_admin_bar_render() {
     global $wp_admin_bar;
@@ -163,8 +148,6 @@ function wpse22764_gettext( $translation, $original )
     
     return $translation;
 }
-
-
 
 
 
