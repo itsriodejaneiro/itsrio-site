@@ -2442,7 +2442,9 @@ label.label-tab {
     .highlights .categories {
       display: flex;
       justify-content: flex-end;
-      align-items: baseline; } }
+      align-items: baseline;
+      position: relative;
+      z-index: 1; } }
   .highlights:hover {
     box-shadow: 0 0 15px #8a8a8a;
     color: #fff; }
@@ -2463,10 +2465,6 @@ label.label-tab {
         background-color: #fff; }
         .highlights:hover .categories.black ul li:hover a {
           color: #000 !important; }
-
-.categories-wrapper {
-  position: relative;
-  z-index: 1; }
 
 .highlights-carousel {
   height: 340px;
