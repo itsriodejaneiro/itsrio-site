@@ -2522,6 +2522,15 @@ p, hr {
   margin-left: 5px;
 }
 
+.post-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .spread-items {
   display: -webkit-box;
   display: flex;

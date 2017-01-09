@@ -22,6 +22,7 @@
 					<div class="categories-wrapper show-for-small-only">
 						<?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
 					</div>
+					<a href="<?= get_permalink() ?>" class="post-link"></a>
 				</div>
 				<?php
 			}
