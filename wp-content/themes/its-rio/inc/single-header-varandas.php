@@ -8,10 +8,20 @@
 		<div class="column large-4">
 			<?php if(!$closed): ?>
 				<p class="box-title">horário</p>
-				<p class="box">direito e technologia</p>
+				<p class="box">
+					inscrições até
+					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
+					|
+					início do curso
+					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
+				</p>
 			<?php else: ?>
 				<p class="box-title">Varanda encerrada</p>
 			<?php endif; ?>
+		</div>
+		<div class="column large-4 end">
+			<p class="box-title">área de pesquisa</p>
+			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>
@@ -28,7 +38,7 @@
 			<?php else: ?>
 				<a href="#" class="button large curved-shadow">sugira um tema</a>
 			<?php endif; ?>
-			</div>
+		</div>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

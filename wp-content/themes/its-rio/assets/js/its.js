@@ -130,10 +130,21 @@ new Vue({
         //Fixa o menu interno no menu global ao dar scroll
         var menu = $('.header-single-menu');
 
-        var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
-
         $(window).scroll(function () {
-            if ($(this).scrollTop() >= top - 65) menu.addClass('fixed');else menu.removeClass('fixed');
+            if (typeof menu.position() != "undefined") {
+                var top = menu.position().top;
+                if ($(this).scrollTop() >= top - 65) menu.addClass('fixed');else menu.removeClass('fixed');
+
+                var scrollPos = $(document).scrollTop() + 100;
+                $('.single-menu a').each(function () {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.single-menu ul li a').removeClass("active");
+                        currLink.addClass("active");
+                    } else currLink.removeClass("active");
+                });
+            }
         });
 
         //Adiciona a classe de active ao post type correspondente no menu global.

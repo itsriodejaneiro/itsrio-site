@@ -9,9 +9,7 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		$this->child_slug      = 'et_pb_midias_item';
 		$this->child_item_text = esc_html__( 'Mídia', 'et_builder' );
 
-		$this->whitelisted_fields = array(
-			'par_title',
-			);
+		$this->whitelisted_fields = ['par_title'];
 	}
 
 	function get_fields() {
@@ -25,19 +23,22 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
-		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
-
-		$par_title = $this->shortcode_atts['par_title'];
-		$all_tabs_content = $this->shortcode_content;
-		
-		$data['its_tabs'][] = $par_title;
-
+		global $wp_filter;
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
 		global $tabs_content;
 		global $data;
 		global $components;
 		global $meta;
+		
+		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
+
+		$par_title = $this->shortcode_atts['par_title'];
+		$all_tabs_content = $this->shortcode_content;
+		
+		
+
+		$data['its_tabs'][] = $par_title;
 
 		ob_start();
 		include(__DIR__.'/view_midias.php');

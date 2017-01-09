@@ -79,7 +79,7 @@
 					<li class="text">
 						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a> 
 						| 
-						<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> inglês</a>
+						<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> english</a>
 					</li>
 				</ul>
 			</div>
