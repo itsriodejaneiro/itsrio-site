@@ -156,6 +156,11 @@
 	}
 } 
 
+.categories-wrapper {
+	position: relative;
+	z-index: 1;
+}
+
 .highlights-carousel {
 	height: 340px;
 	width: 100%;
