@@ -40,8 +40,13 @@ p, hr{
 
 .list-title{
 	display: table;
+	font-size: 20px;
 	font-weight: bold;
-	line-height: 1.7;
+	line-height: 2;
+	@include breakpoint(medium) {
+		font-size: 24px;
+		line-height: 1.7;
+	}
 
 	a {
 		font-size: 14px;
@@ -297,16 +302,19 @@ label.label-tab{
         color: #4a4a4a;
     }
 
-    &:before{
-        content: 'ocultar';
-        margin-right: 5px;
-    }
-
     &:after{
         content: "\f077";
         display: inline-block;
         font: normal normal normal 14px/1 FontAwesome;
     }
+
+    @include breakpoint(medium) {
+		&:before{
+	        content: 'ocultar';
+	        margin-right: 5px;
+
+	    }
+	}
 }
 
 @import '_menu';

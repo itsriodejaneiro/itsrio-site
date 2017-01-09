@@ -1922,8 +1922,13 @@ p, hr {
 
 .list-title {
   display: table;
+  font-size: 20px;
   font-weight: bold;
-  line-height: 1.7; }
+  line-height: 2; }
+  @media screen and (min-width: 48.0625em) {
+    .list-title {
+      font-size: 24px;
+      line-height: 1.7; } }
   .list-title a {
     font-size: 14px;
     font-weight: initial;
@@ -2119,13 +2124,14 @@ label.label-tab {
   margin: 0 !important; }
   label.label-tab:before, label.label-tab:after {
     color: #4a4a4a; }
-  label.label-tab:before {
-    content: 'ocultar';
-    margin-right: 5px; }
   label.label-tab:after {
     content: "\f077";
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome; }
+  @media screen and (min-width: 48.0625em) {
+    label.label-tab:before {
+      content: 'ocultar';
+      margin-right: 5px; } }
 
 .menu-container {
   height: 75px;
@@ -2696,6 +2702,9 @@ button.flickity-prev-next-button {
   .tab-title {
     width: 200px;
     margin-right: 30px; }
+    @media screen and (max-width: 48em) {
+      .tab-title {
+        display: none; } }
   .tab-content {
     width: calc(100% - 380px); }
     .tab-content .list-title {
@@ -2706,7 +2715,7 @@ button.flickity-prev-next-button {
   padding: 30px 40px; }
   @media screen and (max-width: 48em) {
     .content-area {
-      padding: 40px 20px !important; } }
+      padding: 20px !important; } }
   .content-area .row {
     width: 100% !important;
     margin: 0 auto !important; }

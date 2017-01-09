@@ -162,9 +162,13 @@
     overflow: hidden;
     align-items: baseline;
 
-    &-title{
+    &-title {
         width: 200px;
         margin-right: 30px;
+
+        @media #{$small-only}{
+            display: none;
+        }
     }
 
     &-content{
@@ -180,7 +184,7 @@
 .content-area{
     padding: 30px 40px;
     @media #{$small-only}{
-        padding: 40px 20px !important;
+        padding: 20px !important;
     }
 
 // &:nth-of-type(even){// 	background-color: #D9D9D9 !important; // }
