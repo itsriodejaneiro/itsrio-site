@@ -9,11 +9,10 @@
 			<?php if(!$closed): ?>
 				<p class="box-title">horário</p>
 				<p class="box">
+					<?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?>
+					|
 					inscrições até
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-					|
-					início do curso
-					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
 				</p>
 			<?php else: ?>
 				<p class="box-title">Varanda encerrada</p>

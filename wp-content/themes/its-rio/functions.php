@@ -157,6 +157,16 @@ function wpse22764_gettext( $translation, $original )
     return $translation;
 }
 
+//PARA A TELA DE BUSCA
+add_filter( 'posts_where', 'LIKE_posts_where', 10, 2 );
+function LIKE_posts_where( $where, &$wp_query )
+{
+    global $wpdb;
+    if ( $title_like = $wp_query->get( 'title_like' ) ) {
+        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $title_like ) ) . '%\'';
+    }
+    return $where;
+}
 
 
 

@@ -1,4 +1,4 @@
-<div class="content-area tab content-partners" id="tab_<?= array_search($par_title, jQuerydata['its_tabs']) ?>">
+<div class="content-area tab content-partners" id="tab_<?= array_search($par_title, $data['its_tabs']) ?>">
 	<div class="row">
 		<h2 class="tab-title list-title left">
 			<?= $par_title ?>

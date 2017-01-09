@@ -1531,7 +1531,10 @@ class ET_Builder_Module_Text extends ET_Builder_Module {
 		if($title != ''){
 			$side = '
 			<div class="component-tabs-title">
-				<h2 class="tab-title list-title left">'.$title.'</h2>
+				<h2 class="tab-title list-title left">
+				'.$title.'
+				<div class="line"></div>
+				</h2>
 			</div>';
 			$data['its_tabs'][] = $title;
 		}
