@@ -45,17 +45,19 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		'supports'              => $supports,
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
-		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_icon'   			=> $icon,
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
+		'public'                => true,
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
-		'publicly_queryable'    => false,
+		'publicly_queryable' 	=> true,
 		'capability_type'       => 'page',
+		'query_var'				=> true
+
 		);
 
 	if(!$public){
@@ -65,7 +67,6 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		$args['publicly_queryable'] = false;
 		$args['query_var'] = false;
 	}
-
 	register_post_type($id, $args);
 }
 

@@ -8,9 +8,10 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-error_reporting(E_ERROR);
+// error_reporting(E_ERROR);
 $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
+
 
 $data = [ 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
@@ -157,14 +158,9 @@ add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
 function wpse22764_gettext( $translation, $original )
 {
-    if ( 'Excerpt' == $original ) {
+    if ( 'Excerpt' == $original ) 
         return 'Subtítulo';
-    }else{
-        $pos = strpos($original, '');
-        if ($pos !== false) {
-            return  'Subtítulo';
-        }
-    }
+    
     return $translation;
 }
 

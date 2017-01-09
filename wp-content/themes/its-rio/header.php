@@ -147,8 +147,8 @@
 							linhas de pesquisa
 							<div class="line"></div>
 						</h3>
-						<input type="checkbox" id="search_title_area" class="ocultar">
-						<label class="label-tab" for="search_title_area"></label>
+						<input type="checkbox" id="search_title_linhas" class="ocultar">
+						<label class="label-tab" for="search_title_linhas"></label>
 						<div style="overflow: hidden; width: 100%;"> 
 							<input type="checkbox" id="direito-tecnologia">
 							<label for="direito-tecnologia" class="box">direito e tecnologia</label>
@@ -165,8 +165,8 @@
 							categorias de assunto
 							<div class="line"></div>
 						</h3>
-						<input type="checkbox" id="search_title_area" class="ocultar">
-						<label class="label-tab" for="search_title_area"></label>
+						<input type="checkbox" id="search_title_categorias" class="ocultar">
+						<label class="label-tab" for="search_title_categorias"></label>
 						<div style="overflow: hidden; width: 100%;"> 
 							<input type="checkbox" id="lorem-ipsum">
 							<label for="lorem-ipsum" class="box">lorem ipsum</label>
