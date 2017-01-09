@@ -22,15 +22,17 @@ function its_meta_boxes($meta_boxes) {
 	endwhile;
 
 	$meta_boxes = array([
-		'title'      => __('Informações', 'textdomain' ),
-		'post_types' => ['publicacoes_ctp'],
-		'fields'     => array(
+		'id'		=> 'infosss',
+		'title'     => __('Informações', 'textdomain' ),
+		'post_types'=> ['publicacoes_ctp'],
+		'fields'    => array(
 			['id'   => 'pt_pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text'],
-			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text']
+			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text'],
+			['id'	=> "publi_banner", 'name' => 'É um destaque da intermediária de Publicações?', 'type' => 'checkbox', 'value' => '1'],
 			),
 		],
 		[
-		'title'      => __('Informações', 'textdomain' ),
+		'title'      => __('Área de Pesquisa', 'textdomain' ),
 		'post_types' => ['projetos_ctp','publicacoes_ctp'],
 		'fields'     => array(
 			[

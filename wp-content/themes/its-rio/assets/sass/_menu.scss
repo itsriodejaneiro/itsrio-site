@@ -60,23 +60,96 @@
 		left: 130px;
 		
 		@media #{$small-only}{
+			transform: translateX(-110%);
+			transition: all .5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
+			left: 0;
+			width: 250px;
+			overflow: scroll;
+			height: 100%;
+			position: fixed;
+			top: 75px;
+			padding: 20px;
+			box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+
+			* { position: relative; }
+
+			&.active { transform: translateX(0%); }
+
 			&::before{
 				content: '';
 				width: 1000px;
 				height: 1000px;
 				background: #ebebeb;
 				position: absolute;
-				z-index: -1;
 				left: -50px;
 				top: -25px;
+			}
+
+			.menu-mobile-footer{
+				h3 {    
+					margin-top: 20px;
+					font-size: 15px;
+					font-weight: normal;
+				}
+				.contato { font-size: 15px; }
+				.trending ul li {
+					line-height: 21px;
+					a{
+						color: #a6a6a6 !important;
+						line-height: auto;
+						font-size: 14px;
+					}
+				}
+				.redes ul li {
+					border-bottom: 0px solid transparent;
+					.fa-youtube-play:after{ content: 'Youtube'; }
+					.fa-instagram:after{ content: 'Instagram'; }
+					.fa-twitter:after{ content: 'Twitter'; }
+					.fa-facebook:after{ content: 'Facebook'; }
+					.fa-medium:after{ content: 'Medium'; }
+					.fa-github:after{ content: 'Github'; }
+
+					.fa:after{
+						font-family:'Roboto MOno';
+						font-size: 15px;
+						margin-left: 8px;
+					}
+				}
+				.line { display: none; }
 			}
 		}
 
 		ul {
 			width: 700px;
-			li {
-				border-bottom: 5px solid transparent;
+
+			@media #{$small-only}{
+				flex-direction: column;	
+				width: auto;
+				
+
+				li { 
+					font-size: 20px; 
+					border-bottom-color: transparent !important;
+					a { color: black !important; }
+
+					&.current-menu-item{ 
+						position: relative; 
+						&:before{
+							content: '';
+							position: absolute;
+							left: -20px;
+							background-color: black;
+							width: 12px;
+							height: 100%;
+							float: left;
+							display: block;
+							overflow: hidden;
+						}
+					}
+				}
 			}
+
+			li { border-bottom: 5px solid transparent; }
 		}
 	}
 

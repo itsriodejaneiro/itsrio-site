@@ -53,7 +53,7 @@
 
 	<div class="row row-menu fixed">
 		<div class="column large-12 menu-container">
-			<i class="fa fa-bars hide-for-large"></i>
+			<i class="fa fa-bars hide-for-large" onclick="$('.menu-nav').toggleClass('active')"></i>
 			<?php if(is_front_page()){ ?>
 			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } else { ?>
@@ -83,25 +83,19 @@
 					</li>
 				</ul>
 			</div>
-			<nav class="menu-nav show-for-large">
+			<nav class="menu-nav">
 				<ul>
 					<?php wp_nav_menu('main') ?>
-					<!-- <li class="<?= $postType == 'cursos_ctp' ? 'selected' : '' ?>">
-						<a href="/cursos_ctp">cursos</a>
-					</li>
-					<li class="<?= $postType == 'varandas_ctp' ? 'selected' : '' ?>">
-						<a href="/varandas_ctp">varandas</a>
-					</li>
-					<li>
-						<a href="#">projetos</a>
-					</li>
-					<li>
-						<a href="#">publicações</a>
-					</li>
-					<li>
-						<a href="#">institucional</a>
-					</li> -->
 				</ul>
+				<div class="line"></div>
+				<div class="menu-mobile-footer hide-for-large">
+					<div class="redes"></div>
+					<div class="contato">
+						<h3>contato</h3>
+						<?= esc_attr(get_option('footer_contacts')) ?>
+					</div>
+					<div class="trending"></div>
+				</div>
 			</nav>
 			<i class="search-button fa fa-search" onclick="jQuery('.search-box').removeClass('hide');"></i>
 		</div>
@@ -129,7 +123,7 @@
 							<input type="checkbox" id="search_title_area" class="ocultar">
 							<label class="label-tab" for="search_title_area"></label>
 							<div style="overflow: hidden; width: 100%;"> 
-							<input type="checkbox" id="search_cursos" name="cpt[]" value="cursos_ctp">
+								<input type="checkbox" id="search_cursos" name="cpt[]" value="cursos_ctp">
 								<label for="search_cursos" class="box">cursos</label>
 
 								<input type="checkbox" id="search_varandas" name="cpt[]" value="varandas_ctp">

@@ -19,7 +19,7 @@
 							/>
 							<div class="pessoa-mini">
 								<label v-bind:for="'pessoa_'+ip+'_' + pessoa.ID" @click='openPessoa(pessoa, ip)'>
-									<div class="img" v-bind:style="{ 'background-image': 'url('+pessoa.thumb+')' }"></div>
+									<div class="img" v-bind:style="{ 'background-image': 'url('+(pessoa.thumb || '/wp-content/themes/its-rio/assets/images/pessoa-default.svg')+')' }"></div>
 									<div class="name">
 										<span v-html="pessoa.title.replace(' ','<br />')"></span>
 										<div class="line"></div>

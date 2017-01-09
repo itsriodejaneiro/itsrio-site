@@ -12,6 +12,15 @@ get_header();
 		'post_type' => $post_type,
 		);
 
+	if(in_array($postType, ['publicacoes_ctp'])){
+		$args = array(
+			'post_type' => $post_type,
+			'meta_key' => 'publi_banner',
+			'meta_value' => '1',
+			'meta_compare' => '='
+			);
+	}
+
 	if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
 		$args = array(
 			'post_type' => $post_type,
@@ -156,6 +165,15 @@ get_header();
 			</div>
 			<?php
 		}
+
+		$args = array(
+			'posts_per_page' => 1,
+			'orderby' => 'post_date',
+			'order' => 'DESC',
+			'post_type' => $post_type,
+			'post__not_in'	=> [$destaque_id],
+			);
+
 		if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
 			$args = array(
 				'post_type' 	=> $post_type,
