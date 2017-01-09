@@ -1,7 +1,7 @@
 .curved-shadow {
     position: absolute;
     
-    &:hover {
+    &:hover, &:active, &:focus {
         &:before,
         &:after {
             bottom: 15px;
@@ -32,6 +32,14 @@
             -ms-transform: rotate(6deg);
             -o-transform: rotate(6deg);
             transform: rotate(6deg);
+        }
+    }
+    &:active {
+        &:before,
+        &:after {
+            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
         }
     }
 }
