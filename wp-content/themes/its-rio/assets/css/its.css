@@ -3221,7 +3221,8 @@ button.flickity-prev-next-button {
     opacity: 0;
     pointer-events: none;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    z-index: 1; }
 
   .single-header-drop-down .dropdown ul {
     display: initial; }
@@ -3278,7 +3279,7 @@ h3, h4, h5 {
     top: 0;
     width: 100%;
     position: fixed;
-    z-index: 100000;
+    z-index: 1;
     margin: 0; }
 
 footer {
@@ -3546,4 +3547,3 @@ footer {
     right: -230px; }
 
 /*# sourceMappingURL=its.css.map */
->>>>>>> c3c712be4337ec630dd812050b4b4678ee98cbe0

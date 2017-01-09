@@ -81,6 +81,7 @@
         pointer-events: none;
         display: flex;
         flex-direction: column;
+        z-index: 1;
     }
 
     .single-header-drop-down .dropdown ul {
