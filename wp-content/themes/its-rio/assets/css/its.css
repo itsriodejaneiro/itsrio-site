@@ -2571,8 +2571,15 @@ button.flickity-prev-next-button {
   display: flex;
   align-items: center;
   background-size: cover;
+  background-color: purple;
   position: relative;
-  filter: grayscale(10%); }
+  filter: grayscale(10%);
+  height: 300px; }
+  @media screen and (max-width: 48em) {
+    .header-single {
+      box-shadow: inset 0px 1px 10px 0 rgba(0, 0, 0, 0.5);
+      height: auto;
+      padding: 40px 20px 25px; } }
   .header-single:before {
     top: 0;
     width: 100%;
@@ -2594,8 +2601,11 @@ button.flickity-prev-next-button {
       font-weight: 400; }
   .header-single .pessoas {
     line-height: 1;
-    font-size: 20px;
+    font-size: 14px;
     margin-top: 10px; }
+    @media screen and (min-width: 48.0625em) {
+      .header-single .pessoas {
+        font-size: 20px; } }
     .header-single .pessoas a {
       color: #fff; }
       .header-single .pessoas a:hover {
@@ -2608,37 +2618,45 @@ button.flickity-prev-next-button {
     display: inline-block;
     text-transform: lowercase; }
   .header-single h1 {
-    font-size: 50px;
-    font-weight: 900;
-    line-height: 60px; }
+    font-size: 30px;
+    font-weight: 900; }
+    @media screen and (min-width: 48.0625em) {
+      .header-single h1 {
+        font-size: 50px;
+        line-height: 60px; } }
   .header-single .line {
     background-color: white !important;
-    width: 60%;
     margin: 10px 0px; }
+    @media screen and (min-width: 48.0625em) {
+      .header-single .line {
+        width: 60%; } }
+  .header-single .dates {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px; }
+
+.header-single-menu {
+  width: 100%;
+  height: 50px;
+  color: black;
+  font-weight: bold; }
+  @media screen and (min-width: 48.0625em) {
+    .header-single-menu {
+      height: 40px; } }
+  .header-single-menu.fixed + .header-single-menu-fix {
+    width: 100%;
+    height: 50px; }
+    @media screen and (min-width: 48.0625em) {
+      .header-single-menu.fixed + .header-single-menu-fix {
+        height: 40px; } }
+  .header-single-menu.fixed {
+    position: fixed;
+    top: 75px;
+    box-shadow: 0 4px 7px -5px black; }
 
 .row.single-menu-container {
   width: 100%;
   display: flex; }
-
-.header-single {
-  height: 300px;
-  background-color: purple; }
-  @media screen and (max-width: 48em) {
-    .header-single {
-      height: auto;
-      padding: 40px 20px; } }
-  .header-single-menu {
-    width: 100%;
-    height: 40px;
-    color: black;
-    font-weight: bold; }
-    .header-single-menu.fixed + .header-single-menu-fix {
-      width: 100%;
-      height: 40px; }
-    .header-single-menu.fixed {
-      position: fixed;
-      top: 75px;
-      box-shadow: 0 4px 7px -5px black; }
 
 @media screen and (min-width: 48.0625em) {
   .single-menu {
@@ -3173,25 +3191,24 @@ button.flickity-prev-next-button {
 @media screen and (max-width: 48em) {
   .single-header-drop-down {
     position: relative;
-    width: 100%;
-    padding: 10px;
+    padding: 13px 15px;
     margin: 0 auto;
     color: #fff;
     outline: none;
     cursor: pointer;
-    font-weight: bold; }
+    font-weight: bold;
+    width: 100%; }
 
   .single-header-drop-down:after {
-    content: "";
-    width: 0;
-    height: 0;
+    background: url("../images/cover-arrow.svg");
+    content: '';
+    display: block;
+    width: 20px;
+    height: 11px;
     position: absolute;
     right: 16px;
     top: 50%;
-    margin-top: -6px;
-    border-width: 6px 0 6px 6px;
-    border-style: solid;
-    border-color: transparent #fff; }
+    margin-top: -3px; }
 
   .single-header-drop-down .dropdown {
     position: absolute;
@@ -3202,10 +3219,15 @@ button.flickity-prev-next-button {
     list-style: none;
     font-weight: normal;
     opacity: 0;
-    pointer-events: none; }
+    pointer-events: none;
+    display: flex;
+    flex-direction: column; }
 
   .single-header-drop-down .dropdown ul {
     display: initial; }
+
+  .single-header-drop-down .dropdown li {
+    display: block; }
 
   .single-header-drop-down .dropdown li a {
     display: block;
@@ -3221,9 +3243,9 @@ button.flickity-prev-next-button {
     pointer-events: auto; }
 
   .single-header-drop-down.active:after {
-    border-color: #9bc7de transparent;
-    border-width: 6px 6px 0 6px;
-    margin-top: -3px; } }
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); } }
 html, body {
   height: 100%;
   margin-top: 0 !important; }

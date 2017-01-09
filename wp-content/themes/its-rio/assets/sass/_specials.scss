@@ -48,26 +48,25 @@
 @media #{$small-only}{
     .single-header-drop-down {
         position: relative;
-        width: 100%;
-        padding: 10px;
+        padding: 13px 15px;
         margin: 0 auto;
         color: #fff;
         outline: none;
         cursor: pointer;
         font-weight: bold;
+        width: 100%;
     }
 
     .single-header-drop-down:after {
-        content: "";
-        width: 0;
-        height: 0;
+        background: url('../images/cover-arrow.svg');
+        content: '';
+        display: block;
+        width: 20px;
+        height: 11px;
         position: absolute;
         right: 16px;
         top: 50%;
-        margin-top: -6px;
-        border-width: 6px 0 6px 6px;
-        border-style: solid;
-        border-color: transparent #fff;    
+        margin-top: -3px;  
     }
 
     .single-header-drop-down .dropdown {
@@ -80,11 +79,18 @@
         font-weight: normal;
         opacity: 0;
         pointer-events: none;
+        display: flex;
+        flex-direction: column;
     }
 
     .single-header-drop-down .dropdown ul {
         display: initial;
     }
+
+    .single-header-drop-down .dropdown li {
+        display: block;
+    }
+
     .single-header-drop-down .dropdown li a {
         display: block;
         text-decoration: none;
@@ -102,8 +108,8 @@
     }
 
     .single-header-drop-down.active:after {
-        border-color: #9bc7de transparent;
-        border-width: 6px 6px 0 6px ;
-        margin-top: -3px;
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
     }
 }

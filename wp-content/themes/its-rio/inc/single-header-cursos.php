@@ -1,14 +1,21 @@
 <div class="row row-menu header-single" <?= get_thumbnail_style(get_the_ID(),'full'); ?>>
 	<div class="row">
-		<div class="column large-12">
+		<div class="column small-12">
 			<h1><?php the_title() ?></h1>
 			<?php $label = 'professores'; include('palestrantes.php'); wp_reset_postdata(); ?>
 			<div class="line"></div>
 		</div>
-		<div class="column large-4">
+		<div class="column small-12 medium-4">
 			<?php if(!$closed): ?>
-				<p class="box-title">data</p>
-				<p class="box">
+				<p class="dates show-for-small-only">
+					inscrições até
+					<b><?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?></b>
+					<br>
+					início do curso
+					<b><?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?></b>
+				</p>
+				<p class="box-title show-for-medium">data</p>
+				<p class="box show-for-medium">
 					inscrições até
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
 					|
@@ -19,8 +26,8 @@
 				<p class="box-title">Curso sem previsão de lançamento</p>
 			<?php endif; ?>
 		</div>
-		<div class="column large-4 end">
-			<p class="box-title">categorias</p>
+		<div class="column small-12 medium-4 end">
+			<p class="box-title show-for-medium">categorias</p>
 			<?php $no_label = true; include('categories.php') ?>
 		</div>
 	</div>
