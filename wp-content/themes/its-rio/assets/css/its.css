@@ -1999,6 +1999,14 @@ p, hr {
       .list-item .categories ul li + li {
         margin-left: 5px; }
 
+.post-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
 .spread-items {
   display: flex;
   justify-content: space-around;
