@@ -6,7 +6,7 @@
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
-			<?php if(!closed): ?>
+			<?php if(!$closed): ?>
 				<p class="box-title">horário</p>
 				<p class="box">direito e technologia</p>
 			<?php else: ?>

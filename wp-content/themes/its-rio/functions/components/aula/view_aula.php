@@ -6,7 +6,7 @@
 					aulas
 					<div class="line"></div>
 				</h2>
-				<?php if(!closed): ?>
+				<?php if(!$closed): ?>
 					<h5 class="tab-title">agenda <i class="fa fa-calendar"></i></h5>
 					<ul>
 						<li v-for="(aula, i) in aulas">

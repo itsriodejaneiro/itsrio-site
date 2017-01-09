@@ -1,5 +1,5 @@
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
-	<?= !isset($no_label) && !$no_label ? $titles[get_post_type()]['plural'] : ''  ?>
+	<?= isset($no_label) ? $no_label : ''  ?>
 	<ul>
 		<?php
 		$categories = get_the_category();

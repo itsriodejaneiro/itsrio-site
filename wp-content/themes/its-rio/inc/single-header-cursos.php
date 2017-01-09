@@ -1,4 +1,4 @@
-<div class="row row-menu header-single" <?= get_thumbnail_style($destaque_id,'full'); ?>>
+<div class="row row-menu header-single" <?= get_thumbnail_style(get_the_ID(),'full'); ?>>
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
@@ -6,7 +6,7 @@
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
-			<?php if(!closed): ?>
+			<?php if(!$closed): ?>
 				<p class="box-title">data</p>
 				<p class="box">
 					inscrições até
