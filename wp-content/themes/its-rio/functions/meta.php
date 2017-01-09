@@ -55,8 +55,10 @@ function its_meta_boxes($meta_boxes) {
 		'title'      => __('Informações', 'textdomain' ),
 		'post_types' => ['varandas_ctp'],
 		'fields'     => array(
-			['id'   => 'info_inscfim', 'name' => __('Data do evento', 'textdomain'), 'type' => 'date'],
-			['id'   => 'info_datahorario', 'name' => __('Data e Horário', 'textdomain'), 'type' => 'text'],
+			['id'   => 'info_inscinicio', 'name' => __('Início das Inscrições', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_inscfim', 'name' => __('Fim das Inscrições', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_data', 'name' => __('Data da Varanda', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_hora', 'name' => __('Horário da Varanda', 'textdomain'), 'type' => 'date'],
 			)
 		],
 		[

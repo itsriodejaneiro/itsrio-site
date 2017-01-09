@@ -53,8 +53,8 @@ class BoxInscreva extends ET_Builder_Module {
 		$wp_filter_cache = $wp_filter;
 		$title = $this->shortcode_atts['title'];
 		$subtitle = $this->shortcode_atts['subtitle'];
-		$buttonText = $this->shortcode_atts['buttonText'];
-
+		$buttonText = $atts['buttontext'];
+		
 		ob_start();
 		include(__DIR__.'/view_box_inscreva.php');
 		$output = ob_get_contents();

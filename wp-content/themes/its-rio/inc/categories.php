@@ -1,5 +1,4 @@
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
-	<?= isset($no_label) ? $no_label : ''  ?>
 	<ul>
 		<?php
 		$categories = get_the_category();
