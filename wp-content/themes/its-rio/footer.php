@@ -50,7 +50,7 @@
 				<a href="#" class="box newsletter-button">inscreva-se</a>
 			</div>
 		</div>
-		<?php include 'latest-social-content.php'; ?>
+		<?php include ROOT.'inc/latest-social-content.php'; ?>
 	</div>
 	<div class="row">
 		<div class="column large-9 large-push-3 raleway">
@@ -101,7 +101,6 @@
 	}
 </style>
 <script type="text/javascript">
-			
 			function DropDown(el) {
 				this.dd = el;
 				this.placeholder = this.dd.children('span');
@@ -113,18 +112,10 @@
 			DropDown.prototype = {
 				initEvents : function() {
 					var obj = this;
-
 					obj.dd.on('click', function(event){
 						$(this).toggleClass('active');
 						return false;
 					});
-
-					// obj.opts.on('click',function(){
-					// 	var opt = $(this);
-					// 	obj.val = opt.text();
-					// 	obj.index = opt.index();
-					// 	obj.placeholder.text('Gender: ' + obj.val);
-					// });
 				},
 				getValue : function() {
 					return this.val;
@@ -135,14 +126,10 @@
 			}
 
 			$(function() {
-
 				var dd = new DropDown( $('.single-header-drop-down') );
-
 				$(document).click(function() {
-					// all drop-downs
 					$('.single-header-drop-down').removeClass('active');
 				});
-
 			});
 			
 		</script>

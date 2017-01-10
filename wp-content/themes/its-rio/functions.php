@@ -26,6 +26,7 @@ define('YOUTUBE_ID', 'UC61OfX5yfm-G8O1sZ7TKlGQ');
 
 include 'functions/post_types.php';
 include 'functions/meta.php';
+include 'functions/ajax-calls.php';
 include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
 include 'functions/menu-footer.php';

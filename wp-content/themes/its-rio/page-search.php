@@ -4,13 +4,13 @@ $title = $_GET['title'];
 $post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp'];
 $info_areapesquisa = $_GET['info_areapesquisa'];
 
-$args = array(
-	'title_like' 	=> $title,
-	'post_type' 	=> $post_type,
-	);
+$args = ['title_like' => $title, 'post_type' => $post_type];
 
 if(isset($_GET['info_areapesquisa']))
 	$args[] = ['meta_query' => ['key' => 'info_areapesquisa', 'value' => $_GET['info_areapesquisa'], 'compare' => 'IN' ] ];
+
+if(isset($_GET['cat']))
+	$args['category__and'] = $_GET['cat'];
 
 query_posts($args);
 ?>
