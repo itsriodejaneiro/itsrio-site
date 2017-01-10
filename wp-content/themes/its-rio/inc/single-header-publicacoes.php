@@ -1,3 +1,7 @@
+<?php 
+global $lang;
+$no_label = true; 
+?>
 <div class="row row-menu header-single" <?= get_thumbnail_style($destaque_id,'full'); ?>>
 	<div class="row">
 		<div class="column large-12">
@@ -6,12 +10,14 @@
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
-			<p class="box-title">área de pesquisa</p>
-			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
+			<a href="/<?= $lang ?>/publicacoes_ctp/#<?= $meta['info_areapesquisa'][0] ?>">
+				<p class="box-title">área de pesquisa</p>
+				<p class="box"><?= get_area_pesquisa() ?></p>
+			</a>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>
-			<?php $no_label = true; include('inc/categories.php') ?>
+			<?php include('inc/categories.php') ?>
 		</div>
 	</div>
 </div>

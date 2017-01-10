@@ -7,7 +7,7 @@
 		</div>
 		<div class="column large-4">
 			<p class="box-title">área de pesquisa</p>
-			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
+			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>

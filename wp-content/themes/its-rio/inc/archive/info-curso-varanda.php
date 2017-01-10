@@ -4,7 +4,7 @@
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "| início do curso" . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "| início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
 		?>
 	</span>
 </div>
@@ -21,7 +21,7 @@
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "| início do curso" . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "| início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
 		?>
 	</span>
 </div>
