@@ -20,6 +20,9 @@
 				<li>
 					<a href="#"><i class="fa fa-medium"></i></a>
 				</li>
+				<li>
+					<a href="#"><i class="fa fa-github"></i></a>
+				</li>
 			</ul>
 		</div>
 
@@ -33,7 +36,7 @@
 			<ul>
 				<li><a href="#" class="box">equipe</a></li>
 				<li><a href="#" class="box">onde estivemos</a></li>
-				<li><a href="#" class="box">comunicados</a></li>
+				<li><a href="/<?=$lang?>/institucional/#comunicados" class="box">comunicados</a></li>
 			</ul>
 		</div>
 
