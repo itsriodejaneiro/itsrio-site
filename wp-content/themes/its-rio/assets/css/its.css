@@ -2874,10 +2874,6 @@ button.flickity-prev-next-button {
     opacity: 1; }
 
 .pessoa-info {
-  display: flex;
-  justify-content: center;
-  width: calc(100% + 80px);
-  margin-left: -40px;
   color: white;
   height: auto;
   max-height: 0px;
@@ -2886,17 +2882,36 @@ button.flickity-prev-next-button {
   font-family: 'Raleway';
   background-color: #000;
   transition: max-height .3s; }
+  @media screen and (max-width: 48em) {
+    .pessoa-info {
+      margin: 0 -20px;
+      padding: 0 20px; } }
+  @media screen and (min-width: 48.0625em) {
+    .pessoa-info {
+      display: flex;
+      justify-content: center;
+      width: calc(100% + 80px);
+      margin-left: -40px; } }
   .pessoa-info .close {
     display: none; }
   .pessoa-info .pessoa-info-content {
-    float: right;
     margin: 20px 0;
     position: relative; }
+    @media screen and (min-width: 415px) and (max-width: 768px) {
+      .pessoa-info .pessoa-info-content {
+        float: left;
+        width: 100%; } }
+    @media screen and (min-width: 48.0625em) {
+      .pessoa-info .pessoa-info-content {
+        float: right; } }
     .pessoa-info .pessoa-info-content .pessoa-thumb {
       box-sizing: border-box;
       float: left;
       margin: 0 35px 0 0;
       padding: 10px; }
+      @media screen and (max-width: 414px) {
+        .pessoa-info .pessoa-info-content .pessoa-thumb {
+          display: none; } }
       .pessoa-info .pessoa-info-content .pessoa-thumb .img {
         background-size: cover;
         background-position: center;
@@ -2905,19 +2920,30 @@ button.flickity-prev-next-button {
         height: 160px;
         width: 160px;
         outline: none; }
-    .pessoa-info .pessoa-info-content .pessoa-text {
-      float: left;
-      max-width: 480px; }
-      .pessoa-info .pessoa-info-content .pessoa-text h3 {
-        margin-bottom: 5px; }
+    @media screen and (min-width: 48.0625em) {
+      .pessoa-info .pessoa-info-content .pessoa-text {
+        float: left;
+        max-width: 480px; } }
+    .pessoa-info .pessoa-info-content .pessoa-text h2 {
+      margin-bottom: 5px; }
+      @media screen and (max-width: 48em) {
+        .pessoa-info .pessoa-info-content .pessoa-text h2 {
+          width: calc(100% - 40px); } }
   .pessoa-info.active {
-    max-height: 440px; }
+    max-height: 1000px; }
     .pessoa-info.active .pessoa-info-content .pessoa-thumb .img {
       box-shadow: 0 0 0 3px #fff, 0 0 0 7px #999, 0 0 0 11px #444; }
     .pessoa-info.active .pessoa-info-content .close {
-      display: block;
-      right: -70px;
-      margin-top: 0; }
+      display: block; }
+      @media screen and (max-width: 48em) {
+        .pessoa-info.active .pessoa-info-content .close {
+          margin-top: 0;
+          right: -10px;
+          top: -10px; } }
+      @media screen and (min-width: 48.0625em) {
+        .pessoa-info.active .pessoa-info-content .close {
+          right: -70px;
+          margin-top: 0; } }
 
 .related-content {
   background-color: #d9d9d9; }
@@ -2960,7 +2986,10 @@ button.flickity-prev-next-button {
       border-bottom: 1px solid black !important; }
 .component-tabs .component-tabs-tab {
   position: relative;
-  margin-bottom: 50px; }
+  margin-bottom: 20px; }
+  @media screen and (min-width: 48.0625em) {
+    .component-tabs .component-tabs-tab {
+      margin-bottom: 50px; } }
   .component-tabs .component-tabs-tab:last-child {
     margin-bottom: 0; }
   .component-tabs .component-tabs-tab h1 {
@@ -3007,12 +3036,13 @@ button.flickity-prev-next-button {
 .component-tabs.aulas .component-tabs-content {
   font-weight: 600; }
 
-.component-tabs.informacao .tab-content {
-  width: calc(100% - 270px); }
-  .component-tabs.informacao .tab-content .list-title {
-    width: calc(100% - 90px); }
-  .component-tabs.informacao .tab-content label.label-tab {
-    right: 110px; }
+@media screen and (min-width: 48.0625em) {
+  .component-tabs.informacao .tab-content {
+    width: calc(100% - 270px); } }
+.component-tabs.informacao .tab-content .list-title {
+  width: calc(100% - 90px); }
+.component-tabs.informacao .tab-content label.label-tab {
+  right: 110px; }
 
 .component-tabs.equipe .tab-content .component-tabs-content {
   margin: 30px 0 30px 30px; }
@@ -3034,24 +3064,34 @@ button.flickity-prev-next-button {
 .midias-thumbs img {
   cursor: pointer; }
 
-.fazer-minha-inscricao {
-  margin: 0 auto; }
-  .fazer-minha-inscricao h1 {
-    font-family: 'Raleway';
-    font-size: 36px;
-    font-weight: normal;
-    line-height: 1.33;
-    color: #9a258f; }
-  .fazer-minha-inscricao a, .fazer-minha-inscricao span {
-    font-weight: bold;
-    font-family: 'Roboto Mono';
-    display: block;
-    color: black !important; }
-  .fazer-minha-inscricao a {
-    margin: 15px 20px 10px 20px; }
-  .fazer-minha-inscricao span {
-    text-align: center;
-    font-size: 14px; }
+@media screen and (max-width: 48em) {
+  .fazer-minha-inscricao {
+    margin-bottom: 20px; } }
+@media screen and (min-width: 48.0625em) {
+  .fazer-minha-inscricao {
+    margin: 0 auto; } }
+.fazer-minha-inscricao h1 {
+  font-family: 'Raleway';
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1.33;
+  color: #9a258f; }
+.fazer-minha-inscricao a, .fazer-minha-inscricao span {
+  font-weight: bold;
+  font-family: 'Roboto Mono';
+  display: block;
+  color: black !important; }
+.fazer-minha-inscricao a {
+  margin: 20px 0 10px; }
+  @media screen and (max-width: 48em) {
+    .fazer-minha-inscricao a {
+      padding: 15px 10px; } }
+  @media screen and (min-width: 48.0625em) {
+    .fazer-minha-inscricao a {
+      margin: 15px 20px 10px 20px; } }
+.fazer-minha-inscricao span {
+  text-align: center;
+  font-size: 14px; }
 
 .work-with-us {
   margin-bottom: 60px;
