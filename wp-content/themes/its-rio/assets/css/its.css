@@ -2169,7 +2169,7 @@ h3, h4, h5 {
     top: 0;
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     margin: 0; }
 
 .menu-container {
@@ -2222,95 +2222,6 @@ h3, h4, h5 {
           font-family: 'Roboto Mono';
           font-size: 14px;
           margin-left: 5px; } }
-  .menu-container .menu-nav {
-    position: absolute;
-    bottom: 0px;
-    left: 130px; }
-    .menu-container .menu-nav .line {
-      display: none; }
-    @media only screen and (max-width: 1024px) {
-      .menu-container .menu-nav {
-        transform: translateX(-110%);
-        transition: all 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
-        left: 0;
-        width: 250px;
-        overflow: scroll;
-        height: 100%;
-        position: fixed;
-        top: 75px;
-        padding: 20px;
-        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
-        .menu-container .menu-nav * {
-          position: relative; }
-        .menu-container .menu-nav.active {
-          transform: translateX(0%); }
-        .menu-container .menu-nav::before {
-          content: '';
-          width: 1000px;
-          height: 1000px;
-          background: #ebebeb;
-          position: absolute;
-          left: -50px;
-          top: -25px; }
-        .menu-container .menu-nav .line {
-          display: block; }
-        .menu-container .menu-nav .menu-mobile-footer h3 {
-          margin-top: 20px;
-          font-size: 15px;
-          font-weight: normal; }
-        .menu-container .menu-nav .menu-mobile-footer .contato {
-          font-size: 15px; }
-        .menu-container .menu-nav .menu-mobile-footer .trending ul li {
-          line-height: 21px; }
-          .menu-container .menu-nav .menu-mobile-footer .trending ul li a {
-            color: #a6a6a6 !important;
-            line-height: auto;
-            font-size: 14px; }
-        .menu-container .menu-nav .menu-mobile-footer .redes ul li {
-          border-bottom: 0px solid transparent; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-youtube-play:after {
-            content: 'Youtube'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-instagram:after {
-            content: 'Instagram'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-twitter:after {
-            content: 'Twitter'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-facebook:after {
-            content: 'Facebook'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-medium:after {
-            content: 'Medium'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-github:after {
-            content: 'Github'; }
-          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa:after {
-            font-family: 'Roboto MOno';
-            font-size: 15px;
-            margin-left: 8px; }
-        .menu-container .menu-nav .menu-mobile-footer .line {
-          display: none; } }
-    .menu-container .menu-nav ul {
-      width: 700px; }
-      @media only screen and (max-width: 1024px) {
-        .menu-container .menu-nav ul {
-          flex-direction: column;
-          width: auto; }
-          .menu-container .menu-nav ul li {
-            font-size: 20px;
-            border-bottom-color: transparent !important; }
-            .menu-container .menu-nav ul li a {
-              color: black !important; }
-            .menu-container .menu-nav ul li.current-menu-item {
-              position: relative; }
-              .menu-container .menu-nav ul li.current-menu-item:before {
-                content: '';
-                position: absolute;
-                left: -20px;
-                background-color: black;
-                width: 12px;
-                height: 100%;
-                float: left;
-                display: block;
-                overflow: hidden; } }
-      .menu-container .menu-nav ul li {
-        border-bottom: 5px solid transparent; }
   .menu-container .menu-social ul, .menu-container .menu-nav ul {
     list-style-type: none;
     display: flex;
@@ -2322,6 +2233,101 @@ h3, h4, h5 {
         font-size: 18px; }
       .menu-container .menu-social ul li a, .menu-container .menu-nav ul li a {
         color: black; }
+
+.menu-nav {
+  position: absolute;
+  bottom: 0px;
+  left: 130px;
+  z-index: 10; }
+  .menu-nav .line {
+    display: none; }
+  @media only screen and (max-width: 1024px) {
+    .menu-nav {
+      transition: all 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
+      left: -270px;
+      width: 250px;
+      overflow: scroll;
+      height: 100%;
+      position: fixed;
+      top: 75px;
+      padding: 20px;
+      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
+      .menu-nav * {
+        position: relative; }
+      .menu-nav:after {
+        left: -270px;
+        transition: left 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01); }
+      .menu-nav.active {
+        left: 0; }
+        .menu-nav.active:after {
+          left: 0; }
+      .menu-nav::before {
+        content: '';
+        width: 1000px;
+        height: 1000px;
+        background: #ebebeb;
+        position: absolute;
+        left: -50px;
+        top: -25px; }
+      .menu-nav .line {
+        display: block; }
+      .menu-nav .menu-mobile-footer h3 {
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: normal; }
+      .menu-nav .menu-mobile-footer .contato {
+        font-size: 15px; }
+      .menu-nav .menu-mobile-footer .trending ul li {
+        line-height: 21px; }
+        .menu-nav .menu-mobile-footer .trending ul li a {
+          color: #a6a6a6 !important;
+          line-height: auto;
+          font-size: 14px; }
+      .menu-nav .menu-mobile-footer .redes ul li {
+        border-bottom: 0px solid transparent; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-youtube-play:after {
+          content: 'Youtube'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-instagram:after {
+          content: 'Instagram'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-twitter:after {
+          content: 'Twitter'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-facebook:after {
+          content: 'Facebook'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-medium:after {
+          content: 'Medium'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa-github:after {
+          content: 'Github'; }
+        .menu-nav .menu-mobile-footer .redes ul li .fa:after {
+          font-family: 'Roboto MOno';
+          font-size: 15px;
+          margin-left: 8px; }
+      .menu-nav .menu-mobile-footer .line {
+        display: none; } }
+  .menu-nav ul {
+    width: 700px; }
+    @media only screen and (max-width: 1024px) {
+      .menu-nav ul {
+        flex-direction: column;
+        width: auto; }
+        .menu-nav ul li {
+          font-size: 20px;
+          border-bottom-color: transparent !important; }
+          .menu-nav ul li a {
+            color: black !important; }
+          .menu-nav ul li.current-menu-item {
+            position: relative; }
+            .menu-nav ul li.current-menu-item:before {
+              content: '';
+              position: absolute;
+              left: -20px;
+              background-color: black;
+              width: 12px;
+              height: 100%;
+              float: left;
+              display: block;
+              overflow: hidden; } }
+    .menu-nav ul li {
+      border-bottom: 5px solid transparent; }
 
 #content_all {
   position: relative; }
@@ -3477,13 +3483,12 @@ button.flickity-prev-next-button {
   content: "\f078";
   position: fixed;
   text-align: center;
-  bottom: 0;
-  left: 0px;
+  bottom: -15px;
   padding: 8px 0px;
   z-index: 11100000;
   background-color: black;
   font-family: 'FontAwesome';
-  width: 100%;
+  width: 250px;
   background-color: #ebebeb;
   background: -webkit-linear-gradient(top, #ebebeb 0%, #a4a4a4 100%);
   background: linear-gradient(to bottom, #ebebeb 0%, #a4a4a4 100%);
