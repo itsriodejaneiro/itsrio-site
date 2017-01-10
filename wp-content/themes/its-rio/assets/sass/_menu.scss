@@ -43,7 +43,7 @@
 		font-size: 20px;
 		bottom: 10px;
 
-		@media #{$medium-up}{
+		@media #{$large-up}{
 			position: absolute;
 			&::after{
 				content: 'buscar';
@@ -59,7 +59,9 @@
 		bottom: 0px;
 		left: 130px;
 		
-		@media #{$small-only}{
+		.line{ display: none; }
+
+		@media #{$small-medium}{
 			transform: translateX(-110%);
 			transition: all .5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
 			left: 0;
@@ -73,7 +75,9 @@
 
 			* { position: relative; }
 
-			&.active { transform: translateX(0%); }
+			&.active { 
+				transform: translateX(0%); 
+			}
 
 			&::before{
 				content: '';
@@ -84,6 +88,8 @@
 				left: -50px;
 				top: -25px;
 			}
+
+			.line{ display: block; }
 
 			.menu-mobile-footer{
 				h3 {    
@@ -115,17 +121,18 @@
 						margin-left: 8px;
 					}
 				}
-				.line { display: none; }
+
+				.line{ display: none; }
+
 			}
 		}
 
 		ul {
 			width: 700px;
 
-			@media #{$small-only}{
+			@media #{$small-medium}{
 				flex-direction: column;	
 				width: auto;
-				
 
 				li { 
 					font-size: 20px; 
