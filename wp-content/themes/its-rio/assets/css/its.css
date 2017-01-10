@@ -2694,8 +2694,9 @@ button.flickity-prev-next-button {
   @media screen and (max-width: 48em) {
     .header-single {
       box-shadow: inset 0px 1px 10px 0 rgba(0, 0, 0, 0.5);
-      height: auto;
-      padding: 40px 20px 25px; } }
+      height: 360px; }
+      .header-single .column, .header-single .columns {
+        padding: 0 20px; } }
   .header-single:before {
     top: 0;
     width: 100%;
@@ -3235,6 +3236,11 @@ button.flickity-prev-next-button {
   text-align: center;
   width: 40px; }
 
+@media screen and (max-width: 48em) {
+  .single-cursos_ctp .highlights .color-hover, .single-cursos_ctp .highlights .info, .post-type-archive-cursos_ctp .highlights .color-hover, .post-type-archive-cursos_ctp .highlights .info {
+    background-color: #9a258f !important; }
+  .single-cursos_ctp .highlights .categories.black ul li:hover a, .post-type-archive-cursos_ctp .highlights .categories.black ul li:hover a {
+    color: #9a258f !important; } }
 .single-cursos_ctp .highlights:hover .color-hover, .single-cursos_ctp .highlights:hover .info, .post-type-archive-cursos_ctp .highlights:hover .color-hover, .post-type-archive-cursos_ctp .highlights:hover .info {
   background-color: #9a258f !important; }
 .single-cursos_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-cursos_ctp .highlights:hover .categories.black ul li:hover a {
@@ -3249,6 +3255,11 @@ button.flickity-prev-next-button {
 .single-cursos_ctp .header-single-menu, .single-cursos_ctp .header-single, .post-type-archive-cursos_ctp .header-single-menu, .post-type-archive-cursos_ctp .header-single {
   background-color: #9A248E !important; }
 
+@media screen and (max-width: 48em) {
+  .single-varandas_ctp .highlights .color-hover, .single-varandas_ctp .highlights .info, .post-type-archive-varandas_ctp .highlights .color-hover, .post-type-archive-varandas_ctp .highlights .info {
+    background-color: #00958a; }
+  .single-varandas_ctp .highlights .categories.black ul li:hover a, .post-type-archive-varandas_ctp .highlights .categories.black ul li:hover a {
+    color: #00958a !important; } }
 .single-varandas_ctp .highlights:hover .color-hover, .single-varandas_ctp .highlights:hover .info, .post-type-archive-varandas_ctp .highlights:hover .color-hover, .post-type-archive-varandas_ctp .highlights:hover .info {
   background-color: #00958a; }
 .single-varandas_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-varandas_ctp .highlights:hover .categories.black ul li:hover a {
@@ -3261,6 +3272,11 @@ button.flickity-prev-next-button {
 .single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single, .single-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single, .post-type-archive-varandas_ctp .header-single:before {
   background-color: #00958a !important; }
 
+@media screen and (max-width: 48em) {
+  .single-publicacoes_ctp .highlights .color-hover, .single-publicacoes_ctp .highlights .info, .post-type-archive-publicacoes_ctp .highlights .color-hover, .post-type-archive-publicacoes_ctp .highlights .info {
+    background-color: #f5821f; }
+  .single-publicacoes_ctp .highlights .categories.black ul li:hover a, .post-type-archive-publicacoes_ctp .highlights .categories.black ul li:hover a {
+    color: #f5821f !important; } }
 .single-publicacoes_ctp .highlights:hover .color-hover, .single-publicacoes_ctp .highlights:hover .info, .post-type-archive-publicacoes_ctp .highlights:hover .color-hover, .post-type-archive-publicacoes_ctp .highlights:hover .info {
   background-color: #f5821f; }
 .single-publicacoes_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-publicacoes_ctp .highlights:hover .categories.black ul li:hover a {
@@ -3275,6 +3291,11 @@ button.flickity-prev-next-button {
 .single-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single {
   background-image: url("../images/publications-default-bg.png"); }
 
+@media screen and (max-width: 48em) {
+  .single-projetos_ctp .highlights .color-hover, .single-projetos_ctp .highlights .info, .post-type-archive-projetos_ctp .highlights .color-hover, .post-type-archive-projetos_ctp .highlights .info {
+    background-color: #522e91; }
+  .single-projetos_ctp .highlights .categories.black ul li:hover a, .post-type-archive-projetos_ctp .highlights .categories.black ul li:hover a {
+    color: #522e91 !important; } }
 .single-projetos_ctp .highlights:hover .color-hover, .single-projetos_ctp .highlights:hover .info, .post-type-archive-projetos_ctp .highlights:hover .color-hover, .post-type-archive-projetos_ctp .highlights:hover .info {
   background-color: #522e91; }
 .single-projetos_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-projetos_ctp .highlights:hover .categories.black ul li:hover a {
@@ -3339,6 +3360,13 @@ button.flickity-prev-next-button {
 .highlights:hover.type-publicacoes_ctp .color-hover, .highlights:hover.type-publicacoes_ctp .info {
   background-color: #f5821f; }
 
+@media screen and (max-width: 48em) {
+  .archive .highlights .color-hover {
+    opacity: 0.5 !important; }
+  .archive .highlights .info a, .archive .highlights .info h2, .archive .highlights .info .box {
+    color: #fff !important; }
+  .archive .highlights .info .box {
+    border-color: #fff !important; } }
 .curved-shadow {
   position: absolute; }
   .curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:active:before, .curved-shadow:active:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
