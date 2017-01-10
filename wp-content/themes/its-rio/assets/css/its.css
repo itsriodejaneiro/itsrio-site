@@ -4652,6 +4652,10 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   }
 }
 
+.scrollable.scrollable-bottom:after {
+  content: "\f077";
+}
+
 .scrollable:after {
   content: "\f078";
   position: fixed;

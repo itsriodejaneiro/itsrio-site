@@ -119,7 +119,9 @@
     @media #{$large-only}{
         display: none;
     }
-
+    &.scrollable-bottom:after{
+        content: "\f077";
+    }
     &:after{
         content: "\f078";
         position: fixed;

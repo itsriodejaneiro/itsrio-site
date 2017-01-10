@@ -84,17 +84,19 @@
 				</ul>
 			</div>
 			<nav class="menu-nav hide-for-medium">
-				<ul>
-					<?php wp_nav_menu('main') ?>
-				</ul>
-				<div class="line"></div>
-				<div class="menu-mobile-footer show-for-small-only">
-					<div class="redes"></div>
-					<div class="contato">
-						<h3>contato</h3>
-						<?= esc_attr(get_option('footer_contacts')) ?>
+				<div>
+					<ul>
+						<?php wp_nav_menu('main') ?>
+					</ul>
+					<div class="line"></div>
+					<div class="menu-mobile-footer show-for-small-only">
+						<div class="redes"></div>
+						<div class="contato">
+							<h3>contato</h3>
+							<?= esc_attr(get_option('footer_contacts')) ?>
+						</div>
+						<div class="trending"></div>
 					</div>
-					<div class="trending"></div>
 				</div>
 			</nav>
 			<i class="search-button fa fa-search" onclick="jQuery('.search-box').removeClass('hide');"></i>

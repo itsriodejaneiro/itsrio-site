@@ -198,9 +198,7 @@ new Vue({
         if (menu_nav.hasScrollBar()) {
             menu_nav.addClass('scrollable');
             menu_nav.scroll(function () {
-                if (menu_nav.scrollTop() + menu_nav.height() == $(document).height()) {
-                    alert("bottom!");
-                }
+                if ($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop()) menu_nav.addClass('scrollable-bottom');else menu_nav.removeClass('scrollable-bottom');
             });
         }
     }
