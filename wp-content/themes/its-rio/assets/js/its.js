@@ -34,6 +34,33 @@ Vue.prototype.filters = {
     }
 };
 
+Vue.component('its-search', {
+    data: function data() {
+        return {
+            title: '',
+            ctp: [],
+            info_areapesquisa: [],
+            cat: [],
+            list_cats: [],
+            advanced: false
+        };
+    },
+
+    watch: {
+        ctp: function ctp() {
+            var _this = this;
+            if (this.ctp.indexOf('projetos_ctp') > -1 || this.ctp.indexOf('publicacoes_ctp') > -1) $('#info_areapesquisa').removeClass('hide');else $('#info_areapesquisa').addClass('hide');
+        }
+    },
+    methods: {
+        cleanFilters: function cleanFilters() {
+            this.ctp = [];
+            this.info_areapesquisa = [];
+            this.cat = [];
+        }
+    }
+});
+
 Vue.component('its-aulas', {
     data: function data() {
         return { aulas: aulas };

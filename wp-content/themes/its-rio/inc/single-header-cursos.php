@@ -1,8 +1,11 @@
+<?php 
+$no_label = true; 
+?>
 <div class="row row-menu header-single" <?= get_thumbnail_style(get_the_ID(),'full'); ?>>
 	<div class="row">
 		<div class="column small-12">
 			<h1><?php the_title() ?></h1>
-			<?php $label = 'professores'; include('palestrantes.php'); wp_reset_postdata(); ?>
+			<?php $label = 'professores'; include(ROOT.'inc/palestrantes.php'); wp_reset_postdata(); ?>
 			<div class="line"></div>
 		</div>
 		<div class="column small-12 medium-4">
@@ -28,13 +31,13 @@
 		</div>
 		<div class="column small-12 medium-4 end">
 			<p class="box-title show-for-medium">categorias</p>
-			<?php $no_label = true; include('categories.php') ?>
+			<?php include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>
 </div>
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
-		<?php include(ROOT . 'inc/single/menu.php') ?>
+		<?php include(ROOT.'inc/single/menu.php') ?>
 		<div class="sidebar">
 			<?php if(!$closed): ?>
 				<a href="#" class="button large curved-shadow">inscreva-se</a>

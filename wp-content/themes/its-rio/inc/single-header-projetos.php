@@ -7,17 +7,17 @@
 		</div>
 		<div class="column large-4">
 			<p class="box-title">área de pesquisa</p>
-			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
+			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>
-			<?php $no_label = true; include('inc/categories.php') ?>
+			<?php $no_label = true; include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>
 </div>
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
-		<?php include(ROOT . 'inc/single/menu.php') ?>
+		<?php include(ROOT.'inc/single/menu.php') ?>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

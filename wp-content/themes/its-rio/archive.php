@@ -4,6 +4,8 @@ get_header();
 <div class="row">
 	<?php
 	$destaque_id = 0; 
+	$no_label = true;
+	$cat_classes = 'black';
 
 	$args = array(
 		'posts_per_page' => 1,
@@ -84,50 +86,21 @@ get_header();
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
 								<div class="header">
-									<div class="horario show-for-small-only">
-										<span class="box">
-											<?php
-											if($postType == 'cursos_ctp'){
-												?>
-												inscrições até
-												<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-												<?php
-											} elseif($postType == 'varandas_ctp')
-											echo $meta['info_datahorario'][0];
-											?>
-										</span>
-									</div>
-									<div class="info-left">
-										<h2><?= the_title(); ?></h2>
-										<div class="show-for-medium">
-											<?php include('inc/palestrantes.php'); $posts->reset_postdata(); ?>
-										</div>
-									</div>
-									<div class="info-right horario show-for-medium">
-										<p><b>data</b></p>
-										<span class="box">
-											<?php
-											if($postType == 'cursos_ctp'){
-												?>
-												inscrições até
-												<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
-												| início do curso
-												<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
-												<?php
-											}elseif($postType == 'varandas_ctp')
-											echo $meta['info_datahorario'][0];
-											?>
-										</span>
-									</div>
+									<?php 
+									if(in_array($postType, ['cursos_ctp','varandas_ctp']))
+										include ROOT.'inc/archive/info-curso-varanda.php';
+									else
+										include ROOT.'inc/archive/info-projeto-publi.php';
+									?>
 								</div>
 							</a>
 							<div class="line show-for-medium"></div>
 							<div class="column large-12 no-p show-for-medium">
-								<?php $cat_classes = 'black'; include('inc/categories.php'); ?>
+								<?php include('inc/categories.php'); ?>
 							</div>
 						</div>
 						<div class="categories-wrapper show-for-small-only">
-							<?php $cat_classes = 'black'; include('inc/categories.php'); ?>
+							<?php include('inc/categories.php'); ?>
 						</div>
 						<a href="<?= get_permalink() ?>" class="post-link"></a>
 					</div>

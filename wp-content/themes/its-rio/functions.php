@@ -26,6 +26,7 @@ define('YOUTUBE_ID', 'UC61OfX5yfm-G8O1sZ7TKlGQ');
 
 include 'functions/post_types.php';
 include 'functions/meta.php';
+include 'functions/ajax-calls.php';
 include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
 include 'functions/menu-footer.php';
@@ -100,9 +101,9 @@ function curl($url){
 
 function str_replace_first($from, $to, $subject)
 {
-    $from = '/'.preg_quote($from, '/').'/';
+	$from = '/'.preg_quote($from, '/').'/';
 
-    return preg_replace($from, $to, $subject, 1);
+	return preg_replace($from, $to, $subject, 1);
 }
 
 
@@ -116,34 +117,41 @@ function limit_excerpt($s, $max_length){
 	return $s;
 }
 
+function get_area_pesquisa($i){
+	global $meta;
+	$i = $meta['info_areapesquisa'][0];
+	$a = ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'];
+	return $a[$i];
+}
+
 function clear_divi_cache($hook){
-    global $post; 
-    if ($hook == 'post-new.php' || $hook == 'post.php') {
-        if ('pessoas' === $post->post_type ) { 
-            echo "<script>window.localStorage.clear();</script>";
-        }
-    }
+	global $post; 
+	if ($hook == 'post-new.php' || $hook == 'post.php') {
+		if ('pessoas' === $post->post_type ) { 
+			echo "<script>window.localStorage.clear();</script>";
+		}
+	}
 }
 add_action('admin_enqueue_scripts', 'clear_divi_cache');
 
 // Removes from admin menu
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
-    remove_menu_page( 'edit-comments.php' );
+	remove_menu_page( 'edit-comments.php' );
 }
 // Removes from post and pages
 add_action('init', 'remove_comment_support', 100);
 
 function remove_comment_support() {
-    remove_post_type_support( 'post', 'comments' );
-    remove_post_type_support( 'page', 'comments' );
+	remove_post_type_support( 'post', 'comments' );
+	remove_post_type_support( 'page', 'comments' );
 }
 
 
 // Removes from admin bar
 function mytheme_admin_bar_render() {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('comments');
 }
 add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 
@@ -151,21 +159,21 @@ add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
 function wpse22764_gettext( $translation, $original )
 {
-    if ( 'Excerpt' == $original ) 
-        return 'Subtítulo';
-    
-    return $translation;
+	if ( 'Excerpt' == $original ) 
+		return 'Subtítulo';
+
+	return $translation;
 }
 
 //PARA A TELA DE BUSCA
 add_filter( 'posts_where', 'LIKE_posts_where', 10, 2 );
 function LIKE_posts_where( $where, &$wp_query )
 {
-    global $wpdb;
-    if ( $title_like = $wp_query->get( 'title_like' ) ) {
-        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $title_like ) ) . '%\'';
-    }
-    return $where;
+	global $wpdb;
+	if ( $title_like = $wp_query->get( 'title_like' ) ) {
+		$where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( $wpdb->esc_like( $title_like ) ) . '%\'';
+	}
+	return $where;
 }
 
 

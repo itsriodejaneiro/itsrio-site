@@ -2004,7 +2004,7 @@ p, hr {
       .list-item .categories {
         left: 20px; } }
     .list-item .categories ul {
-      margin-right: 5px; }
+      margin-left: 5px; }
       .list-item .categories ul li + li {
         margin-left: 5px; }
 
@@ -2233,101 +2233,100 @@ h3, h4, h5 {
         font-size: 18px; }
       .menu-container .menu-social ul li a, .menu-container .menu-nav ul li a {
         color: black; }
-
-.menu-nav {
-  position: absolute;
-  bottom: 0px;
-  left: 130px;
-  z-index: 10; }
-  .menu-nav .line {
-    display: none; }
-  @media only screen and (max-width: 1024px) {
-    .menu-nav {
-      transition: all 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
-      left: -270px;
-      width: 250px;
-      overflow: scroll;
-      height: 100%;
-      position: fixed;
-      top: 75px;
-      padding: 20px;
-      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
-      .menu-nav * {
-        position: relative; }
-      .menu-nav:after {
-        left: -270px;
-        transition: left 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01); }
-      .menu-nav.active {
-        left: 0; }
-        .menu-nav.active:after {
-          left: 0; }
-      .menu-nav::before {
-        content: '';
-        width: 1000px;
-        height: 1000px;
-        background: #ebebeb;
-        position: absolute;
-        left: -50px;
-        top: -25px; }
-      .menu-nav .line {
-        display: block; }
-      .menu-nav .menu-mobile-footer h3 {
-        margin-top: 20px;
-        font-size: 15px;
-        font-weight: normal; }
-      .menu-nav .menu-mobile-footer .contato {
-        font-size: 15px; }
-      .menu-nav .menu-mobile-footer .trending ul li {
-        line-height: 21px; }
-        .menu-nav .menu-mobile-footer .trending ul li a {
-          color: #a6a6a6 !important;
-          line-height: auto;
-          font-size: 14px; }
-      .menu-nav .menu-mobile-footer .redes ul li {
-        border-bottom: 0px solid transparent; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-youtube-play:after {
-          content: 'Youtube'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-instagram:after {
-          content: 'Instagram'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-twitter:after {
-          content: 'Twitter'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-facebook:after {
-          content: 'Facebook'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-medium:after {
-          content: 'Medium'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa-github:after {
-          content: 'Github'; }
-        .menu-nav .menu-mobile-footer .redes ul li .fa:after {
-          font-family: 'Roboto MOno';
-          font-size: 15px;
-          margin-left: 8px; }
-      .menu-nav .menu-mobile-footer .line {
-        display: none; } }
-  .menu-nav ul {
-    width: 700px; }
+  .menu-container .menu-nav {
+    position: absolute;
+    bottom: 0px;
+    left: 130px;
+    z-index: 10; }
+    .menu-container .menu-nav .line {
+      display: none; }
     @media only screen and (max-width: 1024px) {
-      .menu-nav ul {
-        flex-direction: column;
-        width: auto; }
-        .menu-nav ul li {
-          font-size: 20px;
-          border-bottom-color: transparent !important; }
-          .menu-nav ul li a {
-            color: black !important; }
-          .menu-nav ul li.current-menu-item {
-            position: relative; }
-            .menu-nav ul li.current-menu-item:before {
-              content: '';
-              position: absolute;
-              left: -20px;
-              background-color: black;
-              width: 12px;
-              height: 100%;
-              float: left;
-              display: block;
-              overflow: hidden; } }
-    .menu-nav ul li {
-      border-bottom: 5px solid transparent; }
+      .menu-container .menu-nav {
+        transition: all 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
+        left: -270px;
+        width: 250px;
+        overflow: scroll;
+        height: 100%;
+        position: fixed;
+        top: 75px;
+        padding: 20px;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
+        .menu-container .menu-nav * {
+          position: relative; }
+        .menu-container .menu-nav:after {
+          left: -270px;
+          transition: left 0.5s cubic-bezier(0.53, 0.04, 0.1, 1.01); }
+        .menu-container .menu-nav.active {
+          left: 0; }
+          .menu-container .menu-nav.active:after {
+            left: 0; }
+        .menu-container .menu-nav::before {
+          content: '';
+          width: 1000px;
+          height: 1000px;
+          background: #ebebeb;
+          position: absolute;
+          left: -50px;
+          top: -25px; }
+        .menu-container .menu-nav .line {
+          display: block; }
+        .menu-container .menu-nav .menu-mobile-footer h3 {
+          margin-top: 20px;
+          font-size: 15px;
+          font-weight: normal; }
+        .menu-container .menu-nav .menu-mobile-footer .contato {
+          font-size: 15px; }
+        .menu-container .menu-nav .menu-mobile-footer .trending ul li {
+          line-height: 21px; }
+          .menu-container .menu-nav .menu-mobile-footer .trending ul li a {
+            color: #a6a6a6 !important;
+            line-height: auto;
+            font-size: 14px; }
+        .menu-container .menu-nav .menu-mobile-footer .redes ul li {
+          border-bottom: 0px solid transparent; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-youtube-play:after {
+            content: 'Youtube'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-instagram:after {
+            content: 'Instagram'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-twitter:after {
+            content: 'Twitter'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-facebook:after {
+            content: 'Facebook'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-medium:after {
+            content: 'Medium'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa-github:after {
+            content: 'Github'; }
+          .menu-container .menu-nav .menu-mobile-footer .redes ul li .fa:after {
+            font-family: 'Roboto MOno';
+            font-size: 15px;
+            margin-left: 8px; }
+        .menu-container .menu-nav .menu-mobile-footer .line {
+          display: none; } }
+    .menu-container .menu-nav ul {
+      width: 700px; }
+      @media only screen and (max-width: 1024px) {
+        .menu-container .menu-nav ul {
+          flex-direction: column;
+          width: auto; }
+          .menu-container .menu-nav ul li {
+            font-size: 20px;
+            border-bottom-color: transparent !important; }
+            .menu-container .menu-nav ul li a {
+              color: black !important; }
+            .menu-container .menu-nav ul li.current-menu-item {
+              position: relative; }
+              .menu-container .menu-nav ul li.current-menu-item:before {
+                content: '';
+                position: absolute;
+                left: -20px;
+                background-color: black;
+                width: 12px;
+                height: 100%;
+                float: left;
+                display: block;
+                overflow: hidden; } }
+      .menu-container .menu-nav ul li {
+        border-bottom: 5px solid transparent; }
 
 #content_all {
   position: relative; }
@@ -3483,7 +3482,7 @@ button.flickity-prev-next-button {
   content: "\f078";
   position: fixed;
   text-align: center;
-  bottom: -15px;
+  bottom: 0;
   padding: 8px 0px;
   z-index: 11100000;
   background-color: black;
@@ -3621,28 +3620,28 @@ footer {
       vertical-align: sub; } }
 
 .search-box {
-  background-color: rgba(150, 150, 150, 0.98);
-  box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  position: absolute;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  z-index: 10; }
+  z-index: 10;
+  position: absolute;
+  background-color: rgba(150, 150, 150, 0.98);
+  box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5); }
   .search-box .close-button {
-    position: absolute;
     top: 50px;
-    right: 30px; }
+    right: 30px;
+    position: absolute; }
     .search-box .close-button .icon {
-      border: 1px solid #000;
-      border-radius: 100%;
-      display: inline-block;
-      font-family: 'Raleway', sans-serif;
+      width: 20px;
+      height: 20px;
       font-size: 26px;
       line-height: 0.6;
-      height: 20px;
+      border-radius: 100%;
+      display: inline-block;
+      border: 1px solid #000;
       vertical-align: middle;
-      width: 20px; }
+      font-family: 'Raleway', sans-serif; }
   .search-box .search-label {
     display: block;
     margin-top: 50px;
@@ -3650,17 +3649,17 @@ footer {
   .search-box h2 {
     font-size: 20px; }
   .search-box #search {
-    background-color: transparent;
     border: 0;
-    border-bottom: 4px solid #000;
+    width: 80%;
     float: left;
-    font-family: 'Raleway', sans-serif;
     font-size: 36px;
+    max-width: 820px;
     font-weight: bold;
     margin: 15px 0 50px;
-    max-width: 820px;
     padding-bottom: 5px;
-    width: 80%; }
+    background-color: transparent;
+    border-bottom: 4px solid #000;
+    font-family: 'Raleway', sans-serif; }
     .search-box #search::placeholder {
       color: #555; }
     .search-box #search::-webkit-input-placeholder {
@@ -3682,9 +3681,22 @@ footer {
       font-size: 32px;
       line-height: 0;
       vertical-align: sub; }
+    .search-box .advanced-search .fa-angle-up {
+      display: none; }
+    .search-box .advanced-search .fa-angle-down {
+      display: block; }
+    .search-box .advanced-search.active .fa-angle-up {
+      display: block; }
+    .search-box .advanced-search.active .fa-angle-down {
+      display: none; }
   .search-box .filter-options {
     clear: both;
-    max-width: 820px; }
+    max-width: 820px;
+    height: 0;
+    overflow: hidden;
+    transition: height .4s ease-in-out; }
+    .search-box .filter-options.active {
+      height: 450px; }
     .search-box .filter-options h3 {
       float: left;
       font-family: 'Raleway', sans-serif;

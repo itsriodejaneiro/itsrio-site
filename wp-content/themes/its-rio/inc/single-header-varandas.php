@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
-			<?php $label = 'palestrantes'; include('palestrantes.php'); wp_reset_postdata(); ?>
+			<?php $label = 'palestrantes'; include(ROOT.'inc/palestrantes.php'); wp_reset_postdata(); ?>
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
@@ -20,11 +20,11 @@
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">área de pesquisa</p>
-			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
+			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title show-for-medium">categorias</p>
-			<?php $no_label = true; include('categories.php') ?>
+			<?php $no_label = true; include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>
 </div>

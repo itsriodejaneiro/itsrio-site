@@ -1,6 +1,7 @@
 <div class="main-carousel-wrapper column small-12">
 	<div class="main-carousel">
 		<?php
+		global $titles; 
 		if ($query->have_posts() ) {
 			while( $query->have_posts() ) {
 				$query->the_post();
