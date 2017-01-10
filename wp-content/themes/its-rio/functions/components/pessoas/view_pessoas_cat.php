@@ -48,7 +48,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="work-with-us">
+		<div class="content-area work-with-us">
 			<a href="" class="button large purple curved-shadow">trabalhe conosco</a>
 		</div>
 	</div>

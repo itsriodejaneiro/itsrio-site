@@ -76,6 +76,9 @@
 					<li>
 						<a href="#"><i class="fa fa-medium"></i></a>
 					</li>
+					<li>
+						<a href="#"><i class="fa fa-github"></i></a>
+					</li>
 					<li class="text">
 						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a> 
 						| 
@@ -83,7 +86,7 @@
 					</li>
 				</ul>
 			</div>
-			<nav class="menu-nav hide-for-medium">
+			<nav class="menu-nav ">
 				<div>
 					<ul>
 						<?php wp_nav_menu('main') ?>

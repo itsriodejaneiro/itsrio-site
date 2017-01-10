@@ -13,7 +13,7 @@ $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
 
-$data = [ 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
+$data = ['its_tabs' => [], 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
 $components = [];
 
 $title = '';

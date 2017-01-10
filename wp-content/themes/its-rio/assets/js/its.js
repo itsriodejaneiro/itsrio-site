@@ -7,7 +7,11 @@ var Vue = require('vue');
 
 (function ($) {
     $.fn.hasScrollBar = function () {
-        return this.get(0).scrollHeight > this.innerHeight();
+        try {
+            return this.get(0).scrollHeight > this.innerHeight();
+        } catch (e) {
+            return '';
+        }
     };
 })(jQuery);
 
@@ -44,6 +48,15 @@ Vue.component('its-map', {
     methods: {
         openMarker: function openMarker(marker, obj) {
             this.selectedMarker = marker;
+            var el = $('.map-info');
+            var elOffset = el.offset().top;
+            var elHeight = el.height();
+            var windowHeight = $(window).height();
+            var offset;
+            if (elHeight < windowHeight) offset = elOffset - (windowHeight / 2 - elHeight / 2);else offset = elOffset;
+            $('html, body').animate({
+                scrollTop: offset
+            }, 300);
         },
         closeMarker: function closeMarker() {
             this.selectedMarker = false;
@@ -109,6 +122,8 @@ new Vue({
 
         $('.related-post .large-4:gt(2)').hide();
 
+        if (location.hash == '#comunicados') $('.comunicados h2 > a').trigger('click');
+
         $('.comunicados h2 > a').click(function () {
             if ($(this).text().indexOf("ver") > -1) {
                 $('.content-area:not(.comunicados)').hide();
@@ -133,13 +148,12 @@ new Vue({
             });
         });
 
-        //Fixa o menu interno no menu global ao dar scroll
         var menu = $('.header-single-menu');
-
+        var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
         $(window).scroll(function () {
             if (typeof menu.position() != "undefined") {
-                var top = menu.position().top;
-                if ($(this).scrollTop() >= top - 65) menu.addClass('fixed');else menu.removeClass('fixed');
+                //Fixa o menu interno no menu global ao dar scroll
+                if ($(this).scrollTop() >= top) menu.addClass('fixed');else menu.removeClass('fixed');
 
                 var scrollPos = $(document).scrollTop() + 100;
                 $('.single-menu a').each(function () {
@@ -148,6 +162,7 @@ new Vue({
                     if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
                         $('.single-menu ul li a').removeClass("active");
                         currLink.addClass("active");
+                        site_data.single_menu_active = currLink.parent().index();
                     } else currLink.removeClass("active");
                 });
             }
@@ -200,6 +215,13 @@ new Vue({
             menu_nav.scroll(function () {
                 if ($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop()) menu_nav.addClass('scrollable-bottom');else menu_nav.removeClass('scrollable-bottom');
             });
+        }
+    },
+
+    methods: {
+        changeSingleMenu: function changeSingleMenu(i) {
+            this.single_menu_active = i;
+            $('.single-menu').removeClass('active');
         }
     }
 });
