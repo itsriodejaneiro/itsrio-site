@@ -6,7 +6,7 @@ $no_label = true;
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
-			<p class="excerpt"><?= the_excerpt(); ?></p>
+			<p class="excerpt"><?= isset($meta['datapubli'][0]) && $meta['datapubli'][0] != '' ? $meta['datapubli'][0] : '' ?></p>
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">
@@ -17,14 +17,14 @@ $no_label = true;
 		</div>
 		<div class="column large-4 end">
 			<p class="box-title">categorias</p>
-			<?php include('inc/categories.php') ?>
+			<?php include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>
 </div>
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php 
-		include(ROOT . 'inc/single/menu.php');
+		include(ROOT.'inc/single/menu.php');
 		if(isset($meta['pdf']) && $meta['pdf'][0] != ''){
 			?>
 			<div class="sidebar">
