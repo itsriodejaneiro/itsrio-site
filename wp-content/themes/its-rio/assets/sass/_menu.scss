@@ -75,7 +75,9 @@
 
 			* { position: relative; }
 
-			&.active { transform: translateX(0%); }
+			&.active { 
+				transform: translateX(0%); 
+			}
 
 			&::before{
 				content: '';

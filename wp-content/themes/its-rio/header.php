@@ -83,12 +83,12 @@
 					</li>
 				</ul>
 			</div>
-			<nav class="menu-nav">
+			<nav class="menu-nav hide-for-medium">
 				<ul>
 					<?php wp_nav_menu('main') ?>
 				</ul>
 				<div class="line"></div>
-				<div class="menu-mobile-footer hide-for-large">
+				<div class="menu-mobile-footer show-for-small-only">
 					<div class="redes"></div>
 					<div class="contato">
 						<h3>contato</h3>
