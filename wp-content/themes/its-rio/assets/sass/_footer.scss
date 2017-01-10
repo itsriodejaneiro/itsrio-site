@@ -44,6 +44,7 @@ footer{
 		ul {
 			display: flex;
     		justify-content: space-between;
+    		max-width: 355px;
     		.fa {
     			font-size: 24px;
     		}

@@ -23,7 +23,7 @@
 			<p class="box"><?= $meta['info_areapesquisa'][0] ?></p>
 		</div>
 		<div class="column large-4 end">
-			<p class="box-title">categorias</p>
+			<p class="box-title show-for-medium">categorias</p>
 			<?php $no_label = true; include('categories.php') ?>
 		</div>
 	</div>

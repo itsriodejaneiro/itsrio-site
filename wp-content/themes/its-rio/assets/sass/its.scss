@@ -147,8 +147,11 @@ p, hr{
 		color: #fff;
 		position: absolute;
 		bottom: 10px;
-		left: 20px;
+		left: 10px;
 		z-index: 1;
+		@include breakpoint(medium) {
+			left: 20px;
+		}
 		ul {
 			margin-right: 5px;
 			li + li {
