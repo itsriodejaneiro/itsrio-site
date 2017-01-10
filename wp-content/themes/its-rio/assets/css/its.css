@@ -3366,7 +3366,10 @@ button.flickity-prev-next-button {
   .archive .highlights .info a, .archive .highlights .info h2, .archive .highlights .info .box {
     color: #fff !important; }
   .archive .highlights .info .box {
-    border-color: #fff !important; } }
+    border-color: #fff !important; }
+
+  .list-item .img .color-hover {
+    opacity: 0.5 !important; } }
 .curved-shadow {
   position: absolute; }
   .curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:active:before, .curved-shadow:active:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
