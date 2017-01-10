@@ -2175,18 +2175,23 @@ h3, h4, h5 {
 .menu-container {
   height: 75px;
   box-shadow: 0 4px 7px -5px black;
-  padding: 17px 35px;
+  padding: 20px 14px;
   position: relative;
   z-index: 20;
   background-color: #eee;
   display: flex;
   align-items: center;
   justify-content: space-between; }
+  @media screen and (min-width: 48.0625em) {
+    .menu-container {
+      padding: 17px 35px; } }
   @media screen and (min-width: 64em) {
     .menu-container {
       display: block; }
       .menu-container img {
         float: left; } }
+  .menu-container .fa-bars {
+    font-size: 25px; }
   .menu-container .menu-social {
     position: absolute;
     right: 35px;
@@ -2204,8 +2209,11 @@ h3, h4, h5 {
   .menu-container .search-button {
     cursor: pointer;
     right: 35px;
-    font-size: 20px;
+    font-size: 25px;
     bottom: 10px; }
+    @media screen and (min-width: 48.0625em) {
+      .menu-container .search-button {
+        font-size: 20px; } }
     @media screen and (min-width: 64em) {
       .menu-container .search-button {
         position: absolute; }
@@ -2663,8 +2671,7 @@ button.flickity-prev-next-button {
   margin-top: 30px !important; }
 @media screen and (max-width: 48em) {
   .archive .highlights .categories {
-    color: #fff !important;
-    margin-left: 10px; } }
+    color: #fff !important; } }
 @media screen and (min-width: 48.0625em) {
   .archive .highlights .categories {
     margin-top: 8px; } }

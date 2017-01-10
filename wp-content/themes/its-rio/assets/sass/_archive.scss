@@ -282,7 +282,6 @@ button.flickity-prev-next-button {
 		.categories {
 			@include breakpoint(small only) {
 				color: #fff !important;
-				margin-left: 10px;
 			}
 			@include breakpoint(medium) {
 				margin-top: 8px;

@@ -1,7 +1,7 @@
 .menu-container{
 	height: 75px;
 	box-shadow: 0 4px 7px -5px black;
-	padding: 17px 35px; //estranho
+	padding: 20px 14px;
 	position: relative;
 	z-index: 20;
 	background-color: #eee;
@@ -9,11 +9,18 @@
 	align-items: center;
 	justify-content: space-between;
 
+	@include breakpoint(medium) {
+		padding: 17px 35px; //estranho
+	}
+
 	@media#{$large-up}{
 		img{ float: left; }
 		display: block;
 	}
 
+	.fa-bars {
+		font-size: 25px;
+	}
 
 	.menu-social {
 		position: absolute;
@@ -40,9 +47,11 @@
 	.search-button {
 		cursor: pointer;
 		right: 35px;
-		font-size: 20px;
+		font-size: 25px;
 		bottom: 10px;
-
+		@include breakpoint(medium) {
+			font-size: 20px;
+		}
 		@media #{$large-up}{
 			position: absolute;
 			&::after{
