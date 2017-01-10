@@ -324,10 +324,6 @@
 }
 
 .pessoa-info {
-    display: flex;
-    justify-content: center;
-    width: calc(100% + 80px);
-    margin-left: -40px;
     color: white;
     height: auto;
     max-height: 0px;
@@ -337,20 +333,41 @@
     background-color: #000;
     transition: max-height .3s;
 
+    @include breakpoint(small only) {
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+    @include breakpoint(medium) {
+        display: flex;
+        justify-content: center;
+        width: calc(100% + 80px);
+        margin-left: -40px;
+    }
+
     .close {
         display: none;
     }
 
     .pessoa-info-content {
-        float: right;
         margin: 20px 0;
         position: relative;
 
+        @media screen and (min-width: 415px) and (max-width: 768px)  {
+            float: left;
+            width: 100%;
+        }
+        @include breakpoint(medium) {
+            float: right;
+        }
         .pessoa-thumb {
             box-sizing: border-box; 
             float: left;
             margin: 0 35px 0 0; 
             padding: 10px;
+
+            @media screen and (max-width: 414px)  {
+                display: none;
+            }
 
             .img {
                 background-size: cover;
@@ -364,15 +381,20 @@
         }
 
         .pessoa-text {
-            float: left;
-            max-width: 480px;
-            h3 {
+            @include breakpoint(medium) {
+                float: left;
+                max-width: 480px;
+            }
+            h2 {
                 margin-bottom: 5px;
+                @include breakpoint(small only) {
+                    width: calc(100% - 40px);
+                }
             }
         }
     }
     &.active {
-        max-height: 440px;
+        max-height: 1000px;
 
         .pessoa-info-content {
             .pessoa-thumb {
@@ -382,8 +404,15 @@
             }
             .close {
                 display: block;
-                right: -70px;
-                margin-top: 0;
+                @include breakpoint(small only) {
+                    margin-top: 0;
+                    right: -10px;
+                    top: -10px;
+                }
+                @include breakpoint(medium) {
+                    right: -70px;
+                    margin-top: 0;
+                }
             }
         }
     }
@@ -454,7 +483,10 @@
 
     .component-tabs-tab{
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+        @include breakpoint(medium) {
+            margin-bottom: 50px;
+        }
 
         &:last-child{
             margin-bottom: 0;
@@ -532,7 +564,9 @@
 
 .component-tabs.informacao {
     .tab-content {
-        width: calc(100% - 270px);
+        @include breakpoint(medium) {
+            width: calc(100% - 270px);
+        }
 
         .list-title {
             width: calc(100% - 90px);
@@ -591,9 +625,14 @@
 }
 
 .fazer-minha-inscricao{
-    margin: 0 auto;
+    @include breakpoint(small only) {
+        margin-bottom: 20px;
+    }
+    @include breakpoint(medium) {
+        margin: 0 auto;
+    }
 
-    h1{
+    h1 {
         font-family: 'Raleway';
         font-size: 36px;
         font-weight: normal;
@@ -601,16 +640,24 @@
         color: #9a258f;
     }
 
-    a, span{
+    a, span {
         font-weight: bold;
         font-family: 'Roboto Mono';
         display: block;
         color: black !important;
     }
 
-    a{ margin: 15px 20px 10px 20px; }
+    a {
+        margin: 20px 0 10px;
+        @include breakpoint(small only) {
+            padding: 15px 10px;
+        }
+        @include breakpoint(medium) {
+            margin: 15px 20px 10px 20px;
+        }
+    }
 
-    span{
+    span {
         text-align: center;
         font-size: 14px;
     }

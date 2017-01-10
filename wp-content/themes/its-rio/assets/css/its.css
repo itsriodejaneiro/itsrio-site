@@ -3944,12 +3944,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 }
 
 .pessoa-info {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  width: calc(100% + 80px);
-  margin-left: -40px;
   color: white;
   height: auto;
   max-height: 0px;
@@ -3961,14 +3955,44 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   transition: max-height .3s;
 }
 
+@media screen and (max-width: 48em) {
+  .pessoa-info {
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .pessoa-info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: calc(100% + 80px);
+    margin-left: -40px;
+  }
+}
+
 .pessoa-info .close {
   display: none;
 }
 
 .pessoa-info .pessoa-info-content {
-  float: right;
   margin: 20px 0;
   position: relative;
+}
+
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .pessoa-info .pessoa-info-content {
+    float: left;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .pessoa-info .pessoa-info-content {
+    float: right;
+  }
 }
 
 .pessoa-info .pessoa-info-content .pessoa-thumb {
@@ -3976,6 +4000,12 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   float: left;
   margin: 0 35px 0 0;
   padding: 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .pessoa-info .pessoa-info-content .pessoa-thumb {
+    display: none;
+  }
 }
 
 .pessoa-info .pessoa-info-content .pessoa-thumb .img {
@@ -3988,17 +4018,25 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   outline: none;
 }
 
-.pessoa-info .pessoa-info-content .pessoa-text {
-  float: left;
-  max-width: 480px;
+@media screen and (min-width: 48.0625em) {
+  .pessoa-info .pessoa-info-content .pessoa-text {
+    float: left;
+    max-width: 480px;
+  }
 }
 
-.pessoa-info .pessoa-info-content .pessoa-text h3 {
+.pessoa-info .pessoa-info-content .pessoa-text h2 {
   margin-bottom: 5px;
 }
 
+@media screen and (max-width: 48em) {
+  .pessoa-info .pessoa-info-content .pessoa-text h2 {
+    width: calc(100% - 40px);
+  }
+}
+
 .pessoa-info.active {
-  max-height: 440px;
+  max-height: 1000px;
 }
 
 .pessoa-info.active .pessoa-info-content .pessoa-thumb .img {
@@ -4007,8 +4045,21 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 
 .pessoa-info.active .pessoa-info-content .close {
   display: block;
-  right: -70px;
-  margin-top: 0;
+}
+
+@media screen and (max-width: 48em) {
+  .pessoa-info.active .pessoa-info-content .close {
+    margin-top: 0;
+    right: -10px;
+    top: -10px;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .pessoa-info.active .pessoa-info-content .close {
+    right: -70px;
+    margin-top: 0;
+  }
 }
 
 .related-content {
@@ -4083,7 +4134,13 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 
 .component-tabs .component-tabs-tab {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .component-tabs .component-tabs-tab {
+    margin-bottom: 50px;
+  }
 }
 
 .component-tabs .component-tabs-tab:last-child {
@@ -4166,8 +4223,10 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   font-weight: 600;
 }
 
-.component-tabs.informacao .tab-content {
-  width: calc(100% - 270px);
+@media screen and (min-width: 48.0625em) {
+  .component-tabs.informacao .tab-content {
+    width: calc(100% - 270px);
+  }
 }
 
 .component-tabs.informacao .tab-content .list-title {
@@ -4209,8 +4268,16 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   cursor: pointer;
 }
 
-.fazer-minha-inscricao {
-  margin: 0 auto;
+@media screen and (max-width: 48em) {
+  .fazer-minha-inscricao {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .fazer-minha-inscricao {
+    margin: 0 auto;
+  }
 }
 
 .fazer-minha-inscricao h1 {
@@ -4229,7 +4296,19 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 }
 
 .fazer-minha-inscricao a {
-  margin: 15px 20px 10px 20px;
+  margin: 20px 0 10px;
+}
+
+@media screen and (max-width: 48em) {
+  .fazer-minha-inscricao a {
+    padding: 15px 10px;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .fazer-minha-inscricao a {
+    margin: 15px 20px 10px 20px;
+  }
 }
 
 .fazer-minha-inscricao span {
