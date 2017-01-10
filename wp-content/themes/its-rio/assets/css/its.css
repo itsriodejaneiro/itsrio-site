@@ -2428,7 +2428,7 @@ p, hr {
   justify-content: center;
 }
 
-@media screen and (min-width: 414px) and (max-width: 1023px) {
+@media screen and (min-width: 415px) and (max-width: 1023px) {
   .list-item-wrapper {
     width: 50% !important;
   }
@@ -2437,7 +2437,7 @@ p, hr {
 .list-item {
   background-color: white !important;
   border-radius: 3px;
-  margin-top: 20px !important;
+  margin-top: 15px !important;
   position: relative !important;
   -webkit-transition: box-shadow .3s !important;
   transition: box-shadow .3s !important;
@@ -2466,7 +2466,7 @@ p, hr {
 }
 
 .list-item .info {
-  padding: 15px !important;
+  padding: 10px !important;
   padding-bottom: 5px !important;
 }
 
@@ -2485,7 +2485,7 @@ p, hr {
 }
 
 .list-item .line {
-  margin: 8px 0px 10px -15px;
+  margin: 8px 0px 10px -10px;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -2682,12 +2682,14 @@ p, hr {
   max-height: 0px;
 }
 
-.component-tabs-tab input[type="checkbox"]:checked + label:before, input[type="checkbox"].ocultar:checked + label:before {
-  content: 'mostrar';
-}
-
 .component-tabs-tab input[type="checkbox"]:checked + label:after, input[type="checkbox"].ocultar:checked + label:after {
   content: "\f078";
+}
+
+@media screen and (min-width: 48.0625em) {
+  .component-tabs-tab input[type="checkbox"]:checked + label:before, input[type="checkbox"].ocultar:checked + label:before {
+    content: 'mostrar';
+  }
 }
 
 label.label-tab {
@@ -2758,7 +2760,7 @@ h3, h4, h5 {
   top: 0;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   margin: 0;
 }
 
@@ -3781,8 +3783,10 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   }
 }
 
-.tab-content {
-  width: calc(100% - 380px);
+@media screen and (min-width: 48.0625em) {
+  .tab-content {
+    width: calc(100% - 380px);
+  }
 }
 
 .tab-content .list-title {
@@ -3812,11 +3816,21 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 
 /********** COMPONENTES **************/
 /* COMPONENTE PALESTRANTES */
+.content-publicacoes {
+  display: block;
+}
+
 .content-publicacoes img {
-  float: left;
-  margin-right: 50px;
   box-shadow: 0px 0px 5px gray;
-  max-width: 300px;
+  margin: 0 0 15px;
+}
+
+@media screen and (min-width: 415px) {
+  .content-publicacoes img {
+    float: left;
+    margin: 0 50px 0 0;
+    max-width: 300px;
+  }
 }
 
 .content-publicacoes p, .content-publicacoes h3 {
@@ -3833,9 +3847,27 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   line-height: 20px;
 }
 
+.content-publicacoes .row {
+  display: block !important;
+}
+
+@media screen and (max-width: 48em) {
+  .content-publicacoes .tab-title {
+    display: block;
+    float: none;
+    margin-bottom: 20px;
+  }
+}
+
 .content-publicacoes .publicacao {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   overflow: hidden;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .content-publicacoes .publicacao {
+    margin-bottom: 50px;
+  }
 }
 
 /* COMPONENTE PALESTRANTES */
@@ -3983,6 +4015,12 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   background-color: #d9d9d9;
 }
 
+@media screen and (max-width: 48em) {
+  .related-content {
+    padding: 15px !important;
+  }
+}
+
 .related-content .large-4:nth-child(3n + 1) {
   padding-left: 0px !important;
 }
@@ -4002,7 +4040,6 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
 
 @media screen and (max-width: 48em) {
   .component-tabs .tab-content {
-    width: 100%;
     padding: 0px !important;
   }
 }
