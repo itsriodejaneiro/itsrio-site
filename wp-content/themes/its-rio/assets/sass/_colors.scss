@@ -5,15 +5,31 @@ $color_projetos : #522e91;
 $color_institucionais : #522e91;
 
 .single-cursos_ctp, .post-type-archive-cursos_ctp {
-	.highlights:hover {
-		.color-hover, .info {
-			background-color: $color_cursos !important;
-		}
-		.categories.black {
-			ul li {
-				&:hover {
-					a {
-						color: $color_cursos !important;
+	.highlights {
+		@include breakpoint(small only) {
+			.color-hover, .info {
+				background-color: $color_cursos !important;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_cursos !important;
+						}
+					}
+				}
+			}
+	    }
+	    &:hover {
+			.color-hover, .info {
+				background-color: $color_cursos !important;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_cursos !important;
+						}
 					}
 				}
 			}
@@ -37,21 +53,36 @@ $color_institucionais : #522e91;
 }
 
 .single-varandas_ctp, .post-type-archive-varandas_ctp {
-	.highlights:hover {
-		.color-hover, .info {
-			background-color: $color_varandas;
+	.highlights {
+		@include breakpoint(small only) {
+			.color-hover, .info {
+				background-color: $color_varandas;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_varandas !important;
+						}
+					}
+				}
+			}
 		}
-		.categories.black {
-			ul li {
-				&:hover {
-					a {
-						color: $color_varandas !important;
+		&:hover {
+			.color-hover, .info {
+				background-color: $color_varandas;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_varandas !important;
+						}
 					}
 				}
 			}
 		}
 	}
-
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid $color_varandas;
 		font-weight: bold;
@@ -65,21 +96,36 @@ $color_institucionais : #522e91;
 }
 
 .single-publicacoes_ctp, .post-type-archive-publicacoes_ctp {
-	.highlights:hover {
-		.color-hover, .info {
-			background-color: $color_publicacoes;
+	.highlights {
+		@include breakpoint(small only) {
+			.color-hover, .info {
+				background-color: $color_publicacoes;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_publicacoes !important;
+						}
+					}
+				}
+			}
 		}
-		.categories.black {
-			ul li {
-				&:hover {
-					a {
-						color: $color_publicacoes !important;
+		&:hover {
+			.color-hover, .info {
+				background-color: $color_publicacoes;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_publicacoes !important;
+						}
 					}
 				}
 			}
 		}
 	}
-
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid $color_publicacoes;
 		font-weight: bold;
@@ -96,15 +142,31 @@ $color_institucionais : #522e91;
 }
 
 .single-projetos_ctp, .post-type-archive-projetos_ctp {
-	.highlights:hover {
-		.color-hover, .info {
-			background-color: $color_projetos;
+	.highlights {
+		@include breakpoint(small only) {
+			.color-hover, .info {
+				background-color: $color_projetos;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_projetos !important;
+						}
+					}
+				}
+			}
 		}
-		.categories.black {
-			ul li {
-				&:hover {
-					a {
-						color: $color_projetos !important;
+		&:hover {
+			.color-hover, .info {
+				background-color: $color_projetos;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color_projetos !important;
+						}
 					}
 				}
 			}
@@ -221,6 +283,31 @@ $color_institucionais : #522e91;
 		&.type-publicacoes_ctp {
 			.color-hover, .info {
 				background-color: $color_publicacoes;
+			}
+		}
+	}
+}
+
+@include breakpoint(small only) {
+	.archive {
+		.highlights {
+			.color-hover {
+				opacity: 0.5 !important;
+			}
+			.info {
+				a, h2, .box {
+					color: #fff !important;
+				}
+				.box {
+					border-color: #fff !important;
+				}
+			}
+		}
+	}
+	.list-item {
+		.img {
+			.color-hover {
+				opacity: 0.5 !important;
 			}
 		}
 	}

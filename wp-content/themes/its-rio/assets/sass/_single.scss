@@ -15,8 +15,10 @@
     
     @media #{$small-only} {
         box-shadow: inset 0px 1px 10px 0 rgba(0, 0, 0, 0.5);
-        height: auto;
-        padding: 40px 20px 25px;
+        height: 360px;
+        .column {
+            padding: 0 20px;
+        }
     }
 
     &:before{
@@ -420,18 +422,24 @@
 
 .related-content {
     background-color: #d9d9d9;
-
-    @media #{$small-only}{
-        padding: 15px !important;
-    }
-    .large-4{
-
-        &:nth-child(3n + 1){
-            padding-left: 0px !important;
+    padding: 15px !important;
+    @include breakpoint(medium) {
+        padding: 15px 0 !important;
+        .list-title {
+            margin-left: 0.9375rem;
         }
-
-        @media #{$small-only}{
-            padding: 0px;
+    }
+    .list-item-wrapper {
+        @media screen and (max-width: 414px) {
+            padding: 0px !important;
+        }
+        @media screen and (min-width: 415px) and (max-width: 768px) {
+            &:nth-child(odd) {
+                padding-left: 0px !important;
+            }
+            &:nth-child(even) {
+                padding-right: 0px !important;
+            }
         }
     }
 }
