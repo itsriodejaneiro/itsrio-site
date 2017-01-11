@@ -9,6 +9,8 @@ uploads/
 
 wp-content/gallery-bank/
 
+*markers.json
+
 wp-content/languages/
 
-wp-content/themes/its-rio/functions/components/map/markers.json
+

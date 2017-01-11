@@ -21,12 +21,11 @@
 		<div class="map-info">
 			<div class="map-info-carousel pessoa-info" v-bind:class="{ 'active' : selectedMarker != false }">
 				<div class="seta-mapa"></div>
-				<div class="map-info-carousel-item carousel-cell" v-for="(info, i) in selectedMarker.infos" v-bind:style="{ 'background-image' : 'url('+ info.image +')' }">
+				<div class="map-info-carousel-item carousel-cell" v-for="(info, i) in selectedMarker.infos">
 					<div class="map-info-content">
 						<div class="map-thumb">
 							<div class="color-hover"></div>
-							<img v-if="info.image != ''" 
-							v-bind:src="info.image" alt="">
+							<img v-if="info.image != ''" v-bind:src="info.image" alt="">
 						</div>
 						<div class="map-text">
 							<h3 class="raleway">{{ info.title }}</h3> 	

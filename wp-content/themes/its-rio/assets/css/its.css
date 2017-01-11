@@ -4479,6 +4479,12 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   position: relative;
 }
 
+@media screen and (max-width: 48em) {
+  .component-tabs.map {
+    display: none;
+  }
+}
+
 .component-tabs.map > .row {
   padding-bottom: 25px;
   position: relative;

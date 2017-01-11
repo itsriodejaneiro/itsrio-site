@@ -4,65 +4,71 @@
 			<div id="marker-editor">
 				<a 
 				href="javascript:void(0);" 
-				v-bind:class="{ 'lock' : editor.editing != false }" 
-				@click="editor.editing = 'adicionar'" 
+				v-bind:class="{ 'lock' : editing != false }" 
+				@click="editing = 'adicionar'" 
 				class="button red"
 				>Adicionar Marcador</a>
 
 				<a 
 				href="javascript:void(0);" 
-				v-bind:class="{ 'lock' : editor.editing == false && editor.editing != 'adicionar' }"
+				v-if="editing == 'editar'" 
+				@click="infoEdit" 
+				class="button red"
+				>Editar</a>
+
+				<a 
+				href="javascript:void(0);" 
+				v-bind:class="{ 'lock' : editing == false && editing != 'adicionar' }"
 				@click="deleteMarker" 
 				class="button red"
 				>Excluir Marcador</a>
 
 				<a 
 				href="javascript:void(0);" 
-				v-if="editor.editing == 'adicionar'" 
+				v-if="editing == 'adicionar'" 
 				@click="finishEditing" 
 				class="button red"
 				>Finalizar Edição</a>
 			</div>
 		</div>
 		<div id="map-editor">
-			<div v-show="editor.markerInfoEdit" id="markerInfoBox">
-				<a href="javascript:void(0);" class="close" @click="editor.markerInfoEdit = false">&times;</a>
+			<div v-show="markerInfoEdit" id="markerInfoBox">
+				<a href="javascript:void(0);" class="close" @click="markerInfoEdit = false">&times;</a>
 				<h5>Informações</h5>
 				<h6>Adicionar informação</h6>
 				<div class="column large-12 no-p">
 					<label>Título
-						<input type="text" v-model="editor.editingMarker.newInfo.title" />
+						<input type="text" v-model="editingMarker.newInfo.title" />
 					</label>
 				</div>
 				<div class="column large-12 no-p">
 					<label>Texto:
-						<input type="text" v-model="editor.editingMarker.newInfo.text" />
+						<input type="text" v-model="editingMarker.newInfo.text" />
 					</label>
 				</div>
 				<div class="column large-12 no-p">
 					<label>URL da Imagem:
-						<input type="text" v-model="editor.editingMarker.newInfo.image" />
+						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
 				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">Inserir</a>
-				<h6 v-if="editor.editingMarker.infos.length > 0">Informações cadastradas</h6>
-				<div v-for="(box, i) in editor.editingMarker.infos" class="box-info">
-					<div class="column large-6 no-p-l">
+				<br><br>
+				<h6 v-if="editingMarker.infos.length > 0">Informações cadastradas</h6>
+				<div v-for="(box, i) in editingMarker.infos" class="box-info">
+					<div class="column large-6 p">
 						<img v-bind:src="box.image" alt="">
 					</div>
-					<div class="column large-6 no-p">
-						<b>Título:</b> {{ box.title }}
-						<br>
-						<b>Texto:</b> <span v-html="box.text"></span>
-						<br>
+					<div class="column large-6 p">
+						<p><b>Título:</b> {{ box.title }}</p>
+						<p><b>Texto:</b> <span v-html="box.text"></span></p>
 					</div>
 				</div>	
 			</div>
 			<img @click="positionMarker" id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.svg">
-			<img v-show="editor.editing == 'adicionar'" src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg" id="marker" class="markers" />
+			<img v-show="editing == 'adicionar'" src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg" id="marker" class="markers" />
 			
 			<img
-			v-for="(marker, i) in editor.markers" 
+			v-for="(marker, i) in markers" 
 			v-bind:style="{ left : marker.left+'px', top : marker.top+'px' }" 
 			src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg"
 			@click="editMarker(i, $event)"
@@ -79,56 +85,48 @@
 	Vue.component('its-map', {
 		data(){
 			return {
-				editor : {
-					editing : false,
-					editingMarker : {
-						top : '',
-						left : '',
-						newInfo : {
-							image : '',
-							title : '',
-							text : ''
-						},
-						infos : [],
-					},
-					deletingMarker : '',
-					markers,
-					markerInfoEdit : false
-				}
+				editing : false,
+				editingMarker : {
+					top : '',
+					left : '',
+					newInfo : {image : '', title : '', text : ''},
+					infos : [],
+				},
+				deletingMarker : '',
+				markers,
+				markerInfoEdit : false
 			}
 		},
 		methods:{
 			positionMarker(event){
-				var editor = this.editor;
-				if(editor.editing != false){
+				if(this.editing != false){
 					var posx = event.pageX - jQuery('#mapa').offset().left - 20;
 					var posy = event.pageY - jQuery('#mapa').offset().top - 20;
 
 					jQuery('#marker').css('left', posx).css('top', posy).show();
-					editor.editingMarker.top = posy;
-					editor.editingMarker.left = posx;
-					editor.markerInfoEdit = true;
+					this.editingMarker.top = posy;
+					this.editingMarker.left = posx;
+					this.markerInfoEdit = true;
 				}
 			},
 			addMarkerInfo(){
-				var editor = this.editor;
-				editor.editingMarker.infos.push(editor.editingMarker.newInfo);
-				editor.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
+				this.editingMarker.infos.push(this.editingMarker.newInfo);
+				this.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
 			},
 			editMarker(i, event){				
 				if($(event.target).hasClass('selected')){
-					this.editor.deletingMarker = '';
-					this.editor.editing = false;
+					this.deletingMarker = '';
+					this.editing = false;
 					$('.markers').removeClass('selected');
 				}else{
-					this.editor.editing = 'editar';
-					this.editor.deletingMarker = i;
+					this.editing = 'editar';
+					this.deletingMarker = i;
 					$('.markers').removeClass('selected');
 					$(event.target).addClass('selected');
 				}
 			},
 			deleteMarker(){
-				var editor = this.editor;
+				var editor = this;
 				if(editor.editing != false){
 					editor.markers.splice(editor.deletingMarker, 1);
 					editor.editing = false;
@@ -136,8 +134,12 @@
 					$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });
 				}
 			},
+			infoEdit(){
+				this.markerInfoEdit = true;
+				this.newInfo = this.markers[this.deletingMarker];
+			},
 			finishEditing(){
-				var editor = this.editor;
+				var editor = this;
 				editor.editing = false;
 				editor.markerInfoEdit = false;
 				editor.markers.push(editor.editingMarker)
