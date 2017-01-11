@@ -1,4 +1,4 @@
-<div class="single-menu single-header-drop-down" v-cloak>
+<div class="single-menu single-header-drop-down">
 		<span>{{ its_tabs[single_menu_active] }}</span>
 		<ul class="dropdown">
 			<li v-for="(tab, i) in its_tabs" >

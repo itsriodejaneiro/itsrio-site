@@ -2723,6 +2723,10 @@ label.label-tab:after {
   }
 }
 
+[v-cloak] {
+  display: none;
+}
+
 html, body {
   height: 100%;
   margin-top: 0 !important;
