@@ -66,7 +66,7 @@ class ET_Builder_Module_Midias_Item extends ET_Builder_Module {
 		$this->type                        = 'child';
 		$this->child_title_var             = 'title';
 
-		$this->whitelisted_fields = ['title','url', 'description'];
+		$this->whitelisted_fields = ['title','url','description'];
 		
 		$this->advanced_setting_title_text = esc_html__( 'Nova Mídia', 'et_builder' );
 		$this->settings_text               = esc_html__( 'Configurações', 'et_builder' );
@@ -80,7 +80,7 @@ class ET_Builder_Module_Midias_Item extends ET_Builder_Module {
 				),
 			'description' => array(
 				'label'             => esc_html__( 'Descrição', 'et_builder' ),
-				'type'              => 'tiny_mce',
+				'type'              => 'text',
 				),
 			'url' => array(
 				'label'             => esc_html__( 'ID do vídeo no YouTube', 'et_builder' ),

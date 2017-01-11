@@ -6,8 +6,8 @@
 		</h2>
 		<div class="tab-content">
 			<div class="media-title">
-				<h3>Lorem Ipsum Dolor Sit Amet</h3>
-				<span>com Black Kamen Rider phD.</span>
+				<h3><?= $tabs_content[0]['title'] ?></h3>
+				<span><?= $tabs_content[0]['description'] ?></span>
 				<div class="line"></div>
 			</div>
 			<div id="media-player">
@@ -30,8 +30,8 @@
 							</div>
 							<div class="media-title">
 								<div class="line"></div>
-								<h3>Lorem Ipsum Dolor Sit Amet</h3>
-								<span>com Black Kamen Rider phD.</span>
+								<h3><?= $midia['title'] ?></h3>
+								<span><?= $midia['description'] ?></span>
 							</div>
 						</div>
 						<?php
