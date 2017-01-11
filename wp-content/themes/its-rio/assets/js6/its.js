@@ -167,7 +167,6 @@ new Vue({
                     scrollTop: target.offset().top - 100
                 }, 300);
             }
-
         },500);
 
         $('.comunicados h2 > a').click(function(){

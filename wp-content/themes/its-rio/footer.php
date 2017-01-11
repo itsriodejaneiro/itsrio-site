@@ -1,3 +1,4 @@
+<?php global $data; global $components; global $postType; global $lang; ?>
 </div>
 <footer>
 	<div class="row">
@@ -34,9 +35,9 @@
 		<div class="column large-2">
 			<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
 			<ul>
-				<li><a href="/<?=$lang?>/institucional/#equipe" class="box">equipe</a></li>
-				<li><a href="/<?=$lang?>/institucional/#onde-estivemos" class="box">onde estivemos</a></li>
-				<li><a href="/<?=$lang?>/institucional/#comunicados" class="box">comunicados</a></li>
+				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">equipe</a></li>
+				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">onde estivemos</a></li>
+				<li><a href="/<?= $lang ?>/institucional/#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">comunicados</a></li>
 			</ul>
 		</div>
 
@@ -62,7 +63,6 @@
 </footer>
 </div>
 
-<?php global $data; global $components; global $postType; global $lang; ?>
 <script>
 	<?php 
 	foreach ($components as $variable => $value) {
