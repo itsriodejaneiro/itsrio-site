@@ -78,6 +78,16 @@
 	}
 }
 
+.home {
+	.highlights { 
+		.categories {
+			@include breakpoint(small only) {
+				left: 20px;
+			}
+		}
+	}
+}
+
 .home-area {
 	margin-top: 20px;
 	position: relative;

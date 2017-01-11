@@ -25,7 +25,7 @@
 
 				<a 
 				href="javascript:void(0);" 
-				v-if="editing == 'adicionar'" 
+				v-if="editing == 'adicionar' || editing == 'editar'" 
 				@click="finishEditing" 
 				class="button red"
 				>Finalizar Edição</a>
@@ -51,16 +51,17 @@
 						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
-				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">Inserir</a>
+				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">{{ editing == 'editar' ? 'Atualizar' : 'Inserir' }}</a>
 				<br><br>
 				<h6 v-if="editingMarker.infos.length > 0">Informações cadastradas</h6>
 				<div v-for="(box, i) in editingMarker.infos" class="box-info">
-					<div class="column large-6 p">
+					<div class="column large-6">
 						<img v-bind:src="box.image" alt="">
 					</div>
 					<div class="column large-6 p">
 						<p><b>Título:</b> {{ box.title }}</p>
 						<p><b>Texto:</b> <span v-html="box.text"></span></p>
+						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box">Editar</a>
 					</div>
 				</div>	
 			</div>
@@ -110,7 +111,8 @@
 				}
 			},
 			addMarkerInfo(){
-				this.editingMarker.infos.push(this.editingMarker.newInfo);
+				if(this.editing != 'editar')
+					this.editingMarker.infos.push(this.editingMarker.newInfo);
 				this.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
 			},
 			editMarker(i, event){				
@@ -136,13 +138,14 @@
 			},
 			infoEdit(){
 				this.markerInfoEdit = true;
-				this.newInfo = this.markers[this.deletingMarker];
+				this.editingMarker = this.markers[this.deletingMarker];
 			},
 			finishEditing(){
 				var editor = this;
+				if(this.editing == 'adicionar')
+					editor.markers.push(editor.editingMarker);
 				editor.editing = false;
 				editor.markerInfoEdit = false;
-				editor.markers.push(editor.editingMarker)
 				editor.editingMarker = { newInfo : { image : '', title : '', text : ''}, infos : [] };
 				console.log(editor.markers);
 				$.post('/wp-content/themes/its-rio/functions/components/map/save_markers.php', { 'markers' : JSON.stringify(editor.markers) });

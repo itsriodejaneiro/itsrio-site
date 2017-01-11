@@ -14,7 +14,7 @@
 						<h2>filtragem de conteúdo:</h2>
 
 						<div class="filter">
-							<h3 class="list-title" style="display: block; width: 100%;">
+							<h3 class="list-title">
 								área
 								<div class="line"></div>
 							</h3>
@@ -36,7 +36,7 @@
 
 						</div>
 						<div class="filter hide" id="info_areapesquisa">
-							<h3 class="list-title" style="display: block; width: 100%;">
+							<h3 class="list-title">
 								áreas de pesquisa
 								<div class="line"></div>
 							</h3>
@@ -57,7 +57,7 @@
 							</div>
 						</div>
 						<div class="filter">
-							<h3 class="list-title" style="display: block; width: 100%;">
+							<h3 class="list-title">
 								categorias (assuntos)
 								<div class="line"></div>
 							</h3>
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 
-					<a href="#" class="button large advanced-search" onclick="$('.filter-options,.advanced-search').toggleClass('active')">
+					<a href="#" class="button advanced-search" onclick="$('.filter-options,.advanced-search').toggleClass('active')">
 						busca avançada 
 						<i class="fa fa-angle-up" aria-hidden="true"></i>
 						<i class="fa fa-angle-down" aria-hidden="true"></i>
