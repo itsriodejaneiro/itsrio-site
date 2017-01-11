@@ -101,6 +101,7 @@
 
 	.categories{
 		@include breakpoint(small only) {
+			color: #fff !important;
 			position: absolute;
 		    top: 30px;
 		    left: 10px;
