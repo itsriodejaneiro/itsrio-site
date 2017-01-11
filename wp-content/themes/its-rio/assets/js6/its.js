@@ -165,108 +165,109 @@ new Vue({
         setTimeout(function(){
             if(location.hash == '#comunicados')
                 $('.comunicados h2 > a').trigger('click');
-        },500);
 
-        $('.comunicados h2 > a').click(function(){
-            if($(this).text().indexOf("ver") > -1){
-                $('.content-area:not(.comunicados)').hide();
-                $(this).text('voltar para institucional');
+            $('.comunicados h2 > a').click(function(){
+                if($(this).text().indexOf("ver") > -1){
+                    $('.content-area:not(.comunicados)').hide();
+                    $(this).text('voltar para institucional');
 
-                $('.related-post .large-4').show();
+                    $('.related-post .large-4').show();
 
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 300);
-            }else{
-                $('.content-area').show();
-                $('.related-post .large-4:gt(2)').hide();
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 300);
+                }else{
+                    $('.content-area').show();
+                    $('.related-post .large-4:gt(2)').hide();
 
-                $(this).text('ver todos');
-            }
+                    $(this).text('ver todos');
+                }
+
+                $('.comunicados .related-post').masonry({
+                    columnWidth : '.large-4',
+                    selector : '.large-4',
+                    percentPosition: true,
+                });
+            });
+
+            var menu = $('.header-single-menu');
+            var top = (typeof menu.position() != "undefined") ? menu.position().top : 0;
+            $(window).scroll(function(){
+                if(typeof menu.position() != "undefined"){
+                    //Fixa o menu interno no menu global ao dar scroll
+                    if($(this).scrollTop() >= top)
+                        menu.addClass('fixed');
+                    else
+                        menu.removeClass('fixed');
+
+                    var scrollPos = $(document).scrollTop() + 100;
+                    $('.single-menu a').each(function () {
+                        var currLink = $(this);
+                        var refElement = $(currLink.attr("href"));
+                        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                            $('.single-menu ul li a').removeClass("active");
+                            currLink.addClass("active");
+                            site_data.single_menu_active = currLink.parent().index();
+                        }
+                        else
+                            currLink.removeClass("active");
+                    });
+                }
+            }); 
+
+            //Adiciona a classe de active ao post type correspondente no menu global.
+            $("a[href='/"+post_type+"']").parent().addClass('current-menu-item');
+            
+            $('.menu-nav li').each(function(){
+                var a = $(this).find('a');
+                a.attr('href', '/'+lang+a.attr('href'));
+            });
+
+            //Smooth scroll
+            $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
+                var el =  $(this).is('a') ? this : $(this).find('a')[0];
+
+                if (location.pathname.replace(/^\//,'') == el.pathname.replace(/^\//,'') && location.hostname == el.hostname) {
+                    var target = $(el.hash);
+                    target = target.length ? target : $('[name=' + el.hash.slice(1) +']');
+                    if (target.length) {
+                        $('.single-menu ul li a').removeClass('active');
+                        $(el).addClass('active');
+
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 100
+                        }, 300);
+                        return false;
+                    }
+                }
+            });
 
             $('.comunicados .related-post').masonry({
                 columnWidth : '.large-4',
                 selector : '.large-4',
                 percentPosition: true,
             });
-        });
 
-        var menu = $('.header-single-menu');
-        var top = (typeof menu.position() != "undefined") ? menu.position().top : 0;
-        $(window).scroll(function(){
-            if(typeof menu.position() != "undefined"){
-                //Fixa o menu interno no menu global ao dar scroll
-                if($(this).scrollTop() >= top)
-                    menu.addClass('fixed');
-                else
-                    menu.removeClass('fixed');
+            // if(mobileAndTabletcheck()){
+            var redes = $('footer .social-icons').html();
+            var trending = $('footer .social-content .tags ul').html();
+            $('.menu-mobile-footer .redes').html(redes);
+            $('.menu-mobile-footer .trending').html('<h3>#trending tags</h3><ul>'+trending+'</ul>');
+            // }
+            
+            var menu_nav = $('.menu-nav');
 
-                var scrollPos = $(document).scrollTop() + 100;
-                $('.single-menu a').each(function () {
-                    var currLink = $(this);
-                    var refElement = $(currLink.attr("href"));
-                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                        $('.single-menu ul li a').removeClass("active");
-                        currLink.addClass("active");
-                        site_data.single_menu_active = currLink.parent().index();
-                    }
+            if(menu_nav.hasScrollBar()){
+                menu_nav.addClass('scrollable');
+                menu_nav.scroll(function() {
+                    if($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop())
+                        menu_nav.addClass('scrollable-bottom');
                     else
-                        currLink.removeClass("active");
+                        menu_nav.removeClass('scrollable-bottom');
                 });
             }
-        }); 
-
-        //Adiciona a classe de active ao post type correspondente no menu global.
-        $("a[href='/"+post_type+"']").parent().addClass('current-menu-item');
+        },500);
         
-        $('.menu-nav li').each(function(){
-            var a = $(this).find('a');
-            a.attr('href', '/'+lang+a.attr('href'));
-        });
-
-        //Smooth scroll
-        $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
-            var el =  $(this).is('a') ? this : $(this).find('a')[0];
-
-            if (location.pathname.replace(/^\//,'') == el.pathname.replace(/^\//,'') && location.hostname == el.hostname) {
-                var target = $(el.hash);
-                target = target.length ? target : $('[name=' + el.hash.slice(1) +']');
-                if (target.length) {
-                    $('.single-menu ul li a').removeClass('active');
-                    $(el).addClass('active');
-
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 100
-                    }, 300);
-                    return false;
-                }
-            }
-        });
-
-        $('.comunicados .related-post').masonry({
-            columnWidth : '.large-4',
-            selector : '.large-4',
-            percentPosition: true,
-        });
-
-        // if(mobileAndTabletcheck()){
-        var redes = $('footer .social-icons').html();
-        var trending = $('footer .social-content .tags ul').html();
-        $('.menu-mobile-footer .redes').html(redes);
-        $('.menu-mobile-footer .trending').html('<h3>#trending tags</h3><ul>'+trending+'</ul>');
-        // }
-        
-        var menu_nav = $('.menu-nav');
-
-        if(menu_nav.hasScrollBar()){
-            menu_nav.addClass('scrollable');
-            menu_nav.scroll(function() {
-                if($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop())
-                    menu_nav.addClass('scrollable-bottom');
-                else
-                    menu_nav.removeClass('scrollable-bottom');
-            });
-        }
     },
     methods: {
         changeSingleMenu(i){
