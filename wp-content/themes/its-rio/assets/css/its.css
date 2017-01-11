@@ -2726,7 +2726,6 @@ label.label-tab:after {
 html, body {
   height: 100%;
   margin-top: 0 !important;
-  overflow-x: hidden;
 }
 
 .home-cover + .row-menu.home + #content {

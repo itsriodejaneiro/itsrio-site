@@ -63,7 +63,6 @@
 </div>
 
 <?php global $data; global $components; global $postType; global $lang; ?>
-
 <script>
 	<?php 
 	foreach ($components as $variable => $value) {
@@ -79,60 +78,60 @@
 	var post_type = '<?= $postType ?>';
 	var lang = '<?= $lang ?>';
 </script>
+<script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
 <style>
-.flickity-slider {
+	.flickity-slider {
 		transform: none !important;
 	}
 
-.flickity-slider .carousel-cell {
+	.flickity-slider .carousel-cell {
 		left: 0 !important;
 		opacity: 0;
 		transition: opacity 0.6s ease-in-out;
 		z-index: -1;
 	}
 
-.flickity-slider .carousel-cell.is-selected {
+	.flickity-slider .carousel-cell.is-selected {
 		opacity: 1;
 		z-index: 0
 	}
 </style>
 <script type="text/javascript">
-			function DropDown(el) {
-				this.dd = el;
-				this.placeholder = this.dd.children('span');
-				this.opts = this.dd.find('ul.dropdown > li');
-				this.val = '';
-				this.index = -1;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						return false;
-					});
-				},
-				getValue : function() {
-					return this.val;
-				},
-				getIndex : function() {
-					return this.index;
-				}
-			}
-
-			$(function() {
-				var dd = new DropDown( $('.single-header-drop-down') );
-				$(document).click(function() {
-					$('.single-header-drop-down').removeClass('active');
-				});
+	function DropDown(el) {
+		this.dd = el;
+		this.placeholder = this.dd.children('span');
+		this.opts = this.dd.find('ul.dropdown > li');
+		this.val = '';
+		this.index = -1;
+		this.initEvents();
+	}
+	DropDown.prototype = {
+		initEvents : function() {
+			var obj = this;
+			obj.dd.on('click', function(event){
+				$(this).toggleClass('active');
+				return false;
 			});
-			
-		</script>
-		<?php //wp_footer(); ?>
+		},
+		getValue : function() {
+			return this.val;
+		},
+		getIndex : function() {
+			return this.index;
+		}
+	}
+
+	$(function() {
+		var dd = new DropDown( $('.single-header-drop-down') );
+		$(document).click(function() {
+			$('.single-header-drop-down').removeClass('active');
+		});
+	});
+
+</script>
+<?php //wp_footer(); ?>
 </body>
 </html>
