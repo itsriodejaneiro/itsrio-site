@@ -22,7 +22,14 @@ function its_meta_boxes($meta_boxes) {
 	endwhile;
 
 	$meta_boxes = array([
-		'id'		=> 'infosss',
+		'id'		=> 'projetoencerrado',
+		'title'     => __('Informações do Projeto', 'textdomain' ),
+		'post_types'=> ['projetos_ctp'],
+		'fields'    => array(
+			['id'	=> "projeto_encerrado", 'name' => 'Este projeto está encerrado?', 'type' => 'checkbox', 'value' => '1'],
+			),
+		],
+		['id'		=> 'infosss',
 		'title'     => __('Informações', 'textdomain' ),
 		'post_types'=> ['publicacoes_ctp'],
 		'fields'    => array(
@@ -30,7 +37,6 @@ function its_meta_boxes($meta_boxes) {
 			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text'],
 			['id'	=> "publi_banner", 'name' => 'É um destaque da intermediária de Publicações?', 'type' => 'checkbox', 'value' => '1'],
 			['id'	=> "datapubli", 'name' => 'Data de Publicação', 'type' => 'checkbox', 'value' => '1'],
-			['id'	=> "projeto_ativo", 'name' => 'Este projeto é ativo?', 'type' => 'checkbox', 'value' => '1'],
 			),
 		],
 		[
@@ -132,5 +138,5 @@ function its_meta_boxes($meta_boxes) {
 		]
 		);
 
-	return $meta_boxes;
+return $meta_boxes;
 }

@@ -62,22 +62,22 @@
 			<div class="menu-social show-for-large" >
 				<ul>
 					<li>
-						<a href="#"><i class="fa fa-youtube-play"></i></a>
+						<a href="https://www.youtube.com/user/ITSriodejaneiro" target="_blank"><i class="fa fa-youtube-play"></i></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="https://twitter.com/itsriodejaneiro" target="_blank"><i class="fa fa-twitter"></i></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.facebook.com/ITSriodejaneiro" target="_blank"><i class="fa fa-facebook"></i></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.instagram.com/itsriodejaneiro/" target="_blank"><i class="fa fa-instagram"></i></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-medium"></i></a>
+						<a href="https://medium.com/@ITSriodejaneiro" target="_blank"><i class="fa fa-medium"></i></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-github"></i></a>
+						<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>
 					</li>
 					<li class="text">
 						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a> 

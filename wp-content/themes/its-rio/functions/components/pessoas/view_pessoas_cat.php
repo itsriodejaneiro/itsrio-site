@@ -49,7 +49,8 @@
 			</div>
 		</div>
 		<div class="content-area work-with-us">
-			<a href="" class="button large purple curved-shadow">trabalhe conosco</a>
+			<a href="https://itsrio2.typeform.com/to/jAK7xw" class="typeform-share link button large purple curved-shadow" data-mode="1">trabalhe conosco</a>
+			<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
 		</div>
 	</div>
 </its-pessoas>
