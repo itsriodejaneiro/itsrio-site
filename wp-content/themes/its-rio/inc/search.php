@@ -58,7 +58,7 @@
 						</div>
 						<div class="filter">
 							<h3 class="list-title">
-								categorias de assunto
+								categorias (assuntos)
 								<div class="line"></div>
 							</h3>
 							<input type="checkbox" id="search_title_categorias" class="ocultar">

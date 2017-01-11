@@ -41,7 +41,7 @@ get_header();
 			switch ($postType) {
 				case 'projetos_ctp':
 				$bannerTitle = 'áreas de pesquisa';
-				$bannerCards = 'projetos';				
+				$bannerCards = 'projetos ativos';				
 				$label = '';
 				break;
 				case 'cursos_ctp':
@@ -139,34 +139,38 @@ get_header();
 			<?php
 		}
 
-		$args = array(
-			'posts_per_page' => 1,
-			'orderby' => 'post_date',
-			'order' => 'DESC',
-			'post_type' => $post_type,
-			'post__not_in'	=> [$destaque_id],
-			);
+		if($postType == 'publicacoes_ctp'){
+			$args = ['orderby' => 'post_date', 'order' => 'DESC'];
+		}
 
 		if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
 			$args = array(
-				'post_type' 	=> $post_type,
 				'relation'		=> 'OR',
-				'post__not_in'	=> [$destaque_id],
 				'meta_query'	=> array(
 					['meta_key' => 'info_inscfim',
 					'meta_value' => date('Y-m-d'),
-					'meta_compare' => '<'
-					],
+					'meta_compare' => '<'],
 					['meta_key' => 'info_inscfim',
 					'meta_value' => '',
-					'meta_compare' => '='
-					],
-					)
+					'meta_compare' => '='])
 				);
-		}else{
-			$args['posts_per_page'] = '100';
 		}
+		if($postType == 'projetos_ctp'){
+			$args = array(
+				'meta_query' => array(
+					['key' => 'projeto_encerrado',
+					'value' => '0',
+					'compare' => '='])
+				);
+		}
+
+		$args['posts_per_page'] = '100';
+		$args['post__not_in'] = [$destaque_id];
+		$args['post_type'] = $postType;
+
 		query_posts($args);
+
+		// echo $GLOBALS['wp_query']->request; 
 
 		if (have_posts()) {
 			while (have_posts()) {
@@ -175,6 +179,9 @@ get_header();
 					include(ROOT .'inc/post-box.php');
 			}
 		}
+
+		if($postType == 'projetos_ctp')
+			include ROOT . 'inc/archive/projetos_ctp-encerrado.php';
 		?>
 	</div>
 </div>
