@@ -102,7 +102,7 @@
 					</div>
 				</div>
 			</nav>
-			<i class="search-button fa fa-search" onclick="jQuery('.search-box').removeClass('hide');"></i>
+			<i class="search-button fa fa-search" onclick="jQuery('.search-box').fadeToggle();"></i>
 		</div>
 	</div>
 

@@ -17,7 +17,7 @@ $youtube = json_decode($youtubeJSON);
 					break;
 				$count++;
 				?>
-				<li><a target="_blank" href="https://feed.itsrio.org/<?= $post->slug ?>"><?= $post->title ?></a></li>
+				<li><a target="_blank" href="https://feed.itsrio.org/<?= $post->slug.'-'.$post->id ?>"><?= $post->title ?></a></li>
 				<?php
 			}
 			?>

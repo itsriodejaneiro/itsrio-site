@@ -150,8 +150,10 @@ new Vue({
 
         $('.related-post .large-4:gt(2)').hide();
 
-        if(location.hash == '#comunicados')
-            $('.comunicados h2 > a').trigger('click');
+        setTimeout(function(){
+            if(location.hash == '#comunicados')
+                $('.comunicados h2 > a').trigger('click');
+        },500);
 
         $('.comunicados h2 > a').click(function(){
             if($(this).text().indexOf("ver") > -1){

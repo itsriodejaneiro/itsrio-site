@@ -211,6 +211,11 @@
     img {
         box-shadow: 0px 0px 5px gray;
         margin: 0 0 15px;
+        
+        @media #{$small-only}{
+            margin: 0 auto 20px auto;
+            display: block;
+        }
 
         @media screen and (min-width: 415px)  {
             float: left;

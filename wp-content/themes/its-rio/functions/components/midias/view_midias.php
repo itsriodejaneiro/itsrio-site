@@ -6,17 +6,21 @@
 		</h2>
 		<div class="tab-content">
 			<div id="media-player">
-				<iframe width="390" height="240" src="https://www.youtube.com/embed/<?= $tabs_content[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
+				<iframe width="640" height="360" src="https://www.youtube.com/embed/<?= $tabs_content[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="midias-thumbs">
 				<?php 
+				$i = 0;
 				if(count($tabs_content) > 1){
 					foreach ($tabs_content as $midia) {
 						?>
 						<img 
 						src="https://img.youtube.com/vi/<?= $midia['url'] ?>/maxresdefault.jpg" 
-						onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>')">
+						onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.midia-thumb').removeClass('active');$(this).addClass('active');"
+						class="midia-thumb <?= $i == 0 ? ' active' : '' ?>"
+						>
 						<?php
+						$i++;
 					}
 				} ?>
 			</div>

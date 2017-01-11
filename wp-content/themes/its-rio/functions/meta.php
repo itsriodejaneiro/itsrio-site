@@ -30,6 +30,7 @@ function its_meta_boxes($meta_boxes) {
 			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text'],
 			['id'	=> "publi_banner", 'name' => 'É um destaque da intermediária de Publicações?', 'type' => 'checkbox', 'value' => '1'],
 			['id'	=> "datapubli", 'name' => 'Data de Publicação', 'type' => 'checkbox', 'value' => '1'],
+			['id'	=> "projeto_ativo", 'name' => 'Este projeto é ativo?', 'type' => 'checkbox', 'value' => '1'],
 			),
 		],
 		[
@@ -52,6 +53,14 @@ function its_meta_boxes($meta_boxes) {
 			['id'   => 'info_inscfim', 'name' => __('Fim das Inscrições', 'textdomain'), 'type' => 'date'],
 			['id'   => 'info_data', 'name' => __('Data da Varanda', 'textdomain'), 'type' => 'date'],
 			['id'   => 'info_hora', 'name' => __('Horário da Varanda', 'textdomain'), 'type' => 'text'],
+			)
+		],
+		[
+		'title'      => __('Typeform para Inscrições', 'textdomain' ),
+		'post_types' => ['varandas_ctp','cursos_ctp'],
+		'fields'     => array(
+			['id'   => 'typeform_url', 'name' => __('URL do Typeform', 'textdomain'), 'type' => 'text'],
+			['id'   => 'typeform_layout', 'name' => __('Formato do form', 'textdomain'), 'type' => 'radio', 'options' => [ '2'=> 'Lateral', '1' => 'Tela cheia' ]],
 			)
 		],
 		[
