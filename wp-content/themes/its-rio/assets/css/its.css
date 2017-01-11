@@ -3817,6 +3817,10 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   }
 }
 
+.tab-content {
+  width: 100%;
+}
+
 @media screen and (min-width: 48.0625em) {
   .tab-content {
     width: calc(100% - 380px);
@@ -4308,8 +4312,113 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   margin: 0px 25px 25px 0px;
 }
 
-.midias-thumbs img {
+@media screen and (max-width: 48em) {
+  .content-media {
+    display: block;
+  }
+  .content-media .row {
+    display: block !important;
+  }
+  .content-media .tab-title {
+    display: block;
+    float: none;
+    margin-bottom: 20px;
+  }
+}
+
+.content-media .media-title {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.content-media .media-title h3 {
+  font-size: 14px;
+}
+
+.content-media .media-title span {
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.content-media .media-title .line {
+  height: 5px;
+  margin-top: 5px;
+}
+
+.content-media #media-player {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  margin-bottom: 25px;
+}
+
+.content-media #media-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.content-media .medias-thumbs {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .content-media .medias-thumbs {
+    width: 105%;
+  }
+}
+
+.content-media .medias-thumbs .thumb-wrapper {
   cursor: pointer;
+  margin-bottom: 20px;
+  width: 45%;
+}
+
+@media screen and (min-width: 64em) {
+  .content-media .medias-thumbs .thumb-wrapper {
+    width: 30%;
+  }
+}
+
+.content-media .medias-thumbs .thumb-wrapper .img-wrapper {
+  position: relative;
+}
+
+.content-media .medias-thumbs .thumb-wrapper .img-wrapper img {
+  width: 100%;
+}
+
+.content-media .medias-thumbs .thumb-wrapper .img-wrapper .fa {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 49px;
+  line-height: 42px;
+  margin-left: -21px;
+  margin-top: -21px;
+}
+
+@media screen and (min-width: 415px) {
+  .content-media .medias-thumbs .thumb-wrapper .img-wrapper .fa {
+    font-size: 70px;
+    line-height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+  }
+}
+
+.content-media .medias-thumbs .thumb-wrapper .line {
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 48em) {

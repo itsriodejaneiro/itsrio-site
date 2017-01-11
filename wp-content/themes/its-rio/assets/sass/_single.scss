@@ -175,7 +175,8 @@
         }
     }
 
-    &-content{        
+    &-content {
+        width: 100%;        
         @include breakpoint(medium) {
             width: calc(100% - 380px);
         }
@@ -623,9 +624,91 @@
     }
 }
 
-.midias-thumbs{
-    img{
-        cursor: pointer;
+.content-media {
+    @media #{$small-only} {
+        display: block;
+        .row {
+            display: block !important;
+        }
+        .tab-title {
+            display: block;
+            float: none;
+            margin-bottom: 20px;
+        }
+    }
+
+    .media-title {
+        display: inline-block;
+        margin-bottom: 10px;
+        h3 {
+            font-size: 14px;
+        }
+        span {
+            font-size: 11px;
+            font-weight: bold;
+            text-decoration: underline; 
+        }
+        .line {
+            height: 5px;
+            margin-top: 5px;
+        }   
+    }
+
+    #media-player {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        margin-bottom: 25px;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+
+    .medias-thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include breakpoint(medium) {
+            width: 105%;
+        }
+        .thumb-wrapper {
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 45%;
+            @include breakpoint(large) {
+                width: 30%;
+            }
+            .img-wrapper {
+                position: relative;
+                img {
+                    width: 100%;
+                }
+                .fa {
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                    color: #fff;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    font-size: 49px;
+                    line-height: 42px;
+                    margin-left: -21px;
+                    margin-top: -21px;
+                    @media screen and (min-width: 415px) {
+                        font-size: 70px;
+                        line-height: 60px;
+                        margin-left: -30px;
+                        margin-top: -30px;
+                    }
+                }
+            }
+            .line {
+                margin: 10px 0; 
+            }
+        }
     }
 }
 
