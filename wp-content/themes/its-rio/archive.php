@@ -147,12 +147,12 @@ get_header();
 			$args = array(
 				'relation'		=> 'OR',
 				'meta_query'	=> array(
-					['key' => 'info_inscfim',
-					'value' => date('Y-m-d'),
-					'compare' => '<'],
-					['key' => 'info_inscfim',
-					'value' => '',
-					'compare' => '='])
+					['meta_key' => 'info_inscfim',
+					'meta_value' => date('Y-m-d'),
+					'meta_compare' => '<'],
+					['meta_key' => 'info_inscfim',
+					'meta_value' => '',
+					'meta_compare' => '='])
 				);
 		}
 		if($postType == 'projetos_ctp'){
