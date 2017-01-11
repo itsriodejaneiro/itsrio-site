@@ -25,7 +25,7 @@
 									<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoaCat(pessoa, i,pessoas_)">
 										<div class="img" v-bind:style="{ 'background-image': 'url('+pessoa.thumb+')' }"></div>
 										<div class="name">
-											{{ pessoa.title }}
+											<span v-html="pessoa.title.replace(' ','<br />')"></span>
 											<div class="line"></div>
 										</div>
 									</label>
