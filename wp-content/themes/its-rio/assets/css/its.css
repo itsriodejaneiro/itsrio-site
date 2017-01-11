@@ -3464,12 +3464,12 @@ h3, h4, h5 {
   }
 }
 
-.main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+.main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button, .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
   display: none;
 }
 
 @media screen and (min-width: 64em) {
-  .main-carousel-wrapper button.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+  .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button, .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
     display: block;
   }
 }
@@ -3537,15 +3537,15 @@ h3, h4, h5 {
   text-decoration: underline;
 }
 
-.main-carousel button.flickity-prev-next-button.previous {
+.main-carousel a.flickity-prev-next-button.previous, .main-carousel button.flickity-prev-next-button.previous {
   left: -50px;
 }
 
-.main-carousel button.flickity-prev-next-button.next {
+.main-carousel a.flickity-prev-next-button.next, .main-carousel button.flickity-prev-next-button.next {
   right: -50px;
 }
 
-button.flickity-prev-next-button {
+a.flickity-prev-next-button, button.flickity-prev-next-button {
   border-radius: 0;
   border: 1px solid black;
   height: 35px;
@@ -3553,15 +3553,15 @@ button.flickity-prev-next-button {
   width: 35px;
 }
 
-button.flickity-prev-next-button:disabled {
+a.flickity-prev-next-button:disabled, button.flickity-prev-next-button:disabled {
   opacity: 0.7;
 }
 
-button.flickity-prev-next-button:hover {
+a.flickity-prev-next-button:hover, button.flickity-prev-next-button:hover {
   cursor: pointer;
 }
 
-button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button.flickity-prev-next-button:hover {
+a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-next-button:hover, button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button.flickity-prev-next-button:hover {
   background: transparent;
 }
 
@@ -4534,6 +4534,27 @@ button.flickity-prev-next-button, button.flickity-prev-next-button:focus, button
   background-color: #9a258f;
   overflow: inherit;
   position: relative;
+  overflow: hidden;
+}
+
+.map-info-carousel .previous {
+  left: 30px !important;
+}
+
+.map-info-carousel .next {
+  right: 30px !important;
+}
+
+.map-info-carousel-item {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+.map-info-carousel-item.active {
+  opacity: 1;
+  display: block;
 }
 
 .map-info-carousel .seta-mapa {
