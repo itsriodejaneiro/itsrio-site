@@ -153,6 +153,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    
+    .button {  white-space: nowrap; }
 
     @media #{$small-only}{
         display: none;
@@ -513,26 +515,19 @@
 
         .tab-subtitle {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            .right{
-                height: 100%;
-                margin-left: 20px;
-                white-space: nowrap;
-            }
         }
 
-        p.right{
+        p.aula-pessoas{
             font-size: 12px;
             border-bottom: 1px solid black;
+            display: inline-table;
         }
 
-        p.left{
-            font-size: 18px;
-        }
+        p.left{ font-size: 18px; }
 
-        .component-tabs-content, p.left{
-            font-family: 'Raleway';
-        }
+        .component-tabs-content, p.left{ font-family: 'Raleway'; }
 
         .component-tabs-content{
             width: 100%;
@@ -563,9 +558,6 @@
     }
     .list-title {
         text-transform: lowercase; 
-    }
-    p.left {
-        max-width: 410px;
     }
     p.left, p.right {
         font-weight: bold;

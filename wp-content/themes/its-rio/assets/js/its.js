@@ -113,6 +113,15 @@ Vue.component('its-pessoas', {
         openPessoa: function openPessoa(pessoa, ip) {
             if (pessoas.pessoaActive == "" || pessoas.pessoaActive.ID != pessoa.ID) {
                 pessoas.pessoaActive = pessoa;
+                var el = $('#pessoa_' + ip + '_' + pessoa.ID);
+                var elOffset = el.offset().top;
+                var elHeight = el.height();
+                var windowHeight = $(window).height();
+                var offset;
+                if (elHeight < windowHeight) offset = elOffset - (windowHeight / 2 - elHeight / 2);else offset = elOffset;
+                $('html, body').animate({
+                    scrollTop: offset
+                }, 300);
             } else {
                 pessoas.pessoaActive = "";
                 setTimeout(function () {
