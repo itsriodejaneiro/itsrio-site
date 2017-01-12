@@ -43,7 +43,7 @@ $color_institucionais : #522e91;
 		a{ color: $color_cursos; }
 	}
 
-	.header-single-menu, .header-single, .header-single:before {
+	.header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_cursos !important;
 	}
 }
@@ -86,7 +86,7 @@ $color_institucionais : #522e91;
 		a{ color: $color_varandas; }
 	}
 
-	.list-item:hover, .header-single-menu, .header-single:before {
+	.list-item:hover, .header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_varandas !important;
 	}
 }
@@ -129,7 +129,7 @@ $color_institucionais : #522e91;
 		a{ color: $color_publicacoes; }
 	}
 
-	.header-single-menu, .header-single:before {
+	.header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_publicacoes !important;
 	}
 	.header-single {
@@ -176,7 +176,7 @@ $color_institucionais : #522e91;
 		a{ color: $color_projetos; }
 	}
 
-	.header-single-menu, .header-single:before {
+	.header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_projetos !important;
 	}
 	.header-single {
@@ -192,7 +192,7 @@ $color_institucionais : #522e91;
 		a { color: #000; }
 	}
 
-	.header-single-menu, .header-single:before {
+	.header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_institucionais !important;
 	}
 	.list-item:hover {
