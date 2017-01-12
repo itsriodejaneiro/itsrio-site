@@ -20,7 +20,7 @@
 							</h3>
 							<input type="checkbox" id="search_title_area" class="ocultar">
 							<label class="label-tab" for="search_title_area"></label>
-							<div style="overflow: hidden; width: 100%;"> 
+							<div style="overflow: hidden; width: 100%;">
 								<input type="checkbox" id="search_cursos" v-model="ctp" name="cpt[]" value="cursos_ctp">
 								<label for="search_cursos" class="box">cursos</label>
 
@@ -42,7 +42,7 @@
 							</h3>
 							<input type="checkbox" id="search_title_linhas" class="ocultar">
 							<label class="label-tab" for="search_title_linhas"></label>
-							<div style="overflow: hidden; width: 100%;"> 
+							<div style="overflow: hidden; width: 100%;">
 								<input type="checkbox" id="direito-tecnologia" value="0" v-model="info_areapesquisa" name="info_areapesquisa[]">
 								<label for="direito-tecnologia" class="box">direito e tecnologia</label>
 
@@ -64,7 +64,7 @@
 							<input type="checkbox" id="search_title_categorias" class="ocultar">
 							<label class="label-tab" for="search_title_categorias"></label>
 							<div style="overflow: hidden; width: 100%;">
-								<?php 
+								<?php
 								$terms = get_terms();
 								foreach ( $terms as $term ) {
 									if($term->taxonomy == 'category' && $term->name != 'Uncategorized'){
@@ -81,8 +81,8 @@
 						</div>
 					</div>
 
-					<a href="#" class="button advanced-search" onclick="$('.filter-options,.advanced-search').toggleClass('active')">
-						busca avançada 
+					<a href="#" class="button advanced-search" onclick="openBuscaAvancada()">
+						busca avançada
 						<i class="fa fa-angle-up" aria-hidden="true"></i>
 						<i class="fa fa-angle-down" aria-hidden="true"></i>
 					</a>

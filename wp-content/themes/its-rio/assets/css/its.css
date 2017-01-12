@@ -5413,10 +5413,10 @@ footer small a {
 
 .search-box .filter-options {
   clear: both;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
-  -webkit-transition: height .4s ease-in-out;
-  transition: height .4s ease-in-out;
+  -webkit-transition: max-height .4s ease-in-out;
+  transition: max-height .4s ease-in-out;
 }
 
 @media screen and (min-width: 415px) {
@@ -5432,7 +5432,7 @@ footer small a {
 }
 
 .search-box .filter-options.active {
-  height: 450px;
+  max-height: 450px;
 }
 
 .search-box .filter-options h3 {

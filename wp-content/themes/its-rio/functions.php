@@ -13,7 +13,7 @@ $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
 
-$data = ['its_tabs' => [], 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ]; 
+$data = ['its_tabs' => [], 'single_menu_active' => '0', 'search' => [ 'title' => 'false' ], 'footer' => [ 'medium' => [], 'youtube' => [] ] ];
 $components = [];
 
 $title = '';
@@ -66,7 +66,7 @@ function get_thumbnail_url_full($id){
 function get_thumbnail_url_card($id){
 	global $dynamic_featured_image;
 	$images = $dynamic_featured_image->get_featured_images($id);
-	
+
 	if(empty($images) || !isset($images[0]))
 		return get_thumbnail_url_full($id);
 
@@ -76,7 +76,7 @@ function get_thumbnail_url_card($id){
 function get_thumbnail_url_banner($id){
 	global $dynamic_featured_image;
 	$images = $dynamic_featured_image->get_featured_images($id);
-	
+
 	if(empty($images) || !isset($images[0]))
 		return get_thumbnail_url_full($id);
 
@@ -117,7 +117,7 @@ function limit_excerpt($s, $max_length){
 	return $s;
 }
 
-function get_area_pesquisa($i){
+function get_area_pesquisa(){
 	global $meta;
 	$i = $meta['info_areapesquisa'][0];
 	$a = ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'];
@@ -125,9 +125,9 @@ function get_area_pesquisa($i){
 }
 
 function clear_divi_cache($hook){
-	global $post; 
+	global $post;
 	if ($hook == 'post-new.php' || $hook == 'post.php') {
-		if ('pessoas' === $post->post_type ) { 
+		if ('pessoas' === $post->post_type ) {
 			echo "<script>window.localStorage.clear();</script>";
 		}
 	}
@@ -159,7 +159,7 @@ add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
 function wpse22764_gettext( $translation, $original )
 {
-	if ( 'Excerpt' == $original ) 
+	if ( 'Excerpt' == $original )
 		return 'Subtítulo';
 
 	return $translation;

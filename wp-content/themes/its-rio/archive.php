@@ -1,9 +1,10 @@
 <?php
 get_header();
+
 ?>
 <div class="row">
 	<?php
-	$destaque_id = 0; 
+	$destaque_id = 0;
 	$no_label = true;
 	$cat_classes = 'black';
 
@@ -37,17 +38,17 @@ get_header();
 	if ($posts->have_posts()) {
 		?>
 		<div class="main-carousel-wrapper column large-12">
-			<?php 
+			<?php
 			switch ($postType) {
 				case 'projetos_ctp':
 				$bannerTitle = 'áreas de pesquisa';
-				$bannerCards = 'projetos ativos';				
+				$bannerCards = 'projetos ativos';
 				$label = '';
 				break;
 				case 'cursos_ctp':
 				$bannerTitle = 'inscrições abertas';
 				$bannerCards = 'cursos futuros';
-				$label = 'professores';				
+				$label = 'professores';
 				break;
 				case 'publicacoes_ctp':
 				$bannerTitle = 'publicações recentes';
@@ -56,7 +57,7 @@ get_header();
 				break;
 				case 'varandas_ctp':
 				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'varandas ITS';				
+				$bannerCards = 'varandas ITS';
 				$label = 'palestrantes';
 				break;
 
@@ -70,7 +71,7 @@ get_header();
 					<?= $bannerTitle ?>
 					<div class="line"></div>
 				</h2>
-				<?php 
+				<?php
 			} ?>
 			<div class="main-carousel highlights-carousel">
 				<?php
@@ -86,7 +87,7 @@ get_header();
 						<div class="info">
 							<a href="<?= get_post_permalink() ?>">
 								<div class="header">
-									<?php 
+									<?php
 									if(in_array($postType, ['cursos_ctp','varandas_ctp']))
 										include ROOT.'inc/archive/info-curso-varanda.php';
 									else
@@ -127,13 +128,13 @@ get_header();
 	?>
 
 	<div class="older-posts">
-		<?php 
+		<?php
 		if($bannerTitle != ""){
 			?>
 			<div class="column large-12">
 				<h2 class="list-title">
 					<?= $bannerCards ?>
-					<div class="line"></div>		
+					<div class="line"></div>
 				</h2>
 			</div>
 			<?php
@@ -170,7 +171,7 @@ get_header();
 
 		query_posts($args);
 
-		// echo $GLOBALS['wp_query']->request; 
+		// echo $GLOBALS['wp_query']->request;
 
 		if (have_posts()) {
 			while (have_posts()) {
