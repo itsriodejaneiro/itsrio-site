@@ -70,6 +70,63 @@ Vue.component('its-aulas', {
         };
     }
 });
+//
+// Vue.component('its-projetos', {
+//     methods: {
+//         changePage: function(page) {
+//             this.currentPage = page;
+//             getPage('/en/institute/' + page.EINS_URL);
+//         }
+//     },
+//     mounted() {
+//
+//     },
+//     data() {
+//         return {
+//             pages: [{
+//                 "EINS_TITULO": "Rio de Janeiro",
+//                 "EINS_URL": "rio-de-janeiro",
+//                 "EINS_IMG": "\/images\/97\/46\/eins_img_1456109746.jpg",
+//                 "EINS_ENDERECO": "<p>Rua Marqu&ecirc;s de S&atilde;o Vicente, 476, G&aacute;vea<\/p>\r\n<p>CEP 22451-040 - Rio de Janeiro\/RJ<\/p>\r\n<p>Tel.: (21) 3284-7400<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 11h &agrave;s 20h.<\/p>",
+//                 "EINS_ID": "1",
+//                 "EINS_TIP": "EINS",
+//                 "active": true,
+//                 "INFOS": null,
+//                 "EXHIBITIONS": null
+//             }, {
+//                 "EINS_TITULO": "S\u00e3o Paulo",
+//                 "EINS_URL": "sao-paulo",
+//                 "EINS_IMG": "\/images\/02\/19\/eins_img_1466220219.jpg",
+//                 "EINS_ENDERECO": "<p>Rua Piau&iacute;, 844, 1&ordm; andar, Higien&oacute;polis<\/p>\r\n<p>CEP 01241-000 - S&atilde;o Paulo\/SP<\/p>\r\n<p>Tel.: (11) 3825-2560<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a sexta, das 13h &agrave;s 19h;&nbsp;S&aacute;bados, domingos e feriados (exceto segunda), das 13h &agrave;s 18h.<\/p>",
+//                 "EINS_ID": "2",
+//                 "EINS_TIP": "EINS",
+//                 "INFOS": null,
+//                 "EXHIBITIONS": null
+//             }, {
+//                 "EINS_TITULO": "Po\u00e7os de Caldas",
+//                 "EINS_URL": "pocos-de-caldas",
+//                 "EINS_IMG": "\/images\/02\/72\/eins_img_1466220272.jpg",
+//                 "EINS_ENDERECO": "<p>Rua Teres&oacute;polis, 90, Jardim dos Estados<\/p>\r\n<p>CEP 37701-058 - Po&ccedil;os de Caldas\/MG<\/p>\r\n<p>Tel.: (35) 3722-2776<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 13h &agrave;s 19h.<\/p>",
+//                 "EINS_ID": "3",
+//                 "EINS_TIP": "EINS",
+//                 "INFOS": null,
+//                 "EXHIBITIONS": null
+//             }],
+//             bannerWidth: '25%',
+//             currentPage: {
+//                 "EINS_TITULO": "Rio de Janeiro",
+//                 "EINS_URL": "rio-de-janeiro",
+//                 "EINS_IMG": "\/images\/97\/46\/eins_img_1456109746.jpg",
+//                 "EINS_ENDERECO": "<p>Rua Marqu&ecirc;s de S&atilde;o Vicente, 476, G&aacute;vea<\/p>\r\n<p>CEP 22451-040 - Rio de Janeiro\/RJ<\/p>\r\n<p>Tel.: (21) 3284-7400<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 11h &agrave;s 20h.<\/p>",
+//                 "EINS_ID": "1",
+//                 "EINS_TIP": "EINS",
+//                 "active": true,
+//                 "INFOS": null,
+//                 "EXHIBITIONS": null
+//             },
+//         };
+//     }
+// });
 
 Vue.component('its-map', {
     data() {
@@ -143,17 +200,8 @@ Vue.component('its-pessoas', {
         openPessoa(pessoa, ip) {
             if (pessoas.pessoaActive == "" || pessoas.pessoaActive.ID != pessoa.ID) {
                 pessoas.pessoaActive = pessoa;
-                var el = $('.pessoa-info');
-                var elOffset = el.offset().top;
-                var elHeight = el.height();
-                var windowHeight = $(window).height();
-                var offset;
-                if (elHeight < windowHeight)
-                    offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
-                else
-                    offset = elOffset;
                 $('html, body').animate({
-                    scrollTop: offset
+                    scrollTop: $('.pessoa-info.active .pessoa-info-content').offset().top - 130
                 }, 300);
             } else {
                 pessoas.pessoaActive = "";
@@ -165,6 +213,10 @@ Vue.component('its-pessoas', {
         openPessoaCat(pessoa, ip, pessoa_) {
             if (pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID) {
                 pessoa_.pessoaActive = pessoa;
+
+                $('html, body').animate({
+                    scrollTop: jQuery('#pessoa_' + ip + '_' + pessoa.ID).parents('.component-tabs-tab').find('.pessoa-info .pessoa-info-content').offset().top - 130
+                }, 300);
             } else {
                 pessoa_.pessoaActive = "";
                 setTimeout(function() {
@@ -291,7 +343,6 @@ new Vue({
             }
         });
 
-        console.log(mobileAndTabletcheck());
         if (mobileAndTabletcheck()) {
             var redes = $('footer .social-icons').html();
             var trending = $('footer .social-content .tags ul').html();
