@@ -2565,6 +2565,10 @@ h3, h4, h5 {
     .highlights .horario span {
       margin: 0 0 5px 0;
       white-space: nowrap; }
+    .highlights .horario.show-for-small-only .box {
+      display: inline-block;
+      font-size: 14px;
+      margin: 0; }
   @media screen and (max-width: 48em) {
     .highlights .categories {
       color: #fff !important;

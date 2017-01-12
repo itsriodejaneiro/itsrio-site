@@ -97,6 +97,13 @@
 			margin: 0 0 5px 0;
 			white-space: nowrap;
 		}
+		&.show-for-small-only {
+			.box {
+				display: inline-block;
+				font-size: 14px;
+				margin: 0;
+			}
+		}
 	}
 
 	.categories{
