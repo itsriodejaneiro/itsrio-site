@@ -3919,7 +3919,8 @@ footer {
       cursor: pointer;
       display: inline-block;
       font-size: 14px;
-      margin: 0 0 10px; }
+      margin: 0 0 10px;
+      text-transform: lowercase; }
       .search-box .filter-options .box:hover {
         background-color: #262626;
         border-color: #262626;
