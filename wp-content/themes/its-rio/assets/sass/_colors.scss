@@ -52,6 +52,10 @@ $color_institucionais : #522e91;
 	.header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_cursos !important;
 	}
+
+    .fazer-minha-inscricao h1 {
+        color: $color_cursos; 
+    }
 }
 
 .single-varandas_ctp, .post-type-archive-varandas_ctp {
@@ -101,6 +105,10 @@ $color_institucionais : #522e91;
 	.list-item:hover, .header-single-menu, .header-single:before, .content-media .color-hover {
 		background-color: $color_varandas !important;
 	}
+
+    .fazer-minha-inscricao h1 {
+        color: $color_varandas; 
+    }
 }
 
 .single-publicacoes_ctp, .post-type-archive-publicacoes_ctp {
@@ -153,6 +161,10 @@ $color_institucionais : #522e91;
 	.header-single {
 		background-image: url('../images/publications-default-bg.png');
 	}
+
+    .fazer-minha-inscricao h1 {
+        color: $color_publicacoes; 
+    }
 }
 
 .single-projetos_ctp, .post-type-archive-projetos_ctp {
@@ -206,6 +218,10 @@ $color_institucionais : #522e91;
 	.header-single {
 		background-image: url('../images/project-default-bg.jpg');
 	}
+
+    .fazer-minha-inscricao h1 {
+        color: $color_projetos; 
+    }
 }
 
 .page, .single-comunicados_ctp {
