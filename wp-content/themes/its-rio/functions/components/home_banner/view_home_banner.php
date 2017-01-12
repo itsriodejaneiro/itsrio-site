@@ -5,7 +5,8 @@
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                $postType = get_post_type(); ?>
+				$meta = get_post_meta(get_the_ID());
+				$postType = get_post_type(); ?>
 				<div <?php post_class('carousel-cell highlights'); ?> style="background-image: url(<?= get_thumbnail_url_banner(get_the_ID()) ?>)">
 					<div class="color-hover"></div>
 					<div class="info">
@@ -14,7 +15,7 @@
 								<?php
                                 if (in_array($postType, ['cursos_ctp','varandas_ctp'])) {
                                     include ROOT.'inc/archive/info-curso-varanda.php';
-                                } else {
+                                } elseif(in_array($postType, ['projetos_ctp','publicacoes_ctp'])){
                                     include ROOT.'inc/archive/info-projeto-publi.php';
                                 } ?>
 							</div>
