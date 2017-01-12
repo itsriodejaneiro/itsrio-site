@@ -32,7 +32,7 @@
 			<a href="#" class="box newsletter-button">inscreva-se</a>
 		</div>
 
-		<div class="column large-2">
+		<div class="column medium-2">
 			<p class="raleway"><?= html_entity_decode(esc_attr(get_option('footer_description'))) ?></p>
 			<ul>
 				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">equipe</a></li>
@@ -41,7 +41,7 @@
 			</ul>
 		</div>
 
-		<div class="column large-9 large-offset-1 show-for-medium">
+		<div class="column medium-9 medium-offset-1 show-for-medium">
 			<div class="contact-wrapper">
 				<div class="contact">
 					<b>contatos:</b><br>
@@ -54,11 +54,11 @@
 		<?php include ROOT.'inc/latest-social-content.php'; ?>
 	</div>
 	<div class="row">
-		<div class="column large-9 large-push-3 raleway">
+		<div class="column medium-9 medium-push-3 raleway">
 			<img src="<?= get_template_directory_uri() ?>/assets/images/cc-footer.png" alt="Licença CC BY 3.0 BR" class="creative-commons">
 			<?= esc_attr(get_option('footer_adress')); ?>
 		</div>
-		<div class="column large-3 large-pull-9 "><small>desenvolvido por <a href="#">Hacklab/</a></small></div>
+		<div class="column medium-3 medium-pull-9 "><small>desenvolvido por <a href="#">Hacklab/</a></small></div>
 	</div>
 </footer>
 </div>

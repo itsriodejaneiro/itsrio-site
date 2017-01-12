@@ -192,7 +192,11 @@
 		top: 75px;
 		right: 0;
 		bottom: 0;
-		left: 0;			
+		left: 0;
+		@include breakpoint(medium) {
+			width: 1024px;
+			height: 768px;
+		}			
 	}
 }
 

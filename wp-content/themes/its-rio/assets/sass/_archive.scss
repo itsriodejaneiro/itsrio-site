@@ -125,6 +125,7 @@
 		    }
 		}
 		@include breakpoint(medium) {
+			margin-top: 8px;
 			display: flex;
 			justify-content: flex-end;
 			align-items: baseline;
@@ -180,7 +181,7 @@
 	}
 	a.flickity-prev-next-button, button.flickity-prev-next-button {
 		display: none;
-		@include breakpoint(large) {
+		@include breakpoint(medium) {
 			display: block;
 		}
 	}
@@ -206,6 +207,12 @@
 }
 
 .main-carousel-wrapper {
+	@include breakpoint(medium) {
+		float: none;
+		margin: 0 auto;
+		width: 90%;    
+	}
+
 	.flickity-page-dots {
 		.dot {
 			background-color: #fff !important;
@@ -284,6 +291,9 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 // ajustes nas intermediárias
 .archive {
 	.main-carousel-wrapper {
+		@include breakpoint(small only) {
+			margin-bottom: 15px;
+		}
 		.list-title {
 			margin-top: 30px !important;
 		}
@@ -291,9 +301,6 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 			.categories {
 				@include breakpoint(small only) {
 					color: #fff !important;
-				}
-				@include breakpoint(medium) {
-					margin-top: 8px;
 				}
 				ul {
 					margin-left: 8px;
