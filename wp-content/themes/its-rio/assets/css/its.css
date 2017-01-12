@@ -3903,24 +3903,37 @@ footer {
   .error-404-wrapper h2 {
     color: #ffffff;
     font-family: Raleway, sans-serif;
-    font-size: 60px;
+    font-size: 7vmax;
     font-weight: 900;
+    line-height: 1.1;
     margin-bottom: 10px;
     text-align: center; }
+    @media screen and (min-width: 48.0625em) {
+      .error-404-wrapper h2 {
+        font-size: 60px;
+        line-height: 1.4; } }
     .error-404-wrapper h2:before {
+      color: #fbaf17;
       content: '\f071';
       display: block;
       font-family: FontAwesome;
-      font-size: 80px;
-      text-align: center;
-      color: #fbaf17; }
+      font-size: 10vmax;
+      margin-bottom: 5%;
+      text-align: center; }
+      @media screen and (min-width: 48.0625em) {
+        .error-404-wrapper h2:before {
+          font-size: 80px;
+          margin-bottom: 0; } }
   .error-404-wrapper p {
     font-family: Raleway, sans-serif;
-    font-size: 25px;
+    font-size: 2.5vmax;
     font-weight: 500;
     line-height: 1.4;
     text-align: center;
     color: #ffffff; }
+    @media screen and (min-width: 48.0625em) {
+      .error-404-wrapper p {
+        font-size: 25px; } }
   .error-404-wrapper .seta-404 {
     background-image: url("../images/seta-404.png");
     width: 320px;

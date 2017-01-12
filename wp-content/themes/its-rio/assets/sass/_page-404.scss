@@ -34,27 +34,40 @@
     h2 {
         color: #ffffff;
         font-family: Raleway, sans-serif;
-        font-size: 60px;
+        font-size: 7vmax;
         font-weight: 900;
+        line-height: 1.1;
         margin-bottom: 10px;
         text-align: center;
+        @include breakpoint(medium) {
+            font-size: 60px;
+            line-height: 1.4;
+        }
 
         &:before {
+            color: #fbaf17;
             content: '\f071';
             display: block;
             font-family: FontAwesome;
-            font-size: 80px;
+            font-size: 10vmax;
+            margin-bottom: 5%;
             text-align: center;
-            color: #fbaf17;
+            @include breakpoint(medium) {
+                font-size: 80px;
+                margin-bottom: 0;
+            }
         }
     }
     p {
         font-family: Raleway, sans-serif;
-        font-size: 25px;
+        font-size: 2.5vmax;
         font-weight: 500;
         line-height: 1.4;
         text-align: center;
         color: #ffffff;
+        @include breakpoint(medium) {
+            font-size: 25px;
+        }
     }
     .seta-404 {
         background-image: url('../images/seta-404.png');
