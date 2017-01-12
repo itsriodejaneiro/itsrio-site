@@ -97,6 +97,7 @@
 			top: 75px;
 			padding: 20px;
 			box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+			background-color: #eee;
 
 			* { position: relative; }
 
@@ -110,16 +111,6 @@
 				&:after {
 					left: 0;
 				} 
-			}
-
-			&::before{
-				content: '';
-				width: 1000px;
-				height: 1000px;
-				background: #ebebeb;
-				position: absolute;
-				left: -50px;
-				top: -25px;
 			}
 
 			.line{ display: block; }
@@ -191,6 +182,18 @@
 
 			li { border-bottom: 5px solid transparent; }
 		}
+	}
+
+	.menu-nav-bg {
+		display: none;
+		width: 768px;
+		height: 1024px;
+		background: rgba(165, 165, 165, 0.9);
+		position: absolute;
+		top: 75px;
+		right: 0;
+		bottom: 0;
+		left: 0;			
 	}
 }
 
