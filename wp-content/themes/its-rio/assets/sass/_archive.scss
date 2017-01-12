@@ -171,7 +171,7 @@
 	@include breakpoint(small only) {
 		padding: 0;
 	}
-	button.flickity-prev-next-button {
+	a.flickity-prev-next-button, button.flickity-prev-next-button {
 		display: none;
 		@include breakpoint(large) {
 			display: block;
@@ -239,7 +239,7 @@
 	    	text-decoration: underline;		
 		}
 	}
-	button.flickity-prev-next-button {
+	a.flickity-prev-next-button, button.flickity-prev-next-button {
 		&.previous {
 			left: -50px;
 		}
@@ -249,7 +249,7 @@
 	}
 }
 
-button.flickity-prev-next-button {
+a.flickity-prev-next-button, button.flickity-prev-next-button {
 	border-radius: 0;
 	border: 1px solid black;
 	height: 35px;

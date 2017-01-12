@@ -84,6 +84,18 @@ Vue.component('its-map', {
             $('html, body').animate({
                 scrollTop: offset
             }, 300);
+
+            $('.map-info .next').click(function () {
+                var prev = $('.map-info-carousel-item.active');
+                if (prev.next('.map-info-carousel-item').length == 0) $('.map-info-carousel-item').eq(0).addClass('active');else prev.next('.map-info-carousel-item').addClass('active');
+                prev.removeClass('active');
+            });
+
+            $('.map-info .previous').click(function () {
+                var cur = $('.map-info-carousel-item.active');
+                if (cur.prev('.map-info-carousel-item').length == 0) $('.map-info-carousel-item').last().addClass('active');else cur.prev('.map-info-carousel-item').addClass('active');
+                cur.removeClass('active');
+            });
         },
         closeMarker: function closeMarker() {
             this.selectedMarker = false;
@@ -152,6 +164,19 @@ new Vue({
 
         setTimeout(function () {
             if (location.hash == '#comunicados') $('.comunicados h2 > a').trigger('click');
+            if (location.hash == '#equipe') {
+                var target = $('.equipe');
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 300);
+            }
+
+            if (location.hash == '#onde-estivemos') {
+                var target = $('.map');
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 300);
+            }
         }, 500);
 
         $('.comunicados h2 > a').click(function () {

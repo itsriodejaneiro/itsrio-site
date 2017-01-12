@@ -763,6 +763,10 @@
 
 //COMPONENT MAPA
 .component-tabs.map {
+    @media #{$small-only}{
+        display: none;
+    }
+
     > .row {
         padding-bottom: 25px;
         position: relative;
@@ -798,6 +802,18 @@
     background-color: #9a258f;
     overflow: inherit;
     position: relative;
+    overflow: hidden;
+    
+    .previous { left: 30px !important; }
+    .next { right: 30px !important; }
+
+    &-item{
+        display: none;
+        opacity: 0;
+        transition: opacity .3s;
+        &.active{ opacity: 1; display: block; }
+    }
+
     .seta-mapa {
         display: none;
         position: absolute;
