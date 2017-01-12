@@ -20,11 +20,10 @@
 					foreach ($tabs_content as $midia) {
 						?>
 						<div class="thumb-wrapper">
-							<div class="img-wrapper">
-								<img 
-								src="https://img.youtube.com/vi/<?= $midia['url'] ?>/maxresdefault.jpg" 
-								onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.midia-thumb').removeClass('active');$(this).addClass('active');"
-								class="midia-thumb <?= $i == 0 ? ' active' : '' ?>"
+							<div onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.img-wrapper').removeClass('active');$(this).addClass('active');"
+								class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
+								<div class="color-hover"></div>
+								<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/maxresdefault.jpg" class="midia-thumb"
 								>
 								<i class="fa fa-play-circle" aria-hidden="true"></i>
 							</div>

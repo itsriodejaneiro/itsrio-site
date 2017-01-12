@@ -97,6 +97,13 @@
 			margin: 0 0 5px 0;
 			white-space: nowrap;
 		}
+		&.show-for-small-only {
+			.box {
+				display: inline-block;
+				font-size: 14px;
+				margin: 0;
+			}
+		}
 	}
 
 	.categories{
@@ -276,19 +283,21 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 
 // ajustes nas intermediárias
 .archive {
-	.list-title {
-		margin-top: 30px !important;
-	}
-	.highlights {
-		.categories {
-			@include breakpoint(small only) {
-				color: #fff !important;
-			}
-			@include breakpoint(medium) {
-				margin-top: 8px;
-			}
-			ul {
-				margin-left: 8px;
+	.main-carousel-wrapper {
+		.list-title {
+			margin-top: 30px !important;
+		}
+		.highlights {
+			.categories {
+				@include breakpoint(small only) {
+					color: #fff !important;
+				}
+				@include breakpoint(medium) {
+					margin-top: 8px;
+				}
+				ul {
+					margin-left: 8px;
+				}
 			}
 		}
 	}

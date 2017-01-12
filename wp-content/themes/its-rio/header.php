@@ -53,7 +53,7 @@
 
 	<div class="row row-menu fixed">
 		<div class="column large-12 menu-container">
-			<i class="fa fa-bars hide-for-large" onclick="$('.menu-nav').toggleClass('active')"></i>
+			<i class="fa fa-bars hide-for-large" onclick="$('.menu-nav').toggleClass('active');$('.menu-nav-bg').fadeToggle();"></i>
 			<?php if(is_front_page()){ ?>
 			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
 			<?php } else { ?>
@@ -86,6 +86,7 @@
 					</li>
 				</ul>
 			</div>
+			<div class="menu-nav-bg"></div>
 			<nav class="menu-nav ">
 				<div>
 					<ul>

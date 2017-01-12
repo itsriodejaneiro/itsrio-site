@@ -1,12 +1,12 @@
 <div class="horario show-for-small-only">
-	<span class="box">
+	<div class="box">
 		inscrições até
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "| início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "<br> início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
 		?>
-	</span>
+	</div>
 </div>
 <div class="info-left">
 	<h2><?= the_title(); ?></h2>
