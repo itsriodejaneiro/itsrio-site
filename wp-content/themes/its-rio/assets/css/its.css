@@ -2423,7 +2423,7 @@ h3, h4, h5 {
     .home-area-item {
       display: flex;
       align-items: center;
-      padding: 0 90px; } }
+      padding: 0 70px; } }
   .home-area h2, .home-area p {
     font-weight: normal;
     font-family: 'Raleway'; }
@@ -2434,16 +2434,19 @@ h3, h4, h5 {
     @media screen and (min-width: 48.0625em) {
       .home-area h2 {
         font-size: 44px;
-        line-height: 60px; } }
+        line-height: 60px;
+        margin-top: 20px; } }
   .home-area .list-title {
     font-size: 24px;
     padding: 0;
     position: absolute;
     top: 0;
-    left: 100px; }
-  @media screen and (max-width: 48em) {
-    .home-area .carousel-cell {
-      height: initial; } }
+    left: 90px; }
+  .home-area .carousel-cell {
+    width: 100%; }
+    @media screen and (max-width: 48em) {
+      .home-area .carousel-cell {
+        height: initial; } }
   .home-area .area-left {
     padding: 50px 20px 0; }
     @media screen and (min-width: 48.0625em) {
@@ -2455,18 +2458,18 @@ h3, h4, h5 {
     display: none; }
     @media screen and (min-width: 48.0625em) {
       .home-area .area-midia {
-        width: 484px;
         height: 295px;
         display: block;
         background-color: teal;
-        margin-left: 40px; } }
+        margin-left: 40px;
+        width: 100%; } }
   .home-area a {
     margin-top: 15px;
     font-weight: bold;
     position: relative; }
     @media screen and (min-width: 48.0625em) {
       .home-area a {
-        margin-top: 25px; } }
+        margin-top: 20px; } }
   .home-area .color-line {
     height: 5px;
     width: 100%;
@@ -2626,9 +2629,6 @@ h3, h4, h5 {
     padding: 0; } }
 .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button, .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
   display: none; }
-  @media screen and (min-width: 48.0625em) {
-    .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button, .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
-      display: block; } }
 .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
   bottom: initial;
   top: 5px;
@@ -2645,19 +2645,28 @@ h3, h4, h5 {
   @media screen and (min-width: 48.0625em) {
     .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
       top: 50px; } }
-  @media screen and (min-width: 64.0625em) {
-    .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
-      display: none; } }
 
+@media screen and (min-width: 64.0625em) {
+  .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button {
+    display: block; } }
 .main-carousel-wrapper .flickity-page-dots .dot {
   background-color: #fff !important; }
 .main-carousel-wrapper .flickity-page-dots:after {
   color: #fff;
   content: 'deslize para mais destaques'; }
+@media screen and (min-width: 64.0625em) {
+  .main-carousel-wrapper .flickity-page-dots {
+    display: none; } }
 
+@media screen and (min-width: 48.0625em) {
+  .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+    display: block; } }
 .home-area .flickity-page-dots:after {
   color: #000;
   content: 'conheça melhor'; }
+@media screen and (min-width: 48.0625em) {
+  .home-area .flickity-page-dots {
+    display: none; } }
 
 .main-carousel .carousel-cell {
   width: 100%;

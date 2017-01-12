@@ -181,9 +181,6 @@
 	}
 	a.flickity-prev-next-button, button.flickity-prev-next-button {
 		display: none;
-		@include breakpoint(medium) {
-			display: block;
-		}
 	}
 	.flickity-page-dots {
 		bottom: initial;
@@ -203,13 +200,15 @@
 		@include breakpoint(medium) {
 			top: 50px;
 		}
-		@include breakpoint(large) {
-			display: none;
-		}
 	}
 }
 
 .main-carousel-wrapper {
+	a.flickity-prev-next-button, button.flickity-prev-next-button {
+		@include breakpoint(large) {
+			display: block;
+		}
+	}
 	.flickity-page-dots {
 		.dot {
 			background-color: #fff !important;
@@ -218,14 +217,25 @@
 			color: #fff;
 			content: 'deslize para mais destaques';
 		}
+		@include breakpoint(large) {
+			display: none;
+		}
 	}
 }
 
 .home-area {
+	a.flickity-prev-next-button, button.flickity-prev-next-button {
+		@include breakpoint(medium) {
+			display: block;
+		}
+	}
 	.flickity-page-dots {
 		&:after {
 			color: #000;
 			content: 'conheça melhor';
+		}
+		@include breakpoint(medium) {
+			display: none;
 		}
 	}
 }

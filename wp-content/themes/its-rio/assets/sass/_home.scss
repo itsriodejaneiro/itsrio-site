@@ -99,7 +99,7 @@
 		@include breakpoint(medium) {
 			display: flex;
 			align-items: center;
-			padding: 0 90px;
+			padding: 0 70px;
 		}
 	}
 
@@ -116,6 +116,7 @@
 		@include breakpoint(medium) {
 			font-size: 44px;
 			line-height: 60px;
+			margin-top: 20px;
 		}
 	}
 
@@ -124,10 +125,11 @@
 		padding: 0;
 		position: absolute;
 		top: 0;
-		left: 100px;
+		left: 90px;
 	}
 
 	.carousel-cell {
+		width: 100%;
 		@include breakpoint(small only) {
 			height: initial;
 		}
@@ -145,11 +147,11 @@
 	.area-midia	 {
 		display: none;
 		@include breakpoint(medium) {
-			width: 484px;
 			height: 295px;
 			display: block;
 			background-color: teal;
 			margin-left: 40px;
+			width: 100%;
 		}
 	}
 
@@ -158,7 +160,7 @@
 		font-weight: bold;
 		position: relative;
 		@include breakpoint(medium) {
-			margin-top: 25px;
+			margin-top: 20px;
 		}
 	}
 
