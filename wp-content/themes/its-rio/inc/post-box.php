@@ -1,5 +1,5 @@
 <?php global $titles; ?>	
-<div class="list-item-wrapper column small-12 medium-6 large-4 end">
+<div class="list-item-wrapper column small-12 medium-4 large-4 end">
 	<div <?php post_class( 'list-item' ); ?>>
 		<div class="info">
 			<h3><a href="<?= get_permalink() ?>"><?= the_title(); ?></a></h3>
