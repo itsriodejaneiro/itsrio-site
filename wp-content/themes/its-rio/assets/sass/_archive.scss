@@ -201,18 +201,15 @@
     		margin-left: 5px;
 		}
 		@include breakpoint(medium) {
+			top: 50px;
+		}
+		@include breakpoint(large) {
 			display: none;
 		}
 	}
 }
 
 .main-carousel-wrapper {
-	@include breakpoint(medium) {
-		float: none;
-		margin: 0 auto;
-		width: 90%;    
-	}
-
 	.flickity-page-dots {
 		.dot {
 			background-color: #fff !important;

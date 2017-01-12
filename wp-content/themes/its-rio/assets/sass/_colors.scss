@@ -333,13 +333,14 @@ $color_institucionais : #522e91;
 		}
 	}
 }
-
-@include breakpoint(small only) {
+@include breakpoint(large down) {
 	.highlights {
 		.color-hover {
 			opacity: 0.5 !important;
 		}
 	}
+}
+@include breakpoint(small only) {
 	.archive {
 		.info {
 			a, h2, .box {
