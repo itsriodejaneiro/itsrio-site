@@ -46,11 +46,10 @@ class HomeBanner extends ET_Builder_Module {
 					)
 				),
 			'posts_per_page' => $count,
-			'post_type' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp' ],
+			'post_type' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'projetos_ctp','publicacoes_ctp' ],
 			);
-		
-		$query = new WP_Query($args);
 
+		$query = new WP_Query($args);
 
 		ob_start();
 		include(__DIR__.'/view_home_banner.php');

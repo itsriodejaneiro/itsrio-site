@@ -33,10 +33,10 @@
 		</div>
 
 		<div class="column large-2">
-			<p class="raleway"><?= html_entity_decode(esc_attr( get_option('footer_description') )) ?></p>
+			<p class="raleway"><?= html_entity_decode(esc_attr(get_option('footer_description'))) ?></p>
 			<ul>
 				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">equipe</a></li>
-				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">onde estivemos</a></li>
+				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">onde estivemos</a></li>
 				<li><a href="/<?= $lang ?>/institucional/#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">comunicados</a></li>
 			</ul>
 		</div>
@@ -56,22 +56,22 @@
 	<div class="row">
 		<div class="column large-9 large-push-3 raleway">
 			<img src="<?= get_template_directory_uri() ?>/assets/images/cc-footer.png" alt="Licença CC BY 3.0 BR" class="creative-commons">
-			<?= esc_attr( get_option('footer_adress') ); ?>	
+			<?= esc_attr(get_option('footer_adress')); ?>
 		</div>
-		<div class="column large-3 large-pull-9 "><small>desenvolvido por <a href="#">Hacklab</a></small></div>
+		<div class="column large-3 large-pull-9 "><small>desenvolvido por <a href="#">Hacklab/</a></small></div>
 	</div>
 </footer>
 </div>
 
 <script>
-	<?php 
-	foreach ($components as $variable => $value) {
-		?>
+	<?php
+    foreach ($components as $variable => $value) {
+        ?>
 		var <?= $variable ?> = <?= json_encode($value) ?>;
 		<?php
-	}
-	$markers = file_get_contents(ROOT.'/functions/components/map/markers.json');
-	?>
+    }
+    $markers = file_get_contents(ROOT.'/functions/components/map/markers.json');
+    ?>
 
 	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
@@ -100,6 +100,11 @@
 	}
 </style>
 <script type="text/javascript">
+	function openBuscaAvancada() {
+		$('.filter-options,.advanced-search').toggleClass('active');
+
+	}
+
 	function DropDown(el) {
 		this.dd = el;
 		this.placeholder = this.dd.children('span');
@@ -132,6 +137,6 @@
 	});
 
 </script>
-<?php //wp_footer(); ?>
+<?php //wp_footer();?>
 </body>
 </html>
