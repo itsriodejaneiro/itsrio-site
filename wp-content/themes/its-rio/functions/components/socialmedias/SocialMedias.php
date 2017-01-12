@@ -1,29 +1,21 @@
 <?php
 class SocialMedias extends ET_Builder_Module {
 
-	public $sociais = ["youtube", "twitter", "facebook", "instagram", "medium","github"];
+	public $sociais = ["title","youtube", "twitter", "facebook", "instagram", "medium","github"];
 
 	function init() {
 		$this->name = esc_html__( 'ITS - Nas redes sociais', 'et_builder' );
 		$this->slug = 'et_pb_social_medias';
 		$this->fb_support = true;
 
-		$this->whitelisted_fields = ['title'];
-		$this->whitelisted_fields[] = $this->sociais;
-
-		$this->fields_defaults = ['title'];
-		$this->fields_defaults[] = $this->sociais;
+		$this->whitelisted_fields = $this->sociais;
+		$this->fields_defaults = $this->sociais;
 
 		$this->main_css_element = '%%order_class%% .et_pb_post';
 	}
 
 	function get_fields() {
-		$fields = array(
-			'title' => array(
-				'label'             => esc_html__( 'Título', 'et_builder' ),
-				'type'              => 'text',
-				)
-			);
+		$fields = [];
 
 		foreach ($this->sociais as $social) {
 			$fields[$social] = ['label' => esc_html__('Link do '. ucfirst($social), 'et_builder'), 'type' => 'text'];

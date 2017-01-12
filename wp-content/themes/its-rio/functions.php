@@ -8,7 +8,7 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-error_reporting(E_ERROR);
+// error_reporting(E_ERROR);
 $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
