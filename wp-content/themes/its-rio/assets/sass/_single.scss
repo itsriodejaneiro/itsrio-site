@@ -1,6 +1,8 @@
 .single {
     #content {
         margin-bottom: 0;
+        position: relative;
+        z-index: 1;
     }
 }
 
