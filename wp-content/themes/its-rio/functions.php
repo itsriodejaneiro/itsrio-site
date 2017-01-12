@@ -129,8 +129,9 @@ function limit_excerpt($s, $max_length)
 
 function get_area_pesquisa($meta = null)
 {
-	if(is_null($meta))
-	global $meta;
+    if (is_null($meta)) {
+        global $meta;
+    }
     $i = $meta['info_areapesquisa'][0];
     $a = ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'];
     return $a[$i];
