@@ -3165,7 +3165,7 @@ h3, h4, h5 {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    padding: 0 90px;
+    padding: 0 70px;
   }
 }
 
@@ -3186,6 +3186,7 @@ h3, h4, h5 {
   .home-area h2 {
     font-size: 44px;
     line-height: 60px;
+    margin-top: 20px;
   }
 }
 
@@ -3194,7 +3195,11 @@ h3, h4, h5 {
   padding: 0;
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 90px;
+}
+
+.home-area .carousel-cell {
+  width: 100%;
 }
 
 @media screen and (max-width: 48em) {
@@ -3222,11 +3227,11 @@ h3, h4, h5 {
 
 @media screen and (min-width: 48.0625em) {
   .home-area .area-midia {
-    width: 484px;
     height: 295px;
     display: block;
     background-color: teal;
     margin-left: 40px;
+    width: 100%;
   }
 }
 
@@ -3238,7 +3243,7 @@ h3, h4, h5 {
 
 @media screen and (min-width: 48.0625em) {
   .home-area a {
-    margin-top: 25px;
+    margin-top: 20px;
   }
 }
 
@@ -3506,12 +3511,6 @@ h3, h4, h5 {
   display: none;
 }
 
-@media screen and (min-width: 48.0625em) {
-  .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button, .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
-    display: block;
-  }
-}
-
 .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
   bottom: initial;
   top: 5px;
@@ -3538,8 +3537,8 @@ h3, h4, h5 {
 }
 
 @media screen and (min-width: 64.0625em) {
-  .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
-    display: none;
+  .main-carousel-wrapper a.flickity-prev-next-button, .main-carousel-wrapper button.flickity-prev-next-button {
+    display: block;
   }
 }
 
@@ -3552,9 +3551,27 @@ h3, h4, h5 {
   content: 'deslize para mais destaques';
 }
 
+@media screen and (min-width: 64.0625em) {
+  .main-carousel-wrapper .flickity-page-dots {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
+    display: block;
+  }
+}
+
 .home-area .flickity-page-dots:after {
   color: #000;
   content: 'conheça melhor';
+}
+
+@media screen and (min-width: 48.0625em) {
+  .home-area .flickity-page-dots {
+    display: none;
+  }
 }
 
 .main-carousel .carousel-cell {
@@ -4510,7 +4527,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-size: 36px;
   font-weight: normal;
   line-height: 1.33;
-  color: #9a258f;
 }
 
 .fazer-minha-inscricao a, .fazer-minha-inscricao span {
@@ -4741,6 +4757,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   background-color: #9a258f !important;
 }
 
+.single-cursos_ctp .fazer-minha-inscricao h1, .post-type-archive-cursos_ctp .fazer-minha-inscricao h1 {
+  color: #9a258f;
+}
+
 @media screen and (max-width: 48em) {
   .single-varandas_ctp .highlights .color-hover, .single-varandas_ctp .highlights .info, .post-type-archive-varandas_ctp .highlights .color-hover, .post-type-archive-varandas_ctp .highlights .info {
     background-color: #00958a;
@@ -4775,6 +4795,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single:before, .single-varandas_ctp .content-media .color-hover, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .content-media .color-hover {
   background-color: #00958a !important;
+}
+
+.single-varandas_ctp .fazer-minha-inscricao h1, .post-type-archive-varandas_ctp .fazer-minha-inscricao h1 {
+  color: #00958a;
 }
 
 @media screen and (max-width: 48em) {
@@ -4817,6 +4841,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   background-image: url("../images/publications-default-bg.png");
 }
 
+.single-publicacoes_ctp .fazer-minha-inscricao h1, .post-type-archive-publicacoes_ctp .fazer-minha-inscricao h1 {
+  color: #f5821f;
+}
+
 @media screen and (max-width: 48em) {
   .single-projetos_ctp .highlights .color-hover, .single-projetos_ctp .highlights .info, .post-type-archive-projetos_ctp .highlights .color-hover, .post-type-archive-projetos_ctp .highlights .info {
     background-color: #522e91;
@@ -4855,6 +4883,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .single-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single {
   background-image: url("../images/project-default-bg.jpg");
+}
+
+.single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1 {
+  color: #522e91;
 }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -5596,6 +5628,7 @@ footer small a {
   display: inline-block;
   font-size: 14px;
   margin: 0 0 10px;
+  text-transform: lowercase;
 }
 
 .search-box .filter-options .box:hover {
