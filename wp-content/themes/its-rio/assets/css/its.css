@@ -4763,7 +4763,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .single-varandas_ctp .highlights .color-hover, .single-varandas_ctp .highlights .info, .post-type-archive-varandas_ctp .highlights .color-hover, .post-type-archive-varandas_ctp .highlights .info {
-    background-color: #00958a;
+    background-color: #00958a !important;
   }
   .single-varandas_ctp .highlights .categories.black ul li:hover a, .post-type-archive-varandas_ctp .highlights .categories.black ul li:hover a {
     color: #00958a !important;
@@ -4771,7 +4771,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-varandas_ctp .highlights:hover .color-hover, .single-varandas_ctp .highlights:hover .info, .post-type-archive-varandas_ctp .highlights:hover .color-hover, .post-type-archive-varandas_ctp .highlights:hover .info {
-  background-color: #00958a;
+  background-color: #00958a !important;
 }
 
 .single-varandas_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-varandas_ctp .highlights:hover .categories.black ul li:hover a {
@@ -4793,7 +4793,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: #00958a;
 }
 
-.single-varandas_ctp .list-item:hover, .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single:before, .single-varandas_ctp .content-media .color-hover, .post-type-archive-varandas_ctp .list-item:hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .content-media .color-hover {
+.single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single:before, .single-varandas_ctp .content-media .color-hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .content-media .color-hover {
   background-color: #00958a !important;
 }
 
@@ -4803,7 +4803,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .single-publicacoes_ctp .highlights .color-hover, .single-publicacoes_ctp .highlights .info, .post-type-archive-publicacoes_ctp .highlights .color-hover, .post-type-archive-publicacoes_ctp .highlights .info {
-    background-color: #f5821f;
+    background-color: #f5821f !important;
   }
   .single-publicacoes_ctp .highlights .categories.black ul li:hover a, .post-type-archive-publicacoes_ctp .highlights .categories.black ul li:hover a {
     color: #f5821f !important;
@@ -4811,7 +4811,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-publicacoes_ctp .highlights:hover .color-hover, .single-publicacoes_ctp .highlights:hover .info, .post-type-archive-publicacoes_ctp .highlights:hover .color-hover, .post-type-archive-publicacoes_ctp .highlights:hover .info {
-  background-color: #f5821f;
+  background-color: #f5821f !important;
 }
 
 .single-publicacoes_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-publicacoes_ctp .highlights:hover .categories.black ul li:hover a {
@@ -4837,17 +4837,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   background-color: #f5821f !important;
 }
 
-.single-publicacoes_ctp .header-single, .post-type-archive-publicacoes_ctp .header-single {
-  background-image: url("../images/publications-default-bg.png");
-}
-
 .single-publicacoes_ctp .fazer-minha-inscricao h1, .post-type-archive-publicacoes_ctp .fazer-minha-inscricao h1 {
   color: #f5821f;
 }
 
 @media screen and (max-width: 48em) {
   .single-projetos_ctp .highlights .color-hover, .single-projetos_ctp .highlights .info, .post-type-archive-projetos_ctp .highlights .color-hover, .post-type-archive-projetos_ctp .highlights .info {
-    background-color: #522e91;
+    background-color: #522e91 !important;
   }
   .single-projetos_ctp .highlights .categories.black ul li:hover a, .post-type-archive-projetos_ctp .highlights .categories.black ul li:hover a {
     color: #522e91 !important;
@@ -4855,7 +4851,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-projetos_ctp .highlights:hover .color-hover, .single-projetos_ctp .highlights:hover .info, .post-type-archive-projetos_ctp .highlights:hover .color-hover, .post-type-archive-projetos_ctp .highlights:hover .info {
-  background-color: #522e91;
+  background-color: #522e91 !important;
 }
 
 .single-projetos_ctp .highlights:hover .categories.black ul li:hover a, .post-type-archive-projetos_ctp .highlights:hover .categories.black ul li:hover a {
@@ -4879,10 +4875,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single:before, .single-projetos_ctp .content-media .color-hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .content-media .color-hover {
   background-color: #522e91 !important;
-}
-
-.single-projetos_ctp .header-single, .post-type-archive-projetos_ctp .header-single {
-  background-image: url("../images/project-default-bg.jpg");
 }
 
 .single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1 {

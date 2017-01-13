@@ -4,224 +4,54 @@ $color_publicacoes : #f5821f;
 $color_projetos : #522e91;
 $color_institucionais : #522e91;
 
-.single-cursos_ctp, .post-type-archive-cursos_ctp {
+@mixin highlight-color($color){
 	.highlights {
 		@include breakpoint(small only) {
-			.color-hover, .info {
-				background-color: $color_cursos !important;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_cursos !important;
-						}
-					}
-				}
-			}
-	    }
-	    &:hover {
-			.color-hover, .info {
-				background-color: $color_cursos !important;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_cursos !important;
-						}
-					}
-				}
-			}
+			.color-hover, .info { background-color: $color !important;  }
+			.categories.black ul li:hover a { color: $color !important; }
+		}
+		&:hover {
+			.color-hover, .info { background-color: $color !important; }
+			.categories.black ul li:hover a{ color: $color !important; }
 		}
 	}
 
 	.menu-container .menu-nav ul li.current-menu-item {
-		border-bottom: 5px solid $color_cursos;
+		border-bottom: 5px solid $color;
 		font-weight: bold;
 
-        &:before {
+		&:before {
 			@include breakpoint(small only) {
-				background-color: $color_cursos;
+				background-color: $color;
 			}
-        }
+		}
 
-		a{ color: $color_cursos; }
+		a{ color: $color; }
 	}
 
 	.header-single-menu, .header-single:before, .content-media .color-hover {
-		background-color: $color_cursos !important;
+		background-color: $color !important;
 	}
 
-    .fazer-minha-inscricao h1 {
-        color: $color_cursos; 
-    }
+	.fazer-minha-inscricao h1 {
+		color: $color;
+	}
+}
+
+.single-cursos_ctp, .post-type-archive-cursos_ctp {
+	@include highlight-color($color_cursos);
 }
 
 .single-varandas_ctp, .post-type-archive-varandas_ctp {
-	.highlights {
-		@include breakpoint(small only) {
-			.color-hover, .info {
-				background-color: $color_varandas;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_varandas !important;
-						}
-					}
-				}
-			}
-		}
-		&:hover {
-			.color-hover, .info {
-				background-color: $color_varandas;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_varandas !important;
-						}
-					}
-				}
-			}
-		}
-	}
-	.menu-container .menu-nav ul li.current-menu-item {
-		border-bottom: 5px solid $color_varandas;
-		font-weight: bold;
-
-		&:before {
-			@include breakpoint(small only) {
-				background-color: $color_varandas;
-			}
-        }
-
-		a{ color: $color_varandas; }
-	}
-
-	.list-item:hover, .header-single-menu, .header-single:before, .content-media .color-hover {
-		background-color: $color_varandas !important;
-	}
-
-    .fazer-minha-inscricao h1 {
-        color: $color_varandas; 
-    }
+	@include highlight-color($color_varandas);
 }
 
 .single-publicacoes_ctp, .post-type-archive-publicacoes_ctp {
-	.highlights {
-		@include breakpoint(small only) {
-			.color-hover, .info {
-				background-color: $color_publicacoes;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_publicacoes !important;
-						}
-					}
-				}
-			}
-		}
-		&:hover {
-			.color-hover, .info {
-				background-color: $color_publicacoes;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_publicacoes !important;
-						}
-					}
-				}
-			}
-		}
-	}
-	.menu-container .menu-nav ul li.current-menu-item {
-		border-bottom: 5px solid $color_publicacoes;
-		font-weight: bold;
-
-		&:before {
-			@include breakpoint(small only) {
-				background-color: $color_publicacoes;
-			}
-        }
-
-		a{ color: $color_publicacoes; }
-	}
-
-	.header-single-menu, .header-single:before, .content-media .color-hover {
-		background-color: $color_publicacoes !important;
-	}
-	.header-single {
-		background-image: url('../images/publications-default-bg.png');
-	}
-
-    .fazer-minha-inscricao h1 {
-        color: $color_publicacoes; 
-    }
+	@include highlight-color($color_publicacoes);
 }
 
 .single-projetos_ctp, .post-type-archive-projetos_ctp {
-	.highlights {
-		@include breakpoint(small only) {
-			.color-hover, .info {
-				background-color: $color_projetos;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_projetos !important;
-						}
-					}
-				}
-			}
-		}
-		&:hover {
-			.color-hover, .info {
-				background-color: $color_projetos;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color_projetos !important;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.menu-container .menu-nav ul li.current-menu-item {
-		border-bottom: 5px solid $color_projetos;
-		font-weight: bold;
-
-		&:before {
-			@include breakpoint(small only) {
-				background-color: $color_projetos;
-			}
-        }
-
-		a{ color: $color_projetos; }
-	}
-
-	.header-single-menu, .header-single:before, .content-media .color-hover {
-		background-color: $color_projetos !important;
-	}
-	.header-single {
-		background-image: url('../images/project-default-bg.jpg');
-	}
-
-    .fazer-minha-inscricao h1 {
-        color: $color_projetos; 
-    }
+	@include highlight-color($color_projetos);
 }
 
 .page, .single-comunicados_ctp {
@@ -233,7 +63,7 @@ $color_institucionais : #522e91;
 			@include breakpoint(small only) {
 				background-color: #000;
 			}
-        }
+		}
 
 		a { color: #000; }
 	}

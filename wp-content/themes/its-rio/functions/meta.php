@@ -32,6 +32,7 @@ function its_meta_boxes($meta_boxes) {
 	// wp_reset_query();
 	// wp_reset_postdata();
 	// endwhile;
+	// ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
 
 	$meta_boxes = array([
 		'id'		=> 'projetoencerrado',

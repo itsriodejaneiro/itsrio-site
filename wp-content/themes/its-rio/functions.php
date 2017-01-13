@@ -140,15 +140,15 @@ function get_area_pesquisa($meta = null)
 //Retorna um array simples de relação [ id => título ]
 function get_ctp_array($post_type)
 {
-    $query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
+    global $post;
+
+    $query = get_posts(['post_type' => $post_type, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
     $array = [];
 
-    while ( $query->have_posts() ) : $query->the_post();
-    $array[get_the_ID()]=get_the_title();
-    wp_reset_query();
-    wp_reset_postdata();
-    endwhile;
-
+    foreach ($query as $posta) {
+        $posta = (array)$posta;
+        $array[$posta['ID']]= $posta['post_title'];
+    }
     return $array;
 }
 
@@ -177,7 +177,6 @@ function remove_comment_support()
     remove_post_type_support('post', 'comments');
     remove_post_type_support('page', 'comments');
 }
-
 
 // Removes from admin bar
 function mytheme_admin_bar_render()

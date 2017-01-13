@@ -75,7 +75,7 @@
 
 	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
-	var post_type = '<?= $postType ?>';
+	var post_type = '<?= ($postType == 'page') ? $_SERVER["REQUEST_URI"] :  $postType  ?>';
 	var lang = '<?= $lang ?>';
 </script>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>

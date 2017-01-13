@@ -1,6 +1,6 @@
 
 <div class="horario show-for-small-only">
-	<span class="box"> <?= get_area_pesquisa($meta); ?> </span>
+	<span class="box"> <?= get_area_pesquisa($meta);?> </span>
 </div>
 <div class="info-left">
 	<h2><?= the_title(); ?></h2>

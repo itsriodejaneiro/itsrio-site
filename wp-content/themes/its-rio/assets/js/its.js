@@ -337,6 +337,9 @@ new Vue({
             //Remove o mapas do menu para mobile
             var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
             site_data.its_tabs.splice(mapIndex, 1);
+
+            var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
+            site_data.its_tabs.splice(socialMediasIndex, 1);
         }
 
         var menu_nav = $('.menu-nav');

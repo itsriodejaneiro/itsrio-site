@@ -17,7 +17,9 @@
                                     include ROOT.'inc/archive/info-curso-varanda.php';
                                 } elseif(in_array($postType, ['projetos_ctp','publicacoes_ctp'])){
                                     include ROOT.'inc/archive/info-projeto-publi.php';
-                                } ?>
+                                } else
+									include ROOT.'inc/archive/info-acontece.php';
+								 ?>
 							</div>
 						</a>
 						<div class="line show-for-medium"></div>
