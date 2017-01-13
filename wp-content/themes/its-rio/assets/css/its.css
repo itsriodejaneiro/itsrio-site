@@ -4774,7 +4774,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #9a258f;
   }
@@ -4814,7 +4814,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-varandas_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-varandas_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #00958a;
   }
@@ -4854,7 +4854,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #f5821f;
   }
@@ -4898,7 +4898,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #522e91;
   }
@@ -4925,7 +4925,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #000;
   }
@@ -5423,18 +5423,20 @@ footer small a {
 
 .search-box {
   display: none;
-  top: 75px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
-  position: fixed;
+  position: absolute;
   background-color: rgba(150, 150, 150, 0.98);
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 48em) {
   .search-box {
+    position: fixed;
+    top: 75px;
     overflow-y: scroll;
   }
 }

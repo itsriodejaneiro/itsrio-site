@@ -41,7 +41,7 @@ $color_institucionais : #522e91;
 		font-weight: bold;
 
         &:before {
-			@include breakpoint(small only) {
+			@include breakpoint(large down) {
 				background-color: $color_cursos;
 			}
         }
@@ -94,7 +94,7 @@ $color_institucionais : #522e91;
 		font-weight: bold;
 
 		&:before {
-			@include breakpoint(small only) {
+			@include breakpoint(large down) {
 				background-color: $color_varandas;
 			}
         }
@@ -147,7 +147,7 @@ $color_institucionais : #522e91;
 		font-weight: bold;
 
 		&:before {
-			@include breakpoint(small only) {
+			@include breakpoint(large down) {
 				background-color: $color_publicacoes;
 			}
         }
@@ -204,7 +204,7 @@ $color_institucionais : #522e91;
 		font-weight: bold;
 
 		&:before {
-			@include breakpoint(small only) {
+			@include breakpoint(large down) {
 				background-color: $color_projetos;
 			}
         }
@@ -230,7 +230,7 @@ $color_institucionais : #522e91;
 		font-weight: bold;
 
 		&:before {
-			@include breakpoint(small only) {
+			@include breakpoint(large down) {
 				background-color: #000;
 			}
         }
