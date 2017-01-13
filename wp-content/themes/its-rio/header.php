@@ -20,6 +20,7 @@
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
+	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/jquery.custom-scrollbar.css') ?>">
 </head>
 <body <?php body_class(); ?>>
 	<div id="content_all" v-cloak>

@@ -82,6 +82,7 @@
 <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="/wp-content/themes/its-rio/assets/js/isotope.pkgd.min.js"></script>
+<script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
 
 <style>
 	.flickity-slider {
@@ -103,7 +104,9 @@
 <script type="text/javascript">
 	function openBuscaAvancada() {
 		$('.filter-options,.advanced-search').toggleClass('active');
-
+		setTimeout(function(){
+			$('#cat-filter').customScrollbar({  skin: "default-skin" });
+		},500);
 	}
 
 	function DropDown(el) {

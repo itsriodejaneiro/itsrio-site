@@ -1,15 +1,12 @@
 let Vue = require('vue');
 
-import {
-    map,
-    filter
-} from 'lodash';
+import { map, filter } from 'lodash';
 
 (function($) {
     $.fn.hasScrollBar = function() {
         try {
             return this.get(0).scrollHeight > this.innerHeight();
-        } catch (e) {
+        } catch (e){
             return '';
         }
     }
@@ -52,6 +49,8 @@ Vue.component('its-search', {
                 $('#info_areapesquisa').removeClass('hide');
             else
                 $('#info_areapesquisa').addClass('hide');
+
+            $('#cat-filter').customScrollbar({  skin: "default-skin" });
         }
     },
     methods: {

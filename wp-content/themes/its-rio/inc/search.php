@@ -10,7 +10,7 @@
 						<button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</label>
 
-					<div class="filter-options">
+					<div class="filter-options" id="cat-filter" style="height:350px;">
 						<h2>filtragem de conteúdo:</h2>
 
 						<div class="filter">
@@ -75,7 +75,6 @@
 								}
 
 								?>
-
 							</div>
 						</div>
 					</div>

@@ -50,6 +50,8 @@ Vue.component('its-search', {
         ctp: function ctp() {
             var _this = this;
             if (this.ctp.indexOf('projetos_ctp') > -1 || this.ctp.indexOf('publicacoes_ctp') > -1) $('#info_areapesquisa').removeClass('hide');else $('#info_areapesquisa').addClass('hide');
+
+            $('#cat-filter').customScrollbar({ skin: "default-skin" });
         }
     },
     methods: {
