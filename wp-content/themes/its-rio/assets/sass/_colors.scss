@@ -4,38 +4,7 @@ $color_publicacoes : #f5821f;
 $color_projetos : #522e91;
 $color_institucionais : #522e91;
 
-@mixin highlight-colors($color){
-	.highlights {
-		@include breakpoint(small only) {
-			.color-hover, .info {
-				background-color: $color !important;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color !important;
-						}
-					}
-				}
-			}
-		}
-		&:hover {
-			.color-hover, .info {
-				background-color: $color !important;
-			}
-			.categories.black {
-				ul li {
-					&:hover {
-						a {
-							color: $color !important;
-						}
-					}
-				}
-			}
-		}
-	}
-
+@mixin single-colors($color) {
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid $color;
 		font-weight: bold;
@@ -46,7 +15,7 @@ $color_institucionais : #522e91;
 			}
 		}
 
-		a{ color: $color; }
+		a { color: $color; }
 	}
 
 	.header-single-menu, .header-single:before, .content-media .color-hover {
@@ -59,19 +28,19 @@ $color_institucionais : #522e91;
 }
 
 .single-cursos_ctp, .post-type-archive-cursos_ctp {
-	@include highlight-colors($color_cursos);
+	@include single-colors($color_cursos);
 }
 
 .single-varandas_ctp, .post-type-archive-varandas_ctp {
-	@include highlight-colors($color_varandas);
+	@include single-colors($color_varandas);
 }
 
 .single-publicacoes_ctp, .post-type-archive-publicacoes_ctp {
-	@include highlight-colors($color_publicacoes);
+	@include single-colors($color_publicacoes);
 }
 
 .single-projetos_ctp, .post-type-archive-projetos_ctp {
-	@include highlight-colors($color_projetos);
+	@include single-colors($color_projetos);
 }
 
 .page, .single-comunicados_ctp {
@@ -96,132 +65,129 @@ $color_institucionais : #522e91;
 	}
 }
 
-// hover nos cards de post
-
-.list-item {
-	&.type-cursos_ctp {
-		.img {
-			.color-hover {
-				background-color: $color_cursos;
-			}
+@mixin highlights-colors($color) {
+	.color-hover {
+		background-color: $color !important;
+	}
+	&:hover {
+		.color-hover, .info {
+			background-color: $color !important;
 		}
-		&:hover {
-			background-color: $color_cursos !important;
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color !important;
+					}
+				}
+			}
 		}
 	}
-	&.type-varandas_ctp {
-		.img {
-			.color-hover {
-				background-color: $color_varandas;
+	@include breakpoint(small only) {
+		.color-hover, .info {
+			background-color: $color !important;
+		}
+		.categories.black {
+			ul li {
+				&:hover {
+					a {
+						color: $color !important;
+					}
+				}
 			}
-		}
-		&:hover {
-			background-color: $color_varandas !important;
-		}
-	}
-	&.type-projetos_ctp {
-		.img {
-			background-image: url('../images/project-default-bg.jpg');
-			background-position: center;
-			background-size: cover;
-			.color-hover {
-				background-color: $color_projetos;
-			}
-		}
-		&:hover {
-			background-color: $color_projetos !important;
-		}
-	}
-	&.type-publicacoes_ctp {
-		.img {
-			background-image: url('../images/publications-default-thumb.png');
-			background-position: center;
-			background-size: cover;
-			.color-hover {
-				background-color: $color_publicacoes;
-			}
-		}
-		&:hover {
-			background-color: $color_publicacoes !important;
 		}
 	}
 }
 
 .highlights {
+	&:hover {
+		.info {
+			background-color: rgb(38, 38, 38);
+		}
+	}
+	&.type-cursos_ctp {
+		@include highlights-colors($color_cursos);
+	}
+	&.type-varandas_ctp {
+		@include highlights-colors($color_varandas);
+	}
 	&.type-projetos_ctp {
 		background-image: url('../images/project-default-bg.jpg');
 		background-position: center;
+		@include highlights-colors($color_projetos);
 	}
 	&.type-publicacoes_ctp {
 		background-image: url('../images/publications-default-bg.png');
 		background-position: center;
+		@include highlights-colors($color_publicacoes);
 	}
-	&.type-cursos_ctp {
+}
+
+@mixin cards-colors($color) {
+	.img {
 		.color-hover {
-			background-color: $color_cursos;
-		}
-	}
-	&.type-varandas_ctp {
-		.color-hover {
-			background-color: $color_varandas;
-		}
-	}
-	&.type-projetos_ctp {
-		.color-hover {
-			background-color: $color_projetos;
-		}
-	}
-	&.type-publicacoes_ctp {
-		.color-hover {
-			background-color: $color_publicacoes;
+			background-color: $color;
 		}
 	}
 	&:hover {
-		&.type-cursos_ctp {
-			.info {
-				background-color: $color_cursos;
-			}
-		}
-		&.type-varandas_ctp {
-			.info {
-				background-color: $color_varandas;
-			}
-		}
-		&.type-projetos_ctp {
-			.info {
-				background-color: $color_projetos;
-			}
-		}
-		&.type-publicacoes_ctp {
-			.info {
-				background-color: $color_publicacoes;
+		background-color: $color !important;
+		.categories {
+			ul li {
+				&:hover {
+					a {
+						color: $color !important;
+					}
+				}
 			}
 		}
 	}
 }
+// hover nos cards de post
+
+.list-item {
+	&.type-cursos_ctp {
+		@include cards-colors($color_cursos);
+	}
+	&.type-varandas_ctp {
+		@include cards-colors($color_varandas);
+	}
+	&.type-projetos_ctp {
+		@include cards-colors($color_projetos);
+		.img {
+			background-image: url('../images/project-default-bg.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+	}
+	&.type-publicacoes_ctp {
+		@include cards-colors($color_publicacoes);
+		.img {
+			background-image: url('../images/publications-default-thumb.png');
+			background-position: center;
+			background-size: cover;
+		}
+	}
+}
+
+@include breakpoint(small only) {
+	.home, .archive {
+		.highlights {
+			.info {
+				a, h2, .box {
+					color: #fff !important;
+				}
+				.box {
+					border-color: #fff !important;
+				}
+			}
+		}
+	}
+}
+
 @include breakpoint(large down) {
-	.highlights {
+	.highlights, .list-item {
 		.color-hover {
 			opacity: 0.5 !important;
-		}
-	}
-}
-@include breakpoint(small only) {
-	.archive {
-		.info {
-			a, h2, .box {
-				color: #fff !important;
-			}
-			.box {
-				border-color: #fff !important;
-			}
-		}
-	}
-	.list-item {
-		.img {
-			.color-hover {
-				opacity: 0.5 !important;
-			}
 		}
 	}
 }
