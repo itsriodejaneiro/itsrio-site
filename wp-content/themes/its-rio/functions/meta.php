@@ -6,32 +6,7 @@ function its_meta_boxes($meta_boxes) {
 	$publicacoes = get_ctp_array('publicacoes_ctp');
 	$pessoas = get_ctp_array('pessoas');
 	$areas = get_ctp_array('areas');
-	// $query_publicacoes = new WP_Query(['post_type' => 'publicacoes_ctp', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
-	// $publicacoes = [];
-	//
-	// while ( $query_publicacoes->have_posts() ) : $query_publicacoes->the_post();
-	// $publicacoes[get_the_ID()]=get_the_title();
-	// wp_reset_query();
-	// wp_reset_postdata();
-	// endwhile;
-	//
-	// $query_pessoas = new WP_Query(['post_type' => 'pessoas', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
-	// $pessoas = [];
-	//
-	// while ( $query_pessoas->have_posts() ) : $query_pessoas->the_post();
-	// $pessoas[get_the_ID()]=get_the_title();
-	// wp_reset_query();
-	// wp_reset_postdata();
-	// endwhile;
-	//
-	// $query_areas = new WP_Query(['post_type' => 'areas', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
-	// $areas = [];
-	//
-	// while ( $query_areas->have_posts() ) : $query_areas->the_post();
-	// $areas[get_the_ID()]=get_the_title();
-	// wp_reset_query();
-	// wp_reset_postdata();
-	// endwhile;
+
 	// ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
 
 	$meta_boxes = array([

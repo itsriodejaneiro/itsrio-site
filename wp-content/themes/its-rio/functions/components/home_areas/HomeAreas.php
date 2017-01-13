@@ -75,6 +75,7 @@ class ET_Builder_Module_Home_Areas extends ET_Builder_Module {
 		global $tabs_content;
 		global $data;
 		global $components;
+		global $lang;
 		global $meta;
 
 		ob_start();
@@ -127,7 +128,7 @@ class ET_Builder_Module_Home_Areas_Item extends ET_Builder_Module {
 			'title' => array(
 				'label'       => esc_html__( 'Chamada da área', 'et_builder' ),
 				'type'        => 'text',
-				'description' => esc_html__( 'Ex.: "Abrindo janelas  para o futuro"', 'et_builder' ),
+				'description' => esc_html__( 'Ex.: "Abrindo janelas para o futuro"', 'et_builder' ),
 				),
 			'content_new' => array(
 				'label'       => esc_html__( 'Texto explicativo', 'et_builder' ),

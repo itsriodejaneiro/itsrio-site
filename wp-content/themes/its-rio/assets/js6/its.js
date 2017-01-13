@@ -70,63 +70,6 @@ Vue.component('its-aulas', {
         };
     }
 });
-//
-// Vue.component('its-projetos', {
-//     methods: {
-//         changePage: function(page) {
-//             this.currentPage = page;
-//             getPage('/en/institute/' + page.EINS_URL);
-//         }
-//     },
-//     mounted() {
-//
-//     },
-//     data() {
-//         return {
-//             pages: [{
-//                 "EINS_TITULO": "Rio de Janeiro",
-//                 "EINS_URL": "rio-de-janeiro",
-//                 "EINS_IMG": "\/images\/97\/46\/eins_img_1456109746.jpg",
-//                 "EINS_ENDERECO": "<p>Rua Marqu&ecirc;s de S&atilde;o Vicente, 476, G&aacute;vea<\/p>\r\n<p>CEP 22451-040 - Rio de Janeiro\/RJ<\/p>\r\n<p>Tel.: (21) 3284-7400<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 11h &agrave;s 20h.<\/p>",
-//                 "EINS_ID": "1",
-//                 "EINS_TIP": "EINS",
-//                 "active": true,
-//                 "INFOS": null,
-//                 "EXHIBITIONS": null
-//             }, {
-//                 "EINS_TITULO": "S\u00e3o Paulo",
-//                 "EINS_URL": "sao-paulo",
-//                 "EINS_IMG": "\/images\/02\/19\/eins_img_1466220219.jpg",
-//                 "EINS_ENDERECO": "<p>Rua Piau&iacute;, 844, 1&ordm; andar, Higien&oacute;polis<\/p>\r\n<p>CEP 01241-000 - S&atilde;o Paulo\/SP<\/p>\r\n<p>Tel.: (11) 3825-2560<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a sexta, das 13h &agrave;s 19h;&nbsp;S&aacute;bados, domingos e feriados (exceto segunda), das 13h &agrave;s 18h.<\/p>",
-//                 "EINS_ID": "2",
-//                 "EINS_TIP": "EINS",
-//                 "INFOS": null,
-//                 "EXHIBITIONS": null
-//             }, {
-//                 "EINS_TITULO": "Po\u00e7os de Caldas",
-//                 "EINS_URL": "pocos-de-caldas",
-//                 "EINS_IMG": "\/images\/02\/72\/eins_img_1466220272.jpg",
-//                 "EINS_ENDERECO": "<p>Rua Teres&oacute;polis, 90, Jardim dos Estados<\/p>\r\n<p>CEP 37701-058 - Po&ccedil;os de Caldas\/MG<\/p>\r\n<p>Tel.: (35) 3722-2776<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 13h &agrave;s 19h.<\/p>",
-//                 "EINS_ID": "3",
-//                 "EINS_TIP": "EINS",
-//                 "INFOS": null,
-//                 "EXHIBITIONS": null
-//             }],
-//             bannerWidth: '25%',
-//             currentPage: {
-//                 "EINS_TITULO": "Rio de Janeiro",
-//                 "EINS_URL": "rio-de-janeiro",
-//                 "EINS_IMG": "\/images\/97\/46\/eins_img_1456109746.jpg",
-//                 "EINS_ENDERECO": "<p>Rua Marqu&ecirc;s de S&atilde;o Vicente, 476, G&aacute;vea<\/p>\r\n<p>CEP 22451-040 - Rio de Janeiro\/RJ<\/p>\r\n<p>Tel.: (21) 3284-7400<\/p>\r\n<p>Hor&aacute;rio de visita&ccedil;&atilde;o: de ter&ccedil;a a domingo e feriados (exceto&nbsp;<br \/>segunda), das 11h &agrave;s 20h.<\/p>",
-//                 "EINS_ID": "1",
-//                 "EINS_TIP": "EINS",
-//                 "active": true,
-//                 "INFOS": null,
-//                 "EXHIBITIONS": null
-//             },
-//         };
-//     }
-// });
 
 Vue.component('its-map', {
     data() {
@@ -147,9 +90,7 @@ Vue.component('its-map', {
                 offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
             else
                 offset = elOffset;
-            $('html, body').animate({
-                scrollTop: offset
-            }, 300);
+            $('html, body').animate({ scrollTop: offset }, 300);
 
             $('.map-info .next').click(function() {
                 var prev = $('.map-info-carousel-item.active');
@@ -223,7 +164,6 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
-
         }
     }
 });
@@ -243,7 +183,6 @@ new Vue({
     el: '#content_all',
     data: site_data,
     mounted() {
-
         $ = jQuery;
 
         $('.home-cover').css('height', $(window).height() + 'px');
@@ -255,16 +194,12 @@ new Vue({
                 $('.comunicados h2 > a').trigger('click');
             if (location.hash == '#equipe') {
                 var target = $('.equipe');
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 100
-                }, 300);
+                $('html, body').animate({ scrollTop: target.offset().top - 100 }, 300);
             }
 
             if (location.hash == '#onde-estivemos') {
                 var target = $('.map');
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 100
-                }, 300);
+                $('html, body').animate({ scrollTop: target.offset().top - 100 }, 300);
             }
         }, 1000);
 
@@ -272,16 +207,11 @@ new Vue({
             if ($(this).text().indexOf("ver") > -1) {
                 $('.content-area:not(.comunicados)').hide();
                 $(this).text('voltar para institucional');
-
                 $('.related-post .large-4').show();
-
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 300);
+                $('html, body').animate({ scrollTop: 0 }, 300);
             } else {
                 $('.content-area').show();
                 $('.related-post .large-4:gt(2)').hide();
-
                 $(this).text('ver todos');
             }
 
@@ -350,11 +280,15 @@ new Vue({
             $('.menu-mobile-footer .trending').html('<h3>#trending tags</h3><ul>' + trending + '</ul>');
 
             //Remove o mapas do menu para mobile
-            var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
-            site_data.its_tabs.splice(mapIndex, 1);
+            if($('.map').length > 0){
+                var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(mapIndex, 1);
+            }
 
-            var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
-            site_data.its_tabs.splice(socialMediasIndex, 1);
+            if($('.component-social-medias').length > 0){
+                var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(socialMediasIndex, 1);
+            }
         }
 
         var menu_nav = $('.menu-nav');
@@ -369,11 +303,11 @@ new Vue({
             });
         }
 
-        $('.comunicados .related-post').masonry({
-            columnWidth: '.large-4',
-            selector: '.large-4',
-            percentPosition: true,
-        });
+        // $('.comunicados .related-post').masonry({
+        //     columnWidth: '.large-4',
+        //     selector: '.large-4',
+        //     percentPosition: true,
+        // });
     },
     methods: {
         changeSingleMenu(i) {
