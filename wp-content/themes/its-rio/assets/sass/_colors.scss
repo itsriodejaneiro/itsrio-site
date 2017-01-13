@@ -19,11 +19,11 @@ $color_institucionais : #522e91;
 	}
 
 	.header-single-menu, .header-single:before, .content-media .color-hover {
-		background-color: $color_cursos !important;
+		background-color: $color !important;
 	}
 
 	.fazer-minha-inscricao h1 {
-		color: $color_cursos;
+		color: $color;
 	}
 }
 
@@ -56,8 +56,10 @@ $color_institucionais : #522e91;
 
 		a { color: #000; }
 	}
-
-	.header-single-menu, .header-single:before, .content-media .color-hover {
+	.header-single:before {
+		background-color: $color_cursos !important;
+	}
+	.header-single-menu, .content-media .color-hover {
 		background-color: $color_institucionais !important;
 	}
 	.list-item:hover {

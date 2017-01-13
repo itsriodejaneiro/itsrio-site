@@ -660,7 +660,7 @@
 
     .media-title {
         display: inline-block;
-        margin-bottom: 10px;
+        margin: 15px 0 10px;
         h3 {
             font-size: 14px;
         }
@@ -742,6 +742,9 @@
             }
             .line {
                 margin: 10px 0;
+            }
+            .media-title {
+                margin-top: 0;
             }
         }
     }

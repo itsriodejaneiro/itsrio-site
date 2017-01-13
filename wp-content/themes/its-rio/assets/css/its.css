@@ -4455,7 +4455,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .content-media .media-title {
   display: inline-block;
-  margin-bottom: 10px;
+  margin: 15px 0 10px;
 }
 
 .content-media .media-title h3 {
@@ -4561,6 +4561,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .content-media .medias-thumbs .thumb-wrapper .line {
   margin: 10px 0;
+}
+
+.content-media .medias-thumbs .thumb-wrapper .media-title {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 48em) {
@@ -4813,11 +4817,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single:before, .single-varandas_ctp .content-media .color-hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .content-media .color-hover {
-  background-color: #9a258f !important;
+  background-color: #00958a !important;
 }
 
 .single-varandas_ctp .fazer-minha-inscricao h1, .post-type-archive-varandas_ctp .fazer-minha-inscricao h1 {
-  color: #9a258f;
+  color: #00958a;
 }
 
 .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -4836,11 +4840,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single:before, .single-publicacoes_ctp .content-media .color-hover, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .content-media .color-hover {
-  background-color: #9a258f !important;
+  background-color: #f5821f !important;
 }
 
 .single-publicacoes_ctp .fazer-minha-inscricao h1, .post-type-archive-publicacoes_ctp .fazer-minha-inscricao h1 {
-  color: #9a258f;
+  color: #f5821f;
 }
 
 .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -4859,11 +4863,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single:before, .single-projetos_ctp .content-media .color-hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .content-media .color-hover {
-  background-color: #9a258f !important;
+  background-color: #522e91 !important;
 }
 
 .single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1 {
-  color: #9a258f;
+  color: #522e91;
 }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -4881,7 +4885,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: #000;
 }
 
-.page .header-single-menu, .page .header-single:before, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .header-single:before, .single-comunicados_ctp .content-media .color-hover {
+.page .header-single:before, .single-comunicados_ctp .header-single:before {
+  background-color: #9a258f !important;
+}
+
+.page .header-single-menu, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .content-media .color-hover {
   background-color: #522e91 !important;
 }
 
