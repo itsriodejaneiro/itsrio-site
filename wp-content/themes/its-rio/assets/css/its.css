@@ -4451,7 +4451,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .content-media .media-title {
   display: inline-block;
-  margin-bottom: 10px;
+  margin: 15px 0 10px;
 }
 
 .content-media .media-title h3 {
@@ -4557,6 +4557,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .content-media .medias-thumbs .thumb-wrapper .line {
   margin: 10px 0;
+}
+
+.content-media .medias-thumbs .thumb-wrapper .media-title {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 48em) {
