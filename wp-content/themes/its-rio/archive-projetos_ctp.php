@@ -8,10 +8,14 @@
 				<h2 class="list-title show-for-medium">
 					áreas de pesquisa
 					<div class="line"></div>
-					<a href="javascript:void(0);" class="filter" data-filter=".area-0">Direitos e tecnologia</a><br>
-					<a href="javascript:void(0);" class="filter" data-filter=".area-1">Democracia e Tecnologia</a><br>
-					<a href="javascript:void(0);" class="filter" data-filter=".area-2">Repensando Inovação</a><br>
-					<a href="javascript:void(0);" class="filter" data-filter=".area-3">Educação</a><br>
+					<?php
+					$areas = get_ctp_array('areas');
+					foreach ($areas as $id => $area) {
+						?>
+						<a href="javascript:void(0);" class="filter" data-filter=".area-<?= $id ?>"><?= $area ?></a><br>
+						<?php
+					}
+					?>
 				</h2>
                 <!-- <its-projetos inline-template>
                     <div class="main-carousel highlights-carousel">

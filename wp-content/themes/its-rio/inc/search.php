@@ -43,17 +43,16 @@
 							<input type="checkbox" id="search_title_linhas" class="ocultar">
 							<label class="label-tab" for="search_title_linhas"></label>
 							<div style="overflow: hidden; width: 100%;">
-								<input type="checkbox" id="direito-tecnologia" value="0" v-model="info_areapesquisa" name="info_areapesquisa[]">
-								<label for="direito-tecnologia" class="box">direito e tecnologia</label>
+								<?php
+								$areas = get_ctp_array('areas');
+								foreach ($areas as $id => $area) {
+									?>
+									<input type="checkbox" id="<?= sanitize_title($area) ?>" value="<?= $id ?>" v-model="info_areapesquisa" name="info_areapesquisa[]">
+									<label for="<?= sanitize_title($area) ?>" class="box"><?= $area ?></label>
+									<?php
+								}
+								?>
 
-								<input type="checkbox" id="repensando-inovacao" value="1" v-model="info_areapesquisa" name="info_areapesquisa[]">
-								<label for="repensando-inovacao" class="box">repensando inovação</label>
-
-								<input type="checkbox" id="democracia" value="2" v-model="info_areapesquisa" name="info_areapesquisa[]">
-								<label for="democracia" class="box">democracia e tecnologia</label>
-
-								<input type="checkbox" id="educacao" value="3" v-model="info_areapesquisa" name="info_areapesquisa[]">
-								<label for="educacao" class="box">educação</label>
 							</div>
 						</div>
 						<div class="filter">
