@@ -45,7 +45,7 @@
 }
 
 
-@media #{$small-only}{
+@include breakpoint(medium down) {
     .single-header-drop-down {
         position: relative;
         padding: 13px 15px;
@@ -54,19 +54,17 @@
         outline: none;
         cursor: pointer;
         font-weight: bold;
-        width: 100%;
+        flex-grow: 1;
     }
 
     .single-header-drop-down:after {
         background: url('../images/cover-arrow.svg');
         content: '';
-        display: block;
+        display: inline-block;
         width: 20px;
         height: 11px;
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        margin-top: -3px;  
+        float: right;
+        margin-top: 8px;
     }
 
     .single-header-drop-down .dropdown {

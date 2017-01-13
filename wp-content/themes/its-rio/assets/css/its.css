@@ -3789,7 +3789,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (min-width: 48.0625em) {
+@media screen and (min-width: 64.0625em) {
   .header-single-menu {
     height: 40px;
   }
@@ -3800,7 +3800,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   height: 50px;
 }
 
-@media screen and (min-width: 48.0625em) {
+@media screen and (min-width: 64.0625em) {
   .header-single-menu.fixed + .header-single-menu-fix {
     height: 40px;
   }
@@ -3818,7 +3818,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   display: flex;
 }
 
-@media screen and (min-width: 48.0625em) {
+.single-menu {
+  text-transform: lowercase;
+}
+
+@media screen and (min-width: 64.0625em) {
   .single-menu {
     -webkit-box-flex: 1;
     flex: 1;
@@ -3853,22 +3857,49 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .sidebar {
-  width: 320px;
+  position: relative;
+}
+
+.sidebar .button {
+  font-size: 15px;
+  height: 50px;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: end;
-  justify-content: flex-end;
-}
-
-.sidebar .button {
-  white-space: nowrap;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 48em) {
   .sidebar {
-    display: none;
+    width: 130px;
+  }
+}
+
+@media screen and (min-width: 48.0625em) and (max-width: 64em) {
+  .sidebar {
+    width: 190px;
+  }
+}
+
+@media screen and (min-width: 64.0625em) {
+  .sidebar {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-flex: 0.3;
+    flex-grow: 0.3;
+  }
+  .sidebar .button {
+    height: 40px;
+    white-space: nowrap;
   }
 }
 
@@ -4743,7 +4774,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-cursos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-cursos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #9a258f;
   }
@@ -4783,7 +4814,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-varandas_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-varandas_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #00958a;
   }
@@ -4794,11 +4825,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-varandas_ctp .header-single-menu, .single-varandas_ctp .header-single:before, .single-varandas_ctp .content-media .color-hover, .post-type-archive-varandas_ctp .header-single-menu, .post-type-archive-varandas_ctp .header-single:before, .post-type-archive-varandas_ctp .content-media .color-hover {
-  background-color: #00958a !important;
+  background-color: #9a258f !important;
 }
 
 .single-varandas_ctp .fazer-minha-inscricao h1, .post-type-archive-varandas_ctp .fazer-minha-inscricao h1 {
-  color: #00958a;
+  color: #9a258f;
 }
 
 @media screen and (max-width: 48em) {
@@ -4823,7 +4854,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-publicacoes_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #f5821f;
   }
@@ -4834,11 +4865,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-publicacoes_ctp .header-single-menu, .single-publicacoes_ctp .header-single:before, .single-publicacoes_ctp .content-media .color-hover, .post-type-archive-publicacoes_ctp .header-single-menu, .post-type-archive-publicacoes_ctp .header-single:before, .post-type-archive-publicacoes_ctp .content-media .color-hover {
-  background-color: #f5821f !important;
+  background-color: #9a258f !important;
 }
 
 .single-publicacoes_ctp .fazer-minha-inscricao h1, .post-type-archive-publicacoes_ctp .fazer-minha-inscricao h1 {
-  color: #f5821f;
+  color: #9a258f;
 }
 
 @media screen and (max-width: 48em) {
@@ -4863,7 +4894,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #522e91;
   }
@@ -4874,11 +4905,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single:before, .single-projetos_ctp .content-media .color-hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .content-media .color-hover {
-  background-color: #522e91 !important;
+  background-color: #9a258f !important;
 }
 
 .single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1 {
-  color: #522e91;
+  color: #9a258f;
 }
 
 .page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
@@ -4886,7 +4917,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: bold;
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 74.9375em) {
   .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #000;
   }
@@ -5039,7 +5070,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 64em) {
   .single-header-drop-down {
     position: relative;
     padding: 13px 15px;
@@ -5048,18 +5079,17 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     outline: none;
     cursor: pointer;
     font-weight: bold;
-    width: 100%;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
   }
   .single-header-drop-down:after {
     background: url("../images/cover-arrow.svg");
     content: '';
-    display: block;
+    display: inline-block;
     width: 20px;
     height: 11px;
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    margin-top: -3px;
+    float: right;
+    margin-top: 8px;
   }
   .single-header-drop-down .dropdown {
     position: absolute;
@@ -5385,25 +5415,31 @@ footer small a {
 
 .search-box {
   display: none;
-  top: 75px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
-  position: fixed;
+  position: absolute;
   background-color: rgba(150, 150, 150, 0.98);
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 48em) {
   .search-box {
+    position: fixed;
+    top: 75px;
     overflow-y: scroll;
   }
 }
 
+.search-box .column, .search-box .columns {
+  padding: 0 15px;
+}
+
 .search-box .close-button {
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   position: absolute;
   text-align: center;
 }
@@ -5439,7 +5475,7 @@ footer small a {
 
 .search-box #search {
   border: 0;
-  width: 80%;
+  width: 85%;
   float: left;
   font-size: 20px;
   font-weight: bold;
@@ -5568,7 +5604,7 @@ footer small a {
 }
 
 .search-box .filter-options.active {
-  max-height: 450px;
+  max-height: 1000px;
 }
 
 .search-box .filter-options h3 {
