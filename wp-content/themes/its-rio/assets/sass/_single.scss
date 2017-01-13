@@ -124,7 +124,7 @@
 
 .single-menu {
     text-transform: lowercase;
-    
+
     @media #{$large-up}{
         flex: 1;
         span { display: none; }
@@ -152,34 +152,34 @@
     }
 }
 
-
-
 .sidebar {
-    @include breakpoint(medium down) {
-        flex-grow: 1.5; 
-        position: relative;
-        .button {
-            font-size: 15px;
-            padding: 15px;
-            height: 50px;
-            left: 0;
-            right: 0;
-        }
+    position: relative; 
+    .button {
+        font-size: 15px;
+        height: 50px;
+        left: 0;
+        right: 0;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    @media screen and (min-width: 415px) {
-        flex-grow: 0.5; 
+    @include breakpoint(small only) {
+        width: 130px; 
     }
-    @include breakpoint(medium) {
-        flex-grow: 0.3;
+    @include breakpoint(medium only) {
+        width: 190px;   
     }
     @include breakpoint(large) {
-        width: 320px;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        flex-grow: 0.3;
+        .button { 
+            height: 40px;
+            white-space: nowrap;
+        }
     }
-
-    .button {  white-space: nowrap; }
 }
 
 .tab {

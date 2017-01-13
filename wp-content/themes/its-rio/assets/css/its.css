@@ -3856,49 +3856,51 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-@media screen and (max-width: 64em) {
+.sidebar {
+  position: relative;
+}
+
+.sidebar .button {
+  font-size: 15px;
+  height: 50px;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 48em) {
   .sidebar {
-    -webkit-box-flex: 1.5;
-    flex-grow: 1.5;
-    position: relative;
-  }
-  .sidebar .button {
-    font-size: 15px;
-    padding: 15px;
-    height: 50px;
-    left: 0;
-    right: 0;
+    width: 130px;
   }
 }
 
-@media screen and (min-width: 415px) {
+@media screen and (min-width: 48.0625em) and (max-width: 64em) {
   .sidebar {
-    -webkit-box-flex: 0.5;
-    flex-grow: 0.5;
-  }
-}
-
-@media screen and (min-width: 48.0625em) {
-  .sidebar {
-    -webkit-box-flex: 0.3;
-    flex-grow: 0.3;
+    width: 190px;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .sidebar {
-    width: 320px;
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: end;
     justify-content: flex-end;
+    -webkit-box-flex: 0.3;
+    flex-grow: 0.3;
   }
-}
-
-.sidebar .button {
-  white-space: nowrap;
+  .sidebar .button {
+    height: 40px;
+    white-space: nowrap;
+  }
 }
 
 .tab {
