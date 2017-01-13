@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900|Roboto+Mono');
-
+@import url( 'https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900|Roboto+Mono');
 @import 'foundation/util/util';
 @import 'foundation/settings/_settings';
 @import 'foundation/foundation';
 @import "foundation/components/visibility";
-
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-visibility-classes;
@@ -16,18 +14,18 @@ body {
 	background-color: #eee;
 }
 
-h2{
+h2 {
 	font-weight: bold;
 	font-size: 24px;
 }
 
-h3{
+h3 {
 	font-size: 20px;
 }
 
-p, hr{
-	margin: 0;
-	margin-bottom: 10px;
+hr,
+p {
+	margin: 0 0 10px;
 	font-size: 15px;
 	word-wrap: break-word;
 }
@@ -38,7 +36,7 @@ p, hr{
 	background: #000;
 }
 
-.list-title{
+.list-title {
 	display: table;
 	font-size: 20px;
 	font-weight: bold;
@@ -60,7 +58,22 @@ p, hr{
 	}
 }
 
-.center{
+h2.list-title small {
+	color: black !important;
+	font-weight: normal;
+	text-transform: lowercase;
+
+	i {
+		font-style: normal;
+		background-color: lightgray;
+		padding: 0 9px 3px;
+		border-radius: 50%;
+		cursor: pointer;
+		text-decoration: none;
+	}
+}
+
+.center {
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -78,16 +91,24 @@ p, hr{
 	border-radius: 3px;
 	margin-top: 15px !important;
 	position: relative !important;
-	transition: box-shadow .3s !important;
+	transition: box-shadow 0.3s !important;
 	@include breakpoint(medium) {
 		margin-top: 25px !important;
 	}
 
-	&:hover{
+	&:hover {
 		box-shadow: 0 0 15px #8a8a8a !important;
 
-		a, .box, h3, p { color: white !important; }
-		.line { background-color: white !important; }
+		.box,
+		a,
+		h3,
+		p {
+			color: white !important;
+		}
+
+		.line {
+			background-color: white !important;
+		}
 
 		.img {
 			.color-hover {
@@ -96,14 +117,13 @@ p, hr{
 		}
 	}
 
-	.info{
-		padding: 10px !important;
-		padding-bottom: 5px !important;
+	.info {
+		padding: 10px 10px 5px !important;
 		@include breakpoint(medium) {
 			padding: 20px !important;
 		}
 
-		p{
+		p {
 			font-family: 'Raleway';
 		}
 	}
@@ -113,7 +133,7 @@ p, hr{
 	}
 
 	.line {
-		margin: 8px 0px 10px -10px;
+		margin: 8px 0 10px -10px;
 		@include breakpoint(medium) {
 			margin: 8px 5px 10px -20px;
 		}
@@ -134,6 +154,7 @@ p, hr{
 		background-size: cover;
 		background-position: center;
 		border-radius: 0 0 3px 3px;
+
 		.color-hover {
 			background-color: rgb(38, 38, 38);
 			border-radius: 0 0 3px 3px;
@@ -152,14 +173,17 @@ p, hr{
 		@include breakpoint(medium) {
 			left: 20px;
 		}
+
 		ul {
 			margin-left: 5px;
+
 			li + li {
 				margin-left: 5px;
 			}
 		}
 	}
 }
+
 .post-link {
 	display: block;
 	position: absolute;
@@ -169,23 +193,24 @@ p, hr{
 	left: 0;
 }
 
-.spread-items{
+.spread-items {
 	display: flex;
 	justify-content: space-around;
 	width: 100%;
 	align-items: center;
 
-	& > ul li{
+	& > ul li {
 		display: block;
 		width: 100%;
 		text-align: center;
 	}
-	.fill-space{
-		flex: 1
+
+	.fill-space {
+		flex: 1;
 	}
 }
 
-.label{
+.label {
 	padding: 5px;
 	font-size: 15px;
 	display: inline-block;
@@ -195,55 +220,64 @@ p, hr{
 	letter-spacing: -0.5px;
 }
 
-.box{
-	padding: 0px 8px;
+.box {
+	padding: 0 8px;
 	border: 1px solid white;
 	margin: 5px;
 	color: white;
 
-	&.black{
+	&.black {
 		background-color: black;
 		border: 1px solid black !important;
 	}
 }
 
-.categories{
+.categories {
 	display: flex !important;
 	align-items: center !important;
 	font-size: 14px;
+
 	a {
 		color: #fff;
 	}
+
 	ul {
 		li + li {
 			margin-left: 10px;
 		}
+
 		li {
 			border: 1px solid;
 			border-color: #fff;
 			line-height: 100%;
 			padding: 2px 8px;
+
 			a {
 				color: #fff;
 				font-weight: bold;
 				text-transform: lowercase;
 			}
+
 			&:hover {
 				border-color: #000;
 				background-color: #000;
+
 				a {
 					color: #fff;
 				}
 			}
 		}
 	}
-	&.black{
+
+	&.black {
 		a {
 			color: #000;
 		}
+
 		ul li {
 			border-color: #000;
 			color: #000;
+
 			&:hover {
 				a {
 					color: #fff !important;
@@ -253,7 +287,7 @@ p, hr{
 	}
 }
 
-.close{
+.close {
 	color: white;
 	font-size: 28px;
 	padding: 2px;
@@ -270,59 +304,75 @@ p, hr{
 	cursor: pointer;
 }
 
-.raleway{font-family: 'Raleway'}
-.submenu{ display: none; }
-.left{float: left; }
-.right{float: right; }
-.no-p{ padding: 0; }
-.no-p-r{ padding-right: 0; }
-
-.component-tabs-tab input[type="checkbox"], input[type="checkbox"].ocultar{
-    display: none;
-
-    &:checked + label {
-        & + .component-tabs-content, & + div{
-            max-height: 0px;
-        }
-
-        &:after {
-            content: "\f078";
-        }
-
-        @include breakpoint(medium) {
-			&:before{
-	            content: 'mostrar';
-	        }
-		}
-    }
+.raleway {
+	font-family: 'Raleway';
 }
 
-label.label-tab{
-    cursor: pointer;
-    top: 5px;
-    right: 0px;
-    position: absolute;
-    margin: 0 !important;
+.submenu {
+	display: none;
+}
 
-    &:before, &:after{
-        color: #4a4a4a;
-    }
+.left {
+	float: left;
+}
 
-    &:after{
-        content: "\f077";
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-    }
+.right {
+	float: right;
+}
 
-    @include breakpoint(medium) {
-		&:before{
-	        content: 'ocultar';
-	        margin-right: 5px;
+.no-p {
+	padding: 0;
+}
 
-	    }
+.no-p-r {
+	padding-right: 0;
+}
+
+.component-tabs-tab input[type="checkbox"],
+input[type="checkbox"].ocultar {
+	display: none;
+
+	&:checked + label {
+		& + .component-tabs-content,
+		& + div {
+			max-height: 0;
+		}
+
+		&:after {
+			content: "\f078";
+		}
+		@include breakpoint(medium) {
+			&:before {
+				content: 'mostrar';
+			}
+		}
 	}
 }
 
+label.label-tab {
+	cursor: pointer;
+	top: 5px;
+	right: 0;
+	position: absolute;
+	margin: 0 !important;
+
+	&:after,
+	&:before {
+		color: #4a4a4a;
+	}
+
+	&:after {
+		content: "\f077";
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+	}
+	@include breakpoint(medium) {
+		&:before {
+			content: 'ocultar';
+			margin-right: 5px;
+		}
+	}
+}
 @import '_fixes';
 @import '_menu';
 @import '_home';
@@ -334,10 +384,6 @@ label.label-tab{
 @import '_search';
 @import '_page-404';
 
-
-
-
-
 .banner {
 	width: 100%;
 	height: 465px;
@@ -345,23 +391,27 @@ label.label-tab{
 	// padding-bottom: 25px;
 	margin-bottom: 75px;
 
-	.slider{
-		float:left;
-		transition: all .3s;
-		height:100%;
+	.slider {
+		float: left;
+		transition: all 0.3s;
+		height: 100%;
 		overflow: hidden;
 		width: 25%;
 		position: relative;
 		cursor: pointer;
 
-		&.four{ width: 16.33%; }
-		&:hover, &.active {
+		&.four {
+			width: 16.33%;
+		}
+
+		&.active,
+		&:hover {
 			width: 50% !important;
 
-			.slider-title{
+			.slider-title {
 				font-size: 26px;
 				line-height: 30px;
-				@media (max-width:1300px){
+				@media (max-width:1300px) {
 					font-size: 20px;
 				}
 			}
@@ -369,18 +419,17 @@ label.label-tab{
 	}
 }
 
-.slider-title{
+.slider-title {
 	font-weight: bold;
 	background-color: yellow;
 	position: absolute;
 	top: 360px;
 	max-width: 95%;
-	padding: 10px;
-	padding-right: 50px;
+	padding: 10px 50px 10px 10px;
 	border-top: 5px solid lightgray;
 	font-size: 22px;
 	line-height: 26px;
-	@media (max-width:1300px){
+	@media (max-width:1300px) {
 		font-size: 18px;
 		top: 300px;
 		// font-weight: initial;

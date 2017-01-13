@@ -133,8 +133,23 @@ function get_area_pesquisa($meta = null)
         global $meta;
     }
     $i = $meta['info_areapesquisa'][0];
-    $a = ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'];
-    return $a[$i];
+
+    return get_ctp_array('areas')[$i];
+}
+
+//Retorna um array simples de relação [ id => título ]
+function get_ctp_array($post_type)
+{
+    $query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
+    $array = [];
+
+    while ( $query->have_posts() ) : $query->the_post();
+    $array[get_the_ID()]=get_the_title();
+    wp_reset_query();
+    wp_reset_postdata();
+    endwhile;
+
+    return $array;
 }
 
 function clear_divi_cache($hook)

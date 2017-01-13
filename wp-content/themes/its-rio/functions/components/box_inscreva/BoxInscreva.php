@@ -46,6 +46,7 @@ class BoxInscreva extends ET_Builder_Module {
 		global $meta;
 		global $data;
 		global $closed;
+		global $postType;
 
 		if($closed)
 			return '';
@@ -54,7 +55,7 @@ class BoxInscreva extends ET_Builder_Module {
 		$title = $this->shortcode_atts['title'];
 		$subtitle = $this->shortcode_atts['subtitle'];
 		$buttonText = $atts['buttontext'];
-		
+
 		ob_start();
 		include(__DIR__.'/view_box_inscreva.php');
 		$output = ob_get_contents();
