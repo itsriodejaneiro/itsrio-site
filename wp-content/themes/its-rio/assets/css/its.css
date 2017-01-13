@@ -2768,6 +2768,10 @@ label.label-tab:after {
   display: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 html, body {
   height: 100%;
   margin-top: 0 !important;
@@ -5100,6 +5104,47 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
 }
 
+.area-pesquisa .slider-excerpt, .area-pesquisa .slider-text {
+  display: none;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .area-pesquisa {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin: 25px 0 50px 0;
+  }
+  .area-pesquisa .slider {
+    float: left;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    height: 100%;
+    overflow: hidden;
+    width: 20%;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
+    width: 40% !important;
+    opacity: 1;
+  }
+  .area-pesquisa .slider.active .box.link, .area-pesquisa .slider:not(.no-hover):hover .box.link {
+    display: initial;
+  }
+  .area-pesquisa .slider.no-active {
+    width: 25% !important;
+    opacity: 1;
+  }
+  .area-pesquisa .slider .box.link {
+    display: none;
+  }
+  .area-pesquisa .slider .slider-excerpt, .area-pesquisa .slider .slider-text {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 64em) {
   .single-header-drop-down {
     position: relative;
@@ -5789,62 +5834,6 @@ footer small a {
   position: absolute;
   top: -100px;
   right: -230px;
-}
-
-.banner {
-  width: 100%;
-  height: 465px;
-  overflow: hidden;
-  margin-bottom: 75px;
-}
-
-.banner .slider {
-  float: left;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  height: 100%;
-  overflow: hidden;
-  width: 25%;
-  position: relative;
-  cursor: pointer;
-}
-
-.banner .slider.four {
-  width: 16.33%;
-}
-
-.banner .slider.active, .banner .slider:hover {
-  width: 50% !important;
-}
-
-.banner .slider.active .slider-title, .banner .slider:hover .slider-title {
-  font-size: 26px;
-  line-height: 30px;
-}
-
-@media (max-width: 1300px) {
-  .banner .slider.active .slider-title, .banner .slider:hover .slider-title {
-    font-size: 20px;
-  }
-}
-
-.slider-title {
-  font-weight: bold;
-  background-color: yellow;
-  position: absolute;
-  top: 360px;
-  max-width: 95%;
-  padding: 10px 50px 10px 10px;
-  border-top: 5px solid lightgray;
-  font-size: 22px;
-  line-height: 26px;
-}
-
-@media (max-width: 1300px) {
-  .slider-title {
-    font-size: 18px;
-    top: 300px;
-  }
 }
 
 /*# sourceMappingURL=its.css.map */

@@ -1,6 +1,6 @@
 .curved-shadow {
     position: absolute;
-    
+
     &:hover, &:active, &:focus {
         &:before,
         &:after {
@@ -44,6 +44,38 @@
     }
 }
 
+.area-pesquisa {
+    .slider-excerpt, .slider-text{
+        display: none;
+    }
+    @media #{$medium-up}{
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        margin: 25px 0 50px 0;
+
+        .slider {
+            float: left;
+            transition: all 0.3s;
+            height: 100%;
+            overflow: hidden;
+            width: 20%;
+            position: relative;
+            cursor: pointer;
+            opacity: 0.6;
+
+            &.active, &:not(.no-hover):hover {
+                width: 40% !important;
+                opacity: 1;
+                .box.link{ display: initial; }
+            }
+
+            &.no-active { width: 25% !important; opacity: 1; }
+            .box.link { display:none; }
+            .slider-excerpt, .slider-text{ display: block; }
+        }
+    }
+}
 
 @include breakpoint(medium down) {
     .single-header-drop-down {

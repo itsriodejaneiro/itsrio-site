@@ -138,7 +138,7 @@ function get_area_pesquisa($meta = null)
 }
 
 //Retorna um array simples de relação [ id => título ]
-function get_ctp_array($post_type)
+function get_ctp_array($post_type, $full = false)
 {
     global $post;
 
@@ -147,7 +147,7 @@ function get_ctp_array($post_type)
 
     foreach ($query as $posta) {
         $posta = (array)$posta;
-        $array[$posta['ID']]= $posta['post_title'];
+        $array[$posta['ID']]= $full ? $posta : $posta['post_title'];
     }
     return $array;
 }

@@ -20,14 +20,13 @@
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
-
 </head>
 <body <?php body_class(); ?>>
 	<div id="content_all" v-cloak>
 		<?php
 		global $postType;
-		global $titles; 
-		global $lang; 
+		global $titles;
+		global $lang;
 
 		$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
@@ -80,8 +79,8 @@
 						<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>
 					</li>
 					<li class="text">
-						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a> 
-						| 
+						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a>
+						|
 						<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> english</a>
 					</li>
 				</ul>

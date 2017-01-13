@@ -2,10 +2,13 @@ $small-medium: "only screen and (max-width: 1024px)";
 
 [v-cloak] { display:none; }
 
+body{
+	overflow-x:hidden;
+}
+
 html, body{
 	height: 100%;
 	margin-top: 0 !important;
-	
 }
 
 .home-cover + .row-menu.home + #content{
@@ -44,10 +47,6 @@ h3,h4,h5{
 		width: 100%;
 		position: fixed;
 		z-index: 10;
-		margin: 0;			
-
-		// @media #{$large-up} { 
-		// 	margin: 0px calc((100% - 1295px) / 2);
-		// }
+		margin: 0;
 	}
 }
