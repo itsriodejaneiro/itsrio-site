@@ -14,9 +14,13 @@
         overflow-y: scroll;
     }
 
+    .column {
+        padding: 0 15px;
+    }
+
     .close-button {
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
         position: absolute;
         text-align: center;
         @include breakpoint(medium) {
@@ -46,7 +50,7 @@
     }
     #search {
         border: 0;
-        width: 80%;
+        width: 85%;
         float: left;
         font-size: 20px;
         font-weight: bold;
@@ -128,7 +132,9 @@
             max-width: 820px;
         }
 
-        &.active{ max-height: 450px; }
+        &.active {
+            max-height: 1000px;
+        }
 
         h3 {
             float: left;
