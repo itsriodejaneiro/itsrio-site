@@ -1,10 +1,12 @@
 <div class="column large-12">
 	<h2 class="list-title">
 		projetos encerrados
-		<div class="line"></div>		
+		<small>mostrando tudo</small>
+		<div class="line"></div>
 	</h2>
 </div>
-<?php 
+<div id="projetos-encerrados" class="older-posts">
+<?php
 $args = array(
 	'post_type' => $postType,
 	'post__not_in' => [$destaque_id],
@@ -25,5 +27,5 @@ if (have_posts()) {
 			include(ROOT .'inc/post-box.php');
 	}
 }
-
 ?>
+</div>

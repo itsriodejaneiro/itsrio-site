@@ -1,5 +1,5 @@
-<?php global $titles; ?>	
-<div class="list-item-wrapper column small-12 medium-4 large-4 end">
+<?php global $titles; $meta = get_post_meta(get_the_ID()); ?>
+<div class="list-item-wrapper column small-12 medium-4 large-4 end <?= ($post->post_type == 'projetos_ctp') ? 'area-'.$meta['info_areapesquisa'][0] : '' ?>">
 	<div <?php post_class( 'list-item' ); ?>>
 		<div class="info">
 			<h3><a href="<?= get_permalink() ?>"><?= the_title(); ?></a></h3>

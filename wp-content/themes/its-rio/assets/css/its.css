@@ -2380,9 +2380,9 @@ h3 {
   font-size: 20px;
 }
 
-p, hr {
-  margin: 0;
-  margin-bottom: 10px;
+hr,
+p {
+  margin: 0 0 10px;
   font-size: 15px;
   word-wrap: break-word;
 }
@@ -2418,6 +2418,21 @@ p, hr {
   height: 5px;
 }
 
+h2.list-title small {
+  color: black !important;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+h2.list-title small i {
+  font-style: normal;
+  background-color: lightgray;
+  padding: 0 9px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .center {
   height: 100%;
   display: -webkit-box;
@@ -2439,8 +2454,8 @@ p, hr {
   border-radius: 3px;
   margin-top: 15px !important;
   position: relative !important;
-  -webkit-transition: box-shadow .3s !important;
-  transition: box-shadow .3s !important;
+  -webkit-transition: box-shadow 0.3s !important;
+  transition: box-shadow 0.3s !important;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -2453,7 +2468,10 @@ p, hr {
   box-shadow: 0 0 15px #8a8a8a !important;
 }
 
-.list-item:hover a, .list-item:hover .box, .list-item:hover h3, .list-item:hover p {
+.list-item:hover .box,
+.list-item:hover a,
+.list-item:hover h3,
+.list-item:hover p {
   color: white !important;
 }
 
@@ -2466,8 +2484,7 @@ p, hr {
 }
 
 .list-item .info {
-  padding: 10px !important;
-  padding-bottom: 5px !important;
+  padding: 10px 10px 5px !important;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -2485,7 +2502,7 @@ p, hr {
 }
 
 .list-item .line {
-  margin: 8px 0px 10px -10px;
+  margin: 8px 0 10px -10px;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -2577,7 +2594,7 @@ p, hr {
 }
 
 .box {
-  padding: 0px 8px;
+  padding: 0 8px;
   border: 1px solid white;
   margin: 5px;
   color: white;
@@ -2680,20 +2697,26 @@ p, hr {
   padding-right: 0;
 }
 
-.component-tabs-tab input[type="checkbox"], input[type="checkbox"].ocultar {
+.component-tabs-tab input[type="checkbox"],
+input[type="checkbox"].ocultar {
   display: none;
 }
 
-.component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content, .component-tabs-tab input[type="checkbox"]:checked + label + div, input[type="checkbox"].ocultar:checked + label + .component-tabs-content, input[type="checkbox"].ocultar:checked + label + div {
-  max-height: 0px;
+.component-tabs-tab input[type="checkbox"]:checked + label + .component-tabs-content,
+.component-tabs-tab input[type="checkbox"]:checked + label + div,
+input[type="checkbox"].ocultar:checked + label + .component-tabs-content,
+input[type="checkbox"].ocultar:checked + label + div {
+  max-height: 0;
 }
 
-.component-tabs-tab input[type="checkbox"]:checked + label:after, input[type="checkbox"].ocultar:checked + label:after {
+.component-tabs-tab input[type="checkbox"]:checked + label:after,
+input[type="checkbox"].ocultar:checked + label:after {
   content: "\f078";
 }
 
 @media screen and (min-width: 48.0625em) {
-  .component-tabs-tab input[type="checkbox"]:checked + label:before, input[type="checkbox"].ocultar:checked + label:before {
+  .component-tabs-tab input[type="checkbox"]:checked + label:before,
+  input[type="checkbox"].ocultar:checked + label:before {
     content: 'mostrar';
   }
 }
@@ -2701,12 +2724,12 @@ p, hr {
 label.label-tab {
   cursor: pointer;
   top: 5px;
-  right: 0px;
+  right: 0;
   position: absolute;
   margin: 0 !important;
 }
 
-label.label-tab:before, label.label-tab:after {
+label.label-tab:after, label.label-tab:before {
   color: #4a4a4a;
 }
 
@@ -5686,8 +5709,8 @@ footer small a {
 
 .banner .slider {
   float: left;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   height: 100%;
   overflow: hidden;
   width: 25%;
@@ -5699,17 +5722,17 @@ footer small a {
   width: 16.33%;
 }
 
-.banner .slider:hover, .banner .slider.active {
+.banner .slider.active, .banner .slider:hover {
   width: 50% !important;
 }
 
-.banner .slider:hover .slider-title, .banner .slider.active .slider-title {
+.banner .slider.active .slider-title, .banner .slider:hover .slider-title {
   font-size: 26px;
   line-height: 30px;
 }
 
 @media (max-width: 1300px) {
-  .banner .slider:hover .slider-title, .banner .slider.active .slider-title {
+  .banner .slider.active .slider-title, .banner .slider:hover .slider-title {
     font-size: 20px;
   }
 }
@@ -5720,8 +5743,7 @@ footer small a {
   position: absolute;
   top: 360px;
   max-width: 95%;
-  padding: 10px;
-  padding-right: 50px;
+  padding: 10px 50px 10px 10px;
   border-top: 5px solid lightgray;
   font-size: 22px;
   line-height: 26px;

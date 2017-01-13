@@ -1,21 +1,17 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 <div class="row">
 	<?php
-	$destaque_id = 0;
 	$no_label = true;
 	$cat_classes = 'black';
 		?>
 		<div class="main-carousel-wrapper column large-12">
-			<?php
-				$bannerTitle = 'áreas de pesquisa';
-				$bannerCards = 'projetos ativos';
-				$label = '';
-                ?>
 				<h2 class="list-title show-for-medium">
-					<?= $bannerTitle ?>
+					áreas de pesquisa
 					<div class="line"></div>
+					<a href="javascript:void(0);" class="filter" data-filter=".area-0">Direitos e tecnologia</a><br>
+					<a href="javascript:void(0);" class="filter" data-filter=".area-1">Democracia e Tecnologia</a><br>
+					<a href="javascript:void(0);" class="filter" data-filter=".area-2">Repensando Inovação</a><br>
+					<a href="javascript:void(0);" class="filter" data-filter=".area-3">Educação</a><br>
 				</h2>
                 <!-- <its-projetos inline-template>
                     <div class="main-carousel highlights-carousel">
@@ -26,58 +22,65 @@ get_header();
                     </div>
                 </its-projetos> -->
 		</div>
-
-    <script type="text/javascript">
-        setTimeout(function(){
-            jQuery('.banner .slider').hover(function() {
-                jQuery('.banner .slider').removeClass('active');
-                jQuery(this).addClass('active');
-            });
-        },1000);
-    </script>
-	<div class="older-posts">
+		<div class="column large-12">
+			<h2 class="list-title">
+				projetos ativos <small>mostrando tudo</small>
+				<div class="line"></div>
+			</h2>
+		</div>
+		<div class="older-posts">
 		<?php
-		if($bannerTitle != ""){
-			?>
-			<div class="column large-12">
-				<h2 class="list-title">
-					<?= $bannerCards ?>
-					<div class="line"></div>
-				</h2>
-			</div>
-			<?php
-		}
-
-			$args = array(
-				'posts_per_page' => '100',
-				'post_type' => 'projetos_ctp',
-				'meta_query' => array(
-					['key' => 'projeto_encerrado',
-					'value' => '0',
-					'compare' => '='])
-				);
+		$args = array(
+			'posts_per_page' => '100',
+			'post_type' => 'projetos_ctp',
+			'meta_query' => array(
+				['key' => 'projeto_encerrado',
+				'value' => '0',
+				'compare' => '='])
+			);
 
 		query_posts($args);
 
 		if (have_posts()) {
 			while (have_posts()) {
 				the_post();
-					include(ROOT .'inc/post-box.php');
+				include(ROOT .'inc/post-box.php');
 			}
-		}else{ echo 'fasda'; }
-
-			include ROOT . 'inc/archive/projetos_ctp-encerrado.php';
+		}
 		?>
 	</div>
+	<?php include ROOT . 'inc/archive/projetos_ctp-encerrado.php'; ?>
 </div>
 <script>
-	// 'use strict';
-	// setTimeout(()=>{
-	// 	jQuery('.older-posts').masonry({
-	// 		columnWidth : '.large-4',
-	// 		selector : '.large-4',
-	// 		percentPosition: true,
-	// 	});
-	// }, 1000);
+	'use strict';
+	setTimeout(function(){
+		var $grid = $('.older-posts').isotope({
+		  itemSelector: '.large-4',
+		  layoutMode: 'fitRows'
+		});
+		var $grid2 = $('#projetos-encerrados').isotope({
+		  itemSelector: '.large-4',
+		  layoutMode: 'fitRows'
+		});
+
+		$('.filter').on( 'click', function() {
+			var a = $( this );
+		  var filterValue = a.attr('data-filter');
+		  $grid.isotope({ filter: filterValue });
+		  $grid2.isotope({ filter: filterValue });
+
+		  $('.list-title small').html('<u>'+a.text()+'</u>'+ ' <i>&times;</i>');
+		  $('.list-title small i').click(function(){
+			  $grid2.isotope({ filter: '*' });
+			  $('.list-title small').html('mostrando tudo');
+		  });
+		});
+
+
+		// jQuery('.banner .slider').hover(function() {
+		//     jQuery('.banner .slider').removeClass('active');
+		//     jQuery(this).addClass('active');
+		// });
+	},1000);
 </script>
 <?php get_footer(); ?>
