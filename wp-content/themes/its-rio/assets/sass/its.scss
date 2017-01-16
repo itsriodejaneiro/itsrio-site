@@ -242,6 +242,7 @@ h2.list-title small {
 	border: 1px solid white;
 	margin: 5px;
 	color: white;
+	text-transform: lowercase !important;
 
 	&.black {
 		background-color: black;
