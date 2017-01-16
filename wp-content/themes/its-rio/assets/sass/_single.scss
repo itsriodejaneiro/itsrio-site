@@ -206,6 +206,14 @@
             display: block;
             margin: 0 0 15px 0 !important;
         }
+
+        a {
+            font-weight: 600;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 }
 

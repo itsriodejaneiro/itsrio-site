@@ -3972,6 +3972,15 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   margin: 0 0 15px 0 !important;
 }
 
+.tab-content a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.tab-content a:hover {
+  text-decoration: none;
+}
+
 .content-area {
   padding: 30px 40px;
 }
@@ -5840,6 +5849,10 @@ footer small a {
   .search-box .filter-options .filter {
     margin: 20px 0 40px;
   }
+}
+
+.search-box .filter-options .filter:last-child {
+  margin-bottom: 0;
 }
 
 .search-box .filter-options .filter .list-title {
