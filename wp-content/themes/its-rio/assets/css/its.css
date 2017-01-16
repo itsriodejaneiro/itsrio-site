@@ -5237,17 +5237,23 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: black !important;
 }
 
+.fazer-minha-inscricao a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao a {
-    top: 5px;
+    top: 10px;
     left: 50%;
-    margin-left: -113px;
-    padding: 15px 10px;
+    margin-left: -147px;
+    padding: 10px 30px;
   }
 }
 
 @media screen and (min-width: 48.0625em) {
   .fazer-minha-inscricao a {
+    font-size: 18px;
     top: 10px;
     right: 0;
     left: 0;
@@ -5262,14 +5268,8 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-@media screen and (max-width: 74.9375em) {
-  .fazer-minha-inscricao a {
-    font-size: 16px;
-  }
-}
-
 .fazer-minha-inscricao a:hover, .fazer-minha-inscricao a:focus {
-  background-color: #fbaf17;
+  background-color: #fbaf17 !important;
 }
 
 .fazer-minha-inscricao span {
