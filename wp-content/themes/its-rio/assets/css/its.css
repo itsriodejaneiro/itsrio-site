@@ -4887,6 +4887,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   padding: 0 20px;
   overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 48em) {

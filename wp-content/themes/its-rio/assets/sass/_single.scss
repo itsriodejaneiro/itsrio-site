@@ -479,7 +479,8 @@
     .tab-content {
         padding: 0 20px; overflow: hidden;
         position: relative;
-
+        overflow: hidden;
+        
         @media #{$small-only}{
             padding: 0px !important;
         }

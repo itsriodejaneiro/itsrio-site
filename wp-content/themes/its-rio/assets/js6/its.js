@@ -258,7 +258,7 @@ new Vue({
         });
 
         //Adiciona a classe de active ao post type correspondente no menu global.
-        $("a[href='/"+post_type+"'],a[href='/"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
+        $("a[href*='"+post_type+"'],a[href*='"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
 
         //Smooth scroll
         $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
