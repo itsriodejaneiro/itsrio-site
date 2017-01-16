@@ -4601,11 +4601,27 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.fazer-minha-inscricao .column, .fazer-minha-inscricao .columns {
+  position: relative;
+}
+
 .fazer-minha-inscricao h1 {
   font-family: 'Raleway';
-  font-size: 36px;
+  font-size: 30px;
   font-weight: normal;
   line-height: 1.33;
+}
+
+@media screen and (max-width: 48em) {
+  .fazer-minha-inscricao h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 64.0625em) {
+  .fazer-minha-inscricao h1 {
+    font-size: 36px;
+  }
 }
 
 .fazer-minha-inscricao a, .fazer-minha-inscricao span {
@@ -4615,25 +4631,51 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: black !important;
 }
 
-.fazer-minha-inscricao a {
-  margin: 20px 0 10px;
-}
-
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao a {
+    top: 5px;
+    left: 50%;
+    margin-left: -113px;
     padding: 15px 10px;
   }
 }
 
 @media screen and (min-width: 48.0625em) {
   .fazer-minha-inscricao a {
-    margin: 15px 20px 10px 20px;
+    top: 10px;
+    right: 0;
+    left: 0;
   }
+}
+
+@media screen and (min-width: 64.0625em) {
+  .fazer-minha-inscricao a {
+    top: 10px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+@media screen and (max-width: 74.9375em) {
+  .fazer-minha-inscricao a {
+    font-size: 16px;
+  }
+}
+
+.fazer-minha-inscricao a:hover, .fazer-minha-inscricao a:focus {
+  background-color: #fbaf17;
 }
 
 .fazer-minha-inscricao span {
   text-align: center;
   font-size: 14px;
+  margin-top: 60px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .fazer-minha-inscricao span {
+    margin-top: 55px;
+  }
 }
 
 .work-with-us {

@@ -766,11 +766,21 @@
         margin: 0 auto;
     }
 
+    .column {
+        position: relative;
+    }
+
     h1 {
         font-family: 'Raleway';
-        font-size: 36px;
+        font-size: 30px;
         font-weight: normal;
         line-height: 1.33;
+        @include breakpoint(small only) {
+            text-align: center;
+        }
+        @include breakpoint(large) {
+            font-size: 36px;
+        }
     }
 
     a, span {
@@ -781,18 +791,37 @@
     }
 
     a {
-        margin: 20px 0 10px;
         @include breakpoint(small only) {
+            top: 5px;
+            left: 50%;
+            margin-left: -113px;
             padding: 15px 10px;
         }
         @include breakpoint(medium) {
-            margin: 15px 20px 10px 20px;
+            top: 10px;
+            right: 0;
+            left: 0;
+        }
+        @include breakpoint(large) {
+            top: 10px;
+            right: 20px;
+            left: 20px;
+        }
+        @include breakpoint(large down) {
+            font-size: 16px;
+        }
+        &:hover,&:focus {
+            background-color: #fbaf17;
         }
     }
 
     span {
         text-align: center;
         font-size: 14px;
+        margin-top: 60px;
+        @include breakpoint(medium) {
+            margin-top: 55px;
+        }
     }
 }
 
