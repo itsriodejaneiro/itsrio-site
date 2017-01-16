@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
-			<p class="excerpt">informações extra</p>
+			<p class="excerpt"><?= the_excerpt() ?></p>
 			<div class="line"></div>
 		</div>
 		<div class="column large-4">

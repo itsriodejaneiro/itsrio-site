@@ -82,7 +82,8 @@ class Partner extends ET_Builder_Module {
 			$_attachments = get_posts( $attachments_args );
 
 			foreach ( $_attachments as $key => $val ) {
-				$attachments[$val->ID] = $_attachments[$key];
+				$meta = get_post_meta($val->ID);
+				$attachments[$val->ID] = $meta['_dfi_link_to_image'][0];
 			}
 		}
 
@@ -102,7 +103,7 @@ class Partner extends ET_Builder_Module {
 			$height = (int) apply_filters( 'et_pb_partner_image_height', $height );
 
 			list($full_src, $full_width, $full_height) = wp_get_attachment_image_src( $id, 'full' );
-			$gallery[] = ['src' => esc_url($full_src), 'title' => esc_attr($attachment->post_excerpt) ];
+			$gallery[] = ['src' => esc_url($full_src), 'title' => $attachment ];
 		}
 
 		ob_start();

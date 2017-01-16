@@ -19,7 +19,7 @@
 					<a href="https://www.instagram.com/itsriodejaneiro/" target="_blank"><i class="fa fa-instagram"></i></a>
 				</li>
 				<li>
-					<a href="https://medium.com/@ITSriodejaneiro" target="_blank"><i class="fa fa-medium"></i></a>
+					<a href="https://feed.itsrio.org" target="_blank"><i class="fa fa-medium"></i></a>
 				</li>
 				<li>
 					<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>

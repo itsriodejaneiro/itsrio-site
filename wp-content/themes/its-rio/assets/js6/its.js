@@ -200,6 +200,12 @@ new Vue({
                 var target = $('.map');
                 $('html, body').animate({ scrollTop: target.offset().top - 100 }, 300);
             }
+
+            if (['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash) > -1) {
+                jQuery('.area-pesquisa .slider')
+                .eq(['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash))
+                .trigger('click');
+            }
         }, 1000);
 
         $('.comunicados h2 > a').click(function() {
@@ -214,7 +220,7 @@ new Vue({
                 $(this).text('ver todos');
             }
 
-            $('.comunicados .related-post').masonry({
+            $('.comunicados .related-post, .main-carousel-wrapper').masonry({
                 columnWidth: '.large-4',
                 selector: '.large-4',
                 percentPosition: true,
@@ -241,18 +247,18 @@ new Vue({
                         currLink.addClass("active");
                         site_data.single_menu_active = currLink.parent().index();
                     } else
-                        currLink.removeClass("active");
+                    currLink.removeClass("active");
                 });
             }
         });
-
-        //Adiciona a classe de active ao post type correspondente no menu global.
-        $("a[href='/" + post_type + "']").parent().addClass('current-menu-item');
 
         $('.menu-nav li').each(function() {
             var a = $(this).find('a');
             a.attr('href', '/' + lang + a.attr('href'));
         });
+
+        //Adiciona a classe de active ao post type correspondente no menu global.
+        $("a[href='/"+post_type+"'],a[href='/"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
 
         //Smooth scroll
         $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
