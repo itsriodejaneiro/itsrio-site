@@ -45,86 +45,119 @@
 }
 
 .area-pesquisa {
-    .slider-excerpt, .slider-text{
-        display: none;
-    }
-    @media #{$medium-up}{
-        width: 100%;
-        height: 300px;
+    width: 100%;
+    overflow: hidden;
+    margin: 15px 0 0 0;
+
+    .slider {
+        opacity: 0.6;
+        padding: 20px;
+        cursor: pointer;
         overflow: hidden;
+        position: relative;
+        transition: all 0.3s;
+        background-size: auto 100%;
+        background-position: center;
+
+        span { position: relative; }
+
+        &.no-active {
+            opacity: 1;
+        }
+
+        &.active, &:not(.no-hover):hover {
+            opacity: 1;
+        }
+
+        .box { 
+            font-weight: bold; 
+            margin: 0; 
+            text-transform: lowercase;
+            
+            &:not(.link) { 
+                background-color: white;
+                color: black; 
+                display: inline-block;
+                font-size: 19px;
+                padding: 4px 6px;
+            }
+
+            &.link {
+                border-width: 2px;
+                display: none;
+                font-size: 14px;
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                white-space: nowrap;
+                text-transform: lowercase;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: #fff;
+                    color: #000;
+                }
+            }
+        }
+
+        .slider-excerpt, .slider-text {
+            color: white;
+            display: none;
+            font-family: 'Raleway';
+            font-size: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0s;
+            transition-delay: 0s;
+        }
+
+        &.active .color, &:hover .color{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    @include breakpoint(medium) {
         margin: 25px 0 50px 0;
+        height: 300px;
 
         .slider {
             width: 20%;
             float: left;
             height: 100%;
-            opacity: 0.6;
-            padding: 20px 15px;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.3s;
-            background-size: auto 100%;
-            background-position: center;
 
-            @media #{$small-only}{
-                background-size: 100% auto;
+            &.no-active {
+                width: 25% !important; 
             }
 
-            span{ position: relative; }
-
-            &.no-active { width: 25% !important; opacity: 1; }
-
             &.active, &:not(.no-hover):hover {
-                opacity: 1;
                 width: 40% !important;
 
-                .box{
-                    &:not(.link){color: rgba(82, 46, 145, 1); }
-                    &.link{ display: initial; }
+                .box {
+                    &:not(.link) {
+                        max-width: initial;
+                    }
+                    &.link {
+                        display: initial;
+                    }
                 }
 
                 .slider-excerpt, .slider-text{ 
-                    display: block;
-                    padding-top: 25px; 
-                    font-family: 'Raleway';
-                    font-size: 15px;
+                    opacity: 1;
+                    transition: opacity 0.3s;
+                    transition-delay: 0.3s;
                 }
             }
 
-            .box{ 
-                font-weight: bold; 
-                text-transform: lowercase;
-                
-                &:not(.link){ 
-                    background-color: white;
-                    color:black; 
-                    font-size: 20px;
-                }
-
-                &.link {
-                    display:none;
-                    position: absolute;
-                    bottom: 15px;
-                    white-space: nowrap;
-                    text-transform: lowercase;
+            .box { 
+                &:not(.link) { 
+                    max-width: 155px;
                 }
             }
-
-            .slider-excerpt, .slider-text{
-                display: none;
-                color: white;
-            }
-
-            &.active .color, &:hover .color{
-                left: 0;
-                top: -30px;
-                content: '';
-                width: 100%;
-                height: 120%;
-                position: absolute;
-                background-color: rgba(82, 46, 145, 0.5);
-            }
+        }
+        .slider-excerpt, .slider-text {
+            display: block !important;
         }
     }
 }

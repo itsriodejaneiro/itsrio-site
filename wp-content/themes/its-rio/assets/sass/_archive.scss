@@ -317,6 +317,15 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 	}
 }
 
+.post-type-archive-projetos_ctp {
+	.main-carousel-wrapper .list-title {
+		@include breakpoint(small only) {
+			margin: 15px !important;
+	    	line-height: 1.7;
+		}
+	}
+}
+
 .info_border{
 	border-bottom: 5px solid black;
 }
