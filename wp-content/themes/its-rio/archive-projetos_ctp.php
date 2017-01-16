@@ -14,6 +14,7 @@ $cat_classes = 'black';
 			$areas = get_ctp_array('areas', true);
 			foreach ($areas as $id => $area) { ?>
 				<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
+					<div class="color"></div>	
 					<span class="box slider-title"><?= $area['post_title'] ?></span>
 					<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
 					<span class="slider-text"><?= $area['content'] ?></span>

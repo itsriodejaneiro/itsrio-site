@@ -217,11 +217,12 @@ new Vue({
         var menu = $('.header-single-menu');
         var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
         $(window).scroll(function () {
+            var menu_fix = mobileAndTabletcheck() ? 0 : 100;
             if (typeof menu.position() != "undefined") {
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top) menu.addClass('fixed');else menu.removeClass('fixed');
 
-                var scrollPos = $(document).scrollTop() + 100;
+                var scrollPos = $(document).scrollTop() + menu_fix;
                 $('.single-menu a').each(function () {
                     var currLink = $(this);
                     var refElement = $(currLink.attr("href"));

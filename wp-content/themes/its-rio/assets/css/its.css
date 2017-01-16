@@ -5078,30 +5078,40 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:active:before, .curved-shadow:active:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
-  bottom: 15px;
+  width: 50%;
   content: "";
   height: 50%;
+  z-index: -1;
+  bottom: 15px;
   max-width: 300px;
   position: absolute;
-  z-index: -1;
-  width: 50%;
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
 }
 
 .curved-shadow:hover:before, .curved-shadow:active:before, .curved-shadow:focus:before {
   left: 0px;
-  -webkit-transform: rotate(-6deg);
   transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
 }
 
 .curved-shadow:hover:after, .curved-shadow:active:after, .curved-shadow:focus:after {
   right: 0px;
-  -webkit-transform: rotate(6deg);
   transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -webkit-transform: rotate(6deg);
 }
 
 .curved-shadow:active:before, .curved-shadow:active:after {
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
 }
 
 .area-pesquisa .slider-excerpt, .area-pesquisa .slider-text {
@@ -5116,32 +5126,79 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     margin: 25px 0 50px 0;
   }
   .area-pesquisa .slider {
+    width: 20%;
     float: left;
+    height: 100%;
+    opacity: 0.6;
+    padding: 20px 15px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    height: 100%;
-    overflow: hidden;
-    width: 20%;
+    background-size: auto 100%;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 48.0625em) and (max-width: 48em) {
+  .area-pesquisa .slider {
+    background-size: 100% auto;
+  }
+}
+
+@media screen and (min-width: 48.0625em) {
+  .area-pesquisa .slider span {
     position: relative;
-    cursor: pointer;
-    opacity: 0.6;
-  }
-  .area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
-    width: 40% !important;
-    opacity: 1;
-  }
-  .area-pesquisa .slider.active .box.link, .area-pesquisa .slider:not(.no-hover):hover .box.link {
-    display: initial;
   }
   .area-pesquisa .slider.no-active {
     width: 25% !important;
     opacity: 1;
   }
+  .area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
+    opacity: 1;
+    width: 40% !important;
+  }
+  .area-pesquisa .slider.active .box:not(.link), .area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
+    color: #522e91;
+  }
+  .area-pesquisa .slider.active .box.link, .area-pesquisa .slider:not(.no-hover):hover .box.link {
+    display: initial;
+  }
+  .area-pesquisa .slider.active .slider-excerpt, .area-pesquisa .slider.active .slider-text, .area-pesquisa .slider:not(.no-hover):hover .slider-excerpt, .area-pesquisa .slider:not(.no-hover):hover .slider-text {
+    display: block;
+    padding-top: 25px;
+    font-family: 'Raleway';
+    font-size: 15px;
+  }
+  .area-pesquisa .slider .box {
+    font-weight: bold;
+    text-transform: lowercase;
+  }
+  .area-pesquisa .slider .box:not(.link) {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+  }
   .area-pesquisa .slider .box.link {
     display: none;
+    position: absolute;
+    bottom: 15px;
+    white-space: nowrap;
+    text-transform: lowercase;
   }
   .area-pesquisa .slider .slider-excerpt, .area-pesquisa .slider .slider-text {
-    display: block;
+    display: none;
+    color: white;
+  }
+  .area-pesquisa .slider.active .color, .area-pesquisa .slider:hover .color {
+    left: 0;
+    top: -30px;
+    content: '';
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    background-color: rgba(82, 46, 145, 0.5);
   }
 }
 

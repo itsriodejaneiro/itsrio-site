@@ -4,42 +4,42 @@
     &:hover, &:active, &:focus {
         &:before,
         &:after {
-            bottom: 15px;
+            width: 50%;
             content: "";
             height: 50%;
+            z-index: -1;
+            bottom: 15px;
             max-width: 300px;
             position: absolute;
-            z-index: -1;
-            width: 50%;
-            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
             box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
         }
 
         &:before {
             left: 0px;
-            -webkit-transform: rotate(-6deg);
-            -moz-transform: rotate(-6deg);
-            -ms-transform: rotate(-6deg);
-            -o-transform: rotate(-6deg);
             transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            -ms-transform: rotate(-6deg);
+            -moz-transform: rotate(-6deg);
+            -webkit-transform: rotate(-6deg);
         }
 
         &:after {
             right: 0px;
-            -webkit-transform: rotate(6deg);
-            -moz-transform: rotate(6deg);
-            -ms-transform: rotate(6deg);
-            -o-transform: rotate(6deg);
             transform: rotate(6deg);
+            -o-transform: rotate(6deg);
+            -ms-transform: rotate(6deg);
+            -moz-transform: rotate(6deg);
+            -webkit-transform: rotate(6deg);
         }
     }
     &:active {
         &:before,
         &:after {
-            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
-            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
             box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
         }
     }
 }
@@ -55,24 +55,76 @@
         margin: 25px 0 50px 0;
 
         .slider {
-            float: left;
-            transition: all 0.3s;
-            height: 100%;
-            overflow: hidden;
             width: 20%;
-            position: relative;
-            cursor: pointer;
+            float: left;
+            height: 100%;
             opacity: 0.6;
+            padding: 20px 15px;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s;
+            background-size: auto 100%;
+            background-position: center;
 
-            &.active, &:not(.no-hover):hover {
-                width: 40% !important;
-                opacity: 1;
-                .box.link{ display: initial; }
+            @media #{$small-only}{
+                background-size: 100% auto;
             }
 
+            span{ position: relative; }
+
             &.no-active { width: 25% !important; opacity: 1; }
-            .box.link { display:none; }
-            .slider-excerpt, .slider-text{ display: block; }
+
+            &.active, &:not(.no-hover):hover {
+                opacity: 1;
+                width: 40% !important;
+
+                .box{
+                    &:not(.link){color: rgba(82, 46, 145, 1); }
+                    &.link{ display: initial; }
+                }
+
+                .slider-excerpt, .slider-text{ 
+                    display: block;
+                    padding-top: 25px; 
+                    font-family: 'Raleway';
+                    font-size: 15px;
+                }
+            }
+
+            .box{ 
+                font-weight: bold; 
+                text-transform: lowercase;
+                
+                &:not(.link){ 
+                    background-color: white;
+                    color:black; 
+                    font-size: 20px;
+                }
+
+                &.link {
+                    display:none;
+                    position: absolute;
+                    bottom: 15px;
+                    white-space: nowrap;
+                    text-transform: lowercase;
+                }
+            }
+
+            .slider-excerpt, .slider-text{
+                display: none;
+                color: white;
+            }
+
+            &.active .color, &:hover .color{
+                left: 0;
+                top: -30px;
+                content: '';
+                width: 100%;
+                height: 120%;
+                position: absolute;
+                background-color: rgba(82, 46, 145, 0.5);
+            }
         }
     }
 }
