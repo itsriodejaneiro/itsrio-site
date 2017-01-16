@@ -14,7 +14,7 @@
 				?>
 				<div class="publicacao">
 					<a href="<?= get_permalink($post->ID); ?>" target="_blank">
-						<img src="<?= get_thumbnail_url_full($post->ID); ?>" alt="">
+						<img src="<?= get_thumbnail_url_card($post->ID); ?>" alt="">
 						<h3><?= get_the_title(); ?></h3>
 						<p><?= get_the_excerpt(); ?></p>
 					</a>
