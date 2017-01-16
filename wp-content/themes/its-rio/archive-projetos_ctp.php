@@ -5,7 +5,7 @@ $cat_classes = 'black';
 ?>
 <div class="row">
 	<div class="main-carousel-wrapper column large-12">
-		<h2 class="list-title show-for-medium">
+		<h2 class="list-title">
 			áreas de pesquisa
 			<div class="line"></div>
 		</h2>
@@ -26,7 +26,7 @@ $cat_classes = 'black';
 	</div>
 	<div class="column large-12">
 		<h2 class="list-title">
-			projetos ativos <small>mostrando tudo</small>
+			projetos ativos <small class="show-for-medium">mostrando tudo</small>
 			<div class="line"></div>
 		</h2>
 	</div>
@@ -53,7 +53,7 @@ $cat_classes = 'black';
 		</div>
 		<div class="column large-12">
 			<h2 class="list-title">
-				projetos encerrados <small>mostrando tudo</small>
+				projetos encerrados <small class="show-for-medium">mostrando tudo</small>
 				<div class="line"></div>
 			</h2>
 		</div>

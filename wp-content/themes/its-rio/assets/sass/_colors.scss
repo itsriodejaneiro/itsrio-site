@@ -25,6 +25,16 @@ $color_institucionais : #522e91;
 	.fazer-minha-inscricao h1 {
 		color: $color;
 	}
+
+	.area-pesquisa .slider.active .color, .area-pesquisa .slider:hover .color {
+		background-color: rgba($color,0.5);
+	}
+
+	.area-pesquisa .slider .box.link:hover,
+	.area-pesquisa .slider.active .box:not(.link),
+	.area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
+		color: $color;
+	}
 }
 
 .single-cursos_ctp, .post-type-archive-cursos_ctp {
