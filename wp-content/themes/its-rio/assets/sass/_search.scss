@@ -149,6 +149,9 @@
             @include breakpoint(medium) {
                 margin: 20px 0 40px;
             }
+            &:last-child {
+                margin-bottom: 0;
+            }
             .list-title {
                 display: block;
                 width: 100%;
