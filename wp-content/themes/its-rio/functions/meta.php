@@ -22,7 +22,7 @@ function its_meta_boxes($meta_boxes) {
 		'post_types'=> ['publicacoes_ctp'],
 		'fields'    => array(
 			['id'   => 'pt_pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text'],
-			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (ingês)', 'textdomain'), 'type' => 'text'],
+			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (inglês)', 'textdomain'), 'type' => 'text'],
 			['id'	=> "publi_banner", 'name' => 'É um destaque da intermediária de Publicações?', 'type' => 'checkbox', 'value' => '1'],
 			['id'	=> "datapubli", 'name' => 'Data de Publicação', 'type' => 'checkbox', 'value' => '1'],
 			),
@@ -45,8 +45,8 @@ function its_meta_boxes($meta_boxes) {
 		'fields'     => array(
 			['id'   => 'info_inscinicio', 'name' => __('Início das Inscrições', 'textdomain'), 'type' => 'date'],
 			['id'   => 'info_inscfim', 'name' => __('Fim das Inscrições', 'textdomain'), 'type' => 'date'],
-			['id'   => 'info_data', 'name' => __('Data da Varanda', 'textdomain'), 'type' => 'date'],
-			['id'   => 'info_hora', 'name' => __('Horário da Varanda', 'textdomain'), 'type' => 'text'],
+			['id'   => 'info_data', 'name' => __('Data', 'textdomain'), 'type' => 'date'],
+			['id'   => 'info_hora', 'name' => __('Horário', 'textdomain'), 'type' => 'text'],
 			)
 		],
 		[
