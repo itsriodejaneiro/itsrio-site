@@ -4,11 +4,13 @@
 @import 'foundation/foundation';
 @import "foundation/components/visibility";
 @include foundation-global-styles;
+@include foundation-global-styles;
 @include foundation-grid;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 @include foundation-typography;
 @include foundation-button;
+@include foundation-reveal;
 
 body {
 	background-color: #eee;
@@ -72,9 +74,9 @@ h2.list-title small {
 		display: inline-block;
 		font-style: normal;
 		height: 20px;
-    	width: 20px;
-    	padding: 10px 5px;
-    	text-decoration: none;
+		width: 20px;
+		padding: 10px 5px;
+		text-decoration: none;
 	}
 }
 

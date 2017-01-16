@@ -28,8 +28,8 @@
 		</div>
 
 		<div class="column small-12 show-for-small-only">
-			<input type="text" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
-			<a href="#" class="box newsletter-button">inscreva-se</a>
+			<input type="text" id="txtNewsletter_Mobile" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
+			<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()">inscreva-se</a>
 		</div>
 
 		<div class="column medium-2">
@@ -47,8 +47,8 @@
 					<b>contatos:</b><br>
 					<?= esc_attr(get_option('footer_contacts')) ?>
 				</div>
-				<input type="text" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
-				<a href="#" class="box newsletter-button">inscreva-se</a>
+				<input type="text" id="txtNewsletter" placeholder="escreva seu email para receber nossa newsletter" class="newsletter-input">
+				<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()">inscreva-se</a>
 			</div>
 		</div>
 		<?php include ROOT.'inc/latest-social-content.php'; ?>
@@ -63,15 +63,22 @@
 </footer>
 </div>
 
+<div class="reveal-overlay">
+	<div id="modalNewsletter" class="reveal-modal" data-reveal="rqhkrl-reveal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-yeti-box="modalNewsletter" data-resize="modalNewsletter">
+		<iframe src="" frameborder="0" width="100%" height="100%"></iframe>
+		<span class="close" onclick="$('.reveal-overlay').fadeOut();">&times;</span>
+	</div>
+</div>
+
 <script>
 	<?php
-    foreach ($components as $variable => $value) {
-        ?>
+	foreach ($components as $variable => $value) {
+		?>
 		var <?= $variable ?> = <?= json_encode($value) ?>;
 		<?php
-    }
-    $markers = file_get_contents(ROOT.'/functions/components/map/markers.json');
-    ?>
+	}
+	$markers = file_get_contents(ROOT.'/functions/components/map/markers.json');
+	?>
 
 	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
@@ -83,7 +90,6 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="/wp-content/themes/its-rio/assets/js/isotope.pkgd.min.js"></script>
 <script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
-
 <style>
 	.flickity-slider {
 		transform: none !important;
@@ -107,6 +113,11 @@
 		setTimeout(function(){
 			$('#cat-filter').customScrollbar({  skin: "default-skin" });
 		},500);
+	}
+
+	function openNewsletter(){
+		$('.reveal-overlay').fadeIn();
+		$('#modalNewsletter iframe').attr('src','http://itsrio.us12.list-manage2.com/subscribe?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0='+$('#txtNewsletter').val());
 	}
 
 	function DropDown(el) {

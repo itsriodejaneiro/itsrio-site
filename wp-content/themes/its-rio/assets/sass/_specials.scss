@@ -259,16 +259,26 @@
 
 
 @keyframes bouncing{
-    0% {
-        transform:  translate(0px,-5px)  ;
-    }
-    26% {
-        transform:  translate(0px,5px)  ;
-    }
-    50% {
-        transform:  translate(0px,-5px)  ;
-    }
-    100% {
-        transform:  translate(0px,-5px)  ;
+    0% { transform:  translate(0px,-5px); }
+    26% { transform:  translate(0px,5px); }
+    50% { transform:  translate(0px,-5px); }
+    100% { transform:  translate(0px,-5px); }
+}
+
+.reveal-modal{
+    top: 50%;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: relative;
+    background-color: white;
+    transform: translateY(-50%);
+    box-shadow: 0 0 25px dimgrey;
+
+    .close{
+        right: 20px;
+        top: 0px;
+        font-size: 30px;
+        font-family: 'Roboto Code';
     }
 }
