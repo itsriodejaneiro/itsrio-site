@@ -3221,6 +3221,7 @@ h2.list-title small i {
   border: 1px solid white;
   margin: 5px;
   color: white;
+  text-transform: lowercase !important;
 }
 
 .box.black {
@@ -5963,33 +5964,28 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-@media screen and (min-width: 64.0625em) and (max-width: 74.9375em) {
-  .scrollable {
-    display: none;
+@media screen and (max-width: 64em) {
+  .scrollable.scrollable-bottom:after {
+    content: "\f077";
   }
-}
-
-.scrollable.scrollable-bottom:after {
-  content: "\f077";
-}
-
-.scrollable:after {
-  content: "\f078";
-  position: fixed;
-  text-align: center;
-  bottom: -10px;
-  padding: 8px 0px;
-  z-index: 11100000;
-  background-color: black;
-  font-family: 'FontAwesome';
-  width: 250px;
-  background-color: #ebebeb;
-  background: -webkit-linear-gradient(top, #ebebeb 0%, #a4a4a4 100%);
-  background: linear-gradient(to bottom, #ebebeb 0%, #a4a4a4 100%);
-  -webkit-animation: bouncing ease-in-out 3s infinite;
-  animation: bouncing ease-in-out 3s infinite;
-  height: 70px;
-  opacity: 0.6;
+  .scrollable:after {
+    content: "\f078";
+    position: fixed;
+    text-align: center;
+    bottom: -10px;
+    padding: 8px 0px;
+    z-index: 11100000;
+    background-color: black;
+    font-family: 'FontAwesome';
+    width: 250px;
+    background-color: #ebebeb;
+    background: -webkit-linear-gradient(top, #ebebeb 0%, #a4a4a4 100%);
+    background: linear-gradient(to bottom, #ebebeb 0%, #a4a4a4 100%);
+    -webkit-animation: bouncing ease-in-out 3s infinite;
+    animation: bouncing ease-in-out 3s infinite;
+    height: 70px;
+    opacity: 0.6;
+  }
 }
 
 @-webkit-keyframes bouncing {
@@ -6264,22 +6260,14 @@ footer small a {
 
 .search-box {
   display: none;
-  top: 0;
+  top: 75px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
-  position: absolute;
+  position: fixed;
   background-color: rgba(150, 150, 150, 0.98);
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 48em) {
-  .search-box {
-    position: fixed;
-    top: 75px;
-    overflow-y: scroll;
-  }
 }
 
 .search-box .column, .search-box .columns {
@@ -6394,6 +6382,7 @@ footer small a {
 
 .search-box .advanced-search {
   font-weight: bold;
+  margin-top: 25px;
   padding: 15px 20px;
 }
 
@@ -6434,6 +6423,7 @@ footer small a {
 
 .search-box .filter-options {
   clear: both;
+  height: 355px;
   max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height .4s ease-in-out;
@@ -6454,6 +6444,10 @@ footer small a {
 
 .search-box .filter-options.active {
   max-height: 1000px;
+}
+
+.search-box .filter-options .overview {
+  right: 0;
 }
 
 .search-box .filter-options h3 {
