@@ -4334,6 +4334,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   .header-single .column, .header-single .columns {
     padding: 0 20px;
   }
+  .header-single .column.medium-4, .header-single .medium-4.columns {
+    margin-bottom: 20px;
+  }
+  .header-single .column.medium-4:last-child, .header-single .medium-4.columns:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .header-single:before {
@@ -4364,7 +4370,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .header-single .pessoas {
-  line-height: 1;
+  line-height: 1.4;
   font-size: 14px;
   margin-top: 10px;
 }
@@ -4397,12 +4403,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .header-single h1 {
   font-size: 30px;
   font-weight: 900;
+  line-height: 34px;
 }
 
 @media screen and (min-width: 48.0625em) {
   .header-single h1 {
     font-size: 50px;
-    line-height: 60px;
+    line-height: 50px;
   }
 }
 

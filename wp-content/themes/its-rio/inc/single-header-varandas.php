@@ -5,7 +5,7 @@
 			<?php $label = 'palestrantes'; include(ROOT.'inc/palestrantes.php'); wp_reset_postdata(); ?>
 			<div class="line"></div>
 		</div>
-		<div class="column large-4">
+		<div class="column medium-4 large-4">
 			<?php if(!$closed): ?>
 				<p class="box-title">horário</p>
 				<p class="box">
@@ -18,11 +18,11 @@
 				<p class="box-title">Varanda encerrada</p>
 			<?php endif; ?>
 		</div>
-		<div class="column large-4 end">
-			<p class="box-title">área de pesquisa</p>
+		<div class="column medium-4 large-4">
+			<p class="box-title show-for-medium">área de pesquisa</p>
 			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
-		<div class="column large-4 end">
+		<div class="column medium-4 large-4 end">
 			<p class="box-title show-for-medium">categorias</p>
 			<?php $no_label = true; include(ROOT.'inc/categories.php') ?>
 		</div>
