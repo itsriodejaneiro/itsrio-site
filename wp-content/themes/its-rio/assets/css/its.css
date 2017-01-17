@@ -6024,10 +6024,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 @media screen and (max-width: 64em) {
-  .scrollable.scrollable-bottom:after {
+  .menu-nav.scrollable.scrollable-bottom:after {
     content: "\f077";
   }
-  .scrollable:after {
+  .menu-nav.scrollable:after {
     content: "\f078";
     position: fixed;
     text-align: center;
@@ -6329,6 +6329,12 @@ footer small a {
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 48em) {
+  .search-box {
+    overflow-y: scroll;
+  }
+}
+
 .search-box .column, .search-box .columns {
   padding: 0 15px;
 }
@@ -6505,11 +6511,7 @@ footer small a {
   max-height: 1000px;
 }
 
-.search-box .filter-options .overview {
-  right: 0;
-}
-
-.search-box .filter-options h3 {
+.search-box .filter-options s h3 {
   float: left;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
