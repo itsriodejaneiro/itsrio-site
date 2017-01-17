@@ -201,6 +201,7 @@
     &-title {
         width: 200px;
         margin-right: 30px;
+        text-transform: lowercase;
 
         @media #{$small-only}{
             display: none;
@@ -262,7 +263,7 @@
 
         @media screen and (min-width: 415px)  {
             float: left;
-            margin: 5px 30px 0 0;
+            margin: 5px 25px 5px 0;
             max-width: 300px;
         }
     }
@@ -270,7 +271,9 @@
     a {
         text-decoration: none;
         &:hover {
-            text-decoration: underline;
+            h3, p {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -338,6 +341,7 @@
             -webkit-filter: grayscale(1);
             -webkit-filter: grayscale(100%);
             cursor: pointer;
+            margin: 0 auto;
 
             &:hover {
                 filter: grayscale(0%);
@@ -353,6 +357,7 @@
             font-weight: 600;
             margin: 5px 0 0;
             opacity: 0.75;
+            text-align: center;
         }
         .line {
             border-radius: 5px;

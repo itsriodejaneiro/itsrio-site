@@ -4568,6 +4568,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .tab-title {
   width: 200px;
   margin-right: 30px;
+  text-transform: lowercase;
 }
 
 @media screen and (max-width: 48em) {
@@ -4641,7 +4642,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 @media screen and (min-width: 415px) {
   .content-publicacoes img {
     float: left;
-    margin: 5px 30px 0 0;
+    margin: 5px 25px 5px 0;
     max-width: 300px;
   }
 }
@@ -4650,7 +4651,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   text-decoration: none;
 }
 
-.content-publicacoes a:hover {
+.content-publicacoes a:hover h3, .content-publicacoes a:hover p {
   text-decoration: underline;
 }
 
@@ -4723,6 +4724,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   -webkit-filter: grayscale(1);
   -webkit-filter: grayscale(100%);
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .pessoa .pessoa-mini .img:hover {
@@ -4741,6 +4743,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-weight: 600;
   margin: 5px 0 0;
   opacity: 0.75;
+  text-align: center;
 }
 
 .pessoa .pessoa-mini .line {
