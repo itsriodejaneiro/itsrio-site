@@ -4427,7 +4427,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .header-single .dates {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .header-single .dates {
+    margin-bottom: 10px;
+  }
 }
 
 .header-single-menu {

@@ -7,8 +7,12 @@
 		</div>
 		<div class="column medium-4 large-4">
 			<?php if(!$closed): ?>
-				<p class="box-title">horário</p>
-				<p class="box">
+				<p class="dates show-for-small-only">
+					horário <b><?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?></b><br>
+					inscrições até <b><?= date('d/m',strtotime($meta['info_inscfim'][0])) ?></b>
+				</p>
+				<p class="box-title show-for-medium">horário</p>
+				<p class="box show-for-medium">
 					<?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?>
 					|
 					inscrições até
