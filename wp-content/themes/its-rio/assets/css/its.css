@@ -3353,7 +3353,7 @@ input[type="checkbox"].ocultar:checked + label:after {
 
 label.label-tab {
   cursor: pointer;
-  top: 5px;
+  top: 10px;
   right: 0;
   position: absolute;
   margin: 0 !important;
@@ -3370,6 +3370,9 @@ label.label-tab:after {
 }
 
 @media screen and (min-width: 48.0625em) {
+  label.label-tab {
+    top: 5px;
+  }
   label.label-tab:before {
     content: 'ocultar';
     margin-right: 5px;
@@ -4634,7 +4637,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .content-publicacoes img {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: block;
   }
 }
@@ -4897,6 +4900,22 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   padding: 15px !important;
 }
 
+@media screen and (max-width: 48em) {
+  .related-content .column, .related-content .columns {
+    padding: 0 !important;
+  }
+  .related-content .list-title {
+    display: block;
+  }
+  .related-content .list-title a {
+    float: right;
+    margin-top: 7px;
+    width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 @media screen and (min-width: 48.0625em) {
   .related-content {
     padding: 15px 0 !important;
@@ -5061,10 +5080,9 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   .component-tabs.informacao .tab-content {
     width: calc(100% - 270px);
   }
-}
-
-.component-tabs.informacao .tab-content .list-title {
-  width: calc(100% - 90px);
+  .component-tabs.informacao .tab-content .list-title {
+    width: calc(100% - 90px);
+  }
 }
 
 .component-tabs.informacao .tab-content label.label-tab {
@@ -5072,7 +5090,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .component-tabs.equipe .tab-content .component-tabs-content {
-  margin: 30px 0 30px 30px;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .component-tabs.equipe .tab-content .component-tabs-content {
+    margin: 30px 0 30px 30px;
+  }
 }
 
 .component-tabs.equipe .tab-content .pessoa .pessoa-mini .line {
@@ -5081,6 +5105,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .component-tabs.equipe .tab-content .pessoa input[type="radio"]:checked + .pessoa-mini .name {
   color: #522e91;
+}
+
+.component-tabs.equipe .tab-content label.label-tab {
+  right: 0 !important;
 }
 
 .component-tabs.equipe .pessoa-info {
@@ -5284,7 +5312,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (min-width: 48.0625em) {
   .fazer-minha-inscricao a {
-    font-size: 18px !important;
     top: 10px;
     right: 0;
     left: 0;
@@ -5293,6 +5320,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (min-width: 64.0625em) {
   .fazer-minha-inscricao a {
+    font-size: 18px !important;
     top: 10px;
     right: 20px;
     left: 20px;

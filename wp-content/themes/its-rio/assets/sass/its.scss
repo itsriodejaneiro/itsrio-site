@@ -374,7 +374,7 @@ input[type="checkbox"].ocultar {
 
 label.label-tab {
 	cursor: pointer;
-	top: 5px;
+	top: 10px;
 	right: 0;
 	position: absolute;
 	margin: 0 !important;
@@ -390,6 +390,7 @@ label.label-tab {
 		font: normal normal normal 14px/1 FontAwesome;
 	}
 	@include breakpoint(medium) {
+		top: 5px;
 		&:before {
 			content: 'ocultar';
 			margin-right: 5px;

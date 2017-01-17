@@ -257,7 +257,7 @@
         margin: 0 0 15px;
 
         @media #{$small-only} {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             display: block;
         }
 
@@ -489,6 +489,21 @@
 .related-content {
     background-color: #d9d9d9;
     padding: 15px !important;
+    @include breakpoint(small only) {
+        .column {
+            padding: 0 !important;
+        }
+        .list-title {
+            display: block;
+            a {
+                float: right;
+                margin-top: 7px;
+                width: 50px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
     @include breakpoint(medium) {
         padding: 15px 0 !important;
         .list-title {
@@ -631,11 +646,12 @@
     .tab-content {
         @include breakpoint(medium) {
             width: calc(100% - 270px);
+
+            .list-title {
+                width: calc(100% - 90px);
+            }
         }
 
-        .list-title {
-            width: calc(100% - 90px);
-        }
         label.label-tab {
             right: 110px;
         }
@@ -645,7 +661,10 @@
 .component-tabs.equipe {
     .tab-content {
         .component-tabs-content {
-            margin: 30px 0 30px 30px;
+            margin-top: 30px;
+            @include breakpoint(medium) {
+                margin: 30px 0 30px 30px;
+            }
         }
         .pessoa {
             .pessoa-mini {
@@ -660,6 +679,9 @@
                     }
                 }
             }
+        }
+        label.label-tab {
+            right: 0 !important;
         }
     }
     .pessoa-info {
@@ -830,12 +852,12 @@
             padding: 10px 30px;
         }
         @include breakpoint(medium) {
-            font-size: 18px !important;
             top: 10px;
             right: 0;
             left: 0;
         }
         @include breakpoint(large) {
+            font-size: 18px !important;
             top: 10px;
             right: 20px;
             left: 20px;
