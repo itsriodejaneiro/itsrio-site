@@ -5247,21 +5247,21 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .fazer-minha-inscricao a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao a {
     top: 10px;
     left: 50%;
-    margin-left: -147px;
+    margin-left: -133px;
     padding: 10px 30px;
   }
 }
 
 @media screen and (min-width: 48.0625em) {
   .fazer-minha-inscricao a {
-    font-size: 18px;
+    font-size: 18px !important;
     top: 10px;
     right: 0;
     left: 0;
