@@ -6,19 +6,19 @@
 		</h2>
 		<div class="tab-content">
 			<div class="media-title">
-				<h3><?= $tabs_content[0]['title'] ?></h3>
-				<span><?= $tabs_content[0]['description'] ?></span>
+				<h3><?= $tabs_content_midias[0]['title'] ?></h3>
+				<span><?= $tabs_content_midias[0]['description'] ?></span>
 				<div class="line"></div>
 			</div>
 			<div id="media-player">
-				<iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
+				<iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="medias-thumbs">
-			<!-- tab content <?php var_dump($tabs_content); ?> -->
+			<!-- tab content <?php var_dump($tabs_content_midias); ?> -->
 				<?php 
 				$i = 0;
-				if(count($tabs_content) > 1){
-					foreach ($tabs_content as $midia) {
+				if(count($tabs_content_midias) > 1){
+					foreach ($tabs_content_midias as $midia) {
 						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
 							?>
 							<div class="thumb-wrapper">

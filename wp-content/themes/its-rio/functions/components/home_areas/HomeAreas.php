@@ -1,11 +1,11 @@
 <?php
 
-$tabs_content = '';
+$tabs_content_home_areas = '';
 
 class ET_Builder_Module_Home_Areas extends ET_Builder_Module {
 	function init() {
-		global $tabs_content;
-		$tabs_content = [];
+		global $tabs_content_home_areas;
+		$tabs_content_home_areas = [];
 		$this->name            = esc_html__( 'Home ITS - Areas', 'et_builder' );
 		$this->slug            = 'et_pb_home_areas';
 		$this->child_slug      = 'et_pb_home_areas_item';
@@ -70,11 +70,11 @@ class ET_Builder_Module_Home_Areas extends ET_Builder_Module {
 		$title                      = $this->shortcode_atts['title'];
 		$module_class = ET_Builder_Element::add_module_order_class($module_class, $function_name);
 
-		$all_tabs_content = $this->shortcode_content;
+		$all_tabs_content_home_areas = $this->shortcode_content;
 
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_home_areas;
 		global $data;
 		global $components;
 		global $lang;
@@ -144,7 +144,7 @@ class ET_Builder_Module_Home_Areas_Item extends ET_Builder_Module {
 	function shortcode_callback( $atts, $content = null, $function_name ) {
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_home_areas;
 
 		$i = 0;
 		$title = $this->shortcode_atts['title'];
@@ -159,7 +159,7 @@ class ET_Builder_Module_Home_Areas_Item extends ET_Builder_Module {
 
 		$content = $this->shortcode_content;
 
-		$tabs_content[] = compact('title', 'link_title', 'link', 'midia', 'content');
+		$tabs_content_home_areas[] = compact('title', 'link_title', 'link', 'midia', 'content');
 	}
 }
 new ET_Builder_Module_Home_Areas_Item;

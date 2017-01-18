@@ -5,7 +5,7 @@
 	</h3>
 	<div class="home-area-carousel">
 		<?php
-		foreach ($tabs_content as $tab) {
+		foreach ($tabs_content_home_areas as $tab) {
 			?>
 			<div class="carousel-cell home-area-item">
 				<div class="area-left">

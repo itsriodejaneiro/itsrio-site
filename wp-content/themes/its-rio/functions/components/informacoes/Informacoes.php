@@ -1,11 +1,11 @@
 <?php
 
-$tabs_content = '';
+$tabs_content_informacoes = '';
 
 class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 	function init() {
-		global $tabs_content;
-		$tabs_content = [];
+		global $tabs_content_informacoes;
+		$tabs_content_informacoes = [];
 		$this->name            = esc_html__( 'ITS - Informações', 'et_builder' );
 		$this->slug            = 'et_pb_informacoes';
 		$this->child_slug      = 'et_pb_informacao';
@@ -43,11 +43,11 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 
 		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
 
-		$all_tabs_content = $this->shortcode_content;
+		$all_tabs_content_informacoes = $this->shortcode_content;
 
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_informacoes;
 		global $closed;
 		global $data;
 		global $components;
@@ -59,10 +59,10 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		for ($i=0; $i < count($tabs_content); $i++) {
+		for ($i=0; $i < count($tabs_content_informacoes); $i++) {
 			$components['informacoes'][] = [
 			'title' => $et_pb_tab_titles[$i],
-			'content' => trim(preg_replace('/\s+/', ' ', $tabs_content[$i]))
+			'content' => trim(preg_replace('/\s+/', ' ', $tabs_content_informacoes[$i]))
 			];
 		}
 
@@ -150,7 +150,7 @@ class ET_Builder_Module_Informacoes_Item extends ET_Builder_Module {
 	function shortcode_callback( $atts, $content = null, $function_name ) {
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_informacoes;
 
 		$i = 0;
 		$title = $this->shortcode_atts['title'];
@@ -160,7 +160,7 @@ class ET_Builder_Module_Informacoes_Item extends ET_Builder_Module {
 		$et_pb_tab_titles[]  = '' !== $title ? $title : esc_html__( 'Tab', 'et_builder' );
 		$et_pb_tab_classes[] = $module_class;
 
-		$tabs_content[] = $this->shortcode_content;
+		$tabs_content_informacoes[] = $this->shortcode_content;
 
 	}
 }

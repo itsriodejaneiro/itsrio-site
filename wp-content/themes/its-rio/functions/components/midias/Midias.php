@@ -1,11 +1,11 @@
 <?php
 
-$tabs_content = '';
+$tabs_content_midias = '';
 
 class ET_Builder_Module_Midias extends ET_Builder_Module {
 	function init() {
-		global $tabs_content;
-		$tabs_content = [];
+		global $tabs_content_midias;
+		$tabs_content_midias = [];
 		$this->name            = esc_html__( 'ITS - Mídias', 'et_builder' );
 		$this->slug            = 'et_pb_midias';
 		$this->child_slug      = 'et_pb_midias_item';
@@ -28,7 +28,7 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		global $wp_filter;
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_midias;
 		global $data;
 		global $components;
 		global $meta;
@@ -36,7 +36,7 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		$module_class = ET_Builder_Element::add_module_order_class( $module_class, $function_name );
 
 		$par_title = $this->shortcode_atts['par_title'];
-		$all_tabs_content = $this->shortcode_content;
+		$all_tabs_content_midias = $this->shortcode_content;
 		
 		
 
@@ -47,10 +47,10 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		// for ($i=0; $i < count($tabs_content); $i++) {
+		// for ($i=0; $i < count($tabs_content_midias); $i++) {
 		// 	$components['informacoes'][] = [
 		// 	'title' => $et_pb_tab_titles[$i],
-		// 	'content' => trim(preg_replace('/\s+/', ' ', $tabs_content[$i]))
+		// 	'content' => trim(preg_replace('/\s+/', ' ', $tabs_content_midias[$i]))
 		// 	];
 		// }
 
@@ -96,7 +96,7 @@ class ET_Builder_Module_Midias_Item extends ET_Builder_Module {
 	function shortcode_callback( $atts, $content = null, $function_name ) {
 		global $et_pb_tab_titles;
 		global $et_pb_tab_classes;
-		global $tabs_content;
+		global $tabs_content_midias;
 
 		$i = 0;
 		$title = $this->shortcode_atts['title'];
@@ -107,7 +107,7 @@ class ET_Builder_Module_Midias_Item extends ET_Builder_Module {
 		$et_pb_tab_titles[]  = '' !== $title ? $title : esc_html__( 'Mídia', 'et_builder' );
 		$et_pb_tab_classes[] = $module_class;
 		$description = $this->shortcode_content;
-		$tabs_content[] = compact('title','description','url');
+		$tabs_content_midias[] = compact('title','description','url');
 
 	}
 }
