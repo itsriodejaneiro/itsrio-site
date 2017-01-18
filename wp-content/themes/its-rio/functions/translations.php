@@ -14,7 +14,7 @@ $translations = [
 	'de busca o que deseja encontrar.'
 	],
 	'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:','filtragem de conteúdo:','área'],
-	'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data'],
+	'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
 	'menu - Singular - ' => [
 		'curso',
 		'varanda',

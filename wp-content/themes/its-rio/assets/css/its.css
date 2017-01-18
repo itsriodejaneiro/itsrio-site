@@ -3432,7 +3432,8 @@ h3, h4, h5 {
 
 .row-menu.fixed {
   top: 0;
-  width: 100%;
+  right: 0;
+  left: 0;
   position: fixed;
   z-index: 10;
   margin: 0;
@@ -3459,35 +3460,39 @@ h3, h4, h5 {
 .menu-container {
   height: 75px;
   box-shadow: 0 4px 7px -5px black;
-  padding: 20px 14px;
   position: relative;
   z-index: 20;
   background-color: #eee;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-@media screen and (min-width: 48.0625em) {
-  .menu-container {
-    padding: 17px 35px;
-  }
 }
 
 @media screen and (min-width: 64.0625em) {
   .menu-container {
-    display: block;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 17px 35px;
   }
   .menu-container img {
     float: left;
   }
 }
 
-.menu-container .fa-bars {
-  font-size: 25px;
+@media screen and (max-width: 74.9375em) {
+  .menu-container .fa-bars {
+    font-size: 25px;
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+  }
+  .menu-container h1 {
+    position: absolute;
+    left: 50%;
+    margin-left: calc(-58px / 2);
+    top: 10px;
+  }
 }
 
 .menu-container .menu-social {
@@ -3516,9 +3521,10 @@ h3, h4, h5 {
 
 .menu-container .search-button {
   cursor: pointer;
-  right: 35px;
+  position: absolute;
   font-size: 25px;
-  bottom: 10px;
+  right: 15px;
+  bottom: 25px;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -3529,7 +3535,8 @@ h3, h4, h5 {
 
 @media screen and (min-width: 64.0625em) {
   .menu-container .search-button {
-    position: absolute;
+    right: 35px;
+    bottom: 10px;
   }
   .menu-container .search-button::after {
     content: 'buscar';
@@ -3665,19 +3672,32 @@ h3, h4, h5 {
     font-size: 20px;
     border-bottom-color: transparent !important;
   }
-  .menu-container .menu-nav ul li.current-menu-item {
+  .menu-container .menu-nav ul li.current-menu-item, .menu-container .menu-nav ul li a.selected {
     position: relative;
   }
-  .menu-container .menu-nav ul li.current-menu-item:before {
+  .menu-container .menu-nav ul li.current-menu-item:before, .menu-container .menu-nav ul li a.selected:before {
     content: '';
     position: absolute;
     left: -20px;
     background-color: black;
     width: 12px;
-    height: 100%;
+    height: 36px;
     float: left;
     display: block;
     overflow: hidden;
+  }
+  .menu-container .menu-nav ul:first-child {
+    margin-bottom: 3px;
+  }
+}
+
+.menu-container .menu-nav ul.lang {
+  margin: 10px 0 5px;
+}
+
+@media screen and (min-width: 64.0625em) {
+  .menu-container .menu-nav ul.lang {
+    display: none;
   }
 }
 
@@ -3702,6 +3722,10 @@ h3, h4, h5 {
     width: 1024px;
     height: 768px;
   }
+}
+
+.menu-container .menu-nav .trending ul li.current-menu-item:before {
+  background-color: transparent !important;
 }
 
 #content_all {
