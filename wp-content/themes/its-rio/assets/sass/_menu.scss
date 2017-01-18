@@ -226,9 +226,6 @@
 
 #content_all {
 	position: relative;
-	@include breakpoint(large down) {
-		overflow-y: hidden;
-	}
 }
 
 #content{
