@@ -231,7 +231,7 @@
 }
 
 @include breakpoint(medium down) {
-    .scrollable {
+    .menu-nav.scrollable {
         &.scrollable-bottom:after{
             content: "\f077";
         }

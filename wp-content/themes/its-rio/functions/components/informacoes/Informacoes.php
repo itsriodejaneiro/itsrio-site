@@ -51,19 +51,17 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 		global $components;
 		global $meta;
 
-		if(!$closed){
-			$data['its_tabs'][] = 'informações';
-			ob_start();
-			include(__DIR__.'/view_informacoes.php');
-			$output = ob_get_contents();
-			ob_end_clean();
+		$data['its_tabs'][] = 'informações';
+		ob_start();
+		include(__DIR__.'/view_informacoes.php');
+		$output = ob_get_contents();
+		ob_end_clean();
 
-			for ($i=0; $i < count($tabs_content); $i++) {
-				$components['informacoes'][] = [
-				'title' => $et_pb_tab_titles[$i],
-				'content' => trim(preg_replace('/\s+/', ' ', $tabs_content[$i]))
-				];
-			}
+		for ($i=0; $i < count($tabs_content); $i++) {
+			$components['informacoes'][] = [
+			'title' => $et_pb_tab_titles[$i],
+			'content' => trim(preg_replace('/\s+/', ' ', $tabs_content[$i]))
+			];
 		}
 
 		// wp_reset_postdata();

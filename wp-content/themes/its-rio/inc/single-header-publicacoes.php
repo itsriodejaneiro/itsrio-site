@@ -9,13 +9,13 @@ $no_label = true;
 			<p class="excerpt"><?= isset($meta['datapubli'][0]) && $meta['datapubli'][0] != '' ? $meta['datapubli'][0] : '' ?></p>
 			<div class="line"></div>
 		</div>
-		<div class="column large-4">
+		<div class="column medium-4 large-4">
 			<a href="/<?= $lang ?>/publicacoes_ctp/#<?= $meta['info_areapesquisa'][0] ?>">
 				<p class="box-title">área de pesquisa</p>
 				<p class="box"><?= get_area_pesquisa() ?></p>
 			</a>
 		</div>
-		<div class="column large-4 end">
+		<div class="column medium-4 large-4 end">
 			<p class="box-title">categorias</p>
 			<?php include(ROOT.'inc/categories.php') ?>
 		</div>
@@ -25,10 +25,10 @@ $no_label = true;
 	<div class="row single-menu-container">
 		<?php 
 		include(ROOT.'inc/single/menu.php');
-		if(isset($meta['pdf']) && $meta['pdf'][0] != ''){
+		if(isset($meta[$lang.'_pdf']) && $meta[$lang.'_pdf'][0] != ''){
 			?>
 			<div class="sidebar">
-				<a href="<?= $meta['pdf'][0] ?>" target="_blank" class="button large curved-shadow">leia o pdf</a>
+				<a href="<?= $meta[$lang.'_pdf'][0] ?>" target="_blank" class="button large curved-shadow">leia o pdf</a>
 			</div>
 			<?php 
 		} ?>

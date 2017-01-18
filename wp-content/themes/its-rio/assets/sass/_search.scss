@@ -8,7 +8,9 @@
     position: fixed;
     background-color: rgba(150, 150, 150, 0.98);
     box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-
+    @include breakpoint(small only) {
+        overflow-y: scroll;
+    }
     .column {
         padding: 0 15px;
     }
@@ -131,11 +133,7 @@
 
         &.active {
             max-height: 1000px;
-        }
-
-        .overview {
-            right: 0;
-        }
+        }s
 
         h3 {
             float: left;

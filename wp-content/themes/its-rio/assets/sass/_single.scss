@@ -15,9 +15,21 @@
 
     @media #{$small-only} {
         height: 360px;
+<<<<<<< HEAD
         box-shadow: inset 0px 1px 10px 0 rgba(0, 0, 0, 0.5);
 
         .column {padding: 0 20px; }
+=======
+        .column {
+            padding: 0 20px;
+        }
+        .column.medium-4 {
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
     }
 
     &:before{
@@ -43,7 +55,7 @@
     }
 
     .pessoas{
-        line-height: 1;
+        line-height: 1.4;
         font-size: 14px;
         margin-top: 10px;
         @include breakpoint(medium) {
@@ -69,9 +81,10 @@
     h1 {
         font-size: 30px;
         font-weight: 900;
+        line-height: 34px;
         @include breakpoint(medium) {
             font-size: 50px;
-            line-height: 60px;
+            line-height: 50px;
         }
     }
 
@@ -87,7 +100,11 @@
     .dates {
         font-size: 14px;
         font-weight: 500;
-        margin-bottom: 10px;
+        margin-bottom: 0;
+        @include breakpoint(medium) {
+            margin-bottom: 10px;
+        }
+
     }
 }
 
@@ -191,6 +208,7 @@
     &-title {
         width: 200px;
         margin-right: 30px;
+        text-transform: lowercase;
 
         @media #{$small-only}{
             display: none;
@@ -203,7 +221,7 @@
             width: calc(100% - 380px);
         }
 
-        .list-title{
+        .list-title {
             display: block;
             margin: 0 0 15px 0 !important;
         }
@@ -243,32 +261,56 @@
         margin: 0 0 15px;
         box-shadow: 0px 0px 5px gray;
 
+<<<<<<< HEAD
         @media #{$small-only}{
+=======
+        @media #{$small-only} {
+            margin-bottom: 10px;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             display: block;
             margin: 0 auto 20px auto;
         }
 
         @media screen and (min-width: 415px)  {
             float: left;
+<<<<<<< HEAD
+=======
+            margin: 5px 25px 5px 0;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             max-width: 300px;
             margin: 0 50px 0 0;
         }
     }
 
+    a {
+        text-decoration: none;
+        &:hover {
+            h3, p {
+                text-decoration: underline;
+            }
+        }
+    }
+
     p, h3{
-        max-width: 580px;
         font-family: 'Raleway';
     }
 
-    h3 { margin-bottom: 15px; }
+    h3 { margin-bottom: 5px; }
 
-    p{
+    p {
         font-size: 14px;
+        font-weight: normal;
         line-height: 20px;
     }
 
     .row {
         display: block !important;
+    }
+
+    .tab-content {
+        @include breakpoint(medium) {
+            margin: 5px 0 0 230px;
+        }
     }
 
     .tab-title {
@@ -313,6 +355,11 @@
             background-position: center;
             -webkit-filter: grayscale(1);
             -webkit-filter: grayscale(100%);
+<<<<<<< HEAD
+=======
+            cursor: pointer;
+            margin: 0 auto;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
 
             &:hover {
                 filter: grayscale(0%);
@@ -327,7 +374,12 @@
             opacity: 0.75;
             font-size: 14px;
             margin: 5px 0 0;
+<<<<<<< HEAD
             font-weight: 600;
+=======
+            opacity: 0.75;
+            text-align: center;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
         }
         .line {
             opacity: 0;
@@ -455,7 +507,25 @@
 .related-content {
     background-color: #d9d9d9;
     padding: 15px !important;
+<<<<<<< HEAD
     
+=======
+    @include breakpoint(small only) {
+        .column {
+            padding: 0 !important;
+        }
+        .list-title {
+            display: block;
+            a {
+                float: right;
+                margin-top: 7px;
+                width: 50px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
     @include breakpoint(medium) {
         padding: 15px 0 !important;
         .list-title {
@@ -597,11 +667,12 @@
     .tab-content {
         @include breakpoint(medium) {
             width: calc(100% - 270px);
+
+            .list-title {
+                width: calc(100% - 90px);
+            }
         }
 
-        .list-title {
-            width: calc(100% - 90px);
-        }
         label.label-tab {
             right: 110px;
         }
@@ -611,7 +682,10 @@
 .component-tabs.equipe {
     .tab-content {
         .component-tabs-content {
-            margin: 30px 0 30px 30px;
+            margin-top: 30px;
+            @include breakpoint(medium) {
+                margin: 30px 0 30px 30px;
+            }
         }
         .pessoa {
             .pessoa-mini .line{
@@ -620,6 +694,9 @@
             input[type="radio"]:checked + .pessoa-mini .name{
                 color: #522e91;
             }
+        }
+        label.label-tab {
+            right: 0 !important;
         }
     }
     .pessoa-info {
@@ -759,7 +836,13 @@
     }
 
     h1 {
+<<<<<<< HEAD
         font-size: 30px;
+=======
+        font-family: 'Raleway';
+        font-size: 28px;
+        font-weight: normal;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
         line-height: 1.33;
         font-weight: normal;
         font-family: 'Raleway';
@@ -781,21 +864,35 @@
 
     a {
         text-decoration: none;
+<<<<<<< HEAD
         font-size: 16px;
 
         @include breakpoint(small only) {
             top: 10px;
             left: 50%;
+=======
+        font-size: 16px !important;
+        @include breakpoint(small only) {
+            top: 10px;
+            left: 50%;
+            margin-left: -133px;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             padding: 10px 30px;
             margin-left: -147px;
         }
         @include breakpoint(medium) {
+<<<<<<< HEAD
+=======
+            top: 10px;
+            right: 0;
+>>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             left: 0;
             right: 0;
             top: 10px;
             font-size: 18px;
         }
         @include breakpoint(large) {
+            font-size: 18px !important;
             top: 10px;
             left: 20px;
             right: 20px;
