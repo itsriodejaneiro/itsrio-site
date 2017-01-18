@@ -13,77 +13,77 @@ $cat_classes = 'black';
 			<?php
 			$areas = get_ctp_array('areas', true);
 			foreach ($areas as $id => $area) { ?>
-				<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
-					<div class="color"></div>	
-					<span class="box slider-title"><?= $area['post_title'] ?></span>
-					<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
-					<span class="slider-text"><?= $area['content'] ?></span>
-					<span class="box link"><?= pll__('ver projetos desta área') ?></span>
-				</div>
-				<?php
-			} ?>
-		</div>
-	</div>
-	<div class="column large-12">
-		<h2 class="list-title">
-			<?= pll__('projetos ativos') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
-			<div class="line"></div>
-		</h2>
-	</div>
-	<div class="older-posts">
-		<?php
-		$args = array(
-			'posts_per_page' => '100',
-			'post_type' => 'projetos_ctp',
-			'meta_query' => array(
-				['key' => 'projeto_encerrado',
-				'value' => '0',
-				'compare' => '='])
-			);
-
-			query_posts($args);
-
-			if (have_posts()) {
-				while (have_posts()) {
-					the_post();
-					include(ROOT .'inc/post-box.php');
-				}
-			}
-			?>
-		</div>
-		<div class="column large-12">
-			<h2 class="list-title">
-				<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
-				<div class="line"></div>
-			</h2>
-		</div>
-		<div id="projetos-encerrados" class="older-posts">
+			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
+				<div class="color"></div>	
+				<span class="box slider-title"><?= $area['post_title'] ?></span>
+				<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
+				<span class="slider-text"><?= $area['content'] ?></span>
+				<span class="box link"><?= pll__('ver projetos desta área') ?></span>
+			</div>
 			<?php
-			$args = array(
-				'post_type' => $postType,
-				'post__not_in' => [$destaque_id],
-				'posts_per_page' => '100',
-				'meta_query'    => array(
-					['key' => 'projeto_encerrado',
-					'value' => '1',
-					'compare' => '=']
-				)
-			);
-
-			query_posts($args);
-
-			if (have_posts()) {
-				while (have_posts()) {
-					the_post();
-					if ($destaque_id != get_the_ID()) {
-						include(ROOT .'inc/post-box.php');
-					}
-				}
-			}
-			?>
-		</div>
+		} ?>
 	</div>
-	<script>
+</div>
+<div class="column large-12">
+	<h2 class="list-title">
+		<?= pll__('projetos ativos') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
+		<div class="line"></div>
+	</h2>
+</div>
+<div class="older-posts">
+	<?php
+	$args = array(
+		'posts_per_page' => '100',
+		'post_type' => 'projetos_ctp',
+		'meta_query' => array(
+			['key' => 'projeto_encerrado',
+			'value' => '0',
+			'compare' => '='])
+		);
+
+	query_posts($args);
+
+	if (have_posts()) {
+		while (have_posts()) {
+			the_post();
+			include(ROOT .'inc/post-box.php');
+		}
+	}
+	?>
+</div>
+<div class="column large-12">
+	<h2 class="list-title">
+		<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
+		<div class="line"></div>
+	</h2>
+</div>
+<div id="projetos-encerrados" class="older-posts">
+	<?php
+	$args = array(
+		'post_type' => $postType,
+		'post__not_in' => [$destaque_id],
+		'posts_per_page' => '100',
+		'meta_query'    => array(
+			['key' => 'projeto_encerrado',
+			'value' => '1',
+			'compare' => '=']
+			)
+		);
+
+	query_posts($args);
+
+	if (have_posts()) {
+		while (have_posts()) {
+			the_post();
+			if ($destaque_id != get_the_ID()) {
+				include(ROOT .'inc/post-box.php');
+			}
+		}
+	}
+	?>
+</div>
+</div>
+<script>
 	'use strict';
 	setTimeout(function(){
 		var active = false;
@@ -110,6 +110,7 @@ $cat_classes = 'black';
 
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
+
 			if(e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>'){
 				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
@@ -117,13 +118,18 @@ $cat_classes = 'black';
 				button.text("<?= pll__('ver projetos desta área') ?>");
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
 				active = false;
+				$('html, body').animate({ scrollTop: 0 }, 300);
 				return;
 			}
+
 			if(active){
 				jQuery('.area-pesquisa .slider').removeClass('active');
 			}else{
 				jQuery('.area-pesquisa .slider').removeClass('no-active');
 			}
+
+			$('html, body').animate({ scrollTop: $('.older-posts').offset().top - 150 }, 300);
+
 			active = true;
 			jQuery(this).addClass('active');
 			button.text('<?= pll__("ver todos os projetos") ?>');
@@ -134,6 +140,7 @@ $cat_classes = 'black';
 
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 			$('.list-title small i').click(function(){
+				$('html, body').animate({ scrollTop: 0 }, 300);
 				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
@@ -142,5 +149,5 @@ $cat_classes = 'black';
 			});
 		});
 	},1000);
-	</script>
-	<?php get_footer(); ?>
+</script>
+<?php get_footer(); ?>

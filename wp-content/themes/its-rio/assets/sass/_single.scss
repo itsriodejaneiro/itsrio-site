@@ -609,8 +609,11 @@
             width: 100%;
             font-size: 15px;
             overflow: hidden;
-            max-height: 620px;
             transition: all .3s;
+
+            @media #{$large-up}{
+                max-height: 620px;
+            }
 
             ul{
                 display: flex;
@@ -839,51 +842,51 @@
 
     a {
         text-decoration: none;
-            font-size: 16px !important;
-            @include breakpoint(small only) {
-                top: 10px;
-                left: 50%;
-                margin-left: -133px;
-                padding: 10px 30px;
-                margin-left: -147px;
-            }
-            @include breakpoint(medium) {
-                top: 10px;
-                right: 0;
-                left: 0;
-                right: 0;
-                top: 10px;
-                font-size: 18px;
-            }
-            @include breakpoint(large) {
-                font-size: 18px !important;
-                top: 10px;
-                left: 20px;
-                right: 20px;
-            }
-            &:hover, &:focus {
-                background-color: #fbaf17 !important;
-            }
+        font-size: 16px !important;
+        @include breakpoint(small only) {
+            top: 10px;
+            left: 50%;
+            margin-left: -133px;
+            padding: 10px 30px;
+            margin-left: -147px;
         }
-
-        span {
-            font-size: 14px;
-            margin-top: 60px;
-            text-align: center;
-
-            @include breakpoint(medium) {
-                margin-top: 55px;
-            }
+        @include breakpoint(medium) {
+            top: 10px;
+            right: 0;
+            left: 0;
+            right: 0;
+            top: 10px;
+            font-size: 18px;
+        }
+        @include breakpoint(large) {
+            font-size: 18px !important;
+            top: 10px;
+            left: 20px;
+            right: 20px;
+        }
+        &:hover, &:focus {
+            background-color: #fbaf17 !important;
         }
     }
 
-    .work-with-us {
-        margin-bottom: 60px;
-        overflow: hidden;
+    span {
+        font-size: 14px;
+        margin-top: 60px;
         text-align: center;
 
-        a { position: relative; }
+        @include breakpoint(medium) {
+            margin-top: 55px;
+        }
     }
+}
+
+.work-with-us {
+    margin-bottom: 60px;
+    overflow: hidden;
+    text-align: center;
+
+    a { position: relative; }
+}
 
 //COMPONENT MAPA
 .component-tabs.map {
