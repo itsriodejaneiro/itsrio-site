@@ -292,12 +292,6 @@ new Vue({
                 if ($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop()) menu_nav.addClass('scrollable-bottom');else menu_nav.removeClass('scrollable-bottom');
             });
         }
-
-        // $('.comunicados .related-post').masonry({
-        //     columnWidth: '.large-4',
-        //     selector: '.large-4',
-        //     percentPosition: true,
-        // });
     },
 
     methods: {

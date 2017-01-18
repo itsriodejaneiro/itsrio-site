@@ -308,12 +308,6 @@ new Vue({
                     menu_nav.removeClass('scrollable-bottom');
             });
         }
-
-        // $('.comunicados .related-post').masonry({
-        //     columnWidth: '.large-4',
-        //     selector: '.large-4',
-        //     percentPosition: true,
-        // });
     },
     methods: {
         changeSingleMenu(i) {
