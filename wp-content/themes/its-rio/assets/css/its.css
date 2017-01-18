@@ -6238,13 +6238,14 @@ footer .contact-wrapper {
   margin-bottom: 35px;
 }
 
-footer .contact {
-  -webkit-box-flex: 0.5;
-  flex-grow: 0.5;
-}
-
 footer .contact a {
   text-decoration: underline;
+}
+
+footer .newsletter {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  padding: 0 15px;
 }
 
 footer .newsletter-input {
@@ -6254,6 +6255,7 @@ footer .newsletter-input {
   font-family: 'Raleway';
   outline: none;
   line-height: 1.5;
+  width: 100%;
 }
 
 @media screen and (max-width: 48em) {
@@ -6265,8 +6267,6 @@ footer .newsletter-input {
 
 @media screen and (min-width: 48.0625em) {
   footer .newsletter-input {
-    -webkit-box-flex: 2.5;
-    flex-grow: 2.5;
     margin-right: 10px;
   }
 }

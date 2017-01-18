@@ -59,10 +59,14 @@ footer{
 	}
 
 	.contact {
-		flex-grow: 0.5;
 		a {
 			text-decoration: underline;
 		}
+	}
+
+	.newsletter {
+		flex-grow: 1;
+		padding: 0 15px;
 	}
 
 	.newsletter-input {
@@ -72,12 +76,12 @@ footer{
 		font-family: 'Raleway';
 		outline: none;
 		line-height: 1.5;
+		width: 100%;
 		@include breakpoint(small only) {
 			margin-bottom: 10px;
 			width: 100%;
 		}
 		@include breakpoint(medium) {
-			flex-grow: 2.5;
 			margin-right: 10px; 
 		}
 		&::placeholder { 
