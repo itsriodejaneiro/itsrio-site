@@ -14,27 +14,30 @@
 				<iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="medias-thumbs">
+			<!-- tab content <?php var_dump($tabs_content); ?> -->
 				<?php 
 				$i = 0;
 				if(count($tabs_content) > 1){
 					foreach ($tabs_content as $midia) {
-						?>
-						<div class="thumb-wrapper">
-							<div onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.img-wrapper').removeClass('active');$(this).addClass('active');"
-								class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
-								<div class="color-hover"></div>
-								<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/maxresdefault.jpg" class="midia-thumb"
-								>
-								<i class="fa fa-play-circle" aria-hidden="true"></i>
+						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
+							?>
+							<div class="thumb-wrapper">
+								<div onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.img-wrapper').removeClass('active');$(this).addClass('active');"
+									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
+									<div class="color-hover"></div>
+									<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+									>
+									<i class="fa fa-play-circle" aria-hidden="true"></i>
+								</div>
+								<div class="media-title">
+									<div class="line"></div>
+									<h3><?= $midia['title'] ?></h3>
+									<span><?= $midia['description'] ?></span>
+								</div>
 							</div>
-							<div class="media-title">
-								<div class="line"></div>
-								<h3><?= $midia['title'] ?></h3>
-								<span><?= $midia['description'] ?></span>
-							</div>
-						</div>
-						<?php
-						$i++;
+							<?php
+							$i++;
+						}
 					}
 				} ?>
 			</div>
