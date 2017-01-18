@@ -89,8 +89,15 @@
 			<div class="menu-nav-bg" onclick="$('.menu-nav').toggleClass('active');$(this).fadeToggle();"></div>
 			<nav class="menu-nav ">
 				<div>
-					<ul>
-						<?php wp_nav_menu('main') ?>
+					<?php wp_nav_menu('main') ?>
+					<div class="line"></div>
+					<ul class="lang">
+						<li>
+							<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a>
+						</li>
+						<li>
+							<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> english</a>
+						</li>
 					</ul>
 					<div class="line"></div>
 					<div class="menu-mobile-footer show-for-small-only">
