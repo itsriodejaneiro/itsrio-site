@@ -4580,7 +4580,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .sidebar .button {
   left: 0;
-  right: 0;
+  right: -1px;
   height: 50px;
   display: -webkit-box;
   display: flex;
