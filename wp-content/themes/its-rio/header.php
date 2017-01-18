@@ -33,12 +33,12 @@
 
 		if($lang == 'pt'){
 			$titles = [
-			'cursos_ctp' => 	['plural' => 'cursos', 'singular' => 'curso'],
-			'varandas_ctp' => 	['plural' => 'varandas', 'singular' => 'varanda'],
-			'projetos_ctp' => 	['plural' => 'projetos', 'singular' => 'projeto'],
-			'publicacoes_ctp' =>['plural' => 'publicações', 'singular' => 'publicação'],
-			'comunicados_ctp' =>['plural' => 'acontece', 'singular' => 'acontece'],
-			'page' =>['plural' => 'institucionais', 'singular' => 'institucional']
+			'cursos_ctp' => 	['plural' => pll__('cursos'), 'singular' => pll__('curso')],
+			'varandas_ctp' => 	['plural' => pll__('varandas'), 'singular' => pll__('varanda')],
+			'projetos_ctp' => 	['plural' => pll__('projetos'), 'singular' => pll__('projeto')],
+			'publicacoes_ctp' =>['plural' => pll__('publicações'), 'singular' => pll__('publicação')],
+			'comunicados_ctp' =>['plural' => pll__('acontece'), 'singular' => pll__('acontece')],
+			'page' =>['plural' => pll__('institucionais'), 'singular' => pll__('institucional')]
 			];
 		}
 
@@ -91,7 +91,26 @@
 			<div class="menu-nav-bg" onclick="$('.menu-nav').toggleClass('active');$(this).fadeToggle();"></div>
 			<nav class="menu-nav ">
 				<div>
-					<?php wp_nav_menu('main') ?>
+					<?php //wp_nav_menu('main') ?>
+					<div class="menu-menu_pt-container">
+						<ul id="menu-menu_pt" class="menu">
+							<li id="menu-item-3615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3615">
+							<a href="/<?= $lang ?>/cursos_ctp"><?= pll__('cursos') ?></a>
+							</li> 
+							<li id="menu-item-3616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3616">
+							<a href="/<?= $lang ?>/varandas_ctp"><?= pll__('varandas') ?></a>
+							</li> 
+							<li id="menu-item-3617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3617">
+							<a href="/<?= $lang ?>/projetos_ctp"><?= pll__('projetos') ?></a>
+							</li> 
+							<li id="menu-item-3618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3618">
+							<a href="/<?= $lang ?>/publicacoes_ctp"><?= pll__('publicações') ?></a>
+							</li> 
+							<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
+								<a href="/<?= $lang ?>/institucional/"><?= pll__('institucional') ?></a>
+							</li>
+						</ul>
+					</div>
 					<div class="line"></div>
 					<ul class="lang">
 						<li>

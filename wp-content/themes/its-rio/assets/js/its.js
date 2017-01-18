@@ -197,6 +197,22 @@ new Vue({
             if (['#direitos-e-tecnologia', '#repensando-inovacao', '#democracia-e-tecnologia', '#educacao'].indexOf(location.hash) > -1) {
                 jQuery('.area-pesquisa .slider').eq(['#direitos-e-tecnologia', '#repensando-inovacao', '#democracia-e-tecnologia', '#educacao'].indexOf(location.hash)).trigger('click');
             }
+
+            //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
+            if ($('.list-item-wrapper').length > 0) {
+                var maxHeight = -1;
+
+                $('.list-item').each(function () {
+                    maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+                });
+
+                $('.list-item').each(function () {
+                    var excedingHeight = maxHeight - $(this).height();
+                    $(this).find('.img').css('height', 220 + excedingHeight);
+                    $(this).find('.color-hover').css('height', 220 + excedingHeight);
+                    $(this).height(maxHeight);
+                });
+            }
         }, 1000);
 
         $('.comunicados h2 > a').click(function () {
@@ -237,11 +253,6 @@ new Vue({
                     } else currLink.removeClass("active");
                 });
             }
-        });
-
-        $('.menu-nav li').each(function () {
-            var a = $(this).find('a');
-            a.attr('href', '/' + lang + a.attr('href'));
         });
 
         //Adiciona a classe de active ao post type correspondente no menu global.
@@ -290,22 +301,6 @@ new Vue({
             menu_nav.addClass('scrollable');
             menu_nav.scroll(function () {
                 if ($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop()) menu_nav.addClass('scrollable-bottom');else menu_nav.removeClass('scrollable-bottom');
-            });
-        }
-
-        //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
-        if ($('.list-item-wrapper').length > 0) {
-            var maxHeight = -1;
-
-            $('.list-item').each(function () {
-                maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-            });
-
-            $('.list-item').each(function () {
-                var excedingHeight = maxHeight - $(this).height();
-                $(this).find('.img').css('height', 220 + excedingHeight);
-                $(this).find('.color-hover').css('height', 220 + excedingHeight);
-                $(this).height(maxHeight);
             });
         }
     },

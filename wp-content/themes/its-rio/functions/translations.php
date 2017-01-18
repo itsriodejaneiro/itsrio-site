@@ -20,6 +20,7 @@ $translations = [
 		'varanda',
 		'projeto',
 		'publicação',
+		'acontece',
 	]
 ];
 
