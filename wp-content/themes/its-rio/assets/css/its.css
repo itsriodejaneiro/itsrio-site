@@ -3311,6 +3311,10 @@ h2.list-title small i {
   display: none !important;
 }
 
+.flickity-prev-next-button[disabled] + .flickity-page-dots {
+  display: none;
+}
+
 .raleway {
   font-family: 'Raleway';
 }
@@ -3394,6 +3398,9 @@ label.label-tab:after {
 html, body {
   height: 100%;
   margin-top: 0 !important;
+}
+
+body {
   overflow-x: hidden;
 }
 
