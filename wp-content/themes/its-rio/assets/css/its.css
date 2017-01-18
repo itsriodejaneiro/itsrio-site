@@ -3311,6 +3311,10 @@ h2.list-title small i {
   display: none !important;
 }
 
+.flickity-prev-next-button[disabled] + .flickity-page-dots {
+  display: none;
+}
+
 .raleway {
   font-family: 'Raleway';
 }
