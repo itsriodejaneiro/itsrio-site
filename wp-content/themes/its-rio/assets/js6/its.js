@@ -308,6 +308,22 @@ new Vue({
                     menu_nav.removeClass('scrollable-bottom');
             });
         }
+
+        //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
+        if($('.list-item-wrapper').length > 0){
+            var maxHeight = -1;
+
+            $('.list-item').each(function() {
+                maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+            });
+
+            $('.list-item').each(function() {
+                var excedingHeight = (maxHeight - $(this).height());
+                $(this).find('.img').css('height', 220 + excedingHeight);
+                $(this).find('.color-hover').css('height', 220 + excedingHeight);
+                $(this).height(maxHeight);
+            });
+        }
     },
     methods: {
         changeSingleMenu(i) {

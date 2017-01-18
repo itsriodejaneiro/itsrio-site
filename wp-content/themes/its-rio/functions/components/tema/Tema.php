@@ -53,7 +53,7 @@ class Tema extends ET_Builder_Module {
 		$content   = wpautop($this->shortcode_content);
 
 		$output = '';
-		$data['its_tabs'][] = 'tema';
+		$data['its_tabs'][] = pll__('tema');
 
 		ob_start();
 		include(__DIR__.'/view_tema.php');

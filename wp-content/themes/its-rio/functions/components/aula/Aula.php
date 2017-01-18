@@ -90,7 +90,7 @@ class Aula extends ET_Builder_Module {
 		$components['aulas'][] = compact('title', 'subtitle', 'palestrante_1', 'palestrante_2', 'palestrante_3', 'date', 'content');
 
 		if(!in_array('aulas', $data['its_tabs'])){
-			$data['its_tabs'][] = 'aulas';
+			$data['its_tabs'][] = pll__('aulas');
 			ob_start();
 			include(__DIR__.'/view_aula.php');
 			$output = ob_get_contents();

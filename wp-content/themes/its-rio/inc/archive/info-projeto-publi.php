@@ -9,6 +9,6 @@
 	</div>
 </div>
 <div class="info-right horario show-for-medium">
-	<p><b>área de pesquisa</b></p>
+	<p><b><?= pll__('área de pesquisa'); ?></b></p>
 	<span class="box"> <?= get_area_pesquisa($meta); ?> </span>
 </div>

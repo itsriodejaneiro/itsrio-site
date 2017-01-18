@@ -6,7 +6,7 @@ $cat_classes = 'black';
 <div class="row">
 	<div class="main-carousel-wrapper column large-12">
 		<h2 class="list-title">
-			áreas de pesquisa
+			<?= pll__('áreas de pesquisa'); ?>
 			<div class="line"></div>
 		</h2>
 		<div class="area-pesquisa">
@@ -18,7 +18,7 @@ $cat_classes = 'black';
 					<span class="box slider-title"><?= $area['post_title'] ?></span>
 					<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
 					<span class="slider-text"><?= $area['content'] ?></span>
-					<span class="box link">ver projetos dessa área</span>
+					<span class="box link"><?= pll__('ver projetos desta área') ?></span>
 				</div>
 				<?php
 			} ?>
@@ -26,7 +26,7 @@ $cat_classes = 'black';
 	</div>
 	<div class="column large-12">
 		<h2 class="list-title">
-			projetos ativos <small class="show-for-medium">mostrando tudo</small>
+			<?= pll__('projetos ativos') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 			<div class="line"></div>
 		</h2>
 	</div>
@@ -53,7 +53,7 @@ $cat_classes = 'black';
 		</div>
 		<div class="column large-12">
 			<h2 class="list-title">
-				projetos encerrados <small class="show-for-medium">mostrando tudo</small>
+				<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 				<div class="line"></div>
 			</h2>
 		</div>
@@ -110,11 +110,11 @@ $cat_classes = 'black';
 
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
-			if(e.target == button[0] && button.text() == 'ver todos os projetos'){
+			if(e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>'){
 				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
-				$('.list-title small').html('mostrando tudo');
-				button.text('ver projetos desta área');
+				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
+				button.text("<?= pll__('ver projetos desta área') ?>");
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
 				active = false;
 				return;
@@ -126,7 +126,7 @@ $cat_classes = 'black';
 			}
 			active = true;
 			jQuery(this).addClass('active');
-			button.text('ver todos os projetos');
+			button.text('<?= pll__("ver todos os projetos") ?>');
 			var a = $( this );
 			var filterValue = a.attr('data-filter');
 			$grid.isotope({ filter: filterValue });
@@ -136,7 +136,7 @@ $cat_classes = 'black';
 			$('.list-title small i').click(function(){
 				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
-				$('.list-title small').html('mostrando tudo');
+				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
 				active = false;
 			});

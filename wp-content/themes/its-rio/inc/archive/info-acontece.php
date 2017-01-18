@@ -7,6 +7,6 @@
         <?php $cat_classes = 'black'; include(ROOT. 'inc/categories.php') ?>
     </div>
     <div class="more-info show-for-small-only">
-        <a href="<?= get_permalink() ?>">mais sobre a publicação</a>
+        <a href="<?= get_permalink() ?>"><?= pll__('mais sobre a publicação') ?></a>
     </div>
 </div>

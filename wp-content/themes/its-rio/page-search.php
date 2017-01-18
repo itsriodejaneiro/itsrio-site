@@ -17,7 +17,7 @@ query_posts($args);
 <div class="row">
 	<div class="column large-12">
 	<br><br>
-		<h2 class="list-title"> resultados da busca <div class="line"></div>
+		<h2 class="list-title"> <?= pll__('resultados da busca') ?> <div class="line"></div>
 		</h2>
 	</div>
 	<div class="older-posts">
@@ -30,7 +30,7 @@ query_posts($args);
 			wp_reset_postdata();
 		} else {
 			?>
-			<h3>Nenhum post foi encontrado</h3>
+			<h3><?= pll__('Nenhum post foi encontrado') ?></h3>
 			<?php
 		}
 		?>

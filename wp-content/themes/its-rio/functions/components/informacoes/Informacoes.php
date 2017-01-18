@@ -51,7 +51,7 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 		global $components;
 		global $meta;
 
-		$data['its_tabs'][] = 'informações';
+		$data['its_tabs'][] = pll__('informações');
 		ob_start();
 		include(__DIR__.'/view_informacoes.php');
 		$output = ob_get_contents();

@@ -7,7 +7,7 @@
 			<p class="excerpt">
 				<?= limit_excerpt(get_the_excerpt(), 100); ?>
 				<?php if(get_the_excerpt() != ''): ?>
-					<a href="<?= get_permalink() ?>"><b>Saiba Mais</b></a>
+					<a href="<?= get_permalink() ?>"><b><?= pll__('Saiba Mais') ?></b></a>
 				<?php endif; ?>
 			</p>
 		</div>

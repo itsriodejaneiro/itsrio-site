@@ -3,41 +3,41 @@
 		<div class="row">
 			<div class="column large-12">
 				<form action="<?= get_search_link() ?>" method="GET" id="formSearch">
-					<a href="#" class="close-button" onclick="jQuery('.search-box').fadeOut();">fechar <span class="icon">&times;</span></a>
+					<a href="#" class="close-button" onclick="jQuery('.search-box').fadeOut();"><?= pll__('fechar') ?> <span class="icon">&times;</span></a>
 					<label class="search-label" for="search">
-						<h2>buscar por:</h2>
+						<h2><?= pll__('buscar por:') ?></h2>
 						<input type="text" id="search" name="title" v-model="title" placeholder="digite sua palavra-chave">
 						<button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</label>
 
 					<div class="filter-options" id="cat-filter">
-						<h2>filtragem de conteúdo:</h2>
+						<h2><?= pll__('filtragem de conteúdo:') ?></h2>
 
 						<div class="filter">
 							<h3 class="list-title">
-								área
+								<?= pll__('área') ?>
 								<div class="line"></div>
 							</h3>
 							<input type="checkbox" id="search_title_area" class="ocultar">
 							<label class="label-tab" for="search_title_area"></label>
 							<div style="overflow: hidden; width: 100%;">
 								<input type="checkbox" id="search_cursos" v-model="ctp" name="cpt[]" value="cursos_ctp">
-								<label for="search_cursos" class="box">cursos</label>
+								<label for="search_cursos" class="box"><?= pll__('cursos') ?></label>
 
 								<input type="checkbox" id="search_varandas" v-model="ctp" name="cpt[]" value="varandas_ctp">
-								<label for="search_varandas" class="box">varandas</label>
+								<label for="search_varandas" class="box"><?= pll__('varandas') ?></label>
 
 								<input type="checkbox" id="search_projetos" v-model="ctp" name="cpt[]" value="projetos_ctp">
-								<label for="search_projetos" class="box">projetos</label>
+								<label for="search_projetos" class="box"><?= pll__('projetos') ?></label>
 
 								<input type="checkbox" id="search_publicações" v-model="ctp" name="cpt[]" value="publicacoes_ctp">
-								<label for="search_publicações" class="box">publicações</label>
+								<label for="search_publicações" class="box"><?= pll__('publicações') ?></label>
 							</div>
 
 						</div>
 						<div class="filter hide" id="info_areapesquisa">
 							<h3 class="list-title">
-								áreas de pesquisa
+								<?= pll__('áreas de pesquisa'); ?>
 								<div class="line"></div>
 							</h3>
 							<input type="checkbox" id="search_title_linhas" class="ocultar">
@@ -57,7 +57,7 @@
 						</div>
 						<div class="filter">
 							<h3 class="list-title">
-								categorias (assuntos)
+								<?= pll__('categorias (assuntos)') ?>
 								<div class="line"></div>
 							</h3>
 							<input type="checkbox" id="search_title_categorias" class="ocultar">
@@ -80,7 +80,7 @@
 					</div>
 
 					<a href="#" class="button advanced-search" onclick="openBuscaAvancada()">
-						busca avançada
+						<?= pll__('busca avançada') ?>
 						<i class="fa fa-angle-up" aria-hidden="true"></i>
 						<i class="fa fa-angle-down" aria-hidden="true"></i>
 					</a>

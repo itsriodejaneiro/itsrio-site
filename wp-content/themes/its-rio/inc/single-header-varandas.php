@@ -8,26 +8,26 @@
 		<div class="column medium-4 large-4">
 			<?php if(!$closed): ?>
 				<p class="dates show-for-small-only">
-					horário <b><?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?></b><br>
-					inscrições até <b><?= date('d/m',strtotime($meta['info_inscfim'][0])) ?></b>
+					<?= pll__('horário') ?> <b><?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?></b><br>
+					<?= pll__('inscrições até') ?> <b><?= date('d/m',strtotime($meta['info_inscfim'][0])) ?></b>
 				</p>
-				<p class="box-title show-for-medium">horário</p>
+				<p class="box-title show-for-medium"><?= pll__('horário') ?></p>
 				<p class="box show-for-medium">
 					<?= date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0] ?>
 					|
-					inscrições até
+					<?= pll__('inscrições até') ?>
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
 				</p>
 			<?php else: ?>
-				<p class="box-title">Varanda encerrada</p>
+				<p class="box-title"><?= pll__('Varanda encerrada') ?></p>
 			<?php endif; ?>
 		</div>
 		<div class="column medium-4 large-4">
-			<p class="box-title show-for-medium">área de pesquisa</p>
+			<p class="box-title show-for-medium"><?= pll__('área de pesquisa'); ?></p>
 			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
 		<div class="column medium-4 large-4 end">
-			<p class="box-title show-for-medium">categorias</p>
+			<p class="box-title show-for-medium"><?= pll__('categorias'); ?></p>
 			<?php $no_label = true; include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>
@@ -37,10 +37,10 @@
 		<?php include(ROOT . 'inc/single/menu.php') ?>
 		<div class="sidebar">
 			<?php if(!$closed): ?>
-				<a class="typeform-share link button large curved-shadow" href="<?= $meta['typeform_url'][0] ?>" data-mode="<?= $meta['typeform_layout'][0] ?>" target="_blank">inscreva-se</a>
+				<a class="typeform-share link button large curved-shadow" href="<?= $meta['typeform_url'][0] ?>" data-mode="<?= $meta['typeform_layout'][0] ?>" target="_blank"><?= pll__('inscreva-se') ?></a>
 				<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
 			<?php else: ?>
-				<a href="#" class="button large curved-shadow">sugira um tema</a>
+				<a href="#" class="button large curved-shadow"><?= pll__('sugira um tema') ?></a>
 			<?php endif; ?>
 		</div>
 	</div>

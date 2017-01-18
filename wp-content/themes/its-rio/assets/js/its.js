@@ -75,7 +75,7 @@ Vue.component('its-map', {
     data: function data() {
         return {
             markers: markers,
-            selectedMarker: 'false'
+            selectedMarker: false
         };
     },
 
@@ -103,7 +103,7 @@ Vue.component('its-map', {
             });
         },
         closeMarker: function closeMarker() {
-            this.selectedMarker = false;
+            this.selectedMarker = 'false';
             jQuery('.markers').attr('src', '/wp-content/themes/its-rio/functions/components/map/map-pin.svg');
         }
     },
@@ -290,6 +290,22 @@ new Vue({
             menu_nav.addClass('scrollable');
             menu_nav.scroll(function () {
                 if ($('.menu-nav > div').height() + 123 == $(window).height() - 40 + menu_nav.scrollTop()) menu_nav.addClass('scrollable-bottom');else menu_nav.removeClass('scrollable-bottom');
+            });
+        }
+
+        //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
+        if ($('.list-item-wrapper').length > 0) {
+            var maxHeight = -1;
+
+            $('.list-item').each(function () {
+                maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+            });
+
+            $('.list-item').each(function () {
+                var excedingHeight = maxHeight - $(this).height();
+                $(this).find('.img').css('height', 220 + excedingHeight);
+                $(this).find('.color-hover').css('height', 220 + excedingHeight);
+                $(this).height(maxHeight);
             });
         }
     },

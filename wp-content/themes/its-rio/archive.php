@@ -40,25 +40,20 @@ get_header();
 		<div class="main-carousel-wrapper column large-12">
 			<?php
 			switch ($postType) {
-				case 'projetos_ctp':
-				$bannerTitle = 'áreas de pesquisa';
-				$bannerCards = 'projetos ativos';
-				$label = '';
-				break;
 				case 'cursos_ctp':
-				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'cursos futuros';
-				$label = 'professores';
+				$bannerTitle = pll__('inscrições abertas') ;
+				$bannerCards = pll__('cursos futuros');
+				$label = pll__('professores');
 				break;
 				case 'publicacoes_ctp':
-				$bannerTitle = 'publicações recentes';
-				$bannerCards = 'publicações';
-				$label = 'autores';
+				$bannerTitle = pll__('publicações recentes');
+				$bannerCards = pll__('publicações');
+				$label = pll__('autores');
 				break;
 				case 'varandas_ctp':
-				$bannerTitle = 'inscrições abertas';
-				$bannerCards = 'varandas ITS';
-				$label = 'palestrantes';
+				$bannerTitle = pll__('inscrições abertas') ;
+				$bannerCards = pll__('varandas ITS');
+				$label = pll__('palestrantes');
 				break;
 
 				default:
@@ -112,20 +107,16 @@ get_header();
 		</div>
 		<?php
 	}
-	if($postsQtd > 1){
-		?>
-		<script>
-			jQuery(document).ready(function(){
-				jQuery('.highlights-carousel').flickity({
-					wrapAround: true,
-					cellSelector: '.carousel-cell',
-					setGallerySize : false
-				});
-			});
-		</script>
-		<?php
-	}
 	?>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('.highlights-carousel').flickity({
+				wrapAround: true,
+				cellSelector: '.carousel-cell',
+				setGallerySize : false
+			});
+		});
+	</script>
 
 	<div class="older-posts">
 		<?php

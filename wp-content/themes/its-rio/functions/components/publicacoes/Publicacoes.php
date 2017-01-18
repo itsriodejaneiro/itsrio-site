@@ -27,7 +27,7 @@ class Publicacoes extends ET_Builder_Module {
 		$wp_filter_cache = $wp_filter;
 		$meta = get_post_meta(get_the_ID());
 
-		$data['its_tabs'][] = 'publicações';
+		$data['its_tabs'][] = pll__('publicações');
 
 		ob_start();
 

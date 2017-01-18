@@ -51,7 +51,7 @@ class RelatedContent extends ET_Builder_Module {
 		$posts_type        = $this->shortcode_atts['posts_type'];
 		$count        	 = $this->shortcode_atts['count'];
 
-		$data['its_tabs'][] = 'relacionados';
+		$data['its_tabs'][] = pll__('relacionados');
 
 		ob_start();
 

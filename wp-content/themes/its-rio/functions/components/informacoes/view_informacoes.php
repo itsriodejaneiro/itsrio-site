@@ -1,9 +1,9 @@
 <its-informacoes inline-template>
-	<div class="content-area component-tabs informacoes" id="tab_<?= array_search('informações', $data['its_tabs']) ?>">
+	<div class="content-area component-tabs informacoes" id="tab_<?= array_search(pll__('informações'), $data['its_tabs']) ?>">
 		<div class="row">
 			<div class="component-tabs-title">
 				<h2 class="tab-title list-title">
-					informações
+					<?= pll__('informações') ?>
 					<div class="line"></div>
 				</h2>
 				<!-- <h5 class="label">mais informações</h5> -->
@@ -26,18 +26,18 @@
 					<?php if(get_post_type() == 'cursos_ctp'): ?>
 						<div class="columns large-6">
 							<p>
-								Início das Inscrições:
+								<?= pll__('Início das Inscrições:') ?>
 								<?= date('d \\d\\e F',strtotime($meta['info_inscinicio'][0]))	 ?>
 							</p>
 						</div>
 						<div class="columns large-6">
 							<p>
-								Fim das Inscrições:
+								<?= pll__('Fim das Inscrições:') ?>
 								<?= date('d \\d\\e F',strtotime($meta['info_inscfim'][0]))	 ?>
 							</p>
 						</div>
 						<div v-if="typeof aulas !== undefined" v-for="(aula, i) in aulas" class="columns large-6 left">
-							<b>{{ i + 1 }}ª aula</b>
+							<b>{{ i + 1 }}ª <?= pll__('aula') ?></b>
 							<p>{{ aula.date }}</p>
 						</div>
 						<?php
