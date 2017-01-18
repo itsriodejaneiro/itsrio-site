@@ -240,17 +240,32 @@ new Vue({
                 $(this).text('voltar para institucional');
                 $('.related-post .large-4').show();
                 $('html, body').animate({ scrollTop: 0 }, 300);
+
+                if($('.list-item-wrapper').length > 0){
+                    var maxHeight = -1;
+
+                    $('.list-item-wrapper .large-4').each(function() {
+                        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+                    });
+
+                    $('.list-item-wrapper .large-4').each(function() {
+                        var excedingHeight = (maxHeight - $(this).height());
+                        $(this).find('.img').css('height', 220 + excedingHeight);
+                        $(this).find('.color-hover').css({'height' : 220 + excedingHeight, 'margin-bottom' : 35 } );
+                        $(this).height(maxHeight);
+                    });
+                }
             } else {
                 $('.content-area').show();
                 $('.related-post .large-4:gt(2)').hide();
                 $(this).text('ver todos');
             }
 
-            $('.comunicados .related-post, .main-carousel-wrapper').masonry({
-                columnWidth: '.large-4',
-                selector: '.large-4',
-                percentPosition: true,
-            });
+            // $('.comunicados .related-post, .main-carousel-wrapper').masonry({
+            //     columnWidth: '.large-4',
+            //     selector: '.large-4',
+            //     percentPosition: true,
+            // });
         });
 
         var menu = $('.header-single-menu');
