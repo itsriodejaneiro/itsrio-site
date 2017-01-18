@@ -3460,35 +3460,39 @@ h3, h4, h5 {
 .menu-container {
   height: 75px;
   box-shadow: 0 4px 7px -5px black;
-  padding: 20px 14px;
   position: relative;
   z-index: 20;
   background-color: #eee;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-@media screen and (min-width: 48.0625em) {
-  .menu-container {
-    padding: 17px 35px;
-  }
 }
 
 @media screen and (min-width: 64.0625em) {
   .menu-container {
-    display: block;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 17px 35px;
   }
   .menu-container img {
     float: left;
   }
 }
 
-.menu-container .fa-bars {
-  font-size: 25px;
+@media screen and (max-width: 74.9375em) {
+  .menu-container .fa-bars {
+    font-size: 25px;
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+  }
+  .menu-container h1 {
+    position: absolute;
+    left: 50%;
+    margin-left: calc(-58px / 2);
+    top: 10px;
+  }
 }
 
 .menu-container .menu-social {
@@ -3517,9 +3521,10 @@ h3, h4, h5 {
 
 .menu-container .search-button {
   cursor: pointer;
-  right: 35px;
+  position: absolute;
   font-size: 25px;
-  bottom: 10px;
+  right: 15px;
+  bottom: 25px;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -3530,7 +3535,8 @@ h3, h4, h5 {
 
 @media screen and (min-width: 64.0625em) {
   .menu-container .search-button {
-    position: absolute;
+    right: 35px;
+    bottom: 10px;
   }
   .menu-container .search-button::after {
     content: 'buscar';
