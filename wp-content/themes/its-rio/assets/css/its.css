@@ -3683,8 +3683,15 @@ h3, h4, h5 {
   .menu-container .menu-nav ul:first-child {
     margin-bottom: 3px;
   }
+}
+
+.menu-container .menu-nav ul.lang {
+  margin: 10px 0 5px;
+}
+
+@media screen and (min-width: 64.0625em) {
   .menu-container .menu-nav ul.lang {
-    margin: 10px 0 5px;
+    display: none;
   }
 }
 
