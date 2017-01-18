@@ -86,7 +86,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="menu-nav-bg"></div>
+			<div class="menu-nav-bg" onclick="$('.menu-nav').toggleClass('active');$(this).fadeToggle();"></div>
 			<nav class="menu-nav ">
 				<div>
 					<ul>
