@@ -3850,7 +3850,7 @@ h3, h4, h5 {
 }
 
 .home-area .area-left {
-  padding: 50px 20px 0;
+  padding: 60px 20px 0;
 }
 
 @media screen and (min-width: 48.0625em) {
@@ -3892,7 +3892,7 @@ h3, h4, h5 {
   height: 5px;
   width: 100%;
   position: absolute;
-  top: 20px;
+  top: 0;
 }
 
 .home-area .color-line span {
@@ -4154,7 +4154,6 @@ h3, h4, h5 {
 
 .main-carousel-wrapper .flickity-page-dots, .home-area .flickity-page-dots {
   bottom: initial;
-  top: 5px;
   left: 20px;
   right: 20px;
   text-align: left;
@@ -4183,6 +4182,10 @@ h3, h4, h5 {
   }
 }
 
+.main-carousel-wrapper .flickity-page-dots {
+  top: 5px;
+}
+
 .main-carousel-wrapper .flickity-page-dots .dot {
   background-color: #fff !important;
 }
@@ -4202,6 +4205,10 @@ h3, h4, h5 {
   .home-area a.flickity-prev-next-button, .home-area button.flickity-prev-next-button {
     display: block;
   }
+}
+
+.home-area .flickity-page-dots {
+  top: 30px;
 }
 
 .home-area .flickity-page-dots:after {

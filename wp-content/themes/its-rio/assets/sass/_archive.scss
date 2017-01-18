@@ -184,7 +184,6 @@
 	}
 	.flickity-page-dots {
 		bottom: initial;
-		top: 5px;
 		left: 20px;
 		right: 20px;
 	    text-align: left;
@@ -210,6 +209,7 @@
 		}
 	}
 	.flickity-page-dots {
+		top: 5px;
 		.dot {
 			background-color: #fff !important;
 		}
@@ -230,6 +230,7 @@
 		}
 	}
 	.flickity-page-dots {
+		top: 30px;
 		&:after {
 			color: #000;
 			content: 'conheça melhor';

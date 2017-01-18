@@ -136,7 +136,7 @@
 	}
 
 	.area-left{
-		padding: 50px 20px 0;
+		padding: 60px 20px 0;
 		@include breakpoint(medium) {
 			flex: 0;
 			min-width: 340px;
@@ -168,7 +168,7 @@
 		height: 5px;
 		width: 100%;
 		position: absolute;
-    	top: 20px;
+    	top: 0;
 		span {
 			display: inline-block;
 			height: 5px;
