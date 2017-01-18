@@ -4,6 +4,8 @@ $tabs_content = '';
 
 class ET_Builder_Module_Home_Cover extends ET_Builder_Module {
 	function init() {
+		global $tabs_content;
+		$tabs_content = [];
 		$this->name            = esc_html__( 'Home ITS - Capa', 'et_builder' );
 		$this->slug            = 'et_pb_home_cover';
 		$this->whitelisted_fields = array(

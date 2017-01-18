@@ -4,6 +4,8 @@ $tabs_content = '';
 
 class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 	function init() {
+		global $tabs_content;
+		$tabs_content = [];
 		$this->name            = esc_html__( 'ITS - Informações', 'et_builder' );
 		$this->slug            = 'et_pb_informacoes';
 		$this->child_slug      = 'et_pb_informacao';
