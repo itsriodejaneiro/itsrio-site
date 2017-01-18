@@ -25,10 +25,10 @@ $no_label = true;
 	<div class="row single-menu-container">
 		<?php 
 		include(ROOT.'inc/single/menu.php');
-		if(isset($meta['pdf']) && $meta['pdf'][0] != ''){
+		if(isset($meta[$lang.'_pdf']) && $meta[$lang.'_pdf'][0] != ''){
 			?>
 			<div class="sidebar">
-				<a href="<?= $meta['pdf'][0] ?>" target="_blank" class="button large curved-shadow">leia o pdf</a>
+				<a href="<?= $meta[$lang.'_pdf'][0] ?>" target="_blank" class="button large curved-shadow">leia o pdf</a>
 			</div>
 			<?php 
 		} ?>
