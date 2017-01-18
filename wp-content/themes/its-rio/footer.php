@@ -3,7 +3,7 @@
 <footer>
 	<div class="row">
 		<div class="social-icons column small-12 show-for-small-only">
-			<h3>ITS nas redes</h3>
+			<h3><?= pll__('ITS nas redes') ?></h3>
 			<div class="line"></div>
 			<ul>
 				<li>
@@ -30,29 +30,29 @@
 		<div class="column small-12 show-for-small-only">
 			<b>newsletter:</b><br>
 			<input type="text" id="txtNewsletter_Mobile" placeholder="escreva seu email para receber" class="newsletter-input">
-			<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()">inscreva-se</a>
+			<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>
 		</div>
 
 		<div class="column medium-2">
 			<p class="raleway"><?= html_entity_decode(esc_attr(get_option('footer_description'))) ?></p>
 			<ul>
-				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">equipe</a></li>
-				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">onde estivemos</a></li>
-				<li><a href="/<?= $lang ?>/institucional/#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();">comunicados</a></li>
+				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('equipe') ?></a></li>
+				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('onde estivemos') ?></a></li>
+				<li><a href="/<?= $lang ?>/institucional/#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('comunicados') ?></a></li>
 			</ul>
 		</div>
 
 		<div class="column medium-9 medium-offset-1 show-for-medium">
 			<div class="contact-wrapper">
 				<div class="contact">
-					<b>contatos:</b><br>
+					<b><?= pll__('contatos:') ?></b><br>
 					<?= esc_attr(get_option('footer_contacts')) ?>
 				</div>
 				<div class="newsletter">
 					<b>newsletter:</b><br>
 					<input type="text" id="txtNewsletter" placeholder="escreva seu email para receber" class="newsletter-input">
 				</div>
-				<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()">inscreva-se</a>
+				<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>
 			</div>
 		</div>
 		<?php include ROOT.'inc/latest-social-content.php'; ?>
@@ -62,7 +62,7 @@
 			<img src="<?= get_template_directory_uri() ?>/assets/images/cc-footer.png" alt="Licença CC BY 3.0 BR" class="creative-commons">
 			<?= esc_attr(get_option('footer_adress')); ?>
 		</div>
-		<div class="column medium-3 medium-pull-9 "><small>desenvolvido por <a href="#">Hacklab/</a></small></div>
+		<div class="column medium-3 medium-pull-9 "><small><?= pll__('desenvolvido por') ?> <a href="#">Hacklab/</a></small></div>
 	</div>
 </footer>
 </div>

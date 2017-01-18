@@ -6,11 +6,11 @@
 			<div class="line"></div>
 		</div>
 		<div class="column medium-4 large-4">
-			<p class="box-title">área de pesquisa</p>
+			<p class="box-title"><?= pll__('área de pesquisa'); ?></p>
 			<p class="box"><?= get_area_pesquisa() ?></p>
 		</div>
 		<div class="column medium-4 large-4 end">
-			<p class="box-title">categorias</p>
+			<p class="box-title"><?= pll__('categorias'); ?></p>
 			<?php $no_label = true; include(ROOT.'inc/categories.php') ?>
 		</div>
 	</div>

@@ -1,10 +1,10 @@
 <div class="horario show-for-small-only">
 	<div class="box">
-		inscrições até
+		<?= pll__('inscrições até') ?>
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "<br> início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "<br> ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
 		?>
 	</div>
 </div>
@@ -15,13 +15,13 @@
 	</div>
 </div>
 <div class="info-right horario show-for-medium">
-	<p><b>data</b></p>
+	<p><b><?= pll__('data') ?></b></p>
 	<span class="box">
-		inscrições até
+		<?= pll__('inscrições até') ?>
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "| início do curso " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
 		?>
 	</span>
 </div>

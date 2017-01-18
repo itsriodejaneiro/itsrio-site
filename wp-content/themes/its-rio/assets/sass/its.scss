@@ -88,6 +88,7 @@ h2.list-title small {
 }
 
 .list-item-wrapper {
+	margin-bottom: 34px;
 	@media screen and (min-width: 415px) and (max-width: 1023px) {
 		width: 50% !important;
 	}

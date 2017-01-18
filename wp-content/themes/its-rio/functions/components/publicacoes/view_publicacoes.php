@@ -1,8 +1,8 @@
 
-<div class="content-area tab content-publicacoes" id="tab_<?= array_search('publicações', $data['its_tabs']) ?>">
+<div class="content-area tab content-publicacoes" id="tab_<?= array_search(pll__('publicações'), $data['its_tabs']) ?>">
 	<div class="row">
 		<h2 class="tab-title list-title left">
-			publicações
+			<?= pll__('publicações') ?>
 			<div class="line"></div>
 		</h2>
 		<div class="tab-content">

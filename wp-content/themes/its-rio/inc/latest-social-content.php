@@ -9,7 +9,7 @@ $youtube = json_decode($youtubeJSON);
 ?>
 <div class="social-content show-for-medium column medium-9 large-offset-1">
 	<div class="articles latest">
-		<p><b>últimos artigos (Medium)</b></p>
+		<p><b><?= pll__('últimos artigos (Medium)') ?></b></p>
 		<ul>
 			<?php
 			foreach ($medium as $post) {
@@ -25,7 +25,7 @@ $youtube = json_decode($youtubeJSON);
 	</div>
 
 	<div class="videos latest">
-		<p><b>últimos vídeos (YouTube)</b></p>
+		<p><b><?= pll__('últimos vídeos (YouTube)') ?></b></p>
 		<ul>
 			<?php 
 			$count = 0;
@@ -46,7 +46,7 @@ $youtube = json_decode($youtubeJSON);
 	</div>
 
 	<div class="tags latest">
-		<p><b>#trending tags</b></p>
+		<p><b><?= pll__('#trending tags') ?></b></p>
 		<p class="desc"></p>
 		<?php do_shortcode(wpp_get_mostpopular(array(
 		'post_type' => 'cursos_ctp,varandas_ctp,publicacoes_ctp,projetos_ctp',

@@ -1,13 +1,13 @@
 <its-aulas inline-template>
-	<div class="content-area component-tabs aulas" id="tab_<?= array_search('aulas', $data['its_tabs']) ?>">
+	<div class="content-area component-tabs aulas" id="tab_<?= array_search(pll__('aulas'), $data['its_tabs']) ?>">
 		<div class="row">
 			<div class="component-tabs-title">
 				<h2 class="tab-title list-title">
-					aulas
+					<?= pll__('aulas') ?>
 					<div class="line"></div>
 				</h2>
 				<?php if(!$closed): ?>
-					<h5 class="tab-title">agenda <i class="fa fa-calendar"></i></h5>
+					<h5 class="tab-title"><?= pll__('agenda') ?> <i class="fa fa-calendar"></i></h5>
 					<ul>
 						<li v-for="(aula, i) in aulas">
 							<b>{{ i + 1 }}º aula</b>

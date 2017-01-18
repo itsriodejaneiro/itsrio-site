@@ -52,7 +52,7 @@ class Comunicados extends ET_Builder_Module {
 		$posts_type        = $this->shortcode_atts['posts_type'];
 		$count        	 = $this->shortcode_atts['count'];
 
-		$data['its_tabs'][] = 'comunicados';
+		$data['its_tabs'][] = pll__('comunicados');
 
 		$args['post_type'] = ['comunicados_ctp'];
 		$query = new wp_query($args);
