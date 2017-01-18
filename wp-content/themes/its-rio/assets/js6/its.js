@@ -222,6 +222,13 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
+            var $body = $('body');
+            $body.bind('scroll', function() {
+                // "Disable" the horizontal scroll.
+                if ($body.scrollLeft() !== 0) {
+                    $body.scrollLeft(0);
+                }
+            });
         }, 1000);
 
         $('.comunicados h2 > a').click(function() {
