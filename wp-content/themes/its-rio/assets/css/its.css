@@ -3395,13 +3395,10 @@ label.label-tab:after {
   display: none;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 html, body {
   height: 100%;
   margin-top: 0 !important;
+  overflow-x: hidden;
 }
 
 .home-cover + .row-menu.home + #content {
@@ -3738,6 +3735,12 @@ h3, h4, h5 {
 
 #content_all {
   position: relative;
+}
+
+@media screen and (max-width: 74.9375em) {
+  #content_all {
+    overflow-y: hidden;
+  }
 }
 
 #content {
