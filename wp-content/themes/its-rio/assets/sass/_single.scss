@@ -15,11 +15,8 @@
 
     @media #{$small-only} {
         height: 360px;
-<<<<<<< HEAD
         box-shadow: inset 0px 1px 10px 0 rgba(0, 0, 0, 0.5);
 
-        .column {padding: 0 20px; }
-=======
         .column {
             padding: 0 20px;
         }
@@ -29,7 +26,6 @@
                 margin-bottom: 0;
             }
         }
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
     }
 
     &:before{
@@ -261,22 +257,15 @@
         margin: 0 0 15px;
         box-shadow: 0px 0px 5px gray;
 
-<<<<<<< HEAD
-        @media #{$small-only}{
-=======
         @media #{$small-only} {
             margin-bottom: 10px;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             display: block;
             margin: 0 auto 20px auto;
         }
 
         @media screen and (min-width: 415px)  {
             float: left;
-<<<<<<< HEAD
-=======
             margin: 5px 25px 5px 0;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
             max-width: 300px;
             margin: 0 50px 0 0;
         }
@@ -355,11 +344,8 @@
             background-position: center;
             -webkit-filter: grayscale(1);
             -webkit-filter: grayscale(100%);
-<<<<<<< HEAD
-=======
             cursor: pointer;
             margin: 0 auto;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
 
             &:hover {
                 filter: grayscale(0%);
@@ -374,12 +360,8 @@
             opacity: 0.75;
             font-size: 14px;
             margin: 5px 0 0;
-<<<<<<< HEAD
-            font-weight: 600;
-=======
             opacity: 0.75;
             text-align: center;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
         }
         .line {
             opacity: 0;
@@ -507,9 +489,7 @@
 .related-content {
     background-color: #d9d9d9;
     padding: 15px !important;
-<<<<<<< HEAD
-    
-=======
+
     @include breakpoint(small only) {
         .column {
             padding: 0 !important;
@@ -525,7 +505,6 @@
             }
         }
     }
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
     @include breakpoint(medium) {
         padding: 15px 0 !important;
         .list-title {
@@ -836,13 +815,9 @@
     }
 
     h1 {
-<<<<<<< HEAD
-        font-size: 30px;
-=======
         font-family: 'Raleway';
         font-size: 28px;
         font-weight: normal;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
         line-height: 1.33;
         font-weight: normal;
         font-family: 'Raleway';
@@ -864,62 +839,51 @@
 
     a {
         text-decoration: none;
-<<<<<<< HEAD
-        font-size: 16px;
+            font-size: 16px !important;
+            @include breakpoint(small only) {
+                top: 10px;
+                left: 50%;
+                margin-left: -133px;
+                padding: 10px 30px;
+                margin-left: -147px;
+            }
+            @include breakpoint(medium) {
+                top: 10px;
+                right: 0;
+                left: 0;
+                right: 0;
+                top: 10px;
+                font-size: 18px;
+            }
+            @include breakpoint(large) {
+                font-size: 18px !important;
+                top: 10px;
+                left: 20px;
+                right: 20px;
+            }
+            &:hover, &:focus {
+                background-color: #fbaf17 !important;
+            }
+        }
 
-        @include breakpoint(small only) {
-            top: 10px;
-            left: 50%;
-=======
-        font-size: 16px !important;
-        @include breakpoint(small only) {
-            top: 10px;
-            left: 50%;
-            margin-left: -133px;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
-            padding: 10px 30px;
-            margin-left: -147px;
-        }
-        @include breakpoint(medium) {
-<<<<<<< HEAD
-=======
-            top: 10px;
-            right: 0;
->>>>>>> 40393a0fb7b7182f91572beedda1134e11dc6124
-            left: 0;
-            right: 0;
-            top: 10px;
-            font-size: 18px;
-        }
-        @include breakpoint(large) {
-            font-size: 18px !important;
-            top: 10px;
-            left: 20px;
-            right: 20px;
-        }
-        &:hover, &:focus {
-            background-color: #fbaf17 !important;
+        span {
+            font-size: 14px;
+            margin-top: 60px;
+            text-align: center;
+
+            @include breakpoint(medium) {
+                margin-top: 55px;
+            }
         }
     }
 
-    span {
-        font-size: 14px;
-        margin-top: 60px;
+    .work-with-us {
+        margin-bottom: 60px;
+        overflow: hidden;
         text-align: center;
 
-        @include breakpoint(medium) {
-            margin-top: 55px;
-        }
+        a { position: relative; }
     }
-}
-
-.work-with-us {
-    margin-bottom: 60px;
-    overflow: hidden;
-    text-align: center;
-
-    a { position: relative; }
-}
 
 //COMPONENT MAPA
 .component-tabs.map {
