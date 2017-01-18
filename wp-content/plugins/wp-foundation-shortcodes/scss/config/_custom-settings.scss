@@ -1,0 +1,47 @@
+// Allows the use of rem-calc() or lower-bound() in your settings
+@import "../../bower_components/foundation/scss/foundation/functions";
+
+$global-radius: 4px;
+
+// Foundation color naming conventions
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
+$jet         : #222222;
+$black       : #000000;
+
+// some
+$primary-color	: #008cba;
+$primary	: #446CB3;
+$secondary	: #ADB2BD;
+$info		: #89c4f4;
+$alert		: #F22613;
+$success	: #87D37C;
+$warning	: #F89406;
+
+
+// other colors
+$yellow		: #FFFF00;
+$blue		: #6495ED;
+$green		: #2ECC71;
+$brown		: #A52A2A;
+$red		: #E74C3C;
+$rebeccaPurpl	: #663399;
+$yellowGreen	: #9ACD32;
+$orange		: #E67E22;
+$purple		: #9B59B6;
+

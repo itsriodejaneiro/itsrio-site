@@ -21,8 +21,8 @@
 		<div class="map-info main-carousel">
 			<div class="map-info-carousel pessoa-info" v-bind:class="{ 'active' : selectedMarker !== false }">
 				<div class="seta-mapa"></div>
-				<a v-show="typeof selectedMarker.infos !== 'undefined' && selectedMarker.infos.length > 1" class="flickity-prev-next-button previous" type="button"  aria-label="previous"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></a>
-				<a v-show="typeof selectedMarker.infos !== 'undefined' && selectedMarker.infos.length > 1" class="flickity-prev-next-button next" type="button"  aria-label="next"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></a>
+				<a class="flickity-prev-next-button previous" type="button" disabled="" aria-label="previous"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></a>
+				<a class="flickity-prev-next-button next" type="button" disabled="" aria-label="next"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></a>
 				<div
 				class="map-info-carousel-item carousel-cell"
 				v-for="(info, i) in selectedMarker.infos"

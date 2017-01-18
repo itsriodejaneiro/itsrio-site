@@ -74,7 +74,7 @@ Vue.component('its-map', {
     data() {
         return {
             markers,
-            selectedMarker: false
+            selectedMarker: 'false'
         }
     },
     methods: {
@@ -110,7 +110,7 @@ Vue.component('its-map', {
             });
         },
         closeMarker() {
-            this.selectedMarker = 'false';
+            this.selectedMarker = false;
             jQuery('.markers').attr('src', '/wp-content/themes/its-rio/functions/components/map/map-pin.svg');
         }
     },

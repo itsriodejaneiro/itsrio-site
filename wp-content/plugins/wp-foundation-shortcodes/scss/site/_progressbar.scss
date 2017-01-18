@@ -1,0 +1,42 @@
+.progress.wp-foundation-shortcodes{
+	margin: 0 auto rem-calc(32) auto;
+	padding:0;
+	width:90%;
+	height:rem-calc(30);
+	overflow:hidden;
+	background:$white-smoke;
+	@include border-radius(rem-calc(6));
+
+	.meter {
+		position:relative;
+		float:left;
+		min-width:1%;
+		height:100%;
+		.percent{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			margin:0;
+			font-family:tahoma,arial,helvetica;
+			font-size:rem-calc(12);
+			color:$white;
+		}
+		&.blue{
+			background:$blue;
+		}
+		&.red{
+			background:$red;
+		}
+		&.orange{
+			background:$orange;
+		}
+		&.green{
+			background:$green;
+		}
+		&.purple{
+			background:$purple;
+		}
+	}
+}
+

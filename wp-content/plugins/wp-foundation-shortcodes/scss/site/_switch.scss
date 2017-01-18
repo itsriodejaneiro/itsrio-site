@@ -1,0 +1,54 @@
+.switch.wp-foundation-shortcodes{
+	.switch-on-off{
+		position: absolute;
+		color: $white;
+                font-weight: bold;
+                font-size: rem-calc(9);
+		top:rem-calc(10);
+	}
+	.switch-on {
+		left: rem-calc(-55);
+	}
+
+	.switch-off {
+		left: rem-calc(-25);
+	}
+	
+	&.tiny{
+		.switch-on-off{
+			top:rem-calc(6);
+		}
+		.switch-on {
+        	        left: rem-calc(-40);
+	        }
+
+	        .switch-off {
+                	left: rem-calc(-19);
+        	}
+	}
+	&.small{
+		.switch-on-off{
+                        top:rem-calc(8);
+                }
+                .switch-on {
+                        left: rem-calc(-46);
+                }
+
+                .switch-off {
+                        left: rem-calc(-25);
+                }
+        }
+	&.large{
+		.switch-on-off{
+                        top:rem-calc(13);
+			font-size: rem-calc(12);
+                }
+                .switch-on {
+                        left: rem-calc(-65);
+                }
+
+                .switch-off {
+                        left: rem-calc(-30);
+                }
+        }
+}

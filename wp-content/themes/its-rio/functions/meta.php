@@ -24,7 +24,7 @@ function its_meta_boxes($meta_boxes) {
 			['id'   => 'pt_pdf', 'name' => __('URL do arquivo PDF', 'textdomain'), 'type' => 'text'],
 			['id'   => 'en_pdf', 'name' => __('URL do arquivo PDF (inglês)', 'textdomain'), 'type' => 'text'],
 			['id'	=> "publi_banner", 'name' => 'É um destaque da intermediária de Publicações?', 'type' => 'checkbox', 'value' => '1'],
-			['id'	=> "datapubli", 'name' => 'Data de Publicação', 'type' => 'text'],
+			['id'	=> "datapubli", 'name' => 'Data de Publicação', 'type' => 'checkbox', 'value' => '1'],
 			),
 		],
 		[

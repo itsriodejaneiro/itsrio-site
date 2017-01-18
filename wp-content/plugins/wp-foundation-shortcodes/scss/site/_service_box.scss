@@ -1,0 +1,13 @@
+.service-box{
+	.icon{
+		float:left;
+		margin:0 rem-calc(20) rem-calc(10) 0;
+		font-size:rem-calc(50);
+	}
+}
+[dir='rtl'] .service-box{
+        .icon{
+                float:right;
+                margin:0 0 rem-calc(10) rem-calc(20);
+        }
+}

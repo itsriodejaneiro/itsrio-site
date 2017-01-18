@@ -111,11 +111,9 @@ $cat_classes = 'black';
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
 			if(e.target == button[0] && button.text() == 'ver todos os projetos'){
-				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('mostrando tudo');
-				button.text('ver projetos desta área');
-				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
+				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
 				active = false;
 				return;
 			}
@@ -134,7 +132,6 @@ $cat_classes = 'black';
 
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 			$('.list-title small i').click(function(){
-				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('mostrando tudo');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');

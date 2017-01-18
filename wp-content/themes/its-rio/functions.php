@@ -8,7 +8,7 @@
 *
 */
 setlocale(LC_ALL, 'pt_BR');
-error_reporting(0);
+error_reporting(E_ERROR);
 $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
@@ -31,7 +31,6 @@ include 'functions/components/components.php';
 include 'functions/enqueued_scripts.php';
 include 'functions/menu-footer.php';
 include 'functions/menu-map.php';
-include 'functions/translations.php';
 
 function wpdocs_custom_excerpt_length($length)
 {
@@ -43,7 +42,7 @@ add_theme_support('post-thumbnails');
 
 @ini_set('upload_max_size', '64M');
 @ini_set('post_max_size', '64M');
-@ini_set('max_execution_time', '300000');
+@ini_set('max_execution_time', '300');
 
 function get_post_number($postID)
 {

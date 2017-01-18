@@ -62,7 +62,6 @@
 						<p><b>Título:</b> {{ box.title }}</p>
 						<p><b>Texto:</b> <span v-html="box.text"></span></p>
 						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box">Editar</a>
-						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i) = box">Excluir</a>
 					</div>
 				</div>	
 			</div>
@@ -81,7 +80,7 @@
 </its-map>
 
 <script>
-	var markers = <?= file_exists(ROOT.'/functions/components/map/markers.json') ? file_get_contents(ROOT.'/functions/components/map/markers.json') : '[]' ?>;
+	var markers = <?= file_get_contents(ROOT.'/functions/components/map/markers.json') ?>;
 	var $ = jQuery;
 
 	Vue.component('its-map', {

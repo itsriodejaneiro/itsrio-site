@@ -48,6 +48,8 @@ class BoxInscreva extends ET_Builder_Module {
 		global $closed;
 		global $postType;
 
+		if($closed)
+			return '';
 
 		$wp_filter_cache = $wp_filter;
 		$title = $this->shortcode_atts['title'];
