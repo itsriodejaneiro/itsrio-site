@@ -3303,6 +3303,10 @@ h2.list-title small i {
   cursor: pointer;
 }
 
+.flickity-prev-next-button[disabled] {
+  display: none !important;
+}
+
 .raleway {
   font-family: 'Raleway';
 }

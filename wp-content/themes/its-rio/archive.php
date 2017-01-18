@@ -187,13 +187,13 @@ get_header();
 	</div>
 </div>
 <script>
-	'use strict';
-	setTimeout(()=>{
-		jQuery('.older-posts').masonry({
-			columnWidth : '.large-4',
-			selector : '.large-4',
-			percentPosition: true,
-		});
-	}, 1000);
+	// 'use strict';
+	// setTimeout(()=>{
+	// 	jQuery('.older-posts').masonry({
+	// 		columnWidth : '.large-4',
+	// 		selector : '.large-4',
+	// 		percentPosition: true,
+	// 	});
+	// }, 1000);
 </script>
 <?php get_footer(); ?>
