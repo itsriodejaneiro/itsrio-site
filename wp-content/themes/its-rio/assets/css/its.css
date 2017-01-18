@@ -3432,7 +3432,8 @@ h3, h4, h5 {
 
 .row-menu.fixed {
   top: 0;
-  width: 100%;
+  right: 0;
+  left: 0;
   position: fixed;
   z-index: 10;
   margin: 0;
