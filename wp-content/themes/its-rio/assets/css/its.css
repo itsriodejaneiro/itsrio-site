@@ -6080,7 +6080,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     width: 25% !important;
   }
   .area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
-    width: 40% !important;
+    -webkit-animation-name: area-fix;
+    animation-name: area-fix;
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
   }
   .area-pesquisa .slider.active .box:not(.link), .area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
     max-width: initial;
@@ -6100,6 +6105,24 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
   .area-pesquisa .slider-excerpt, .area-pesquisa .slider-text {
     display: block !important;
+  }
+}
+
+@-webkit-keyframes area-fix {
+  from {
+    width: 25%;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+@keyframes area-fix {
+  from {
+    width: 25%;
+  }
+  to {
+    width: 40%;
   }
 }
 

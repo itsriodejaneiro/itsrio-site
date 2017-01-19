@@ -156,7 +156,7 @@ $cat_classes = 'black';
 			});
 		});
 
-		
+
 		if(location.hash != ''){
 			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
 		}
