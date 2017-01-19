@@ -6526,7 +6526,7 @@ footer small a {
   float: left;
   font-size: 20px;
   font-weight: bold;
-  margin: 15px 0 50px;
+  margin: 15px 0 40px;
   padding-bottom: 5px;
   background-color: transparent;
   border-bottom: 4px solid #000;
@@ -6633,7 +6633,7 @@ footer small a {
 
 .search-box .filter-options {
   clear: both;
-  height: 355px;
+  height: 320px;
   max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height .4s ease-in-out;
@@ -6665,12 +6665,6 @@ footer small a {
 .search-box .filter-options .filter {
   margin: 20px 0;
   position: relative;
-}
-
-@media screen and (min-width: 48.0625em) {
-  .search-box .filter-options .filter {
-    margin: 20px 0 40px;
-  }
 }
 
 .search-box .filter-options .filter:last-child {

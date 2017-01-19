@@ -51,7 +51,7 @@
         float: left;
         font-size: 20px;
         font-weight: bold;
-        margin: 15px 0 50px;
+        margin: 15px 0 40px;
         padding-bottom: 5px;
         background-color: transparent;
         border-bottom: 4px solid #000;
@@ -120,7 +120,7 @@
     }
     .filter-options {
         clear: both;
-        height: 355px;
+        height: 320px;
         max-height: 0;
         overflow: hidden;
         transition: max-height .4s ease-in-out;
@@ -144,9 +144,6 @@
         .filter {
             margin: 20px 0;
             position: relative;
-            @include breakpoint(medium) {
-                margin: 20px 0 40px;
-            }
             &:last-child {
                 margin-bottom: 0;
             }
