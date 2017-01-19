@@ -7,8 +7,6 @@ function its_meta_boxes($meta_boxes) {
 	$pessoas = get_ctp_array('pessoas');
 	$areas = get_ctp_array('areas');
 
-	// ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
-
 	$meta_boxes = array([
 		'id'		=> 'linkscomunicados',
 		'title'     => __('Informações do Comunicado', 'textdomain' ),

@@ -90,10 +90,7 @@
 	var lang = '<?= $lang ?>';
 </script>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
-<script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="/wp-content/themes/its-rio/assets/js/isotope.pkgd.min.js"></script>
-<script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
+<script src="/wp-content/themes/its-rio/assets/js/plugins.js"></script>
 
 <script type="text/javascript">
 	function toggleMenu(){

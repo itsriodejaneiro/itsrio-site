@@ -43,14 +43,4 @@ query_posts($args);
 		?>
 	</div>
 </div>
-<script>
-	'use strict';
-	setTimeout(()=>{
-		$('.older-posts').masonry({
-			columnWidth : '.large-4',
-			selector : '.large-4',
-			percentPosition: true,
-		});
-	}, 500);
-</script>
 <?php get_footer(); ?>
