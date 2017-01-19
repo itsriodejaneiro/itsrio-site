@@ -43,13 +43,16 @@
         width: 100%;
     }
     h2 {
-        font-size: 20px;
+        font-size: 18px;
+        @include breakpoint(medium) {
+            font-size: 20px;
+        }
     }
     #search {
         border: 0;
         width: 85%;
         float: left;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         margin: 15px 0 40px;
         padding-bottom: 5px;
@@ -133,7 +136,7 @@
 
         &.active {
             max-height: 1000px;
-        }s
+        }
 
         h3 {
             float: left;

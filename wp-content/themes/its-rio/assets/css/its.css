@@ -6536,14 +6536,20 @@ footer small a {
 }
 
 .search-box h2 {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .search-box h2 {
+    font-size: 20px;
+  }
 }
 
 .search-box #search {
   border: 0;
   width: 85%;
   float: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin: 15px 0 40px;
   padding-bottom: 5px;
@@ -6675,7 +6681,7 @@ footer small a {
   max-height: 1000px;
 }
 
-.search-box .filter-options s h3 {
+.search-box .filter-options h3 {
   float: left;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;

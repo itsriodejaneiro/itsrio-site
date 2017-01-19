@@ -20,17 +20,24 @@ query_posts($args);
 		<h2 class="list-title"> <?= pll__('resultados da busca') ?> <div class="line"></div>
 		</h2>
 	</div>
-	<div class="older-posts">
+	<div class="column large-12 older-posts">
 		<?php 
 		if ( have_posts() ) {
 			while ( have_posts() ) {
 				the_post();
-				include(ROOT .'inc/post-box.php');
+				?>
+				<div class="row">
+					<?php
+					include(ROOT .'inc/post-box.php');
+					?>
+				</div>
+				<?php
 			}
 			wp_reset_postdata();
 		} else {
 			?>
-			<h3><?= pll__('Nenhum post foi encontrado') ?></h3>
+			<br>
+			<h6><?= pll__('Nenhum post foi encontrado') ?></h6>
 			<?php
 		}
 		?>
