@@ -38,6 +38,8 @@ query_posts($args);
 			?>
 			<br>
 			<h6><?= pll__('Nenhum post foi encontrado') ?></h6>
+			<br>
+			<br>
 			<?php
 		}
 		?>
