@@ -132,7 +132,9 @@
             }
 
             &.active, &:not(.no-hover):hover {
-                width: 40% !important;
+                animation-name: area-fix;
+                animation-duration: 0.4s;
+                animation-fill-mode: forwards;
 
                 .box {
                     &:not(.link) {
@@ -160,6 +162,11 @@
             display: block !important;
         }
     }
+}
+
+@keyframes area-fix {
+    from { width: 25%; }
+    to { width:40%; }
 }
 
 @include breakpoint(medium down) {
