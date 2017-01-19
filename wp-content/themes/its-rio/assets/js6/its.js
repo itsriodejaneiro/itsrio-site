@@ -208,7 +208,7 @@ new Vue({
             }
 
              //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
-            if($('.list-item-wrapper').length > 0){
+            if($('.list-item-wrapper').length > 0 && !mobileAndTabletcheck()){
                 var maxHeight = -1;
 
                 $('.list-item').each(function() {
@@ -272,7 +272,7 @@ new Vue({
         var menu = $('.header-single-menu');
         var top = (typeof menu.position() != "undefined") ? menu.position().top : 0;
         $(window).scroll(function() {
-            var menu_fix = mobileAndTabletcheck() ? 10 : 100;
+            var menu_fix = mobileAndTabletcheck() ? 0 : 100;
             if (typeof menu.position() != "undefined") {
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top)

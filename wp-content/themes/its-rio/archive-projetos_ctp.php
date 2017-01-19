@@ -85,6 +85,7 @@ $cat_classes = 'black';
 </div>
 <script>
 	'use strict';
+
 	setTimeout(function(){
 		var active = false;
 		var $grid = $('.older-posts').isotope({
@@ -131,7 +132,6 @@ $cat_classes = 'black';
 			}else{
 				jQuery('.area-pesquisa .slider').removeClass('no-active');
 			}
-
 
 			$('html, body').animate({ scrollTop: $('.older-posts').offset().top - 150 }, 300);
 
