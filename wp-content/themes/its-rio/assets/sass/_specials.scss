@@ -240,15 +240,15 @@
 @include breakpoint(medium down) {
     .menu-nav.scrollable {
         transform: translate3d(0px,0px,0px);
-        
-        &.scrollable-bottom:after{
-            content: "\f077";
-        }
-        &:after{
+    }
+
+    .scrollable-arrow {
+        &:after {
             content: "\f078";
             position: fixed;
-            text-align: center;
+            left: -270px;
             bottom: -10px;
+            text-align: center;
             padding: 8px 0px;
             z-index: 11100000;
             background-color: black;
@@ -261,6 +261,12 @@
             animation: bouncing ease-in-out 3s infinite;
             height: 70px;
             opacity: 0.6;
+        }
+        &.scrollable-bottom:after{
+            content: "\f077";
+        }
+        &.active {
+            left: 0;
         }
     }
 }

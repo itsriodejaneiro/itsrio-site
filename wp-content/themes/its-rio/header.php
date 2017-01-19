@@ -131,6 +131,7 @@
 					</div>
 				</div>
 			</nav>
+			<div class="scrollable-arrow"></div>
 			<i class="search-button fa fa-search" onclick="jQuery('.search-box').fadeToggle();"></i>
 		</div>
 	</div>
