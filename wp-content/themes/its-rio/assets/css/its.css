@@ -3581,6 +3581,8 @@ h3, h4, h5 {
   left: 130px;
   z-index: 10;
   overflow-x: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
 .menu-container .menu-nav .line {
@@ -4505,6 +4507,8 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   height: 50px;
   color: black;
   font-weight: bold;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
 @media screen and (min-width: 64.0625em) {
