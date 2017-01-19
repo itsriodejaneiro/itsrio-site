@@ -13,7 +13,7 @@ $cat_classes = 'black';
 			<?php
 			$areas = get_ctp_array('areas', true);
 			foreach ($areas as $id => $area) { ?>
-			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
+			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" area-name="#<?= sanitize_title($area['post_title']) ?>"  class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
 				<div class="color"></div>	
 				<span class="box slider-title"><?= $area['post_title'] ?></span>
 				<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
@@ -110,6 +110,7 @@ $cat_classes = 'black';
 
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
+			var areaName = jQuery(this).attr('area-name');
 
 			if(e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>'){
 				$grid.isotope({ filter: filterValue });
@@ -119,14 +120,18 @@ $cat_classes = 'black';
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
 				active = false;
 				$('html, body').animate({ scrollTop: 0 }, 300);
+				location.hash = '';
 				return;
 			}
+
+			location.hash = areaName;
 
 			if(active){
 				jQuery('.area-pesquisa .slider').removeClass('active');
 			}else{
 				jQuery('.area-pesquisa .slider').removeClass('no-active');
 			}
+
 
 			$('html, body').animate({ scrollTop: $('.older-posts').offset().top - 150 }, 300);
 
@@ -143,11 +148,18 @@ $cat_classes = 'black';
 				$('html, body').animate({ scrollTop: 0 }, 300);
 				$grid.isotope({ filter: '*' });
 				$grid2.isotope({ filter: '*' });
+				button.text("<?= pll__('ver projetos desta área') ?>");
 				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
+				location.hash = '';
 				active = false;
 			});
 		});
+
+		
+		if(location.hash != ''){
+			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
+		}
 	},1000);
 </script>
 <?php get_footer(); ?>
