@@ -10,7 +10,14 @@ function its_meta_boxes($meta_boxes) {
 	// ['Direitos e tecnologia', 'Repensando Inovação', 'Democracia e Tecnologia','Educação'],
 
 	$meta_boxes = array([
-		'id'		=> 'projetoencerrado',
+		'id'		=> 'linkscomunicados',
+		'title'     => __('Informações do Comunicado', 'textdomain' ),
+		'post_types'=> ['comunicados_ctp'],
+		'fields'    => array(
+			['id'	=> "saiba_mais", 'name' => 'Link do Saiba Mais', 'type' => 'text'],
+			),
+		],
+		['id'		=> 'projetoencerrado',
 		'title'     => __('Informações do Projeto', 'textdomain' ),
 		'post_types'=> ['projetos_ctp'],
 		'fields'    => array(

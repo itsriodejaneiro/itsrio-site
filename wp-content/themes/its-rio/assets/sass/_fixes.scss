@@ -71,3 +71,8 @@ h3,h4,h5{
 		}
 	}
 }
+
+//O VICTOR PEDIU PARA DAR UM RESPIRO ENTRE O "GOSTOU DESTE XXXX? E OS CONTEÚDOS RELACIONADOS"
+.content-area.component-tabs.informacoes + .related-content {
+    margin-top: 25px;
+}

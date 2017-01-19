@@ -263,7 +263,7 @@ new Vue({
         var menu = $('.header-single-menu');
         var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
         $(window).scroll(function () {
-            var menu_fix = mobileAndTabletcheck() ? 0 : 100;
+            var menu_fix = mobileAndTabletcheck() ? 10 : 100;
             if (typeof menu.position() != "undefined") {
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top) menu.addClass('fixed');else menu.removeClass('fixed');

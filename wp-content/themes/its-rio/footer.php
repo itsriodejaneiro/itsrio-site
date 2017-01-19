@@ -96,6 +96,16 @@
 <script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
 
 <script type="text/javascript">
+	function toggleMenu(){
+		if($('.menu-nav').hasClass('active'))
+			$('body').css('overflow-y','auto');
+		else
+			$('body').css('overflow-y','hidden');
+
+		$('.menu-nav').toggleClass('active');
+		$('.menu-nav-bg').fadeToggle();
+	}
+
 	function openBuscaAvancada() {
 		$('.filter-options,.advanced-search').toggleClass('active');
 		setTimeout(function(){
