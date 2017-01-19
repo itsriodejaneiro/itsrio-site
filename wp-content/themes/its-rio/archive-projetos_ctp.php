@@ -141,7 +141,7 @@ $cat_classes = 'black';
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 			$('.list-title small i').click(function(){
 				$('html, body').animate({ scrollTop: 0 }, 300);
-				$grid.isotope({ filter: filterValue });
+				$grid.isotope({ filter: '*' });
 				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
