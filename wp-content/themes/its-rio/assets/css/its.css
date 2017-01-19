@@ -4594,7 +4594,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   height: 50px;
   display: -webkit-box;
   display: flex;
-  font-size: 15px;
+  font-size: 14px;
   padding: 0 10px;
   -webkit-box-align: center;
   align-items: center;
@@ -6507,14 +6507,15 @@ footer small a {
   bottom: 0;
   z-index: 20;
   position: fixed;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
   background-color: rgba(150, 150, 150, 0.98);
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
 @media screen and (max-width: 48em) {
   .search-box {
+    bottom: -60px;
     overflow-y: scroll;
   }
 }
