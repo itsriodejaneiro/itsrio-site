@@ -15,6 +15,7 @@ function its_meta_boxes($meta_boxes) {
 		'post_types'=> ['projetos_ctp'],
 		'fields'    => array(
 			['id'	=> "projeto_encerrado", 'name' => 'Este projeto está encerrado?', 'type' => 'checkbox', 'value' => '1'],
+			['id'	=> "saiba_mais", 'name' => 'Link do Saiba Mais', 'type' => 'text'],
 			),
 		],
 		['id'		=> 'infosss',

@@ -18,6 +18,9 @@
 <div class="row row-menu spread-items header-single-menu">
 	<div class="row single-menu-container">
 		<?php include(ROOT.'inc/single/menu.php') ?>
+		<div class="sidebar">
+			<a class="button large curved-shadow" href="<?= $meta['saiba_mais'][0] ?>" target="_blank"><?= strtolower(pll__('Saiba Mais')) ?></a>
+		</div>
 	</div>
 </div>
 <div class="header-single-menu-fix"></div>

@@ -222,10 +222,11 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
-            setInterval(function(){
-                var $body = $('html, body');
-                $body.scrollLeft(0);
-            }, 1000);
+
+            var $body = $('html, body');
+            // setInterval(function(){
+            //     $body.scrollLeft(0);
+            // }, 1000);
             $body.bind('scroll', function() {
                 // "Disable" the horizontal scroll.
                 if ($body.scrollLeft() !== 0) {
