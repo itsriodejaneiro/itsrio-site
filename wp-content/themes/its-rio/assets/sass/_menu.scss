@@ -1,38 +1,38 @@
 .menu-container {
-	height: 75px;
-	box-shadow: 0 4px 7px -5px black;
-	position: relative;
 	z-index: 20;
+	height: 75px;
+	position: relative;
 	background-color: #eee;
+	box-shadow: 0 4px 7px -5px black;
 
 	@include breakpoint(large) {
 		display: flex;
+		padding: 17px 35px; //estranho
 		align-items: center;
 		justify-content: space-between;
-		padding: 17px 35px; //estranho
 		img {
 			float: left;
 		}
 	}
 	@include breakpoint(large down) {
 		.fa-bars {
+			left: 15px;
+			bottom: 25px;
 			font-size: 25px;
 			position: absolute;
-			bottom: 25px;
-			left: 15px;
 		}
 		h1 {
-			position: absolute;
 		    left: 50%;
-		    margin-left: calc(-58px / 2);
 		    top: 10px;
+			position: absolute;
+		    margin-left: calc(-58px / 2);
 		}
 	}
 
 	.menu-social {
-		position: absolute;
-		right: 35px;
 		top: 10px;
+		right: 35px;
+		position: absolute;
 
 		ul {
 			width: 340px;
@@ -52,11 +52,12 @@
 	}
 
 	.search-button {
-		cursor: pointer;
-		position: absolute;
-		font-size: 25px;
 		right: 15px;
 		bottom: 25px;
+		cursor: pointer;
+		font-size: 25px;
+		position: absolute;
+		
 		@include breakpoint(medium) {
 			font-size: 20px;
 		}
@@ -64,19 +65,19 @@
 			right: 35px;
 			bottom: 10px;
 			&::after{
-				content: 'buscar';
-				font-family: 'Roboto Mono';
 				font-size: 14px;
 				margin-left: 5px;
+				content: 'buscar';
+				font-family: 'Roboto Mono';
 			}
 		}
 	}
 
 	.menu-social ul, .menu-nav 	ul{
-		list-style-type: none;
-		display: flex;
-		justify-content: space-between;
 		margin: 0;
+		display: flex;
+		list-style-type: none;
+		justify-content: space-between;
 
 		li {
 			padding-bottom: 4px;
@@ -88,26 +89,26 @@
 	}
 
 	.menu-nav {
-		position: absolute;
 		bottom: 0px;
 		left: 130px;
 		z-index: 10;
+		position: absolute;
 		overflow-x: hidden;
 		transform: translate3d(0px,0px,0px);
 		
 		.line { display: none; }
 
 		@media #{$small-medium} {
-			transition: all .5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
+			top: 75px;
 			left: -270px;
 			width: 250px;
-			overflow: scroll;
 			height: 100%;
-			position: fixed;
-			top: 75px;
 			padding: 20px;
-			box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+			position: fixed;
+			overflow: scroll;
 			background-color: #eee;
+			box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+			transition: all .5s cubic-bezier(0.53, 0.04, 0.1, 1.01);
 
 			* { position: relative; }
 
@@ -127,27 +128,28 @@
 
 			.menu-mobile-footer{
 				h3 {    
-					margin-top: 20px;
 					font-size: 15px;
+					margin-top: 20px;
 					font-weight: normal;
 				}
 				.contato { font-size: 15px; }
 				.trending ul li {
 					line-height: 21px;
 					a{
-						color: #a6a6a6 !important;
-						line-height: auto;
 						font-size: 14px;
+						line-height: auto;
+						color: #a6a6a6 !important;
 					}
 				}
 				.redes ul li {
 					border-bottom: 0px solid transparent;
-					.fa-youtube-play:after{ content: 'Youtube'; }
-					.fa-instagram:after{ content: 'Instagram'; }
-					.fa-twitter:after{ content: 'Twitter'; }
-					.fa-facebook:after{ content: 'Facebook'; }
+
 					.fa-medium:after{ content: 'Medium'; }
 					.fa-github:after{ content: 'Github'; }
+					.fa-twitter:after{ content: 'Twitter'; }
+					.fa-facebook:after{ content: 'Facebook'; }
+					.fa-instagram:after{ content: 'Instagram'; }
+					.fa-youtube-play:after{ content: 'Youtube'; }
 
 					.fa:after{
 						font-family:'Roboto MOno';
@@ -176,14 +178,14 @@
 						position: relative; 
 						&:before {
 							content: '';
-							position: absolute;
 							left: -20px;
-							background-color: black;
 							width: 12px;
-							height: 36px;
 							float: left;
+							height: 36px;
 							display: block;
 							overflow: hidden;
+							position: absolute;
+							background-color: black;
 						}
 					}
 				}
@@ -205,15 +207,17 @@
 	}
 
 	.menu-nav-bg {
-		display: none;
-		width: 768px;
-		height: 1024px;
-		background: rgba(165, 165, 165, 0.9);
-		position: absolute;
-		top: 75px;
-		right: 0;
-		bottom: 0;
 		left: 0;
+		right: 0;
+		top: 75px;
+		bottom: 0;
+		width: 768px;
+		display: none;
+		height: 1024px;
+		position: absolute;
+		transform: translate3d(0px,0px,0px);
+		background: rgba(165, 165, 165, 0.9);		
+
 		@include breakpoint(medium) {
 			width: 1024px;
 			height: 768px;
