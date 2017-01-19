@@ -67,6 +67,10 @@
 
         &.active, &:not(.no-hover):hover {
             opacity: 1;
+            height: 110px;
+            .box.link {
+                display: block;
+            }
         }
 
         .box { 
