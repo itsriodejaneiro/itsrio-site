@@ -6047,6 +6047,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   padding: 4px 6px;
 }
 
+@media screen and (max-width: 48em) {
+  .area-pesquisa .slider .box:not(.link) {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+}
+
 .area-pesquisa .slider .box.link {
   border-width: 2px;
   display: none;

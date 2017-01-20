@@ -81,6 +81,10 @@
                 display: inline-block;
                 font-size: 19px;
                 padding: 4px 6px;
+                @media #{$small-only}{
+                    font-size: 18px;
+                    letter-spacing: -0.5px;
+                }
             }
             &.link {
                 border-width: 2px;
