@@ -67,20 +67,24 @@
 
         &.active, &:not(.no-hover):hover {
             opacity: 1;
-            height: 110px;
+
+            @media #{$small-only}{
+                height: 110px;
+            }
+
             .box.link {
                 display: block;
             }
         }
 
-        .box { 
-            font-weight: bold; 
-            margin: 0; 
+        .box {
+            font-weight: bold;
+            margin: 0;
             text-transform: lowercase;
-            
-            &:not(.link) { 
+
+            &:not(.link) {
                 background-color: white;
-                color: black; 
+                color: black;
                 display: inline-block;
                 font-size: 19px;
                 padding: 4px 6px;
@@ -132,7 +136,7 @@
             height: 100%;
 
             &.no-active {
-                width: 25% !important; 
+                width: 25% !important;
             }
 
             &.active, &:not(.no-hover):hover {
@@ -149,15 +153,15 @@
                     }
                 }
 
-                .slider-excerpt, .slider-text{ 
+                .slider-excerpt, .slider-text{
                     opacity: 1;
                     transition: opacity 0.3s;
                     transition-delay: 0.3s;
                 }
             }
 
-            .box { 
-                &:not(.link) { 
+            .box {
+                &:not(.link) {
                     max-width: 155px;
                 }
             }
@@ -244,7 +248,7 @@
 @include breakpoint(medium down) {
     .menu-nav.scrollable {
         transform: translate3d(0px,0px,0px);
-        
+
         &.scrollable-bottom:after{
             content: "\f077";
         }
