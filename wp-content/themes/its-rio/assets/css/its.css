@@ -3585,8 +3585,6 @@ h3, h4, h5 {
   z-index: 10;
   position: absolute;
   overflow-x: hidden;
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
 }
 
 .menu-container .menu-nav .line {
@@ -6223,6 +6221,8 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   .menu-nav.scrollable {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 90px;
   }
   .scrollable-arrow:after {
     content: "\f078";

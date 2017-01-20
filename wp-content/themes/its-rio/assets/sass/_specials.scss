@@ -245,6 +245,8 @@
 @include breakpoint(medium down) {
     .menu-nav.scrollable {
         transform: translate3d(0px,0px,0px);
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 90px;
     }
 
     .scrollable-arrow {
