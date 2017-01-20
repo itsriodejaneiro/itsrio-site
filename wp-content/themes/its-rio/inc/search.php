@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="column large-12">
 				<form action="<?= get_search_link() ?>" method="GET" id="formSearch">
-					<a href="#" class="close-button" onclick="jQuery('.search-box').fadeOut();"><?= pll__('fechar') ?> <span class="icon">&times;</span></a>
+					<a href="#" class="close-button" onclick="toggleBusca()"><?= pll__('fechar') ?> <span class="icon">&times;</span></a>
 					<label class="search-label" for="search">
 						<h2><?= pll__('buscar por:') ?></h2>
 						<input type="text" id="search" name="title" v-model="title" placeholder="digite sua palavra-chave">
