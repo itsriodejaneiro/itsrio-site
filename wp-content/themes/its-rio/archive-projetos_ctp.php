@@ -108,7 +108,7 @@ $cat_classes = 'black';
 			if(!active)
 				jQuery('.area-pesquisa .slider').addClass('no-active');
 		});
-
+		
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
 			var areaName = jQuery(this).attr('area-name');
@@ -120,7 +120,11 @@ $cat_classes = 'black';
 				button.text("<?= pll__('ver projetos desta área') ?>");
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
 				active = false;
-				$('html, body').animate({ scrollTop: 0 }, 300);
+				if($(window).width() < 770)
+					$('html, body').animate({ scrollTop: $('.older-posts').offset().top - 150 }, 300);
+				else
+					$('html, body').animate({ scrollTop: 0 }, 300);
+
 				location.hash = '';
 				return;
 			}

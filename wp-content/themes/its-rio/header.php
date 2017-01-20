@@ -88,7 +88,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="menu-nav-bg" onclick="$('.menu-nav').toggleClass('active');$(this).fadeToggle();"></div>
+			<div class="menu-nav-bg" onclick="toggleMenu()"></div>
 			<nav class="menu-nav ">
 				<div>
 					<?php //wp_nav_menu('main') ?>

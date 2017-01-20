@@ -48,9 +48,7 @@
     width: 100%;
     overflow: hidden;
     margin: 15px 0 0 0;
-
     .slider {
-        opacity: 0.6;
         padding: 20px;
         cursor: pointer;
         overflow: hidden;
@@ -64,24 +62,19 @@
         &.no-active {
             opacity: 1;
         }
-
-        &.active, &:not(.no-hover):hover {
+        &.active {
             opacity: 1;
-
             @media #{$small-only}{
                 height: 110px;
             }
-
             .box.link {
                 display: block;
             }
         }
-
         .box {
             font-weight: bold;
             margin: 0;
             text-transform: lowercase;
-
             &:not(.link) {
                 background-color: white;
                 color: black;
@@ -89,7 +82,6 @@
                 font-size: 19px;
                 padding: 4px 6px;
             }
-
             &.link {
                 border-width: 2px;
                 display: none;
@@ -100,13 +92,8 @@
                 white-space: nowrap;
                 text-transform: lowercase;
                 transition: all 0.3s;
-                &:hover {
-                    background-color: #fff;
-                    color: #000;
-                }
             }
         }
-
         .slider-excerpt, .slider-text {
             color: white;
             display: none;
@@ -117,8 +104,7 @@
             transition: opacity 0s;
             transition-delay: 0s;
         }
-
-        &.active .color, &:hover .color{
+        &.active .color{
             position: absolute;
             top: 0;
             bottom: 0;
@@ -129,20 +115,28 @@
     @include breakpoint(medium) {
         margin: 25px 0 50px 0;
         height: 300px;
-
         .slider {
+            opacity: 0.6;
             width: 20%;
             float: left;
             height: 100%;
+            
+            &:hover .color{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
 
             &.no-active {
                 width: 25% !important;
             }
-
             &.active, &:not(.no-hover):hover {
                 animation-name: area-fix;
                 animation-duration: 0.4s;
                 animation-fill-mode: forwards;
+                opacity: 1;
 
                 .box {
                     &:not(.link) {
@@ -150,16 +144,19 @@
                     }
                     &.link {
                         display: initial;
+                        &:hover {
+                            background-color: #fff;
+                            color: #000;
+                        }
                     }
-                }
 
+                }
                 .slider-excerpt, .slider-text{
                     opacity: 1;
                     transition: opacity 0.3s;
                     transition-delay: 0.3s;
                 }
             }
-
             .box {
                 &:not(.link) {
                     max-width: 155px;

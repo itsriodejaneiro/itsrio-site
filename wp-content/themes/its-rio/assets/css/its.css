@@ -6002,7 +6002,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .area-pesquisa .slider {
-  opacity: 0.6;
   padding: 20px;
   cursor: pointer;
   overflow: hidden;
@@ -6021,17 +6020,17 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   opacity: 1;
 }
 
-.area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
+.area-pesquisa .slider.active {
   opacity: 1;
 }
 
 @media screen and (max-width: 48em) {
-  .area-pesquisa .slider.active, .area-pesquisa .slider:not(.no-hover):hover {
+  .area-pesquisa .slider.active {
     height: 110px;
   }
 }
 
-.area-pesquisa .slider.active .box.link, .area-pesquisa .slider:not(.no-hover):hover .box.link {
+.area-pesquisa .slider.active .box.link {
   display: block;
 }
 
@@ -6062,11 +6061,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   transition: all 0.3s;
 }
 
-.area-pesquisa .slider .box.link:hover {
-  background-color: #fff;
-  color: #000;
-}
-
 .area-pesquisa .slider .slider-excerpt, .area-pesquisa .slider .slider-text {
   color: white;
   display: none;
@@ -6080,7 +6074,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   transition-delay: 0s;
 }
 
-.area-pesquisa .slider.active .color, .area-pesquisa .slider:hover .color {
+.area-pesquisa .slider.active .color {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6094,9 +6088,17 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     height: 300px;
   }
   .area-pesquisa .slider {
+    opacity: 0.6;
     width: 20%;
     float: left;
     height: 100%;
+  }
+  .area-pesquisa .slider:hover .color {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   .area-pesquisa .slider.no-active {
     width: 25% !important;
@@ -6108,12 +6110,17 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+    opacity: 1;
   }
   .area-pesquisa .slider.active .box:not(.link), .area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
     max-width: initial;
   }
   .area-pesquisa .slider.active .box.link, .area-pesquisa .slider:not(.no-hover):hover .box.link {
     display: initial;
+  }
+  .area-pesquisa .slider.active .box.link:hover, .area-pesquisa .slider:not(.no-hover):hover .box.link:hover {
+    background-color: #fff;
+    color: #000;
   }
   .area-pesquisa .slider.active .slider-excerpt, .area-pesquisa .slider.active .slider-text, .area-pesquisa .slider:not(.no-hover):hover .slider-excerpt, .area-pesquisa .slider:not(.no-hover):hover .slider-text {
     opacity: 1;

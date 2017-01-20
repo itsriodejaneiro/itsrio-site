@@ -95,11 +95,11 @@
 <script type="text/javascript">
 	function toggleMenu(){
 		if($('.menu-nav').hasClass('active')){
-			$('body').css('overflow-y','auto');
-			$('body').css('position','initial');
+			$('html,body').css('overflow-y','');
+			$('html,body').css('position','');
 		}else{
-			$('body').css('position','relative');
-			$('body').css('overflow-y','hidden');
+			$('html,body').css('position','relative');
+			$('html,body').css('overflow-y','hidden');
 		}
 
 		$('.menu-nav').toggleClass('active');
