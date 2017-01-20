@@ -94,10 +94,13 @@
 
 <script type="text/javascript">
 	function toggleMenu(){
-		if($('.menu-nav').hasClass('active'))
+		if($('.menu-nav').hasClass('active')){
 			$('body').css('overflow-y','auto');
-		else
+			$('body').css('position','initial');
+		}else{
+			$('body').css('position','relative');
 			$('body').css('overflow-y','hidden');
+		}
 
 		$('.menu-nav').toggleClass('active');
 		$('.menu-nav-bg').fadeToggle();

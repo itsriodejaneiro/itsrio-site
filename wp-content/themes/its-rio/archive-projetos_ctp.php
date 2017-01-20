@@ -81,7 +81,7 @@ $cat_classes = 'black';
 		}
 	}
 	?>
-</div>
+</div>	
 </div>
 <script>
 	'use strict';

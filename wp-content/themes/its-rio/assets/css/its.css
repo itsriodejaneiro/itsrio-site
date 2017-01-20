@@ -3585,8 +3585,8 @@ h3, h4, h5 {
   z-index: 10;
   position: absolute;
   overflow-x: hidden;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
 }
 
 .menu-container .menu-nav .line {
@@ -6216,14 +6216,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
   }
-  .menu-nav.scrollable.scrollable-bottom:after {
-    content: "\f077";
-  }
-  .menu-nav.scrollable:after {
+  .scrollable-arrow:after {
     content: "\f078";
     position: fixed;
-    text-align: center;
+    left: -270px;
     bottom: -10px;
+    text-align: center;
     padding: 8px 0px;
     z-index: 11100000;
     background-color: black;
@@ -6236,6 +6234,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     animation: bouncing ease-in-out 3s infinite;
     height: 70px;
     opacity: 0.6;
+  }
+  .scrollable-arrow.scrollable-bottom:after {
+    content: "\f077";
+  }
+  .scrollable-arrow.active {
+    left: 0;
   }
 }
 
