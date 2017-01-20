@@ -213,17 +213,6 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
-
-            var $body = $('html, body');
-            // setInterval(function(){
-            //     $body.scrollLeft(0);
-            // }, 1000);
-            $body.bind('scroll', function () {
-                // "Disable" the horizontal scroll.
-                if ($body.scrollLeft() !== 0) {
-                    $body.scrollLeft(0);
-                }
-            });
         }, 1000);
 
         $('.comunicados h2 > a').click(function () {

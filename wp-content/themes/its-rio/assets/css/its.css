@@ -4242,6 +4242,7 @@ h3, h4, h5 {
 
 .main-carousel-wrapper .flickity-page-dots {
   top: 5px;
+  width: 90%;
 }
 
 .main-carousel-wrapper .flickity-page-dots .dot {

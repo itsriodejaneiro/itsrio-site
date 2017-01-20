@@ -2,7 +2,6 @@
 <div class="row">
 	<?php the_content();  ?>
 </div>
-
 <script>
 	var scrolling = true;
 	var lastScrollTop = 0;
@@ -14,4 +13,5 @@
 		});
 	});
 </script>
+
 <?php get_footer(); ?>

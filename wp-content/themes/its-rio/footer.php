@@ -111,6 +111,14 @@
 		setTimeout(function(){
 			$('#cat-filter').customScrollbar({  skin: "default-skin" });
 		},500);
+
+		if($('.advanced-search').hasClass('active')){
+			$('html,body').css('overflow-y','');
+			$('html,body').css('position','');
+		}else{
+			$('html,body').css('position','relative');
+			$('html,body').css('overflow-y','hidden');
+		}
 	}
 
 	function openNewsletter(){
