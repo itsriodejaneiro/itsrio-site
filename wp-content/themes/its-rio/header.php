@@ -15,6 +15,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width">
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0"> -->
+	<script src="/wp-content/themes/its-rio/assets/js/plugins.js"></script>
 
 	<?php wp_head(); ?>
 

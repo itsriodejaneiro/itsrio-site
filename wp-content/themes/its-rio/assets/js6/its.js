@@ -140,8 +140,10 @@ Vue.component('its-pessoas', {
         openPessoa(pessoa, ip) {
             if (pessoas.pessoaActive == "" || pessoas.pessoaActive.ID != pessoa.ID) {
                 pessoas.pessoaActive = pessoa;
-                $('html, body').animate({
-                    scrollTop: $('.pessoa-info.active .pessoa-info-content').offset().top - 130
+                setTimeout(function(){
+                    $('html, body').animate({
+                        scrollTop: $('.pessoa-info.active .pessoa-info-content').offset().top - 130
+                    }, 300);
                 }, 300);
             } else {
                 pessoas.pessoaActive = "";
@@ -223,7 +225,6 @@ new Vue({
                 });
             }
 
-           
         }, 1000);
 
         $('.comunicados h2 > a').click(function() {
@@ -252,12 +253,6 @@ new Vue({
                 $('.related-post .large-4:gt(2)').hide();
                 $(this).text('ver todos');
             }
-
-            // $('.comunicados .related-post, .main-carousel-wrapper').masonry({
-            //     columnWidth: '.large-4',
-            //     selector: '.large-4',
-            //     percentPosition: true,
-            // });
         });
 
         var menu = $('.header-single-menu');

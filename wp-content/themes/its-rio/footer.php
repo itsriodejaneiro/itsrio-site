@@ -90,7 +90,6 @@
 	var lang = '<?= $lang ?>';
 </script>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
-<script src="/wp-content/themes/its-rio/assets/js/plugins.js"></script>
 
 <script type="text/javascript">
 	function toggleMenu(){
