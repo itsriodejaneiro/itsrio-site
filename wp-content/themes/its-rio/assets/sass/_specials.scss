@@ -49,7 +49,6 @@
     overflow: hidden;
     margin: 15px 0 0 0;
     .slider {
-        opacity: 0.6;
         padding: 20px;
         cursor: pointer;
         overflow: hidden;
@@ -57,7 +56,9 @@
         transition: all 0.3s;
         background-size: auto 100%;
         background-position: center;
+
         span { position: relative; }
+
         &.no-active {
             opacity: 1;
         }
@@ -115,6 +116,7 @@
         margin: 25px 0 50px 0;
         height: 300px;
         .slider {
+            opacity: 0.6;
             width: 20%;
             float: left;
             height: 100%;
