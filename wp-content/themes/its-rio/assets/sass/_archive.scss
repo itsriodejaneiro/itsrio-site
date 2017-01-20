@@ -186,6 +186,7 @@
 		bottom: initial;
 		left: 20px;
 		right: 20px;
+		width: calc(100% - 40px);
 	    text-align: left;
 		.dot {
 			width: 6px;
@@ -210,7 +211,6 @@
 	}
 	.flickity-page-dots {
 		top: 5px;
-		width:90%;
 		
 		.dot {
 			background-color: #fff !important;
