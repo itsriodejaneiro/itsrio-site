@@ -15,14 +15,17 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width">
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0"> -->
-	<script src="/wp-content/themes/its-rio/assets/js/plugins.js"></script>
 
 	<?php wp_head(); ?>
-
-	<script src="https://use.fontawesome.com/cb38949964.js"></script>
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/jquery.custom-scrollbar.css') ?>">
+	<script src="/wp-content/themes/its-rio/assets/js/flickity.pkgd.min.js"></script>
+	<script src="/wp-content/themes/its-rio/assets/js/isotope.pkgd.min.js"></script>
+	<script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
+	<script src="https://use.fontawesome.com/cb38949964.js"></script>
+
+	
 </head>
 <body <?php body_class(); ?>>
 	<div id="content_all" v-cloak>
