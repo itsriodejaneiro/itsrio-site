@@ -2,10 +2,10 @@ image: montefuscolo/ssh
 
 before_script:
   - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -m 700 -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+  - ssh-add ~/.ssh/id_rsa
 
 deploy:
   script:
-  - ssh itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
+  - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
