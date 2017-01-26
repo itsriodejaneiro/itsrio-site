@@ -84,6 +84,8 @@ class Pessoas extends ET_Builder_Module {
 			}
 		}
 
+
+
 		$diretores = $cats['diretores'];
 		$equipe = $cats['equipe'];
 
@@ -92,6 +94,10 @@ class Pessoas extends ET_Builder_Module {
 
 		$cats = ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
 		
+		foreach ($cats as $key => $value) {
+			ksort($cats[$key]);
+		}
+
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
 
