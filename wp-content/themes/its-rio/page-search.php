@@ -35,7 +35,7 @@ query_posts($args);
 			wp_reset_postdata();
 		} ?>
 		</div>
-		<?php else {
+		<?php if(!have_posts()) {
 			?>
 			<br>
 			<h6><?= pll__('Nenhum post foi encontrado') ?></h6>

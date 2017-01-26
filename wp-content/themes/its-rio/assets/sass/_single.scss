@@ -951,10 +951,14 @@
 }
 #map-editor {
     position: relative;
+    overflow: hidden;
+    clear: both;
 }
 
 #mapa {
-    width: 100%;
+    width: 1060px;
+    max-width: 1060px;
+    min-width: 1060px;
     margin: 0 auto;
     display: block;
 }
