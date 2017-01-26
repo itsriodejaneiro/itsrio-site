@@ -248,15 +248,16 @@ new Vue({
         var menu = $('.header-single-menu');
         var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
         $(window).scroll(function () {
-            var menu_fix = mobileAndTabletcheck() ? 0 : 100;
             if (typeof menu.position() != "undefined") {
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top) menu.addClass('fixed');else menu.removeClass('fixed');
 
-                var scrollPos = $(document).scrollTop() + menu_fix;
+                var scrollPos = $(document).scrollTop();
                 $('.single-menu a').each(function () {
                     var currLink = $(this);
+                    console.log('currLink:' + currLink.text());
                     var refElement = $(currLink.attr("href"));
+                    console.log('refElement:' + refElement.text());
                     if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
                         $('.single-menu ul li a').removeClass("active");
                         currLink.addClass("active");
@@ -294,16 +295,16 @@ new Vue({
             $('.menu-mobile-footer .redes').html(redes);
             $('.menu-mobile-footer .trending').html('<h3>#trending tags</h3><ul>' + trending + '</ul>');
 
-            //Remove o mapas do menu para mobile
-            // if($('.map').length > 0){
-            //     var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
-            //     site_data.its_tabs.splice(mapIndex, 1);
-            // }
+            // Remove o mapas do menu para mobile
+            if ($('.map').length > 0) {
+                var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(mapIndex, 1);
+            }
 
-            // if($('.component-social-medias').length > 0){
-            //     var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
-            //     site_data.its_tabs.splice(socialMediasIndex, 1);
-            // }
+            if ($('.component-social-medias').length > 0) {
+                var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(socialMediasIndex, 1);
+            }
         }
 
         var menu_nav = $('.menu-nav');
