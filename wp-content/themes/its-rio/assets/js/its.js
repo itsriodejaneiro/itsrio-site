@@ -252,17 +252,18 @@ new Vue({
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top) menu.addClass('fixed');else menu.removeClass('fixed');
 
-                var scrollPos = $(document).scrollTop();
+                var scrollPos = $(window).scrollTop();
+                var fix = $('body').hasClass('page') ? 1 : 0;
                 $('.single-menu a').each(function () {
                     var currLink = $(this);
-                    console.log('currLink:' + currLink.text());
                     var refElement = $(currLink.attr("href"));
-                    console.log('refElement:' + refElement.text());
-                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                        $('.single-menu ul li a').removeClass("active");
-                        currLink.addClass("active");
-                        site_data.single_menu_active = currLink.parent().index();
-                    } else currLink.removeClass("active");
+                    try {
+                        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                            $('.single-menu ul li a').removeClass("active");
+                            currLink.addClass("active");
+                            site_data.single_menu_active = currLink.parent().index() - fix;
+                        } else currLink.removeClass("active");
+                    } catch (e) {}
                 });
             }
         });
@@ -297,15 +298,15 @@ new Vue({
 
             // Remove o mapas do menu para mobile
             if ($('.map').length > 0) {
-                // var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
-                // site_data.its_tabs.splice(mapIndex, 1);
-                $('.single-menu a[href="#' + $('.map')[0].id + '"]').hide();
+                var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(mapIndex, 1);
+                $('.map').remove();
             }
 
             if ($('.component-social-medias').length > 0) {
-                // var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
-                // site_data.its_tabs.splice(socialMediasIndex, 1);
-                $('.single-menu a[href="#' + $('.component-social-medias')[0].id + '"]').hide();
+                var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
+                site_data.its_tabs.splice(socialMediasIndex, 1);
+                $('.component-social-medias').remove();
             }
         }
 
