@@ -763,10 +763,13 @@
     .medias-thumbs {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
 
         @include breakpoint(medium) {
             width: 105%;
+        }
+
+        @include breakpoint(large down) {
+            justify-content: space-between; 
         }
 
         .thumb-wrapper {
@@ -775,7 +778,12 @@
             margin-bottom: 20px;
 
             @include breakpoint(large) {
+                margin-right: 5%;
                 width: 30%;
+
+                &:nth-child(3n+0) {
+                    margin-right: 0;
+                }
             }
             .img-wrapper {
                 position: relative;
@@ -784,7 +792,7 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    opacity: 0.5;
+                    opacity: 0;
                     position: absolute;
                     transition: opacity .3s ease;
                 }
@@ -810,7 +818,7 @@
                     }
                 }
                 &.active .color-hover{
-                    opacity: 0;
+                    opacity: 0.5;
                 }
             }
             .line {

@@ -102,14 +102,12 @@ h2.list-title small {
 	@include breakpoint(medium) {
 		margin-top: 25px !important;
 	}
-
-	&:hover {
+	
+	@mixin list-item-active-hover {
+		/* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
 		box-shadow: 0 0 15px #8a8a8a !important;
-
-		.box,
-		a,
-		h3,
-		p {
+		.box, a, h3, p {
 			color: white !important;
 		}
 
@@ -133,6 +131,19 @@ h2.list-title small {
 					}
 				}
 			}
+		}
+	}
+		
+	// mobile
+	&:active {
+		@include breakpoint(large down) {
+			@include list-item-active-hover;
+		}
+	}
+	// desktop
+	&:hover {
+		@include breakpoint(large up) {
+			@include list-item-active-hover;
 		}
 	}
 
