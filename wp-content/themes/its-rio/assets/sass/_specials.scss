@@ -1,7 +1,9 @@
 .curved-shadow {
     position: absolute;
 
-    &:hover, &:active, &:focus {
+    @mixin curved-shadow-active-hover {
+        /* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
         &:before,
         &:after {
             width: 50%;
@@ -35,11 +37,25 @@
         }
     }
     &:active {
-        &:before,
-        &:after {
-            box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
-            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
-            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+        // mobile
+        @include breakpoint(large down) {
+            @include curved-shadow-active-hover;
+        }
+    }
+    &:hover, &:focus {
+        // desktop
+        @include breakpoint(large up) {
+            @include curved-shadow-active-hover;
+        }
+    }
+    &:active {
+        @include breakpoint(large up) {
+            &:before,
+            &:after {
+                box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+                -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+                -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            }
         }
     }
 }
