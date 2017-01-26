@@ -5412,7 +5412,23 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
     margin-bottom: 20px;
+  }
+  .fazer-minha-inscricao > div:last-child {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
   }
 }
 
@@ -5461,11 +5477,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao a {
-    top: 10px;
-    left: 50%;
-    margin-left: -133px;
+    margin-bottom: 10px;
+    max-width: 200px;
     padding: 10px 30px;
-    margin-left: -147px;
+    position: relative;
   }
 }
 
@@ -6160,41 +6175,82 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   position: absolute;
 }
 
-.curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:active:before, .curved-shadow:active:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
-  width: 50%;
-  content: "";
-  height: 50%;
-  z-index: -1;
-  bottom: 15px;
-  max-width: 300px;
-  position: absolute;
-  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+@media screen and (max-width: 74.9375em) {
+  .curved-shadow:active {
+    /* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
+  }
+  .curved-shadow:active:before, .curved-shadow:active:after {
+    width: 50%;
+    content: "";
+    height: 50%;
+    z-index: -1;
+    bottom: 15px;
+    max-width: 300px;
+    position: absolute;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+  }
+  .curved-shadow:active:before {
+    left: 0px;
+    transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
+  }
+  .curved-shadow:active:after {
+    right: 0px;
+    transform: rotate(6deg);
+    -o-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    -moz-transform: rotate(6deg);
+    -webkit-transform: rotate(6deg);
+  }
 }
 
-.curved-shadow:hover:before, .curved-shadow:active:before, .curved-shadow:focus:before {
-  left: 0px;
-  transform: rotate(-6deg);
-  -o-transform: rotate(-6deg);
-  -ms-transform: rotate(-6deg);
-  -moz-transform: rotate(-6deg);
-  -webkit-transform: rotate(-6deg);
+@media screen and (min-width: 64.0625em) {
+  .curved-shadow:hover, .curved-shadow:focus {
+    /* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
+  }
+  .curved-shadow:hover:before, .curved-shadow:hover:after, .curved-shadow:focus:before, .curved-shadow:focus:after {
+    width: 50%;
+    content: "";
+    height: 50%;
+    z-index: -1;
+    bottom: 15px;
+    max-width: 300px;
+    position: absolute;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+  }
+  .curved-shadow:hover:before, .curved-shadow:focus:before {
+    left: 0px;
+    transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
+  }
+  .curved-shadow:hover:after, .curved-shadow:focus:after {
+    right: 0px;
+    transform: rotate(6deg);
+    -o-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    -moz-transform: rotate(6deg);
+    -webkit-transform: rotate(6deg);
+  }
 }
 
-.curved-shadow:hover:after, .curved-shadow:active:after, .curved-shadow:focus:after {
-  right: 0px;
-  transform: rotate(6deg);
-  -o-transform: rotate(6deg);
-  -ms-transform: rotate(6deg);
-  -moz-transform: rotate(6deg);
-  -webkit-transform: rotate(6deg);
-}
-
-.curved-shadow:active:before, .curved-shadow:active:after {
-  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
-  -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+@media screen and (min-width: 64.0625em) {
+  .curved-shadow:active:before, .curved-shadow:active:after {
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+  }
 }
 
 .area-pesquisa {
