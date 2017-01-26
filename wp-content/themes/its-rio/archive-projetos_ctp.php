@@ -13,7 +13,7 @@ $cat_classes = 'black';
 			<?php
 			$areas = get_ctp_array('areas', true);
 			foreach ($areas as $id => $area) { ?>
-			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" area-name="#<?= sanitize_title($area['post_title']) ?>"  class="slider four no-active filter" <?= get_thumbnail_style($id, 'full') ?>>
+			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" area-name="#<?= sanitize_title($area['post_title']) ?>"  class="slider four no-active filter">
 				<div class="color"></div>	
 				<span class="box slider-title"><?= $area['post_title'] ?></span>
 				<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
@@ -55,6 +55,7 @@ $cat_classes = 'black';
 	<h2 class="list-title">
 		<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 		<div class="line"></div>
+		<small class="show-for-small-only"><?= pll__("mostrando tudo") ?></small>
 	</h2>
 </div>
 <div id="projetos-encerrados" class="older-posts">

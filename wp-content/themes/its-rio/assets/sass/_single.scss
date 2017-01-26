@@ -763,10 +763,13 @@
     .medias-thumbs {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
 
         @include breakpoint(medium) {
             width: 105%;
+        }
+
+        @include breakpoint(large down) {
+            justify-content: space-between; 
         }
 
         .thumb-wrapper {
@@ -775,7 +778,12 @@
             margin-bottom: 20px;
 
             @include breakpoint(large) {
+                margin-right: 5%;
                 width: 30%;
+
+                &:nth-child(3n+0) {
+                    margin-right: 0;
+                }
             }
             .img-wrapper {
                 position: relative;
@@ -784,7 +792,7 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    opacity: 0.5;
+                    opacity: 0;
                     position: absolute;
                     transition: opacity .3s ease;
                 }
@@ -810,7 +818,7 @@
                     }
                 }
                 &.active .color-hover{
-                    opacity: 0;
+                    opacity: 0.5;
                 }
             }
             .line {
@@ -825,7 +833,15 @@
 
 .fazer-minha-inscricao{
     @include breakpoint(small only) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin-bottom: 20px;
+        > div:last-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
     @include breakpoint(medium) {
         margin: 0 auto;
@@ -862,11 +878,10 @@
         text-decoration: none;
         font-size: 16px !important;
         @include breakpoint(small only) {
-            top: 10px;
-            left: 50%;
-            margin-left: -133px;
+            margin: 10px 0;
+            max-width: 90%;
             padding: 10px 30px;
-            margin-left: -147px;
+            position: relative;
         }
         @include breakpoint(medium) {
             top: 10px;
@@ -936,10 +951,14 @@
 }
 #map-editor {
     position: relative;
+    overflow: hidden;
+    clear: both;
 }
 
 #mapa {
-    width: 100%;
+    width: 1060px;
+    max-width: 1060px;
+    min-width: 1060px;
     margin: 0 auto;
     display: block;
 }

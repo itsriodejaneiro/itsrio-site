@@ -134,7 +134,9 @@
 		}
 	}
 
-	&:hover {
+	@mixin highlights-active-hover {
+		/* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
 		box-shadow: 0 0 15px #8a8a8a;
 		color: #fff;
 		.color-hover {
@@ -163,6 +165,19 @@
 					}
 				}
 			}
+		}
+	}
+
+	&:active {
+		// mobile
+		@include breakpoint(large down) {
+			@include highlights-active-hover;
+		}
+	}
+	&:hover {
+		// mobile
+		@include breakpoint(large up) {
+			@include highlights-active-hover;
 		}
 	}
 } 
@@ -198,7 +213,7 @@
     		margin-left: 5px;
 		}
 		@include breakpoint(medium) {
-			top: 50px;
+			top: 50px !important;
 		}
 	}
 }
@@ -322,10 +337,13 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 }
 
 .post-type-archive-projetos_ctp {
-	.main-carousel-wrapper .list-title {
-		@include breakpoint(small only) {
+	@include breakpoint(small only) {
+		.main-carousel-wrapper .list-title {
 			margin: 15px !important;
 	    	line-height: 1.7;
+		}
+		.list-title {
+			margin-top: 20px;
 		}
 	}
 }

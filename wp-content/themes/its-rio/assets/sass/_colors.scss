@@ -26,8 +26,22 @@ $color_institucionais : #522e91;
 		color: $color;
 	}
 
-	.area-pesquisa .slider.active .color, .area-pesquisa .slider:hover .color {
-		background-color: rgba($color,0.5);
+	.area-pesquisa .slider {
+		&.active .color {
+			background-color: rgba($color,0.7);
+		}
+		&:active .color {
+			// mobile
+			@include breakpoint(large down) {
+				background-color: rgba($color,0.7);
+			}	
+		}
+		&:hover .color {
+			// desktop
+			@include breakpoint(large up) {
+				background-color: rgba($color,0.7);
+			}
+		}
 	}
 
 	.area-pesquisa .slider .box.link:hover,
@@ -72,8 +86,20 @@ $color_institucionais : #522e91;
 	.header-single-menu, .content-media .color-hover {
 		background-color: $color_institucionais !important;
 	}
-	.list-item:hover {
-		background-color: rgb(38, 38, 38) !important;
+	
+	.list-item {
+		&:active {
+			// mobile
+			@include breakpoint(large down) {
+				background-color: rgb(38, 38, 38) !important;
+			}	
+		}
+		&:hover {
+			// desktop
+			@include breakpoint(large up) {
+				background-color: rgb(38, 38, 38) !important;
+			}
+		}
 	}
 }
 
@@ -81,15 +107,35 @@ $color_institucionais : #522e91;
 	.color-hover {
 		background-color: $color !important;
 	}
+	// mobile
+	&:active {
+		@include breakpoint(large down) {
+			.color-hover, .info {
+				background-color: $color !important;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color !important;
+						}
+					}
+				}
+			}
+		}	
+	}
+	// desktop
 	&:hover {
-		.color-hover, .info {
-			background-color: $color !important;
-		}
-		.categories.black {
-			ul li {
-				&:hover {
-					a {
-						color: $color !important;
+		@include breakpoint(large up) {
+			.color-hover, .info {
+				background-color: $color !important;
+			}
+			.categories.black {
+				ul li {
+					&:hover {
+						a {
+							color: $color !important;
+						}
 					}
 				}
 			}
@@ -112,9 +158,20 @@ $color_institucionais : #522e91;
 }
 
 .highlights {
+	&:active {
+		// mobile
+		@include breakpoint(large down) {
+			.info {
+				background-color: rgb(38, 38, 38);
+			}
+		}
+	}
 	&:hover {
-		.info {
-			background-color: rgb(38, 38, 38);
+		// desktop
+		@include breakpoint(large up) {
+			.info {
+				background-color: rgb(38, 38, 38);
+			}
 		}
 	}
 	&.type-cursos_ctp {
@@ -141,13 +198,31 @@ $color_institucionais : #522e91;
 			background-color: $color;
 		}
 	}
+	&:active {
+		// mobile
+		@include breakpoint(large down) {
+			background-color: $color !important;
+			.categories {
+				ul li {
+					&:hover {
+						a {
+							color: $color !important;
+						}
+					}
+				}
+			}
+		}
+	}
 	&:hover {
-		background-color: $color !important;
-		.categories {
-			ul li {
-				&:hover {
-					a {
-						color: $color !important;
+		// desktop
+		@include breakpoint(large up) {
+			background-color: $color !important;
+			.categories {
+				ul li {
+					&:hover {
+						a {
+							color: $color !important;
+						}
 					}
 				}
 			}

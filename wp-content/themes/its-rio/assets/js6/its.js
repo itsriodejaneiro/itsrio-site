@@ -224,7 +224,6 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
-
         }, 1000);
 
         $('.comunicados h2 > a').click(function() {
@@ -258,7 +257,13 @@ new Vue({
         var menu = $('.header-single-menu');
         var top = (typeof menu.position() != "undefined") ? menu.position().top : 0;
         $(window).scroll(function() {
-            var menu_fix = mobileAndTabletcheck() ? 0 : 100;
+            var i = 0;
+            $('.content-area[id*="tab"]').each(function(){
+                this.id = 'tab_'+i; 
+                i++;
+            });
+            
+            var menu_fix = 0;// mobileAndTabletcheck() ? 0 : 100;
             if (typeof menu.position() != "undefined") {
                 //Fixa o menu interno no menu global ao dar scroll
                 if ($(this).scrollTop() >= top)
@@ -270,12 +275,14 @@ new Vue({
                 $('.single-menu a').each(function() {
                     var currLink = $(this);
                     var refElement = $(currLink.attr("href"));
-                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                        $('.single-menu ul li a').removeClass("active");
-                        currLink.addClass("active");
-                        site_data.single_menu_active = currLink.parent().index();
-                    } else
-                    currLink.removeClass("active");
+                    try{
+                        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                            $('.single-menu ul li a').removeClass("active");
+                            currLink.addClass("active");
+                            site_data.single_menu_active = currLink.parent().index();
+                        } else
+                        currLink.removeClass("active");
+                    }catch(e){}
                 });
             }
         });
@@ -308,16 +315,24 @@ new Vue({
             $('.menu-mobile-footer .redes').html(redes);
             $('.menu-mobile-footer .trending').html('<h3>#trending tags</h3><ul>' + trending + '</ul>');
 
-            //Remove o mapas do menu para mobile
+            // Remove o mapas do menu para mobile
             if($('.map').length > 0){
                 var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
                 site_data.its_tabs.splice(mapIndex, 1);
+                setTimeout(() => { $('.map').remove(); }, 100); 
             }
 
             if($('.component-social-medias').length > 0){
                 var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
-                site_data.its_tabs.splice(socialMediasIndex, 1);
+                site_data.its_tabs.splice(socialMediasIndex - 1, 1);
+                setTimeout(() => { $('.component-social-medias').remove(); }, 100 );
             }
+
+            var i = 0;
+            $('.content-area[id*="tab"]').each(function(){
+                this.id = 'tab_'+i; 
+                i++;
+            });
         }
 
         var menu_nav = $('.menu-nav');

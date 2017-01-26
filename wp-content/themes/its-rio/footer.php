@@ -114,6 +114,7 @@
 
 	function toggleBusca(){
 		jQuery('.search-box').fadeToggle('fast');
+		jQuery('#search').focus();
 		setTimeout(function(){
 			if($('.search-box').is(':visible')){
 				$('html,body').css('position','relative');
