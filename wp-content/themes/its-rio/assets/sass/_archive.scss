@@ -337,10 +337,13 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 }
 
 .post-type-archive-projetos_ctp {
-	.main-carousel-wrapper .list-title {
-		@include breakpoint(small only) {
+	@include breakpoint(small only) {
+		.main-carousel-wrapper .list-title {
 			margin: 15px !important;
 	    	line-height: 1.7;
+		}
+		.list-title {
+			margin-top: 20px;
 		}
 	}
 }

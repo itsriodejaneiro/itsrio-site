@@ -1,6 +1,6 @@
 var elixir = require('laravel-elixir');
 // require('laravel-elixir-stylus');
-elixir.config.sourcemaps = false;
+elixir.config.sourcemaps = true;
 
 elixir(function(mix) {
 	mix.cssOutput = 'assets/css';

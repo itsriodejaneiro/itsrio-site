@@ -3028,8 +3028,13 @@ h2.list-title small {
   color: black !important;
   font-size: 14px;
   font-weight: normal;
-  margin-left: 10px;
   text-transform: lowercase;
+}
+
+@media screen and (min-width: 48.0625em) {
+  h2.list-title small {
+    margin-left: 10px;
+  }
 }
 
 h2.list-title small i {
@@ -3041,6 +3046,7 @@ h2.list-title small i {
   height: 20px;
   width: 20px;
   padding: 10px 5px;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -4412,6 +4418,9 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     margin: 15px !important;
     line-height: 1.7;
   }
+  .post-type-archive-projetos_ctp .list-title {
+    margin-top: 20px;
+  }
 }
 
 .info_border {
@@ -5477,8 +5486,8 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (max-width: 48em) {
   .fazer-minha-inscricao a {
-    margin-bottom: 10px;
-    max-width: 200px;
+    margin: 10px 0;
+    max-width: 90%;
     padding: 10px 30px;
     position: relative;
   }

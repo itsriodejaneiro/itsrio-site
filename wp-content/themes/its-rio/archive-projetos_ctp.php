@@ -55,6 +55,7 @@ $cat_classes = 'black';
 	<h2 class="list-title">
 		<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 		<div class="line"></div>
+		<small class="show-for-small-only"><?= pll__("mostrando tudo") ?></small>
 	</h2>
 </div>
 <div id="projetos-encerrados" class="older-posts">

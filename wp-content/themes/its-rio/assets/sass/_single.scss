@@ -878,8 +878,8 @@
         text-decoration: none;
         font-size: 16px !important;
         @include breakpoint(small only) {
-            margin-bottom: 10px;
-            max-width: 200px;
+            margin: 10px 0;
+            max-width: 90%;
             padding: 10px 30px;
             position: relative;
         }
