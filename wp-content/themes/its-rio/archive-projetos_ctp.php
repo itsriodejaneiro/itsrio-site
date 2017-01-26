@@ -113,7 +113,7 @@ $cat_classes = 'black';
 			var button = jQuery(this).find('.box.link');
 			var areaName = jQuery(this).attr('area-name');
 
-			if(e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>'){
+			if($(this).hasClass('active') || (e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>')){
 				$grid.isotope({ filter: filterValue });
 				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');

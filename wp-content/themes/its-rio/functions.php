@@ -130,12 +130,13 @@ function limit_excerpt($s, $max_length)
 
 function get_area_pesquisa($meta = null)
 {
+    global $lang;
     if (is_null($meta)) {
         global $meta;
     }
     $i = $meta['info_areapesquisa'][0];
-
-    return get_ctp_array('areas')[$i];
+    $title = get_ctp_array('areas')[$i];
+    return "<a href='/$lang/projetos_ctp/#".sanitize_title($title)."' target='_blank'>".$title."</a>";
 }
 
 //Retorna um array simples de relação [ id => título ]

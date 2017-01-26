@@ -5,7 +5,7 @@
 			<div class="line"></div>	
 		</h2>
 		<div class="tab-content">
-			<div class="media-title">
+			<div class="media-title active">
 				<h3><?= $tabs_content_midias[0]['title'] ?></h3>
 				<span><?= $tabs_content_midias[0]['description'] ?></span>
 				<div class="line"></div>
@@ -22,7 +22,7 @@
 						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
 							?>
 							<div class="thumb-wrapper">
-								<div onclick="$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');$('.img-wrapper').removeClass('active');$(this).addClass('active');"
+								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
 									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
 									<div class="color-hover"></div>
 									<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"

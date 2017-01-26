@@ -130,6 +130,13 @@
 		$('#modalNewsletter iframe').attr('src','http://itsrio.us12.list-manage2.com/subscribe?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0='+$('#txtNewsletter').val());
 	}
 
+	function changeMidia(obj, title){
+		$('#media-player iframe').attr('src','https://www.youtube.com/embed/<?= $midia['url'] ?>');
+		$('.img-wrapper').removeClass('active');
+		$(obj).addClass('active');
+		$('.media-title.active h3').text(title);
+	}
+
 	function DropDown(el) {
 		this.dd = el;
 		this.placeholder = this.dd.children('span');
