@@ -310,14 +310,18 @@ new Vue({
 
             // Remove o mapas do menu para mobile
             if($('.map').length > 0){
-                var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
-                site_data.its_tabs.splice(mapIndex, 1);
+                // var mapIndex = parseInt($('.map')[0].id.replace('tab_', ''));
+                // site_data.its_tabs.splice(mapIndex, 1);
+                $('.single-menu a[href="#'+$('.map')[0].id+'"]').hide();
             }
 
             if($('.component-social-medias').length > 0){
-                var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
-                site_data.its_tabs.splice(socialMediasIndex, 1);
+                // var socialMediasIndex = parseInt($('.component-social-medias')[0].id.replace('tab_', ''));
+                // site_data.its_tabs.splice(socialMediasIndex, 1);
+                $('.single-menu a[href="#'+$('.component-social-medias')[0].id+'"]').hide();
+                
             }
+
         }
 
         var menu_nav = $('.menu-nav');
