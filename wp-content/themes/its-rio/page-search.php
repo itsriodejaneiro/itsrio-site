@@ -21,20 +21,21 @@ query_posts($args);
 		</h2>
 	</div>
 	<div class="column large-12 older-posts">
+		<div class="row">
 		<?php 
 		if ( have_posts() ) {
 			while ( have_posts() ) {
 				the_post();
 				?>
-				<div class="row">
-					<?php
-					include(ROOT .'inc/post-box.php');
-					?>
-				</div>
+				<?php
+				include(ROOT .'inc/post-box.php');
+				?>
 				<?php
 			}
 			wp_reset_postdata();
-		} else {
+		} ?>
+		</div>
+		<?php else {
 			?>
 			<br>
 			<h6><?= pll__('Nenhum post foi encontrado') ?></h6>
