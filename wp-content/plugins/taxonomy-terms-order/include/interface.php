@@ -239,7 +239,7 @@
             {
                 $walker = new TO_Terms_Walker; 
                 $args = array($taxonomy_terms, $depth, $r);
-                return call_user_func_array(array(&$walker, 'walk'), $args);
+                return var_dump(call_user_func_array(array(&$walker, 'walk'), $args));
             }
 
 ?>

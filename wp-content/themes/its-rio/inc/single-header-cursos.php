@@ -23,7 +23,7 @@ $no_label = true;
 					<?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?>
 					|
 					<?= pll__('início do curso') ?>
-					<?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?>
+					<?= date('d/m',strtotime($meta['info_data'][0]))	 ?>
 				</p>
 			<?php else: ?>
 				<p class="box-title"><?= pll__('Curso sem previsão de lançamento') ?></p>

@@ -52,6 +52,7 @@ class Pessoas extends ET_Builder_Module {
 		$wp_filter_cache = $wp_filter;
 		$meta = get_post_meta(get_the_ID());
 
+
 		$ids = $meta['its_pessoas'];
 		$cats = [];
 		$listaCategorizada = false;
@@ -73,7 +74,7 @@ class Pessoas extends ET_Builder_Module {
 					$listaCategorizada = true;
 					$cats[$cc['name']]['pessoaActive'] = '';
 
-					$cats[$cc['name']][] = array(
+					$cats[$cc['name']][$p['post_title']] = array(
 						'ID' => $p['ID'],
 						'title' => $p['post_title'],
 						'content' => $p['post_content'],
@@ -82,8 +83,20 @@ class Pessoas extends ET_Builder_Module {
 				}		
 			}
 		}
+
+		$diretores = $cats['diretores'];
+		$equipe = $cats['equipe'];
+
+		unset($cats['diretores']);
+		unset($cats['equipe']);
+
+		$cats = ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
+		
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
+
+
+
 
 		ob_start();
 

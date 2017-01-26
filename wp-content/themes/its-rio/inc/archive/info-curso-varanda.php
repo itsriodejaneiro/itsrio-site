@@ -4,7 +4,7 @@
 		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
 		if($postType == 'cursos_ctp')
-			echo "<br> ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_cursoinicio'][0]));
+			echo "<br> ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
 		?>
 	</div>
 </div>

@@ -171,9 +171,6 @@ get_header();
 					include(ROOT .'inc/post-box.php');
 			}
 		}
-
-		if($postType == 'projetos_ctp')
-			include ROOT . 'inc/archive/projetos_ctp-encerrado.php';
 		?>
 	</div>
 </div>
