@@ -6407,7 +6407,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     transition-delay: 0.3s;
   }
   .area-pesquisa .slider .box:not(.link) {
-    max-width: 155px;
+    width: 155px;
   }
   .area-pesquisa .slider-excerpt, .area-pesquisa .slider-text {
     display: block !important;
