@@ -712,8 +712,11 @@
             width: 100%;
         }
     }
+    .tab-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
     img {
-        float: left;
         max-width: 150px;
         margin: 0px 15px 25px 0px;
     }

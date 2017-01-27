@@ -5281,8 +5281,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.content-partners .tab-content {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .content-partners img {
-  float: left;
   max-width: 150px;
   margin: 0px 15px 25px 0px;
 }
