@@ -1,6 +1,6 @@
 <?php get_header(); the_post(); ?>
 <div class="row">
-	<?php //the_content();  ?>
+	<?php the_content();  ?>
 </div>
 <script>
 	var scrolling = true;
