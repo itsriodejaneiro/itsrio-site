@@ -20,7 +20,7 @@
 							<div class="color-hover"></div>
 							</div>
 						</a>
-						<a href="<?= get_permalink() ?>" class="post-link"></a>
+						<a v-bind:href="item.permalink" class="post-link"></a>
 					</div>
 				</div>
 			</div>
