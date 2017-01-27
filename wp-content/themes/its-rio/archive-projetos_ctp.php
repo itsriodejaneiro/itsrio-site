@@ -28,7 +28,7 @@ $cat_classes = 'black';
 		?>
 	</div>
 </div>
-<div class="column large-12">
+<div class="column large-12" id="projetos-ativos-title">
 	<h2 class="list-title">
 		<?= pll__('projetos ativos') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 		<div class="line"></div>
@@ -55,7 +55,7 @@ $cat_classes = 'black';
 	}
 	?>
 </div>
-<div class="column large-12">
+<div class="column large-12" id="projetos-encerrados-title">
 	<h2 class="list-title">
 		<?= pll__('projetos encerrados') ?> <small class="show-for-medium"><?= pll__("mostrando tudo") ?></small>
 		<div class="line"></div>
@@ -151,6 +151,8 @@ $cat_classes = 'black';
 			$grid.isotope({ filter: filterValue });
 			$grid2.isotope({ filter: filterValue });
 
+			$('#'+$('.older-posts[style*="height: 0px"]')[0].id + '-title').hide();
+
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 			$('.list-title small i').click(function(){
 				$('html, body').animate({ scrollTop: 0 }, 300);
@@ -161,6 +163,8 @@ $cat_classes = 'black';
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
 				location.hash = '';
 				active = false;
+
+				$('#projetos-encerrados-title,#projetos-ativos-title').show();
 			});
 		});
 
