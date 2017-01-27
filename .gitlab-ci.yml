@@ -7,6 +7,12 @@ before_script:
   - chmod 600 ~/.ssh/id_rsa
   - ssh-add ~/.ssh/id_rsa
 
+test:
+  script:
+    - test -s wp-content/themes/its-rio/assets/css/its.css
+    - test -s wp-content/themes/its-rio/assets/css/wp-map.css
+    - test -s wp-content/themes/its-rio/assets/js/its.js
+
 deploy:
   script:
   - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
