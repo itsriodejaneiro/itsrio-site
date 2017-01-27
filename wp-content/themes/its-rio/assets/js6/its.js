@@ -203,11 +203,11 @@ new Vue({
                 $('html, body').animate({ scrollTop: target.offset().top - 100 }, 300);
             }
 
-            if (['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash) > -1) {
-                jQuery('.area-pesquisa .slider')
-                .eq(['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash))
-                .trigger('click');
-            }
+            // if (['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash) > -1) {
+            //     jQuery('.area-pesquisa .slider')
+            //     .eq(['#direitos-e-tecnologia','#repensando-inovacao','#democracia-e-tecnologia','#educacao'].indexOf(location.hash))
+            //     .trigger('click');
+            // }
 
              //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
             if($('.list-item-wrapper').length > 0 && !mobileAndTabletcheck()){
