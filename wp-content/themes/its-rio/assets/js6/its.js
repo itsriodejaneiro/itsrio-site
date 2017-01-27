@@ -210,7 +210,7 @@ new Vue({
             // }
 
              //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
-            if($('.list-item-wrapper').length > 0 && $(window).width() > 640){
+            if($('.list-item-wrapper').length > -1 && $(window).width() > 640){
                 var maxHeight = -1;
 
                 $('.list-item').each(function() {
@@ -233,16 +233,17 @@ new Vue({
                 $('.related-post .large-4').show();
                 $('html, body').animate({ scrollTop: 0 }, 300);
 
-                if ($('.list-item-wrapper').length > 0 && $(window).width() > 640) {
+                if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
                     var maxHeight = -1;
 
-                    $('.large-4').each(function () {
+                    $('.list-item-wrapper .large-4').each(function () {
                         maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
                     });
 
-                    $('.large-4').each(function () {
+                    $('.list-item-wrapper .large-4').each(function () {
                         var excedingHeight = maxHeight - $(this).height();
                         $(this).find('.img').css('height', 220 + excedingHeight);
+                        $(this).find('.img').css('overflow', 'hidden');
                         $(this).find('.color-hover').css('height', 220 + excedingHeight);
                         $(this).height(maxHeight);
                     });
