@@ -45,7 +45,7 @@ Vue.component('its-search', {
     watch: {
         ctp() {
             var _this = this;
-            if (this.ctp.indexOf('projetos') > -1 || this.ctp.indexOf('publicacoes') > -1)
+            if (this.ctp.indexOf('projetos_ctp') > -1 || this.ctp.indexOf('publicacoes_ctp') > -1)
                 $('#info_areapesquisa').removeClass('hide');
             else
                 $('#info_areapesquisa').addClass('hide');

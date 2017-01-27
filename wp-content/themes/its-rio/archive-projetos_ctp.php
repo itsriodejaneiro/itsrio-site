@@ -116,6 +116,7 @@ $cat_classes = 'black';
 		jQuery('.area-pesquisa .slider').click(function(e) {
 			var button = jQuery(this).find('.box.link');
 			var areaName = jQuery(this).attr('area-name');
+			$('#projetos-encerrados-title,#projetos-ativos-title').show();
 
 			if($(this).hasClass('active') || (e.target == button[0] && button.text() == '<?= pll__("ver todos os projetos") ?>')){
 				$grid.isotope({ filter: filterValue });
@@ -130,7 +131,6 @@ $cat_classes = 'black';
 					$('html, body').animate({ scrollTop: 0 }, 300);
 
 				location.hash = '';
-				$('#projetos-encerrados-title,#projetos-ativos-title').show();
 
 				return;
 			}
@@ -152,9 +152,6 @@ $cat_classes = 'black';
 			var filterValue = a.attr('data-filter');
 			$grid.isotope({ filter: filterValue });
 			$grid2.isotope({ filter: filterValue });
-
-			if(typeof $('.older-posts[style*="height: 0px"]')[0] != 'undefined')
-				$('#'+$('.older-posts[style*="height: 0px"]')[0].id + '-title').hide();
 
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 
