@@ -86,13 +86,15 @@ class Pessoas extends ET_Builder_Module {
 
 
 
+		$conselho = $cats['conselho'];
 		$diretores = $cats['diretores'];
 		$equipe = $cats['equipe'];
 
+		unset($cats['conselho']);
 		unset($cats['diretores']);
 		unset($cats['equipe']);
 
-		$cats = ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
+		$cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
 		
 		foreach ($cats as $key => $value) {
 			ksort($cats[$key]);
