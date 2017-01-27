@@ -56,7 +56,7 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'capability_type'       => 'page',
-		'rewrite' => array('slug' => $id),
+		'rewrite' => array('slug' => str_replace('_ctp', '', $id)),
 		'query_var'				=> true
 
 		);
