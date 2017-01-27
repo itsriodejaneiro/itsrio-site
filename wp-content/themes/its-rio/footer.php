@@ -86,7 +86,7 @@
 
 	var markers = <?= !is_null($markers) && $markers != '' ? $markers : '[]' ?>;
 	var site_data =  <?= json_encode($data) ?>;
-	var post_type = '<?= ($postType == 'page') ? $_SERVER["REQUEST_URI"] :  $postType  ?>';
+	var post_type = '<?= ($postType == 'page') ? $_SERVER["REQUEST_URI"] :  str_replace('_ctp', '', $postType)  ?>';
 	var lang = '<?= $lang ?>';
 </script>
 <style>

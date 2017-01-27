@@ -153,3 +153,4 @@ r=s;// Gecko
 if(t.axis!==undefined&&t.axis===t.HORIZONTAL_AXIS){r=0;l=s}// Webkit
 if(t.wheelDeltaY!==undefined){r=t.wheelDeltaY/120}if(t.wheelDeltaX!==undefined){l=t.wheelDeltaX/120}// Add event and delta to the front of the arguments
 o.unshift(i,s,l,r);return(e.event.dispatch||e.event.handle).apply(this,o)}})(jQuery);
+//# sourceMappingURL=plugins.js.map

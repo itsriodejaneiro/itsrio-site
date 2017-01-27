@@ -49,7 +49,7 @@ Vue.component('its-search', {
     watch: {
         ctp: function ctp() {
             var _this = this;
-            if (this.ctp.indexOf('projetos') > -1 || this.ctp.indexOf('publicacoes') > -1) $('#info_areapesquisa').removeClass('hide');else $('#info_areapesquisa').addClass('hide');
+            if (this.ctp.indexOf('projetos_ctp') > -1 || this.ctp.indexOf('publicacoes_ctp') > -1) $('#info_areapesquisa').removeClass('hide');else $('#info_areapesquisa').addClass('hide');
 
             $('#cat-filter').customScrollbar({ skin: "default-skin" });
         }
@@ -203,7 +203,7 @@ new Vue({
             // }
 
             //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
-            if ($('.list-item-wrapper').length > 0 && !mobileAndTabletcheck()) {
+            if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
                 var maxHeight = -1;
 
                 $('.list-item').each(function () {
@@ -226,7 +226,7 @@ new Vue({
                 $('.related-post .large-4').show();
                 $('html, body').animate({ scrollTop: 0 }, 300);
 
-                if ($('.list-item-wrapper').length > 0) {
+                if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
                     var maxHeight = -1;
 
                     $('.list-item-wrapper .large-4').each(function () {
@@ -236,7 +236,8 @@ new Vue({
                     $('.list-item-wrapper .large-4').each(function () {
                         var excedingHeight = maxHeight - $(this).height();
                         $(this).find('.img').css('height', 220 + excedingHeight);
-                        $(this).find('.color-hover').css({ 'height': 220 + excedingHeight, 'margin-bottom': 35 });
+                        $(this).find('.img').css('overflow', 'hidden');
+                        $(this).css('height', 220 + excedingHeight);
                         $(this).height(maxHeight);
                     });
                 }
@@ -13645,3 +13646,5 @@ module.exports = Vue$3;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"_process":3}]},{},[1]);
+
+//# sourceMappingURL=its.js.map
