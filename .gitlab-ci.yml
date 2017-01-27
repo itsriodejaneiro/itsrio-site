@@ -13,6 +13,10 @@ test:
     - test -s wp-content/themes/its-rio/assets/css/wp-map.css
     - test -s wp-content/themes/its-rio/assets/js/its.js
 
-deploy:
+deploy:staging:
   script:
-  - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
+    - rsync -a -e 'ssh -o StrictHostKeyChecking=no' root@its-ssh.docker wp-content/ /var/www/html/wp-content/
+
+deploy:production:
+  script:
+    - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
