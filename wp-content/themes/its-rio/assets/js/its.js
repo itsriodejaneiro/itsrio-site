@@ -235,7 +235,10 @@ new Vue({
 
                     $('.list-item-wrapper .large-4').each(function () {
                         var excedingHeight = maxHeight - $(this).height();
-                        $(this).find('.img').css('height', 220 + excedingHeight);
+                        // if((220 + excedingHeight) > 300)
+                        //     excedingHeight = 300;
+
+                        $(this).find('.img').css('height', excedingHeight);
                         $(this).find('.color-hover').css({ 'height': 220 + excedingHeight, 'margin-bottom': 35 });
                         $(this).height(maxHeight);
                     });
