@@ -56,7 +56,7 @@ class Pessoas extends ET_Builder_Module {
 		$ids = $meta['its_pessoas'];
 		$cats = [];
 		$listaCategorizada = false;
-		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) ]);
+		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) , 'order' => 'ASC']);
 		foreach ($query_palestrantes as $postt) {
 			$p = (array)$postt;
 			$cat = get_the_category($p['ID']);
@@ -86,13 +86,15 @@ class Pessoas extends ET_Builder_Module {
 
 
 
+		$conselho = $cats['conselho'];
 		$diretores = $cats['diretores'];
 		$equipe = $cats['equipe'];
 
+		unset($cats['conselho']);
 		unset($cats['diretores']);
 		unset($cats['equipe']);
 
-		$cats = ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
+		$cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
 		
 		foreach ($cats as $key => $value) {
 			ksort($cats[$key]);

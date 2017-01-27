@@ -5,7 +5,7 @@
 			<?php
 			$ids = $meta['its_pessoas'];
 			$html = '';
-			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids ]);
+			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC' ]);
 			$i = 0;
 			while ($query_pessoas->have_posts()){
 				$query_pessoas->the_post();
