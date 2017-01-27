@@ -17,23 +17,23 @@ $cat_classes = 'black';
 				<div class="color"></div>	
 				<span class="box slider-title"><?= $area['post_title'] ?></span>
 				<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
-				<span class="slider-text"><?= $area['content'] ?></span>
+				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver projetos desta área') ?></span>
+				<style type="text/css">
+					@media screen and (max-width: 768px) {
+						#slider_<?= $id ?> {
+							background-image: url('<?= get_thumbnail_url_card($id) ?>');
+						}
+					}
+					@media screen and (min-width: 769px) {
+						#slider_<?= $id ?> {
+							background-image: url('<?= get_thumbnail_url_full($id) ?>');
+						}
+					}
+				</style>
 			</div>
 			<?php
 		} ?>
-		<style type="text/css">
-			@media screen and (max-width: 768px) {
-				#slider_<?= $id ?> {
-					background-image: url('<?= get_thumbnail_card($id) ?>');
-				}
-			}
-			@media screen and (min-width: 769px) {
-				#slider_<?= $id ?> {
-					background-image: url('<?= get_thumbnail_full($id) ?>');
-				}
-			}
-		</style>
 	</div>
 </div>
 <div class="column large-12">
