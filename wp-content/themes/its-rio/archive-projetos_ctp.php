@@ -153,6 +153,9 @@ $cat_classes = 'black';
 			$grid.isotope({ filter: filterValue });
 			$grid2.isotope({ filter: filterValue });
 
+			if(typeof $('.older-posts[style*="height: 0px"]')[0] != 'undefined')
+				$('#'+$('.older-posts[style*="height: 0px"]')[0].id + '-title').hide();
+
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 
 			$('.list-title small i').click(function(){
