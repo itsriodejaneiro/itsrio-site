@@ -244,7 +244,7 @@ new Vue({
                         var excedingHeight = maxHeight - $(this).height();
                         $(this).find('.img').css('height', 220 + excedingHeight);
                         $(this).find('.img').css('overflow', 'hidden');
-                        $(this).find('.color-hover').css('height', 220 + excedingHeight);
+                        $(this).css('height', 220 + excedingHeight);
                         $(this).height(maxHeight);
                     });
                 }
