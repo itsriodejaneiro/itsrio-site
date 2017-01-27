@@ -1,4 +1,4 @@
-<?php global $data; global $components; global $postType; global $lang; ?>
+<?php global $data; global $components; global $postType; global $lang; global $styles ?>
 </div>
 <footer>
 	<div class="row">
@@ -89,6 +89,9 @@
 	var post_type = '<?= ($postType == 'page') ? $_SERVER["REQUEST_URI"] :  $postType  ?>';
 	var lang = '<?= $lang ?>';
 </script>
+<style>
+	<?= $styles ?>
+</style>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
 <script type="text/javascript">
