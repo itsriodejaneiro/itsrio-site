@@ -22,6 +22,18 @@ $cat_classes = 'black';
 			</div>
 			<?php
 		} ?>
+		<style type="text/css">
+			@media screen and (max-width: 768px) {
+				#slider_<?= $id ?> {
+					background-image: url('<?= get_thumbnail_card($id) ?>');
+				}
+			}
+			@media screen and (min-width: 769px) {
+				#slider_<?= $id ?> {
+					background-image: url('<?= get_thumbnail_full($id) ?>');
+				}
+			}
+		</style>
 	</div>
 </div>
 <div class="column large-12">
