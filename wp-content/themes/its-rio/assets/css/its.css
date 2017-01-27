@@ -3167,7 +3167,7 @@ h2.list-title small i {
 
 .list-item .img {
   width: 100%;
-  height: 220px;
+  min-height: 220px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -7169,3 +7169,5 @@ footer small a {
   top: -100px;
   right: -230px;
 }
+
+/*# sourceMappingURL=its.css.map */
