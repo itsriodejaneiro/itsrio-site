@@ -54,6 +54,7 @@ class Comunicados extends ET_Builder_Module {
 
 		$data['its_tabs'][] = pll__('comunicados');
 
+		$args['posts_per_page'] = '-1';
 		$args['post_type'] = ['comunicados_ctp'];
 		$query = new wp_query($args);
 
