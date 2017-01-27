@@ -130,7 +130,7 @@ function get_area_pesquisa($meta = null)
     }
     $i = $meta['info_areapesquisa'][0];
     $title = get_ctp_array('areas')[$i];
-    return "<a href='/$lang/projetos_ctp/#".sanitize_title($title)."'>".$title."</a>";
+    return "<a href='/$lang/projetos/#".sanitize_title($title)."'>".$title."</a>";
 }
 
 //Retorna um array simples de relação [ id => título ]

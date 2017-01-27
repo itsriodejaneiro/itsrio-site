@@ -10,7 +10,7 @@ $no_label = true;
 			<div class="line"></div>
 		</div>
 		<div class="column medium-4 large-4">
-			<a href="/<?= $lang ?>/publicacoes_ctp/#<?= $meta['info_areapesquisa'][0] ?>">
+			<a href="/<?= $lang ?>/publicacoes/#<?= $meta['info_areapesquisa'][0] ?>">
 				<p class="box-title"><?= pll__('área de pesquisa'); ?></p>
 				<p class="box"><?= get_area_pesquisa() ?></p>
 			</a>

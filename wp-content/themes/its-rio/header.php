@@ -100,16 +100,16 @@
 					<div class="menu-menu_pt-container">
 						<ul id="menu-menu_pt" class="menu">
 							<li id="menu-item-3615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3615">
-							<a href="/<?= $lang ?>/cursos_ctp"><?= pll__('cursos') ?></a>
+							<a href="/<?= $lang ?>/cursos"><?= pll__('cursos') ?></a>
 							</li> 
 							<li id="menu-item-3616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3616">
-							<a href="/<?= $lang ?>/varandas_ctp"><?= pll__('varandas') ?></a>
+							<a href="/<?= $lang ?>/varandas"><?= pll__('varandas') ?></a>
 							</li> 
 							<li id="menu-item-3617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3617">
-							<a href="/<?= $lang ?>/projetos_ctp"><?= pll__('projetos') ?></a>
+							<a href="/<?= $lang ?>/projetos"><?= pll__('projetos') ?></a>
 							</li> 
 							<li id="menu-item-3618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3618">
-							<a href="/<?= $lang ?>/publicacoes_ctp"><?= pll__('publicações') ?></a>
+							<a href="/<?= $lang ?>/publicacoes"><?= pll__('publicações') ?></a>
 							</li> 
 							<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
 								<a href="/<?= $lang ?>/institucional/"><?= pll__('institucional') ?></a>

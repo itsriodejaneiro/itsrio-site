@@ -21,16 +21,16 @@
 							<input type="checkbox" id="search_title_area" class="ocultar">
 							<label class="label-tab" for="search_title_area"></label>
 							<div style="overflow: hidden; width: 100%;">
-								<input type="checkbox" id="search_cursos" v-model="ctp" name="cpt[]" value="cursos_ctp">
+								<input type="checkbox" id="search_cursos" v-model="ctp" name="cpt[]" value="cursos">
 								<label for="search_cursos" class="box"><?= pll__('cursos') ?></label>
 
-								<input type="checkbox" id="search_varandas" v-model="ctp" name="cpt[]" value="varandas_ctp">
+								<input type="checkbox" id="search_varandas" v-model="ctp" name="cpt[]" value="varandas">
 								<label for="search_varandas" class="box"><?= pll__('varandas') ?></label>
 
-								<input type="checkbox" id="search_projetos" v-model="ctp" name="cpt[]" value="projetos_ctp">
+								<input type="checkbox" id="search_projetos" v-model="ctp" name="cpt[]" value="projetos">
 								<label for="search_projetos" class="box"><?= pll__('projetos') ?></label>
 
-								<input type="checkbox" id="search_publicações" v-model="ctp" name="cpt[]" value="publicacoes_ctp">
+								<input type="checkbox" id="search_publicações" v-model="ctp" name="cpt[]" value="publicacoes">
 								<label for="search_publicações" class="box"><?= pll__('publicações') ?></label>
 							</div>
 
