@@ -5279,7 +5279,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .content-partners img {
   float: left;
   max-width: 150px;
-  margin: 0px 25px 25px 0px;
+  margin: 0px 15px 25px 0px;
 }
 
 @media screen and (max-width: 48em) {
