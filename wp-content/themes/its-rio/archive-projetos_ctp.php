@@ -130,6 +130,8 @@ $cat_classes = 'black';
 					$('html, body').animate({ scrollTop: 0 }, 300);
 
 				location.hash = '';
+				$('#projetos-encerrados-title,#projetos-ativos-title').show();
+
 				return;
 			}
 
