@@ -210,7 +210,7 @@ new Vue({
             // }
 
              //FAZ COM QUE TODOS OS CARDS TENHAM A MESMA ALTURA E AUMENTA A ALTURA DA IMAGEM COM O EXCEDENTE 
-            if($('.list-item-wrapper').length > 0 && !mobileAndTabletcheck()){
+            if($('.list-item-wrapper').length > 0 && $(window).width() > 640){
                 var maxHeight = -1;
 
                 $('.list-item').each(function() {
