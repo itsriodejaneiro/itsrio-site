@@ -74,7 +74,6 @@ $cat_classes = 'black';
 	<?php
 	$args = array(
 		'post_type' => $postType,
-		'post__not_in' => [$destaque_id],
 		'posts_per_page' => '100',
 		'meta_query'    => array(
 			['key' => 'projeto_encerrado',
