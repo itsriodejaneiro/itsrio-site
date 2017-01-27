@@ -1,5 +1,7 @@
+# Uma imagem Alpine Linux com OpenSSH
 image: montefuscolo/ssh
 
+# Coloca chaves dentro do nosso container Alpine com OpenSSH
 before_script:
   - eval $(ssh-agent -s)
   - mkdir -m 700 -p ~/.ssh
@@ -7,16 +9,19 @@ before_script:
   - chmod 600 ~/.ssh/id_rsa
   - ssh-add ~/.ssh/id_rsa
 
+# Testo minimamente se os arquivos gerados pelo Gulpfile não estão vazios
 test:
   script:
     - test -s wp-content/themes/its-rio/assets/css/its.css
     - test -s wp-content/themes/its-rio/assets/css/wp-map.css
     - test -s wp-content/themes/its-rio/assets/js/its.js
 
+# Criei um container Alpine com OpenSSH no saci com as pastas do ITS para rsync
 deploy:staging:
   script:
     - rsync -a -e 'ssh -o StrictHostKeyChecking=no' wp-content/ root@hacklab_its-ssh_1.docker:/var/www/html/wp-content/
 
+# Máquina EC2 dos caras em que damos um pull quando temos tudo Ok
 deploy:production:
   script:
     - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
