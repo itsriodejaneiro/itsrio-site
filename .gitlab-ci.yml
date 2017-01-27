@@ -15,7 +15,7 @@ test:
 
 deploy:staging:
   script:
-    - rsync -a -e 'ssh -o StrictHostKeyChecking=no' root@its-ssh.docker wp-content/ /var/www/html/wp-content/
+    - rsync -a -e 'ssh -o StrictHostKeyChecking=no' wp-content/ root@its-ssh.docker:/var/www/html/wp-content/
 
 deploy:production:
   script:
