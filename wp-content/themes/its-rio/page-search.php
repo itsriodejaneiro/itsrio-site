@@ -1,7 +1,7 @@
 <?php 
 get_header();
 $title = $_GET['title'];
-$post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp'];
+$post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp','comunicados_ctp'];
 $info_areapesquisa = $_GET['info_areapesquisa'];
 
 $args = ['title_like' => $title, 'post_type' => $post_type];
