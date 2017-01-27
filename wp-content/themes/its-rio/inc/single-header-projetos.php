@@ -7,7 +7,7 @@
 		</div>
 		<div class="column medium-4 large-4">
 			<p class="box-title"><?= pll__('área de pesquisa'); ?></p>
-			<p class="box"><?= get_area_pesquisa() ?></p>
+			<div class="categories"><ul><li><?= get_area_pesquisa() ?></li></ul></div>
 		</div>
 		<div class="column medium-4 large-4 end">
 			<p class="box-title"><?= pll__('categorias'); ?></p>

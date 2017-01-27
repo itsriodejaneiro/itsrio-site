@@ -4524,10 +4524,15 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .header-single .box {
+  color: #fff;
   font-size: 14px;
   padding: 0px 5px;
   display: inline-block;
   text-transform: lowercase;
+}
+
+.header-single .box a {
+  color: #fff;
 }
 
 .header-single h1 {
@@ -5279,7 +5284,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .content-partners img {
   float: left;
   max-width: 150px;
-  margin: 0px 25px 25px 0px;
+  margin: 0px 15px 25px 0px;
 }
 
 @media screen and (max-width: 48em) {
@@ -6407,7 +6412,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     transition-delay: 0.3s;
   }
   .area-pesquisa .slider .box:not(.link) {
-    max-width: 155px;
+    width: 155px;
   }
   .area-pesquisa .slider-excerpt, .area-pesquisa .slider-text {
     display: block !important;

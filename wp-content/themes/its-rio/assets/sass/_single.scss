@@ -68,10 +68,14 @@
     .box-title { font-size: 14px; }
 
     .box {
+        color: #fff;
         font-size: 14px;
         padding: 0px 5px;
         display: inline-block;
         text-transform: lowercase;
+        a {
+            color: #fff;
+        }
     }
 
     h1 {
@@ -711,7 +715,7 @@
     img {
         float: left;
         max-width: 150px;
-        margin: 0px 25px 25px 0px;
+        margin: 0px 15px 25px 0px;
     }
 }
 
