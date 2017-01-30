@@ -5731,18 +5731,18 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-cursos_ctp .area-pesquisa .slider.active .color, .post-type-archive-cursos_ctp .area-pesquisa .slider.active .color {
-  background-color: rgba(154, 37, 143, 0.7);
+  background-color: rgba(154, 37, 143, 0.9);
 }
 
 @media screen and (max-width: 74.9375em) {
   .single-cursos_ctp .area-pesquisa .slider:active .color, .post-type-archive-cursos_ctp .area-pesquisa .slider:active .color {
-    background-color: rgba(154, 37, 143, 0.7);
+    background-color: rgba(154, 37, 143, 0.9);
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .single-cursos_ctp .area-pesquisa .slider:hover .color, .post-type-archive-cursos_ctp .area-pesquisa .slider:hover .color {
-    background-color: rgba(154, 37, 143, 0.7);
+    background-color: rgba(154, 37, 143, 0.9);
   }
 }
 
@@ -5778,18 +5778,18 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-varandas_ctp .area-pesquisa .slider.active .color, .post-type-archive-varandas_ctp .area-pesquisa .slider.active .color {
-  background-color: rgba(0, 149, 138, 0.7);
+  background-color: rgba(0, 149, 138, 0.9);
 }
 
 @media screen and (max-width: 74.9375em) {
   .single-varandas_ctp .area-pesquisa .slider:active .color, .post-type-archive-varandas_ctp .area-pesquisa .slider:active .color {
-    background-color: rgba(0, 149, 138, 0.7);
+    background-color: rgba(0, 149, 138, 0.9);
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .single-varandas_ctp .area-pesquisa .slider:hover .color, .post-type-archive-varandas_ctp .area-pesquisa .slider:hover .color {
-    background-color: rgba(0, 149, 138, 0.7);
+    background-color: rgba(0, 149, 138, 0.9);
   }
 }
 
@@ -5825,18 +5825,18 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-publicacoes_ctp .area-pesquisa .slider.active .color, .post-type-archive-publicacoes_ctp .area-pesquisa .slider.active .color {
-  background-color: rgba(245, 130, 31, 0.7);
+  background-color: rgba(245, 130, 31, 0.9);
 }
 
 @media screen and (max-width: 74.9375em) {
   .single-publicacoes_ctp .area-pesquisa .slider:active .color, .post-type-archive-publicacoes_ctp .area-pesquisa .slider:active .color {
-    background-color: rgba(245, 130, 31, 0.7);
+    background-color: rgba(245, 130, 31, 0.9);
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .single-publicacoes_ctp .area-pesquisa .slider:hover .color, .post-type-archive-publicacoes_ctp .area-pesquisa .slider:hover .color {
-    background-color: rgba(245, 130, 31, 0.7);
+    background-color: rgba(245, 130, 31, 0.9);
   }
 }
 
@@ -5872,18 +5872,18 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .single-projetos_ctp .area-pesquisa .slider.active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider.active .color {
-  background-color: rgba(82, 46, 145, 0.7);
+  background-color: rgba(82, 46, 145, 0.9);
 }
 
 @media screen and (max-width: 74.9375em) {
   .single-projetos_ctp .area-pesquisa .slider:active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:active .color {
-    background-color: rgba(82, 46, 145, 0.7);
+    background-color: rgba(82, 46, 145, 0.9);
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .single-projetos_ctp .area-pesquisa .slider:hover .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:hover .color {
-    background-color: rgba(82, 46, 145, 0.7);
+    background-color: rgba(82, 46, 145, 0.9);
   }
 }
 
