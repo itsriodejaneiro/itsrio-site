@@ -6188,12 +6188,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-@media screen and (max-width: 74.9375em) {
-  .highlights .color-hover, .list-item .color-hover {
-    opacity: 0.5 !important;
-  }
-}
-
 .curved-shadow {
   position: absolute;
 }
@@ -6289,8 +6283,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   position: relative;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  background-size: auto 100%;
   background-position: center;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .area-pesquisa .slider {
+    background-size: auto 100%;
+  }
 }
 
 .area-pesquisa .slider span {
