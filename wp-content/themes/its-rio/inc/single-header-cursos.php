@@ -15,7 +15,7 @@ $no_label = true;
 					<b><?= date('d/m',strtotime($meta['info_inscfim'][0]))	 ?></b>
 					<br>
 					<?= pll__('início do curso') ?>
-					<b><?= date('d/m',strtotime($meta['info_cursoinicio'][0]))	 ?></b>
+					<b><?= date('d/m',strtotime($meta['info_data'][0]))	 ?></b>
 				</p>
 				<p class="box-title show-for-medium">data</p>
 				<p class="box show-for-medium">

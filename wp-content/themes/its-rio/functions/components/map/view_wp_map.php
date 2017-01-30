@@ -51,7 +51,12 @@
 						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
-				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">{{ editing == 'editar' ? 'Atualizar' : 'Inserir' }}</a>
+				<a href="javascript:void(0);" @click="addMarkerInfo" v-if="editing == 'editar' && editingEvent == true" class="button">
+					Atualizar
+				</a>
+				<a href="javascript:void(0);" @click="addMarkerInfo" v-else class="button">
+					Inserir
+				</a>
 				<br><br>
 				<h6 v-if="editingMarker.infos.length > 0">Informações cadastradas</h6>
 				<div v-for="(box, i) in editingMarker.infos" class="box-info">
@@ -61,8 +66,8 @@
 					<div class="column large-6 p">
 						<p><b>Título:</b> {{ box.title }}</p>
 						<p><b>Texto:</b> <span v-html="box.text"></span></p>
-						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box">Editar</a>
-						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i) = box">Excluir</a>
+						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box; editingEvent = true">Editar</a>
+						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i,1);">Excluir</a>
 					</div>
 				</div>	
 			</div>
@@ -88,6 +93,7 @@
 		data(){
 			return {
 				editing : false,
+				editingEvent : false,
 				editingMarker : {
 					top : '',
 					left : '',
@@ -112,8 +118,11 @@
 				}
 			},
 			addMarkerInfo(){
-				if(this.editing != 'editar')
+				if(this.editingEvent == false)
 					this.editingMarker.infos.push(this.editingMarker.newInfo);
+				else
+					this.editingEvent = false;
+
 				this.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
 			},
 			editMarker(i, event){				
@@ -146,6 +155,7 @@
 				if(this.editing == 'adicionar')
 					editor.markers.push(editor.editingMarker);
 				editor.editing = false;
+				editor.editingEvent = false;
 				editor.markerInfoEdit = false;
 				editor.editingMarker = { newInfo : { image : '', title : '', text : ''}, infos : [] };
 				console.log(editor.markers);

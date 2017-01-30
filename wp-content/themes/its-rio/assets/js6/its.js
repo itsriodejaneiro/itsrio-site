@@ -91,23 +91,27 @@ Vue.component('its-map', {
                 offset = elOffset;
             $('html, body').animate({ scrollTop: offset }, 300);
 
-            $('.map-info .next').click(function() {
-                var prev = $('.map-info-carousel-item.active');
-                if (prev.next('.map-info-carousel-item').length == 0)
-                    $('.map-info-carousel-item').eq(0).addClass('active');
-                else
-                    prev.next('.map-info-carousel-item').addClass('active');
-                prev.removeClass('active');
-            });
+            setInterval(function(){
+                $('.map-info .next').unbind('click');
+                $('.map-info .next').click(function() {
+                    var prev = $('.map-info-carousel-item.active');
+                    if (prev.next('.map-info-carousel-item').length == 0)
+                        $('.map-info-carousel-item').eq(0).addClass('active');
+                    else
+                        prev.next('.map-info-carousel-item').addClass('active');
+                    prev.removeClass('active');
+                });
 
-            $('.map-info .previous').click(function() {
-                var cur = $('.map-info-carousel-item.active');
-                if (cur.prev('.map-info-carousel-item').length == 0)
-                    $('.map-info-carousel-item').last().addClass('active');
-                else
-                    cur.prev('.map-info-carousel-item').addClass('active');
-                cur.removeClass('active');
-            });
+                $('.map-info .previous').unbind('click');
+                $('.map-info .previous').click(function() {
+                    var cur = $('.map-info-carousel-item.active');
+                    if (cur.prev('.map-info-carousel-item').length == 0)
+                        $('.map-info-carousel-item').last().addClass('active');
+                    else
+                        cur.prev('.map-info-carousel-item').addClass('active');
+                    cur.removeClass('active');
+                });
+            },1000);
         },
         closeMarker() {
             this.selectedMarker = 'false';
