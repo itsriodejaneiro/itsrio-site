@@ -51,7 +51,7 @@
 						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
-				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">{{ editing == 'editar' ? 'Atualizar' : 'Inserir' }}</a>
+				<a href="javascript:void(0);" @click="addMarkerInfo" class="button">{{ editing == 'editar' && newInfo.text != ''  ? 'Atualizar' : 'Inserir' }}</a>
 				<br><br>
 				<h6 v-if="editingMarker.infos.length > 0">Informações cadastradas</h6>
 				<div v-for="(box, i) in editingMarker.infos" class="box-info">
