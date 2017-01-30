@@ -28,18 +28,18 @@ $color_institucionais : #522e91;
 
 	.area-pesquisa .slider {
 		&.active .color {
-			background-color: rgba($color,0.7);
+			background-color: rgba($color,0.9);
 		}
 		&:active .color {
 			// mobile
 			@include breakpoint(large down) {
-				background-color: rgba($color,0.7);
+				background-color: rgba($color,0.9);
 			}	
 		}
 		&:hover .color {
 			// desktop
 			@include breakpoint(large up) {
-				background-color: rgba($color,0.7);
+				background-color: rgba($color,0.9);
 			}
 		}
 	}
