@@ -51,7 +51,7 @@
 						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
-				<a href="javascript:void(0);" @click="addMarkerInfo" v-if="editing == 'editar' && newInfo.text != ''" class="button">
+				<a href="javascript:void(0);" @click="addMarkerInfo" v-if="editing == 'editar' && editingMarker.newInfo.text != ''" class="button">
 					Atualizar
 				</a>
 				<a href="javascript:void(0);" @click="addMarkerInfo" v-else class="button">
