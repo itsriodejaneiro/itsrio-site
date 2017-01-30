@@ -67,7 +67,7 @@
 						<p><b>Título:</b> {{ box.title }}</p>
 						<p><b>Texto:</b> <span v-html="box.text"></span></p>
 						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box; editingEvent = true">Editar</a>
-						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i) = box">Excluir</a>
+						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i,1);">Excluir</a>
 					</div>
 				</div>	
 			</div>
@@ -118,10 +118,12 @@
 				}
 			},
 			addMarkerInfo(){
-				if(this.editing != 'editar' && this.editingEvent == false)
+				if(this.editingEvent == false)
 					this.editingMarker.infos.push(this.editingMarker.newInfo);
+				else
+					this.editingEvent = false;
+
 				this.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
-				this.editingEvent = false;
 			},
 			editMarker(i, event){				
 				if($(event.target).hasClass('selected')){
