@@ -3277,6 +3277,7 @@ h2.list-title small i {
 .categories ul li {
   border: 1px solid;
   border-color: #fff;
+  letter-spacing: -0.5px;
   line-height: 100%;
   padding: 2px 8px;
   -webkit-transition: all 0.3s !important;
