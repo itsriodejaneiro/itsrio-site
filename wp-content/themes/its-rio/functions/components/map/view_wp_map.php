@@ -51,7 +51,7 @@
 						<input type="text" v-model="editingMarker.newInfo.image" />
 					</label>
 				</div>
-				<a href="javascript:void(0);" @click="addMarkerInfo" v-if="editing == 'editar' && editingMarker.newInfo.text != ''" class="button">
+				<a href="javascript:void(0);" @click="addMarkerInfo" v-if="editing == 'editar' editingEvent == true" class="button">
 					Atualizar
 				</a>
 				<a href="javascript:void(0);" @click="addMarkerInfo" v-else class="button">
@@ -66,7 +66,7 @@
 					<div class="column large-6 p">
 						<p><b>Título:</b> {{ box.title }}</p>
 						<p><b>Texto:</b> <span v-html="box.text"></span></p>
-						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box">Editar</a>
+						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.newInfo = box; editingEvent = true">Editar</a>
 						<a class="button" href="javascript:void(0);" v-if="editing == 'editar'" @click="editingMarker.infos.splice(i) = box">Excluir</a>
 					</div>
 				</div>	
@@ -93,6 +93,7 @@
 		data(){
 			return {
 				editing : false,
+				editingEvent : false,
 				editingMarker : {
 					top : '',
 					left : '',
@@ -117,9 +118,10 @@
 				}
 			},
 			addMarkerInfo(){
-				if(this.editing != 'editar')
+				if(this.editing != 'editar' && this.editingEvent == false)
 					this.editingMarker.infos.push(this.editingMarker.newInfo);
 				this.editingMarker.newInfo = { 'image' : '', 'title' : '', 'text' : '' };
+				this.editingEvent = false;
 			},
 			editMarker(i, event){				
 				if($(event.target).hasClass('selected')){
@@ -151,6 +153,7 @@
 				if(this.editing == 'adicionar')
 					editor.markers.push(editor.editingMarker);
 				editor.editing = false;
+				editor.editingEvent = false;
 				editor.markerInfoEdit = false;
 				editor.editingMarker = { newInfo : { image : '', title : '', text : ''}, infos : [] };
 				console.log(editor.markers);
