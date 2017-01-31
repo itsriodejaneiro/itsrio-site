@@ -5191,7 +5191,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (min-width: 64.0625em) {
   .component-tabs .component-tabs-tab .component-tabs-content {
-    max-height: 620px;
+    max-height: 2000px;
   }
 }
 
