@@ -4581,6 +4581,13 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   transform: translate3d(0px, 0px, 0px);
 }
 
+@media screen and (max-width: 64em) {
+  .header-single-menu {
+    position: relative;
+    z-index: 10;
+  }
+}
+
 @media screen and (min-width: 64.0625em) {
   .header-single-menu {
     height: 40px;
@@ -6578,22 +6585,38 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .reveal-modal {
-  top: 50%;
-  width: 80%;
-  height: 80%;
-  margin: auto;
-  position: relative;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
   background-color: white;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
   box-shadow: 0 0 25px dimgrey;
 }
 
+@media screen and (min-width: 48em) {
+  .reveal-modal {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
 .reveal-modal .close {
-  right: 20px;
+  right: 10px;
   top: 0px;
   font-size: 30px;
   font-family: 'Roboto Code';
+}
+
+@media screen and (min-width: 48.0625em) {
+  .reveal-modal .close {
+    right: 20px;
+  }
 }
 
 footer {
