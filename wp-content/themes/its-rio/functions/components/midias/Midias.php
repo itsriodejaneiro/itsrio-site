@@ -45,7 +45,7 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		$tabs_content_informacoes = [];
+		$et_pb_tab_titles = [];
 		
 		return $output;
 	}
