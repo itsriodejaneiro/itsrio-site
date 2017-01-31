@@ -5,7 +5,7 @@
 			<?php
 			$ids = $meta['its_pessoas'];
 			$html = '';
-			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC' ]);
+			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC', 'orderby' => 'title' ]);
 			$i = 0;
 			while ($query_pessoas->have_posts()){
 				$query_pessoas->the_post();
@@ -30,7 +30,7 @@
 			pessoas.pessoaActive = pessoas[i];
 			scrollToElement('.component-tabs.pessoas');
 			$('.pessoa').eq(i).find('input').attr('checked','true');
-			setTimeout(function(){
+			setTimeout(function(){ 
 				$('.pessoa').eq(i).find('input').attr('checked','true');
 			},1100);
 		}
