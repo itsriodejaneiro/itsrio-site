@@ -67,7 +67,7 @@ class ET_Builder_Module_Informacoes extends ET_Builder_Module {
 		}
 
 		// wp_reset_postdata();
-
+		$et_pb_tab_titles = [];
 		return $output;
 	}
 }
@@ -164,4 +164,5 @@ class ET_Builder_Module_Informacoes_Item extends ET_Builder_Module {
 
 	}
 }
+
 new ET_Builder_Module_Informacoes_Item;
