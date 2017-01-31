@@ -16,7 +16,7 @@
 			if(isset($query) && !is_null($query)) $query->reset_postdata();
 			$html = rtrim($html,',');
 			if($i > 3)
-				$html .= ' <span> mais '. ($i - 3) .'.</span>';
+				$html .= ' <span> e mais '. ($i - 3) .'.</span>';
 
 			echo $html;
 			?>
