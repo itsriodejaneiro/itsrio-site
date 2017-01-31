@@ -5,7 +5,7 @@
 			<?php
 			$ids = $meta['its_pessoas'];
 			$html = '';
-			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC', 'orderby' => 'title' ]);
+			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC', 'orderby' => 'title', 'posts_per_page' => '-1' ] );
 			$i = 0;
 			while ($query_pessoas->have_posts()){
 				$query_pessoas->the_post();
@@ -16,7 +16,7 @@
 			if(isset($query) && !is_null($query)) $query->reset_postdata();
 			$html = rtrim($html,',');
 			if($i > 3)
-				$html .= ' <span> e mais '. ($i - 3) .'.</span>';
+				$html .= ' <span> e mais '. ((int)$i - 3) .'.</span>';
 
 			echo $html;
 			?>
