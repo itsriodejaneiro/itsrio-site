@@ -9,11 +9,16 @@
 			$i = 0;
 			while ($query_pessoas->have_posts()){
 				$query_pessoas->the_post();
-				$html .= ' <span onclick="goToPerson('.$i.')"> <a href="javascript:void(0);">'. get_the_title() . '</a></span>,';
+				if($i < 3)
+					$html .= ' <span onclick="goToPerson('.$i.')"> <a href="javascript:void(0);">'. get_the_title() . '</a></span>,';
 				$i++;
 			}
 			if(isset($query) && !is_null($query)) $query->reset_postdata();
-			echo rtrim($html,',');
+			$html = rtrim($html,',');
+			if($i > 3)
+				$html .= ' <span> mais '. ($i - 3) .'.</span>';
+
+			echo $html;
 			?>
 		</b>
 	</p>
