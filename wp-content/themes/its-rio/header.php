@@ -17,7 +17,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0"> -->
 	<title><?php wp_title() ?></title>
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css?<?= filemtime(ROOT.'assets/css/its.css') ?>') ?>">
+	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/jquery.custom-scrollbar.css') ?>">
 	<script src="/wp-content/themes/its-rio/assets/js/flickity.pkgd.min.js"></script>
