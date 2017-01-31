@@ -271,11 +271,3 @@ $color_institucionais : #522e91;
 		}
 	}
 }
-
-@include breakpoint(large down) {
-	.highlights, .list-item {
-		.color-hover {
-			opacity: 0.5 !important;
-		}
-	}
-}
