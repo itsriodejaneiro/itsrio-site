@@ -37,8 +37,6 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 
 		$par_title = $this->shortcode_atts['par_title'];
 		$all_tabs_content_midias = $this->shortcode_content;
-		
-		
 
 		$data['its_tabs'][] = $par_title;
 
@@ -47,15 +45,8 @@ class ET_Builder_Module_Midias extends ET_Builder_Module {
 		$output = ob_get_contents();
 		ob_end_clean();
 
-		// for ($i=0; $i < count($tabs_content_midias); $i++) {
-		// 	$components['informacoes'][] = [
-		// 	'title' => $et_pb_tab_titles[$i],
-		// 	'content' => trim(preg_replace('/\s+/', ' ', $tabs_content_midias[$i]))
-		// 	];
-		// }
-
-		// wp_reset_postdata();
-
+		$tabs_content_informacoes = [];
+		
 		return $output;
 	}
 }
