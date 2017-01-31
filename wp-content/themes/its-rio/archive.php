@@ -7,6 +7,7 @@ get_header();
 	$destaque_id = 0;
 	$no_label = true;
 	$cat_classes = 'black';
+	$destaques = [];
 
 	$args = array(
 		'posts_per_page' => 1,
@@ -76,6 +77,7 @@ get_header();
 					$postsQtd++;
 					$meta = get_post_meta(get_the_ID());
 					$destaque_id = get_the_ID();
+					$destaques[] = get_the_ID();
 					?>
 					<div <?php post_class( 'carousel-cell highlights'); echo get_thumbnail_style($destaque_id,'banner'); ?> >
 						<div class="color-hover"></div>
@@ -157,7 +159,7 @@ get_header();
 		}
 
 		$args['posts_per_page'] = '100';
-		$args['post__not_in'] = [$destaque_id];
+		$args['post__not_in'] = $destaques;
 		$args['post_type'] = $postType;
 
 		query_posts($args);
