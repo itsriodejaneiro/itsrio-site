@@ -16,9 +16,6 @@
 					<param name="movie" value="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>"></param>
 					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
 				</object> -->
-				<script src="jquery.js"></script>
-				<script src="https://raw.githubusercontent.com/johndyer/mediaelement/master/build/mediaelementplayer.min.js"></script>
-				<link rel="stylesheet" href="https://raw.githubusercontent.com/johndyer/mediaelement/master/build/mediaelementplayer.min.css" />
 
 				<video width="600" height="380" id="player1" preload="none">
 					<source type="video/youtube" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" />
