@@ -342,8 +342,11 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 			margin: 15px !important;
 	    	line-height: 1.7;
 		}
-		.list-title {
-			margin-top: 20px;
+	}
+	.projetos-encerrados-title {
+		margin-top: 20px;
+		@include breakpoint(medium) {
+			margin-top:40px;
 		}
 	}
 }
