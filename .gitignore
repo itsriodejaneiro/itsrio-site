@@ -6,6 +6,8 @@ uploads/
 wp-content/gallery-bank/
 wp-content/languages/
 wp-content/themes/divi3*
+.sass-cache/
+.gitlab-ci.yml
 
 # Wordpress
 index.php

@@ -91,20 +91,20 @@ h2.list-title small {
 }
 
 .list-item-wrapper {
+	margin-top: 15px !important;
 	@media screen and (min-width: 415px) and (max-width: 1023px) {
 		width: 50% !important;
+	}
+	@include breakpoint(medium) {
+		margin-top: 25px !important;
 	}
 }
 
 .list-item {
 	background-color: white !important;
 	border-radius: 3px;
-	margin-top: 15px !important;
 	position: relative !important;
 	transition: all 0.3s !important;
-	@include breakpoint(medium) {
-		margin-top: 25px !important;
-	}
 	
 	@mixin list-item-active-hover {
 		/* não é possível dar @extend em classes ou placeholders

@@ -942,6 +942,20 @@
     }
     .tab-content {
         width: calc(100% - 240px);
+        .list-title {
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 15px !important;
+            p {
+                margin: 0;
+            }
+        }
+    }
+    a.flickity-prev-next-button, button.flickity-prev-next-button {
+        border: 1px solid #fff;
+        .arrow {
+            fill: #fff;
+        }
     }
 }
 

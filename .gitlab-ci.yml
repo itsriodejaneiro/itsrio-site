@@ -20,8 +20,3 @@ test:
 deploy:staging:
   script:
     - rsync -av -e 'ssh -o StrictHostKeyChecking=no' wp-content/ root@hacklab_its-ssh_1.docker:/var/www/html/wp-content/
-
-# Máquina EC2 dos caras em que damos um pull quando temos tudo Ok
-deploy:production:
-  script:
-    - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull

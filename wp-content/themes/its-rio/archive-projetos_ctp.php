@@ -93,14 +93,14 @@ $cat_classes = 'black';
 
 	setTimeout(function(){
 		var active = false;
-		var $grid = $('.older-posts').isotope({
+		/*var $grid = $('.older-posts').isotope({
 			itemSelector: '.large-4',
 			layoutMode: 'fitRows'
 		});
 		var $grid2 = $('#projetos-encerrados').isotope({
 			itemSelector: '.large-4',
 			layoutMode: 'fitRows'
-		});
+		});*/
 
 		jQuery('.area-pesquisa .slider').hover(function(e) {
 			if(!active)
@@ -159,12 +159,12 @@ $cat_classes = 'black';
 
 			$('.list-title small').html('<u>'+a.find('.slider-title').text()+'</u>'+ ' <i>&times;</i>');
 
-			$('.list-title small i').click(function(){
+			$('.list-title small').click(function(){
 				$('html, body').animate({ scrollTop: 0 }, 300);
 				$grid.isotope({ filter: '*' });
 				$grid2.isotope({ filter: '*' });
 				button.text("<?= pll__('ver projetos desta área') ?>");
-				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
+				$(this).html('<?= pll__("mostrando tudo") ?>');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
 				location.hash = '';
 				active = false;
