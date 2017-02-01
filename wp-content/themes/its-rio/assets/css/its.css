@@ -4424,12 +4424,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-.post-type-archive-projetos_ctp .projetos-encerrados-title {
+.post-type-archive-projetos_ctp #projetos-encerrados-title {
   margin-top: 20px;
 }
 
 @media screen and (min-width: 48.0625em) {
-  .post-type-archive-projetos_ctp .projetos-encerrados-title {
+  .post-type-archive-projetos_ctp #projetos-encerrados-title {
     margin-top: 40px;
   }
 }
