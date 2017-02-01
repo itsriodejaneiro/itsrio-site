@@ -10,7 +10,7 @@
 				<span><?= $tabs_content_midias[0]['description'] ?></span>
 				<div class="line"></div>
 			</div>
-			<div id="media-player">
+			<div id="media-player" first-video="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>">
 				<iframe class="mejs-player" width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="medias-thumbs">
