@@ -139,14 +139,18 @@
 
 .row.single-menu-container{
     width: 100%;
-    display: flex;
+    @include breakpoint(large down) {
+        display: flex;
+    }
+    @include breakpoint(large) {
+        position: relative;
+    }
 }
 
 .single-menu {
     text-transform: lowercase;
 
     @media #{$large-up}{
-        flex: 1;
         span { display: none; }
         ul{
             display: flex;
@@ -174,17 +178,6 @@
 
 .sidebar {
     position: relative;
-    .button {
-        left: 0;
-        right: -1px;
-        height: 50px;
-        display: flex;
-        font-size: 14px;
-        padding: 0 10px;
-        align-items: center;
-        justify-content: center;
-    }
-
     @include breakpoint(small only) {
         width: 130px;
     }
@@ -192,13 +185,25 @@
         width: 190px;
     }
     @include breakpoint(large) {
+        position: absolute;
+        top: -8px;
+        right: 0;
+        width: 220px;
+    }
+    .button {
         display: flex;
-        flex-grow: 0.3;
+        font-size: 14px;
+        padding: 0 10px;
         align-items: center;
-        justify-content: flex-end;
-
-        .button {
+        justify-content: center;
+        @include breakpoint(large down) {
+            left: 0;
+            right: -1px;
+            height: 50px;
+        }
+        @include breakpoint(large) {
             height: 40px;
+            width: 100%;
             white-space: nowrap;
         }
     }
