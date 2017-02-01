@@ -6,7 +6,10 @@
 				<div class="line"></div>
 			</h2>
 			<div class="tab-content raleway">
-				<p><?= $content ?></p>
+				<h3 class="list-title">
+					<?= $content ?>
+					<div class="line"></div>
+				</h3>
 			</div>
 			<div id="map-editor">
 				<img id="mapa" src="/wp-content/themes/its-rio/functions/components/map/mapamundi_pontos.svg">

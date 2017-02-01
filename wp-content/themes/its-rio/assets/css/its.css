@@ -5581,6 +5581,20 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   width: calc(100% - 240px);
 }
 
+.component-tabs.map .tab-content .list-title {
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 15px !important;
+}
+
+.component-tabs.map a.flickity-prev-next-button, .component-tabs.map button.flickity-prev-next-button {
+  border: 1px solid #fff;
+}
+
+.component-tabs.map a.flickity-prev-next-button .arrow, .component-tabs.map button.flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
 .markers {
   width: 20px;
   cursor: pointer;
