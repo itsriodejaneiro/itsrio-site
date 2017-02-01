@@ -138,14 +138,14 @@
 }
 
 .row.single-menu-container{
-    display: flex;
-    align-items: center;
-    height: 40px;
     width: 100%;
     @include breakpoint(large down) {
         display: flex;
     }
     @include breakpoint(large) {
+        display: flex;
+        align-items: center;
+        height: 40px;
         position: relative;
     }
 }
