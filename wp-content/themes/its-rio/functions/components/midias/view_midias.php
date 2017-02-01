@@ -17,13 +17,13 @@
 					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
 				</object> -->
 
-				<video width="600" height="380" id="player1" preload="none">
+<!-- 				<video width="600" height="380" id="player1" preload="none">
 					<source type="video/youtube" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" />
 					</video>
-
+ -->
 					<script>
 						setTimeout(function(){
-							// var player = new MediaElementPlayer('#player1');
+							var player = new MediaElementPlayer('.mejs-player');
 
 						},1000);
 					</script>
