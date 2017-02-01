@@ -166,10 +166,10 @@
 			$('.single-header-drop-down').removeClass('active');
 		});
 
-		$('.mejs-player').mediaelementplayer();
-		setTimeout(function(){
-			$('.mejs__controls, .mejs__layers').hide();
-		},500);
+		// $('.mejs-player').mediaelementplayer();
+		// setTimeout(function(){
+		// 	$('.mejs__controls, .mejs__layers').hide();
+		// },500);
 	});
 </script>
 <?php //wp_footer();?>
