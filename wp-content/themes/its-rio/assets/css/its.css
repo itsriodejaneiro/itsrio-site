@@ -4422,8 +4422,15 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     margin: 15px !important;
     line-height: 1.7;
   }
-  .post-type-archive-projetos_ctp .list-title {
-    margin-top: 20px;
+}
+
+.post-type-archive-projetos_ctp .projetos-encerrados-title {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .post-type-archive-projetos_ctp .projetos-encerrados-title {
+    margin-top: 40px;
   }
 }
 
