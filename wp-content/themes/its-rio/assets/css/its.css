@@ -4622,6 +4622,11 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .row.single-menu-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 40px;
   width: 100%;
 }
 
@@ -4691,7 +4696,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 @media screen and (min-width: 64.0625em) {
   .sidebar {
     position: absolute;
-    top: -8px;
+    top: 0;
     right: 0;
     width: 220px;
   }
