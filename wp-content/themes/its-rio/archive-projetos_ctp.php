@@ -93,14 +93,14 @@ $cat_classes = 'black';
 
 	setTimeout(function(){
 		var active = false;
-		var $grid = $('.older-posts').isotope({
+		/*var $grid = $('.older-posts').isotope({
 			itemSelector: '.large-4',
 			layoutMode: 'fitRows'
 		});
 		var $grid2 = $('#projetos-encerrados').isotope({
 			itemSelector: '.large-4',
 			layoutMode: 'fitRows'
-		});
+		});*/
 
 		jQuery('.area-pesquisa .slider').hover(function(e) {
 			if(!active)
