@@ -25,7 +25,7 @@
 								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
 									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
 									<div class="color-hover"></div>
-									<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+									<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
 									>
 									<i class="fa fa-play-circle" aria-hidden="true"></i>
 								</div>
