@@ -12,49 +12,34 @@
 			</div>
 			<div id="media-player">
 				<iframe class="mejs-player" width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
-				<!-- <object>
-					<param name="movie" value="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>"></param>
-					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
-				</object> -->
-
-<!-- 				<video width="600" height="380" id="player1" preload="none">
-					<source type="video/youtube" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" />
-					</video>
- -->
-					<script>
-						setTimeout(function(){
-							var player = new MediaElementPlayer('.mejs-player');
-
-						},1000);
-					</script>
-				</div>
-				<div class="medias-thumbs">
-					<?php 
-					$i = 0;
-					if(count($tabs_content_midias) > 1){
-						foreach ($tabs_content_midias as $midia) {
-							if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
-								?>
-								<div class="thumb-wrapper">
-									<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
-										class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
-										<div class="color-hover"></div>
-										<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
-										>
-										<i class="fa fa-play-circle" aria-hidden="true"></i>
-									</div>
-									<div class="media-title">
-										<div class="line"></div>
-										<h3><?= $midia['title'] ?></h3>
-										<span><?= $midia['description'] ?></span>
-									</div>
+			</div>
+			<div class="medias-thumbs">
+				<?php 
+				$i = 0;
+				if(count($tabs_content_midias) > 1){
+					foreach ($tabs_content_midias as $midia) {
+						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
+							?>
+							<div class="thumb-wrapper">
+								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
+									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
+									<div class="color-hover"></div>
+									<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+									>
+									<i class="fa fa-play-circle" aria-hidden="true"></i>
 								</div>
-								<?php
-								$i++;
-							}
+								<div class="media-title">
+									<div class="line"></div>
+									<h3><?= $midia['title'] ?></h3>
+									<span><?= $midia['description'] ?></span>
+								</div>
+							</div>
+							<?php
+							$i++;
 						}
-					} ?>
-				</div>
+					}
+				} ?>
 			</div>
 		</div>
 	</div>
+</div>
