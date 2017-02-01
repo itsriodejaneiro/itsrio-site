@@ -138,6 +138,9 @@
 }
 
 .row.single-menu-container{
+    display: flex;
+    align-items: center;
+    height: 40px;
     width: 100%;
     @include breakpoint(large down) {
         display: flex;
@@ -186,7 +189,7 @@
     }
     @include breakpoint(large) {
         position: absolute;
-        top: -8px;
+        top: 0;
         right: 0;
         width: 220px;
     }
