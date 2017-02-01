@@ -93,7 +93,7 @@
 	<?= $styles ?>
 </style>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/3.0.2/mediaelementplayer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/3.0.2/mediaelementplayer.min.js"></script>
 
 <script type="text/javascript">
 	function toggleMenu(){
@@ -166,8 +166,10 @@
 			$('.single-header-drop-down').removeClass('active');
 		});
 
-		$('.mejs__controls, .mejs__layers').hide();
 		$('.mejs-player').mediaelementplayer();
+		setTimeout(function(){
+			$('.mejs__controls, .mejs__layers').hide();
+		},500);
 	});
 </script>
 <?php //wp_footer();?>
