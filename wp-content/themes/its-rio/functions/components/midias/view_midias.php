@@ -14,7 +14,6 @@
 				<iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="medias-thumbs">
-			<!-- tab content <?php var_dump($tabs_content_midias); ?> -->
 				<?php 
 				$i = 0;
 				if(count($tabs_content_midias) > 1){
@@ -25,7 +24,7 @@
 								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
 									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
 									<div class="color-hover"></div>
-									<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+									<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
 									>
 									<i class="fa fa-play-circle" aria-hidden="true"></i>
 								</div>
