@@ -165,6 +165,7 @@
 		$(document).click(function() {
 			$('.single-header-drop-down').removeClass('active');
 		});
+		$('#media-player iframe').attr('src','https://www.youtube.com/embed/xcky7JQH-iY');
 
 		// $('.mejs-player').mediaelementplayer();
 		// setTimeout(function(){
