@@ -11,7 +11,7 @@
 				<div class="line"></div>
 			</div>
 			<div id="media-player">
-				<!-- <iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe> -->
+				<iframe class="mejs-player" width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe>
 				<!-- <object>
 					<param name="movie" value="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>"></param>
 					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
@@ -23,8 +23,8 @@
 
 					<script>
 						setTimeout(function(){
-							var player = new MediaElementPlayer('#player1');
-							
+							// var player = new MediaElementPlayer('#player1');
+
 						},1000);
 					</script>
 				</div>
