@@ -166,6 +166,7 @@
 			$('.single-header-drop-down').removeClass('active');
 		});
 
+		$('.mejs__controls, .mejs__layers').hide();
 		$('.mejs-player').mediaelementplayer();
 	});
 </script>
