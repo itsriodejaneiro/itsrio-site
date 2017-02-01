@@ -18,8 +18,8 @@
 				</object> -->
 
 				<video width="320" height="240" controls>
-					<source src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="video/mp4" />
-					<source src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="video/ogg" />
+					<source src="https://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>" type="video/mp4" />
+					<source src="https://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>" type="video/ogg" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
