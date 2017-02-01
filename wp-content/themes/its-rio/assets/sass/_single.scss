@@ -946,6 +946,9 @@
             display: inline-block;
             font-size: 14px;
             margin-top: 15px !important;
+            p {
+                margin: 0;
+            }
         }
     }
     a.flickity-prev-next-button, button.flickity-prev-next-button {
