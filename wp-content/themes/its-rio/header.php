@@ -25,7 +25,6 @@
 	<script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/3.0.2/mediaelementplayer.min.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/3.0.2/mediaelementplayer.min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 	<div id="content_all" v-cloak>

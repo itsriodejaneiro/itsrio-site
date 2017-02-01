@@ -93,6 +93,7 @@
 	<?= $styles ?>
 </style>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/3.0.2/mediaelementplayer.min.js"></script>
 
 <script type="text/javascript">
 	function toggleMenu(){
