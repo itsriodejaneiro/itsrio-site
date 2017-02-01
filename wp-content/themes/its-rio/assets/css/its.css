@@ -3060,25 +3060,28 @@ h2.list-title small i {
   justify-content: center;
 }
 
+.list-item-wrapper {
+  margin-top: 15px !important;
+}
+
 @media screen and (min-width: 415px) and (max-width: 1023px) {
   .list-item-wrapper {
     width: 50% !important;
   }
 }
 
+@media screen and (min-width: 48.0625em) {
+  .list-item-wrapper {
+    margin-top: 25px !important;
+  }
+}
+
 .list-item {
   background-color: white !important;
   border-radius: 3px;
-  margin-top: 15px !important;
   position: relative !important;
   -webkit-transition: all 0.3s !important;
   transition: all 0.3s !important;
-}
-
-@media screen and (min-width: 48.0625em) {
-  .list-item {
-    margin-top: 25px !important;
-  }
 }
 
 @media screen and (max-width: 74.9375em) {
