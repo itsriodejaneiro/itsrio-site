@@ -13,8 +13,8 @@
 			<div id="media-player">
 				<!-- <iframe width="600" height="380" src="https://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" frameborder="0" allowfullscreen></iframe> -->
 				<object>
-					<param name="movie" value="http://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>"></param>
-					<embed src="http://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
+					<param name="movie" value="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>"></param>
+					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
 				</object>
 			</div>
 			<div class="medias-thumbs">
