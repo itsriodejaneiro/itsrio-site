@@ -165,6 +165,8 @@
 		$(document).click(function() {
 			$('.single-header-drop-down').removeClass('active');
 		});
+
+		$('.mejs-player').mediaelementplayer();
 	});
 </script>
 <?php //wp_footer();?>
