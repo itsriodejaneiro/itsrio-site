@@ -16,40 +16,48 @@
 					<param name="movie" value="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>"></param>
 					<embed width="600" height="380" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" type="application/x-shockwave-flash"></embed>
 				</object> -->
+				<script src="jquery.js"></script>
+				<script src="https://raw.githubusercontent.com/johndyer/mediaelement/master/build/mediaelementplayer.min.js"></script>
+				<link rel="stylesheet" href="https://raw.githubusercontent.com/johndyer/mediaelement/master/build/mediaelementplayer.min.css" />
 
-				<video width="320" height="240" controls>
-					<source src="https://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>" type="video/mp4" />
-					<source src="https://www.youtube.com/v/<?= $tabs_content_midias[0]['url'] ?>" type="video/ogg" />
-					Your browser does not support the video tag.
-				</video>
-			</div>
-			<div class="medias-thumbs">
-				<?php 
-				$i = 0;
-				if(count($tabs_content_midias) > 1){
-					foreach ($tabs_content_midias as $midia) {
-						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
-							?>
-							<div class="thumb-wrapper">
-								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
-									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
-									<div class="color-hover"></div>
-									<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
-									>
-									<i class="fa fa-play-circle" aria-hidden="true"></i>
+				<video width="600" height="380" id="player1" preload="none">
+					<source type="video/youtube" src="http://www.youtube.com/embed/<?= $tabs_content_midias[0]['url'] ?>" />
+					</video>
+
+					<script>
+						setTimeout(function(){
+							var player = new MediaElementPlayer('#player1');
+							
+						},1000);
+					</script>
+				</div>
+				<div class="medias-thumbs">
+					<?php 
+					$i = 0;
+					if(count($tabs_content_midias) > 1){
+						foreach ($tabs_content_midias as $midia) {
+							if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
+								?>
+								<div class="thumb-wrapper">
+									<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
+										class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
+										<div class="color-hover"></div>
+										<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+										>
+										<i class="fa fa-play-circle" aria-hidden="true"></i>
+									</div>
+									<div class="media-title">
+										<div class="line"></div>
+										<h3><?= $midia['title'] ?></h3>
+										<span><?= $midia['description'] ?></span>
+									</div>
 								</div>
-								<div class="media-title">
-									<div class="line"></div>
-									<h3><?= $midia['title'] ?></h3>
-									<span><?= $midia['description'] ?></span>
-								</div>
-							</div>
-							<?php
-							$i++;
+								<?php
+								$i++;
+							}
 						}
-					}
-				} ?>
+					} ?>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
