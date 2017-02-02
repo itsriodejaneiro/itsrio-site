@@ -5119,6 +5119,14 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.related-content.comunicados .list-item-wrapper {
+  margin: 0 !important;
+}
+
+.related-content.comunicados .list-item {
+  margin-top: 25px;
+}
+
 /* COMPONENT AULAS E COMPONENTS*/
 .component-tabs .tab-content {
   overflow: hidden;
