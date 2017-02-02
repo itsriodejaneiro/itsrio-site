@@ -4623,8 +4623,24 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .row.single-menu-container {
   width: 100%;
-  display: -webkit-box;
-  display: flex;
+}
+
+@media screen and (max-width: 74.9375em) {
+  .row.single-menu-container {
+    display: -webkit-box;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 64.0625em) {
+  .row.single-menu-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 40px;
+    position: relative;
+  }
 }
 
 .single-menu {
@@ -4632,10 +4648,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 @media screen and (min-width: 64.0625em) {
-  .single-menu {
-    -webkit-box-flex: 1;
-    flex: 1;
-  }
   .single-menu span {
     display: none;
   }
@@ -4669,20 +4681,6 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   position: relative;
 }
 
-.sidebar .button {
-  left: 0;
-  right: -1px;
-  height: 50px;
-  display: -webkit-box;
-  display: flex;
-  font-size: 14px;
-  padding: 0 10px;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
-
 @media screen and (max-width: 48em) {
   .sidebar {
     width: 130px;
@@ -4697,17 +4695,36 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 @media screen and (min-width: 64.0625em) {
   .sidebar {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-flex: 0.3;
-    flex-grow: 0.3;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 220px;
   }
+}
+
+.sidebar .button {
+  display: -webkit-box;
+  display: flex;
+  font-size: 14px;
+  padding: 0 10px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 74.9375em) {
+  .sidebar .button {
+    left: 0;
+    right: -1px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 64.0625em) {
   .sidebar .button {
     height: 40px;
+    width: 100%;
     white-space: nowrap;
   }
 }
