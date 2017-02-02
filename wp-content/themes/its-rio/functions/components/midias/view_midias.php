@@ -21,10 +21,10 @@
 						if(!is_null($midia['url']) && $midia['url'] != '' && $media['url'] != '&#10;'){
 							?>
 							<div class="thumb-wrapper">
-								<div onclick="changeMidia(this, '<?= $midia['title'] ?>');"
+								<div onclick="changeMidia(this, '<?= $midia['url'] ?>','<?= $midia['title'] ?>');"
 									class="img-wrapper <?= $i == 0 ? ' active' : '' ?>">
 									<div class="color-hover"></div>
-									<img src="http://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
+									<img src="https://img.youtube.com/vi/<?= $midia['url'] ?>/hqdefault.jpg" class="midia-thumb"
 									>
 									<i class="fa fa-play-circle" aria-hidden="true"></i>
 								</div>
