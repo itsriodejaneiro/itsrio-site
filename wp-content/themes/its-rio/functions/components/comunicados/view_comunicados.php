@@ -5,8 +5,8 @@
 				acontece <a href="javascript:void(0);">ver todos</a>
 				<div class="line"></div>
 			</h2>
-			<div class="related-post list-item-wrapper">
-				<div class="column small-12 medium-4 large-4 end" v-for="(item, index) in comunicados.posts ">
+			<div class="related-post">
+				<div class="list-item-wrapper column small-12 medium-4 large-4 end" v-for="(item, index) in comunicados.posts ">
 					<div class="list-item">
 						<a v-bind:href="item.permalink">
 							<div class="info">
