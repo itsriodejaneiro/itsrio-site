@@ -307,7 +307,7 @@ new Vue({
                     $(el).addClass('active');
 
                     $('html, body').animate({
-                        scrollTop: target.offset().top - 100
+                        scrollTop: target.offset().top - 65
                     }, 300);
                     return false;
                 }
