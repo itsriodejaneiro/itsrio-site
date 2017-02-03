@@ -23,10 +23,14 @@
     }
 
     .close-button {
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
         position: absolute;
         text-align: center;
+        @include breakpoint(768px) {
+            top: 20px;
+            right: 20px;
+        }
         @include breakpoint(medium) {
             top: 50px;
             right: 30px;
@@ -46,8 +50,12 @@
     }
     .search-label {
         display: block;
-        margin-top: 50px;
+        margin-top: 20px;
+        overflow: hidden;
         width: 100%;
+        @include breakpoint(768px) {
+            margin-top: 50px;
+        }
     }
     h2 {
         font-size: 18px;
@@ -61,7 +69,7 @@
         float: left;
         font-size: 18px;
         font-weight: bold;
-        margin: 15px 0 40px;
+        margin: 15px 0 0;
         padding-bottom: 5px;
         background-color: transparent;
         border-bottom: 4px solid #000;
@@ -100,17 +108,16 @@
     }
     .advanced-search {
         font-weight: bold;
-        margin-top: 25px;
+        margin: 10px 0 0;
         padding: 15px 20px;
         @include breakpoint(medium) {
+            margin-top: 25px;
             font-size: 18px;
         }
-
         .fa {
             font-size: 32px;
             line-height: 0;
         }
-
         .fa-angle-up {
             display: none;
             vertical-align: sub;
@@ -122,28 +129,39 @@
                 vertical-align: sub;
             }
         }
-
         &.active{
-            .fa-angle-up{ display: inline-block; }
-            .fa-angle-down{ display: none; }
+            .fa-angle-up {
+                display: inline-block;
+            }
+            .fa-angle-down {
+                display: none;
+            }
         }
     }
     .filter-options {
         clear: both;
-        height: 320px;
+        height: 310px;
+        margin-top: 20px;
         max-height: 0;
         overflow: hidden;
         transition: max-height .4s ease-in-out;
         @media screen and (min-width: 415px) {
-            max-width: 600px;
+            max-width: 100%;
+            margin-top: 40px;
         }
-        @include breakpoint(medium) {
+        @include breakpoint(large) {
+            height: 330px;
+        }
+        @include breakpoint(large) {
             max-width: 820px;
         }
 
         &.active {
             max-height: 1000px;
+        }
 
+        h2 {
+            margin-bottom: 10px;
         }
 
         h3 {
@@ -153,7 +171,6 @@
         }
 
         .filter {
-            margin: 20px 0;
             position: relative;
             &:last-child {
                 margin-bottom: 0;
@@ -161,6 +178,11 @@
             .list-title {
                 display: block;
                 width: 100%;
+            }
+            @include breakpoint(medium) {
+                & + .filter {
+                    margin-top: 20px;
+                }
             }
         }
 
