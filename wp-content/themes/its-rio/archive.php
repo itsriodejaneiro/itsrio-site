@@ -115,7 +115,9 @@ get_header();
 			jQuery('.highlights-carousel').flickity({
 				wrapAround: true,
 				cellSelector: '.carousel-cell',
-				setGallerySize : false
+				setGallerySize : false,
+				autoPlay: 3000,
+
 			});
 		});
 	</script>

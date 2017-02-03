@@ -114,7 +114,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'its_pessoas',
 		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp', 'publicacoes_ctp' ],
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,

@@ -9,6 +9,7 @@
 
 	jQuery(document).ready(function(){
 		jQuery('.main-carousel,.home-area-carousel').flickity({
+			autoPlay: 3000,
 			wrapAround: true,
 		});
 	});
