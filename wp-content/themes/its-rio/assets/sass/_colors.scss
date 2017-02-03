@@ -232,13 +232,13 @@ $color_institucionais : #522e91;
 // hover nos cards de post
 
 .list-item {
-	&.type-cursos_ctp {
+	&.cursos_ctp, &.type-cursos_ctp {
 		@include cards-colors($color_cursos);
 	}
-	&.type-varandas_ctp {
+	&.varandas_ctp, &.type-varandas_ctp {
 		@include cards-colors($color_varandas);
 	}
-	&.type-projetos_ctp {
+	&.projetos_ctp, &.type-projetos_ctp {
 		@include cards-colors($color_projetos);
 		.img {
 			background-image: url('../images/project-default-bg.jpg');
@@ -246,7 +246,7 @@ $color_institucionais : #522e91;
 			background-size: cover;
 		}
 	}
-	&.type-publicacoes_ctp {
+	&.publicacoes_ctp, &.type-publicacoes_ctp {
 		@include cards-colors($color_publicacoes);
 		.img {
 			background-image: url('../images/publications-default-thumb.png');
