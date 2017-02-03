@@ -4434,6 +4434,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.post-type-archive-comunicados_ctp .highlights .horario {
+  display: none;
+}
+
 .info_border {
   border-bottom: 5px solid black;
 }
