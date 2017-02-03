@@ -9,6 +9,8 @@
 	jQuery(document).ready(function(){
 		jQuery('.main-carousel,.home-area-carousel').flickity({
 			wrapAround: true,
+			autoPlay: 3000,
+
 			// arrowShape: 'm30.4,103c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z'; //http://www.flaticon.com/categories/arrows
 		});
 	});
