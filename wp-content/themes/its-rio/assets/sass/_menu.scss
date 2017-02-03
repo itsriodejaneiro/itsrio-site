@@ -14,7 +14,7 @@
 			float: left;
 		}
 	}
-	@include breakpoint(large down) {
+	@include breakpoint(medium down) {
 		.fa-bars {
 			left: 15px;
 			bottom: 25px;
@@ -22,8 +22,9 @@
 			position: absolute;
 		}
 		h1 {
+			font-size: 1.5rem;
 		    left: 50%;
-		    top: 10px;
+		    top: 15px;
 			position: absolute;
 		    margin-left: calc(-58px / 2);
 		}

@@ -3523,7 +3523,7 @@ h3, h4, h5 {
   }
 }
 
-@media screen and (max-width: 74.9375em) {
+@media screen and (max-width: 64em) {
   .menu-container .fa-bars {
     left: 15px;
     bottom: 25px;
@@ -3531,8 +3531,9 @@ h3, h4, h5 {
     position: absolute;
   }
   .menu-container h1 {
+    font-size: 1.5rem;
     left: 50%;
-    top: 10px;
+    top: 15px;
     position: absolute;
     margin-left: calc(-58px / 2);
   }
@@ -4434,6 +4435,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.post-type-archive-comunicados_ctp .highlights .horario {
+  display: none;
+}
+
 .info_border {
   border-bottom: 5px solid black;
 }
@@ -5117,6 +5122,14 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   .related-content .list-item-wrapper {
     width: 100% !important;
   }
+}
+
+.related-content.comunicados .list-item-wrapper {
+  margin: 0 !important;
+}
+
+.related-content.comunicados .list-item {
+  margin-top: 25px;
 }
 
 /* COMPONENT AULAS E COMPONENTS*/
@@ -6128,101 +6141,101 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
-.list-item.type-cursos_ctp .img .color-hover {
+.list-item.cursos_ctp .img .color-hover, .list-item.type-cursos_ctp .img .color-hover {
   background-color: #9a258f;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .list-item.type-cursos_ctp:active {
+  .list-item.cursos_ctp:active, .list-item.type-cursos_ctp:active {
     background-color: #9a258f !important;
   }
-  .list-item.type-cursos_ctp:active .categories ul li:hover a {
+  .list-item.cursos_ctp:active .categories ul li:hover a, .list-item.type-cursos_ctp:active .categories ul li:hover a {
     color: #9a258f !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .list-item.type-cursos_ctp:hover {
+  .list-item.cursos_ctp:hover, .list-item.type-cursos_ctp:hover {
     background-color: #9a258f !important;
   }
-  .list-item.type-cursos_ctp:hover .categories ul li:hover a {
+  .list-item.cursos_ctp:hover .categories ul li:hover a, .list-item.type-cursos_ctp:hover .categories ul li:hover a {
     color: #9a258f !important;
   }
 }
 
-.list-item.type-varandas_ctp .img .color-hover {
+.list-item.varandas_ctp .img .color-hover, .list-item.type-varandas_ctp .img .color-hover {
   background-color: #00958a;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .list-item.type-varandas_ctp:active {
+  .list-item.varandas_ctp:active, .list-item.type-varandas_ctp:active {
     background-color: #00958a !important;
   }
-  .list-item.type-varandas_ctp:active .categories ul li:hover a {
+  .list-item.varandas_ctp:active .categories ul li:hover a, .list-item.type-varandas_ctp:active .categories ul li:hover a {
     color: #00958a !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .list-item.type-varandas_ctp:hover {
+  .list-item.varandas_ctp:hover, .list-item.type-varandas_ctp:hover {
     background-color: #00958a !important;
   }
-  .list-item.type-varandas_ctp:hover .categories ul li:hover a {
+  .list-item.varandas_ctp:hover .categories ul li:hover a, .list-item.type-varandas_ctp:hover .categories ul li:hover a {
     color: #00958a !important;
   }
 }
 
-.list-item.type-projetos_ctp .img .color-hover {
+.list-item.projetos_ctp .img .color-hover, .list-item.type-projetos_ctp .img .color-hover {
   background-color: #522e91;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .list-item.type-projetos_ctp:active {
+  .list-item.projetos_ctp:active, .list-item.type-projetos_ctp:active {
     background-color: #522e91 !important;
   }
-  .list-item.type-projetos_ctp:active .categories ul li:hover a {
+  .list-item.projetos_ctp:active .categories ul li:hover a, .list-item.type-projetos_ctp:active .categories ul li:hover a {
     color: #522e91 !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .list-item.type-projetos_ctp:hover {
+  .list-item.projetos_ctp:hover, .list-item.type-projetos_ctp:hover {
     background-color: #522e91 !important;
   }
-  .list-item.type-projetos_ctp:hover .categories ul li:hover a {
+  .list-item.projetos_ctp:hover .categories ul li:hover a, .list-item.type-projetos_ctp:hover .categories ul li:hover a {
     color: #522e91 !important;
   }
 }
 
-.list-item.type-projetos_ctp .img {
+.list-item.projetos_ctp .img, .list-item.type-projetos_ctp .img {
   background-image: url("../images/project-default-bg.jpg");
   background-position: center;
   background-size: cover;
 }
 
-.list-item.type-publicacoes_ctp .img .color-hover {
+.list-item.publicacoes_ctp .img .color-hover, .list-item.type-publicacoes_ctp .img .color-hover {
   background-color: #f5821f;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .list-item.type-publicacoes_ctp:active {
+  .list-item.publicacoes_ctp:active, .list-item.type-publicacoes_ctp:active {
     background-color: #f5821f !important;
   }
-  .list-item.type-publicacoes_ctp:active .categories ul li:hover a {
+  .list-item.publicacoes_ctp:active .categories ul li:hover a, .list-item.type-publicacoes_ctp:active .categories ul li:hover a {
     color: #f5821f !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .list-item.type-publicacoes_ctp:hover {
+  .list-item.publicacoes_ctp:hover, .list-item.type-publicacoes_ctp:hover {
     background-color: #f5821f !important;
   }
-  .list-item.type-publicacoes_ctp:hover .categories ul li:hover a {
+  .list-item.publicacoes_ctp:hover .categories ul li:hover a, .list-item.type-publicacoes_ctp:hover .categories ul li:hover a {
     color: #f5821f !important;
   }
 }
 
-.list-item.type-publicacoes_ctp .img {
+.list-item.publicacoes_ctp .img, .list-item.type-publicacoes_ctp .img {
   background-image: url("../images/publications-default-thumb.png");
   background-position: center;
   background-size: cover;

@@ -544,6 +544,14 @@
             width: 100% !important;
         }
     }
+    &.comunicados {
+        .list-item-wrapper {
+            margin: 0 !important;
+        }
+        .list-item {
+            margin-top: 25px;
+        }
+    }
 }
 
 /* COMPONENT AULAS E COMPONENTS*/
