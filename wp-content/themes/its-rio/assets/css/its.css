@@ -3523,7 +3523,7 @@ h3, h4, h5 {
   }
 }
 
-@media screen and (max-width: 74.9375em) {
+@media screen and (max-width: 64em) {
   .menu-container .fa-bars {
     left: 15px;
     bottom: 25px;
@@ -3531,8 +3531,9 @@ h3, h4, h5 {
     position: absolute;
   }
   .menu-container h1 {
+    font-size: 1.5rem;
     left: 50%;
-    top: 10px;
+    top: 15px;
     position: absolute;
     margin-left: calc(-58px / 2);
   }
