@@ -1,3 +1,4 @@
+$color_base : #262626;
 $color_cursos : #9a258f;
 $color_varandas : #00958a;
 $color_publicacoes : #f5821f;
@@ -67,7 +68,7 @@ $color_institucionais : #522e91;
 	@include single-colors($color_projetos);
 }
 
-.page, .single-comunicados_ctp {
+.page, .single-comunicados_ctp, .post-type-archive-comunicados_ctp {
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid #000;
 		font-weight: bold;
@@ -91,13 +92,13 @@ $color_institucionais : #522e91;
 		&:active {
 			// mobile
 			@include breakpoint(large down) {
-				background-color: rgb(38, 38, 38) !important;
+				background-color: $color_base !important;
 			}	
 		}
 		&:hover {
 			// desktop
 			@include breakpoint(large up) {
-				background-color: rgb(38, 38, 38) !important;
+				background-color: $color_base !important;
 			}
 		}
 	}
@@ -162,7 +163,7 @@ $color_institucionais : #522e91;
 		// mobile
 		@include breakpoint(large down) {
 			.info {
-				background-color: rgb(38, 38, 38);
+				background-color: $color_base;
 			}
 		}
 	}
@@ -170,7 +171,7 @@ $color_institucionais : #522e91;
 		// desktop
 		@include breakpoint(large up) {
 			.info {
-				background-color: rgb(38, 38, 38);
+				background-color: $color_base;
 			}
 		}
 	}
@@ -254,13 +255,16 @@ $color_institucionais : #522e91;
 			background-size: cover;
 		}
 	}
+	&.comunicados_ctp, &.type-comunicados_ctp {
+		@include cards-colors($color_base);
+	}
 }
 
 @include breakpoint(small only) {
 	.home, .archive {
 		.highlights {
 			.info {
-				background-color: rgb(38, 38, 38);
+				background-color: $color_base;
 				a, h2, .box {
 					color: #fff !important;
 				}
