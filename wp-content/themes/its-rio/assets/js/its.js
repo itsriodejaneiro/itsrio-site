@@ -250,7 +250,7 @@ new Vue({
         //         $('.related-post .large-4:gt(2)').hide();
         //         $(this).text('ver todos');
         //     }
-        });
+        // });
 
         var menu = $('.header-single-menu');
         var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
