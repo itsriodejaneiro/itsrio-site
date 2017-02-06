@@ -171,7 +171,6 @@ get_header();
 		$args['post__not_in'] = $destaques;
 		$args['post_type'] = $postType;
 		var_dump($args);
-		die;
 		query_posts($args);
 
 		// echo $GLOBALS['wp_query']->request;
