@@ -170,7 +170,6 @@ get_header();
 		$args['posts_per_page'] = '100';
 		$args['post__not_in'] = $destaques;
 		$args['post_type'] = $postType;
-		var_dump($args);
 		query_posts($args);
 
 		// echo $GLOBALS['wp_query']->request;
