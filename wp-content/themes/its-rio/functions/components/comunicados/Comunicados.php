@@ -47,6 +47,7 @@ class Comunicados extends ET_Builder_Module {
 		global $post;
 		global $data;
 		global $components;
+		global $lang;
 
 		$wp_filter_cache = $wp_filter;
 		$posts_type        = $this->shortcode_atts['posts_type'];
@@ -54,7 +55,7 @@ class Comunicados extends ET_Builder_Module {
 
 		$data['its_tabs'][] = pll__('comunicados');
 
-		$args['posts_per_page'] = '-1';
+		$args['posts_per_page'] = '3';
 		$args['post_type'] = ['comunicados_ctp'];
 		$query = new wp_query($args);
 

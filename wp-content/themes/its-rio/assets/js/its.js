@@ -223,33 +223,33 @@ new Vue({
             }
         }, 1000);
 
-        $('.comunicados h2 > a').click(function () {
-            if ($(this).text().indexOf("ver") > -1) {
-                $('.content-area:not(.comunicados)').hide();
-                $(this).text('voltar para institucional');
-                $('.related-post .large-4').show();
-                $('html, body').animate({ scrollTop: 0 }, 300);
+        // $('.comunicados h2 > a').click(function () {
+        //     if ($(this).text().indexOf("ver") > -1) {
+        //         $('.content-area:not(.comunicados)').hide();
+        //         $(this).text('voltar para institucional');
+        //         $('.related-post .large-4').show();
+        //         $('html, body').animate({ scrollTop: 0 }, 300);
 
-                if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
-                    var maxHeight = -1;
+        //         if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
+        //             var maxHeight = -1;
 
-                    $('.list-item-wrapper .large-4').each(function () {
-                        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-                    });
+        //             $('.list-item-wrapper .large-4').each(function () {
+        //                 maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+        //             });
 
-                    $('.list-item-wrapper .large-4').each(function () {
-                        var excedingHeight = maxHeight - $(this).height();
-                        $(this).find('.img').css('height', 220 + excedingHeight);
-                        $(this).find('.img').css('overflow', 'hidden');
-                        $(this).css('height', 220 + excedingHeight);
-                        $(this).height(maxHeight);
-                    });
-                }
-            } else {
-                $('.content-area').show();
-                $('.related-post .large-4:gt(2)').hide();
-                $(this).text('ver todos');
-            }
+        //             $('.list-item-wrapper .large-4').each(function () {
+        //                 var excedingHeight = maxHeight - $(this).height();
+        //                 $(this).find('.img').css('height', 220 + excedingHeight);
+        //                 $(this).find('.img').css('overflow', 'hidden');
+        //                 $(this).css('height', 220 + excedingHeight);
+        //                 $(this).height(maxHeight);
+        //             });
+        //         }
+        //     } else {
+        //         $('.content-area').show();
+        //         $('.related-post .large-4:gt(2)').hide();
+        //         $(this).text('ver todos');
+        //     }
         });
 
         var menu = $('.header-single-menu');
@@ -296,7 +296,7 @@ new Vue({
                     $(el).addClass('active');
 
                     $('html, body').animate({
-                        scrollTop: target.offset().top - 100
+                        scrollTop: target.offset().top - 65
                     }, 300);
                     return false;
                 }

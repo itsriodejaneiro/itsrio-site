@@ -10,7 +10,7 @@ get_header();
 	$destaques = [];
 
 	$args = array(
-		'posts_per_page' => 1,
+		'posts_per_page' => -1,
 		'orderby' => 'post_date',
 		'order' => 'DESC',
 		'post_type' => $post_type,
@@ -55,6 +55,9 @@ get_header();
 				$bannerTitle = pll__('inscrições abertas') ;
 				$bannerCards = pll__('varandas ITS');
 				$label = pll__('palestrantes');
+				break;
+				case 'comunicados_ctp':
+				$bannerCards = pll__('acontece') ;
 				break;
 
 				default:
@@ -124,7 +127,7 @@ get_header();
 
 	<div class="older-posts">
 		<?php
-		if($bannerTitle != ""){
+		if($bannerCards != ""){
 			?>
 			<div class="column large-12">
 				<h2 class="list-title">
@@ -135,7 +138,7 @@ get_header();
 			<?php
 		}
 
-		if($postType == 'publicacoes_ctp'){
+		if($postType == 'publicacoes_ctp' || $postType == 'comunicados_ctp'){
 			$args = ['orderby' => 'post_date', 'order' => 'DESC'];
 		}
 

@@ -2,7 +2,7 @@
 	<div class="related-content content-area comunicados" id="tab_<?= array_search(pll__('comunicados'), $data['its_tabs']) ?>">
 		<div class="row">
 			<h2 class="list-title">
-				acontece <a href="javascript:void(0);">ver todos</a>
+				acontece <a href="/<?= $lang ?>/comunicados">ver todos</a>
 				<div class="line"></div>
 			</h2>
 			<div class="related-post list-item-wrapper">
