@@ -3077,7 +3077,7 @@ h2.list-title small i {
 }
 
 .list-item {
-  background-color: white !important;
+  background-color: white;
   border-radius: 3px;
   position: relative !important;
   -webkit-transition: all 0.3s !important;
@@ -3088,6 +3088,7 @@ h2.list-title small i {
   .list-item:active {
     /* não é possível dar @extend em classes ou placeholders
 		   dentro de media-queries, por isso o mixin */
+    background-color: #262626;
     box-shadow: 0 0 15px #8a8a8a !important;
   }
   .list-item:active .box, .list-item:active a, .list-item:active h3, .list-item:active p {
@@ -3114,6 +3115,7 @@ h2.list-title small i {
   .list-item:hover {
     /* não é possível dar @extend em classes ou placeholders
 		   dentro de media-queries, por isso o mixin */
+    background-color: #262626;
     box-shadow: 0 0 15px #8a8a8a !important;
   }
   .list-item:hover .box, .list-item:hover a, .list-item:hover h3, .list-item:hover p {
@@ -5960,37 +5962,37 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: #522e91;
 }
 
-.page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
+.page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #000;
   font-weight: bold;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before {
+  .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #000;
   }
 }
 
-.page .menu-container .menu-nav ul li.current-menu-item a, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a {
+.page .menu-container .menu-nav ul li.current-menu-item a, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a {
   color: #000;
 }
 
-.page .header-single:before, .single-comunicados_ctp .header-single:before {
+.page .header-single:before, .single-comunicados_ctp .header-single:before, .post-type-archive-comunicados_ctp .header-single:before {
   background-color: #9a258f !important;
 }
 
-.page .header-single-menu, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .content-media .color-hover {
+.page .header-single-menu, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .content-media .color-hover, .post-type-archive-comunicados_ctp .header-single-menu, .post-type-archive-comunicados_ctp .content-media .color-hover {
   background-color: #522e91 !important;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .page .list-item:active, .single-comunicados_ctp .list-item:active {
+  .page .list-item:active, .single-comunicados_ctp .list-item:active, .post-type-archive-comunicados_ctp .list-item:active {
     background-color: #262626 !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .page .list-item:hover, .single-comunicados_ctp .list-item:hover {
+  .page .list-item:hover, .single-comunicados_ctp .list-item:hover, .post-type-archive-comunicados_ctp .list-item:hover {
     background-color: #262626 !important;
   }
 }
@@ -6242,24 +6244,24 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .list-item.comunicados_ctp .img .color-hover, .list-item.type-comunicados_ctp .img .color-hover {
-  background-color: #9a258f;
+  background-color: #262626;
 }
 
 @media screen and (max-width: 74.9375em) {
   .list-item.comunicados_ctp:active, .list-item.type-comunicados_ctp:active {
-    background-color: #9a258f !important;
+    background-color: #262626 !important;
   }
   .list-item.comunicados_ctp:active .categories ul li:hover a, .list-item.type-comunicados_ctp:active .categories ul li:hover a {
-    color: #9a258f !important;
+    color: #262626 !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
   .list-item.comunicados_ctp:hover, .list-item.type-comunicados_ctp:hover {
-    background-color: #9a258f !important;
+    background-color: #262626 !important;
   }
   .list-item.comunicados_ctp:hover .categories ul li:hover a, .list-item.type-comunicados_ctp:hover .categories ul li:hover a {
-    color: #9a258f !important;
+    color: #262626 !important;
   }
 }
 
