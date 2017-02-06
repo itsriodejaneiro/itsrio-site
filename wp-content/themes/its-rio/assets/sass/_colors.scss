@@ -256,7 +256,7 @@ $color_institucionais : #522e91;
 		}
 	}
 	&.comunicados_ctp, &.type-comunicados_ctp {
-		@include cards-colors($color_cursos);
+		@include cards-colors($color_base);
 	}
 }
 
