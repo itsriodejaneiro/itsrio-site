@@ -71,44 +71,48 @@ get_header();
 					<div class="line"></div>
 				</h2>
 				<?php
-			} ?>
-			<div class="main-carousel highlights-carousel">
-				<?php
-				$postsQtd = 0;
-				while ($posts->have_posts()) {
-					$posts->the_post();
-					$postsQtd++;
-					$meta = get_post_meta(get_the_ID());
-					$destaque_id = get_the_ID();
-					$destaques[] = get_the_ID();
-					?>
-					<div <?php post_class( 'carousel-cell highlights'); echo get_thumbnail_style($destaque_id,'banner'); ?> >
-						<div class="color-hover"></div>
-						<div class="info">
-							<a href="<?= get_post_permalink() ?>">
-								<div class="header">
-									<?php
-									if(in_array($postType, ['cursos_ctp','varandas_ctp']))
-										include ROOT.'inc/archive/info-curso-varanda.php';
-									else
-										include ROOT.'inc/archive/info-projeto-publi.php';
-									?>
+			}
+			if($postType != 'comunicados_ctp'){
+				?>
+				<div class="main-carousel highlights-carousel">
+					<?php
+					$postsQtd = 0;
+					while ($posts->have_posts()) {
+						$posts->the_post();
+						$postsQtd++;
+						$meta = get_post_meta(get_the_ID());
+						$destaque_id = get_the_ID();
+						$destaques[] = get_the_ID();
+						?>
+						<div <?php post_class( 'carousel-cell highlights'); echo get_thumbnail_style($destaque_id,'banner'); ?> >
+							<div class="color-hover"></div>
+							<div class="info">
+								<a href="<?= get_post_permalink() ?>">
+									<div class="header">
+										<?php
+										if(in_array($postType, ['cursos_ctp','varandas_ctp']))
+											include ROOT.'inc/archive/info-curso-varanda.php';
+										else
+											include ROOT.'inc/archive/info-projeto-publi.php';
+										?>
+									</div>
+								</a>
+								<div class="line show-for-medium"></div>
+								<div class="column large-12 no-p show-for-medium">
+									<?php include('inc/categories.php'); ?>
 								</div>
-							</a>
-							<div class="line show-for-medium"></div>
-							<div class="column large-12 no-p show-for-medium">
+							</div>
+							<div class="categories-wrapper show-for-small-only">
 								<?php include('inc/categories.php'); ?>
 							</div>
+							<a href="<?= get_permalink() ?>" class="post-link"></a>
 						</div>
-						<div class="categories-wrapper show-for-small-only">
-							<?php include('inc/categories.php'); ?>
-						</div>
-						<a href="<?= get_permalink() ?>" class="post-link"></a>
-					</div>
-					<?php
-				}
-				?>
-			</div>
+						<?php
+					}
+					?>
+				</div>
+				<?php 
+			} ?>
 		</div>
 		<?php
 	}
@@ -166,7 +170,8 @@ get_header();
 		$args['posts_per_page'] = '100';
 		$args['post__not_in'] = $destaques;
 		$args['post_type'] = $postType;
-
+		var_dump($args);
+		die;
 		query_posts($args);
 
 		// echo $GLOBALS['wp_query']->request;
