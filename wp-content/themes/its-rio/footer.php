@@ -131,7 +131,7 @@
 
 	function openNewsletter(){
 		$('.reveal-overlay').fadeIn();
-		$('#modalNewsletter iframe').attr('src','http://itsrio.us12.list-manage2.com/subscribe?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0='+$('#txtNewsletter').val());
+		$('#modalNewsletter iframe').attr('src','https://itsrio.us12.list-manage.com/subscribe/post?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0='+$('#txtNewsletter').val());
 	}
 
 	function changeMidia(obj, url, title){
