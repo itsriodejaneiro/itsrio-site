@@ -10,6 +10,7 @@ function register_my_cool_plugin_settings() {
 	register_setting( 'footer_settings', 'footer_contacts' );
 	register_setting( 'footer_settings', 'footer_adress' );
 	register_setting( 'footer_settings', 'footer_description' );
+	register_setting( 'footer_settings', 'footer_description_en' );
 }
 
 function footer_settings() {
@@ -32,6 +33,10 @@ function footer_settings() {
 				<tr valign="top">
 					<th scope="row">Descrição do ITS</th>
 					<td> <?php wp_editor(get_option('footer_description'), 'footer_description') ?> </td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">Descrição do ITS (inglês)</th>
+					<td> <?php wp_editor(get_option('footer_description_en'), 'footer_description_en') ?> </td>
 				</tr>
 			</table>
 			<?php submit_button(); ?>

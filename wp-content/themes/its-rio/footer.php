@@ -34,7 +34,8 @@
 		</div>
 
 		<div class="column medium-2">
-			<p class="raleway"><?= html_entity_decode(esc_attr(get_option('footer_description'))) ?></p>
+			<?php $desc_field = $lang == 'en' ? 'footer_description_en' : 'footer_description' ?>
+			<p class="raleway"><?= html_entity_decode(esc_attr(get_option($desc_field))) ?></p>
 			<ul>
 				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('equipe') ?></a></li>
 				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('onde estivemos') ?></a></li>
