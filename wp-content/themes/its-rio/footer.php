@@ -71,7 +71,7 @@
 	<div id="modalNewsletter" class="reveal-modal" data-reveal="rqhkrl-reveal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-yeti-box="modalNewsletter" data-resize="modalNewsletter">
 		<iframe src="" frameborder="0" width="100%" height="100%"></iframe>
 		<span class="close" onclick="$('.reveal-overlay').fadeOut();">&times;</span>
-	</div>
+	</div>	
 </div>
 
 <script>
@@ -91,6 +91,16 @@
 </script>
 <style>
 	<?= $styles ?>
+	<?php 
+	if($lang == 'en'){
+		?>
+		@media screen and (min-width: 64.0625em)
+		.menu-container .search-button::after {
+			content: <?= pll__('buscar') ?>;
+		}
+		<?php
+	}
+?>
 </style>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
