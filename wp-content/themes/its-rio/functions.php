@@ -137,8 +137,9 @@ function get_area_pesquisa($meta = null)
 function get_ctp_array($post_type, $full = false)
 {
     global $post;
+    global $lang;
 
-    $query = get_posts(['post_type' => $post_type, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
+    $query = get_posts(['post_type' => $post_type, 'lang' => $lang, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
     $array = [];
 
     foreach ($query as $posta) {
