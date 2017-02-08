@@ -73,6 +73,7 @@ pll_register_string('Últimos Artigos', 'últimos artigos (Medium)', 'footer');
 pll_register_string('Últimos Vídeos', 'últimos vídeos (YouTube)', 'footer');
 pll_register_string('Trending tags', '#trending tags', 'footer');
 pll_register_string('newsletter', 'escreva seu email para receber', 'footer');
+pll_register_string('escreva seu email para receber', 'escreva seu email para receber2', 'footer');
 pll_register_string('Desenvolvido por ', 'desenvolvido por', 'footer');
 pll_register_string('ITS nas redes ', 'ITS nas redes', 'footer');
 pll_register_string('Inscreva-se', 'inscreva-se', 'footer');
