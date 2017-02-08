@@ -96,7 +96,7 @@
 		?>
 		@media screen and (min-width: 64.0625em)
 		.menu-container .search-button::after {
-			content: <?= 'search' //pll__('buscar') ?>;
+			content: <?= '"search"' //pll__('buscar') ?>;
 		}
 		<?php
 	}

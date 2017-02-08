@@ -6,7 +6,7 @@
 					<a href="#" class="close-button" onclick="toggleBusca()"><?= pll__('fechar') ?> <span class="icon">&times;</span></a>
 					<label class="search-label" for="search">
 						<h2><?= pll__('buscar por:') ?></h2>
-						<input type="text" id="search" name="title" v-model="title" placeholder="digite sua palavra-chave">
+						<input type="text" id="search" name="title" v-model="title" placeholder="<?= pll__('digite sua palavra-chave') ?>">
 						<button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</label>
 
