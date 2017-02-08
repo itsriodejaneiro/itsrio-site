@@ -139,7 +139,7 @@ function get_ctp_array($post_type, $full = false)
     global $post;
     global $lang;
 
-    var_dump($post->lang);
+    var_dump($post);
 
     $query = get_posts(['post_type' => $post_type, 'lang' => $lang, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
     $array = [];
