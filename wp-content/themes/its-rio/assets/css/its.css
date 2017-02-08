@@ -6689,6 +6689,8 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .reveal-modal .close {
+  color: #262626;
+  border-color: #262626;
   right: 10px;
   top: 0px;
   font-size: 30px;
