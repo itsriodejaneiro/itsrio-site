@@ -64,7 +64,7 @@
 							<label class="label-tab" for="search_title_categorias"></label>
 							<div style="overflow: hidden; width: 100%;">
 								<?php
-								$terms = get_terms();
+								$terms = get_terms(['lang' => $lang]);
 								foreach ( $terms as $term ) {
 									if($term->taxonomy == 'category' && $term->name != 'Uncategorized'){
 										?>
