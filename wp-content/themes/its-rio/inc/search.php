@@ -65,7 +65,7 @@
 							<div style="overflow: hidden; width: 100%;">
 								<?php
 								$lang_filter = $lang == 'en' ? 'en_US' : 'pt_BR';
-								$terms = get_terms('category', ['lang' => 'pt_BR']);
+								$terms = get_terms('category', ['lang' => $lang_filter]);
 								foreach ( $terms as $term ) {
 									if($term->taxonomy == 'category' && $term->name != 'Uncategorized'){
 										?>
