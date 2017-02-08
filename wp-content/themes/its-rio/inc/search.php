@@ -2,7 +2,7 @@
 	<div class="search-box">
 		<div class="row">
 			<div class="column large-12">
-				<form action="/<?= $lang ?>/search/" method="GET" id="formSearch">
+				<form action="/<?= $lang == 'en' ? 'en/search-en/' : 'pt/search/' ?>" method="GET" id="formSearch">
 					<a href="#" class="close-button" onclick="toggleBusca()"><?= pll__('fechar') ?> <span class="icon">&times;</span></a>
 					<label class="search-label" for="search">
 						<h2><?= pll__('buscar por:') ?></h2>
