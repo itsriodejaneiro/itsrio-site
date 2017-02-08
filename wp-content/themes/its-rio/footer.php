@@ -51,7 +51,7 @@
 				</div>
 				<div class="newsletter">
 					<b><?= pll__('newsletter') ?></b><br>
-					<input type="text" id="txtNewsletter" placeholder="escreva seu email para receber" class="newsletter-input">
+					<input type="text" id="txtNewsletter" placeholder="<?= pll__('escreva seu email para receber') ?>" class="newsletter-input">
 				</div>
 				<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>
 			</div>
