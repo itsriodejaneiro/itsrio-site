@@ -110,7 +110,7 @@
 								<a href="/<?= $lang ?>/publicacoes"><?= pll__('publicações') ?></a>
 							</li> 
 							<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
-								<a href="/<?= $lang ?>/institucional/"><?= pll__('institucional') ?></a>
+								<a href="/<?= $lang ?>/institucional<?= $lang == 'en' ? '-en' : '' ?>/"><?= pll__('institucional') ?></a>
 							</li>
 						</ul>
 					</div>
