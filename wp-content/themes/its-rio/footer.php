@@ -94,13 +94,14 @@
 	<?php 
 	if($lang == 'en'){
 		?>
-		@media screen and (min-width: 64.0625em)
-		.menu-container .search-button::after {
-			content: <?= '"search"' //pll__('buscar') ?>;
+		@media screen and (min-width: 64.0625em){
+			.menu-container .search-button::after {
+				content: '<?= pll__('buscar') ?>';
+			}
 		}
 		<?php
 	}
-?>
+	?>
 </style>
 <script src="/wp-content/themes/its-rio/assets/js/its.js"></script>
 
