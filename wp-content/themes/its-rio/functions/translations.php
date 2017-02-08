@@ -13,7 +13,7 @@ $translations = [
 'Verifique a URL ou digite na ferramenta',
 'de busca o que deseja encontrar.'
 ],
-'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:','filtragem de conteúdo:','área'],
+'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:', 'buscar','filtragem de conteúdo:','área'],
 'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
 'menu - Singular - ' => [
 'curso',
