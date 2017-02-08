@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="column small-12 show-for-small-only">
-			<b>newsletter:</b><br>
+			<b><?= pll__('newsletter') ?></b><br>
 			<input type="text" id="txtNewsletter_Mobile" placeholder="escreva seu email para receber" class="newsletter-input">
 			<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>
 		</div>
@@ -49,7 +49,7 @@
 					<?= esc_attr(get_option('footer_contacts')) ?>
 				</div>
 				<div class="newsletter">
-					<b>newsletter:</b><br>
+					<b><?= pll__('newsletter') ?></b><br>
 					<input type="text" id="txtNewsletter" placeholder="escreva seu email para receber" class="newsletter-input">
 				</div>
 				<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>

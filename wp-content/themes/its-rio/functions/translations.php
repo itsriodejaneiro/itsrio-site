@@ -1,27 +1,27 @@
 <?php 
 
 $translations = [
-	'menu' => [
-		'cursos',
-		'varandas',
-		'projetos',
-		'publicações',
-		'institucional',
-	],
-	'404' => [
-	'Página não encontrada',
-	'Verifique a URL ou digite na ferramenta',
-	'de busca o que deseja encontrar.'
-	],
-	'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:','filtragem de conteúdo:','área'],
-	'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
-	'menu - Singular - ' => [
-		'curso',
-		'varanda',
-		'projeto',
-		'publicação',
-		'acontece',
-	]
+'menu' => [
+'cursos',
+'varandas',
+'projetos',
+'publicações',
+'institucional',
+],
+'404' => [
+'Página não encontrada',
+'Verifique a URL ou digite na ferramenta',
+'de busca o que deseja encontrar.'
+],
+'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:','filtragem de conteúdo:','área'],
+'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
+'menu - Singular - ' => [
+'curso',
+'varanda',
+'projeto',
+'publicação',
+'acontece',
+]
 ];
 
 foreach ($translations as $group => $value) {
@@ -72,7 +72,7 @@ pll_register_string('Contatos', 'contatos:', 'footer');
 pll_register_string('Últimos Artigos', 'últimos artigos (Medium)', 'footer');
 pll_register_string('Últimos Vídeos', 'últimos vídeos (YouTube)', 'footer');
 pll_register_string('Trending tags', '#trending tags', 'footer');
-pll_register_string('Campo da newsletter', 'escreva seu email para receber', 'footer');
+pll_register_string('newsletter', 'escreva seu email para receber', 'footer');
 pll_register_string('Desenvolvido por ', 'desenvolvido por', 'footer');
 pll_register_string('ITS nas redes ', 'ITS nas redes', 'footer');
 pll_register_string('Inscreva-se', 'inscreva-se', 'footer');
@@ -82,14 +82,15 @@ pll_register_string('comunicados', 'equipe', 'footer');
 
 
 
-	pll_register_string('aulas', 'aulas', 'módulos divi');
-	pll_register_string('agenda', 'agenda', 'módulos divi');
-	pll_register_string('comunicados', 'comunicados', 'módulos divi');
-	pll_register_string('informações', 'informações', 'módulos divi');
-	pll_register_string('Início das Inscrições:', 'Início das Inscrições:', 'módulos divi');
-	pll_register_string('Fim das Inscrições:', 'Fim das Inscrições:', 'módulos divi');
-	pll_register_string('publicações', 'publicações', 'módulos divi');
-	pll_register_string('relacionados', 'relacionados', 'módulos divi');
-	pll_register_string('conteúdos relacionados', 'conteúdos relacionados', 'módulos divi');
-	pll_register_string('tema', 'tema', 'módulos divi');
-	pll_register_string('valor', 'valor', 'módulos divi');
+pll_register_string('aulas', 'aulas', 'módulos divi');
+pll_register_string('agenda', 'agenda', 'módulos divi');
+pll_register_string('comunicados', 'comunicados', 'módulos divi');
+pll_register_string('informações', 'informações', 'módulos divi');
+pll_register_string('Início das Inscrições:', 'Início das Inscrições:', 'módulos divi');
+pll_register_string('Fim das Inscrições:', 'Fim das Inscrições:', 'módulos divi');
+pll_register_string('publicações', 'publicações', 'módulos divi');
+pll_register_string('relacionados', 'relacionados', 'módulos divi');
+pll_register_string('conteúdos relacionados', 'conteúdos relacionados', 'módulos divi');
+pll_register_string('tema', 'tema', 'módulos divi');
+pll_register_string('valor', 'valor', 'módulos divi');
+
