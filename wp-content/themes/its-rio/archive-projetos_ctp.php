@@ -96,11 +96,11 @@ $cat_classes = 'black';
 		if(jQuery('.list-item-wrapper').length > -1 && jQuery(window).width() > 640){
 			var maxHeight = -1;
 
-			jQuery('.list-item').each(function() {
+			jQuery('.list-item-wrapper').each(function() {
 				maxHeight = maxHeight > jQuery(this).height() ? maxHeight : jQuery(this).height();
 			});
 
-			jQuery('.list-item').each(function() {
+			jQuery('.list-item-wrapper').each(function() {
 				var excedingHeight = (maxHeight - jQuery(this).height());
 				jQuery(this).find('.img').css('height', 220 + excedingHeight);
 				jQuery(this).find('.color-hover').css('height', 220 + excedingHeight);
