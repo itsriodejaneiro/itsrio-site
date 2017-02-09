@@ -13,6 +13,7 @@ function its_meta_boxes($meta_boxes) {
 		'post_types'=> ['comunicados_ctp'],
 		'fields'    => array(
 			['id'	=> "saiba_mais", 'name' => 'Link do Saiba Mais', 'type' => 'text'],
+			['id' 	=> 'formbutton_text', 'name' => 'Texto do botão de inscrição', 'type' => 'text'],
 			),
 		],
 		['id'		=> 'projetoencerrado',
@@ -57,10 +58,10 @@ function its_meta_boxes($meta_boxes) {
 		],
 		[
 		'title'      => __('Typeform para Inscrições', 'textdomain' ),
-		'post_types' => ['varandas_ctp','cursos_ctp'],
+		'post_types' => ['varandas_ctp','cursos_ctp','comunicados_ctp'],
 		'fields'     => array(
-			['id'   => 'typeform_url', 'name' => __('URL do Typeform', 'textdomain'), 'type' => 'text'],
-			['id'   => 'typeform_layout', 'name' => __('Formato do form', 'textdomain'), 'type' => 'radio', 'options' => [ '2'=> 'Lateral', '1' => 'Tela cheia' ]],
+			['id'   => 'typeform_url', 'name' => 'URL do Typeform', 'type' => 'text'],
+			['id'   => 'typeform_layout', 'name' => 'Formato do form', 'type' => 'radio', 'options' => [ '2'=> 'Lateral', '1' => 'Tela cheia' ]],
 			)
 		],
 		[
