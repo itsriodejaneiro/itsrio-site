@@ -53,6 +53,7 @@ pll_register_string('Título dos cards encerrados', 'projetos encerrados', 'inte
 pll_register_string('Áreas - mostrando tudo', 'mostrando tudo', 'intermediária - projetos');
 pll_register_string('Ver projetos dessa área', 'ver projetos desta área', 'intermediária - projetos');
 pll_register_string('Ver todos os projetos', 'ver todos os projetos', 'intermediária - projetos');
+pll_register_string('Ver todos', 'ver todos', 'institucional');
 
 
 pll_register_string('publicado em', 'publicado em', 'interna - comunicados');

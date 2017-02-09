@@ -2,7 +2,7 @@
 	<div class="related-content content-area comunicados" id="tab_<?= array_search(pll__('comunicados'), $data['its_tabs']) ?>">
 		<div class="row">
 			<h2 class="list-title">
-				acontece <a href="/<?= $lang ?>/comunicados">ver todos</a>
+				<?= pll__('acontece') ?> <a href="/<?= $lang ?>/comunicados"><?= pll__('ver todos') ?></a>
 				<div class="line"></div>
 			</h2>
 			<div class="related-post list-item-wrapper">
@@ -12,7 +12,7 @@
 							<h3 v-html="item.title"></h3>
 							<div class="line"></div>
 							<p class="excerpt" v-html="item.excerpt"></p>
-							<a v-bind:href="item.permalink"><b>Saiba Mais</b></a>
+							<a v-bind:href="item.permalink"><b><?= pll__('Saiba Mais') ?></b></a>
 						</div>
 						<div class="img" v-bind:style="{ 'background-image': 'url('+item.thumb+')' }">
 						<div class="color-hover"></div>
