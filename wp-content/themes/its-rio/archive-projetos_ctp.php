@@ -90,8 +90,23 @@ $cat_classes = 'black';
 </div>
 <script>
 	'use strict';
+	
 
 	setTimeout(function(){
+		if(jQuery('.list-item-wrapper').length > -1 && jQuery(window).width() > 640){
+			var maxHeight = -1;
+
+			jQuery('.list-item').each(function() {
+				maxHeight = maxHeight > jQuery(this).height() ? maxHeight : jQuery(this).height();
+			});
+
+			jQuery('.list-item').each(function() {
+				var excedingHeight = (maxHeight - jQuery(this).height());
+				jQuery(this).find('.img').css('height', 220 + excedingHeight);
+				jQuery(this).find('.color-hover').css('height', 220 + excedingHeight);
+				jQuery(this).height(maxHeight);
+			});
+		}
 		var active = false;
 		var $grid = $('.older-posts').isotope({
 			itemSelector: '.large-4',
