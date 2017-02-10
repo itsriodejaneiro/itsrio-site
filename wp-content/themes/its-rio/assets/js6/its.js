@@ -172,6 +172,8 @@ Vue.component('its-pessoas', {
             }
         },
         checkTitleCat(p){
+            console.log(p, this.showTitle);
+            
             if(p == null || this.showTitle)
                 return false;
             
