@@ -131,7 +131,7 @@ Vue.component('its-pessoas', {
     data: function data() {
         return {
             pessoas: pessoas,
-            titleIsRendered: false
+            showTitle: false
         };
     },
 
@@ -166,11 +166,11 @@ Vue.component('its-pessoas', {
             }
         },
         checkTitleCat: function checkTitleCat(p) {
-            if (p == null && !this.titleIsRendered) return false;
+            if (p == null || this.showTitle) return false;
 
-            if (!this.titleIsRendered) this.titleIsRendered = true;
+            if (this.showTitle == false) this.showTitle = true;
 
-            return !this.titleIsRendered;
+            return this.showTitle;
         }
     }
 });
