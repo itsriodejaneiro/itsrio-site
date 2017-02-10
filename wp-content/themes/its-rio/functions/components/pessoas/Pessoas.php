@@ -63,10 +63,10 @@ class Pessoas extends ET_Builder_Module {
 			$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids), 'order' => 'ASC', 'posts_per_page' => -1]);
 			foreach ($query_palestrantes as $postt) {
 				$list_of_posts[] =  array(
-					'ID' => $p['ID'],
-					'title' => $p['post_title'],
-					'content' => $p['post_content'],
-					'thumb' => get_the_post_thumbnail_url($p['ID']),
+					'ID' => $postt->ID,
+					'title' => $postt->post_title,
+					'content' => $postt->post_content,
+					'thumb' => get_the_post_thumbnail_url($postt->ID),
 					);
 			}
 		}else{
