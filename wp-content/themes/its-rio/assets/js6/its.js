@@ -178,7 +178,7 @@ Vue.component('its-pessoas', {
             if(!this.titleIsRendered)
                 this.titleIsRendered = true;
 
-            return this.titleIsRendered;
+            return !this.titleIsRendered;
         }
     }
 });
