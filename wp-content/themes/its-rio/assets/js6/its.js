@@ -138,7 +138,7 @@ Vue.component('its-pessoas', {
     data() {
         return {
             pessoas,
-            titleIsRendered : false,
+            showTitle : false,
         };
     },
     methods: {
@@ -172,13 +172,13 @@ Vue.component('its-pessoas', {
             }
         },
         checkTitleCat(p){
-            if(p == null)
-                return true;
+            if(p == null || this.showTitle)
+                return false;
             
-            if(this.titleIsRendered == false)
-                this.titleIsRendered = true;
+            if(this.showTitle == false)
+                this.showTitle = true;
 
-            return !this.titleIsRendered;
+            return this.showTitle;
         }
     }
 });
