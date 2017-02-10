@@ -53,7 +53,7 @@ class Pessoas extends ET_Builder_Module {
 		$ids = $meta['its_pessoas'];
 		$filter_cats = [];
 		$filter_cats_ar = explode(',', $meta['its_pessoas_cat'][0]);
-		
+
 		foreach ($filter_cats_ar as $f)
 			$filter_cats[] = trim($f);
 		
@@ -62,7 +62,7 @@ class Pessoas extends ET_Builder_Module {
 		if($categorized == 'off'){
 			$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids), 'order' => 'ASC', 'posts_per_page' => -1]);
 			foreach ($query_palestrantes as $postt) {
-				$dados[] =  array(
+				$list_of_posts[] =  array(
 					'ID' => $p['ID'],
 					'title' => $p['post_title'],
 					'content' => $p['post_content'],
