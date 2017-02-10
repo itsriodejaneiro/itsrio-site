@@ -57,6 +57,7 @@ class Pessoas extends ET_Builder_Module {
 		$ids = $meta['its_pessoas'];
 		$cats = [];
 		$listaCategorizada = false;
+		var_dump($ids);
 		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) , 'order' => 'ASC']);
 		foreach ($query_palestrantes as $postt) {
 			$p = (array)$postt;
@@ -91,7 +92,7 @@ class Pessoas extends ET_Builder_Module {
 				else
 					$cats = orderPessoas($cats, ['board','directors','team']);
 			}else{
-				// $cats = orderPessoas($cats);
+				$cats = orderPessoas($cats);
 			}
 		}
 
