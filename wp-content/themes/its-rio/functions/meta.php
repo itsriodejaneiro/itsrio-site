@@ -130,6 +130,14 @@ function its_meta_boxes($meta_boxes) {
 				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
 				),
 			),
+		array(
+				'name'        => __( 'Ordem das Categorias', 'batuta_' ),
+				'desc' 		  => __( 'Separada por vírgulas', 'galeria_se' ),
+				'id'          => "its_pessoas_cat",
+				'type'        => 'text',
+				'placeholder' => __( 'Insira a Ordem das Categorias', 'galeria_se' ),
+				),
+			)
 		]
 		);
 

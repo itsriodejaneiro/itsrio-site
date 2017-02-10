@@ -55,6 +55,7 @@ class Pessoas extends ET_Builder_Module {
 
 
 		$ids = $meta['its_pessoas'];
+		$filter_cats = explode(',', $meta['its_pessoas_cat']);
 		$cats = [];
 		$listaCategorizada = false;
 
@@ -73,16 +74,18 @@ class Pessoas extends ET_Builder_Module {
 			if($categorized == 'on'){
 				foreach($cat as $c){
 					$cc = (array)$c;
-					$listaCategorizada = true;
-					$cats[$cc['name']]['pessoaActive'] = '';
+					if(count($filter_cats) == 0 || in_array($cc['name'], $filter_cats)){
+						$listaCategorizada = true;
+						$cats[$cc['name']]['pessoaActive'] = '';
 
-					$cats[$cc['name']][$p['post_title']] = array(
-						'ID' => $p['ID'],
-						'title' => $p['post_title'],
-						'content' => $p['post_content'],
-						'thumb' => get_the_post_thumbnail_url($p['ID']) 
-						);
-				}		
+						$cats[$cc['name']][$p['post_title']] = array(
+							'ID' => $p['ID'],
+							'title' => $p['post_title'],
+							'content' => $p['post_content'],
+							'thumb' => get_the_post_thumbnail_url($p['ID']) 
+							);
+					}		
+				}
 			}
 		}
 		if($listaCategorizada){
