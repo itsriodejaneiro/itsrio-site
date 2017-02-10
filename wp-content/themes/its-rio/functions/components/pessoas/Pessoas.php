@@ -84,20 +84,20 @@ class Pessoas extends ET_Builder_Module {
 				}		
 			}
 		}
-
 		if($listaCategorizada){
-			if($lang == 'pt')
-				$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
-			else
-				$cats = orderPessoas(['board','directors','team'], $cats);
+			if($post->post_type == 'page'){
+				if($lang == 'pt')
+					$cats = orderPessoas($cats, ['conselho','diretores','equipe']);
+				else
+					$cats = orderPessoas($cats, ['board','directors','team']);
+			}else{
+				$cats = orderPessoas($cats);
+			}
 		}
 
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
-
-
-
-
+		
 		ob_start();
 
 		if($listaCategorizada)
@@ -120,7 +120,7 @@ class Pessoas extends ET_Builder_Module {
 
 new Pessoas;
 
-function orderPessoas($order, $array){
+function orderPessoas($array, $order = false){
 	$arFinal = [];
 	foreach ($order as $o) {
 		$arFinal += [$o => $array[$o] ] ;
@@ -128,9 +128,11 @@ function orderPessoas($order, $array){
 
 	// $cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
 
-	// foreach ($cats as $key => $value) {
-	// 	ksort($cats[$key]);
-	// }
+	if(!$order){
+		foreach ($arFinal as $key => $value) {
+			ksort($arFinal[$key]);
+		}
+	}
 
 	return $arFinal;
 
