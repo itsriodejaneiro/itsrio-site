@@ -94,6 +94,7 @@ function add_cpt_to_pll( $post_types, $is_settings ) {
     //     unset( $post_types['my_cpt'] );
     // } else {
         $post_types['areas'] = 'areas';
+        $post_types['pessoas'] = 'pessoas';
     // }
     return $post_types;
 }

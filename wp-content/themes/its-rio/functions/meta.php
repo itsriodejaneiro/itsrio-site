@@ -129,6 +129,12 @@ function its_meta_boxes($meta_boxes) {
 				'std'         => 'value2',
 				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
 				),
+			array(
+				'name'        => __( 'Ordem das Categorias', 'batuta_' ),
+				'desc'          => "Escreva o nome das categorias na ordem desejada separadas por vírgulas",
+				'id'          => "its_pessoas_cat",
+				'type'        => 'text',
+				),
 			),
 		]
 		);

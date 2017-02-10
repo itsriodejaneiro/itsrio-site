@@ -4,9 +4,9 @@
 			<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive' && pessoas_ != null" class="component-tabs-tab">
 				<div class="row">
 					<div class="component-tabs-title">
-						<h2 class="tab-title left" v-bind:class="{ 'list-title':  i == 'conselho' || i == 'board' }">
-							<span v-if="i == 'conselho' || i == 'board'"><?= $moduleTitle; ?></span>
-							<div v-if="i == 'conselho' || i == 'board'" class="line"></div>
+						<h2 class="tab-title left" v-bind:class="{ 'list-title':  i == '<?= $firstCat ?>' }">
+							<span v-if="i == '<?= $firstCat ?>'"><?= $moduleTitle; ?></span>
+							<div v-if="i == '<?= $firstCat ?>'" class="line"></div>
 							<span v-else>&nbsp;</span>
 						</h2>
 					</div>

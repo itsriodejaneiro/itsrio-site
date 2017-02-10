@@ -1,7 +1,7 @@
 <?php
 
 setlocale(LC_ALL, 'pt_BR');
-// error_reporting(0);
+error_reporting(0);
 $lang = str_replace('-', '_', strtolower(get_bloginfo('language')));
 $lang = $lang == 'pt_br' ? 'pt' : 'en';
 
@@ -139,7 +139,6 @@ function get_ctp_array($post_type, $full = false)
     global $lang;
 
     $query = get_posts(['post_type' => $post_type, 'lang' => pll_current_language(), 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
-    $array = [];
 
     foreach ($query as $posta) {
         $posta = (array)$posta;
@@ -203,3 +202,30 @@ function LIKE_posts_where($where, &$wp_query)
     }
     return $where;
 }
+
+
+function df_terms_clauses( $clauses, $taxonomy, $args ) {
+    if ( isset( $args['post_type'] ) && ! empty( $args['post_type'] ) && $args['fields'] !== 'count' ) {
+        global $wpdb;
+
+        $post_types = array();
+
+        if ( is_array( $args['post_type'] ) ) {
+            foreach ( $args['post_type'] as $cpt ) {
+                $post_types[] = "'" . $cpt . "'";
+            }
+        } else {
+            $post_types[] = "'" . $args['post_type'] . "'";
+        }
+
+        if ( ! empty( $post_types ) ) {
+            $clauses['fields'] = 'DISTINCT ' . str_replace( 'tt.*', 'tt.term_taxonomy_id, tt.taxonomy, tt.description, tt.parent', $clauses['fields'] ) . ', COUNT(p.post_type) AS count';
+            $clauses['join'] .= ' LEFT JOIN ' . $wpdb->term_relationships . ' AS r ON r.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN ' . $wpdb->posts . ' AS p ON p.ID = r.object_id';
+            $clauses['where'] .= ' AND (p.post_type IN (' . implode( ',', $post_types ) . ') OR p.post_type IS NULL)';
+            $clauses['orderby'] = 'GROUP BY t.term_id ' . $clauses['orderby'];
+        }
+    }
+    return $clauses;
+}
+
+add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );

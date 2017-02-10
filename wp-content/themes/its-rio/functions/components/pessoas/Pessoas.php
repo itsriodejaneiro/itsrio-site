@@ -36,8 +36,6 @@ class Pessoas extends ET_Builder_Module {
 	}
 
 	function shortcode_callback( $atts, $content = null, $function_name ) {
-		global $wp_filter;
-		global $paged;
 		global $post;
 		global $title;
 		global $data;
@@ -50,54 +48,53 @@ class Pessoas extends ET_Builder_Module {
 
 		$data['its_tabs'][] = $moduleTitle;
 
-		$wp_filter_cache = $wp_filter;
 		$meta = get_post_meta(get_the_ID());
 
-
 		$ids = $meta['its_pessoas'];
-		$cats = [];
-		$listaCategorizada = false;
-		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) , 'order' => 'ASC']);
-		foreach ($query_palestrantes as $postt) {
-			$p = (array)$postt;
-			$cat = get_the_category($p['ID']);
-			if(!$cat || $categorized == 'off')
-				$cats[] =  array(
+		$filter_cats = explode(',', $meta['its_pessoas_cat'][0]);
+		$list_of_posts = [];
+		
+		if($categorized == 'off'){
+			$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids), 'order' => 'ASC', 'posts_per_page' => -1]);
+			foreach ($query_palestrantes as $postt) {
+				$dados[] =  array(
 					'ID' => $p['ID'],
 					'title' => $p['post_title'],
 					'content' => $p['post_content'],
 					'thumb' => get_the_post_thumbnail_url($p['ID']),
 					);
-			
-			if($categorized == 'on'){
-				foreach($cat as $c){
-					$cc = (array)$c;
-					$listaCategorizada = true;
-					$cats[$cc['name']]['pessoaActive'] = '';
+			}
+		}else{
+			if(empty($filter_cats) || is_null($filter_cats) || count($filter_cats) == 0){
+				$categories = get_terms('category', array('post_type' => ['pessoas'], 'fields' => 'all', 'order_by' => 'ASC'));
+				foreach ($categories as $cat) 
+					$filter_cats[] = $cat->name;
+			}
 
-					$cats[$cc['name']][$p['post_title']] = array(
-						'ID' => $p['ID'],
-						'title' => $p['post_title'],
-						'content' => $p['post_content'],
-						'thumb' => get_the_post_thumbnail_url($p['ID']) 
-						);
-				}		
+			$posts = get_posts([ 'post_type' => 'pessoas','posts_per_page' => -1, 'include' => $ids, 'order' => 'ASC']);
+			foreach ($filter_cats as $cat) {
+				foreach ($posts as $post) {
+					if(has_category($cat, $post)){
+						$list_of_posts[$cat]['pessoaActive'] = '';
+
+						$list_of_posts[$cat][] = array(
+							'ID' => $post->ID,
+							'title' => $post->post_title,
+							'content' => $post->post_content,
+							'thumb' => get_the_post_thumbnail_url($post->ID) 
+							);
+					}
+				}
 			}
 		}
 
-		if($listaCategorizada){
-			if($lang == 'pt')
-				$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
-			else
-				$cats = orderPessoas(['board','directors','team'], $cats);
-		}
+		$list_of_posts['pessoaActive'] = '';
+		$components['pessoas'] = $list_of_posts;
+		$firstCat = isset($filter_cats[0]) ? $filter_cats[0] : '';
 
-		$cats['pessoaActive'] = '';
-		$components['pessoas'] = $cats;
-		
 		ob_start();
 
-		if($listaCategorizada)
+		if($categorized == 'on')
 			include(__DIR__.'/view_pessoas_cat.php');
 		else
 			include(__DIR__.'/view_pessoas.php');
