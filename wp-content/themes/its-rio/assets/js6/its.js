@@ -170,14 +170,6 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
-        },
-        checkTitleCat(p){            
-            var r = this.titleIsRendered;
-
-            if(!this.titleIsRendered)
-                this.titleIsRendered = true;
-
-            return r;
         }
     }
 });

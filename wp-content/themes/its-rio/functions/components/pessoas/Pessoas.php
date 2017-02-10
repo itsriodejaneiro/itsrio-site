@@ -42,6 +42,7 @@ class Pessoas extends ET_Builder_Module {
 		global $title;
 		global $data;
 		global $components;
+		global $lang;
 
 		$moduleTitle = $this->shortcode_atts['title'];
 		$moduleExcerpt = $this->shortcode_atts['excerpt'];
@@ -84,20 +85,11 @@ class Pessoas extends ET_Builder_Module {
 			}
 		}
 
-
-
-		$conselho = $cats['conselho'];
-		$diretores = $cats['diretores'];
-		$equipe = $cats['equipe'];
-
-		unset($cats['conselho']);
-		unset($cats['diretores']);
-		unset($cats['equipe']);
-
-		$cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
-		
-		foreach ($cats as $key => $value) {
-			ksort($cats[$key]);
+		if($listaCategorizada){
+			if($lang == 'pt')
+				$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
+			else
+				$cats = orderPessoas(['board','directors','team'], $cats);
 		}
 
 		$cats['pessoaActive'] = '';
@@ -127,3 +119,19 @@ class Pessoas extends ET_Builder_Module {
 }
 
 new Pessoas;
+
+function orderPessoas($order, $array){
+	$arFinal = [];
+	foreach ($order as $o) {
+		$arFinal += [$o => $array[$o] ] ;
+	}
+
+	// $cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
+
+	// foreach ($cats as $key => $value) {
+	// 	ksort($cats[$key]);
+	// }
+
+	return $arFinal;
+
+}
