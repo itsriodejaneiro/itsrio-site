@@ -55,10 +55,8 @@ class Pessoas extends ET_Builder_Module {
 
 
 		$ids = $meta['its_pessoas'];
-		$filter_cats = explode(',', $meta['its_pessoas_cat']);
 		$cats = [];
 		$listaCategorizada = false;
-
 		$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids) , 'order' => 'ASC']);
 		foreach ($query_palestrantes as $postt) {
 			$p = (array)$postt;
@@ -74,29 +72,24 @@ class Pessoas extends ET_Builder_Module {
 			if($categorized == 'on'){
 				foreach($cat as $c){
 					$cc = (array)$c;
-					if(count($filter_cats) == 0 || in_array($cc['name'], $filter_cats)){
-						$listaCategorizada = true;
-						$cats[$cc['name']]['pessoaActive'] = '';
+					$listaCategorizada = true;
+					$cats[$cc['name']]['pessoaActive'] = '';
 
-						$cats[$cc['name']][$p['post_title']] = array(
-							'ID' => $p['ID'],
-							'title' => $p['post_title'],
-							'content' => $p['post_content'],
-							'thumb' => get_the_post_thumbnail_url($p['ID']) 
-							);
-					}		
-				}
+					$cats[$cc['name']][$p['post_title']] = array(
+						'ID' => $p['ID'],
+						'title' => $p['post_title'],
+						'content' => $p['post_content'],
+						'thumb' => get_the_post_thumbnail_url($p['ID']) 
+						);
+				}		
 			}
 		}
+
 		if($listaCategorizada){
-			if($post->post_type == 'page'){
-				if($lang == 'pt')
-					$cats = orderPessoas($cats, ['conselho','diretores','equipe']);
-				else
-					$cats = orderPessoas($cats, ['board','directors','team']);
-			}else{
-				$cats = orderPessoas($cats, ['fellows 2014','fellows 2015', 'fellows 2016']);
-			}
+			if($lang == 'pt')
+				$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
+			else
+				$cats = orderPessoas(['board','directors','team'], $cats);
 		}
 
 		$cats['pessoaActive'] = '';
@@ -124,7 +117,7 @@ class Pessoas extends ET_Builder_Module {
 
 new Pessoas;
 
-function orderPessoas($array, $order = false){
+function orderPessoas($order, $array){
 	$arFinal = [];
 	foreach ($order as $o) {
 		$arFinal += [$o => $array[$o] ] ;
@@ -132,10 +125,8 @@ function orderPessoas($array, $order = false){
 
 	// $cats = ['conselho' => $conselho] + ['diretores' => $diretores] + ['equipe' => $equipe] + $cats;
 
-	if(!$order){
-		foreach ($arFinal as $key => $value) {
-			ksort($arFinal[$key]);
-		}
+	foreach ($cats as $key => $value) {
+		ksort($cats[$key]);
 	}
 
 	return $arFinal;
