@@ -51,7 +51,12 @@ class Pessoas extends ET_Builder_Module {
 		$meta = get_post_meta(get_the_ID());
 
 		$ids = $meta['its_pessoas'];
-		$filter_cats = explode(',', $meta['its_pessoas_cat'][0]);
+		$filter_cats = [];
+		$filter_cats_ar = explode(',', $meta['its_pessoas_cat'][0]);
+		
+		foreach ($filter_cats_ar as $f)
+			$filter_cats[] = trim($f);
+		
 		$list_of_posts = [];
 		
 		if($categorized == 'off'){

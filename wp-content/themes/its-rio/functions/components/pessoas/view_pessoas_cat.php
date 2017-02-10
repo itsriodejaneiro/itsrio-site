@@ -37,7 +37,7 @@
 				<div v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
-						<div class="img" v-bind:style="{ 'background-image': 'url('+(pessoas_.pessoaActive.thumb || '/wp-content/themes/its-rio/assets/images/pessoa-default.svg')+')' }"></div>
+							<div class="img" v-bind:style="{ 'background-image': 'url('+(pessoas_.pessoaActive.thumb || '/wp-content/themes/its-rio/assets/images/pessoa-default.svg')+')' }"></div>
 						</div>
 						<div class="pessoa-text">
 							<h3>{{ pessoas_.pessoaActive.title }}</h3>
@@ -48,9 +48,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="content-area work-with-us">
-			<a href="https://itsrio2.typeform.com/to/jAK7xw" class="typeform-share link button large purple curved-shadow" data-mode="1">trabalhe conosco</a>
-			<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
-		</div>
+		<?php if($post->post_type == 'page'): ?>
+			<div class="content-area work-with-us">
+				<a href="https://itsrio2.typeform.com/to/jAK7xw" class="typeform-share link button large purple curved-shadow" data-mode="1">trabalhe conosco</a>
+				<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
+			</div>
+		<?php endif; ?>
 	</div>
 </its-pessoas>
