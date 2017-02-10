@@ -5,8 +5,8 @@
 				<div class="row">
 					<div class="component-tabs-title">
 						<h2 class="tab-title left" v-bind:class="{ 'list-title':  checkTitleCat(pessoas_) }">
-							<span v-if="checkTitleCat(pessoas_)"><?= $moduleTitle; ?></span>
-							<div v-if="checkTitleCat(pessoas_)" class="line"></div>
+							<span v-if="titleIsRendered"><?= $moduleTitle; ?></span>
+							<div v-if="titleIsRendered" class="line"></div>
 							<span v-else>&nbsp;</span>
 						</h2>
 					</div>
