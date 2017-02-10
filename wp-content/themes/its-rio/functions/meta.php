@@ -129,7 +129,7 @@ function its_meta_boxes($meta_boxes) {
 				'std'         => 'value2',
 				'placeholder' => __( 'Selecione as pessoas', 'galeria_se' ),
 				),
-			)
+			),
 		]
 		);
 

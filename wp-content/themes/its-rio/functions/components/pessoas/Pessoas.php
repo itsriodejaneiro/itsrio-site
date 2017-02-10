@@ -91,7 +91,7 @@ class Pessoas extends ET_Builder_Module {
 				else
 					$cats = orderPessoas($cats, ['board','directors','team']);
 			}else{
-				$cats = orderPessoas($cats);
+				// $cats = orderPessoas($cats);
 			}
 		}
 
