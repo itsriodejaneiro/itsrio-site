@@ -85,10 +85,12 @@ class Pessoas extends ET_Builder_Module {
 			}
 		}
 
-		if($lang == 'pt')
-			$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
-		else
-			$cats = orderPessoas(['board','directors','team'], $cats);
+		if($listaCategorizada){
+			if($lang == 'pt')
+				$cats = orderPessoas(['conselho','diretores','equipe'], $cats);
+			else
+				$cats = orderPessoas(['board','directors','team'], $cats);
+		}
 
 		$cats['pessoaActive'] = '';
 		$components['pessoas'] = $cats;
