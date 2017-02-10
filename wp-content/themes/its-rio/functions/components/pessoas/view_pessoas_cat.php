@@ -4,9 +4,9 @@
 			<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive' && pessoas_ != null" class="component-tabs-tab">
 				<div class="row">
 					<div class="component-tabs-title">
-						<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
-							<span v-if="e == 0"><?= $moduleTitle; ?></span>
-							<div v-if="e == 0" class="line"></div>
+						<h2 class="tab-title left" v-bind:class="{ 'list-title':  checkTitleCat(pessoas_) }">
+							<span v-if="checkTitleCat(pessoas_)"><?= $moduleTitle; ?></span>
+							<div v-if="checkTitleCat(pessoas_)" class="line"></div>
 							<span v-else>&nbsp;</span>
 						</h2>
 					</div>

@@ -137,7 +137,8 @@ Vue.component('its-comunicados', {
 Vue.component('its-pessoas', {
     data() {
         return {
-            pessoas
+            pessoas,
+            titleIsRendered : false,
         };
     },
     methods: {
@@ -169,6 +170,14 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
+        },
+        checkTitleCat(p){
+            if(p == null && !this.titleIsRendered)
+                return false
+            if(!this.titleIsRendered)
+                this.titleIsRendered = true;
+
+            return this.titleIsRendered;
         }
     }
 });
