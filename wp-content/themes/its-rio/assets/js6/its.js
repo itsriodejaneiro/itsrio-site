@@ -173,7 +173,8 @@ Vue.component('its-pessoas', {
         },
         checkTitleCat(p){
             if(p == null && !this.titleIsRendered)
-                return false
+                return false;
+            
             if(!this.titleIsRendered)
                 this.titleIsRendered = true;
 

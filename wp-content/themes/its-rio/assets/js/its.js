@@ -130,7 +130,8 @@ Vue.component('its-comunicados', {
 Vue.component('its-pessoas', {
     data: function data() {
         return {
-            pessoas: pessoas
+            pessoas: pessoas,
+            titleIsRendered: false
         };
     },
 
@@ -163,6 +164,13 @@ Vue.component('its-pessoas', {
                     jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
+        },
+        checkTitleCat: function checkTitleCat(p) {
+            if (p == null && !this.titleIsRendered) return false;
+
+            if (!this.titleIsRendered) this.titleIsRendered = true;
+
+            return this.titleIsRendered;
         }
     }
 });
@@ -223,34 +231,34 @@ new Vue({
             }
         }, 1000);
 
-        // $('.comunicados h2 > a').click(function () {
-        //     if ($(this).text().indexOf("ver") > -1) {
-        //         $('.content-area:not(.comunicados)').hide();
-        //         $(this).text('voltar para institucional');
-        //         $('.related-post .large-4').show();
-        //         $('html, body').animate({ scrollTop: 0 }, 300);
+        $('.comunicados h2 > a').click(function () {
+            if ($(this).text().indexOf("ver") > -1) {
+                $('.content-area:not(.comunicados)').hide();
+                $(this).text('voltar para institucional');
+                $('.related-post .large-4').show();
+                $('html, body').animate({ scrollTop: 0 }, 300);
 
-        //         if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
-        //             var maxHeight = -1;
+                if ($('.list-item-wrapper').length > -1 && $(window).width() > 640) {
+                    var maxHeight = -1;
 
-        //             $('.list-item-wrapper .large-4').each(function () {
-        //                 maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-        //             });
+                    $('.list-item-wrapper .large-4').each(function () {
+                        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+                    });
 
-        //             $('.list-item-wrapper .large-4').each(function () {
-        //                 var excedingHeight = maxHeight - $(this).height();
-        //                 $(this).find('.img').css('height', 220 + excedingHeight);
-        //                 $(this).find('.img').css('overflow', 'hidden');
-        //                 $(this).css('height', 220 + excedingHeight);
-        //                 $(this).height(maxHeight);
-        //             });
-        //         }
-        //     } else {
-        //         $('.content-area').show();
-        //         $('.related-post .large-4:gt(2)').hide();
-        //         $(this).text('ver todos');
-        //     }
-        // });
+                    $('.list-item-wrapper .large-4').each(function () {
+                        var excedingHeight = maxHeight - $(this).height();
+                        $(this).find('.img').css('height', 220 + excedingHeight);
+                        $(this).find('.img').css('overflow', 'hidden');
+                        $(this).css('height', 220 + excedingHeight);
+                        $(this).height(maxHeight);
+                    });
+                }
+            } else {
+                $('.content-area').show();
+                $('.related-post .large-4:gt(2)').hide();
+                $(this).text('ver todos');
+            }
+        });
 
         var menu = $('.header-single-menu');
         var top = typeof menu.position() != "undefined" ? menu.position().top : 0;
