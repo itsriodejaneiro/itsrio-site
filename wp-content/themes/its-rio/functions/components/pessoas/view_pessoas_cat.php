@@ -1,7 +1,7 @@
 <its-pessoas inline-template>
 	<div>
 		<div class="content-area component-tabs informacao equipe" id="tab_<?= array_search($moduleTitle, $data['its_tabs']) ?>">
-			<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive'" class="component-tabs-tab">
+			<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive' && pessoas_ != null" class="component-tabs-tab">
 				<div class="row">
 					<div class="component-tabs-title">
 						<h2 class="tab-title left" v-bind:class="{ 'list-title':  e == 0 }">
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div> 
-				<div v-if="pessoas_ != null" v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
+				<div v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
 						<div class="img" v-bind:style="{ 'background-image': 'url('+(pessoas_.pessoaActive.thumb || '/wp-content/themes/its-rio/assets/images/pessoa-default.svg')+')' }"></div>
