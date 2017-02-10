@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div> 
-				<div v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
+				<div v-if="pessoas_ != null" v-bind:class="{ 'active' : pessoas_.pessoaActive != '' }"  class="pessoa-info">
 					<div class="pessoa-info-content">
 						<div class="pessoa-thumb">
 						<div class="img" v-bind:style="{ 'background-image': 'url('+(pessoas_.pessoaActive.thumb || '/wp-content/themes/its-rio/assets/images/pessoa-default.svg')+')' }"></div>
