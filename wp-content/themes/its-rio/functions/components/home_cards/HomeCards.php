@@ -33,6 +33,8 @@ class HomeCards extends ET_Builder_Module {
 		global $post;
 		global $data;
 
+		$no_label = false;
+
 		$wp_filter_cache = $wp_filter;
 		$count = $this->shortcode_atts['count'];
 

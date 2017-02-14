@@ -1,6 +1,6 @@
 <?php $categories = get_the_category(); ?>
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
-	<?= !isset($no_label) ? $titles[get_post_type()]['plural'] : ''  ?>
+	<?= !isset($no_label) || $no_label == false ? $titles[get_post_type()]['plural'] : ''  ?>
 	<ul>
 		<?php
 		foreach ($categories as $category) {
