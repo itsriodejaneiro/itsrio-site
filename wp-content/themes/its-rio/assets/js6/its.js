@@ -161,6 +161,7 @@ Vue.component('its-pessoas', {
             if (pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID) {
                 pessoa_.pessoaActive = pessoa;
 
+                console.log('#pessoa_' + ip + '_' + pessoa.ID);
                 $('html, body').animate({
                     scrollTop: jQuery('#pessoa_' + ip + '_' + pessoa.ID).parents('.component-tabs-tab').find('.pessoa-info .pessoa-info-content').offset().top - 130
                 }, 300);
