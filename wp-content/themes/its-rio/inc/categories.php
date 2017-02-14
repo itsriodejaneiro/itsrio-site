@@ -1,6 +1,10 @@
-<?php $categories = get_the_category(); ?>
+<?php 
+$categories = get_the_category(); 
+$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'acontece'];
+?>
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
-	<?= !isset($no_label) || $no_label == false ? $titles[get_post_type()]['plural'] : ''  ?>
+
+	<?= !isset($no_label) || $no_label == false || is_null($no_label) ? pll__($titlesCard[get_post_type()]) : ''  ?>
 	<ul>
 		<?php
 		foreach ($categories as $category) {

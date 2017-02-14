@@ -32,6 +32,7 @@ class HomeCards extends ET_Builder_Module {
 		global $paged;
 		global $post;
 		global $data;
+		global $titles;
 
 		$no_label = false;
 
