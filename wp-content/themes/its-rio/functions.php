@@ -134,11 +134,11 @@ function get_area_pesquisa($meta = null)
 }
 
 //Retorna um array simples de relação [ id => título ]
-function get_ctp_array($post_type, $full = false)
+function get_ctp_array($post_type, $full = false, $order = [ 'orderby' => 'title', 'order' => 'ASC'])
 {
     global $lang;
-
-    $query = get_posts(['post_type' => $post_type, 'lang' => pll_current_language(), 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC']);
+    $args = array_merge(['post_type' => $post_type, 'lang' => pll_current_language(), 'posts_per_page' => -1], $order);
+    $query = get_posts($args);
 
     foreach ($query as $posta) {
         $posta = (array)$posta;

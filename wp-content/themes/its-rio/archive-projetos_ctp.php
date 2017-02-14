@@ -11,7 +11,7 @@ $cat_classes = 'black';
 		</h2>
 		<div class="area-pesquisa">
 			<?php
-			$areas = get_ctp_array('areas', true);
+			$areas = get_ctp_array('areas', true, []);
 			$styles .= "@media screen and (min-width: 769px) {";
 			foreach ($areas as $id => $area) { ?>
 			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" area-name="#<?= sanitize_title($area['post_title']) ?>"  class="slider four no-active filter" <?= get_thumbnail_style($id, 'card') ?>>
