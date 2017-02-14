@@ -70,6 +70,7 @@
         overflow: hidden;
         position: relative;
         transition: all 0.3s;
+        display: none;
         background-position: center;
         @include breakpoint(medium) {
             background-size: auto 100%;

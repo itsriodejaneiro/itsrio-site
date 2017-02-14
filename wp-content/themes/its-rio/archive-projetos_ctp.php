@@ -93,6 +93,12 @@ $cat_classes = 'black';
 	
 
 	setTimeout(function(){
+		var i = 0;
+		$('.area-pesquisa .slider').each(function(){
+			var obj = $(this), b = i*150;
+			setTimeout(function(){ obj.show() }, b);
+			i++;
+		});
 
 		var active = false;
 		var $grid = $('.older-posts').isotope({
@@ -179,6 +185,6 @@ $cat_classes = 'black';
 		if(location.hash != ''){
 			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
 		}
-	},1500);
+	},500);
 </script>
 <?php get_footer(); ?>
