@@ -155,14 +155,14 @@ Vue.component('its-pessoas', {
             if (pessoa_.pessoaActive == "" || pessoa_.pessoaActive.ID != pessoa.ID) {
                 pessoa_.pessoaActive = pessoa;
 
-                console.log('#pessoa_' + ip + '_' + pessoa.ID);
+                console.log('#pessoa_' + ip.replace(' ', '_') + '_' + pessoa.ID);
                 $('html, body').animate({
-                    scrollTop: jQuery('#pessoa_' + ip + '_' + pessoa.ID).parents('.component-tabs-tab').find('.pessoa-info .pessoa-info-content').offset().top - 130
+                    scrollTop: jQuery('#pessoa_' + ip.replace(' ', '_') + '_' + pessoa.ID).parents('.component-tabs-tab').find('.pessoa-info .pessoa-info-content').offset().top - 130
                 }, 300);
             } else {
                 pessoa_.pessoaActive = "";
                 setTimeout(function () {
-                    jQuery('#pessoa_' + ip + '_' + pessoa.ID).removeAttr('checked');
+                    jQuery('#pessoa_' + ip.replace(' ', '_') + '_' + pessoa.ID).removeAttr('checked');
                 }, 100);
             }
         }

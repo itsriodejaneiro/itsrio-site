@@ -20,7 +20,7 @@
 						<label v-bind:for="'check_informacoes_' + i" class="label-tab" ></label>
 						<div class="component-tabs-content">
 							<div v-for="(pessoa, ip) in pessoas_" v-if="i != 'pessoaActive' && ip != 'pessoaActive'" class="pessoa">
-								<input type="radio" v-bind:checked="pessoa.pessoaActive == ''" v-bind:name="'<? $moduleTitle ?>_'+ i" v-bind:id="'pessoa_'+i+'_' + pessoa.ID">
+								<input type="radio" v-bind:checked="pessoa.pessoaActive == ''" v-bind:name="'pessoa_'+ i.replace(' ','_')" v-bind:id="'pessoa_'+i.replace(' ','_')+'_' + pessoa.ID">
 								<div class="pessoa-mini">
 									<label v-bind:for="'pessoa_'+i+'_' + pessoa.ID" @click="openPessoaCat(pessoa, i,pessoas_)">
 										<div class="img" v-bind:style="{ 'background-image': 'url('+pessoa.thumb+')' }"></div>
