@@ -229,3 +229,16 @@ function df_terms_clauses( $clauses, $taxonomy, $args ) {
 }
 
 add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );
+
+//Remove as páginas de categorias do google
+function generate_robots_txt( $post_id ) {
+    $terms = get_terms('category');
+    $txt = 'User-agent: *';
+    foreach ($terms as $term) {
+        $txt .='
+Disallow: /pt/category/'.$term->slug.'
+Disallow: /en/category/'.$term->slug;
+    }
+    file_put_contents(ROOT.'robots.txt', $txt);
+}
+add_action( 'save_post', 'generate_robots_txt' );

@@ -9,7 +9,7 @@ get_header();
 	</div>
 	<div class="older-posts">
 		<?php 
-		$posts = get_posts([ 'cat' => [$wp_query->get_queried_object_id()], 'post_type' =>  [ 'varandas_ctp', 'cursos_ctp', 'publicacoes_ctp', 'projetos_ctp'], 'posts_per_page' => '1000' ]);
+		$posts = get_posts([ 'cat' => [$wp_query->get_queried_object_id()], 'post_type' =>  [ 'varandas_ctp', 'cursos_ctp', 'publicacoes_ctp', 'projetos_ctp','comunicados_ctp'], 'posts_per_page' => '1000' ]);
 		if (count($posts) > 0) {
 			foreach ($posts as $post) {
 				setup_postdata();
