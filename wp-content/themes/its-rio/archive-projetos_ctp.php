@@ -166,7 +166,7 @@ $cat_classes = 'black';
 				$grid.isotope({ filter: '*' });
 				$grid2.isotope({ filter: '*' });
 				button.text("<?= pll__('ver projetos desta área') ?>");
-				$(this).html('<?= pll__("mostrando tudo") ?>');
+				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover').addClass('no-active');
 				location.hash = '';
 				active = false;

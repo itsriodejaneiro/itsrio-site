@@ -37,9 +37,10 @@
 			<?php $desc_field = $lang == 'en' ? 'footer_description_en' : 'footer_description' ?>
 			<p class="raleway"><?= html_entity_decode(esc_attr(get_option($desc_field))) ?></p>
 			<ul>
-				<li><a href="/<?= $lang ?>/institucional/#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('equipe') ?></a></li>
-				<li><a href="/<?= $lang ?>/institucional/#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('onde estivemos') ?></a></li>
-				<li><a href="/<?= $lang ?>/institucional/#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('comunicados') ?></a></li>
+				<?php $inst_url = $lang == 'en' ? $lang.'/institutional' : $lang.'/institucional' ?>
+				<li><a href="/<?= $inst_url ?>#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('equipe') ?></a></li>
+				<li><a href="/<?= $inst_url ?>#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('onde estivemos') ?></a></li>
+				<li><a href="/<?= $inst_url ?>#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('comunicados') ?></a></li>
 			</ul>
 		</div>
 
