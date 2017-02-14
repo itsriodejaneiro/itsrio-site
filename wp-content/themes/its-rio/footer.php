@@ -101,6 +101,10 @@
 				content: '<?= pll__('buscar') ?>';
 			}
 		}
+
+		.home-area .flickity-page-dots:after {
+			content: <?= pll__('conheça melhor'); ?>;
+		}
 		<?php
 	}
 	?>

@@ -95,4 +95,5 @@ pll_register_string('relacionados', 'relacionados', 'módulos divi');
 pll_register_string('conteúdos relacionados', 'conteúdos relacionados', 'módulos divi');
 pll_register_string('tema', 'tema', 'módulos divi');
 pll_register_string('valor', 'valor', 'módulos divi');
+pll_register_string('conheça melhor', 'conheça melhor', 'módulos divi');
 
