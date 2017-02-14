@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /wp-admin
+Disallow: /pt/category/
+Disallow: /en/category/
 Disallow: /pt/category/academicos
 Disallow: /en/category/academicos
 Disallow: /pt/category/amicus-curiae
