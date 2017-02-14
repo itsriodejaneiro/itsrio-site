@@ -1,6 +1,6 @@
 <its-pessoas inline-template>
 	<div>
-		<div class="content-area component-tabs informacao equipe" id="tab_<?= array_search($moduleTitle, $data['its_tabs']) ?>">
+		<div class="content-area component-tabs pessoas equipe" id="tab_<?= array_search($moduleTitle, $data['its_tabs']) ?>">
 			<div v-for="(pessoas_, i, e) in pessoas" v-if="i != 'pessoaActive' && pessoas_ != null" class="component-tabs-tab">
 				<div class="row">
 					<div class="component-tabs-title">
