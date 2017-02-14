@@ -233,7 +233,8 @@ add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );
 //Remove as páginas de categorias do google
 function generate_robots_txt( $post_id ) {
     $terms = get_terms('category');
-    $txt = 'User-agent: *';
+    $txt = 'User-agent: *
+Disallow: /wp-admin';
     foreach ($terms as $term) {
         $txt .='
 Disallow: /pt/category/'.$term->slug.'
