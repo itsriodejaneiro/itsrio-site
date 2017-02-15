@@ -16,7 +16,7 @@
 				<img
 				v-for="(marker, i) in markers"
 				v-bind:style="{ left : marker.left +'px', top : marker.top +'px' }"
-				src="/wp-content/themes/its-rio/functions/components/map/map-pin.svg"
+				src="/wp-content/themes/its-rio/	functions/components/map/map-pin.svg"
 				@click="openMarker(marker)"
 				class="markers" />
 			</div>

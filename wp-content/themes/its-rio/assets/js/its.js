@@ -91,6 +91,7 @@ Vue.component('its-map', {
             $('html, body').animate({ scrollTop: offset }, 300);
 
             setInterval(function () {
+                $('.map-info-carousel-item').eq(0).addClass('active');
                 $('.map-info .next').unbind('click');
                 $('.map-info .next').click(function () {
                     var prev = $('.map-info-carousel-item.active');
