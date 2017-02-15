@@ -60,7 +60,7 @@ class Pessoas extends ET_Builder_Module {
 		$list_of_posts = [];
 		
 		if($categorized == 'off'){
-			$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids), 'order' => 'ASC', 'posts_per_page' => -1]);
+			$query_palestrantes = get_posts(['post_type' => 'pessoas', 'include' => implode(',', $ids), 'order' => 'ASC', 'orderby' => 'title', 'posts_per_page' => -1]);
 			foreach ($query_palestrantes as $postt) {
 				$list_of_posts[] =  array(
 					'ID' => $postt->ID,
