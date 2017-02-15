@@ -26,10 +26,11 @@
 					<div class="tab-subtitle">
 						<p class="left">{{ aula.subtitle }}</p> 
 						<p class="aula-pessoas" v-if="aula.palestrante_1 != ''">
-							<span v-if="aula.palestrante_1 != ''"> com {{ aula.palestrante_1 }}</span><span v-if="aula.palestrante_3 != '' && aula.palestrante_2 != ''">,</span>
+							<span @click="goToPersonName(aula.palestrante_1)"  v-if="aula.palestrante_1 != ''"> com {{ aula.palestrante_1 }}</span>
+							<span v-if="aula.palestrante_3 != '' && aula.palestrante_2 != ''">,</span>
 							<span v-if="aula.palestrante_3 == '' && aula.palestrante_2 != ''"> e</span>
-							<span v-if="aula.palestrante_2 != ''"> {{ aula.palestrante_2 }} </span>
-							<span v-if="aula.palestrante_3 != ''"> e {{ aula.palestrante_3 }} </span>
+							<span @click="goToPersonName(aula.palestrante_2)"  v-if="aula.palestrante_2 != ''"> {{ aula.palestrante_2 }} </span>
+							<span @click="goToPersonName(aula.palestrante_3)"  v-if="aula.palestrante_3 != ''"> e {{ aula.palestrante_3 }} </span>
 						</p>
 					</div>
 					<input type="checkbox" v-bind:id="'check_aula_' + i">

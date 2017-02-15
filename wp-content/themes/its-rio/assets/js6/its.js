@@ -67,6 +67,11 @@ Vue.component('its-aulas', {
         return {
             aulas
         };
+    },
+    methods : {
+        goToPersonName(p){
+            $('[pessoa="'+p+'"]').trigger('click');
+        }
     }
 });
 

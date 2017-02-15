@@ -5221,6 +5221,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   font-size: 12px;
   display: inline-table;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .component-tabs .component-tabs-tab p.left {

@@ -5,12 +5,16 @@
 			<?php
 			$ids = $meta['its_pessoas'];
 			$html = '';
+			$htmlHide = '';
 			$query_pessoas = new WP_Query(['post_type' => 'pessoas', 'post__in' => $ids, 'order' => 'ASC', 'orderby' => 'title', 'posts_per_page' => '-1' ] );
 			$i = 0;
 			while ($query_pessoas->have_posts()){
 				$query_pessoas->the_post();
 				if($i < 3)
-					$html .= ' <span onclick="goToPerson('.$i.')"> <a href="javascript:void(0);">'. get_the_title() . '</a></span>,';
+					$html .= ' <span onclick="goToPerson('.$i.')" pessoa="'.get_the_title().'"> <a href="javascript:void(0);">'. get_the_title() . '</a></span>,';
+				else
+					$htmlHide .= ' <span onclick="goToPerson('.$i.')" pessoa="'.get_the_title().'" class="hide"></span>';
+
 				$i++;
 			}
 			if(isset($query) && !is_null($query)) $query->reset_postdata();
@@ -18,7 +22,7 @@
 			if($i > 3)
 				$html .= ' <span> e mais '. ((int)$i - 3) .'.</span>';
 
-			echo $html;
+			echo $html.$htmlHide;
 			?>
 		</b>
 	</p>
