@@ -309,6 +309,10 @@
     100% { transform:  translate(0px,-5px); }
 }
 
+.reveal-overlay {
+     overflow-y: hidden !important;
+}
+
 .reveal-modal{
     top: 10px;
     right: 10px;
