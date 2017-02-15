@@ -232,14 +232,19 @@ add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );
 
 //Remove as páginas de categorias do google
 // function generate_robots_txt( $post_id ) {
-//     $terms = get_terms('category');
+//     $terms = get_terms(['taxonomy' => ['category', 'post_tag']]);
 //     $txt = 'User-agent: *
+// Disallow: /pt/category
+// Disallow: /en/category
+// Disallow: /pt/tag
+// Disallow: /en/tag
 // Disallow: /wp-admin';
 //     foreach ($terms as $term) {
 //         $txt .='
-// Disallow: /pt/category/'.$term->slug.'
-// Disallow: /en/category/'.$term->slug;
+// Disallow: /pt/'.str_replace('post_', '', $term->taxonomy).'/'.$term->slug.'
+// Disallow: /en/'.str_replace('post_', '', $term->taxonomy).'/'.$term->slug;
 //     }
+
 //     file_put_contents(ROOT.'robots.txt', $txt);
 // }
 // add_action( 'save_post', 'generate_robots_txt' );
