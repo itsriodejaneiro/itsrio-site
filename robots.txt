@@ -46,10 +46,10 @@ Disallow: /pt/tag/biohacking
 Disallow: /en/tag/biohacking
 Disallow: /pt/tag/biohacking-en
 Disallow: /en/tag/biohacking-en
-Disallow: /pt/tag/bitcoin
-Disallow: /en/tag/bitcoin
-Disallow: /pt/tag/bitcoin-en
-Disallow: /en/tag/bitcoin-en
+Disallow: /pt/tag/bitcoin/
+Disallow: /en/tag/bitcoin/
+Disallow: /pt/tag/bitcoin-en/
+Disallow: /en/tag/bitcoin-en/
 Disallow: /pt/tag/blockchain
 Disallow: /en/tag/blockchain
 Disallow: /pt/tag/blockchain-en
