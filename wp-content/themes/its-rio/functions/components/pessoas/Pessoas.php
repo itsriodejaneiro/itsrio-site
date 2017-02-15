@@ -71,7 +71,7 @@ class Pessoas extends ET_Builder_Module {
 			}
 		}else{
 			if(empty($filter_cats) || is_null($filter_cats) || count($filter_cats) == 0){
-				$categories = get_terms('category', array('post_type' => ['pessoas'], 'fields' => 'all', 'order_by' => 'ASC'));
+				$categories = get_terms('category', array('post_type' => ['pessoas'], 'fields' => 'all', 'orderby' => 'title', 'order' => 'ASC'));
 				foreach ($categories as $cat) 
 					$filter_cats[] = $cat->name;
 			}
