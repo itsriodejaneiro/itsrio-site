@@ -76,7 +76,7 @@ class Pessoas extends ET_Builder_Module {
 					$filter_cats[] = $cat->name;
 			}
 
-			$posts = get_posts([ 'post_type' => 'pessoas','posts_per_page' => -1, 'include' => $ids, 'order' => 'ASC']);
+			$posts = get_posts([ 'post_type' => 'pessoas','posts_per_page' => -1, 'include' => $ids, 'order' => 'ASC', 'orderby' => 'title']);
 			foreach ($filter_cats as $cat) {
 				foreach ($posts as $post) {
 					if(has_category($cat, $post)){
