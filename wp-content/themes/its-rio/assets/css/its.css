@@ -6669,6 +6669,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.reveal-overlay {
+  overflow-y: hidden !important;
+}
+
 .reveal-modal {
   top: 10px;
   right: 10px;
