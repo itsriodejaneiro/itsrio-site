@@ -16,6 +16,7 @@ test:
     - test -s wp-content/themes/its-rio/assets/css/wp-map.css
     - test -s wp-content/themes/its-rio/assets/js/its.js
 
-deploy:staging:
+# Máquina EC2 dos caras em que damos um pull quando temos tudo Ok
+deploy:production:
   script:
-    - rsync -a -e 'ssh -o StrictHostKeyChecking=no' wp-content/ root@hacklab_its-ssh_1.docker:/var/www/html/wp-content/
+    - ssh -o StrictHostKeyChecking=no itsrio@itsrio.net git -C /srv/itsrio.net/wordpress pull
