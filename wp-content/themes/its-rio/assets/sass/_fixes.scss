@@ -76,3 +76,8 @@ h3,h4,h5{
 .content-area.component-tabs.informacoes + .related-content {
     margin-top: 25px;
 }
+
+// tira outline padrão do ios
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
