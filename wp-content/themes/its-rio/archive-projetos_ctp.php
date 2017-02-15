@@ -185,6 +185,6 @@ $cat_classes = 'black';
 		if(location.hash != ''){
 			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
 		}
-	},1200);
+	},1500);
 </script>
 <?php get_footer(); ?>
