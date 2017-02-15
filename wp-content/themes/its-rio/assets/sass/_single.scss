@@ -736,8 +736,12 @@
         flex-wrap: wrap;
     }
     img {
-        max-width: 150px;
-        margin: 0px 15px 25px 0px;
+        max-width: 140px;
+        margin: 0px 0px 25px 0px;
+        @include breakpoint(medium) {
+            max-width: 150px;
+            margin: 0px 15px 25px 0px;
+        }
     }
 }
 

@@ -5339,8 +5339,15 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .content-partners img {
-  max-width: 150px;
-  margin: 0px 15px 25px 0px;
+  max-width: 140px;
+  margin: 0px 0px 25px 0px;
+}
+
+@media screen and (min-width: 48.0625em) {
+  .content-partners img {
+    max-width: 150px;
+    margin: 0px 15px 25px 0px;
+  }
 }
 
 @media screen and (max-width: 48em) {
