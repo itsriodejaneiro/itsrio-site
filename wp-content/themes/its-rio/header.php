@@ -40,15 +40,15 @@
 		<!-- End Facebook Pixel Code -->
 		<!-- Facebook Pixel Code -->
 		<script>
-		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-		document,'script','https://connect.facebook.net/en_US/fbevents.js');
+			!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+				n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+					document,'script','https://connect.facebook.net/en_US/fbevents.js');
 		fbq('init', '1336747553030986'); // Insert your pixel ID here.
 		fbq('track', 'PageView');
-		</script>
-		<noscript><img height="1" width="1" style="display:none"
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
 		src="https://www.facebook.com/tr?id=1336747553030986&ev=PageView&noscript=1"
 		/></noscript>
 	</head>
@@ -58,6 +58,7 @@
 			global $postType;
 			global $titles;
 			global $lang;
+			global $polylang;
 
 			$postType = get_post_type() ? get_post_type() : $wp_query->query['post_type'];
 
@@ -74,98 +75,99 @@
 
 			global $title;
 			$title = $titles[$postType];
+			$translationLang = $lang == 'pt' ? 'en' : 'pt';
+			$translationUrl = $lang == 'en' ? '/pt/home/' : '/en/en-home/';	
 
+			if(is_archive()){
+				$translationUrl = str_replace($lang, $translationLang, $_SERVER['REQUEST_URI']);
+			}
+			if(is_single()){
+				$translationUrl = get_permalink($polylang->model->get_translations('post', $post->ID)[$translationLang]);
+			}
+			?>
 
-	/*if(is_front_page()){
-		?>
-		<div class="home-cover" v-html="home_cover"></div>
-		<?php
-	}*/
-	?>
-
-	<div class="row row-menu fixed">
-		<div class="column large-12 menu-container">
-			<i class="fa fa-bars hide-for-large" onclick="toggleMenu()"></i>
-			<?php if(is_front_page()){ ?>
-			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
-			<?php } else { ?>
-			<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
-			<?php } ?>
-			<div class="menu-social show-for-large" >
-				<ul>
-					<li>
-						<a href="https://www.youtube.com/user/ITSriodejaneiro" target="_blank"><i class="fa fa-youtube-play"></i></a>
-					</li>
-					<li>
-						<a href="https://twitter.com/itsriodejaneiro" target="_blank"><i class="fa fa-twitter"></i></a>
-					</li>
-					<li>
-						<a href="https://www.facebook.com/ITSriodejaneiro" target="_blank"><i class="fa fa-facebook"></i></a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com/itsriodejaneiro/" target="_blank"><i class="fa fa-instagram"></i></a>
-					</li>
-					<li>
-						<a href="http://feed.itsrio.org" target="_blank"><i class="fa fa-medium"></i></a>
-					</li>
-					<li>
-						<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>
-					</li>
-					<li class="text">
-						<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a>
-						|
-						<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> english</a>
-					</li>
-				</ul>
-			</div>
-			<div class="menu-nav-bg" onclick="toggleMenu()"></div>
-			<nav class="menu-nav ">
-				<div>
-					<?php //wp_nav_menu('main') ?>
-					<div class="menu-menu_pt-container">
-						<ul id="menu-menu_pt" class="menu">
-							<li id="menu-item-3615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3615">
-								<a href="/<?= $lang ?>/cursos"><?= pll__('cursos') ?></a>
-							</li> 
-							<li id="menu-item-3616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3616">
-								<a href="/<?= $lang ?>/varandas"><?= pll__('varandas') ?></a>
-							</li> 
-							<li id="menu-item-3617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3617">
-								<a href="/<?= $lang ?>/projetos"><?= pll__('projetos') ?></a>
-							</li> 
-							<li id="menu-item-3618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3618">
-								<a href="/<?= $lang ?>/publicacoes"><?= pll__('publicações') ?></a>
-							</li> 
-							<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
-								<a href="/<?= $lang == 'en' ? 'en/institutional' : 'pt/institucional' ?>/"><?= pll__('institucional') ?></a>
+			<div class="row row-menu fixed">
+				<div class="column large-12 menu-container">
+					<i class="fa fa-bars hide-for-large" onclick="toggleMenu()"></i>
+					<?php if(is_front_page()){ ?>
+					<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo-home.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
+					<?php } else { ?>
+					<h1><a href="/"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.svg" alt="ITS - Instituto de Tecnologia e Sociedade do Rio" class="logo"></a></h1>
+					<?php } ?>
+					<div class="menu-social show-for-large" >
+						<ul>
+							<li>
+								<a href="https://www.youtube.com/user/ITSriodejaneiro" target="_blank"><i class="fa fa-youtube-play"></i></a>
+							</li>
+							<li>
+								<a href="https://twitter.com/itsriodejaneiro" target="_blank"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/ITSriodejaneiro" target="_blank"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/itsriodejaneiro/" target="_blank"><i class="fa fa-instagram"></i></a>
+							</li>
+							<li>
+								<a href="http://feed.itsrio.org" target="_blank"><i class="fa fa-medium"></i></a>
+							</li>
+							<li>
+								<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>
+							</li>
+							<li class="text">
+								<a <?= $lang == 'pt' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>>português</a>
+								|
+								<a <?= $lang == 'en' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>> english</a>
 							</li>
 						</ul>
 					</div>
-					<div class="line"></div>
-					<ul class="lang">
-						<li>
-							<a href="/pt/home" <?= $lang == 'pt' ? 'class="selected"' : '' ?>>português</a>
-						</li>
-						<li>
-							<a href="/en/en-home" <?= $lang == 'en' ? 'class="selected"' : '' ?>> english</a>
-						</li>
-					</ul>
-					<div class="line"></div>
-					<div class="menu-mobile-footer show-for-small-only">
-						<div class="redes"></div>
-						<div class="contato">
-							<h3><?= pll__('contato') ?></h3>
-							<?= esc_attr(get_option('footer_contacts')) ?>
+					<div class="menu-nav-bg" onclick="toggleMenu()"></div>
+					<nav class="menu-nav ">
+						<div>
+							<?php //wp_nav_menu('main') ?>
+							<div class="menu-menu_pt-container">
+								<ul id="menu-menu_pt" class="menu">
+									<li id="menu-item-3615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3615">
+										<a href="/<?= $lang ?>/cursos"><?= pll__('cursos') ?></a>
+									</li> 
+									<li id="menu-item-3616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3616">
+										<a href="/<?= $lang ?>/varandas"><?= pll__('varandas') ?></a>
+									</li> 
+									<li id="menu-item-3617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3617">
+										<a href="/<?= $lang ?>/projetos"><?= pll__('projetos') ?></a>
+									</li> 
+									<li id="menu-item-3618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3618">
+										<a href="/<?= $lang ?>/publicacoes"><?= pll__('publicações') ?></a>
+									</li> 
+									<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
+										<a href="/<?= $lang == 'en' ? 'en/institutional' : 'pt/institucional' ?>/"><?= pll__('institucional') ?></a>
+									</li>
+								</ul>
+							</div>
+							<div class="line"></div>
+							<ul class="lang">
+								<li>
+									<a <?= $lang == 'pt' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>>português</a>
+								</li>
+								<li>
+									<a <?= $lang == 'en' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>> english</a>
+								</li>
+							</ul>
+							<div class="line"></div>
+							<div class="menu-mobile-footer show-for-small-only">
+								<div class="redes"></div>
+								<div class="contato">
+									<h3><?= pll__('contato') ?></h3>
+									<?= esc_attr(get_option('footer_contacts')) ?>
+								</div>
+								<div class="trending"></div>
+							</div>
 						</div>
-						<div class="trending"></div>
-					</div>
+					</nav>
+					<div class="scrollable-arrow"></div>
+					<i class="search-button fa fa-search" onclick="toggleBusca()"></i>
 				</div>
-			</nav>
-			<div class="scrollable-arrow"></div>
-			<i class="search-button fa fa-search" onclick="toggleBusca()"></i>
-		</div>
-	</div>
+			</div>
 
-	<?php include(ROOT.'inc/search.php'); ?>
-
-	<div id="content">
+			<?php include(ROOT.'inc/search.php'); ?>
+			<div id="content">
