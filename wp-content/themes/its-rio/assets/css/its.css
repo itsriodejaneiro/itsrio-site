@@ -4045,6 +4045,7 @@ h3, h4, h5 {
   left: 0;
   right: 0;
   max-height: 265px;
+  min-height: 113px;
   overflow: hidden;
   padding: 20px;
   position: absolute;
@@ -6664,6 +6665,10 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
     -webkit-transform: translate(0px, -5px);
     transform: translate(0px, -5px);
   }
+}
+
+.reveal-overlay {
+  overflow-y: hidden !important;
 }
 
 .reveal-modal {
