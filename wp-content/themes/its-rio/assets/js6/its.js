@@ -81,6 +81,7 @@ Vue.component('its-map', {
         openMarker(marker, obj) {
             this.selectedMarker = marker;
             var el = $('.map-info');
+            $('.map-info-carousel-item').eq(0).addClass('active');
             var elOffset = el.offset().top;
             var elHeight = el.height();
             var windowHeight = $(window).height();
@@ -92,7 +93,6 @@ Vue.component('its-map', {
             $('html, body').animate({ scrollTop: offset }, 300);
 
             setInterval(function(){
-                $('.map-info-carousel-item').eq(0).addClass('active');
                 $('.map-info .next').unbind('click');
                 $('.map-info .next').click(function() {
                     var prev = $('.map-info-carousel-item.active');
