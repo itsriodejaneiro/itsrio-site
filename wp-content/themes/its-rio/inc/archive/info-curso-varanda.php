@@ -1,10 +1,12 @@
 <div class="horario show-for-small-only">
 	<div class="box">
-		<?= pll__('inscrições até') ?>
-		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
-		if($postType == 'cursos_ctp')
-			echo "<br> ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+		if($postType == 'varandas_ctp'){
+			echo date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0];
+		} 
+		if($postType == 'cursos_ctp'){
+			echo  pll__('inscrições até') . date('d/m',strtotime($meta['info_inscfim'][0])). "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+		}
 		?>
 	</div>
 </div>
@@ -17,11 +19,13 @@
 <div class="info-right horario show-for-medium">
 	<p><b><?= pll__('data') ?></b></p>
 	<span class="box">
-		<?= pll__('inscrições até') ?>
-		<?= date('d/m',strtotime($meta['info_inscfim'][0]))	?>
 		<?php
-		if($postType == 'cursos_ctp')
-			echo "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+		if($postType == 'varandas_ctp'){
+			echo date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0];
+		} 
+		if($postType == 'cursos_ctp'){
+			echo  pll__('inscrições até') .' '. date('d/m',strtotime($meta['info_inscfim'][0])). "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+		}
 		?>
 	</span>
 </div>
