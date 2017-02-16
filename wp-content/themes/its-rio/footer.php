@@ -40,7 +40,7 @@
 				<?php $inst_url = $lang == 'en' ? $lang.'/institutional' : $lang.'/institucional' ?>
 				<li><a href="/<?= $inst_url ?>#equipe" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('equipe') ?></a></li>
 				<li><a href="/<?= $inst_url ?>#onde-estivemos" class="box show-for-large" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('onde estivemos') ?></a></li>
-				<li><a href="/<?= $inst_url ?>#comunicados" class="box" onclick="if($('body').hasClass('page-id-35')) window.location.reload();"><?= pll__('comunicados') ?></a></li>
+				<li><a href="/<?= $lang ?>/comunicados" class="box"><?= pll__('comunicados') ?></a></li>
 			</ul>
 		</div>
 
