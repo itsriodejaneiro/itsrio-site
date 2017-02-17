@@ -72,7 +72,7 @@
 <div class="reveal-overlay">
 	<div id="modalNewsletter" class="reveal-modal" data-reveal="rqhkrl-reveal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-yeti-box="modalNewsletter" data-resize="modalNewsletter">
 		<iframe src="" frameborder="0" width="100%" height="100%"></iframe>
-		<span class="close" onclick="$('.reveal-overlay').fadeOut();">&times;</span>
+		<span class="close" onclick="closeNewsletter()">&times;</span>
 	</div>	
 </div>
 
