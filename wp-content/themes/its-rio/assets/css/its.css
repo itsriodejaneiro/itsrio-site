@@ -3502,6 +3502,10 @@ h3, h4, h5 {
   margin-top: 25px;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .menu-container {
   z-index: 20;
   height: 75px;

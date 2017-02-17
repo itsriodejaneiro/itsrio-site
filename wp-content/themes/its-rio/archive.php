@@ -87,16 +87,14 @@ get_header();
 						<div <?php post_class( 'carousel-cell highlights'); echo get_thumbnail_style($destaque_id,'banner'); ?> >
 							<div class="color-hover"></div>
 							<div class="info">
-								<a href="<?= get_post_permalink() ?>">
-									<div class="header">
-										<?php
-										if(in_array($postType, ['cursos_ctp','varandas_ctp']))
-											include ROOT.'inc/archive/info-curso-varanda.php';
-										else
-											include ROOT.'inc/archive/info-projeto-publi.php';
-										?>
-									</div>
-								</a>
+								<div class="header">
+									<?php
+									if(in_array($postType, ['cursos_ctp','varandas_ctp']))
+										include ROOT.'inc/archive/info-curso-varanda.php';
+									else
+										include ROOT.'inc/archive/info-projeto-publi.php';
+									?>
+								</div>
 								<div class="line show-for-medium"></div>
 								<div class="column large-12 no-p show-for-medium">
 									<?php include('inc/categories.php'); ?>

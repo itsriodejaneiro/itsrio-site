@@ -192,6 +192,9 @@
 		});
 		$('#media-player iframe').attr('src',$('#media-player').attr('first-video'));
 	});
+	
+	// hack para funcionar active state no ios
+    document.addEventListener("touchstart", function() {},false);
 </script>
 <?php //wp_footer();?>
 </body>
