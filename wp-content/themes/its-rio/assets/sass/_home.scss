@@ -190,3 +190,11 @@
 		}
 	}
 }
+
+.home {
+	.list-item-wrapper:nth-child(3) {
+		@media screen and (min-width: 567px) and (max-width: 736px) {
+			display: none;
+		}
+	}
+}

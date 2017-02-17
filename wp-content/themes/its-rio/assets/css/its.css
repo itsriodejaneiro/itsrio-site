@@ -4013,6 +4013,12 @@ html {
   width: 13%;
 }
 
+@media screen and (min-width: 567px) and (max-width: 736px) {
+  .home .list-item-wrapper:nth-child(3) {
+    display: none;
+  }
+}
+
 .highlights {
   background-size: cover;
   background-position: center;
