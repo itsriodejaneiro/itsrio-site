@@ -5,7 +5,7 @@
 			echo date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0];
 		} 
 		if($postType == 'cursos_ctp'){
-			echo  pll__('inscrições até') . date('d/m',strtotime($meta['info_inscfim'][0])). "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+			echo  pll__('inscrições até') . date('d/m',strtotime($meta['info_inscfim'][0])). " | ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
 		}
 		?>
 	</div>
@@ -24,7 +24,7 @@
 			echo date('d/m',strtotime($meta['info_data'][0])).' às '.$meta['info_hora'][0];
 		} 
 		if($postType == 'cursos_ctp'){
-			echo  pll__('inscrições até') .' '. date('d/m',strtotime($meta['info_inscfim'][0])). "| ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
+			echo  pll__('inscrições até') .' '. date('d/m',strtotime($meta['info_inscfim'][0])). " | ".pll__('início do curso')." " . date('d/m',strtotime($meta['info_data'][0]));
 		}
 		?>
 	</span>
