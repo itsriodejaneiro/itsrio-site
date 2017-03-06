@@ -30,7 +30,7 @@
 		<div class="column small-12 show-for-small-only">
 			<b><?= pll__('newsletter') ?></b><br>
 			<input type="text" id="txtNewsletter_Mobile" placeholder="<?= pll__('escreva seu email para receber') ?>" class="newsletter-input">
-			<a href="javascript:void(0);" class="box newsletter-button" onclick="openNewsletter()"><?= pll__('inscreva-se') ?></a>
+			<a class="box newsletter-button" id="newsletterButton_Mobile" onclick="openNewsletterMobile()" target="_blank"><?= pll__('inscreva-se') ?></a>
 		</div>
 
 		<div class="column medium-2">
@@ -151,6 +151,12 @@
 		$('#modalNewsletter iframe').attr('src','https://itsrio.us12.list-manage.com/subscribe/post?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0='+$('#txtNewsletter').val());
 		$('html,body').css('position','relative');
 		$('html,body').css('overflow-y','hidden');
+	}
+
+	function openNewsletterMobile() {
+		var link = 'https://itsrio.us12.list-manage.com/subscribe/post?u=b2433258ec47fc6f9a063fd7b&id=8a308c4e7a&MERGE0=' + $('#txtNewsletter_Mobile').val();
+		console.log(link);
+		$("#newsletterButton_Mobile").prop('href', link);
 	}
 
 	function closeNewsletter() {
