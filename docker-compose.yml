@@ -10,6 +10,7 @@ web:
    - db:mysql
   ports:
    - "80:80"
+   - "443:443"
 db:
   image: mariadb
   environment:
