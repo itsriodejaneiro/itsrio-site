@@ -48,6 +48,7 @@ class Comunicados extends ET_Builder_Module {
 		global $data;
 		global $components;
 		global $lang;
+		global $dynamic_featured_image;
 
 		$wp_filter_cache = $wp_filter;
 		$posts_type        = $this->shortcode_atts['posts_type'];
@@ -63,11 +64,16 @@ class Comunicados extends ET_Builder_Module {
 			while( $query->have_posts() ) {
 				$query->the_post();
 				$post = (array)$post;
+
+
+				$featuredImages = $dynamic_featured_image->get_featured_images( $post['ID'] );
+
 				$components['comunicados']['posts'][] = array(
 					'title' => $post['post_title'],
 					'permalink' => get_permalink($post['ID']),
 					'excerpt' => $post['post_excerpt'],
-					'thumb' => get_thumbnail_url_full( $post['ID'] ),
+					//'thumb' => get_thumbnail_url_full( $post['ID'] ),
+					'thumb' => $featuredImages[1]['full'] ,
 					);
 			}
 		}
