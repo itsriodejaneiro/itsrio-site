@@ -3170,6 +3170,13 @@ h2.list-title small i {
   text-decoration: underline;
 }
 
+.show-for-medium.excerpt{
+  font-family: 'Raleway';
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+}
+
 .list-item .img {
   width: 100%;
   min-height: 220px;
