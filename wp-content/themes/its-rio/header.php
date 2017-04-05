@@ -84,6 +84,15 @@
 			if(is_single()){
 				$translationUrl = get_permalink($polylang->model->get_translations('post', $post->ID)[$translationLang]);
 			}
+
+			/*
+			 se a url de traducao for igual a atual, significa que nao ha pagina
+			 de traducao. Quando isso ocorrer, mandar o usuario para a home
+			*/
+			$this_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+			if($translationUrl == $this_url){
+				$translationUrl = get_home_url();
+			}
 			?>
 
 			<div class="row row-menu fixed">
