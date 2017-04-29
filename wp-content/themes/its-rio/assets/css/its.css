@@ -5291,7 +5291,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .component-tabs.aulas .component-tabs-content {
-  font-weight: 600;
+  font-weight: normal;
 }
 
 @media screen and (min-width: 48.0625em) {
