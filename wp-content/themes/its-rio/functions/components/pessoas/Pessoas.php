@@ -100,6 +100,7 @@ class Pessoas extends ET_Builder_Module {
 
 		ob_start();
 
+		wp_reset_postdata();
 		if($categorized == 'on')
 			include(__DIR__.'/view_pessoas_cat.php');
 		else
