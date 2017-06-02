@@ -12,8 +12,8 @@
 					<h2 class="area-title">
 						<?= $tab['title'] ?>
 					</h2>
-					<a href="/<?= $lang.'/'.$tab['link'] ?>" class="button curved-shadow show-for-small-only"><?= $tab['link_title'] ?></a>
-					<a href="/<?= $lang.'/'.$tab['link'] ?>" class="button large curved-shadow show-for-medium"><?= $tab['link_title'] ?></a>
+					<a href="/<?= str_replace('//','/', $lang.'/'.$tab['link'] ) ?>" class="button curved-shadow show-for-small-only"><?= $tab['link_title'] ?></a>
+					<a href="/<?= str_replace('//','/', $lang.'/'.$tab['link'] ) ?>" class="button large curved-shadow show-for-medium"><?= $tab['link_title'] ?></a>
 					</div>
 				<div class="area-midia">
 					<img src="<?= $tab['midia'] ?>" alt="">
