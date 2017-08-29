@@ -123,6 +123,9 @@
 							<li>
 								<a href="https://github.com/itsriodejaneiro" target="_blank"><i class="fa fa-github"></i></a>
 							</li>
+							<li>
+								<a href="https://soundcloud.com/varandasits" target="_blank"><i class="fa fa-soundcloud"></i></a>
+							</li>
 							<li class="text">
 								<a <?= $lang == 'pt' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>>português</a>
 								|
