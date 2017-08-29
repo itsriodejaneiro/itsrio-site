@@ -25,7 +25,7 @@ get_header();
 			);
 	}
 
-	if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
+	if(in_array($postType, ['varandas_ctp'])){
 		$args = array(
 			'post_type' => $post_type,
 			'meta_key' => 'info_inscfim',
