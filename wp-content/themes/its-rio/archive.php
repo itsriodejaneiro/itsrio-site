@@ -25,7 +25,7 @@ get_header();
 			);
 	}
 
-	if(in_array($postType, ['varandas_ctp'])){
+	if(in_array($postType, ['cursos_ctp','varandas_ctp'])){
 		$args = array(
 			'post_type' => $post_type,
 			'meta_key' => 'info_inscfim',
@@ -140,11 +140,11 @@ get_header();
 			<?php
 		}
 
-		if($postType == 'publicacoes_ctp' || $postType == 'comunicados_ctp'){
+		if(in_array($postType, ['cursos_ctp', 'publicacoes_ctp', 'comunicados_ctp'])){
 			$args = ['orderby' => 'post_date', 'order' => 'DESC'];
 		}
 
-		if(in_array($postType, ['cursos_ctp', 'varandas_ctp'])){
+		if(in_array($postType, ['varandas_ctp'])){
 			$args = array(
 				'relation'		=> 'OR',
 				'meta_query'	=> array(
@@ -167,9 +167,10 @@ get_header();
 
 		$args['posts_per_page'] = '100';
 		$args['post_type'] = $postType;
-		if($postType != 'comunicados_ctp')
+
+		if($postType != 'comunicados_ctp' && $postType != 'cursos_ctp')
 			$args['post__not_in'] = $destaques;
-		
+			
 		query_posts($args);
 
 		// echo $GLOBALS['wp_query']->request;
@@ -177,7 +178,7 @@ get_header();
 		if (have_posts()) {
 			while (have_posts()) {
 				the_post();
-				if($destaque_id != get_the_ID())
+				if($destaque_id != get_the_ID() || $postType == 'cursos_ctp')
 					include(ROOT .'inc/post-box.php');
 			}
 		}
