@@ -38,8 +38,8 @@ get_header();
 
 	if ($posts->have_posts()) {
 		?>
-		<div class="main-carousel-wrapper column large-12">
-			<?php
+		<div class="column large-12">
+			<?php 
 			switch ($postType) {
 				case 'cursos_ctp':
 				$bannerTitle = pll__('inscrições abertas') ;
@@ -66,12 +66,16 @@ get_header();
 
 			if($bannerTitle != ""){
 				?>
-				<h2 class="list-title show-for-medium">
+				<h2 class="list-title <?= ($postType != 'cursos_ctp') ? 'show-for-medium' : '' ?>">
 					<?= $bannerTitle ?>
 					<div class="line"></div>
 				</h2>
 				<?php
 			}
+			?>
+		</div>
+		<div class="main-carousel-wrapper column large-12">
+			<?php
 			if($postType != 'comunicados_ctp'){
 				?>
 				<div class="main-carousel highlights-carousel">
@@ -185,14 +189,4 @@ get_header();
 		?>
 	</div>
 </div>
-<script>
-	// 'use strict';
-	// setTimeout(()=>{
-	// 	jQuery('.older-posts').masonry({
-	// 		columnWidth : '.large-4',
-	// 		selector : '.large-4',
-	// 		percentPosition: true,
-	// 	});
-	// }, 1000);
-</script>
 <?php get_footer(); ?>
