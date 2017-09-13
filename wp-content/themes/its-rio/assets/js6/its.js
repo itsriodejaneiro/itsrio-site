@@ -240,6 +240,22 @@ new Vue({
             }
         }, 1000);
 
+        // $(window).resize(function(){
+        //     var maxHeight = -1;
+
+        //     $('.list-item-wrapper .large-4').each(function () {
+        //         maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+        //     });
+
+        //     $('.list-item-wrapper .large-4').each(function () {
+        //         var excedingHeight = maxHeight - $(this).height();
+        //         $(this).find('.img').css('height', 220 + excedingHeight);
+        //         $(this).find('.img').css('overflow', 'hidden');
+        //         $(this).css('height', 220 + excedingHeight);
+        //         $(this).height(maxHeight);
+        //     });
+        // });
+
         $('.comunicados h2 > a').click(function() {
             if ($(this).text().indexOf("ver") > -1) {
                 $('.content-area:not(.comunicados)').hide();
