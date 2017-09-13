@@ -66,7 +66,7 @@ get_header();
 
 			if($bannerTitle != ""){
 				?>
-				<h2 class="list-title <?= ($postType != 'cursos_ctp') ? 'show-for-medium' : '' ?>">
+				<h2 style="margin-top: 15px" class="list-title <?= ($postType != 'cursos_ctp') ? 'show-for-medium' : '' ?>">
 					<?= $bannerTitle ?>
 					<div class="line"></div>
 				</h2>
