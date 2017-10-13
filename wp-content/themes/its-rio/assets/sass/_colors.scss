@@ -6,6 +6,20 @@ $color_projetos : #522e91;
 $color_institucionais : #522e91;
 
 @mixin single-colors($color) {
+	.lang li a{
+		color: black !important;
+		font-weight: 500;
+
+		&.selected{
+			color: $color !important; 	
+			font-weight: bold;
+
+			&:before {
+				background-color: $color !important;
+			}
+		}
+	}
+
 	.menu-container .menu-nav ul li.current-menu-item {
 		border-bottom: 5px solid $color;
 		font-weight: bold;

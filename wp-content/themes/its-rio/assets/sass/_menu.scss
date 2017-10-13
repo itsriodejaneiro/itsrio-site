@@ -201,6 +201,14 @@
 				@include breakpoint(large) {
 					display: none;
 				}
+				
+				@include breakpoint(small) {
+					.current-menu-item:before{
+						background-color: transparent !important;
+
+						a { color: black !important; }
+					}
+				}
 			}
 
 			li { border-bottom: 5px solid transparent; }
