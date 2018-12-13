@@ -569,6 +569,10 @@
         @media #{$small-only}{
             padding: 0px !important;
         }
+
+        p {
+            font-size: 18px;
+        }
     }
 
     .columns:nth-of-type(even){
@@ -1086,7 +1090,7 @@
 .purple-text {
     line-height: 2;
     color: #9a258f;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     font-family: Raleway, sans-serif;
 }
