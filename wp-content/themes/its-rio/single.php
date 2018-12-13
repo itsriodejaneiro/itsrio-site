@@ -7,7 +7,7 @@ $closed = false;
 
 if(isset($meta['info_inscfim'])){
 	$fim = strtotime($meta['info_inscfim'][0]);
-	if((int)$fim < time())
+	if((int)strtotime("tomorrow", $fim) < time())
 		$closed = true;
 }
 
