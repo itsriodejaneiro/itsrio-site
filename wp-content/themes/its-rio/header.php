@@ -150,8 +150,11 @@
 									</li> 
 									<li id="menu-item-3618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3618">
 										<a href="/<?= $lang ?>/publicacoes"><?= pll__('publicações') ?></a>
-									</li> 
+									</li>
 									<li id="menu-item-3619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3619">
+										<a href="/<?= $lang == 'en' ? 'en/comunicados' : 'pt/comunicados' ?>/"><?= pll__('comunicados') ?></a>
+									</li>
+									<li id="menu-item-3620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3620">
 										<a href="/<?= $lang == 'en' ? 'en/institutional' : 'pt/institucional' ?>/"><?= pll__('institucional') ?></a>
 									</li>
 								</ul>
