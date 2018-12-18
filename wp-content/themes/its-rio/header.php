@@ -115,6 +115,9 @@
 								<a href="https://www.facebook.com/ITSriodejaneiro" target="_blank"><i class="fa fa-facebook"></i></a>
 							</li>
 							<li>
+								<a href="https://www.linkedin.com/school/itsriodejaneiro" target="_blank"><i class="fa fa-linkedin"></i></a>
+							</li>
+							<li>
 								<a href="https://www.instagram.com/itsriodejaneiro/" target="_blank"><i class="fa fa-instagram"></i></a>
 							</li>
 							<li>
@@ -125,6 +128,9 @@
 							</li>
 							<li>
 								<a href="https://soundcloud.com/varandasits" target="_blank"><i class="fa fa-soundcloud"></i></a>
+							</li>
+							<li>
+								<a href="https://open.spotify.com/user/a2vvb9zp16t8aa6labdvowetf" target="_blank"><i class="fa fa-spotify"></i></a>
 							</li>
 							<li class="text">
 								<a <?= $lang == 'pt' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>>português</a>
