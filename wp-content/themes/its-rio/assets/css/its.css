@@ -3147,6 +3147,12 @@ h2.list-title small i {
   font-family: 'Raleway';
 }
 
+.list-item .info p.post-type {
+  font-family: 'Roboto Mono';
+  text-align: right;
+  margin-top: -10px;
+}
+
 .list-item h3 {
   line-height: 1.5;
 }

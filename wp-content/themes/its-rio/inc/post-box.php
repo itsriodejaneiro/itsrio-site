@@ -2,6 +2,13 @@
 <div class="list-item-wrapper column small-12 medium-4 large-4 end <?= ($post->post_type == 'projetos_ctp') ? 'area-'.$meta['info_areapesquisa'][0] : '' ?>">
 	<div <?php post_class( 'list-item' ); ?>>
 		<div class="info">
+			<p class="post-type">
+				<?php
+					$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'acontece'];
+					
+					echo pll__($titlesCard[get_post_type()]);
+				?>
+			</p>
 			<h3><a href="<?= get_permalink() ?>"><?= the_title(); ?></a></h3>
 			<div class="line"></div>
 			<p class="excerpt">
