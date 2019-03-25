@@ -210,6 +210,6 @@
 	// hack para funcionar active state no ios
     document.addEventListener("touchstart", function() {},false);
 </script>
-<?php //wp_footer();?>
+<?php wp_footer(); ?>
 </body>
 </html>
