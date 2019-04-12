@@ -24,33 +24,6 @@
 	<script src="/wp-content/themes/its-rio/assets/js/isotope.pkgd.min.js"></script>
 	<script src="/wp-content/themes/its-rio/assets/js/jquery.custom-scrollbar.min.js"></script>
 	<script src="https://use.fontawesome.com/cb38949964.js"></script>
-	<script>
-		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-			n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-			n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-			t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-				document,'script','https://connect.facebook.net/en_US/fbevents.js');
-			fbq('init', '903842739667609'); 
-			fbq('track', 'PageView');
-		</script>
-		<noscript>
-			<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=903842739667609&ev=PageView&noscript=1"/>
-		</noscript>
-		<!-- DO NOT MODIFY -->
-		<!-- End Facebook Pixel Code -->
-		<!-- Facebook Pixel Code -->
-		<script>
-			!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-				n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-					document,'script','https://connect.facebook.net/en_US/fbevents.js');
-		fbq('init', '1336747553030986'); // Insert your pixel ID here.
-		fbq('track', 'PageView');
-	</script>
-	<noscript>
-	    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1336747553030986&ev=PageView&noscript=1" />
-	</noscript>
 	</head>
 	<body <?php body_class(); ?>>
 		<div id="content_all" v-cloak>
