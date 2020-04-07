@@ -1,0 +1,68 @@
+---
+image: docker:18.01.0-ce-git
+services:
+- docker:18.01.0-ce-dind
+
+stages:
+- build
+- deploy
+
+variables:
+  RELEASE_IMAGE: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  HOMOLOG_IMAGE: $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME-$CI_COMMIT_SHORT_SHA
+  KUBECONFIG: /etc/k8s-config
+
+
+
+build to homolog:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $HOMOLOG_IMAGE -f compose/production/Dockerfile .
+    - docker push $HOMOLOG_IMAGE
+  only:
+    - /master/
+  environment: homolog
+  tags:
+    - docker
+
+deploy to homolog:
+  stage: deploy
+  image: hacklab/kubectl:latest
+  script:
+    - echo ${kube_config} | base64 -d > ${KUBECONFIG}
+    - kubectl -n its-rio-site-dev --record deployment.apps/wordpress set image deployment.v1.apps/wordpress wordpress=$HOMOLOG_IMAGE
+    - kubectl -n its-rio-site-dev rollout status deploy wordpress
+  only:
+    - /master/
+  environment: homolog
+  tags:
+    - docker
+
+
+build to production:
+  stage: build
+  script:
+    - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
+    - docker build -t $RELEASE_IMAGE -f compose/production/Dockerfile .
+    - docker tag $RELEASE_IMAGE "$CI_REGISTRY_IMAGE:latest"
+    - docker push $RELEASE_IMAGE
+    - docker push "$CI_REGISTRY_IMAGE:latest"
+  only:
+    - tags
+  environment: production
+  tags:
+    - docker
+
+deploy to production:
+  stage: deploy
+  image: hacklab/kubectl:latest
+  script:
+    - echo ${kube_config} | base64 -d > ${KUBECONFIG}
+    - kubectl -n its-rio-site-prod --record deployment.apps/wordpress set image deployment.v1.apps/wordpress wordpress=$RELEASE_IMAGE
+    - kubectl -n its-rio-site-prod rollout status deploy wordpress
+  only:
+    - tags
+  environment: production
+  tags:
+    - docker
