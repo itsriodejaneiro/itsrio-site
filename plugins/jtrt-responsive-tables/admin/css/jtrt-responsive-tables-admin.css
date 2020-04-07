@@ -1,0 +1,736 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.handsontable td img{
+     max-width: 130px;
+     width:100%;
+ }
+
+#jt-editor-container header{
+    background:white;
+}
+
+#jt-editor-container header h2,#jt-editor-container header ul{
+    display:inline-block;
+    padding:0;
+    margin:0;
+}
+
+#jt-editor-container header h2{
+    padding:14px;
+}
+
+#jt-editor-container header ul{
+    float:right;
+    list-style: none;
+    background:#cecece;
+}
+
+#jt-editor-container header ul li{
+    display: inline-block;
+    margin: 0;
+    padding:14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#jt-editor-container header ul li:hover{
+    background:#f06d06;
+    color: white;
+}
+
+#jt-editor-container header ul li.active{
+    background:#f06d06;
+    color: white;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#jteditortoobar ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    
+}
+
+#jteditortoobar ul li{
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0;
+    cursor:pointer;
+    position: relative;
+}
+
+#jteditortoobar ul li:hover ul{
+    display: block;
+}
+
+#jteditortoobar ul li:after{
+    content:"";
+    width:7px;
+    height:5px;
+    margin-left: 4px;
+    margin-bottom: 1px;
+    background:url('icons/menu-arrow.png');
+    display: inline-block;
+}
+
+#jteditortoobar ul li ul{
+    position: absolute;
+    background:white;
+    padding:0px;
+    left:0;
+    margin-top:8px;
+    width:150px;
+    z-index:9999;
+    display: none;
+}
+
+#jteditortoobar ul li ul span{
+    border-bottom: 1px solid #eae3e3;
+    width:100%;
+    display: block;
+}
+
+#jteditortoobar ul li ul li div.jtkeycodetoolbar{
+    display: inline-block;
+    float: right;
+    color: #ccc;
+    font-size: 10px;
+}
+
+#jteditortoobar ul li ul li ul.jtfileinnerul{
+    display: none;
+    left: 100%;
+    top: -9px;
+}
+
+#jteditortoobar ul li ul li:hover ul.jtfileinnerul{
+    display: block;
+    color: #333;
+}
+
+#jteditortoobar ul li ul li{
+    display: block;
+    margin:0 auto;
+}
+
+#jteditortoobar ul li ul li:hover{
+    background:#f06d06;
+    color: white;
+}
+
+#jteditortoobar ul li ul li:after{
+    display: none;
+}
+
+#jteditbottomtoolbar{
+    margin-bottom: 1px;
+}
+
+#jteditbottomtoolbar ul{
+    margin: 0;
+    list-style: none;
+    padding:5px;
+    border:1px solid #ccc;
+}
+
+#jteditbottomtoolbar ul li{
+    display: inline-block;
+    margin: 0;
+    height: 14px;
+    padding:8px 8px 8px 8px;
+    cursor: pointer;
+}
+
+#jteditbottomtoolbar ul span{
+    border: 1px solid #e9e3e3;
+    margin: 0 8px;
+}
+
+
+#jteditbottomtoolbar ul li:hover{
+    background:#e9e6e6;
+}
+
+#jteditbottomtoolbar ul li:last-child{
+    float:right;
+}
+
+#jteditbottomtoolbar ul li img{
+    height:14px;
+}
+
+#loaderIco{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+#jteditfont,#jtinsertlink,#jtbordersbtn,#jthighlight,#jthidecolsbtn{
+    position: relative;
+}
+
+#jteditfont ul,#jtinsertlink ul,#jtbordersbtn ul, #jthighlight ul, #jthidecolsbtn ul{
+    position:absolute;
+    z-index:9999;
+    background:rgba(255,255,255,0.9);
+    padding:8px;
+    margin-left:24px;
+    top:0;
+    display: none;
+}
+
+
+
+#jteditfont ul tr:nth-of-type(2) td:nth-of-type(2),#jtinsertlink ul tr td:nth-of-type(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#jteditfont ul tr:nth-of-type(2) td:nth-of-type(2) button, #jtinsertlink ul tr td:nth-of-type(2) button{
+    background: #f3f3f3;
+    border: 1px solid #CCC;
+    padding-top: 0;
+    width: 50%;
+    height: 28px;
+    padding-bottom: 0;
+}
+
+#jtsetcellbordersbtn {
+    float: right;
+}
+
+#jtbordersbtn ul div.borderSelectorContainer {
+    height: 100px;
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#jtbordersbtn ul div.borderSelector {
+    width: 60px;
+    height: 60px;
+    border: dotted 1px #ddd;
+    position: relative;
+}
+
+#jtbordersbtn ul small {
+    text-align: center;
+}
+
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='left'] {
+    position: absolute;
+    left: -5px;
+    top: 1px;
+    bottom: 1px;
+    padding: 4px;
+    background: transparent;
+    width: 1px;
+}
+
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='top'] {
+    position: absolute;
+    left: 1px;
+    top: -5px;
+    right: 1px;
+    padding: 4px;
+    background: transparent;
+    height: 1px
+}
+
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='right'] {
+    position: absolute;
+    bottom: 1px;
+    top: 1px;
+    right: -5px;
+    padding: 4px;
+    background: transparent;
+    width: 1px;
+}
+
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='bottom'] {
+    position: absolute;
+    left: 1px;
+    top: auto;
+    bottom: -5px;
+    right: 1px;
+    padding: 4px;
+    background: transparent;
+    height: 1px;
+}
+
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='left'].active:before,
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='top'].active:before,
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='right'].active:before,
+#jtbordersbtn ul div.borderSelectorContainer div[data-border='bottom'].active:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: #333;
+    display: block;
+}
+
+
+
+#jtbordersbtn ul table tr td img{
+    padding:8px;
+}
+#jtbrdtop{
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+#jtbrdright{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+#jtbrdbottom{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+
+#jtbrdtopbot{
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+#jtbrdtopright{
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+#jtbrdrightbot{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+#jtbrdbotleft{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+
+
+#jtbordersbtn ul {
+    text-align: center;
+}
+
+#jtbordersbtn ul table tr td img:hover{
+    background:#f3f3f3;
+}
+
+
+#jteditbottomvalbar{
+    padding: 4px 14px;
+    border:solid 1px #ccc;
+}
+
+#jteditbottomvalbar ul{
+    display:flex;
+    align-items: center;
+    margin:0;
+    padding:0;
+}
+
+#jteditbottomvalbar ul li{
+    display: inline-block;
+    margin: 0;
+}
+
+#jteditbottomvalbar ul li:last-child{
+    margin-left: 14px;
+    width: 100%;
+}
+
+#jteditbottomvalbar ul li input{
+    width:100%;
+    margin: 0;
+}
+
+.jtmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999999999; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.jtmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    text-align: left;
+    display: inline-block;
+    padding: 0;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@media screen and (max-width:768px) {
+    .jtmodal-content {
+        width:80%;
+    }
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.jtclose {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.jtclose:hover,
+.jtclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.jtmodal-header {
+    padding: 2px 14px;
+    background-color: #cbc4c4;
+    color: white;
+}
+
+.jtmodal-header h2{
+    padding: 0!important;
+}
+
+.jtmodal-body {padding: 14px;}
+
+.jtmodal-body table{
+    width:100%;
+}
+
+.jtmodal-body table td input{
+    width:100%;
+}
+
+.jtmodal-body table td button{
+    padding: 4px 8px;
+    background:#f06d06;
+    color:white;
+    border:none;
+    border-radius: 2px;
+    float:right;
+}
+
+.jtmodal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.jtrteditorsection{
+    display: none;
+}
+
+.jtrteditorshow.jtrteditorsection{
+    display: block;
+}
+
+#jtoptionsContainer{
+    max-width: 100%;
+    display: flex;
+    background: white;
+    padding: 14px;
+    align-items: top;
+}
+
+#jtoptionsContainer .leftSidejt{
+    max-width: 30%;
+    background: #f1f1f1;
+    width: 100%;
+    margin-right: 14px;
+    margin-bottom: -14px;
+}
+
+#jtoptionsContainer .leftSidejt ul{
+    margin:0;
+    padding: 0;
+
+}
+
+#jtoptionsContainer .leftSidejt ul li{
+    padding: 8px 14px;
+    width: 100%;
+    left: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition:all 0.3s;
+    cursor: pointer;
+}
+
+#jtoptionsContainer .leftSidejt ul li.active{
+    background: #f06d06;
+    color: white;
+}
+
+#jtoptionsContainer .leftSidejt ul li:hover{
+    background: #f06d06;
+    color: white;
+}
+
+#jtoptionsContainer .rightSidejt h2{
+    padding:0;
+    margin:0;
+}
+
+#jtoptionsContainer .rightSidejt{
+    width:100%;
+}
+
+#jtoptionsContainer .rightSidejt table{
+    width: 100%;
+}
+
+#jtoptionsContainer .rightSidejt table tbody tr td:first-child{
+    margin-right: auto;
+}
+
+#jtoptionsContainer .rightSidejt table tbody tr td:last-child{
+    float:right;
+    text-align: right;
+}
+
+#jtoptionsContainer .rightSidejt table tbody tr{
+    display: flex;
+    width: 100%;
+    min-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background: #fbfbfb;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+#jtoptionsContainer .rightSidejt table tbody tr td{
+    padding:8px;
+}
+
+.rightSidejt .optionsPagejt{
+    display: none;
+}
+
+.rightSidejt .optionsPagejt.jtoptionsshow{
+    display: block;
+}
+
+div#jtrshortcontainer{
+    background:white;
+    padding:14px;
+
+}
+
+div#jtrshortcontainer table{
+    width:100%;
+}
+
+div#jtrshortcontainer h2{
+    margin: 0;
+    padding: 0;
+}
+
+div#jtrt_tables_post h1{
+    display: none;
+}
+
+div#jtConverAvailMessage{
+    padding:8px 14px;
+    background:white;
+    box-shadow:0 0 7px #ccc;
+    margin-bottom: 24px;
+    border-left:12px solid #f06d06;
+}
+
+div#jtConverAvailMessage div{
+    text-align: right;
+    margin: 14px;
+}
+
+div#jtConverAvailMessage a{
+    padding:8px 14px;
+    background:#f06d06;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+div#jtresponsiveoptionscontainer div{
+    display: none;
+}
+
+#jthidecolsbtn ul tr td{
+    white-space: nowrap;
+    padding:8px;
+}
+
+.jtfootablehide{
+    text-align: center;
+    border-radius: 2px;
+}
+
+.jtfootablehide.selectedCol{
+    background:#f06d06;
+    color:white;
+}
+
+#jtsupportcolumn{
+    display: flex;
+    margin-bottom: 1px;
+    align-items: flex-start;
+    background:white;
+    padding:14px;
+    justify-content: space-between;
+}
+
+#jtsupportcolumn div{
+    width:33%;
+    padding: 14px;
+}
+
+button.jtsetbutton{
+    background: #f3f3f3;
+    border: 1px solid #CCC;
+    padding-top: 0;
+    /* width: 50%; */
+    height: 28px;
+    padding-bottom: 0;
+    display: block;
+}
+
+.jtrtEditorBtnGrp{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.jtrtEditorBtnGrp .wp-picker-container a.wp-color-result{
+    margin:0;
+}
+
+.jtrtEditorBtnGrp .wp-picker-container a.wp-color-result:after{
+    white-space: nowrap;
+}
+
+.jtrtEditorBtnGrp .wp-picker-container .wp-picker-input-wrap{
+    border:none!important;
+    margin: 0!important;
+}
+
+#jtfontcolor{
+    background: #fff!important;
+}
+
+.jtrtEditorBtnGrp .wp-picker-active .wp-picker-input-wrap{
+    display:flex;
+    vertical-align: top;
+    margin-top: 8px!important;
+    position: absolute;
+    background: white;
+    padding: 8px;
+    left: 0;
+    border: 1px solid #ccc!important;
+    color: black;
+}
+
+.jtrtEditorBtnGrp .wp-picker-container .wp-picker-holder{
+    position: absolute;
+    margin-top: 3px;
+    bottom: 0;
+    margin-left: calc(100% - 7px);
+}
+
+.jtrtEditorBtnGrp button{
+    background: #f3f3f3;
+    border: 1px solid #CCC;
+    padding-top: 0;
+    /* width: 50%; */
+    height:28px;
+    padding-bottom: 0;
+    display: block;
+}
+
+.jtrtEditorBtnGrp #jtsetfontcolorbtn, .jtrtEditorBtnGrp #jtsetcellcolorbtn{
+    align-self:flex-start;
+    height: 24px;
+}
+
+td.formula{
+    background-color: #fff;
+}
+
+#optionsSection3 .wp-picker-container .wp-color-result{
+    margin: 0;
+    white-space: nowrap;
+}
+
+body.post-type-jtrt_tables_post #HandsontableCopyPaste {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -9999px;
+}
+
+body.post-type-jtrt_tables_post .wp-picker-container .wp-color-result.button {
+    height: auto;
+}
+
+body.post-type-jtrt_tables_post .wp-picker-container .wp-color-result.button span {
+    margin: 0 !important; 
+    /* for Jody xD */
+}
