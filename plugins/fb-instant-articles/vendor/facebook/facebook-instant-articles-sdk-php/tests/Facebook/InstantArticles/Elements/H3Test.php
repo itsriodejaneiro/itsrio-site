@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class H3Test extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class H3Test extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -17,7 +19,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
@@ -32,7 +34,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPosition()
@@ -48,7 +50,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTextAlign()
@@ -64,7 +66,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPositionAndAlignment()
@@ -81,7 +83,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithUnescapedHTML()
@@ -99,7 +101,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithFormattedText()
@@ -120,7 +122,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLink()
@@ -130,7 +132,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
                 ->appendText('Some ')
                 ->appendText(
                     Anchor::create()
-                        ->withHRef('http://foo.com')
+                        ->withHref('http://foo.com')
                         ->appendText('link')
                 )
                 ->appendText('.');
@@ -141,7 +143,7 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithNestedFormattedText()
@@ -161,6 +163,6 @@ class H3Test extends \PHPUnit_Framework_TestCase
             '</h3>';
 
         $rendered = $h3->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

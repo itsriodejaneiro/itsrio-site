@@ -1,6 +1,4 @@
-window.rwmb = window.rwmb || {};
-
-jQuery( function ( $ ) {
+( function ( $, rwmb ) {
 	'use strict';
 
 	var views = rwmb.views = rwmb.views || {},
@@ -14,15 +12,30 @@ jQuery( function ( $ ) {
 		}
 	} );
 
-	/**
-	 * Initialize fields
-	 * @return void
-	 */
-	function init() {
-		new ImageUploadField( {input: this, el: $( this ).siblings( 'div.rwmb-media-view' )} );
+	function initImageUpload() {
+		var $this = $( this ),
+			view = $this.data( 'view' );
+
+		if ( view ) {
+			return;
+		}
+
+		view = new ImageUploadField( { input: this } );
+
+		$this.siblings( '.rwmb-media-view' ).remove();
+		$this.after( view.el );
+
+		// Init uploader after view is inserted to make wp.Uploader works.
+		view.addButton.initUploader();
+
+		$this.data( 'view', view );
 	}
 
-	$( ':input.rwmb-image_upload, :input.rwmb-plupload_image' ).each( init );
-	$( '.rwmb-input' )
-		.on( 'clone', ':input.rwmb-image_upload, :input.rwmb-plupload_image', init )
-} );
+	function init( e ) {
+		$( e.target ).find( '.rwmb-image_upload, .rwmb-plupload_image' ).each( initImageUpload );
+	}
+
+	rwmb.$document
+		.on( 'mb_ready', init )
+		.on( 'clone', '.rwmb-image_upload, .rwmb-plupload_image', initImageUpload )
+} )( jQuery, rwmb );

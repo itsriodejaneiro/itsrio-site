@@ -6,7 +6,7 @@
     colors="true"
 >
     <testsuites>
-        <testsuite name="The project's test suite">
+        <testsuite name="Facebook InstantArticles SDK test suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

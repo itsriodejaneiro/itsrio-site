@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class AudioTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class AudioTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -32,7 +34,7 @@ class AudioTest extends \PHPUnit_Framework_TestCase
             '</audio>';
 
         $rendered = $audio->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTitle()
@@ -48,7 +50,7 @@ class AudioTest extends \PHPUnit_Framework_TestCase
             '</audio>';
 
         $rendered = $audio->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAutoplay()
@@ -64,7 +66,7 @@ class AudioTest extends \PHPUnit_Framework_TestCase
             '</audio>';
 
         $rendered = $audio->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithMuted()
@@ -80,7 +82,7 @@ class AudioTest extends \PHPUnit_Framework_TestCase
             '</audio>';
 
         $rendered = $audio->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTitleAndAutoplayMuted()
@@ -98,6 +100,6 @@ class AudioTest extends \PHPUnit_Framework_TestCase
             '</audio>';
 
         $rendered = $audio->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

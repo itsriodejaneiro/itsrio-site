@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class CaptionTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class CaptionTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -32,7 +34,7 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithSubTitle()
@@ -49,7 +51,7 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithCredit()
@@ -66,7 +68,7 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPosition()
@@ -82,10 +84,10 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
-    public function testRenderWithFontSize()
+    public function testRenderWithLargeFontSize()
     {
         $caption =
             Caption::create()
@@ -98,7 +100,23 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
+    }
+
+    public function testRenderWithSmallFontSize()
+    {
+        $caption =
+            Caption::create()
+                ->appendText('Small Caption Title')
+                ->withFontsize(Caption::SIZE_SMALL);
+
+        $expected =
+            '<figcaption class="op-small">'.
+                'Small Caption Title'.
+            '</figcaption>';
+
+        $rendered = $caption->render();
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTextAlignment()
@@ -114,7 +132,7 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithVerticalAlignment()
@@ -130,7 +148,7 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
           '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAllFormating()
@@ -149,6 +167,6 @@ class CaptionTest extends \PHPUnit_Framework_TestCase
             '</figcaption>';
 
         $rendered = $caption->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

@@ -10,8 +10,9 @@ namespace Facebook\InstantArticles\Transformer\Warnings;
 
 use Facebook\InstantArticles\Elements\InstantArticle;
 use Facebook\InstantArticles\Transformer\Rules\SocialEmbedRule;
+use PHPUnit\Framework\TestCase;
 
-class InvalidSelectorTest extends \PHPUnit_Framework_TestCase
+class InvalidSelectorTest extends TestCase
 {
     public function testInvalidSelectorToString()
     {

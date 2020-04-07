@@ -11,6 +11,7 @@ namespace Facebook\InstantArticles\Transformer\Rules;
 use Facebook\InstantArticles\Elements\Interactive;
 use Facebook\InstantArticles\Elements\Paragraph;
 use Facebook\InstantArticles\Elements\InstantArticle;
+use Facebook\InstantArticles\Transformer\Transformer;
 use Facebook\InstantArticles\Transformer\Warnings\InvalidSelector;
 use Facebook\InstantArticles\Validators\Type;
 
@@ -81,7 +82,7 @@ class InteractiveRule extends ConfigurationSelectorRule
         $iframe = $this->getProperty(self::PROPERTY_IFRAME, $node);
         $url = $this->getProperty(self::PROPERTY_URL, $node);
         if ($iframe) {
-            $interactive->withHTML($iframe);
+            $interactive->withHTML(Transformer::cloneNode($iframe));
         }
         if ($url) {
             $interactive->withSource($url);

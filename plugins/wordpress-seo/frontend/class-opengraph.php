@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Frontend
  */
 
@@ -9,41 +11,41 @@
 class WPSEO_OpenGraph {
 
 	/**
-	 * @var array $options Options for the OpenGraph Settings
+	 * The date helper.
+	 *
+	 * @var WPSEO_Date_Helper
 	 */
-	public $options = array();
+	protected $date;
 
 	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
-		$this->options = WPSEO_Options::get_option( 'wpseo_social' );
+		$this->date = new WPSEO_Date_Helper();
 
 		if ( isset( $GLOBALS['fb_ver'] ) || class_exists( 'Facebook_Loader', false ) ) {
-			add_filter( 'fb_meta_tags', array( $this, 'facebook_filter' ), 10, 1 );
+			add_filter( 'fb_meta_tags', [ $this, 'facebook_filter' ], 10, 1 );
 		}
 		else {
-			add_filter( 'language_attributes', array( $this, 'add_opengraph_namespace' ), 15 );
-
-			add_action( 'wpseo_opengraph', array( $this, 'locale' ), 1 );
-			add_action( 'wpseo_opengraph', array( $this, 'type' ), 5 );
-			add_action( 'wpseo_opengraph', array( $this, 'og_title' ), 10 );
-			add_action( 'wpseo_opengraph', array( $this, 'site_owner' ), 20 );
-			add_action( 'wpseo_opengraph', array( $this, 'description' ), 11 );
-			add_action( 'wpseo_opengraph', array( $this, 'url' ), 12 );
-			add_action( 'wpseo_opengraph', array( $this, 'site_name' ), 13 );
-			add_action( 'wpseo_opengraph', array( $this, 'website_facebook' ), 14 );
+			add_action( 'wpseo_opengraph', [ $this, 'locale' ], 1 );
+			add_action( 'wpseo_opengraph', [ $this, 'type' ], 5 );
+			add_action( 'wpseo_opengraph', [ $this, 'og_title' ], 10 );
+			add_action( 'wpseo_opengraph', [ $this, 'app_id' ], 20 );
+			add_action( 'wpseo_opengraph', [ $this, 'description' ], 11 );
+			add_action( 'wpseo_opengraph', [ $this, 'url' ], 12 );
+			add_action( 'wpseo_opengraph', [ $this, 'site_name' ], 13 );
+			add_action( 'wpseo_opengraph', [ $this, 'website_facebook' ], 14 );
 			if ( is_singular() && ! is_front_page() ) {
-				add_action( 'wpseo_opengraph', array( $this, 'article_author_facebook' ), 15 );
-				add_action( 'wpseo_opengraph', array( $this, 'tags' ), 16 );
-				add_action( 'wpseo_opengraph', array( $this, 'category' ), 17 );
-				add_action( 'wpseo_opengraph', array( $this, 'publish_date' ), 19 );
+				add_action( 'wpseo_opengraph', [ $this, 'article_author_facebook' ], 15 );
+				add_action( 'wpseo_opengraph', [ $this, 'tags' ], 16 );
+				add_action( 'wpseo_opengraph', [ $this, 'category' ], 17 );
+				add_action( 'wpseo_opengraph', [ $this, 'publish_date' ], 19 );
 			}
 
-			add_action( 'wpseo_opengraph', array( $this, 'image' ), 30 );
+			add_action( 'wpseo_opengraph', [ $this, 'image' ], 30 );
 		}
 		add_filter( 'jetpack_enable_open_graph', '__return_false' );
-		add_action( 'wpseo_head', array( $this, 'opengraph' ), 30 );
+		add_action( 'wpseo_head', [ $this, 'opengraph' ], 30 );
 	}
 
 	/**
@@ -70,7 +72,7 @@ class WPSEO_OpenGraph {
 		/**
 		 * Filter: 'wpseo_og_' . $og_property - Allow developers to change the content of specific OG meta tags.
 		 *
-		 * @api string $content The content of the property
+		 * @api string $content The content of the property.
 		 */
 		$content = apply_filters( 'wpseo_og_' . $og_property, $content );
 		if ( empty( $content ) ) {
@@ -83,9 +85,9 @@ class WPSEO_OpenGraph {
 	}
 
 	/**
-	 * Filter the Facebook plugins metadata
+	 * Filter the Facebook plugins metadata.
 	 *
-	 * @param array $meta_tags the array to fix.
+	 * @param array $meta_tags The array to fix.
 	 *
 	 * @return array $meta_tags
 	 */
@@ -105,48 +107,6 @@ class WPSEO_OpenGraph {
 	}
 
 	/**
-	 * Filter for the namespace, adding the OpenGraph namespace.
-	 *
-	 * @link https://developers.facebook.com/docs/web/tutorials/scrumptious/open-graph-object/
-	 *
-	 * @param string $input The input namespace string.
-	 *
-	 * @return string
-	 */
-	public function add_opengraph_namespace( $input ) {
-		$namespaces = array(
-			'og: http://ogp.me/ns#',
-		);
-		if ( $this->options['fbadminapp'] != 0 || ( is_array( $this->options['fb_admins'] ) && $this->options['fb_admins'] !== array() ) ) {
-			$namespaces[] = 'fb: http://ogp.me/ns/fb#';
-		}
-
-		/**
-		 * Allow for adding additional namespaces to the <html> prefix attributes.
-		 *
-		 * @since 3.9.0
-		 *
-		 * @param array $namespaces Currently registered namespaces which are to be
-		 *                          added to the prefix attribute.
-		 *                          Namespaces are strings and have the following syntax:
-		 *                          ns: http://url.to.namespace/definition
-		 */
-		$namespaces       = apply_filters( 'wpseo_html_namespaces', $namespaces );
-		$namespace_string = implode( ' ', array_unique( $namespaces ) );
-
-		if ( strpos( $input, ' prefix=' ) !== false ) {
-			$regex   = '`prefix=([\'"])(.+?)\1`';
-			$replace = 'prefix="$2 ' . $namespace_string . '"';
-			$input   = preg_replace( $regex, $replace, $input );
-		}
-		else {
-			$input .= ' prefix="' . $namespace_string . '"';
-		}
-
-		return $input;
-	}
-
-	/**
 	 * Outputs the authors FB page.
 	 *
 	 * @link https://developers.facebook.com/blog/post/2013/06/19/platform-updates--new-open-graph-tags-for-media-publishers-and-more/
@@ -160,9 +120,9 @@ class WPSEO_OpenGraph {
 		}
 
 		/**
-		 * Filter: 'wpseo_opengraph_author_facebook' - Allow developers to filter the Yoast SEO post authors facebook profile URL
+		 * Filter: 'wpseo_opengraph_author_facebook' - Allow developers to filter the Yoast SEO post authors facebook profile URL.
 		 *
-		 * @api bool|string $unsigned The Facebook author URL, return false to disable
+		 * @api bool|string $unsigned The Facebook author URL, return false to disable.
 		 */
 		$facebook = apply_filters( 'wpseo_opengraph_author_facebook', get_the_author_meta( 'facebook', $GLOBALS['post']->post_author ) );
 
@@ -180,49 +140,15 @@ class WPSEO_OpenGraph {
 	 *
 	 * @link https://developers.facebook.com/blog/post/2013/06/19/platform-updates--new-open-graph-tags-for-media-publishers-and-more/
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
 	 * @return boolean
 	 */
 	public function website_facebook() {
 
-		if ( 'article' === $this->type( false ) && ! empty( $this->options['facebook_site'] ) ) {
-			$this->og_tag( 'article:publisher', $this->options['facebook_site'] );
+		if ( 'article' === $this->type( false ) && WPSEO_Options::get( 'facebook_site', '' ) !== '' ) {
+			$this->og_tag( 'article:publisher', WPSEO_Options::get( 'facebook_site' ) );
 
 			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Outputs the site owner
-	 *
-	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
-	 * @return boolean
-	 */
-	public function site_owner() {
-		if ( isset( $this->options['fbadminapp'] ) && $this->options['fbadminapp'] != 0 ) {
-			$this->og_tag( 'fb:app_id', $this->options['fbadminapp'] );
-
-			return true;
-		}
-		else if ( isset( $this->options['fb_admins'] ) && is_array( $this->options['fb_admins'] ) && $this->options['fb_admins'] !== array() ) {
-			$adminstr = implode( ',', array_keys( $this->options['fb_admins'] ) );
-			/**
-			 * Filter: 'wpseo_opengraph_admin' - Allow developer to filter the fb:admins string put out by Yoast SEO
-			 *
-			 * @api string $adminstr The admin string
-			 */
-			$adminstr = apply_filters( 'wpseo_opengraph_admin', $adminstr );
-			if ( is_string( $adminstr ) && $adminstr !== '' ) {
-
-				$admins = explode( ',', $adminstr );
-
-				foreach ( $admins as $admin_id ) {
-					$this->og_tag( 'fb:admins', $admin_id );
-				}
-
-				return true;
-			}
 		}
 
 		return false;
@@ -239,12 +165,10 @@ class WPSEO_OpenGraph {
 	 */
 	public function og_title( $echo = true ) {
 
-		$frontend      = WPSEO_Frontend::get_instance();
-		$is_posts_page = $frontend->is_posts_page();
+		$frontend = WPSEO_Frontend::get_instance();
 
-		if ( is_singular() || $is_posts_page ) {
-
-			$post_id = ( $is_posts_page ) ? get_option( 'page_for_posts' ) : get_the_ID();
+		if ( WPSEO_Frontend_Page_Type::is_simple_page() ) {
+			$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 			$post    = get_post( $post_id );
 			$title   = WPSEO_Meta::get_value( 'opengraph-title', $post_id );
 
@@ -256,8 +180,8 @@ class WPSEO_OpenGraph {
 				$title = wpseo_replace_vars( $title, $post );
 			}
 		}
-		else if ( is_front_page() ) {
-			$title = ( isset( $this->options['og_frontpage_title'] ) && $this->options['og_frontpage_title'] !== '' ) ? $this->options['og_frontpage_title'] : $frontend->title( '' );
+		elseif ( is_front_page() ) {
+			$title = ( WPSEO_Options::get( 'og_frontpage_title', '' ) !== '' ) ? WPSEO_Options::get( 'og_frontpage_title' ) : $frontend->title( '' );
 		}
 		elseif ( is_category() || is_tax() || is_tag() ) {
 			$title = WPSEO_Taxonomy_Meta::get_meta_without_term( 'opengraph-title' );
@@ -274,9 +198,9 @@ class WPSEO_OpenGraph {
 		}
 
 		/**
-		 * Filter: 'wpseo_opengraph_title' - Allow changing the title specifically for OpenGraph
+		 * Filter: 'wpseo_opengraph_title' - Allow changing the title specifically for OpenGraph.
 		 *
-		 * @api string $unsigned The title string
+		 * @api string $unsigned The title string.
 		 */
 		$title = trim( apply_filters( 'wpseo_opengraph_title', $title ) );
 
@@ -299,15 +223,27 @@ class WPSEO_OpenGraph {
 	 * Outputs the canonical URL as OpenGraph URL, which consolidates likes and shares.
 	 *
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
 	 * @return boolean
 	 */
 	public function url() {
-		/**
-		 * Filter: 'wpseo_opengraph_url' - Allow changing the OpenGraph URL
-		 *
-		 * @api string $unsigned Canonical URL
+		$url         = WPSEO_Frontend::get_instance()->canonical( false, false );
+		$unpaged_url = WPSEO_Frontend::get_instance()->canonical( false, true );
+
+		/*
+		 * If the unpaged URL is the same as the normal URL but just with pagination added, use that.
+		 * This makes sure we always use the unpaged URL when we can, but doesn't break for overridden canonicals.
 		 */
-		$url = apply_filters( 'wpseo_opengraph_url', WPSEO_Frontend::get_instance()->canonical( false ) );
+		if ( ! empty( $unpaged_url ) && is_string( $unpaged_url ) && strpos( $url, $unpaged_url ) === 0 ) {
+			$url = $unpaged_url;
+		}
+
+		/**
+		 * Filter: 'wpseo_opengraph_url' - Allow changing the OpenGraph URL.
+		 *
+		 * @api string $unsigned Canonical URL.
+		 */
+		$url = urldecode( apply_filters( 'wpseo_opengraph_url', $url ) );
 
 		if ( is_string( $url ) && $url !== '' ) {
 			$this->og_tag( 'og:url', esc_url( $url ) );
@@ -321,10 +257,9 @@ class WPSEO_OpenGraph {
 	/**
 	 * Output the locale, doing some conversions to make sure the proper Facebook locale is outputted.
 	 *
-	 * Last update/compare with FB list done on 2015-03-16 by Rarst
+	 * Last update/compare with FB list done on 2015-03-16 by Rarst.
 	 *
-	 * @see  http://www.facebook.com/translations/FacebookLocales.xml for the list of supported locales
-	 *
+	 * @link http://www.facebook.com/translations/FacebookLocales.xml for the list of supported locales.
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
 	 *
 	 * @param bool $echo Whether to echo or return the locale.
@@ -333,14 +268,14 @@ class WPSEO_OpenGraph {
 	 */
 	public function locale( $echo = true ) {
 		/**
-		 * Filter: 'wpseo_locale' - Allow changing the locale output
+		 * Filter: 'wpseo_locale' - Allow changing the locale output.
 		 *
-		 * @api string $unsigned Locale string
+		 * @api string $unsigned Locale string.
 		 */
 		$locale = apply_filters( 'wpseo_locale', get_locale() );
 
 		// Catch some weird locales served out by WP that are not easily doubled up.
-		$fix_locales = array(
+		$fix_locales = [
 			'ca' => 'ca_ES',
 			'en' => 'en_US',
 			'el' => 'el_GR',
@@ -350,19 +285,19 @@ class WPSEO_OpenGraph {
 			'uk' => 'uk_UA',
 			'vi' => 'vi_VN',
 			'zh' => 'zh_CN',
-		);
+		];
 
 		if ( isset( $fix_locales[ $locale ] ) ) {
 			$locale = $fix_locales[ $locale ];
 		}
 
 		// Convert locales like "es" to "es_ES", in case that works for the given locale (sometimes it does).
-		if ( strlen( $locale ) == 2 ) {
+		if ( strlen( $locale ) === 2 ) {
 			$locale = strtolower( $locale ) . '_' . strtoupper( $locale );
 		}
 
 		// These are the locales FB supports.
-		$fb_valid_fb_locales = array(
+		$fb_valid_fb_locales = [
 			'af_ZA', // Afrikaans.
 			'ak_GH', // Akan.
 			'am_ET', // Amharic.
@@ -372,6 +307,7 @@ class WPSEO_OpenGraph {
 			'az_AZ', // Azerbaijani.
 			'be_BY', // Belarusian.
 			'bg_BG', // Bulgarian.
+			'bp_IN', // Bhojpuri.
 			'bn_IN', // Bengali.
 			'br_FR', // Breton.
 			'bs_BA', // Bosnian.
@@ -386,17 +322,14 @@ class WPSEO_OpenGraph {
 			'de_DE', // German.
 			'el_GR', // Greek.
 			'en_GB', // English (UK).
-			'en_IN', // English (India).
 			'en_PI', // English (Pirate).
 			'en_UD', // English (Upside Down).
 			'en_US', // English (US).
+			'em_ZM',
 			'eo_EO', // Esperanto.
-			'es_CL', // Spanish (Chile).
-			'es_CO', // Spanish (Colombia).
 			'es_ES', // Spanish (Spain).
 			'es_LA', // Spanish.
 			'es_MX', // Spanish (Mexico).
-			'es_VE', // Spanish (Venezuela).
 			'et_EE', // Estonian.
 			'eu_ES', // Basque.
 			'fa_IR', // Persian.
@@ -417,11 +350,14 @@ class WPSEO_OpenGraph {
 			'hi_IN', // Hindi.
 			'hr_HR', // Croatian.
 			'hu_HU', // Hungarian.
+			'ht_HT', // Haitian Creole.
 			'hy_AM', // Armenian.
 			'id_ID', // Indonesian.
 			'ig_NG', // Igbo.
 			'is_IS', // Icelandic.
 			'it_IT', // Italian.
+			'ik_US',
+			'iu_CA',
 			'ja_JP', // Japanese.
 			'ja_KS', // Japanese (Kansai).
 			'jv_ID', // Javanese.
@@ -430,6 +366,7 @@ class WPSEO_OpenGraph {
 			'km_KH', // Khmer.
 			'kn_IN', // Kannada.
 			'ko_KR', // Korean.
+			'ks_IN', // Kashmiri.
 			'ku_TR', // Kurdish (Kurmanji).
 			'ky_KG', // Kyrgyz.
 			'la_VA', // Latin.
@@ -454,14 +391,20 @@ class WPSEO_OpenGraph {
 			'nl_BE', // Dutch (Belgie).
 			'nl_NL', // Dutch.
 			'nn_NO', // Norwegian (nynorsk).
+			'nr_ZA', // Southern Ndebele.
+			'ns_ZA', // Northern Sotho.
 			'ny_MW', // Chewa.
+			'om_ET', // Oromo.
 			'or_IN', // Oriya.
 			'pa_IN', // Punjabi.
 			'pl_PL', // Polish.
 			'ps_AF', // Pashto.
 			'pt_BR', // Portuguese (Brazil).
 			'pt_PT', // Portuguese (Portugal).
+			'qc_GT', // Quiché.
 			'qu_PE', // Quechua.
+			'qr_GR',
+			'qz_MM', // Burmese (Zawgyi).
 			'rm_CH', // Romansh.
 			'ro_RO', // Romanian.
 			'ru_RU', // Russian.
@@ -470,12 +413,15 @@ class WPSEO_OpenGraph {
 			'sc_IT', // Sardinian.
 			'se_NO', // Northern Sami.
 			'si_LK', // Sinhala.
+			'su_ID', // Sundanese.
 			'sk_SK', // Slovak.
 			'sl_SI', // Slovenian.
 			'sn_ZW', // Shona.
 			'so_SO', // Somali.
 			'sq_AL', // Albanian.
 			'sr_RS', // Serbian.
+			'ss_SZ', // Swazi.
+			'st_ZA', // Southern Sotho.
 			'sv_SE', // Swedish.
 			'sw_KE', // Swahili.
 			'sy_SY', // Syriac.
@@ -487,12 +433,15 @@ class WPSEO_OpenGraph {
 			'tk_TM', // Turkmen.
 			'tl_PH', // Filipino.
 			'tl_ST', // Klingon.
+			'tn_BW', // Tswana.
 			'tr_TR', // Turkish.
+			'ts_ZA', // Tsonga.
 			'tt_RU', // Tatar.
 			'tz_MA', // Tamazight.
 			'uk_UA', // Ukrainian.
 			'ur_PK', // Urdu.
 			'uz_UZ', // Uzbek.
+			've_ZA', // Venda.
 			'vi_VN', // Vietnamese.
 			'wo_SN', // Wolof.
 			'xh_ZA', // Xhosa.
@@ -503,12 +452,12 @@ class WPSEO_OpenGraph {
 			'zh_TW', // Traditional Chinese (Taiwan).
 			'zu_ZA', // Zulu.
 			'zz_TR', // Zazaki.
-		);
+		];
 
 		// Check to see if the locale is a valid FB one, if not, use en_US as a fallback.
-		if ( ! in_array( $locale, $fb_valid_fb_locales ) ) {
+		if ( ! in_array( $locale, $fb_valid_fb_locales, true ) ) {
 			$locale = strtolower( substr( $locale, 0, 2 ) ) . '_' . strtoupper( substr( $locale, 0, 2 ) );
-			if ( ! in_array( $locale, $fb_valid_fb_locales ) ) {
+			if ( ! in_array( $locale, $fb_valid_fb_locales, true ) ) {
 				$locale = 'en_US';
 			}
 		}
@@ -549,7 +498,7 @@ class WPSEO_OpenGraph {
 		}
 
 		/**
-		 * Filter: 'wpseo_opengraph_type' - Allow changing the OpenGraph type of the page
+		 * Filter: 'wpseo_opengraph_type' - Allow changing the OpenGraph type of the page.
 		 *
 		 * @api string $type The OpenGraph type string.
 		 */
@@ -568,35 +517,15 @@ class WPSEO_OpenGraph {
 	}
 
 	/**
-	 * Create new WPSEO_OpenGraph_Image class and get the images to set the og:image
+	 * Create new WPSEO_OpenGraph_Image class and get the images to set the og:image.
 	 *
-	 * @param string|boolean $image Optional image URL.
+	 * @param string|bool $image Optional. Image URL.
+	 *
+	 * @return void
 	 */
 	public function image( $image = false ) {
-		$opengraph_images = new WPSEO_OpenGraph_Image( $this->options, $image );
-
-		foreach ( $opengraph_images->get_images() as $img ) {
-			$this->og_tag( 'og:image', esc_url( $img ) );
-		}
-
-		$dimensions = $opengraph_images->get_dimensions();
-
-		if ( ! empty( $dimensions['width'] ) ) {
-			$this->og_tag( 'og:image:width', absint( $dimensions['width'] ) );
-		}
-
-		if ( ! empty( $dimensions['height'] ) ) {
-			$this->og_tag( 'og:image:height', absint( $dimensions['height'] ) );
-		}
-	}
-
-	/**
-	 * Fallback method for plugins using image_output
-	 *
-	 * @param string $image Image URL.
-	 */
-	public function image_output( $image ) {
-		$this->image( $image );
+		$opengraph_image = new WPSEO_OpenGraph_Image( $image, $this );
+		$opengraph_image->show();
 	}
 
 	/**
@@ -611,18 +540,16 @@ class WPSEO_OpenGraph {
 		$frontend = WPSEO_Frontend::get_instance();
 
 		if ( is_front_page() ) {
-			if ( isset( $this->options['og_frontpage_desc'] ) && $this->options['og_frontpage_desc'] !== '' ) {
-				$ogdesc = wpseo_replace_vars( $this->options['og_frontpage_desc'], null );
+			if ( WPSEO_Options::get( 'og_frontpage_desc', '' ) !== '' ) {
+				$ogdesc = wpseo_replace_vars( WPSEO_Options::get( 'og_frontpage_desc' ), null );
 			}
 			else {
 				$ogdesc = $frontend->metadesc( false );
 			}
 		}
 
-		$is_posts_page = $frontend->is_posts_page();
-
-		if ( is_singular() || $is_posts_page ) {
-			$post_id = ( $is_posts_page ) ? get_option( 'page_for_posts' ) : get_the_ID();
+		if ( WPSEO_Frontend_Page_Type::is_simple_page() ) {
+			$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 			$post    = get_post( $post_id );
 			$ogdesc  = WPSEO_Meta::get_value( 'opengraph-description', $post_id );
 
@@ -636,8 +563,12 @@ class WPSEO_OpenGraph {
 
 			// Tag og:description is still blank so grab it from get_the_excerpt().
 			if ( ! is_string( $ogdesc ) || ( is_string( $ogdesc ) && $ogdesc === '' ) ) {
-				$ogdesc = str_replace( '[&hellip;]', '&hellip;', strip_tags( get_the_excerpt() ) );
+				$ogdesc = str_replace( '[&hellip;]', '&hellip;', wp_strip_all_tags( get_the_excerpt() ) );
 			}
+		}
+
+		if ( is_author() ) {
+			$ogdesc = $frontend->metadesc( false );
 		}
 
 		if ( is_category() || is_tag() || is_tax() ) {
@@ -647,19 +578,20 @@ class WPSEO_OpenGraph {
 			}
 
 			if ( $ogdesc === '' ) {
-				$ogdesc = trim( strip_tags( term_description() ) );
+				$ogdesc = wp_strip_all_tags( term_description() );
 			}
 
 			if ( $ogdesc === '' ) {
 				$ogdesc = WPSEO_Taxonomy_Meta::get_meta_without_term( 'desc' );
 			}
+			$ogdesc = wpseo_replace_vars( $ogdesc, get_queried_object() );
 		}
 
 		// Strip shortcodes if any.
 		$ogdesc = strip_shortcodes( $ogdesc );
 
 		/**
-		 * Filter: 'wpseo_opengraph_desc' - Allow changing the OpenGraph description
+		 * Filter: 'wpseo_opengraph_desc' - Allow changing the OpenGraph description.
 		 *
 		 * @api string $ogdesc The description string.
 		 */
@@ -679,9 +611,9 @@ class WPSEO_OpenGraph {
 	 */
 	public function site_name() {
 		/**
-		 * Filter: 'wpseo_opengraph_site_name' - Allow changing the OpenGraph site name
+		 * Filter: 'wpseo_opengraph_site_name' - Allow changing the OpenGraph site name.
 		 *
-		 * @api string $unsigned Blog name string
+		 * @api string $unsigned Blog name string.
 		 */
 		$name = apply_filters( 'wpseo_opengraph_site_name', get_bloginfo( 'name' ) );
 		if ( is_string( $name ) && $name !== '' ) {
@@ -693,6 +625,7 @@ class WPSEO_OpenGraph {
 	 * Output the article tags as article:tag tags.
 	 *
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
 	 * @return boolean
 	 */
 	public function tags() {
@@ -701,7 +634,7 @@ class WPSEO_OpenGraph {
 		}
 
 		$tags = get_the_tags();
-		if ( ! is_wp_error( $tags ) && ( is_array( $tags ) && $tags !== array() ) ) {
+		if ( ! is_wp_error( $tags ) && ( is_array( $tags ) && $tags !== [] ) ) {
 
 			foreach ( $tags as $tag ) {
 				$this->og_tag( 'article:tag', $tag->name );
@@ -717,6 +650,7 @@ class WPSEO_OpenGraph {
 	 * Output the article category as an article:section tag.
 	 *
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
 	 * @return boolean;
 	 */
 	public function category() {
@@ -725,13 +659,27 @@ class WPSEO_OpenGraph {
 			return false;
 		}
 
+		$post = get_post();
+		if ( ! $post ) {
+			return false;
+		}
+
+		$primary_term     = new WPSEO_Primary_Term( 'category', $post->ID );
+		$primary_category = $primary_term->get_primary_term();
+
+		if ( $primary_category ) {
+			// We can only show one section here, so we take the first one.
+			$this->og_tag( 'article:section', get_cat_name( $primary_category ) );
+
+			return true;
+		}
+
 		$terms = get_the_category();
 
-		if ( ! is_wp_error( $terms ) && ( is_array( $terms ) && $terms !== array() ) ) {
-
+		if ( ! is_wp_error( $terms ) && is_array( $terms ) && ! empty( $terms ) ) {
 			// We can only show one section here, so we take the first one.
-			$this->og_tag( 'article:section', $terms[0]->name );
-
+			$term = reset( $terms );
+			$this->og_tag( 'article:section', $term->name );
 			return true;
 		}
 
@@ -739,18 +687,19 @@ class WPSEO_OpenGraph {
 	}
 
 	/**
-	 * Output the article publish and last modification date
+	 * Output the article publish and last modification date.
 	 *
 	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
 	 * @return boolean;
 	 */
 	public function publish_date() {
 
 		if ( ! is_singular( 'post' ) ) {
 			/**
-			 * Filter: 'wpseo_opengraph_show_publish_date' - Allow showing publication date for other post types
+			 * Filter: 'wpseo_opengraph_show_publish_date' - Allow showing publication date for other post types.
 			 *
-			 * @api bool $unsigned Whether or not to show publish date
+			 * @api bool $unsigned Whether or not to show publish date.
 			 *
 			 * @param string $post_type The current URL's post type.
 			 */
@@ -759,320 +708,64 @@ class WPSEO_OpenGraph {
 			}
 		}
 
-		$pub = get_the_date( DATE_W3C );
+		$post = get_post();
+
+		$pub = $this->date->format( $post->post_date_gmt );
 		$this->og_tag( 'article:published_time', $pub );
 
-		$mod = get_the_modified_date( DATE_W3C );
-		if ( $mod != $pub ) {
+		$mod = $this->date->format( $post->post_modified_gmt );
+		if ( $mod !== $pub ) {
 			$this->og_tag( 'article:modified_time', $mod );
 			$this->og_tag( 'og:updated_time', $mod );
 		}
 
 		return true;
 	}
+
+	/**
+	 * Outputs the Facebook app_id.
+	 *
+	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
+	 * @return void
+	 */
+	public function app_id() {
+		$app_id = WPSEO_Options::get( 'fbadminapp', '' );
+		if ( $app_id !== '' ) {
+			$this->og_tag( 'fb:app_id', $app_id );
+		}
+	}
+
+	/* ********************* DEPRECATED METHODS ********************* */
+
+	/**
+	 * Outputs the site owner.
+	 *
+	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
+	 * @return void
+	 *
+	 * @deprecated 7.1
+	 * @codeCoverageIgnore
+	 */
+	public function site_owner() {
+		// As this is a frontend method, we want to make sure it is not displayed for non-logged in users.
+		if ( function_exists( 'wp_get_current_user' ) && current_user_can( 'manage_options' ) ) {
+			_deprecated_function( 'WPSEO_OpenGraph::site_owner', '7.1', null );
+		}
+	}
+
+	/**
+	 * Fallback method for plugins using image_output.
+	 *
+	 * @param string|bool $image Image URL.
+	 *
+	 * @deprecated 7.4
+	 * @codeCoverageIgnore
+	 */
+	public function image_output( $image = false ) {
+		_deprecated_function( 'WPSEO_OpenGraph::image_output', '7.4', 'WPSEO_OpenGraph::image' );
+
+		$this->image( $image );
+	}
 } /* End of class */
-
-/**
- * Class WPSEO_OpenGraph_Image
- */
-class WPSEO_OpenGraph_Image {
-
-	/**
-	 * @var array $options Holds options passed to the constructor
-	 */
-	private $options;
-
-	/**
-	 * @var array $images Holds the images that have been put out as OG image.
-	 */
-	private $images = array();
-
-	/**
-	 * @TODO This needs to be refactored since we only hold one set of dimensions for multiple images. R.
-	 * @var array $dimensions Holds image dimensions, if determined.
-	 */
-	protected $dimensions = array();
-
-	/**
-	 * Constructor
-	 *
-	 * @param array          $options Options set.
-	 * @param string|boolean $image   Optional image URL.
-	 */
-	public function __construct( $options, $image = false ) {
-		$this->options = $options;
-
-		if ( ! empty( $image ) && $this->add_image( $image ) ) {
-			// Safely assume an image was added so we don't need to automatically determine it anymore.
-		}
-		else {
-			$this->set_images();
-		}
-	}
-
-	/**
-	 * Return the images array
-	 *
-	 * @return array
-	 */
-	public function get_images() {
-		return $this->images;
-	}
-
-	/**
-	 * Return the dimensions array.
-	 *
-	 * @return array
-	 */
-	public function get_dimensions() {
-		return $this->dimensions;
-	}
-
-	/**
-	 * Check if page is front page or singular and call the corresponding functions. If not, call get_default_image.
-	 */
-	private function set_images() {
-		if ( is_front_page() ) {
-			$this->get_front_page_image();
-		}
-		elseif ( is_home() ) { // Posts page, which won't be caught by is_singular() below.
-			$this->get_posts_page_image();
-		}
-
-		if ( is_singular() ) {
-			$this->get_singular_image();
-		}
-
-		if ( is_category() || is_tax() || is_tag() ) {
-			$this->get_opengraph_image_taxonomy();
-		}
-
-		$this->get_default_image();
-	}
-
-	/**
-	 * If the frontpage image exists, call add_image
-	 */
-	private function get_front_page_image() {
-		if ( $this->options['og_frontpage_image'] !== '' ) {
-			$this->add_image( $this->options['og_frontpage_image'] );
-		}
-	}
-
-	/**
-	 * Get the images of the posts page.
-	 */
-	private function get_posts_page_image() {
-
-		$post_id = get_option( 'page_for_posts' );
-
-		if ( $this->get_opengraph_image_post( $post_id ) ) {
-			return;
-		}
-
-		if ( $this->get_featured_image( $post_id ) ) {
-			return;
-		}
-	}
-
-	/**
-	 * Get the images of the singular post.
-	 */
-	private function get_singular_image() {
-		global $post;
-
-		if ( $this->get_opengraph_image_post() ) {
-			return;
-		}
-
-		if ( $this->get_attachment_page_image( $post->ID ) ) {
-			return;
-		}
-
-		if ( $this->get_featured_image( $post->ID ) ) {
-			return;
-		}
-
-		$this->get_content_images( $post );
-	}
-
-	/**
-	 * Get default image and call add_image
-	 */
-	private function get_default_image() {
-		if ( count( $this->images ) === 0 && isset( $this->options['og_default_image'] ) && $this->options['og_default_image'] !== '' ) {
-			$this->add_image( $this->options['og_default_image'] );
-		}
-	}
-
-	/**
-	 * If opengraph-image is set, call add_image and return true.
-	 *
-	 * @param int $post_id Optional post ID to use.
-	 *
-	 * @return bool
-	 */
-	private function get_opengraph_image_post( $post_id = 0 ) {
-		$ogimg = WPSEO_Meta::get_value( 'opengraph-image', $post_id );
-		if ( $ogimg !== '' ) {
-			$this->add_image( $ogimg );
-
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Check if taxonomy has an image and add this image
-	 */
-	private function get_opengraph_image_taxonomy() {
-		if ( ( $ogimg = WPSEO_Taxonomy_Meta::get_meta_without_term( 'opengraph-image' ) ) !== '' ) {
-			$this->add_image( $ogimg );
-		}
-	}
-
-	/**
-	 * If there is a featured image, check image size. If image size is correct, call add_image and return true
-	 *
-	 * @param int $post_id The post ID.
-	 *
-	 * @return bool
-	 */
-	private function get_featured_image( $post_id ) {
-
-		if ( has_post_thumbnail( $post_id ) ) {
-			/**
-			 * Filter: 'wpseo_opengraph_image_size' - Allow changing the image size used for OpenGraph sharing
-			 *
-			 * @api string $unsigned Size string
-			 */
-			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), apply_filters( 'wpseo_opengraph_image_size', 'original' ) );
-
-			if ( $this->check_featured_image_size( $thumb ) ) {
-
-				$this->dimensions['width']  = $thumb[1];
-				$this->dimensions['height'] = $thumb[2];
-
-				return $this->add_image( $thumb[0] );
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * If this is an attachment page, call add_image with the attachment and return true
-	 *
-	 * @param int $post_id The post ID.
-	 *
-	 * @return bool
-	 */
-	private function get_attachment_page_image( $post_id ) {
-		if ( get_post_type( $post_id ) === 'attachment' ) {
-			$mime_type = get_post_mime_type( $post_id );
-			switch ( $mime_type ) {
-				case 'image/jpeg':
-				case 'image/png':
-				case 'image/gif':
-					return $this->add_image( wp_get_attachment_url( $post_id ) );
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Filter: 'wpseo_pre_analysis_post_content' - Allow filtering the content before analysis
-	 *
-	 * @api string $post_content The Post content string
-	 *
-	 * @param object $post - The post object.
-	 */
-	private function get_content_images( $post ) {
-		$content = apply_filters( 'wpseo_pre_analysis_post_content', $post->post_content, $post );
-
-		if ( preg_match_all( '`<img [^>]+>`', $content, $matches ) ) {
-			foreach ( $matches[0] as $img ) {
-				if ( preg_match( '`src=(["\'])(.*?)\1`', $img, $match ) ) {
-					$this->add_image( $match[2] );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Check size of featured image. If image is too small, return false, else return true
-	 *
-	 * @param array $img_data wp_get_attachment_image_src: url, width, height, icon.
-	 *
-	 * @return bool
-	 */
-	private function check_featured_image_size( $img_data ) {
-
-		if ( ! is_array( $img_data ) ) {
-			return false;
-		}
-
-		// Get the width and height of the image.
-		if ( $img_data[1] < 200 || $img_data[2] < 200 ) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
-	 * Display an OpenGraph image tag
-	 *
-	 * @param string $img - Source URL to the image.
-	 *
-	 * @return bool
-	 */
-	private function add_image( $img ) {
-
-		$original = trim( $img );
-
-		// Filter: 'wpseo_opengraph_image' - Allow changing the OpenGraph image.
-		$img = trim( apply_filters( 'wpseo_opengraph_image', $img ) );
-
-		if ( $original !== $img ) {
-			$this->dimensions = array();
-		}
-
-		if ( empty( $img ) ) {
-			return false;
-		}
-
-		if ( WPSEO_Utils::is_url_relative( $img ) === true ) {
-			$img = $this->get_relative_path( $img );
-		}
-
-		if ( in_array( $img, $this->images ) ) {
-			return false;
-		}
-		array_push( $this->images, $img );
-
-		return true;
-	}
-
-	/**
-	 * Get the relative path of the image
-	 *
-	 * @param array $img Image data array.
-	 *
-	 * @return bool|string
-	 */
-	private function get_relative_path( $img ) {
-		if ( $img[0] != '/' ) {
-			return false;
-		}
-
-		// If it's a relative URL, it's relative to the domain, not necessarily to the WordPress install, we
-		// want to preserve domain name and URL scheme (http / https) though.
-		$parsed_url = wp_parse_url( home_url() );
-		$img        = $parsed_url['scheme'] . '://' . $parsed_url['host'] . $img;
-
-		return $img;
-	}
-}

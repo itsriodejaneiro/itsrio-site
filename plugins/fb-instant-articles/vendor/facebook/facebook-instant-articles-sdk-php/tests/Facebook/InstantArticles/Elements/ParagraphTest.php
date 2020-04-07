@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class ParagraphTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class ParagraphTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -17,7 +19,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithUnescapedHTML()
@@ -35,7 +37,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
             '</p>';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithFormattedText()
@@ -48,15 +50,17 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
                 ->appendText(' a ')
                 ->appendText(Italic::create()->appendText('paragraph'))
                 ->appendText(' for ')
+                ->appendText(Emphasized::create()->appendText('additional'))
+                ->appendText(' ')
                 ->appendText(Bold::create()->appendText('testing.'));
 
         $expected =
             '<p>'.
-                '<b>Some</b> text to be <i>within</i> a <i>paragraph</i> for <b>testing.</b>'.
+                '<b>Some</b> text to be <i>within</i> a <i>paragraph</i> for <em>additional</em> <b>testing.</b>'.
             '</p>';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLineBreak()
@@ -74,7 +78,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
             '</p>';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLink()
@@ -84,7 +88,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
                 ->appendText('Some ')
                 ->appendText(
                     Anchor::create()
-                        ->withHRef('http://foo.com')
+                        ->withHref('http://foo.com')
                         ->appendText('link')
                 )
                 ->appendText('.');
@@ -95,7 +99,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
             '</p>';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderEmptyText()
@@ -107,7 +111,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderEmptyNBSP()
@@ -119,7 +123,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderEmptySpaces()
@@ -131,7 +135,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWhiteSpaceChars()
@@ -143,7 +147,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderEmptyFormatted()
@@ -155,7 +159,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithNestedFormattedText()
@@ -176,6 +180,6 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
             '</p>';
 
         $rendered = $paragraph->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

@@ -9,7 +9,10 @@
 namespace Facebook\InstantArticles\Transformer\Rules;
 
 use Facebook\InstantArticles\Elements\Image;
+use Facebook\InstantArticles\Elements\Caption;
+use Facebook\InstantArticles\Elements\Cite;
 use Facebook\InstantArticles\Elements\Paragraph;
+use Facebook\InstantArticles\Elements\Anchor;
 use Facebook\InstantArticles\Elements\InstantArticle;
 use Facebook\InstantArticles\Transformer\Warnings\InvalidSelector;
 use Facebook\InstantArticles\Validators\Type;
@@ -19,18 +22,22 @@ class ImageRule extends ConfigurationSelectorRule
     const PROPERTY_IMAGE_URL = 'image.url';
     const PROPERTY_LIKE = 'image.like';
     const PROPERTY_COMMENTS = 'image.comments';
+    const PROPERTY_CREDIT = 'image.credit';
+    const PROPERTY_CAPTION = 'image.caption';
 
     const ASPECT_FIT = 'aspect-fit';
     const ASPECT_FIT_ONLY = 'aspect-fit-only';
     const FULLSCREEN = 'fullscreen';
     const NON_INTERACTIVE = 'non-interactive';
 
+
     public function getContextClass()
     {
         return
             [
                 InstantArticle::getClassName(),
-                Paragraph::getClassName()
+                Paragraph::getClassName(),
+                Anchor::getClassName()
             ];
     }
 
@@ -49,6 +56,8 @@ class ImageRule extends ConfigurationSelectorRule
                 self::PROPERTY_IMAGE_URL,
                 self::PROPERTY_LIKE,
                 self::PROPERTY_COMMENTS,
+                self::PROPERTY_CREDIT,
+                self::PROPERTY_CAPTION,
                 self::ASPECT_FIT,
                 self::ASPECT_FIT_ONLY,
                 self::FULLSCREEN,
@@ -115,6 +124,23 @@ class ImageRule extends ConfigurationSelectorRule
 
         if ($this->getProperty(self::PROPERTY_COMMENTS, $node)) {
             $image->enableComments();
+        }
+
+        $caption = null;
+        if ($this->getProperty(self::PROPERTY_CAPTION, $node)) {
+            $caption = Caption::create();
+            $transformer->transform($caption, $this->getProperty(self::PROPERTY_CAPTION, $node));
+        }
+        if ($this->getProperty(self::PROPERTY_CREDIT, $node)) {
+            if ($caption === null) {
+                $caption = Caption::create();
+            }
+            $credit = Cite::create();
+            $transformer->transform($credit, $this->getProperty(self::PROPERTY_CREDIT, $node));
+            $caption->withCredit($credit);
+        }
+        if ($caption !== null) {
+            $image->withCaption($caption);
         }
 
         $suppress_warnings = $transformer->suppress_warnings;

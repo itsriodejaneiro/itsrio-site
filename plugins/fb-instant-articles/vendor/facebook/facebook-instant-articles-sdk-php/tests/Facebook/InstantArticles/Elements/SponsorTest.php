@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class SponsorTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class SponsorTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -18,7 +20,7 @@ class SponsorTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithSponsor()
@@ -35,6 +37,6 @@ class SponsorTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

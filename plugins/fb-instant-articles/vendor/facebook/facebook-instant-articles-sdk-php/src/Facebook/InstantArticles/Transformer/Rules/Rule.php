@@ -10,30 +10,14 @@ namespace Facebook\InstantArticles\Transformer\Rules;
 
 abstract class Rule
 {
+    /**
+     * @deprecated Do not rely on the implementation of this method. Instead, be sure to
+     * implement @see Rule::matchesNode and @see Rule::matchesContext, as they are used
+     * separetedly by the @see Transformer.
+     */
     public function matches($context, $node)
     {
-        $log = \Logger::getLogger('facebook-instantarticles-transformer');
-
-        $matches_context = $this->matchesContext($context);
-        $matches_node = $this->matchesNode($node);
-        if ($matches_context && $matches_node) {
-            $log->debug('context class: '.get_class($context));
-            $log->debug('context matches: '.($matches_context ? 'MATCHES' : 'no match'));
-            $log->debug('node name: <'.$node->nodeName.' />');
-            $log->debug('node matches: '.($matches_node ? 'MATCHES' : 'no match'));
-            $log->debug('rule: '.get_class($this));
-            $log->debug('-------');
-        }
-        if ($node->nodeName === 'iframe') {
-            $log->debug('context class: '.get_class($context));
-            $log->debug('context matches: '.($matches_context ? 'MATCHES' : 'no match'));
-            $log->debug('node name: <'.$node->nodeName.' />');
-            $log->debug('node: '.$node->ownerDocument->saveXML($node).' />');
-            $log->debug('node matches: '.($matches_node ? 'MATCHES' : 'no match'));
-            $log->debug('rule: '.get_class($this));
-            $log->debug('-------');
-        }
-        return $matches_context && $matches_node;
+        return $this->matchesContext($context) && $this->matchesNode($node);
     }
 
     abstract public function matchesContext($context);
@@ -64,7 +48,9 @@ abstract class Rule
     {
         if (isset($array[$property_name])) {
             return $array[$property_name];
-        } elseif (isset($array['properties']) && isset($array['properties'][$property_name])) {
+        }
+
+        if (isset($array['properties']) && isset($array['properties'][$property_name])) {
             return $array['properties'][$property_name];
         }
     }

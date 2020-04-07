@@ -21,7 +21,7 @@ use Facebook\InstantArticles\Validators\Type;
  *
  * @see {link:https://developers.intern.facebook.com/docs/instant-articles/reference/interactive}
  */
-class Interactive extends ElementWithHTML implements Container
+class Interactive extends ElementWithHTML implements ChildrenContainer
 {
     const NO_MARGIN = 'no-margin';
     const COLUMN_WIDTH = 'column-width';
@@ -199,10 +199,6 @@ class Interactive extends ElementWithHTML implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $figure = $document->createElement('figure');
         $iframe = $document->createElement('iframe');
 
@@ -210,9 +206,7 @@ class Interactive extends ElementWithHTML implements Container
         $figure->setAttribute('class', 'op-interactive');
 
         // Caption markup optional
-        if ($this->caption) {
-            $figure->appendChild($this->caption->toDOMElement($document));
-        }
+        Element::appendChild($figure, $this->caption, $document);
 
         if ($this->source) {
             $iframe->setAttribute('src', $this->source);
@@ -254,9 +248,9 @@ class Interactive extends ElementWithHTML implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of Elements contained by Image.
      */
     public function getContainerChildren()

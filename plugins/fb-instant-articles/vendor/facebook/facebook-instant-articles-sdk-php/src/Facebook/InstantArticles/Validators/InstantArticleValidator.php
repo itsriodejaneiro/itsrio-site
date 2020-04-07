@@ -9,7 +9,7 @@
 namespace Facebook\InstantArticles\Validators;
 
 use Facebook\InstantArticles\Elements\InstantArticle;
-use Facebook\InstantArticles\Elements\Container;
+use Facebook\InstantArticles\Elements\ChildrenContainer;
 use Facebook\InstantArticles\Elements\Paragraph;
 use Facebook\InstantArticles\Transformer\Warnings\ValidatorWarning;
 
@@ -47,7 +47,7 @@ class InstantArticleValidator
                 // Adds a warning to the result report.
                 $warnings[] = new ValidatorWarning($element);
             }
-            if ($element instanceof Container) {
+            if ($element instanceof ChildrenContainer) {
                 self::getReport($element->getContainerChildren(), $warnings);
             }
         }

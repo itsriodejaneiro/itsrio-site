@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class HeaderTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class HeaderTest extends BaseHTMLTestCase
 {
 
     public function testHeaderEmpty()
@@ -16,7 +18,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
         $header = Header::create();
         $expected = '';
         $rendered = $header->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testCompleteHeader()
@@ -123,7 +125,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testHeaderWithSingleDefaultAd()
@@ -148,7 +150,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testHeaderWithTitles()
@@ -177,7 +179,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testHeaderWithTitlesFormatted()
@@ -209,7 +211,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testHeaderWithSlideshow()
@@ -232,7 +234,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
                         ->appendText(Bold::create()->appendText('in Bold'))
                 )
                 ->withCover(
-                    SlideShow::create()
+                    Slideshow::create()
                         ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home.jpg'))
                         ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home2.jpg'))
                         ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home3.jpg'))
@@ -258,7 +260,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testHeaderWithSponsor()
@@ -299,6 +301,6 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 
         $rendered = $header->render();
 
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

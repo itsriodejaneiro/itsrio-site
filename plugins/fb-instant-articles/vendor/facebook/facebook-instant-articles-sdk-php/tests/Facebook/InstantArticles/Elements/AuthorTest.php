@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class AuthorTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class AuthorTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -36,7 +38,7 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
             '</address>';
 
         $rendered = $author->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderAuthorWithTwitter()
@@ -54,6 +56,6 @@ class AuthorTest extends \PHPUnit_Framework_TestCase
             '</address>';
 
         $rendered = $author->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

@@ -72,11 +72,9 @@ class ServerMessage
         );
         if ($validLevel) {
             return new self($level, $message);
-        } else {
-            \Logger::getLogger('facebook-instantarticles-client')
-                ->info('Unknown message level "$level". Are you using the last SDK version?');
-            return new self(self::INFO, $message);
         }
+
+        return new self(self::INFO, $message);
     }
 
     /**

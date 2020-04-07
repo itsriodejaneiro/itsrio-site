@@ -91,10 +91,6 @@ class GeoTag extends Element
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('script');
         $element->setAttribute('type', 'application/json');
         $element->setAttribute('class', 'op-geotag');

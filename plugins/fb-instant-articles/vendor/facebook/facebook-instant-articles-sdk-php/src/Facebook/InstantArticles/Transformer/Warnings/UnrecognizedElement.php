@@ -30,7 +30,9 @@ class UnrecognizedElement
     public function __construct($context, $node)
     {
         $this->context = $context;
-        $this->node = $node;
+        if ($node) {
+            $this->node = $node->cloneNode();
+        }
     }
 
     /**
@@ -40,7 +42,9 @@ class UnrecognizedElement
     {
         $reflection = new \ReflectionClass(get_class($this->context));
         $className = $reflection->getShortName();
-        $nodeName = $this->node->nodeName;
+        if ($this->node) {
+            $nodeName = $this->node->nodeName;
+        }
         if (substr($nodeName, 0, 1) === '#') {
             $nodeDescription = '"'.mb_strimwidth($this->node->textContent, 0, 30, '...').'"';
         } else {

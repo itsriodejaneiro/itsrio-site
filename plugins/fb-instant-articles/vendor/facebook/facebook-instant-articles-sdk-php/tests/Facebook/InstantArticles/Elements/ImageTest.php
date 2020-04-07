@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class ImageTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class ImageTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -17,7 +19,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
@@ -32,7 +34,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithCaption()
@@ -42,17 +44,17 @@ class ImageTest extends \PHPUnit_Framework_TestCase
                 ->withURL('https://jpeg.org/images/jpegls-home.jpg')
                 ->withCaption(
                     Caption::create()
-                        ->appendText('Some caption to the image')
+                        ->appendText('<3 some caption to the image')
                 );
 
         $expected =
             '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
-                '<figcaption>Some caption to the image</figcaption>'.
+                '<figcaption>&lt;3 some caption to the image</figcaption>'.
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAttributionCaption()
@@ -77,7 +79,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLike()
@@ -92,13 +94,13 @@ class ImageTest extends \PHPUnit_Framework_TestCase
                 ->enableLike();
 
         $expected =
-            '<figure data-feedback="fb:likes">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithComments()
@@ -113,13 +115,13 @@ class ImageTest extends \PHPUnit_Framework_TestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:comments">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLikeAndComments()
@@ -135,13 +137,35 @@ class ImageTest extends \PHPUnit_Framework_TestCase
               ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:likes,fb:comments">'.
+            '<figure>'.
                 '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '<figcaption>Some caption to the image</figcaption>'.
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
+    }
+
+    public function testRenderWithParameters()
+    {
+        $image =
+          Image::create()
+              ->withURL('https://jpeg.org/images/jpegls-home.jpg?width=100&height=200')
+              ->withCaption(
+                  Caption::create()
+                      ->appendText('Some caption to the image')
+              )
+              ->enableLike()
+              ->enableComments();
+
+        $expected =
+            '<figure>'.
+                '<img src="https://jpeg.org/images/jpegls-home.jpg?width=100&height=200"/>'.
+                '<figcaption>Some caption to the image</figcaption>'.
+            '</figure>';
+
+        $rendered = $image->render();
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithFullscreen()
@@ -157,7 +181,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGeotag()
@@ -192,7 +216,7 @@ JSON;
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAudio()
@@ -221,6 +245,6 @@ JSON;
             '</figure>';
 
         $rendered = $image->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

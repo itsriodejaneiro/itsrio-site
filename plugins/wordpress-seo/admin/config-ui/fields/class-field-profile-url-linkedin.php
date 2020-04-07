@@ -1,10 +1,12 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin\ConfigurationUI
  */
 
 /**
- * Class WPSEO_Config_Field_Profile_URL_LinkedIn
+ * Class WPSEO_Config_Field_Profile_URL_LinkedIn.
  */
 class WPSEO_Config_Field_Profile_URL_LinkedIn extends WPSEO_Config_Field {
 
@@ -16,14 +18,16 @@ class WPSEO_Config_Field_Profile_URL_LinkedIn extends WPSEO_Config_Field {
 
 		$this->set_property( 'label', __( 'LinkedIn URL', 'wordpress-seo' ) );
 		$this->set_property( 'pattern', '^https:\/\/www\.linkedin\.com\/in\/([^/]+)$' );
+
+		$this->set_requires( 'publishingEntityType', 'company' );
 	}
 
 	/**
-	 * Set adapter
+	 * Set adapter.
 	 *
 	 * @param WPSEO_Configuration_Options_Adapter $adapter Adapter to register lookup on.
 	 */
 	public function set_adapter( WPSEO_Configuration_Options_Adapter $adapter ) {
-		$adapter->add_yoast_lookup( $this->get_identifier(), 'wpseo_social', 'linkedin_url' );
+		$adapter->add_option_lookup( $this->get_identifier(), 'linkedin_url' );
 	}
 }

@@ -1,19 +1,29 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin
+ *
+ * @uses    array $alerts_data
  */
 
-$type = 'warnings';
+$type     = 'warnings';
 $dashicon = 'flag';
 
-$i18n_title = __( 'Notifications', 'wordpress-seo' );
-$i18n_issues = '';
-$i18n_no_issues = __( 'No notifications found.', 'wordpress-seo' );
-
-$active_total = count( $alerts_data['warnings']['active'] );
-$total = $alerts_data['metrics']['warnings'];
-
-$active = $alerts_data['warnings']['active'];
+$active    = $alerts_data['warnings']['active'];
 $dismissed = $alerts_data['warnings']['dismissed'];
 
-include 'partial-alerts-template.php';
+$active_total    = count( $alerts_data['warnings']['active'] );
+$dismissed_total = count( $alerts_data['warnings']['dismissed'] );
+$total           = $alerts_data['metrics']['warnings'];
+
+$i18n_title              = __( 'Notifications', 'wordpress-seo' );
+$i18n_issues             = '';
+$i18n_no_issues          = __( 'No new notifications.', 'wordpress-seo' );
+$i18n_muted_issues_title = sprintf(
+	/* translators: %d expands the amount of hidden notifications. */
+	_n( 'You have %d hidden notification:', 'You have %d hidden notifications:', $dismissed_total, 'wordpress-seo' ),
+	$dismissed_total
+);
+
+require WPSEO_PATH . 'admin/views/partial-alerts-template.php';

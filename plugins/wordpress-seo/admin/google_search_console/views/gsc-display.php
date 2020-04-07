@@ -1,124 +1,58 @@
 <?php
 /**
- * @package WPSEO\Admin|Google_Search_Console
+ * WPSEO plugin file.
+ *
+ * @package WPSEO\Admin\Google_Search_Console
  */
 
-	// Admin header.
-	Yoast_Form::get_instance()->admin_header( false, 'wpseo-gsc', false, 'yoast_wpseo_gsc_options' );
+// Admin header.
+Yoast_Form::get_instance()->admin_header( false, 'wpseo-gsc', false, 'yoast_wpseo_gsc_options' );
 
-if ( defined( 'WP_DEBUG' ) && WP_DEBUG && WPSEO_GSC_Settings::get_profile() !== '' ) { ?>
-	<form action="" method="post" class="wpseo-gsc-reload-crawl-issues-form">
-		<input type='hidden' name='reload-crawl-issues-nonce' value='<?php echo wp_create_nonce( 'reload-crawl-issues' ); ?>' />
-		<input type="submit" name="reload-crawl-issues" id="reload-crawl-issue" class="button button-primary alignright"
-			   value="<?php _e( 'Reload crawl issues', 'wordpress-seo' ); ?>">
-	</form>
-<?php } ?>
-
-	<h2 class="nav-tab-wrapper" id="wpseo-tabs">
-		<?php echo $platform_tabs = new WPSEO_GSC_Platform_Tabs; ?>
-	</h2>
-
-<?php
-
-// Video explains about the options when connected only.
-if ( null !== $this->service->get_client()->getAccessToken() ) {
-	$video_url = 'https://yoa.st/screencast-search-console';
+// GSC Error notification.
+$gsc_profile = WPSEO_GSC_Settings::get_profile();
+$gsc_url     = 'https://search.google.com/search-console/index';
+if ( $gsc_profile !== '' ) {
+	$gsc_url .= '?resource_id=' . rawurlencode( $gsc_profile );
 }
-else {
-	$video_url = 'https://yoa.st/screencast-connect-search-console';
-}
-
-$tab = new WPSEO_Option_Tab( 'GSC', __( 'Google Search Console' ), array( 'video_url' => $video_url ) );
-$GSCHelpCenter = new WPSEO_Help_Center( 'google-search-console', $tab );
-$GSCHelpCenter->output_help_center();
-
-switch ( $platform_tabs->current_tab() ) {
-	case 'settings' :
-		// Check if there is an access token.
-		if ( null === $this->service->get_client()->getAccessToken() ) {
-			// Print auth screen.
-			echo '<p>';
-			/* Translators: %1$s: expands to Yoast SEO, %2$s expands to Google Search Console. */
-			echo sprintf( __( 'To allow %1$s to fetch your %2$s information, please enter your Google Authorization Code. Clicking the button below will open a new window.', 'wordpress-seo' ), 'Yoast SEO', 'Google Search Console' );
-			echo "</p>\n";
-			echo '<input type="hidden" id="gsc_auth_url" value="', $this->service->get_client()->createAuthUrl() , '" />';
-			echo "<button type='button' id='gsc_auth_code' class='button'>" , __( 'Get Google Authorization Code', 'wordpress-seo' ) ,"</button>\n";
-
-			echo '<p id="gsc-enter-code-label">' . __( 'Enter your Google Authorization Code and press the Authenticate button.', 'wordpress-seo' ) . "</p>\n";
-			echo "<form action='" . admin_url( 'admin.php?page=wpseo_search_console&tab=settings' ) . "' method='post'>\n";
-			echo "<input type='text' name='gsc[authorization_code]' value='' class='textinput' aria-labelledby='gsc-enter-code-label' />";
-			echo "<input type='hidden' name='gsc[gsc_nonce]' value='" . wp_create_nonce( 'wpseo-gsc_nonce' ) . "' />";
-			echo "<input type='submit' name='gsc[Submit]' value='" . __( 'Authenticate', 'wordpress-seo' ) . "' class='button button-primary' />";
-			echo "</form>\n";
-		}
-		else {
-			$reset_button = '<a class="button" href="' . add_query_arg( 'gsc_reset', 1 ) . '">' . __( 'Reauthenticate with Google ', 'wordpress-seo' ) . '</a>';
-			echo '<h3>',  __( 'Current profile', 'wordpress-seo' ), '</h3>';
-			if ( ($profile = WPSEO_GSC_Settings::get_profile() ) !== '' ) {
-				echo '<p>';
-				echo $profile;
-				echo '</p>';
-
-				echo '<p>';
-				echo $reset_button;
-				echo '</p>';
-
-			}
-			else {
-				echo "<form action='" . admin_url( 'options.php' ) . "' method='post'>";
-
-				settings_fields( 'yoast_wpseo_gsc_options' );
-				Yoast_Form::get_instance()->set_option( 'wpseo-gsc' );
-
-				echo '<p>';
-				if ( $profiles = $this->service->get_sites() ) {
-					$show_save = true;
-					echo Yoast_Form::get_instance()->select( 'profile', __( 'Profile', 'wordpress-seo' ), $profiles );
-				}
-				else {
-					$show_save = false;
-					echo __( 'There were no profiles found', 'wordpress-seo' );
-				}
-				echo '</p>';
-
-				echo '<p>';
-
-				if ( $show_save ) {
-					echo '<input type="submit" name="submit" id="submit" class="button button-primary wpseo-gsc-save-profile" value="' . __( 'Save Profile', 'wordpress-seo' ) . '" /> ' . __( 'or', 'wordpress-seo' ) , ' ';
-				}
-				echo $reset_button;
-				echo '</p>';
-				echo '</form>';
-			}
-		}
-		break;
-
-	default :
-		$form_action_url = add_query_arg( 'page', esc_attr( filter_input( INPUT_GET, 'page' ) ) );
-
-		get_current_screen()->set_screen_reader_content( array(
-			// There are no views links in this screen, so no need for the views heading.
-			'heading_views'      => null,
-			'heading_pagination' => __( 'Crawl issues list navigation', 'wordpress-seo' ),
-			'heading_list'       => __( 'Crawl issues list', 'wordpress-seo' ),
-		) );
-
-		// Open <form>.
-		echo "<form id='wpseo-crawl-issues-table-form' action='" . $form_action_url . "' method='post'>\n";
-
-		// AJAX nonce.
-		echo "<input type='hidden' class='wpseo-gsc-ajax-security' value='" . wp_create_nonce( 'wpseo-gsc-ajax-security' ) . "' />\n";
-
-		$this->display_table();
-
-		// Close <form>.
-		echo "</form>\n";
-
-		break;
-}
+$gsc_post_url            = 'https://yoa.st/google-search-console-deprecated';
+$gsc_style_alert         = '
+	display: flex;
+	align-items: baseline;
+	position: relative;
+	padding: 16px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	margin: 16px 0;
+	color: #450c11;
+	background: #f8d7da;
+';
+$gsc_style_alert_icon    = 'display: block; margin-right: 8px;';
+$gsc_style_alert_content = 'max-width: 600px;';
+$gsc_style_alert_link    = 'color: #004973;';
+$gsc_notification        = sprintf(
+	/* Translators: %1$s: expands to opening anchor tag, %2$s expands to closing anchor tag. */
+	__( 'Google has discontinued its Crawl Errors API. Therefore, any possible crawl errors you might have cannot be displayed here anymore. %1$sRead our statement on this for further information%2$s.', 'wordpress-seo' ),
+	'<a style="' . $gsc_style_alert_link . '" href="' . WPSEO_Shortlinker::get( $gsc_post_url ) . '" target="_blank" rel="noopener">',
+	WPSEO_Admin_Utils::get_new_tab_message() . '</a>'
+);
+$gsc_notification .= '<br/><br/>';
+$gsc_notification .= sprintf(
+	/* Translators: %1$s: expands to opening anchor tag, %2$s expands to closing anchor tag. */
+	__( 'To view your current crawl errors, %1$splease visit Google Search Console%2$s.', 'wordpress-seo' ),
+	'<a style="' . $gsc_style_alert_link . '" href="' . $gsc_url . '" target="_blank" rel="noopener noreferrer">',
+	WPSEO_Admin_Utils::get_new_tab_message() . '</a>'
+);
 ?>
-	<br class="clear" />
+	<div style="<?php echo $gsc_style_alert; ?>">
+	<span style="<?php echo $gsc_style_alert_icon; ?>">
+		<svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" role="img" aria-hidden="true"
+			focusable="false" fill="#450c11">
+			<path
+				d="M6 1q1.6 0 3 .8T11.2 4t.8 3-.8 3T9 12.2 6 13t-3-.8T.8 10 0 7t.8-3T3 1.8 6 1zm1 9.7V9.3 9L6.7 9H5l-.1.3V10.9l.3.1h1.6l.1-.3zm0-2.6L7 3.2v-.1L6.8 3H5 5l-.1.2.1 4.9.3.2h1.4l.2-.1Q7 8 6.9 8z"></path>
+		</svg>
+	</span>
+		<span style="<?php echo $gsc_style_alert_content; ?>"><?php echo $gsc_notification; ?></span>
+	</div>
 <?php
-
-// Admin footer.
-Yoast_Form::get_instance()->admin_footer( false );

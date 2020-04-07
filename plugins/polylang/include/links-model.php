@@ -52,7 +52,7 @@ abstract class PLL_Links_Model {
 	 * @return array list of hosts
 	 */
 	public function get_hosts() {
-		return array( parse_url( $this->home, PHP_URL_HOST ) );
+		return array( wp_parse_url( $this->home, PHP_URL_HOST ) );
 	}
 
 	/**
@@ -65,7 +65,7 @@ abstract class PLL_Links_Model {
 	 */
 	public function home_url( $lang ) {
 		$url = trailingslashit( $this->home );
-		return $this->options['hide_default'] && $lang->slug == $this->options['default_lang'] ? $url: $this->add_language_to_link( $url, $lang );
+		return $this->options['hide_default'] && $lang->slug == $this->options['default_lang'] ? $url : $this->add_language_to_link( $url, $lang );
 	}
 
 	/**
@@ -76,13 +76,16 @@ abstract class PLL_Links_Model {
 	 * @param object $language
 	 */
 	protected function set_home_url( $language ) {
-		$search_url = $this->home_url( $language );
-		$home_url = empty( $language->page_on_front ) || $this->options['redirect_lang'] ? $search_url : $this->front_page_url( $language );
-		$language->set_home_url( $search_url, $home_url );
+		// We should always have a default language here, except, temporarily, in PHPUnit tests. The test here protects against PHP notices.
+		if ( isset( $this->options['default_lang'] ) ) {
+			$search_url = $this->home_url( $language );
+			$home_url = empty( $language->page_on_front ) || $this->options['redirect_lang'] ? $search_url : $this->front_page_url( $language );
+			$language->set_home_url( $search_url, $home_url );
+		}
 	}
 
 	/**
-	 * Sets the home urls before it is persistently cached
+	 * Sets the home urls and flags before the languages are persistently cached
 	 *
 	 * @since 1.8
 	 *
@@ -92,6 +95,7 @@ abstract class PLL_Links_Model {
 	public function pll_languages_list( $languages ) {
 		foreach ( $languages as $language ) {
 			$this->set_home_url( $language );
+			$language->set_flag();
 		}
 		return $languages;
 	}

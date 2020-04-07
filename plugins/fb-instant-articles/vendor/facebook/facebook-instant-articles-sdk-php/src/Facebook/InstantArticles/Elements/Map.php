@@ -34,7 +34,7 @@ use Facebook\InstantArticles\Validators\Type;
  *  </figure>
  *
  */
-class Map extends Audible implements Container
+class Map extends Audible
 {
     /**
      * @var Caption The caption for Image
@@ -151,27 +151,17 @@ class Map extends Audible implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('figure');
         $element->setAttribute('class', 'op-map');
 
         // Geotag markup REQUIRED
-        if ($this->geoTag) {
-            $element->appendChild($this->geoTag->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->geoTag, $document);
 
         // Caption markup optional
-        if ($this->caption) {
-            $element->appendChild($this->caption->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->caption, $document);
 
         // Audio markup optional
-        if ($this->audio) {
-            $element->appendChild($this->audio->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->audio, $document);
 
         return $element;
     }
@@ -188,9 +178,9 @@ class Map extends Audible implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of Elements contained by Image.
      */
     public function getContainerChildren()

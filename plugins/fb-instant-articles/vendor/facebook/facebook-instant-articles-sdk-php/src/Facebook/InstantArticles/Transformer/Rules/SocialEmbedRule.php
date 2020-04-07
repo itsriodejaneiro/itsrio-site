@@ -10,6 +10,7 @@ namespace Facebook\InstantArticles\Transformer\Rules;
 
 use Facebook\InstantArticles\Elements\SocialEmbed;
 use Facebook\InstantArticles\Elements\InstantArticle;
+use Facebook\InstantArticles\Transformer\Transformer;
 use Facebook\InstantArticles\Transformer\Warnings\InvalidSelector;
 use Facebook\InstantArticles\Transformer\Warnings\DeprecatedRuleWarning;
 
@@ -59,7 +60,7 @@ class SocialEmbedRule extends ConfigurationSelectorRule
         $iframe = $this->getProperty(self::PROPERTY_IFRAME, $node);
         $url = $this->getProperty(self::PROPERTY_URL, $node);
         if ($iframe) {
-            $social_embed->withHTML($iframe);
+            $social_embed->withHTML(Transformer::cloneNode($iframe));
         }
         if ($url) {
             $social_embed->withSource($url);

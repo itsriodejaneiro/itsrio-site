@@ -10,6 +10,7 @@ namespace Facebook\InstantArticles\Transformer\Rules;
 
 use Facebook\InstantArticles\Elements\Header;
 use Facebook\InstantArticles\Elements\Ad;
+use Facebook\InstantArticles\Transformer\Transformer;
 
 class HeaderAdRule extends ConfigurationSelectorRule
 {
@@ -68,7 +69,7 @@ class HeaderAdRule extends ConfigurationSelectorRule
 
         $embed_code = $this->getProperty(self::PROPERTY_AD_EMBED_URL, $node);
         if ($embed_code) {
-            $ad->withHTML($embed_code);
+            $ad->withHTML(Transformer::cloneNode($embed_code));
         }
 
         if ($url || $embed_code) {

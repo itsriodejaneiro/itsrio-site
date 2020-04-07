@@ -1,100 +1,148 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Internals\Options
  */
 
 /**
- * Overal Option Management class
+ * Overal Option Management class.
  *
- * Instantiates all the options and offers a number of utility methods to work with the options
+ * Instantiates all the options and offers a number of utility methods to work with the options.
  */
 class WPSEO_Options {
 
 	/**
-	 * @var  array  Options this class uses
-	 *              Array format:  (string) option_name  => (string) name of concrete class for the option
-	 * @static
+	 * The option values.
+	 *
+	 * @var null
 	 */
-	public static $options = array(
+	protected static $option_values = null;
+
+	/**
+	 * Options this class uses.
+	 *
+	 * @var array Array format: (string) option_name  => (string) name of concrete class for the option.
+	 */
+	public static $options = [
 		'wpseo'               => 'WPSEO_Option_Wpseo',
-		'wpseo_permalinks'    => 'WPSEO_Option_Permalinks',
 		'wpseo_titles'        => 'WPSEO_Option_Titles',
 		'wpseo_social'        => 'WPSEO_Option_Social',
-		'wpseo_rss'           => 'WPSEO_Option_RSS',
-		'wpseo_internallinks' => 'WPSEO_Option_InternalLinks',
-		'wpseo_xml'           => 'WPSEO_Option_XML',
 		'wpseo_ms'            => 'WPSEO_Option_MS',
 		'wpseo_taxonomy_meta' => 'WPSEO_Taxonomy_Meta',
-	);
+	];
 
 	/**
-	 * @var  array   Array of instantiated option objects
+	 * Array of instantiated option objects.
+	 *
+	 * @var array
 	 */
-	protected static $option_instances = array();
+	protected static $option_instances = [];
 
 	/**
-	 * @var  object  Instance of this class
+	 * Array with the option names.
+	 *
+	 * @var array
+	 */
+	protected static $option_names = [];
+
+	/**
+	 * Instance of this class.
+	 *
+	 * @var object
 	 */
 	protected static $instance;
 
-
 	/**
-	 * Instantiate all the WPSEO option management classes
+	 * Instantiate all the WPSEO option management classes.
 	 */
 	protected function __construct() {
-		$is_multisite = is_multisite();
+		$this->register_hooks();
 
-		foreach ( self::$options as $option_name => $option_class ) {
-			$instance = call_user_func( array( $option_class, 'get_instance' ) );
-
-			if ( ! $instance->multisite_only || $is_multisite ) {
-				self::$option_instances[ $option_name ] = $instance;
-			}
-			else {
-				unset( self::$options[ $option_name ] );
-			}
+		foreach ( static::$options as $option_name => $option_class ) {
+			static::register_option( call_user_func( [ $option_class, 'get_instance' ] ) );
 		}
 	}
 
 	/**
-	 * Get the singleton instance of this class
+	 * Register our hooks.
+	 */
+	public function register_hooks() {
+		add_action( 'registered_taxonomy', [ $this, 'clear_cache' ] );
+		add_action( 'unregistered_taxonomy', [ $this, 'clear_cache' ] );
+		add_action( 'registered_post_type', [ $this, 'clear_cache' ] );
+		add_action( 'unregistered_post_type', [ $this, 'clear_cache' ] );
+	}
+
+	/**
+	 * Get the singleton instance of this class.
 	 *
 	 * @return object
 	 */
 	public static function get_instance() {
-		if ( ! ( self::$instance instanceof self ) ) {
-			self::$instance = new self();
+		if ( ! ( static::$instance instanceof self ) ) {
+			static::$instance = new self();
 		}
 
-		return self::$instance;
+		return static::$instance;
 	}
 
 	/**
-	 * Get the group name of an option for use in the settings form
+	 * Registers an option to the options list.
 	 *
-	 * @param  string $option_name the option for which you want to retrieve the option group name.
+	 * @param WPSEO_Option $option_instance Instance of the option.
+	 */
+	public static function register_option( WPSEO_Option $option_instance ) {
+		$option_name = $option_instance->get_option_name();
+
+		if ( $option_instance->multisite_only && ! static::is_multisite() ) {
+			unset( static::$options[ $option_name ], static::$option_names[ $option_name ] );
+
+			return;
+		}
+
+		$is_already_registered = array_key_exists( $option_name, static::$options );
+		if ( ! $is_already_registered ) {
+			static::$options[ $option_name ] = get_class( $option_instance );
+		}
+
+		if ( $option_instance->include_in_all === true ) {
+			static::$option_names[ $option_name ] = $option_name;
+		}
+
+		static::$option_instances[ $option_name ] = $option_instance;
+
+		if ( ! $is_already_registered ) {
+			static::clear_cache();
+		}
+	}
+
+	/**
+	 * Get the group name of an option for use in the settings form.
 	 *
-	 * @return  string|bool
+	 * @param string $option_name The option for which you want to retrieve the option group name.
+	 *
+	 * @return string|bool
 	 */
 	public static function get_group_name( $option_name ) {
-		if ( isset( self::$option_instances[ $option_name ] ) ) {
-			return self::$option_instances[ $option_name ]->group_name;
+		if ( isset( static::$option_instances[ $option_name ] ) ) {
+			return static::$option_instances[ $option_name ]->group_name;
 		}
 
 		return false;
 	}
 
 	/**
-	 * Get a specific default value for an option
+	 * Get a specific default value for an option.
 	 *
-	 * @param  string $option_name The option for which you want to retrieve a default.
-	 * @param  string $key         The key within the option who's default you want.
+	 * @param string $option_name The option for which you want to retrieve a default.
+	 * @param string $key         The key within the option who's default you want.
 	 *
-	 * @return  mixed
+	 * @return mixed
 	 */
 	public static function get_default( $option_name, $key ) {
-		if ( isset( self::$option_instances[ $option_name ] ) ) {
-			$defaults = self::$option_instances[ $option_name ]->get_defaults();
+		if ( isset( static::$option_instances[ $option_name ] ) ) {
+			$defaults = static::$option_instances[ $option_name ]->get_defaults();
 			if ( isset( $defaults[ $key ] ) ) {
 				return $defaults[ $key ];
 			}
@@ -104,32 +152,31 @@ class WPSEO_Options {
 	}
 
 	/**
-	 * Update a site_option
+	 * Update a site_option.
 	 *
-	 * @param  string $option_name The option name of the option to save.
-	 * @param  mixed  $value       The new value for the option.
+	 * @param string $option_name The option name of the option to save.
+	 * @param mixed  $value       The new value for the option.
 	 *
 	 * @return bool
 	 */
 	public static function update_site_option( $option_name, $value ) {
-		if ( is_network_admin() && isset( self::$option_instances[ $option_name ] ) ) {
-			return self::$option_instances[ $option_name ]->update_site_option( $value );
+		if ( is_multisite() && isset( static::$option_instances[ $option_name ] ) ) {
+			return static::$option_instances[ $option_name ]->update_site_option( $value );
 		}
-		else {
-			return false;
-		}
+
+		return false;
 	}
 
 	/**
-	 * Get the instantiated option instance
+	 * Get the instantiated option instance.
 	 *
-	 * @param  string $option_name The option for which you want to retrieve the instance.
+	 * @param string $option_name The option for which you want to retrieve the instance.
 	 *
-	 * @return  object|bool
+	 * @return object|bool
 	 */
 	public static function get_option_instance( $option_name ) {
-		if ( isset( self::$option_instances[ $option_name ] ) ) {
-			return self::$option_instances[ $option_name ];
+		if ( isset( static::$option_instances[ $option_name ] ) ) {
+			return static::$option_instances[ $option_name ];
 		}
 
 		return false;
@@ -138,52 +185,50 @@ class WPSEO_Options {
 	/**
 	 * Retrieve an array of the options which should be included in get_all() and reset().
 	 *
-	 * @static
-	 * @return  array  Array of option names
+	 * @return array Array of option names.
 	 */
 	public static function get_option_names() {
-		static $option_names = array();
-
-		if ( $option_names === array() ) {
-			foreach ( self::$option_instances as $option_name => $option_object ) {
+		$option_names = array_values( static::$option_names );
+		if ( $option_names === [] ) {
+			foreach ( static::$option_instances as $option_name => $option_object ) {
 				if ( $option_object->include_in_all === true ) {
 					$option_names[] = $option_name;
 				}
 			}
-			$option_names = apply_filters( 'wpseo_options', $option_names );
 		}
 
-		return $option_names;
+		/**
+		 * Filter: wpseo_options - Allow developers to change the option name to include.
+		 *
+		 * @api array The option names to include in get_all and reset().
+		 */
+		return apply_filters( 'wpseo_options', $option_names );
 	}
 
 	/**
 	 * Retrieve all the options for the SEO plugin in one go.
 	 *
-	 * @todo [JRF] see if we can get some extra efficiency for this one, though probably not as options may
-	 * well change between calls (enriched defaults and such)
-	 *
-	 * @static
-	 * @return  array  Array combining the values of all the options
+	 * @return array Array combining the values of all the options.
 	 */
 	public static function get_all() {
-		return self::get_options( self::get_option_names() );
+		static::$option_values = static::get_options( static::get_option_names() );
+
+		return static::$option_values;
 	}
 
 	/**
 	 * Retrieve one or more options for the SEO plugin.
 	 *
-	 * @static
-	 *
 	 * @param array $option_names An array of option names of the options you want to get.
 	 *
-	 * @return  array  Array combining the values of the requested options
+	 * @return array Array combining the values of the requested options.
 	 */
 	public static function get_options( array $option_names ) {
-		$options      = array();
+		$options      = [];
 		$option_names = array_filter( $option_names, 'is_string' );
 		foreach ( $option_names as $option_name ) {
-			if ( isset( self::$option_instances[ $option_name ] ) ) {
-				$option  = self::get_option( $option_name );
+			if ( isset( static::$option_instances[ $option_name ] ) ) {
+				$option  = static::get_option( $option_name );
 				$options = array_merge( $options, $option );
 			}
 		}
@@ -194,17 +239,15 @@ class WPSEO_Options {
 	/**
 	 * Retrieve a single option for the SEO plugin.
 	 *
-	 * @static
+	 * @param string $option_name The name of the option you want to get.
 	 *
-	 * @param string $option_name the name of the option you want to get.
-	 *
-	 * @return array Array containing the requested option
+	 * @return array Array containing the requested option.
 	 */
 	public static function get_option( $option_name ) {
 		$option = null;
 		if ( is_string( $option_name ) && ! empty( $option_name ) ) {
-			if ( isset( self::$option_instances[ $option_name ] ) ) {
-				if ( self::$option_instances[ $option_name ]->multisite_only !== true ) {
+			if ( isset( static::$option_instances[ $option_name ] ) ) {
+				if ( static::$option_instances[ $option_name ]->multisite_only !== true ) {
 					$option = get_option( $option_name );
 				}
 				else {
@@ -217,10 +260,67 @@ class WPSEO_Options {
 	}
 
 	/**
+	 * Retrieve a single field from any option for the SEO plugin. Keys are always unique.
+	 *
+	 * @param string $key     The key it should return.
+	 * @param mixed  $default The default value that should be returned if the key isn't set.
+	 *
+	 * @return mixed|null Returns value if found, $default if not.
+	 */
+	public static function get( $key, $default = null ) {
+		if ( static::$option_values === null ) {
+			static::prime_cache();
+		}
+		if ( isset( static::$option_values[ $key ] ) ) {
+			return static::$option_values[ $key ];
+		}
+
+		return $default;
+	}
+
+	/**
+	 * Resets the cache to null.
+	 */
+	public static function clear_cache() {
+		static::$option_values = null;
+	}
+
+	/**
+	 * Primes our cache.
+	 */
+	private static function prime_cache() {
+		static::$option_values = static::get_all();
+		static::$option_values = static::add_ms_option( static::$option_values );
+	}
+
+	/**
+	 * Retrieve a single field from an option for the SEO plugin.
+	 *
+	 * @param string $key   The key to set.
+	 * @param mixed  $value The value to set.
+	 *
+	 * @return mixed|null Returns value if found, $default if not.
+	 */
+	public static function set( $key, $value ) {
+		$lookup_table = static::get_lookup_table();
+
+		if ( isset( $lookup_table[ $key ] ) ) {
+			return static::save_option( $lookup_table[ $key ], $key, $value );
+		}
+
+		$patterns = static::get_pattern_table();
+		foreach ( $patterns as $pattern => $option ) {
+			if ( strpos( $key, $pattern ) === 0 ) {
+				return static::save_option( $option, $key, $value );
+			}
+		}
+
+		static::$option_values[ $key ] = $value;
+	}
+
+	/**
 	 * Get an option only if it's been auto-loaded.
 	 *
-	 * @static
-	 * 
 	 * @param string     $option  The option to retrieve.
 	 * @param bool|mixed $default A default value to return.
 	 *
@@ -228,7 +328,7 @@ class WPSEO_Options {
 	 */
 	public static function get_autoloaded_option( $option, $default = false ) {
 		$value = wp_cache_get( $option, 'options' );
-		if ( false === $value ) {
+		if ( $value === false ) {
 			$passed_default = func_num_args() > 1;
 
 			return apply_filters( "default_option_{$option}", $default, $option, $passed_default );
@@ -238,32 +338,32 @@ class WPSEO_Options {
 	}
 
 	/**
-	 * Run the clean up routine for one or all options
+	 * Run the clean up routine for one or all options.
 	 *
-	 * @param  array|string $option_name     (optional) the option you want to clean or an array of
-	 *                                       option names for the options you want to clean.
-	 *                                       If not set, all options will be cleaned.
-	 * @param  string       $current_version (optional) Version from which to upgrade, if not set,
-	 *                                       version specific upgrades will be disregarded.
+	 * @param array|string $option_name     Optional. the option you want to clean or an array of
+	 *                                      option names for the options you want to clean.
+	 *                                      If not set, all options will be cleaned.
+	 * @param string       $current_version Optional. Version from which to upgrade, if not set,
+	 *                                      version specific upgrades will be disregarded.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public static function clean_up( $option_name = null, $current_version = null ) {
 		if ( isset( $option_name ) && is_string( $option_name ) && $option_name !== '' ) {
-			if ( isset( self::$option_instances[ $option_name ] ) ) {
-				self::$option_instances[ $option_name ]->clean( $current_version );
+			if ( isset( static::$option_instances[ $option_name ] ) ) {
+				static::$option_instances[ $option_name ]->clean( $current_version );
 			}
 		}
-		elseif ( isset( $option_name ) && is_array( $option_name ) && $option_name !== array() ) {
+		elseif ( isset( $option_name ) && is_array( $option_name ) && $option_name !== [] ) {
 			foreach ( $option_name as $option ) {
-				if ( isset( self::$option_instances[ $option ] ) ) {
-					self::$option_instances[ $option ]->clean( $current_version );
+				if ( isset( static::$option_instances[ $option ] ) ) {
+					static::$option_instances[ $option ]->clean( $current_version );
 				}
 			}
 			unset( $option );
 		}
 		else {
-			foreach ( self::$option_instances as $instance ) {
+			foreach ( static::$option_instances as $instance ) {
 				$instance->clean( $current_version );
 			}
 			unset( $instance );
@@ -273,33 +373,20 @@ class WPSEO_Options {
 		}
 	}
 
-
 	/**
-	 * Check that all options exist in the database and add any which don't
+	 * Check that all options exist in the database and add any which don't.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public static function ensure_options_exist() {
-		foreach ( self::$option_instances as $instance ) {
+		foreach ( static::$option_instances as $instance ) {
 			$instance->maybe_add_option();
 		}
 	}
 
 	/**
-	 * Correct the inadvertent removal of the fallback to default values from the breadcrumbs
+	 * Initialize some options on first install/activate/reset.
 	 *
-	 * @since 1.5.2.3
-	 */
-	public static function bring_back_breadcrumb_defaults() {
-		if ( isset( self::$option_instances['wpseo_internallinks'] ) ) {
-			self::$option_instances['wpseo_internallinks']->bring_back_defaults();
-		}
-	}
-
-	/**
-	 * Initialize some options on first install/activate/reset
-	 *
-	 * @static
 	 * @return void
 	 */
 	public static function initialize() {
@@ -310,15 +397,14 @@ class WPSEO_Options {
 	}
 
 	/**
-	 * Reset all options to their default values and rerun some tests
+	 * Reset all options to their default values and rerun some tests.
 	 *
-	 * @static
 	 * @return void
 	 */
 	public static function reset() {
 		if ( ! is_multisite() ) {
-			$option_names = self::get_option_names();
-			if ( is_array( $option_names ) && $option_names !== array() ) {
+			$option_names = static::get_option_names();
+			if ( is_array( $option_names ) && $option_names !== [] ) {
 				foreach ( $option_names as $option_name ) {
 					delete_option( $option_name );
 					update_option( $option_name, get_option( $option_name ) );
@@ -328,18 +414,16 @@ class WPSEO_Options {
 		}
 		else {
 			// Reset MS blog based on network default blog setting.
-			self::reset_ms_blog( get_current_blog_id() );
+			static::reset_ms_blog( get_current_blog_id() );
 		}
 
-		self::initialize();
+		static::initialize();
 	}
 
 	/**
-	 * Initialize default values for a new multisite blog
+	 * Initialize default values for a new multisite blog.
 	 *
-	 * @static
-	 *
-	 * @param  bool $force_init Whether to always do the initialization routine (title/desc test).
+	 * @param bool $force_init Whether to always do the initialization routine (title/desc test).
 	 *
 	 * @return void
 	 */
@@ -348,33 +432,31 @@ class WPSEO_Options {
 
 		if ( is_multisite() ) {
 			if ( $option['ms_defaults_set'] === false ) {
-				self::reset_ms_blog( get_current_blog_id() );
-				self::initialize();
+				static::reset_ms_blog( get_current_blog_id() );
+				static::initialize();
 			}
-			else if ( $force_init === true ) {
-				self::initialize();
+			elseif ( $force_init === true ) {
+				static::initialize();
 			}
 		}
 	}
 
 	/**
 	 * Reset all options for a specific multisite blog to their default values based upon a
-	 * specified default blog if one was chosen on the network page or the plugin defaults if it was not
+	 * specified default blog if one was chosen on the network page or the plugin defaults if it was not.
 	 *
-	 * @static
+	 * @param int|string $blog_id Blog id of the blog for which to reset the options.
 	 *
-	 * @param  int|string $blog_id Blog id of the blog for which to reset the options.
-	 *
-	 * @return  void
+	 * @return void
 	 */
 	public static function reset_ms_blog( $blog_id ) {
 		if ( is_multisite() ) {
 			$options      = get_site_option( 'wpseo_ms' );
-			$option_names = self::get_option_names();
+			$option_names = static::get_option_names();
 
-			if ( is_array( $option_names ) && $option_names !== array() ) {
+			if ( is_array( $option_names ) && $option_names !== [] ) {
 				$base_blog_id = $blog_id;
-				if ( $options['defaultblog'] !== '' && $options['defaultblog'] != 0 ) {
+				if ( $options['defaultblog'] !== '' && $options['defaultblog'] !== 0 ) {
 					$base_blog_id = $options['defaultblog'];
 				}
 
@@ -383,9 +465,9 @@ class WPSEO_Options {
 
 					$new_option = get_blog_option( $base_blog_id, $option_name );
 
-					/* Remove sensitive, theme dependent and site dependent info */
-					if ( isset( self::$option_instances[ $option_name ] ) && self::$option_instances[ $option_name ]->ms_exclude !== array() ) {
-						foreach ( self::$option_instances[ $option_name ]->ms_exclude as $key ) {
+					/* Remove sensitive, theme dependent and site dependent info. */
+					if ( isset( static::$option_instances[ $option_name ] ) && static::$option_instances[ $option_name ]->ms_exclude !== [] ) {
+						foreach ( static::$option_instances[ $option_name ]->ms_exclude as $key ) {
 							unset( $new_option[ $key ] );
 						}
 					}
@@ -405,72 +487,123 @@ class WPSEO_Options {
 	 *
 	 * @param string $wpseo_options_group_name The name for the wpseo option group in the database.
 	 * @param string $option_name              The name for the option to set.
-	 * @param *      $option_value             The value for the option.
+	 * @param mixed  $option_value             The value for the option.
 	 *
 	 * @return boolean Returns true if the option is successfully saved in the database.
 	 */
 	public static function save_option( $wpseo_options_group_name, $option_name, $option_value ) {
-		$options                           = WPSEO_Options::get_option( $wpseo_options_group_name );
+		$options                 = static::get_option( $wpseo_options_group_name );
 		$options[ $option_name ] = $option_value;
-		update_option( $wpseo_options_group_name, $options );
+
+		if ( isset( static::$option_instances[ $wpseo_options_group_name ] ) && static::$option_instances[ $wpseo_options_group_name ]->multisite_only === true ) {
+			static::update_site_option( $wpseo_options_group_name, $options );
+		}
+		else {
+			update_option( $wpseo_options_group_name, $options );
+		}
 
 		// Check if everything got saved properly.
-		$saved_option = self::get_option( $wpseo_options_group_name );
+		$saved_option = static::get_option( $wpseo_options_group_name );
+
+		// Clear our cache.
+		static::clear_cache();
+
 		return $saved_option[ $option_name ] === $options[ $option_name ];
 	}
 
-	/********************** DEPRECATED FUNCTIONS **********************/
-
 	/**
-	 * Check whether the current user is allowed to access the configuration.
+	 * Adds the multisite options to the option stack if relevant.
 	 *
-	 * @deprecated 1.5.6.1
-	 * @deprecated use WPSEO_Utils::grant_access()
-	 * @see        WPSEO_Utils::grant_access()
+	 * @param array $option The currently present options settings.
 	 *
-	 * @return boolean
+	 * @return array Options possibly including multisite.
 	 */
-	public static function grant_access() {
-		_deprecated_function( __METHOD__, 'WPSEO 1.5.6.1', 'WPSEO_Utils::grant_access()' );
+	protected static function add_ms_option( $option ) {
+		if ( ! is_multisite() ) {
+			return $option;
+		}
 
-		return WPSEO_Utils::grant_access();
+		$ms_option = static::get_option( 'wpseo_ms' );
+		if ( $ms_option === null ) {
+			return $option;
+		}
+
+		return array_merge( $option, $ms_option );
 	}
 
 	/**
-	 * Clears the WP or W3TC cache depending on which is used
+	 * Checks if installation is multisite.
 	 *
-	 * @deprecated 1.5.6.1
-	 * @deprecated use WPSEO_Utils::clear_cache()
-	 * @see        WPSEO_Utils::clear_cache()
+	 * @return bool True when is multisite.
 	 */
-	public static function clear_cache() {
-		_deprecated_function( __METHOD__, 'WPSEO 1.5.6.1', 'WPSEO_Utils::clear_cache()' );
-		WPSEO_Utils::clear_cache();
+	protected static function is_multisite() {
+		static $is_multisite;
+
+		if ( $is_multisite === null ) {
+			$is_multisite = is_multisite();
+		}
+
+		return $is_multisite;
 	}
 
-
 	/**
-	 * Flush W3TC cache after succesfull update/add of taxonomy meta option
+	 * Retrieves a lookup table to find in which option_group a key is stored.
 	 *
-	 * @deprecated 1.5.6.1
-	 * @deprecated use WPSEO_Utils::flush_w3tc_cache()
-	 * @see        WPSEO_Utils::flush_w3tc_cache()
+	 * @return array The lookup table.
 	 */
-	public static function flush_w3tc_cache() {
-		_deprecated_function( __METHOD__, 'WPSEO 1.5.6.1', 'WPSEO_Utils::flush_w3tc_cache()' );
-		WPSEO_Utils::flush_w3tc_cache();
+	private static function get_lookup_table() {
+		$lookup_table = [];
+
+
+		foreach ( array_keys( static::$options ) as $option_name ) {
+			$full_option = static::get_option( $option_name );
+			foreach ( $full_option as $key => $value ) {
+				$lookup_table[ $key ] = $option_name;
+			}
+		}
+
+		return $lookup_table;
 	}
 
+	/**
+	 * Retrieves a lookup table to find in which option_group a key is stored.
+	 *
+	 * @return array The lookup table.
+	 */
+	private static function get_pattern_table() {
+		$pattern_table = [];
+		foreach ( static::$options as $option_name => $option_class ) {
+			$instance = call_user_func( [ $option_class, 'get_instance' ] );
+			foreach ( $instance->get_patterns() as $key ) {
+				$pattern_table[ $key ] = $option_name;
+			}
+		}
+
+		return $pattern_table;
+	}
+
+	/* ********************* DEPRECATED METHODS ********************* */
 
 	/**
-	 * Clear rewrite rules
+	 * Fills our option cache.
 	 *
-	 * @deprecated 1.5.6.1
-	 * @deprecated use WPSEO_Utils::clear_rewrites()
-	 * @see        WPSEO_Utils::clear_rewrites()
+	 * @deprecated  12.8.1
+	 * @codeCoverageIgnore
 	 */
-	public static function clear_rewrites() {
-		_deprecated_function( __METHOD__, 'WPSEO 1.5.6.1', 'WPSEO_Utils::clear_rewrites()' );
-		WPSEO_Utils::clear_rewrites();
+	public static function fill_cache() {
+		_deprecated_function( __METHOD__, 'WPSEO 12.8.1', '::clear_cache' );
+		static::clear_cache();
+	}
+
+	/**
+	 * Correct the inadvertent removal of the fallback to default values from the breadcrumbs.
+	 *
+	 * @since 1.5.2.3
+	 *
+	 * @deprecated 7.0
+	 * @codeCoverageIgnore
+	 */
+	public static function bring_back_breadcrumb_defaults() {
+		_deprecated_function( __METHOD__, 'WPSEO 7.0' );
 	}
 }

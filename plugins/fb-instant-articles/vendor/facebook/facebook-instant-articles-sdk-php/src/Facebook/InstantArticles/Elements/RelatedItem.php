@@ -108,17 +108,15 @@ class RelatedItem extends Element
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('li');
         if ($this->sponsored) {
             $element->setAttribute('data-sponsored', 'true');
         }
-        $element->appendChild(
-            Anchor::create()->withHref($this->url)->toDOMElement($document)
-        );
+        if ($this->url) {
+            $anchor = $document->createElement('a');
+            $anchor->setAttribute('href', $this->url);
+            $element->appendChild($anchor);
+        }
 
         return $element;
     }

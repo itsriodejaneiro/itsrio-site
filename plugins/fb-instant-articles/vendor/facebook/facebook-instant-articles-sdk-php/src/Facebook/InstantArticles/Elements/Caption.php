@@ -16,7 +16,7 @@ use Facebook\InstantArticles\Validators\Type;
  * <ul>
  *     <li>Image</li>
  *     <li>Video</li>
- *     <li>SlideShow</li>
+ *     <li>Slideshow</li>
  *     <li>Map</li>
  *     <li>Interactive</li>
  * </ul>.
@@ -29,7 +29,7 @@ use Facebook\InstantArticles\Validators\Type;
  *
  * @see Image
  * @see Video
- * @see SlideShow
+ * @see Slideshow
  * @see Map
  * @see Interactive
  * @see {link:https://developers.intern.facebook.com/docs/instant-articles/reference/caption}
@@ -37,6 +37,7 @@ use Facebook\InstantArticles\Validators\Type;
 class Caption extends FormattedText
 {
     // Font size
+    const SIZE_SMALL = 'op-small';
     const SIZE_MEDIUM = 'op-medium';
     const SIZE_LARGE = 'op-large';
     const SIZE_XLARGE = 'op-extra-large';
@@ -72,7 +73,7 @@ class Caption extends FormattedText
     private $credit;
 
     /**
-     * @var string text Size. Values: "op-medium"|"op-large"|"op-extra-large"
+     * @var string text Size. Values: "op-small"|"op-medium"|"op-large"|"op-extra-large"
      */
     private $fontSize;
 
@@ -161,6 +162,7 @@ class Caption extends FormattedText
     /**
      * The Fontsize that will be used.
      *
+     * @see Caption::SIZE_SMALL
      * @see Caption::SIZE_MEDIUM
      * @see Caption::SIZE_LARGE
      * @see Caption::SIZE_XLARGE
@@ -176,7 +178,8 @@ class Caption extends FormattedText
             [
                 Caption::SIZE_XLARGE,
                 Caption::SIZE_LARGE,
-                Caption::SIZE_MEDIUM
+                Caption::SIZE_MEDIUM,
+                Caption::SIZE_SMALL
             ]
         );
         $this->fontSize = $font_size;
@@ -301,6 +304,7 @@ class Caption extends FormattedText
     /**
      * @return string the Font size.
      *
+     * @see Caption::SIZE_SMALL
      * @see Caption::SIZE_MEDIUM
      * @see Caption::SIZE_LARGE
      * @see Caption::SIZE_XLARGE
@@ -335,6 +339,18 @@ class Caption extends FormattedText
     }
 
     /**
+     * @return string the Vertical Alignment.
+     *
+     * @see Caption::VERTICAL_TOP
+     * @see Caption::VERTICAL_BOTTOM
+     * @see Caption::VERTICAL_CENTER
+     */
+    public function getVerticalAlignment()
+    {
+        return $this->verticalAlignment;
+    }
+
+    /**
      * Structure and create the full ArticleImage in a XML format DOMElement.
      *
      * @param \DOMDocument $document where this element will be appended. Optional
@@ -346,30 +362,22 @@ class Caption extends FormattedText
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('figcaption');
 
         // title markup REQUIRED
         if ($this->title && (!$this->subTitle && !$this->credit)) {
             $element->appendChild($this->title->textToDOMDocumentFragment($document));
-        } elseif ($this->title) {
-            $element->appendChild($this->title->toDOMElement($document));
+        } else {
+            Element::appendChild($element, $this->title, $document);
         }
 
         // subtitle markup optional
-        if ($this->subTitle) {
-            $element->appendChild($this->subTitle->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->subTitle, $document);
 
         $element->appendChild($this->textToDOMDocumentFragment($document));
 
         // credit markup optional
-        if ($this->credit) {
-            $element->appendChild($this->credit->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->credit, $document);
 
         // Formating markup
         if ($this->textAlignment || $this->verticalAlignment || $this->fontSize || $this->position) {

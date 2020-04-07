@@ -10,8 +10,9 @@ namespace Facebook\InstantArticles;
 
 use Facebook\InstantArticles\Elements\Caption;
 use Facebook\InstantArticles\Elements\Interactive;
+use Facebook\Util\BaseHTMLTestCase;
 
-class InteractiveTest extends \PHPUnit_Framework_TestCase
+class InteractiveTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -20,7 +21,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertFalse($interactive->isValid());
     }
 
@@ -38,13 +39,13 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasicWithCaption()
     {
         $social_embed =
-            interactive::create()
+            Interactive::create()
                 ->withSource('http://foo.com/interactive-graphic')
                 ->withWidth(640)
                 ->withHeight(300)
@@ -60,7 +61,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $social_embed->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasicWithOnlyHeight()
@@ -73,7 +74,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertFalse($interactive->isValid());
     }
 
@@ -87,7 +88,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertFalse($interactive->isValid());
     }
 
@@ -105,7 +106,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
           '</figure>';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasicWithOnlyColumnWidth()
@@ -118,7 +119,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertFalse($interactive->isValid());
     }
 
@@ -132,7 +133,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertFalse($interactive->isValid());
     }
 
@@ -158,7 +159,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderInline()
@@ -181,7 +182,7 @@ class InteractiveTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $interactive->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
         $this->assertTrue($interactive->isValid());
     }
 }

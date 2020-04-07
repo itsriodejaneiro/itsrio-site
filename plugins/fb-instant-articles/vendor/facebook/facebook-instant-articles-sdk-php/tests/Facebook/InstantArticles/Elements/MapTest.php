@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class MapTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class MapTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -17,7 +19,7 @@ class MapTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $map->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGeotag()
@@ -50,7 +52,7 @@ JSON;
         '</figure>';
 
         $rendered = $map->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGeotagAndCaption()
@@ -93,6 +95,6 @@ JSON;
         '</figure>';
 
         $rendered = $map->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

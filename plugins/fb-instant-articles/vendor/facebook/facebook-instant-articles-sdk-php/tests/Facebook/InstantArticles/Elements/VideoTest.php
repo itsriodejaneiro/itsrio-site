@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class VideoTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class VideoTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -17,7 +19,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
@@ -34,7 +36,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAttribution()
@@ -55,7 +57,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPresentation()
@@ -73,7 +75,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithControls()
@@ -91,7 +93,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithoutAutoplay()
@@ -109,7 +111,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithCaption()
@@ -131,7 +133,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
         '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLike()
@@ -146,7 +148,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
                 ->enableLike();
 
         $expected =
-            '<figure data-feedback="fb:likes">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.
@@ -154,7 +156,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithComments()
@@ -169,7 +171,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:comments">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.
@@ -177,7 +179,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLikeAndComments()
@@ -193,7 +195,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
                 ->enableComments();
 
         $expected =
-            '<figure data-feedback="fb:likes,fb:comments">'.
+            '<figure>'.
                 '<video>'.
                     '<source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"/>'.
                 '</video>'.
@@ -201,7 +203,7 @@ class VideoTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGeotag()
@@ -238,7 +240,7 @@ JSON;
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithFeedCover()
@@ -256,6 +258,6 @@ JSON;
             '</figure>';
 
         $rendered = $video->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

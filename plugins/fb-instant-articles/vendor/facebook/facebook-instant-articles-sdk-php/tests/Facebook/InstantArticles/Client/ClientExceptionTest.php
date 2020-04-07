@@ -2,7 +2,9 @@
 
 namespace Facebook\InstantArticles\Client;
 
-class ClientExceptionTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ClientExceptionTest extends TestCase
 {
     public function testExtendsException()
     {

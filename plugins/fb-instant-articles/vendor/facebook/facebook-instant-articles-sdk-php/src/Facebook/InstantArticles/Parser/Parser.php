@@ -14,12 +14,14 @@ use Facebook\InstantArticles\Validators\Type;
 
 class Parser
 {
+
     /**
      * @param string|DOMDocument $document The document html of an Instant Article
+     * @param Transformer $transformer The Transformer instance to use. A fresh one will be created by default.
      *
      * @return InstantArticle filled element that was parsed from the DOMDocument parameter
      */
-    public function parse($content)
+    public function parse($content, $transformer = null)
     {
         if (Type::is($content, Type::STRING)) {
             libxml_use_internal_errors(true);
@@ -33,9 +35,11 @@ class Parser
         $json_file = file_get_contents(__DIR__ . '/instant-articles-rules.json');
 
         $instant_article = InstantArticle::create();
-        $transformer = new Transformer();
-        $transformer->loadRules($json_file);
 
+        if ($transformer === null) {
+            $transformer = new Transformer();
+        }
+        $transformer->loadRules($json_file);
         $transformer->transform($instant_article, $document);
 
         return $instant_article;

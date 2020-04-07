@@ -34,6 +34,11 @@ jQuery( function ( $ ) {
 
 		// Typcast zoom to a number
 		mapOptions.zoom *= 1;
+
+		if ( typeof mapOptions.styles === 'string' ) {
+			mapOptions.styles = JSON.parse(mapOptions.styles);
+		}
+
 		map = new google.maps.Map( this, mapOptions );
 
 		// Set marker
@@ -64,6 +69,10 @@ jQuery( function ( $ ) {
 			google.maps.event.addListener( marker, 'click', function () {
 				infoWindow.open( map, marker );
 			} );
+
+			if ( true === mapOptions.openInfoWindow ) {
+				infoWindow.open( map, marker );
+			}
 		}
 	}
 

@@ -40,10 +40,6 @@ class Span extends TextContainer
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $span = $document->createElement('span');
 
         $span->appendChild($this->textToDOMDocumentFragment($document));

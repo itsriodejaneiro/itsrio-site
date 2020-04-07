@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class PullquoteTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class PullquoteTest extends BaseHTMLTestCase
 {
     public function testRenderBasic()
     {
@@ -18,7 +20,7 @@ class PullquoteTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithBoldStrongItalicEm()
@@ -39,7 +41,7 @@ class PullquoteTest extends \PHPUnit_Framework_TestCase
             '</aside>';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAttribution()
@@ -62,6 +64,6 @@ class PullquoteTest extends \PHPUnit_Framework_TestCase
             '</aside>';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

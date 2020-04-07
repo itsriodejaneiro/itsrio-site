@@ -12,6 +12,13 @@ use Facebook\InstantArticles\Elements\Time;
 use Facebook\InstantArticles\Elements\Header;
 use Facebook\InstantArticles\Transformer\Warnings\InvalidSelector;
 
+/**
+ * Rule to parse dates from the document.
+ *
+ * The time zone used will be the default time zone defined on the Transformer.
+ *
+ * @see Transformer::getDefaultDateTimeZone()
+ */
 class TimeRule extends ConfigurationSelectorRule
 {
     const PROPERTY_TIME_TYPE_DEPRECATED = 'article.time_type';
@@ -62,7 +69,7 @@ class TimeRule extends ConfigurationSelectorRule
         $time_string = $this->getProperty(self::PROPERTY_TIME, $node);
         if ($time_string) {
             $time = Time::create($this->type);
-            $time->withDatetime(new \DateTime($time_string));
+            $time->withDatetime(new \DateTime($time_string, $transformer->getDefaultDateTimeZone()));
             $header->withTime($time);
         } else {
             $transformer->addWarning(

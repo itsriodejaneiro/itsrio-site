@@ -92,10 +92,6 @@ class Anchor extends FormattedText
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $anchor = $document->createElement('a');
 
         if ($this->href) {
@@ -117,6 +113,6 @@ class Anchor extends FormattedText
      */
     public function isValid()
     {
-        return !Type::isTextEmpty($this->href);
+        return !Type::isTextEmpty($this->href) && parent::isValid();
     }
 }

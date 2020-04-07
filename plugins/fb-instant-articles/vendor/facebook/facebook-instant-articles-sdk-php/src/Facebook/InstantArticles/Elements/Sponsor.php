@@ -74,10 +74,6 @@ class Sponsor extends Element
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('ul');
         $element->setAttribute('class', 'op-sponsors');
 

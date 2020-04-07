@@ -1,0 +1,167 @@
+﻿=== Pixel Cat: Elite ===
+Contributors: fatcatapps, davidhme, ryannovotny
+Donate link: https://fatcatapps.com/pixelcat
+Tags: facebook pixel, facebook conversion pixel, custom audiences, facebook pixel events, facebook standard events, facebook retargeting, facebook custom audiences, standard events, Facebook Pixel WooCommerce, 
+Author URI: https://fatcatapps.com/
+Plugin URI: https://fatcatapps.com/
+Requires at least: 4.0
+Tested up to: 5.4.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 2.5.1
+
+Facebook Pixel Management Made Easy. Set Up Facebook Pixel Events, Track Conversions & Build Custom Audiences With This Facebook Pixel WordPress Plugin.
+
+== Description ==
+
+= Facebook Pixel Management Made Easy =
+Pixel Cat - Facebook Pixel Manager lets you add a Facebook Pixel to your site in a matter of minutes.
+
+Confused by Facebook's pixel code? Wary of pasting a script into your theme?
+
+Pixel Cat is a lean, simple plugin that avoids unnecessary bloat and does one thing well: letting you add the new Facebook pixel to your site with ease.
+
+= Which features does Pixel Cat have? =
+* Add the new Facebook Pixel to your WordPress site with ease.
+* Hide your Facebook Pixel from logged-in users so you don't pollute your data.
+* Create Facebook Pixel Events using our Event Builder.
+
+= Why use Pixel Cat - Facebook Pixel Manager? =
+
+There are multiple ways to add a Facebook Pixel to your WordPress site.
+
+**1. Pasting your Facebook Pixel into your theme**
+This approach isn't great for two reasons:
+a) If you edit your live site and make a mistake when pasting your Facebook Pixel script into your theme, you could take down your website.
+b) If your theme is updated with new features or security fixes, your Facebook Pixel code will be overwritten.
+
+**2. Pasting the new Facebook Pixel script into a header/footer script plugin**
+This is a valid approach, but has some disadvantages. General purposes "header script plugins" aren't built from the ground-up to support Facebook's Pixel. 
+
+What this means is that :
+a) These plugins lack Facebook-specific functionality.
+b) These plugins will not adapt if Facebook changes their pixel again in the future. Since Pixel Cat is a dedicated Facebook Pixel Manager, we'll make sure make sure to stay compatible with future changes by Facebook.
+c) These plugins usually don't support hiding your Facebook Pixel from logged-in users.
+
+
+The bottom line is that Pixel Cat is the best way to add a Facebook Pixel to your WordPress site.
+
+= Does Pixel Cat - Facebook Pixel Manager support the new Facebook Pixel? =
+Yes. Pixel Cat is built from the ground up to support the new Facebook Pixel.
+
+Pixel Cat does not work with the old "Facebook Conversion Pixel" that Facebook deprecated in 2016.
+
+= Can I hide my Facebook Pixel form logged in users? =
+Yes. You can hide your Facebook Pixels from logged in users by going to Settings -> Facebook Pixel Manager.
+
+= Is Pixel Cat - Facebook Pixel Manager easy to translate? =
+Yes. Pixel Cat - Facebook Pixel Cat is fully translateable. Please let us know if you're interested in contributing.
+
+= Pixel Cat - Facebook Pixel Manager Feature Roadmap =
+This is just the first version of Pixel Cat - we have tons of new features & improvements lined up. Do you have any suggestions? Please leave a comment in the support forums.
+
+= Do you integrate with WooCommerce =
+Yes, our our [pro plugin](https://fatcatapps.com/pixelcat/) makes setting up a Facebook Pixel WooCommerce integration a breeze. Not only that, Pixel Cat Premium lets you create a Facebook Product Catalog for WooCommerce. [Click here to learn more](https://fatcatapps.com/pixelcat/).
+
+--[The Fatcat Apps Team](https://fatcatapps.com/)
+
+
+== Installation ==
+
+1. Upload the Pixel Cat - Facebook Pixel Manager plugin file (`pixel-cat.zip`) to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to Settings -> Facebook Pixel Manager to configure your Facebook Pixel
+ 
+
+== Frequently Asked Questions ==
+
+= How to get started? =
+After installing this plugin, simply go to Settings -> Facebook Pixel Manager and add your Facebook Pixel ID. Or, [view a quick-start guide here](https://fatcatapps.com/pixel-cat-quick-start/).
+
+= What is my Facebook Pixel ID? =
+You can find the Pixel ID in the Ads Manager here: https://www.facebook.com/ads/manager/pixel/facebook_pixel
+
+Your Facebook Pixel ID is located on the right hand side of this screen.
+
+
+== Changelog ==
+
+= Pixel Cat: Elite 2.5.1 =
+* UI updates 
+
+= Pixel Cat: Elite 2.5.0 =
+* Added video event feature
+* Added event matching for Dynamic Ads and variable products
+* Improved WooCommerce product feed for variable products
+* Merged WooCommerce & Easy Digital Download tab settings
+* Fix search event not turning off
+* Tested up to WP 5.4.0
+
+= Pixel Cat: Elite 2.4.1 =
+* Add "content_type" parameter to WooCommerce InitiateCheckout event
+* Fix WooCommerce add to cart event not working with "redirect to cart after successful addition" option
+
+= Pixel Cat: Elite 2.4.0 =
+* Added Google AMP support setting
+* Added integration with [Easy Pricing Tables](https://wordpress.org/plugins/easy-pricing-tables/)
+* Added integration with [Optin Cat](https://wordpress.org/plugins/mailchimp-wp/)
+* Added integration with [Landing Page Cat](https://wordpress.org/plugins/landing-page-cat/)
+* UI update - integrations & settings are different tabs
+
+= Pixel Cat: Elite 2.3.1 =
+* Fix reported error "Can't use function return value in write context"
+
+= Pixel Cat: Elite 2.3.0 =
+* Tested up to WP 4.9.2
+* Added ability to pause events
+* Added multiple pixel support
+
+= Pixel Cat: Elite 2.2.3 =
+* Changed Advanced Matching email parameter from 'email' to 'em'
+
+= Pixel Cat: Elite 2.2.2 =
+* Added support for WooCommerce Redirect Thank You extension
+* Improved editor navigation warning
+* Improved behavior when WooCommerce or Easy Digital Downloads integrations are deactived
+* Fixed 'is_plugin_active' related errors
+
+= Pixel Cat: Elite 2.2.1 =
+* Added new settings tab
+* Moved events table to main tab
+* Improved various texts and tooltips
+
+= Pixel Cat: Elite 2.2.0 =
+* Added optional parameters to WooCommerce & Easy Digital Downloads purchase event ( Lifetime value, coupon code, shipping/payment info )
+* Added Advanced Matching for WooCommerce & Easy Digital Downloads guest checkouts
+* Added time delay option for WooCommerce & Easy Digital Downloads ViewContent event
+* Added mouse over CSS event trigger
+* Added scroll down % event trigger option
+* Added support link in plugins page
+* Added WordPress/PHP filter for custom post types - fca_pc_custom_post_support
+* Fixed Quiz Cat integration only available for premium levels
+* Changed default exclusion from Admin & Editor to no default exclusion 
+
+= Pixel Cat: Elite 2.1.0 =
+* Add Easy Digital Downloads integration ( events and product feed )
+* Add support for Google UTM parameters
+* Add support for additional user parameters ( referrer, language, logged in status, post tags & categories )
+* Add time on page support to all events
+* Change WooCommerce product feed & product parameters to respect WooCommerce tax display settings
+
+= Pixel Cat: Elite 1.1.4 =
+* Update software licensing library
+
+= Pixel Cat: Elite 1.1.3 =
+* Renamed to Pixel Cat
+* Add content_type parameter
+* Fix license key activation
+
+= Pixel Cat: Elite 1.1.2 =
+* Fix only 5 posts showing up in event triggers
+
+= Pixel Cat: Elite 1.1.1 =
+* Add choice of field to use for product description ( Product Content or Short Description/Excerpt)
+* Fix XML encoding issue on product feed for html special characters
+
+= Pixel Cat: Elite 1.1.0 =
+* Initial Release

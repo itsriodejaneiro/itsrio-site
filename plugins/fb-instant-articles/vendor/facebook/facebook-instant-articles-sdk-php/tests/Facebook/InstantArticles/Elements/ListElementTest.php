@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class ListElementTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class ListElementTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -18,7 +20,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderListItemsAllEmpty()
@@ -33,7 +35,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderOrdered()
@@ -52,7 +54,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
             '</ol>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderOrderedWithAllItems()
@@ -69,7 +71,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
             '</ol>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderUnordered()
@@ -88,7 +90,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderUnorderedWithAllItems()
@@ -105,7 +107,7 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithSingleContainerUnordered()
@@ -124,6 +126,6 @@ class ListElementTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $list->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

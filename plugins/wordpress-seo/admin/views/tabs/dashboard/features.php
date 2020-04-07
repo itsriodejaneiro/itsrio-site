@@ -1,6 +1,10 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin\Views
+ *
+ * @uses Yoast_Form $yform Form object.
  */
 
 if ( ! defined( 'WPSEO_VERSION' ) ) {
@@ -9,59 +13,55 @@ if ( ! defined( 'WPSEO_VERSION' ) ) {
 	exit();
 }
 
-$feature_toggles = array(
-	(object) array(
-		'name'    => __( 'Advanced settings pages', 'wordpress-seo' ),
-		'setting' => 'enable_setting_pages',
-		'label'   => __( 'The advanced settings include site-wide settings for your titles and meta descriptions, social metadata, sitemaps and much more.', 'wordpress-seo' ),
-	),
-	(object) array(
-		'name'    => __( 'OnPage.org', 'wordpress-seo' ),
-		'setting' => 'onpage_indexability',
-		/* translators: %1$s expands to OnPage.org */
-		'label'   => sprintf( __( 'The %1$s integration checks daily if your site is still indexable by search engines and notifies you when this is not the case.', 'wordpress-seo' ), 'OnPage.org' ),
-	),
-	(object) array(
-		'name'    => __( 'Admin bar menu', 'wordpress-seo' ),
-		'setting' => 'enable_admin_bar_menu',
-		/* translators: %1$s expands to Yoast SEO*/
-		'label'   => sprintf( __( 'The %1$s admin bar menu contains useful links to third-party tools for analyzing pages and makes it easy to see if you have new notifications.', 'wordpress-seo' ), 'Yoast SEO' ),
-	),
-);
-
-/**
- * Filter to add feature toggles from add-ons.
- *
- * @param array $feature_toggles Array with feature toggle objects where each object should have a `name`, `setting` and `label` property.
- */
-$feature_toggles = apply_filters( 'wpseo_feature_toggles', $feature_toggles );
+$feature_toggles = Yoast_Feature_Toggles::instance()->get_all();
 
 ?>
-<h2>Features</h2>
-
-<?php echo esc_html( sprintf(
-	__( '%1$s comes with a lot of features. You can enable / disable some of them below.', 'wordpress-seo' ),
-	'Yoast SEO'
-) ) ?>
-<?php foreach ( $feature_toggles as $feature ) : ?>
-<h3><?php echo esc_html( $feature->name ); ?></h3>
-<p>
+<h2><?php esc_html_e( 'Features', 'wordpress-seo' ); ?></h2>
+<div class="yoast-measure">
 	<?php
+	echo sprintf(
+		/* translators: %1$s expands to Yoast SEO */
+		esc_html__( '%1$s comes with a lot of features. You can enable / disable some of them below. Clicking the question mark gives more information about the feature.', 'wordpress-seo' ),
+		'Yoast SEO'
+	);
+
+	foreach ( $feature_toggles as $feature ) {
+		$help_text = esc_html( $feature->label );
+		if ( ! empty( $feature->extra ) ) {
+			$help_text .= ' ' . $feature->extra;
+		}
+		if ( ! empty( $feature->read_more_label ) ) {
+			$help_text .= ' ';
+			$help_text .= sprintf(
+				'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
+				esc_url( WPSEO_Shortlinker::get( $feature->read_more_url ) ),
+				esc_html( $feature->read_more_label )
+			);
+		}
+
+		$feature_help = new WPSEO_Admin_Help_Panel(
+			$feature->setting,
+			/* translators: %s expands to a feature's name */
+			sprintf( esc_html__( 'Help on: %s', 'wordpress-seo' ), esc_html( $feature->name ) ),
+			$help_text
+		);
+
 		$yform->toggle_switch(
 			$feature->setting,
-			array(
-				'on'  => __( 'Enabled', 'wordpress-seo' ),
-				'off' => __( 'Disabled', 'wordpress-seo' ),
-			),
-			$feature->label
+			[
+				'on'  => __( 'On', 'wordpress-seo' ),
+				'off' => __( 'Off', 'wordpress-seo' ),
+			],
+			'<strong>' . $feature->name . '</strong>',
+			$feature_help->get_button_html() . $feature_help->get_panel_html()
 		);
+	}
 	?>
-</p>
-<br />
-
-<?php endforeach; ?>
-
+</div>
 <?php
-	// Required to prevent our settings framework from saving the default because the field isn't explicitly set when saving the Dashboard page.
-	$yform->hidden( 'show_onboarding_notice', 'wpseo_show_onboarding_notice' );
-?>
+
+/*
+ * Required to prevent our settings framework from saving the default because the field isn't
+ * explicitly set when saving the Dashboard page.
+ */
+$yform->hidden( 'show_onboarding_notice', 'wpseo_show_onboarding_notice' );

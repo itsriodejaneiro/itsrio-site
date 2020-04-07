@@ -84,10 +84,6 @@ class Blockquote extends TextContainer
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('blockquote');
 
         $element->appendChild($this->textToDOMDocumentFragment($document));

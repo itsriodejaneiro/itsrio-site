@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin\Metabox
  */
 
@@ -9,11 +11,13 @@
 class WPSEO_Metabox_Editor {
 
 	/**
-	 * Registers hooks to WordPress
+	 * Registers hooks to WordPress.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	public function register_hooks() {
-		add_filter( 'mce_css', array( $this, 'add_css_inside_editor' ) );
-		add_filter( 'tiny_mce_before_init', array( $this, 'add_custom_element' ) );
+		add_filter( 'mce_css', [ $this, 'add_css_inside_editor' ] );
+		add_filter( 'tiny_mce_before_init', [ $this, 'add_custom_element' ] );
 	}
 
 	/**
@@ -24,13 +28,13 @@ class WPSEO_Metabox_Editor {
 	 */
 	public function add_css_inside_editor( $css_files ) {
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
-		$styles = $asset_manager->special_styles();
-		/** @var WPSEO_Admin_Asset $inside_editor */
+		$styles        = $asset_manager->special_styles();
 		$inside_editor = $styles['inside-editor'];
 
-		$url = $inside_editor->get_url( WPSEO_Admin_Asset::TYPE_CSS, WPSEO_FILE );
+		$asset_location = new WPSEO_Admin_Asset_SEO_Location( WPSEO_FILE );
+		$url            = $asset_location->get_url( $inside_editor, WPSEO_Admin_Asset::TYPE_CSS );
 
-		if ( '' === $css_files ) {
+		if ( $css_files === '' ) {
 			$css_files = $url;
 		}
 		else {
@@ -51,7 +55,7 @@ class WPSEO_Metabox_Editor {
 		if ( ! empty( $tinymce_config['custom_elements'] ) ) {
 			$custom_elements = $tinymce_config['custom_elements'];
 
-			$custom_elements .= ',' . '~yoastmark';
+			$custom_elements .= ',~yoastmark';
 		}
 		else {
 			$custom_elements = '~yoastmark';

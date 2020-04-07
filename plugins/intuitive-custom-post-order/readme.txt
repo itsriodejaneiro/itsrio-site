@@ -3,21 +3,21 @@ Contributors: hijiri
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TT5NP352P6MCU
 Tags: post order, posts order, order post, order posts, custom post type order, custom taxonomy order
 Requires at least: 3.5.0
-Tested up to: 4.3.1
-Stable tag: 3.0.7
+Tested up to: 5.1.0
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Intuitively, order items( Posts, Pages, and Custom Post Types, and Custom Taxonomies ) using a drag and drop sortable JavaScript.
+Intuitively, order items( Posts, Pages, ,Custom Post Types, Custom Taxonomies, Sites ) using a drag and drop sortable JavaScript.
 
 == Description ==
 
-Intuitively, order items( Posts, Pages, and Custom Post Types, and Custom Taxonomies ) using a drag and drop sortable JavaScript.
+Intuitively, order items( Posts, Pages, ,Custom Post Types, Custom Taxonomies, Sites ) using a drag and drop sortable JavaScript.
 
-Select sortable items from 'Intuitive CPT' menu of Setting menu in WordPress.
+Select sortable items from 'Intuitive CPO' menu of Setting menu in WordPress.
 
-In addition, You can re-override the parameters of 'orderby' and 'order', by using the 'WP_Query' or 'pre_get_posts' or 'query_posts()'.<br>
-The 'get_posts()' is excluded.
+In addition, You can re-override the parameters of 'orderby' and 'order', by using the 'WP_Query' or 'pre_get_posts' or 'query_posts()' or 'get_posts()'.<br>
+ATTENTION: Only if you use 'get_posts()' to re-overwrite to the default order( orderby=date, order=DESC ), You need to use own custom parameter 'orderby=default_date'.
 
 This Plugin published on <a href="https://github.com/hijiriworld/intuitive-custom-post-order">GitHub.</a>
 
@@ -25,13 +25,15 @@ This Plugin published on <a href="https://github.com/hijiriworld/intuitive-custo
 
 1. Upload 'intuitive-custom-post-order' folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Select sortable items from 'Intuitive CPT' menu of Setting menu in WordPress.
+3. Select sortable items from 'Intuitive CPO' menu of Setting menu in WordPress.
 
 == Screenshots ==
 
-1. Reorder post
-2. Reorder taxonomy
-3. Settings
+1. Settings
+2. Reorder Posts
+3. Reorder Taxonomies
+4. ( for Multisite ) Network Settings
+5. ( for Multisite ) Reorder Sites
 
 == Frequently Asked Questions ==
 
@@ -41,11 +43,28 @@ This Plugin published on <a href="https://github.com/hijiriworld/intuitive-custo
 
 By using the 'WP_Query', you can re-override the parameters.
 
-* WP_Query
+WP_Query
 
 `
 <?php $query = new WP_Query( array(
-	'orderby' => 'date',
+	'orderby' => 'ID',
+	'order' => 'DESC',
+) ) ?>
+`
+
+get_posts()
+
+`
+<?php $query = get_posts( array(
+	'orderby' => 'title',
+) ) ?>
+`
+
+ATTENTION: Only if you use 'get_posts()' to re-overwrite to the default order( orderby=date, order=DESC ), You need to use own custom parameter 'orderby=default_date'.
+
+`
+<?php $query = get_posts( array(
+	'orderby' => 'default_date',
 	'order' => 'DESC',
 ) ) ?>
 `
@@ -54,7 +73,7 @@ By using the 'WP_Query', you can re-override the parameters.
 
 By using the 'pre_get_posts' action hook or 'query_posts()', you can re-override the parameters.
 
-* pre_get_posts
+pre_get_posts
 
 `
 function my_filter( $query )
@@ -69,15 +88,36 @@ function my_filter( $query )
 add_action( 'pre_get_posts', 'my_filter' );
 `
 
-* query_posts()
+query_posts()
 
 `
 <?php query_posts( array(
 	'orderby' => 'rand'
 ) ); ?>
 `
+= How to move post of second page in top of first page. =
+
+Go to "screen options" and change "Number of items per page:".
 
 == Changelog ==
+
+= 3.1.2 =
+
+* Solved the problem of layout collapse during drag and drop sorting.
+  
+= 3.1.1 =
+
+* Remove deprecated function 'secreen_icon()'.
+
+= 3.1.0 =
+
+* Support the Sites.
+* Improved Activation.
+
+= 3.0.8 =
+
+* Even for 'get_posts()', Your custom Query which uses the 'order' or 'orderby' parameters is preferred.
+  ATTENTION: Only if you use 'get_posts()' to re-overwrite to the default order( orderby=date, order=DESC ), You need to use own custom parameter 'orderby=default_date'.
 
 = 3.0.7 =
 
@@ -95,7 +135,7 @@ add_action( 'pre_get_posts', 'my_filter' );
 
 = 3.0.4 =
 
-* Your Query which uses the 'order' or 'orderby' parameters is preferred.
+* Your custom Query which uses the 'order' or 'orderby' parameters is preferred.
   In order to prefer the parameters of your query, You must use the 'WP_Query()' or 'query_posts()'.
   Excluded 'get_posts()'.
 * Fixed bug

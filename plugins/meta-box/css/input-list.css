@@ -1,20 +1,23 @@
-.rwmb-input-list li{
-	line-height: 22px;
+.rwmb-toggle-all-wrapper {
+	margin-top: 0;
 }
-
-.rwmb-input-list.inline li{
-	display:inline-block;
-	margin-right: 0;
-  line-height:1;
+.rwmb-input-list {
+	margin: 0;
+	line-height: 1.8;
 }
-.rwmb-input-list.inline li label {
-	margin-right: 10px;
+.rwmb-input-list .rwmb-input-list {
+	margin-left: 20px;
 }
-
-.rwmb-input-list.inline {
-    margin:0;
+.rwmb-input-list li {
+	list-style: none;
+	margin-bottom: 0;
 }
-
-li .rwmb-input-list {
-	margin-left: 15px;
+.rwmb-input-list.rwmb-inline {
+	line-height: inherit;
+}
+.rwmb-input-list.rwmb-inline li {
+	display: inline-block;
+}
+.rwmb-input-list.rwmb-inline li:not(:last-child) {
+	margin-right: 20px;
 }

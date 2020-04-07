@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class TimeTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class TimeTest extends BaseHTMLTestCase
 {
     private $timeDate;
 
@@ -28,7 +30,7 @@ class TimeTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $time->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
@@ -43,7 +45,7 @@ class TimeTest extends \PHPUnit_Framework_TestCase
             '</time>';
 
         $rendered = $time->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderModified()
@@ -58,6 +60,6 @@ class TimeTest extends \PHPUnit_Framework_TestCase
             '</time>';
 
         $rendered = $time->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

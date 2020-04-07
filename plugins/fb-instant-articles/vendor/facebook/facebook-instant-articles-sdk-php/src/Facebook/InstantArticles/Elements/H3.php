@@ -111,10 +111,6 @@ class H3 extends TextContainer
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $h3 = $document->createElement('h3');
 
         $classes = [];

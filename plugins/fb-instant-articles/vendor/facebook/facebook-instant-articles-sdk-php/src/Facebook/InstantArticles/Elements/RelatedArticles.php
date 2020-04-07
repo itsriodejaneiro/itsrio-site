@@ -27,7 +27,7 @@ use Facebook\InstantArticles\Validators\Type;
  *     <li>Sleep</li>
  * </ol>
  */
-class RelatedArticles extends Element implements Container
+class RelatedArticles extends Element implements ChildrenContainer
 {
     /**
      * @var RelatedItem[] The related Articles
@@ -112,10 +112,6 @@ class RelatedArticles extends Element implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('ul');
         $element->setAttribute('class', 'op-related-articles');
         if ($this->title) {
@@ -124,7 +120,7 @@ class RelatedArticles extends Element implements Container
 
         if ($this->items) {
             foreach ($this->items as $item) {
-                $element->appendChild($item->toDOMElement($document));
+                Element::appendChild($element, $item, $document);
             }
         }
 
@@ -148,9 +144,9 @@ class RelatedArticles extends Element implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of Elements contained by Image.
      */
     public function getContainerChildren()

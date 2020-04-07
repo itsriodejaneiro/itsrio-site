@@ -601,6 +601,138 @@
                 ]
             }
         }
+    },
+    {
+        "class": "ImageRule",
+        "selector": ".image-with-credit-and-caption",
+        "properties": {
+            "image.url": {
+                "type": "string",
+                "selector": "img",
+                "attribute": "src"
+            },
+            "image.caption": {
+                "type": "element",
+                "selector": "p.caption"
+            },
+            "image.credit": {
+                "type": "element",
+                "selector": "p.credit"
+            }
+        }
+    },
+    {
+        "class": "ImageRule",
+        "selector": ".image-with-credit-only",
+        "properties": {
+            "image.url": {
+                "type": "string",
+                "selector": "img",
+                "attribute": "src"
+            },
+            "image.caption": {
+                "type": "element",
+                "selector": "p.caption"
+            },
+            "image.credit": {
+                "type": "element",
+                "selector": "p.credit"
+            }
+        }
+    },
+    {
+        "class": "AdRule",
+        "selector" : "div.ad",
+        "properties" : {
+            "ad.embed" : {
+                "type" : "children",
+                "selector" : "div.ad"
+            },
+            "ad.height" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "height"
+            },
+            "ad.width" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "width"
+            }
+        }
+    },
+    {
+        "class": "AdRule",
+        "selector": "//div[@class='ad' and iframe]",
+        "properties" : {
+            "ad.url" : {
+                "type" : "string",
+                "selector" : "iframe",
+                "attribute": "src"
+            },
+            "ad.embed" : {
+                "type" : "children",
+                "selector" : "iframe",
+                "attribute": "src"
+            },
+            "ad.width" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "width"
+            },
+            "ad.height" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "height"
+            }
+        }
+    },
+    {
+        "class": "AnalyticsRule",
+        "selector": "//div[@class='analytics' and iframe]",
+        "properties" : {
+            "analytics.url" : {
+                "type" : "string",
+                "selector" : "iframe",
+                "attribute": "src"
+            },
+            "analytics.embed" : {
+                "type" : "children",
+                "selector" : "iframe",
+                "attribute": "src"
+            },
+            "analytics.width" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "width"
+            },
+            "analytics.height" : {
+                "type" : "int",
+                "selector" : "iframe",
+                "attribute": "height"
+            }
+        }
+    },
+    {
+      "class" : "RelatedArticlesRule",
+      "selector" : "ul.related-articles",
+      "properties" : {
+        "related.title" : {
+          "type" : "string",
+          "selector" : "ul.related-articles",
+          "attribute" : "title"
+        }
+      }
+    },
+    {
+      "class" : "RelatedItemRule",
+      "selector" : "li",
+      "properties" : {
+        "related.url" : {
+          "type" : "string",
+          "selector" : "a",
+          "attribute" : "href"
+        }
+      }
     }
   ]
 }

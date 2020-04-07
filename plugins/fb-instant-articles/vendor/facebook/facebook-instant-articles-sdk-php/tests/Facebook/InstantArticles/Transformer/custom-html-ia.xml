@@ -73,7 +73,8 @@
       <figure class="op-interactive">
         <iframe class="no-margin">
         <div>some content</div>
-        <script>alert('hi & hello to you @ testing!');</script></iframe>
+        <script>alert('hi & hello to you @ testing!');</script>
+      </iframe>
       </figure>
       <figure class="op-interactive">
         <iframe src="http://example.com/4/" class="no-margin" width="300" height="200"></iframe>
@@ -81,7 +82,8 @@
       <figure class="op-interactive">
         <iframe class="no-margin">
         <div>some content</div>
-        <script>alert('hi & hello to you @ testing!');</script></iframe>
+        <script>alert('hi & hello to you @ testing!');</script>
+      </iframe>
       </figure>
       <figure class="op-interactive">
         <iframe src="http://example.com/4/" class="no-margin" width="300" height="200"></iframe>
@@ -89,23 +91,52 @@
       <figure class="op-interactive">
         <iframe class="no-margin">
         <div>some content</div>
-        <script>alert('hi & hello to you @ testing!');</script></iframe>
+        <script>alert('hi & hello to you @ testing!');</script>
+      </iframe>
+      </figure>
+      <figure class="op-ad">
+        <iframe src="https://www.adserver.com/ss;adtype=banner300x250"></iframe>
+      </figure>
+      <figure class="op-ad">
+          <iframe width="250" height="300">
+          <script>
+            window.addEventListener('message', receiveMessage);
+
+            function receiveMessage(event) {
+              if (event.data === 'enters_viewport') {
+                // ad entered viewport
+              }
+            }
+          </script>
+          </iframe>
+      </figure>
+      <figure class="op-tracker">
+          <iframe src="https://www.myserver.com/trackingcode"></iframe>
+      </figure>
+      <figure class="op-tracker">
+        <iframe>
+          <!-- Include full analytics code here -->
+          <script>alert('testing analytics!');</script>
+        </iframe>
       </figure>
       <figure class="op-interactive">
         <iframe class="no-margin" height="200">
           <table width="200" height="200">
-            <thead><td>header 1</td>
+      <thead>
+        <td>header 1</td>
         <td>header 2</td>
       </thead>
-            <tbody>
-              <tr><td>Line 1 column 1</td>
+      <tbody>
+        <tr>
+          <td>Line 1 column 1</td>
           <td>Line 1 column 2</td>
         </tr>
-              <tr><td>Line 2 column 1</td>
+        <tr>
+          <td>Line 2 column 1</td>
           <td>Line 2 column 2</td>
         </tr>
-            </tbody>
-          </table>
+      </tbody>
+    </table>
         </iframe>
       </figure>
       <ul>
@@ -157,7 +188,8 @@
           <a href="https://www.instagram.com/p/BAXbKP1POQe/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">ð¸ @natthaponwuttipetch</a>
         </p>
         <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-          A photo posted by Ann Hathairat Vidhyaphum (@annvidh) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-01-10T16:56:06+00:00">Jan 10, 2016 at 8:56am PST</time></p>
+          A photo posted by Ann Hathairat Vidhyaphum (@annvidh) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-01-10T16:56:06+00:00">Jan 10, 2016 at 8:56am PST</time>
+        </p>
       </div>
     </blockquote>
           <script async="" defer="defer" src="//platform.instagram.com/en_US/embeds.js"></script>
@@ -197,6 +229,17 @@
         <img src="http://example.com/image.jpg"/>
         <figcaption>caption</figcaption>
       </figure>
+      <figure>
+        <img src="http://example.com/image.jpg"/>
+        <figcaption>caption <i><b>bold italic</b></i> and <a href="http://domain.com">link</a><cite>photo credit <i><b>bold italic</b></i> and <a href="http://domain.com">link</a></cite></figcaption>
+      </figure>
+      <figure><img src="http://example.com/credit-image.jpg"/></figure>
+      <figure><img src="http://example.com/image-inside-p.jpg"/></figure>
+      <figure><img src="http://example.com/image-inside-p-a.jpg"/></figure>
+      <ul class="op-related-articles" title="Related Articles">
+        <li><a href="http://example.com/related-1.html"></a></li>
+        <li><a href="http://example.com/related-2.html"></a></li>
+      </ul>    
     </article>
   </body>
 </html>

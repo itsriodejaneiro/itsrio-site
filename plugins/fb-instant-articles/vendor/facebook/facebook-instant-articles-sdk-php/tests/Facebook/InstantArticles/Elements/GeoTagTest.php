@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class GeoTagTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class GeoTagTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -46,6 +48,6 @@ JSON;
             '</script>';
 
         $rendered = $geo_tag->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

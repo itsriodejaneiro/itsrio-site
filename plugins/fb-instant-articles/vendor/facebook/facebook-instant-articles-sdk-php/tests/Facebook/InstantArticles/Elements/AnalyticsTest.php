@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class AnalyticsTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class AnalyticsTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -33,7 +35,7 @@ class AnalyticsTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithHTML()
@@ -55,7 +57,7 @@ class AnalyticsTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGoogleAnalytics()
@@ -84,6 +86,6 @@ class AnalyticsTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $analytics->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

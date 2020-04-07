@@ -2,11 +2,12 @@
 Contributors: ankitpokhrel, cfoellmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J9FVY3ESPPD58
 Tags: dynamic featured image, featured image, post thumbnail, dynamic post thumbnail, multiple featured image, multiple post thumbnail
-Requires at least: 3.5
-Tested up to: 4.6.1
-Stable tag: 3.5.2
+Requires at least: 3.8
+Tested up to: 5.3
+Stable tag: 3.7.0
+Requires PHP: 5.4
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Dynamically adds multiple featured image (post thumbnail) functionality to posts, pages and custom post types.
 
@@ -21,20 +22,7 @@ This is especially helpful when you use other plugins, post thumbnails or slider
 Why limit yourself to only one featured image if you can do some awesome stuffs with multiple featured image? 
 DFI allows you to add different number of featured images to each post and page that can be collected by the various theme functions.
 
-> **A NOTE ABOUT SUPPORT:** We’re here to help troubleshoot bugs, but please don't set expectations early as the support forums at WordPress.org are only checked once a week. All the support of the Dynamic Featured Image plugin will now be provided from within [this support forum](http://ankitpokhrel.com/explore/forums/forum/dynamic-featured-image-free-version/ "Dynamic Featured Image Support Forum").
-
-> Users looking for more timely/in-depth support and extended features are encouraged to check out [Dynamic Featured Image PRO](http://ankitpokhrel.com/explore/dynamic-featured-image-pro/ "Dynamic Featured Image PRO").
-
-> **FEATURES OF PRO VERSION**  
-  – Settings Page to control the visibility of DFI metabox.  
-  – Custom title settings to change DFI metabox title as per your need.  
-  – Powerful shortcodes to make your life easier.  
-  – Featured image slider.  
-  – Pro-level support on all forums, including the free forum.  
-  – Dedicated email and chat support.  
-  – Access to more advance features and future updates for free.  
-
-> [Learn more &raquo;](http://ankitpokhrel.com.np/blog/downloads/dynamic-featured-image-pro/ "Dynamic Featured Image PRO")
+> **A NOTE ABOUT SUPPORT:** We’re here to help troubleshoot bugs, but please don't set expectations early as the support forums at WordPress.org are only checked once in a while.
 
 **How it works?**  
 1. After successfull plugin activation go to `add` or `edit` page of posts or pages and you will notice a box for second featured image.  
@@ -59,8 +47,8 @@ array
 
 **Resources**  
 1. [Detail Documentation](https://github.com/ankitpokhrel/Dynamic-Featured-Image/wiki "Documentation for current ver.").  
-2. [DFI Blog](http://ankitpokhrel.com/explore/category/dynamic-featured-image/ "DFI Blog").  
-3. [StackOverflow Tag](http://stackoverflow.com/questions/tagged/dynamic-featured-image "StackOverflow Tag").
+2. [DFI Blog](https://ankitpokhrel.com/explore/category/dynamic-featured-image/ "DFI Blog").  
+3. [StackOverflow Tag](https://stackoverflow.com/questions/tagged/dynamic-featured-image "StackOverflow Tag").
 
 **MultiSite Info**  
 You can use `Network Activate` to activate plugin for all sites on a single install. It is only available on the Network admin site not anywhere else. 
@@ -85,7 +73,7 @@ The problem is usually due to the conflicts with other plugin or theme functions
 i. Switch to the default wordpress theme to rule out any theme-specific problems.  
 ii. Try the plugin in a fresh new WordPress installation.  
 iii. If it works, deactivate all plugins from your current wordpress installation to see if this resolves the problem. If this works, re-activate the plugins one by one until you find the problematic plugin(s).  
-iv. [Resetting the plugins folder](http://www.google.com/url?q=http%3A%2F%2Fcodex.wordpress.org%2FFAQ_Troubleshooting%23How_to_deactivate_all_plugins_when_not_able_to_access_the_administrative_menus.3F&sa=D&sntz=1&usg=AFQjCNFaei9nyiMZe2yZQUBBA_MghJ-Wxw) by FTP or PhpMyAdmin. Sometimes, an apparently inactive plugin can still cause problems.
+iv. [Resetting the plugins folder](https://codex.wordpress.org/FAQ_Troubleshooting#How_to_deactivate_all_plugins_when_not_able_to_access_the_administrative_menus.3F) by FTP or PhpMyAdmin. Sometimes, an apparently inactive plugin can still cause problems.
 
 = 2. There is no additional image on the page when I save it or publish it? =
 This happens when there is any problem in saving you post or page properly. For example, if you try to save or publish the post without the post title the featured images may not be saved properly.
@@ -100,13 +88,13 @@ Alt, caption and title attribute for these images cannot be retrieved using help
 This usually happens because of cache. Clear all your cache and try again if you are having this problem. If you still have such problem you can get help through support forum.
 
 = 5. Is it possible to make DFI work only for certain post types? =
-Yes! It is easily possible from version 3.1.13. A filter is added in the recent version for this purpose. Refer [this thread](http://ankitpokhrel.com.np/blog/is-it-possible-to-make-dfi-work-only-for-certain-post-types/) for mor info.
+Yes! It is easily possible from version 3.1.13. A filter is added in the recent version for this purpose. Refer [this thread](https://ankitpokhrel.com/explore/is-it-possible-to-make-dfi-work-only-for-certain-post-types/) for mor info.
 
 = 6. Other problems or questions? =
-Other problems? Don't forget to check the [blog](http://ankitpokhrel.com/explore/category/dynamic-featured-image/) and learn to create some exciting things using DFI.
+Other problems? Don't forget to check the [blog](https://ankitpokhrel.com/explore/category/dynamic-featured-image/) and learn to create some exciting things using DFI.
 
-Please use [support forum](http://wordpress.org/support/plugin/dynamic-featured-image) first if you have any question or queries about the project. 
-If you don't receive any help in support forum then you can directly contact me at `info [at] ankitpokhrel.com.np`. Please atleast wait for 48hrs before sending another request.
+Please use [support forum](https://wordpress.org/support/plugin/dynamic-featured-image) first if you have any question or queries about the project. 
+If you don't receive any help in support forum then you can directly contact me at `info [at] ankitpokhrel.com`. Please atleast wait for 48hrs before sending another request.
 
 Please feel free to report any bug found at https://github.com/ankitpokhrel/Dynamic-Featured-Image/ or `info [at] ankitpokhrel.com`.
 
@@ -116,6 +104,31 @@ Please feel free to report any bug found at https://github.com/ankitpokhrel/Dyna
 3. Add new featured image box.
 
 == Changelog ==
+= 3.7.0 =
+* Feature: Auto-select media on open (#78)
+* Fix: Attachment ID issue for edited image (#77, #80)
+
+= 3.6.8 =
+* Fix slow query issue (#74, Thanks @tobros91)
+* Add German translations (#69, Thanks @swiffer)
+* Correct Swedish translations (#72, Thanks @S8nsick66)
+* Add sponsors
+
+= 3.6.5 =
+* Add Thai translations (#63, Thanks @isudnop)
+* Fix warning when counting empty string in PHP 7.2 (#66, Thanks @zsmartin)
+* Show only images in media selector (#67, Thanks @zsmartin)
+* Add filters for metabox context and priority (#68, Thanks @zsmartin)
+
+= 3.6.1 =
+* Remove short array syntax to support php <= 5.4.
+
+= 3.6.0 =
+* Various security fixes.
+* Missing text domains fixes.
+* Dashicons css removed as it is no longer needed.
+* Numerous WordPress coding standard improvements.
+
 = 3.5.2 =
 * Fix image url if image already points to CDN. PR #50
 * Internal refactorings
@@ -212,6 +225,21 @@ Please feel free to report any bug found at https://github.com/ankitpokhrel/Dyna
 * Fixed some minor issues.
 
 == Upgrade Notice ==
+= 3.7.0 =
+* Autoselect feature and attachment id bug fix.
+
+= 3.6.8 =
+* Some feature and bug fixes.
+
+= 3.6.5 =
+* Some enhancements, feature and bug fixes.
+
+= 3.6.1 =
+* Remove short array syntax to support php <= 5.4.
+
+= 3.6.0 =
+* Various security fixes.
+
 = 3.5.2 =
 * Some refactorings and bug fixes.
 

@@ -9,8 +9,9 @@
 namespace Facebook\InstantArticles\Client;
 
 use Facebook\Facebook;
+use PHPUnit\Framework\TestCase;
 
-class HelperTest extends \PHPUnit_Framework_TestCase
+class HelperTest extends TestCase
 {
     private $helper;
     private $facebook;

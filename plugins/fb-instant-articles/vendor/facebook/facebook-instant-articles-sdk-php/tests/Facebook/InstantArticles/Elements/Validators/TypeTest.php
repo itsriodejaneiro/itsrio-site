@@ -13,11 +13,12 @@ use Facebook\InstantArticles\Elements\Image;
 use Facebook\InstantArticles\Elements\Video;
 use Facebook\InstantArticles\Elements\InstantArticle;
 use Facebook\InstantArticles\Elements\AnimatedGIF;
+use PHPUnit\Framework\TestCase;
 
 /**
  *
  */
-class TypeTest extends \PHPUnit_Framework_TestCase
+class TypeTest extends TestCase
 {
 
     /*
@@ -340,14 +341,41 @@ class TypeTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(Type::isTextEmpty("\nnot empty\t"));
         $this->assertFalse(Type::isTextEmpty(" not empty "));
         $this->assertFalse(Type::isTextEmpty("&nbsp;not empty"));
+        $this->assertFalse(Type::isTextEmpty("<3 strings"));
+        $this->assertFalse(Type::isTextEmpty("<br />"));
     }
 
     public function testStringEmpty()
     {
         $this->assertTrue(Type::isTextEmpty(""));
         $this->assertTrue(Type::isTextEmpty("  "));
-        $this->assertTrue(Type::isTextEmpty("\t\t"));
+        $this->assertTrue(Type::isTextEmpty("\t\n\r"));
         $this->assertTrue(Type::isTextEmpty("&nbsp;"));
         $this->assertTrue(Type::isTextEmpty("\n"));
+    }
+
+    public function testEnforceElementTag()
+    {
+        $document = new \DOMDocument();
+        Type::enforceElementTag($document->createElement('img'), 'img');
+    }
+
+    public function testEnforceElementTagFalse()
+    {
+        $document = new \DOMDocument();
+        $this->setExpectedException('InvalidArgumentException');
+        Type::enforceElementTag($document->createElement('body'), 'img');
+    }
+
+    public function testIsElementTag()
+    {
+        $document = new \DOMDocument();
+        $this->assertTrue(Type::isElementTag($document->createElement('img'), 'img'));
+    }
+
+    public function testIsElementTagFalse()
+    {
+        $document = new \DOMDocument();
+        $this->assertFalse(Type::isElementTag($document->createElement('body'), 'img'));
     }
 }

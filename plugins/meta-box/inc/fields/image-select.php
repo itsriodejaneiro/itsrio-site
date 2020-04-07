@@ -1,28 +1,32 @@
 <?php
+/**
+ * The image select field which behaves similar to the radio field but uses images as options.
+ *
+ * @package Meta Box
+ */
 
 /**
- * Image select field class which uses images as radio options.
+ * The image select field class.
  */
 class RWMB_Image_Select_Field extends RWMB_Field {
-
 	/**
-	 * Enqueue scripts and styles
+	 * Enqueue scripts and styles.
 	 */
-	static function admin_enqueue_scripts() {
+	public static function admin_enqueue_scripts() {
 		wp_enqueue_style( 'rwmb-image-select', RWMB_CSS_URL . 'image-select.css', array(), RWMB_VER );
 		wp_enqueue_script( 'rwmb-image-select', RWMB_JS_URL . 'image-select.js', array( 'jquery' ), RWMB_VER, true );
 	}
 
 	/**
-	 * Get field HTML
+	 * Get field HTML.
 	 *
-	 * @param mixed $meta
-	 * @param array $field
+	 * @param mixed $meta  Meta value.
+	 * @param array $field Field parameters.
 	 * @return string
 	 */
-	static function html( $meta, $field ) {
+	public static function html( $meta, $field ) {
 		$html = array();
-		$tpl  = '<label class="rwmb-image-select"><img src="%s"><input type="%s" class="rwmb-image_select hidden" name="%s" value="%s"%s></label>';
+		$tpl  = '<label class="rwmb-image-select"><img src="%s"><input type="%s" class="rwmb-image_select" name="%s" value="%s"%s></label>';
 
 		$meta = (array) $meta;
 		foreach ( $field['options'] as $value => $image ) {
@@ -40,26 +44,29 @@ class RWMB_Image_Select_Field extends RWMB_Field {
 	}
 
 	/**
-	 * Normalize parameters for field
+	 * Normalize parameters for field.
 	 *
-	 * @param array $field
+	 * @param array $field Field parameters.
 	 * @return array
 	 */
-	static function normalize( $field ) {
-		$field = parent::normalize( $field );
+	public static function normalize( $field ) {
+		$field                = parent::normalize( $field );
 		$field['field_name'] .= $field['multiple'] ? '[]' : '';
 
 		return $field;
 	}
 
 	/**
-	 * Format a single value for the helper functions.
+	 * Format a single value for the helper functions. Sub-fields should overwrite this method if necessary.
 	 *
-	 * @param array  $field Field parameter
-	 * @param string $value The value
+	 * @param array    $field   Field parameters.
+	 * @param string   $value   The value.
+	 * @param array    $args    Additional arguments. Rarely used. See specific fields for details.
+	 * @param int|null $post_id Post ID. null for current post. Optional.
+	 *
 	 * @return string
 	 */
-	static function format_single_value( $field, $value ) {
-		return sprintf( '<img src="%s">', esc_url( $field['options'][ $value ] ) );
+	public static function format_single_value( $field, $value, $args, $post_id ) {
+		return $value ? sprintf( '<img src="%s">', esc_url( $field['options'][ $value ] ) ) : '';
 	}
 }

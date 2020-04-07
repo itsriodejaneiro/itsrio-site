@@ -29,7 +29,10 @@ class ConstantGetter extends AbstractGetter
      */
     public function withValue($value)
     {
-        Type::enforce($value, Type::STRING);
+        Type::enforce($value, [
+            Type::STRING,
+            Type::INTEGER,
+        ]);
         $this->value = $value;
 
         return $this;

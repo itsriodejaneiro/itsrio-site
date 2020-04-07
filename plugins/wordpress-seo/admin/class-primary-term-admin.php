@@ -1,38 +1,102 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin
  */
 
 /**
- * Adds the UI to change the primary term for a post
+ * Adds the UI to change the primary term for a post.
  */
-class WPSEO_Primary_Term_Admin {
+class WPSEO_Primary_Term_Admin implements WPSEO_WordPress_Integration {
 
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
-		add_action( 'admin_footer', array( $this, 'wp_footer' ), 10 );
+	public function register_hooks() {
+		add_filter( 'wpseo_content_meta_section_content', [ $this, 'add_input_fields' ] );
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'admin_footer', [ $this, 'wp_footer' ], 10 );
 
-		add_action( 'save_post', array( $this, 'save_primary_terms' ) );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+
+		add_action( 'save_post', [ $this, 'save_primary_terms' ] );
 
 		$primary_term = new WPSEO_Frontend_Primary_Category();
 		$primary_term->register_hooks();
 	}
 
 	/**
-	 * Get the current post ID.
+	 * Gets the current post ID.
 	 *
 	 * @return integer The post ID.
 	 */
 	protected function get_current_id() {
-		return filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+		if ( empty( $post_id ) && isset( $GLOBALS['post_ID'] ) ) {
+			$post_id = filter_var( $GLOBALS['post_ID'], FILTER_SANITIZE_NUMBER_INT );
+		}
+
+		return $post_id;
 	}
 
 	/**
-	 * Add primary term templates
+	 * Adds hidden fields for primary taxonomies.
+	 *
+	 * @param string $content The metabox content.
+	 *
+	 * @return string The HTML content.
+	 */
+	public function add_input_fields( $content ) {
+		$taxonomies = $this->get_primary_term_taxonomies();
+
+		foreach ( $taxonomies as $taxonomy ) {
+			$content .= $this->primary_term_field( $taxonomy->name );
+			$content .= wp_nonce_field( 'save-primary-term', WPSEO_Meta::$form_prefix . 'primary_' . $taxonomy->name . '_nonce', false, false );
+		}
+		return $content;
+	}
+
+	/**
+	 * Generates the HTML for a hidden field for a primary taxonomy.
+	 *
+	 * @param string $taxonomy_name The taxonomy's slug.
+	 *
+	 * @return string The HTML for a hidden primary taxonomy field.
+	 */
+	protected function primary_term_field( $taxonomy_name ) {
+		return sprintf(
+			'<input class="yoast-wpseo-primary-term" type="hidden" id="%1$s" name="%2$s" value="%3$s" />',
+			esc_attr( $this->generate_field_id( $taxonomy_name ) ),
+			esc_attr( $this->generate_field_name( $taxonomy_name ) ),
+			esc_attr( $this->get_primary_term( $taxonomy_name ) )
+		);
+	}
+
+	/**
+	 * Generates an id for a primary taxonomy's hidden field.
+	 *
+	 * @param string $taxonomy_name The taxonomy's slug.
+	 *
+	 * @return string The field id.
+	 */
+	protected function generate_field_id( $taxonomy_name ) {
+		return 'yoast-wpseo-primary-' . $taxonomy_name;
+	}
+
+	/**
+	 * Generates a name for a primary taxonomy's hidden field.
+	 *
+	 * @param string $taxonomy_name The taxonomy's slug.
+	 *
+	 * @return string The field id.
+	 */
+	protected function generate_field_name( $taxonomy_name ) {
+		return WPSEO_Meta::$form_prefix . 'primary_' . $taxonomy_name . '_term';
+	}
+
+	/**
+	 * Adds primary term templates.
 	 */
 	public function wp_footer() {
 		$taxonomies = $this->get_primary_term_taxonomies();
@@ -43,7 +107,7 @@ class WPSEO_Primary_Term_Admin {
 	}
 
 	/**
-	 * Enqueues all the assets needed for the primary term interface
+	 * Enqueues all the assets needed for the primary term interface.
 	 *
 	 * @return void
 	 */
@@ -65,35 +129,34 @@ class WPSEO_Primary_Term_Admin {
 		$asset_manager->enqueue_style( 'primary-category' );
 		$asset_manager->enqueue_script( 'primary-category' );
 
-		$taxonomies = array_map( array( $this, 'map_taxonomies_for_js' ), $taxonomies );
+		$mapped_taxonomies = $this->get_mapped_taxonomies_for_js( $taxonomies );
 
-		$data = array(
-			'taxonomies' => $taxonomies,
-		);
+		$data = [
+			'taxonomies' => $mapped_taxonomies,
+		];
 		wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'primary-category', 'wpseoPrimaryCategoryL10n', $data );
 	}
 
 	/**
-	 * Saves all selected primary terms
+	 * Saves all selected primary terms.
 	 *
-	 * @param int $post_ID Post ID to save primary terms for.
+	 * @param int $post_id Post ID to save primary terms for.
 	 */
-	public function save_primary_terms( $post_ID ) {
+	public function save_primary_terms( $post_id ) {
 		// Bail if this is a multisite installation and the site has been switched.
 		if ( is_multisite() && ms_is_switched() ) {
 			return;
 		}
 
-		$taxonomies = $this->get_primary_term_taxonomies( $post_ID );
+		$taxonomies = $this->get_primary_term_taxonomies( $post_id );
 
 		foreach ( $taxonomies as $taxonomy ) {
-			$this->save_primary_term( $post_ID, $taxonomy );
+			$this->save_primary_term( $post_id, $taxonomy );
 		}
 	}
 
 	/**
-	 * /**
-	 * Get the id of the primary term
+	 * Gets the id of the primary term.
 	 *
 	 * @param string $taxonomy_name Taxonomy name for the term.
 	 *
@@ -106,62 +169,62 @@ class WPSEO_Primary_Term_Admin {
 	}
 
 	/**
-	 * Returns all the taxonomies for which the primary term selection is enabled
+	 * Returns all the taxonomies for which the primary term selection is enabled.
 	 *
-	 * @param int $post_ID Default current post ID.
+	 * @param int $post_id Default current post ID.
 	 * @return array
 	 */
-	protected function get_primary_term_taxonomies( $post_ID = null ) {
-
-		if ( null === $post_ID ) {
-			$post_ID = $this->get_current_id();
+	protected function get_primary_term_taxonomies( $post_id = null ) {
+		if ( $post_id === null ) {
+			$post_id = $this->get_current_id();
 		}
 
-		if ( false !== ( $taxonomies = wp_cache_get( 'primary_term_taxonomies_' . $post_ID, 'wpseo' ) ) ) {
+		$taxonomies = wp_cache_get( 'primary_term_taxonomies_' . $post_id, 'wpseo' );
+		if ( $taxonomies !== false ) {
 			return $taxonomies;
 		}
 
-		$taxonomies = $this->generate_primary_term_taxonomies( $post_ID );
+		$taxonomies = $this->generate_primary_term_taxonomies( $post_id );
 
-		wp_cache_set( 'primary_term_taxonomies_' . $post_ID, $taxonomies, 'wpseo' );
+		wp_cache_set( 'primary_term_taxonomies_' . $post_id, $taxonomies, 'wpseo' );
 
 		return $taxonomies;
 	}
 
 	/**
-	 * Include templates file
+	 * Includes templates file.
 	 */
 	protected function include_js_templates() {
-		include_once WPSEO_PATH . '/admin/views/js-templates-primary-term.php';
+		include_once WPSEO_PATH . 'admin/views/js-templates-primary-term.php';
 	}
 
 	/**
-	 * Save the primary term for a specific taxonomy
+	 * Saves the primary term for a specific taxonomy.
 	 *
-	 * @param int     $post_ID  Post ID to save primary term for.
+	 * @param int     $post_id  Post ID to save primary term for.
 	 * @param WP_Term $taxonomy Taxonomy to save primary term for.
 	 */
-	protected function save_primary_term( $post_ID, $taxonomy ) {
+	protected function save_primary_term( $post_id, $taxonomy ) {
 		$primary_term = filter_input( INPUT_POST, WPSEO_Meta::$form_prefix . 'primary_' . $taxonomy->name . '_term', FILTER_SANITIZE_NUMBER_INT );
 
 		// We accept an empty string here because we need to save that if no terms are selected.
-		if ( null !== $primary_term && check_admin_referer( 'save-primary-term', WPSEO_Meta::$form_prefix . 'primary_' . $taxonomy->name . '_nonce' ) ) {
-			$primary_term_object = new WPSEO_Primary_Term( $taxonomy->name, $post_ID );
+		if ( $primary_term && check_admin_referer( 'save-primary-term', WPSEO_Meta::$form_prefix . 'primary_' . $taxonomy->name . '_nonce' ) !== null ) {
+			$primary_term_object = new WPSEO_Primary_Term( $taxonomy->name, $post_id );
 			$primary_term_object->set_primary_term( $primary_term );
 		}
 	}
 
 	/**
-	 * Generate the primary term taxonomies.
+	 * Generates the primary term taxonomies.
 	 *
-	 * @param int $post_ID ID of the post.
+	 * @param int $post_id ID of the post.
 	 *
 	 * @return array
 	 */
-	protected function generate_primary_term_taxonomies( $post_ID ) {
-		$post_type      = get_post_type( $post_ID );
+	protected function generate_primary_term_taxonomies( $post_id ) {
+		$post_type      = get_post_type( $post_id );
 		$all_taxonomies = get_object_taxonomies( $post_type, 'objects' );
-		$all_taxonomies = array_filter( $all_taxonomies, array( $this, 'filter_hierarchical_taxonomies' ) );
+		$all_taxonomies = array_filter( $all_taxonomies, [ $this, 'filter_hierarchical_taxonomies' ] );
 
 		/**
 		 * Filters which taxonomies for which the user can choose the primary term.
@@ -178,11 +241,22 @@ class WPSEO_Primary_Term_Admin {
 	}
 
 	/**
-	 * Returns an array suitable for use in the javascript
+	 * Creates a map of taxonomies for localization.
+	 *
+	 * @param array $taxonomies The taxononmies that should be mapped.
+	 *
+	 * @return array The mapped taxonomies.
+	 */
+	protected function get_mapped_taxonomies_for_js( $taxonomies ) {
+		return array_map( [ $this, 'map_taxonomies_for_js' ], $taxonomies );
+	}
+
+	/**
+	 * Returns an array suitable for use in the javascript.
 	 *
 	 * @param stdClass $taxonomy The taxonomy to map.
 	 *
-	 * @return array
+	 * @return array The mapped taxonomy.
 	 */
 	private function map_taxonomies_for_js( $taxonomy ) {
 		$primary_term = $this->get_primary_term( $taxonomy->name );
@@ -191,30 +265,35 @@ class WPSEO_Primary_Term_Admin {
 			$primary_term = '';
 		}
 
-		return array(
-			'title'   => $taxonomy->labels->singular_name,
-			'name'    => $taxonomy->name,
-			'primary' => $primary_term,
-			'terms'   => array_map( array( $this, 'map_terms_for_js' ), get_terms( $taxonomy->name ) ),
-		);
+		$terms = get_terms( $taxonomy->name );
+
+		return [
+			'title'         => $taxonomy->labels->singular_name,
+			'name'          => $taxonomy->name,
+			'primary'       => $primary_term,
+			'singularLabel' => $taxonomy->labels->singular_name,
+			'fieldId'       => $this->generate_field_id( $taxonomy->name ),
+			'restBase'      => ( $taxonomy->rest_base ) ? $taxonomy->rest_base : $taxonomy->name,
+			'terms'         => array_map( [ $this, 'map_terms_for_js' ], $terms ),
+		];
 	}
 
 	/**
-	 * Returns an array suitable for use in the javascript
+	 * Returns an array suitable for use in the javascript.
 	 *
 	 * @param stdClass $term The term to map.
 	 *
-	 * @return array
+	 * @return array The mapped terms.
 	 */
 	private function map_terms_for_js( $term ) {
-		return array(
+		return [
 			'id'   => $term->term_id,
 			'name' => $term->name,
-		);
+		];
 	}
 
 	/**
-	 * Returns whether or not a taxonomy is hierarchical
+	 * Returns whether or not a taxonomy is hierarchical.
 	 *
 	 * @param stdClass $taxonomy Taxonomy object.
 	 *

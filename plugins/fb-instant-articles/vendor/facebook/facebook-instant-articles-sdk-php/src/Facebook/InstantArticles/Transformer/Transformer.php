@@ -9,8 +9,13 @@
 namespace Facebook\InstantArticles\Transformer;
 
 use Facebook\InstantArticles\Transformer\Warnings\UnrecognizedElement;
+use Facebook\InstantArticles\Transformer\Logs\TransformerLog;
 use Facebook\InstantArticles\Transformer\Rules\Rule;
+use Facebook\InstantArticles\Transformer\Settings\AdSettings;
+use Facebook\InstantArticles\Transformer\Settings\AnalyticsSettings;
 use Facebook\InstantArticles\Elements\InstantArticle;
+use Facebook\InstantArticles\Elements\Ad;
+use Facebook\InstantArticles\Elements\Analytics;
 use Facebook\InstantArticles\Validators\Type;
 use Facebook\InstantArticles\Validators\InstantArticleValidator;
 
@@ -47,10 +52,47 @@ class Transformer
     private $instantArticle;
 
     /**
+     * @var DateTimeZone the timezone for parsing dates. It defaults to 'America/Los_Angeles', but can be customized.
+     */
+    private $defaultDateTimeZone;
+
+    /**
+     * @var string The default style name to be used on the Instant Article generated from this transformation.
+     */
+    private $defaultStyleName;
+
+    /**
+     * @var AdSettings The content settings for ads on this transformation cycle.
+     */
+    private $adsSettings;
+
+    /**
+     * @var AnalyticsSettings The content settings for analytics on this transformation cycle.
+     */
+    private $analyticsSettings;
+
+    /**
      * Flag attribute added to elements processed by a getter, so they
      * are not processed again by other rules.
      */
     const INSTANT_ARTICLES_PARSED_FLAG = 'data-instant-articles-element-processed';
+
+    /**
+     * @var TransformerLog[] $logs The log messages generated during the transformation process.
+     */
+    private $logs = array();
+
+    /**
+     * Initializes default values.
+     */
+    public function __construct()
+    {
+        $this->defaultDateTimeZone = new \DateTimeZone('America/Los_Angeles');
+        $this->addLog(
+            TransformerLog::INFO,
+            'Possible log levels: OFF, ERROR, INFO or DEBUG. To change it call method TransformerLog::setLevel("DEBUG").'
+        );
+    }
 
     /**
      * Clones a node for appending to raw-html containing Elements like Interactive.
@@ -165,6 +207,26 @@ class Transformer
     }
 
     /**
+     * @param $level string The log level message to be added. It will ignore if the level used at @see self::setLogLevel is not proper for this level message.
+     * @param $logMessage string the Log message that will be added if the $level informed is proper based on @see self::setLogLevel.
+     */
+    private function addLog($level, $logMessage)
+    {
+        if (TransformerLog::isLevelEnabled($level)) {
+            $this->logs[] = new TransformerLog($level, $logMessage);
+        }
+    }
+
+    /**
+     * Get the log information during the transformation. This should be called once, after transformation is finished already.
+     * @return TransformerLog[] With each message being one item on this array.
+     */
+    public function getLogs()
+    {
+        return $this->logs;
+    }
+
+    /**
      * @param InstantArticle $context
      * @param string $content
      *
@@ -172,13 +234,22 @@ class Transformer
      */
     public function transformString($context, $content, $encoding = "utf-8")
     {
+        $start = microtime(true);
+        $this->addLog(
+            TransformerLog::INFO,
+            "Transformer initiated using encode [$encoding]"
+        );
+        $this->addLog(
+            TransformerLog::DEBUG,
+            "Will transform content [$content]"
+        );
         $libxml_previous_state = libxml_use_internal_errors(true);
         $document = new \DOMDocument('1.0');
         if (function_exists('mb_convert_encoding')) {
             $document->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', $encoding));
         } else {
-            $log = \Logger::getLogger('facebook-instantarticles-transformer');
-            $log->debug(
+            $this->addLog(
+                TransformerLog::DEBUG,
                 'Your content encoding is "' . $encoding . '" ' .
                 'but your PHP environment does not have mbstring. Trying to load your content with using meta tags.'
             );
@@ -191,12 +262,23 @@ class Transformer
         }
         libxml_clear_errors();
         libxml_use_internal_errors($libxml_previous_state);
-        return $this->transform($context, $document);
+        $result = $this->transform($context, $document);
+        if (Type::is($result, InstantArticle::getClassName())) {
+            $result = $this->handleTransformationSettings($result);
+        }
+        $totalTime = round(microtime(true) - $start, 3)*1000;
+        $totalWarnings = count($this->getWarnings());
+        $this->addLog(
+            TransformerLog::INFO,
+            "Transformer finished in $totalTime ms with ($totalWarnings) warnings"
+        );
+        return $result;
     }
 
     /**
      * @param InstantArticle $context
      * @param \DOMNode $node
+     * @deprecated Use @see Transformer::transformString instead.
      *
      * @return mixed
      */
@@ -208,15 +290,16 @@ class Transformer
             $this->instantArticle = $context;
         }
 
-        $log = \Logger::getLogger('facebook-instantarticles-transformer');
         if (!$node) {
             $e = new \Exception();
-            $log->error(
+            $this->addLog(
+                TransformerLog::ERROR,
                 'Transformer::transform($context, $node) requires $node'.
                 ' to be a valid one. Check on the stacktrace if this is '.
                 'some nested transform operation and fix the selector.',
                 $e->getTraceAsString()
             );
+            return $context;
         }
         $current_context = $context;
         if ($node->hasChildNodes()) {
@@ -225,8 +308,6 @@ class Transformer
                     continue;
                 }
                 $matched = false;
-                $log->debug("===========================");
-                $log->debug($child->ownerDocument->saveHtml($child));
 
                 // Get all classes and interfaces this context extends/implements
                 $contextClassNames = self::getAllClassTypes($context->getClassName());
@@ -248,13 +329,23 @@ class Transformer
                 $matchingContextRules = array_reverse($matchingContextRules);
                 foreach ($matchingContextRules as $rule) {
                     // We know context was matched, now check if it matches the node
+                    $className = $rule->getClassName();
                     if ($rule->matchesNode($child)) {
+                        $this->addLog(
+                            TransformerLog::DEBUG,
+                            "MATCH -> Rule [$className] applied to node [$child->nodeName]"
+                        );
                         $current_context = $rule->apply($this, $current_context, $child);
                         $matched = true;
 
                         // Just a single rule for each node, so move on
                         break;
                     }
+
+                    $this->addLog(
+                        TransformerLog::DEBUG,
+                        "no match -> rule [$className] not matched to node [$child->nodeName]"
+                    );
                 }
 
                 if (!$matched &&
@@ -267,11 +358,16 @@ class Transformer
                     $tag_content = $child->ownerDocument->saveXML($child);
                     $tag_trimmed = trim($tag_content);
                     if (!empty($tag_trimmed)) {
-                        $log->debug('context class: '.get_class($context));
-                        $log->debug('node name: '.$child->nodeName);
-                        $log->debug("CONTENT NOT MATCHED: \n".$tag_content);
+                        $className = $context->getClassName();
+                        $this->addLog(
+                            TransformerLog::ERROR,
+                            "Content with no rules matching! Context[$className] and Node [$child->nodeName]"
+                        );
                     } else {
-                        $log->debug('empty content ignored');
+                        $this->addLog(
+                            TransformerLog::DEBUG,
+                            "Empty content ignored."
+                        );
                     }
 
                     $this->addWarning(new UnrecognizedElement($current_context, $child));
@@ -284,24 +380,113 @@ class Transformer
 
     /**
      * @param string $json_file
+     *
+     * @return configuration
+     */
+    public function validateJSON($json_file)
+    {
+        $configuration = json_decode($json_file, true);
+
+        switch (json_last_error()) {
+            case JSON_ERROR_NONE:
+                break;
+            case JSON_ERROR_DEPTH:
+                $this->addWarning('Invalid JSON Rules: Maximum stack depth exceeded');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules: Maximum stack depth exceeded"
+                );
+                $configuration = '';
+                break;
+            case JSON_ERROR_STATE_MISMATCH:
+                $this->addWarning('Invalid JSON Rules: Underflow or the modes mismatch');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules: Underflow or the modes mismatch"
+                );
+                $configuration = '';
+                break;
+            case JSON_ERROR_CTRL_CHAR:
+                $this->addWarning('Invalid JSON Rules: Unexpected control character found');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules: Unexpected control character found"
+                );
+                $configuration = '';
+                break;
+            case JSON_ERROR_SYNTAX:
+                $this->addWarning('Invalid JSON Rules: Syntax error, malformed JSON');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules: Syntax error, malformed JSON"
+                );
+                $configuration = '';
+                break;
+            case JSON_ERROR_UTF8:
+                $this->addWarning('Invalid JSON Rules: Malformed UTF-8 characters, possibly incorrectly encoded');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules: Malformed UTF-8 characters, possibly incorrectly encoded"
+                );
+                $configuration = '';
+                break;
+            default:
+                $this->addWarning('Invalid JSON Rules');
+                $this->addLog(
+                    TransformerLog::ERROR,
+                    "Invalid JSON Rules"
+                );
+                $configuration = '';
+                break;
+        }
+        return $configuration;
+    }
+
+    /**
+     * @param string $json_file
      */
     public function loadRules($json_file)
     {
-        $configuration = json_decode($json_file, true);
+        $configuration = $this->validateJSON($json_file);
+
+        // Treats the Rules configuration
         if ($configuration && isset($configuration['rules'])) {
             foreach ($configuration['rules'] as $configuration_rule) {
                 $class = $configuration_rule['class'];
                 try {
                     $factory_method = new \ReflectionMethod($class, 'createFrom');
+                    $this->addRule($factory_method->invoke(null, $configuration_rule));
                 } catch (\ReflectionException $e) {
-                    $factory_method =
-                        new \ReflectionMethod(
-                            'Facebook\\InstantArticles\\Transformer\\Rules\\'.$class,
+                    try {
+                        $factory_method = new \ReflectionMethod(
+                            'Facebook\\InstantArticles\\Transformer\\Rules\\' . $class,
                             'createFrom'
                         );
+                        $this->addRule($factory_method->invoke(null, $configuration_rule));
+                    } catch (\ReflectionException $e) {
+                        $this->addWarning("$class was not found");
+                        $this->addLog(
+                            TransformerLog::ERROR,
+                            "$class was not found"
+                        );
+                    }
                 }
-                $this->addRule($factory_method->invoke(null, $configuration_rule));
             }
+        }
+
+        // Treats the ADS configuration
+        if ($configuration && isset($configuration['ads'])) {
+            $this->loadAdsConfiguration($configuration['ads']);
+        }
+
+        // Treats the Analyticds configuration
+        if ($configuration && isset($configuration['analytics'])) {
+            $this->loadAnalyicsConfiguration($configuration['analytics']);
+        }
+
+        // Treats the Style configuration
+        if ($configuration && isset($configuration['style_name'])) {
+            $this->setDefaultStyleName($configuration['style_name']);
         }
     }
 
@@ -337,7 +522,7 @@ class Transformer
     /**
      * Overrides all rules already set in this transformer instance.
      *
-     * @return Rule[] List of configured rules.
+     * @param Rule[] $rules List of configured rules.
      */
     public function setRules($rules)
     {
@@ -348,5 +533,92 @@ class Transformer
         foreach ($rules as $rule) {
             $this->addRule($rule);
         }
+    }
+
+    /**
+     * Sets the default timezone for parsing dates.
+     *
+     * @param DateTimeZone $dateTimeZone
+     */
+    public function setDefaultDateTimeZone($dateTimeZone)
+    {
+        Type::enforce($dateTimeZone, 'DateTimeZone');
+        $this->defaultDateTimeZone = $dateTimeZone;
+    }
+
+    /**
+     * Gets the default timezone for parsing dates.
+     *
+     * @return DateTimeZone
+     */
+    public function getDefaultDateTimeZone()
+    {
+        return $this->defaultDateTimeZone;
+    }
+
+    /**
+     * Sets the default style to be applyied to the articles generated from this transformation.
+     *
+     * @param string $defaultStyleName
+     */
+    public function setDefaultStyleName($defaultStyleName)
+    {
+        Type::enforce($defaultStyleName, Type::STRING);
+        $this->defaultStyleName = $defaultStyleName;
+    }
+
+    /**
+     * Gets the default style name for Instant Article generated during transformation.
+     *
+     * @return string
+     */
+    public function getDefaultStyleName()
+    {
+        return $this->defaultStyleName;
+    }
+
+    /**
+     * Applies the settings loaded from the rules.json informed on loadRules method.
+     *
+     * @param InstantArticle The InstantArticle to have the settings set.
+     * @return InstantArticle The article with settings added if needed.
+     */
+    public function handleTransformationSettings($instantArticle)
+    {
+        if (!Type::isTextEmpty($this->getDefaultStyleName())) {
+            $instantArticle->withStyle($this->getDefaultStyleName());
+        }
+
+        if ($this->adsSettings) {
+            $ad = $this->adsSettings->getAdElement();
+            if ($ad) {
+                $instantArticle->getHeader()->addAd($ad);
+            }
+        }
+
+        if ($this->analyticsSettings) {
+            $analytics = $this->analyticsSettings->getAnalyticsElement();
+            if ($analytics) {
+                $instantArticle->addChild($analytics);
+            }
+        }
+
+        return $instantArticle;
+    }
+
+    public function loadAdsConfiguration($adsSettings)
+    {
+        $this->adsSettings = new AdSettings(
+            isset($adsSettings['audience_network_placement_id']) ? $adsSettings['audience_network_placement_id'] : '',
+            isset($adsSettings['raw_html']) ? $adsSettings['raw_html'] : ''
+        );
+    }
+
+    public function loadAnalyicsConfiguration($analyticsSettings)
+    {
+        $this->analyticsSettings = new AnalyticsSettings(
+            isset($analyticsSettings['fb_pixel_id']) ? $analyticsSettings['fb_pixel_id'] : '',
+            isset($analyticsSettings['raw_html']) ? $analyticsSettings['raw_html'] : ''
+        );
     }
 }

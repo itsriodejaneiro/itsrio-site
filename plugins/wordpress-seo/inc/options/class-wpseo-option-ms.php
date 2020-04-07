@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Internals\Options
  */
 
@@ -12,51 +14,58 @@
 class WPSEO_Option_MS extends WPSEO_Option {
 
 	/**
-	 * @var  string  option name
+	 * Option name.
+	 *
+	 * @var string
 	 */
 	public $option_name = 'wpseo_ms';
 
 	/**
-	 * @var  string  option group name for use in settings forms
+	 * Option group name for use in settings forms.
+	 *
+	 * @var string
 	 */
 	public $group_name = 'yoast_wpseo_multisite_options';
 
 	/**
-	 * @var  bool  whether to include the option in the return for WPSEO_Options::get_all()
+	 * Whether to include the option in the return for WPSEO_Options::get_all().
+	 *
+	 * @var bool
 	 */
 	public $include_in_all = false;
 
 	/**
-	 * @var  bool  whether this option is only for when the install is multisite
+	 * Whether this option is only for when the install is multisite.
+	 *
+	 * @var bool
 	 */
 	public $multisite_only = true;
 
 	/**
-	 * @var  array  Array of defaults for the option
-	 *        Shouldn't be requested directly, use $this->get_defaults();
+	 * Array of defaults for the option.
+	 *
+	 * Shouldn't be requested directly, use $this->get_defaults();
+	 *
+	 * @var array
 	 */
-	protected $defaults = array(
-		'access'      => 'admin',
-		'defaultblog' => '', // Numeric blog ID or empty.
-	);
+	protected $defaults = [];
 
 	/**
-	 * @var  array $allowed_access_options Available options for the 'access' setting
-	 *                    Used for input validation
+	 * Available options for the 'access' setting. Used for input validation.
 	 *
-	 * @static
+	 * {@internal Important: Make sure the options added to the array here are in line
+	 *            with the keys for the options set for the select box in the
+	 *            admin/pages/network.php file.}}
 	 *
-	 * @internal Important: Make sure the options added to the array here are in line with the keys
-	 * for the options set for the select box in the admin/pages/network.php file
+	 * @var array
 	 */
-	public static $allowed_access_options = array(
+	public static $allowed_access_options = [
 		'admin',
 		'superadmin',
-	);
-
+	];
 
 	/**
-	 * Get the singleton instance of this class
+	 * Get the singleton instance of this class.
 	 *
 	 * @return object
 	 */
@@ -72,70 +81,81 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	 * Only run parent constructor in multisite context.
 	 */
 	public function __construct() {
+		$allow_prefix   = self::ALLOW_KEY_PREFIX;
+		$this->defaults = [
+			'access'                                    => 'admin',
+			'defaultblog'                               => '', // Numeric blog ID or empty.
+			"{$allow_prefix}disableadvanced_meta"       => true,
+			"{$allow_prefix}ryte_indexability"          => true,
+			"{$allow_prefix}content_analysis_active"    => true,
+			"{$allow_prefix}keyword_analysis_active"    => true,
+			"{$allow_prefix}enable_admin_bar_menu"      => true,
+			"{$allow_prefix}enable_cornerstone_content" => true,
+			"{$allow_prefix}enable_xml_sitemap"         => true,
+			"{$allow_prefix}enable_text_link_counter"   => true,
+		];
+
 		if ( is_multisite() ) {
 			parent::__construct();
+
+			add_filter( 'admin_title', [ 'Yoast_Input_Validation', 'add_yoast_admin_document_title_errors' ] );
 		}
 	}
 
 	/**
 	 * Add filters to make sure that the option default is returned if the option is not set
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function add_default_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
-		if ( has_filter( 'default_site_option_' . $this->option_name, array( $this, 'get_defaults' ) ) === false ) {
-			add_filter( 'default_site_option_' . $this->option_name, array( $this, 'get_defaults' ) );
+		if ( has_filter( 'default_site_option_' . $this->option_name, [ $this, 'get_defaults' ] ) === false ) {
+			add_filter( 'default_site_option_' . $this->option_name, [ $this, 'get_defaults' ] );
 		}
 	}
-
 
 	/**
 	 * Remove the default filters.
-	 * Called from the validate() method to prevent failure to add new options
+	 * Called from the validate() method to prevent failure to add new options.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function remove_default_filters() {
-		remove_filter( 'default_site_option_' . $this->option_name, array( $this, 'get_defaults' ) );
+		remove_filter( 'default_site_option_' . $this->option_name, [ $this, 'get_defaults' ] );
 	}
 
-
 	/**
-	 * Add filters to make sure that the option is merged with its defaults before being returned
+	 * Add filters to make sure that the option is merged with its defaults before being returned.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function add_option_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
-		if ( has_filter( 'site_option_' . $this->option_name, array( $this, 'get_option' ) ) === false ) {
-			add_filter( 'site_option_' . $this->option_name, array( $this, 'get_option' ) );
+		if ( has_filter( 'site_option_' . $this->option_name, [ $this, 'get_option' ] ) === false ) {
+			add_filter( 'site_option_' . $this->option_name, [ $this, 'get_option' ] );
 		}
 	}
 
-
 	/**
 	 * Remove the option filters.
-	 * Called from the clean_up methods to make sure we retrieve the original old option
+	 * Called from the clean_up methods to make sure we retrieve the original old option.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function remove_option_filters() {
-		remove_filter( 'site_option_' . $this->option_name, array( $this, 'get_option' ) );
+		remove_filter( 'site_option_' . $this->option_name, [ $this, 'get_option' ] );
 	}
-
 
 	/* *********** METHODS influencing add_uption(), update_option() and saving from admin pages *********** */
 
-
 	/**
-	 * Validate the option
+	 * Validate the option.
 	 *
-	 * @param  array $dirty New value for the option.
-	 * @param  array $clean Clean value for the option, normally the defaults.
-	 * @param  array $old   Old value of the option.
+	 * @param array $dirty New value for the option.
+	 * @param array $clean Clean value for the option, normally the defaults.
+	 * @param array $old   Old value of the option.
 	 *
-	 * @return  array      Validated clean value for the option to be saved to the database
+	 * @return array Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
 
@@ -148,10 +168,10 @@ class WPSEO_Option_MS extends WPSEO_Option {
 					elseif ( function_exists( 'add_settings_error' ) ) {
 						add_settings_error(
 							$this->group_name, // Slug title of the setting.
-							'_' . $key, // Suffix-id for the error message box.
+							$key, // Suffix-ID for the error message box.
 							/* translators: %1$s expands to the option name and %2$sexpands to Yoast SEO */
 							sprintf( __( '%1$s is not a valid choice for who should be allowed access to the %2$s settings. Value reset to the default.', 'wordpress-seo' ), esc_html( sanitize_text_field( $dirty[ $key ] ) ), 'Yoast SEO' ), // The error message.
-							'error' // Error type, either 'error' or 'updated'.
+							'error' // Message type.
 						);
 					}
 					break;
@@ -163,15 +183,21 @@ class WPSEO_Option_MS extends WPSEO_Option {
 						if ( $int !== false && $int > 0 ) {
 							// Check if a valid blog number has been received.
 							$exists = get_blog_details( $int, false );
-							if ( $exists && $exists->deleted == 0 ) {
+							if ( $exists && $exists->deleted === '0' ) {
 								$clean[ $key ] = $int;
 							}
 							elseif ( function_exists( 'add_settings_error' ) ) {
 								add_settings_error(
 									$this->group_name, // Slug title of the setting.
-									'_' . $key, // Suffix-id for the error message box.
-									esc_html__( 'The default blog setting must be the numeric blog id of the blog you want to use as default.', 'wordpress-seo' ) . '<br>' . sprintf( esc_html__( 'This must be an existing blog. Blog %s does not exist or has been marked as deleted.', 'wordpress-seo' ), '<strong>' . esc_html( sanitize_text_field( $dirty[ $key ] ) ) . '</strong>' ), // The error message.
-									'error' // Error type, either 'error' or 'updated'.
+									$key, // Suffix-ID for the error message box.
+									esc_html__( 'The default blog setting must be the numeric blog id of the blog you want to use as default.', 'wordpress-seo' )
+										. '<br>'
+										. sprintf(
+											/* translators: %s is the ID number of a blog. */
+											esc_html__( 'This must be an existing blog. Blog %s does not exist or has been marked as deleted.', 'wordpress-seo' ),
+											'<strong>' . esc_html( sanitize_text_field( $dirty[ $key ] ) ) . '</strong>'
+										), // The error message.
+									'error' // Message type.
 								);
 							}
 							unset( $exists );
@@ -179,9 +205,9 @@ class WPSEO_Option_MS extends WPSEO_Option {
 						elseif ( function_exists( 'add_settings_error' ) ) {
 							add_settings_error(
 								$this->group_name, // Slug title of the setting.
-								'_' . $key, // Suffix-id for the error message box.
+								$key, // Suffix-ID for the error message box.
 								esc_html__( 'The default blog setting must be the numeric blog id of the blog you want to use as default.', 'wordpress-seo' ) . '<br>' . esc_html__( 'No numeric value was received.', 'wordpress-seo' ), // The error message.
-								'error' // Error type, either 'error' or 'updated'.
+								'error' // Message type.
 							);
 						}
 						unset( $int );
@@ -197,18 +223,17 @@ class WPSEO_Option_MS extends WPSEO_Option {
 		return $clean;
 	}
 
-
 	/**
-	 * Clean a given option value
+	 * Clean a given option value.
 	 *
-	 * @param  array  $option_value          Old (not merged with defaults or filtered) option value to
-	 *                                       clean according to the rules for this option.
-	 * @param  string $current_version       (optional) Version from which to upgrade, if not set,
-	 *                                       version specific upgrades will be disregarded.
-	 * @param  array  $all_old_option_values (optional) Only used when importing old options to have
-	 *                                       access to the real old values, in contrast to the saved ones.
+	 * @param array  $option_value          Old (not merged with defaults or filtered) option value to
+	 *                                      clean according to the rules for this option.
+	 * @param string $current_version       (optional) Version from which to upgrade, if not set,
+	 *                                      version specific upgrades will be disregarded.
+	 * @param array  $all_old_option_values (optional) Only used when importing old options to have
+	 *                                      access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return  array            Cleaned option
+	 * @return array Cleaned option.
 	 */
 
 	/*

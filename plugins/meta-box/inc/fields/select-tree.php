@@ -1,26 +1,29 @@
 <?php
 /**
+ * The select tree field.
+ *
+ * @package Meta Box
+ */
+
+/**
  * Select tree field class.
  */
 class RWMB_Select_Tree_Field extends RWMB_Select_Field {
-
 	/**
-	 * Walk options
+	 * Get field HTML.
 	 *
-	 * @param mixed $meta
-	 * @param array $field
-	 * @param mixed $options
-	 * @param mixed $db_fields
-	 *
+	 * @param mixed $meta  Meta value.
+	 * @param array $field Field parameters.
 	 * @return string
 	 */
-	public static function walk( $field, $options, $db_fields, $meta ) {
-		$walker = new RWMB_Walker_Select_Tree( $db_fields, $field, $meta );
-		return $walker->walk( $options );
+	public static function html( $meta, $field ) {
+		$options = self::transform_options( $field['options'] );
+		$walker  = new RWMB_Walker_Select_Tree( $field, $meta );
+		return $options ? $walker->walk( $options ) : '';
 	}
 
 	/**
-	 * Enqueue scripts and styles
+	 * Enqueue scripts and styles.
 	 */
 	public static function admin_enqueue_scripts() {
 		parent::admin_enqueue_scripts();
@@ -29,9 +32,9 @@ class RWMB_Select_Tree_Field extends RWMB_Select_Field {
 	}
 
 	/**
-	 * Normalize parameters for field
+	 * Normalize parameters for field.
 	 *
-	 * @param array $field
+	 * @param array $field Field parameters.
 	 * @return array
 	 */
 	public static function normalize( $field ) {
@@ -43,10 +46,10 @@ class RWMB_Select_Tree_Field extends RWMB_Select_Field {
 	}
 
 	/**
-	 * Get the attributes for a field
+	 * Get the attributes for a field.
 	 *
-	 * @param array $field
-	 * @param mixed $value
+	 * @param array $field Field parameters.
+	 * @param mixed $value Meta value.
 	 *
 	 * @return array
 	 */

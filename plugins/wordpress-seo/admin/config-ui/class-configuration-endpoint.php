@@ -1,21 +1,55 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin\ConfigurationUI
  */
 
 /**
- * Class WPSEO_Configuration_Endpoint
+ * Class WPSEO_Configuration_Endpoint.
  */
 class WPSEO_Configuration_Endpoint {
 
+	/**
+	 * Holds the REST namespace.
+	 *
+	 * @var string
+	 */
 	const REST_NAMESPACE = 'yoast/v1';
+
+	/**
+	 * Holds the endpoint to retrieve from.
+	 *
+	 * @var string
+	 */
 	const ENDPOINT_RETRIEVE = 'configurator';
+
+	/**
+	 * Holds the endpoint to store to.
+	 *
+	 * @var string
+	 */
 	const ENDPOINT_STORE = 'configurator';
 
-	const CAPABILITY_RETRIEVE = 'manage_options';
-	const CAPABILITY_STORE = 'manage_options';
+	/**
+	 * Holds the capability that can retrieve from the endpoint.
+	 *
+	 * @var string
+	 */
+	const CAPABILITY_RETRIEVE = 'wpseo_manage_options';
 
-	/** @var WPSEO_Configuration_Service Service to use */
+	/**
+	 * Holds the capability that can store to the endpoint.
+	 *
+	 * @var string
+	 */
+	const CAPABILITY_STORE = 'wpseo_manage_options';
+
+	/**
+	 * Service to use.
+	 *
+	 * @var WPSEO_Configuration_Service
+	 */
 	protected $service;
 
 	/**
@@ -32,34 +66,24 @@ class WPSEO_Configuration_Endpoint {
 	 */
 	public function register() {
 		// Register fetch config.
-		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_RETRIEVE, array(
+		$route_args = [
 			'methods'             => 'GET',
-			'callback'            => array(
-				$this->service,
-				'get_configuration',
-			),
-			'permission_callback' => array(
-				$this,
-				'can_retrieve_data',
-			),
-		) );
+			'callback'            => [ $this->service, 'get_configuration' ],
+			'permission_callback' => [ $this, 'can_retrieve_data' ],
+		];
+		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_RETRIEVE, $route_args );
 
 		// Register save changes.
-		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_STORE, array(
+		$route_args = [
 			'methods'             => 'POST',
-			'callback'            => array(
-				$this->service,
-				'set_configuration',
-			),
-			'permission_callback' => array(
-				$this,
-				'can_save_data',
-			),
-		) );
+			'callback'            => [ $this->service, 'set_configuration' ],
+			'permission_callback' => [ $this, 'can_save_data' ],
+		];
+		register_rest_route( self::REST_NAMESPACE, self::ENDPOINT_STORE, $route_args );
 	}
 
 	/**
-	 * Permission callback implementation
+	 * Permission callback implementation.
 	 *
 	 * @return bool
 	 */
@@ -68,7 +92,7 @@ class WPSEO_Configuration_Endpoint {
 	}
 
 	/**
-	 * Permission callback implementation
+	 * Permission callback implementation.
 	 *
 	 * @return bool
 	 */

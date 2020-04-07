@@ -19,7 +19,7 @@ class PLL_Links_Subdomain extends PLL_Links_Abstract_Domain {
 	 */
 	public function __construct( &$model ) {
 		parent::__construct( $model );
-		$this->www = false === strpos( $this->home, '://www.' ) ? '://' : '://www.';
+		$this->www = ( false === strpos( $this->home, '://www.' ) ) ? '://' : '://www.';
 	}
 
 	/**
@@ -33,7 +33,7 @@ class PLL_Links_Subdomain extends PLL_Links_Abstract_Domain {
 	 * @return string modified url
 	 */
 	public function add_language_to_link( $url, $lang ) {
-		if ( ! empty( $lang ) ) {
+		if ( ! empty( $lang ) && false === strpos( $url, '://' . $lang->slug . '.' ) ) {
 			$url = $this->options['default_lang'] == $lang->slug && $this->options['hide_default'] ? $url : str_replace( $this->www, '://' . $lang->slug . '.', $url );
 		}
 		return $url;
@@ -49,6 +49,8 @@ class PLL_Links_Subdomain extends PLL_Links_Abstract_Domain {
 	 * @return string modified url
 	 */
 	public function remove_language_from_link( $url ) {
+		$languages = array();
+
 		foreach ( $this->model->get_languages_list() as $language ) {
 			if ( ! $this->options['hide_default'] || $this->options['default_lang'] != $language->slug ) {
 				$languages[] = $language->slug;
@@ -56,26 +58,10 @@ class PLL_Links_Subdomain extends PLL_Links_Abstract_Domain {
 		}
 
 		if ( ! empty( $languages ) ) {
-			$url = preg_replace( '#:\/\/(' . implode( '|', $languages ) . ')\.#', $this->www, $url );
+			$url = preg_replace( '#://(' . implode( '|', $languages ) . ')\.#', $this->www, $url );
 		}
 
 		return $url;
-	}
-
-	/**
-	 * Returns the language based on language code in url
-	 * links_model interface
-	 *
-	 * @since 1.2
-	 * @since 2.0 add $url argument
-	 *
-	 * @param string $url optional, defaults to current url
-	 * @return string language slug
-	 */
-	public function get_language_from_url( $url = '' ) {
-		$host = empty( $url ) ? $_SERVER['HTTP_HOST'] : parse_url( $url, PHP_URL_HOST );
-		$pattern = '#('.implode( '|', $this->model->get_languages_list( array( 'fields' => 'slug' ) ) ).')\.#';
-		return preg_match( $pattern, trailingslashit( $host ), $matches ) ? $matches[1] : ''; // $matches[1] is the slug of the requested language
 	}
 
 	/**
@@ -88,7 +74,7 @@ class PLL_Links_Subdomain extends PLL_Links_Abstract_Domain {
 	public function get_hosts() {
 		$hosts = array();
 		foreach ( $this->model->get_languages_list() as $lang ) {
-			$hosts[] = parse_url( $this->home_url( $lang ), PHP_URL_HOST );
+			$hosts[ $lang->slug ] = wp_parse_url( $this->home_url( $lang ), PHP_URL_HOST );
 		}
 		return $hosts;
 	}

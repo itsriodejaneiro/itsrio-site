@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class FooterTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class FooterTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -34,7 +36,7 @@ class FooterTest extends \PHPUnit_Framework_TestCase
             '</footer>';
 
         $rendered = $footer->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithParagraphCredits()
@@ -59,7 +61,7 @@ class FooterTest extends \PHPUnit_Framework_TestCase
             '</footer>';
 
         $rendered = $footer->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithParagraphCreditsAppend()
@@ -86,7 +88,7 @@ class FooterTest extends \PHPUnit_Framework_TestCase
             '</footer>';
 
         $rendered = $footer->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithCopyright()
@@ -103,7 +105,32 @@ class FooterTest extends \PHPUnit_Framework_TestCase
             '</footer>';
 
         $rendered = $footer->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
+    }
+
+    public function testRenderWithCopyrightSmallElement()
+    {
+        $small =
+            Small::create()
+                ->appendText("2016 ")
+                ->appendText(
+                    Anchor::create()
+                        ->withHref('https://facebook.com')
+                        ->appendText('Facebook')
+                );
+        $footer =
+            Footer::create()
+                ->withCopyright($small);
+
+        $expected =
+            '<footer>'.
+                '<small>'.
+                    '2016 <a href="https://facebook.com">Facebook</a>'.
+                '</small>'.
+            '</footer>';
+
+        $rendered = $footer->render();
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithRelatedArticles()
@@ -131,6 +158,6 @@ class FooterTest extends \PHPUnit_Framework_TestCase
             '</footer>';
 
         $rendered = $footer->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

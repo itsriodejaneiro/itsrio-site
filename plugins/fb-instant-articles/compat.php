@@ -21,11 +21,18 @@ if ( defined( 'WPSEO_VERSION' ) && ! defined( 'WPSEO_IA_COMPAT' ) ) {
 	$yseo->init();
 }
 
-// Load support for Google Analytics for WordPress (Google Analytics by Yoast).
-if ( defined( 'GAWP_VERSION' ) && ! defined( 'GAWP_IA_COMPAT' ) ) {
+// Load support for Google Analytics for WordPress by MonsterInsights.
+if ( ( defined( 'GAWP_VERSION' ) || function_exists( 'MonsterInsights' ) ) && ! defined( 'GAWP_IA_COMPAT' ) ) {
 	include( dirname( __FILE__ ) . '/compat/class-instant-articles-google-analytics-for-wordpress.php' );
 	$gawp = new Instant_Articles_Google_Analytics_For_WordPress;
 	$gawp->init();
+}
+
+// Load support for Google Tag Manager for WordPress by Duracelltomi.
+if ( defined( 'GTM4WP_VERSION' ) ) {
+  include( dirname( __FILE__ ) . '/compat/class-instant-articles-gtm4wp.php' );
+  $gtm4wp = new Instant_Articles_Google_Tag_Manager_For_WordPress;
+  $gtm4wp->init();
 }
 
 // Load support for Jetpack
@@ -46,3 +53,8 @@ if ( function_exists( 'get_the_image' ) ) {
 include( dirname( __FILE__ ) . '/compat/class-instant-articles-playbuzz.php' );
 $playbuzz = new Instant_Articles_Playbuzz;
 $playbuzz->init();
+
+// Load support for Apester's plugin Medias
+include( dirname( __FILE__ ) . '/compat/class-instant-articles-apester.php' );
+$apester = new Instant_Articles_Apester;
+$apester->init();

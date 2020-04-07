@@ -35,7 +35,7 @@ use Facebook\InstantArticles\Validators\Type;
  *     </time>
  * </header>
  */
-class Header extends Element implements Container
+class Header extends Element implements ChildrenContainer
 {
     /**
      * @var Image|Video|Slideshow|null for the image or video on the header.
@@ -388,39 +388,17 @@ class Header extends Element implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $element = $document->createElement('header');
 
-        if ($this->cover && $this->cover->isValid()) {
-            $element->appendChild($this->cover->toDOMElement($document));
-        }
-
-        if ($this->title && $this->title->isValid()) {
-            $element->appendChild($this->title->toDOMElement($document));
-        }
-
-        if ($this->subtitle && $this->subtitle->isValid()) {
-            $element->appendChild($this->subtitle->toDOMElement($document));
-        }
-
-        if ($this->published && $this->published->isValid()) {
-            $published_element = $this->published->toDOMElement($document);
-            $element->appendChild($published_element);
-        }
-
-        if ($this->modified && $this->modified->isValid()) {
-            $modified_element = $this->modified->toDOMElement($document);
-            $element->appendChild($modified_element);
-        }
+        Element::appendChild($element, $this->cover, $document);
+        Element::appendChild($element, $this->title, $document);
+        Element::appendChild($element, $this->subtitle, $document);
+        Element::appendChild($element, $this->published, $document);
+        Element::appendChild($element, $this->modified, $document);
 
         if ($this->authors) {
             foreach ($this->authors as $author) {
-                if ($author->isValid()) {
-                    $element->appendChild($author->toDOMElement($document));
-                }
+                Element::appendChild($element, $author, $document);
             }
         }
 
@@ -432,9 +410,7 @@ class Header extends Element implements Container
 
         if (count($this->ads) === 1) {
             $this->ads[0]->disableDefaultForReuse();
-            if ($this->ads[0]->isValid()) {
-                $element->appendChild($this->ads[0]->toDOMElement($document));
-            }
+            Element::appendChild($element, $this->ads[0], $document);
         } elseif (count($this->ads) >= 2) {
             $ads_container = $document->createElement('section');
             $ads_container->setAttribute('class', 'op-ad-template');
@@ -460,9 +436,7 @@ class Header extends Element implements Container
             }
         }
 
-        if ($this->sponsor && $this->sponsor->isValid()) {
-            $element->appendChild($this->sponsor->toDOMElement($document));
-        }
+        Element::appendChild($element, $this->sponsor, $document);
 
         return $element;
     }
@@ -491,9 +465,9 @@ class Header extends Element implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of Elements contained by Header.
      */
     public function getContainerChildren()

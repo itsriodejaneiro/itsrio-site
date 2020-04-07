@@ -1,32 +1,38 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin
  */
 
 /**
- * @class WPSEO_Configuration_Wizard Loads the Yoast configuration wizard.
+ * Loads the Yoast configuration wizard.
  */
 class WPSEO_Configuration_Page {
 
+	/**
+	 * Admin page identifier.
+	 *
+	 * @var string
+	 */
 	const PAGE_IDENTIFIER = 'wpseo_configurator';
 
 	/**
-	 * WPSEO_Configuration_Wizard constructor.
+	 * Sets the hooks when the user has enough rights and is on the right page.
 	 */
-	public function __construct() {
+	public function set_hooks() {
+		if ( ! ( $this->is_config_page() && current_user_can( WPSEO_Configuration_Endpoint::CAPABILITY_RETRIEVE ) ) ) {
+			return;
+		}
 
 		if ( $this->should_add_notification() ) {
 			$this->add_notification();
 		}
 
-		if ( filter_input( INPUT_GET, 'page' ) !== self::PAGE_IDENTIFIER ) {
-			return;
-		}
-
 		// Register the page for the wizard.
-		add_action( 'admin_menu', array( $this, 'add_wizard_page' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
-		add_action( 'admin_init', array( $this, 'render_wizard_page' ) );
+		add_action( 'admin_menu', [ $this, 'add_wizard_page' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_action( 'admin_init', [ $this, 'render_wizard_page' ] );
 	}
 
 	/**
@@ -34,7 +40,7 @@ class WPSEO_Configuration_Page {
 	 */
 	public function catch_configuration_request() {
 		$configuration_page = filter_input( INPUT_GET, 'configuration' );
-		$page          = filter_input( INPUT_GET, 'page' );
+		$page               = filter_input( INPUT_GET, 'page' );
 
 		if ( ! ( $configuration_page === 'finished' && ( $page === WPSEO_Admin::PAGE_IDENTIFIER ) ) ) {
 			return;
@@ -43,20 +49,19 @@ class WPSEO_Configuration_Page {
 		$this->remove_notification();
 		$this->remove_notification_option();
 
-		wp_redirect( admin_url( 'admin.php?page=' . WPSEO_Admin::PAGE_IDENTIFIER ) );
+		wp_safe_redirect( admin_url( 'admin.php?page=' . WPSEO_Admin::PAGE_IDENTIFIER ) );
 		exit;
 	}
-
 
 	/**
 	 *  Registers the page for the wizard.
 	 */
 	public function add_wizard_page() {
-		add_dashboard_page( '', '', 'manage_options', self::PAGE_IDENTIFIER, '' );
+		add_dashboard_page( '', '', 'wpseo_manage_options', self::PAGE_IDENTIFIER, '' );
 	}
 
 	/**
-	 * Renders the wizard page and exits to prevent the wordpress UI from loading.
+	 * Renders the wizard page and exits to prevent the WordPress UI from loading.
 	 */
 	public function render_wizard_page() {
 		$this->show_wizard();
@@ -69,19 +74,26 @@ class WPSEO_Configuration_Page {
 	public function enqueue_assets() {
 		wp_enqueue_media();
 
+		if ( ! wp_script_is( 'wp-element', 'registered' ) && function_exists( 'gutenberg_register_scripts_and_styles' ) ) {
+			gutenberg_register_scripts_and_styles();
+		}
+
 		/*
 		 * Print the `forms.css` WP stylesheet before any Yoast style, this way
 		 * it's easier to override selectors with the same specificity later.
 		 */
 		wp_enqueue_style( 'forms' );
-		$assetManager = new WPSEO_Admin_Asset_Manager();
-		$assetManager->register_assets();
-		$assetManager->enqueue_script( 'configuration-wizard' );
-		$assetManager->enqueue_style( 'yoast-components' );
+		$asset_manager = new WPSEO_Admin_Asset_Manager();
+		$asset_manager->register_assets();
+		$asset_manager->enqueue_script( 'configuration-wizard' );
+		$asset_manager->enqueue_style( 'yoast-components' );
 
 		$config = $this->get_config();
 
 		wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'configuration-wizard', 'yoastWizardConfig', $config );
+
+		$yoast_components_l10n = new WPSEO_Admin_Asset_Yoast_Components_L10n();
+		$yoast_components_l10n->localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'configuration-wizard' );
 	}
 
 	/**
@@ -90,6 +102,11 @@ class WPSEO_Configuration_Page {
 	public function show_wizard() {
 		$this->enqueue_assets();
 		$dashboard_url = admin_url( '/admin.php?page=wpseo_dashboard' );
+		$wizard_title  = sprintf(
+			/* translators: %s expands to Yoast SEO. */
+			__( '%s &rsaquo; Configuration Wizard', 'wordpress-seo' ),
+			'Yoast SEO'
+		);
 		?>
 		<!DOCTYPE html>
 		<!--[if IE 9]>
@@ -99,15 +116,9 @@ class WPSEO_Configuration_Page {
 		<html <?php language_attributes(); ?>>
 		<!--<![endif]-->
 		<head>
-			<meta name="viewport" content="width=device-width"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-			<title><?php
-				printf(
-					/* translators: %s expands to Yoast SEO. */
-					__( '%s &rsaquo; Configuration Wizard', 'wordpress-seo' ),
-					'Yoast SEO'
-				);
-			?></title>
+			<title><?php echo esc_html( $wizard_title ); ?></title>
 			<?php
 			wp_print_head_scripts();
 			wp_print_styles( 'yoast-seo-yoast-components' );
@@ -122,17 +133,16 @@ class WPSEO_Configuration_Page {
 			do_action( 'wpseo_configuration_wizard_head' );
 			?>
 		</head>
-		<body class="wp-admin">
+		<body class="wp-admin wp-core-ui">
 		<div id="wizard"></div>
-		<a class="yoast-wizard-return-link" href="<?php echo $dashboard_url ?>">
-			<?php
-			printf(
-				/* translators: %s expands to Yoast SEO. */
-				__( 'Go back to the %s dashboard.', 'wordpress-seo' ),
-				'Yoast SEO'
-			);
-			?>
-		</a>
+		<div role="contentinfo" class="yoast-wizard-return-link-container">
+			<a class="button yoast-wizard-return-link" href="<?php echo esc_url( $dashboard_url ); ?>">
+				<span aria-hidden="true" class="dashicons dashicons-no"></span>
+				<?php
+				esc_html_e( 'Close the Wizard', 'wordpress-seo' );
+				?>
+			</a>
+		</div>
 		<?php
 			wp_print_media_templates();
 			wp_print_footer_scripts();
@@ -140,7 +150,7 @@ class WPSEO_Configuration_Page {
 			/**
 			 * Is called before the closing </body> tag in the Yoast Configuration wizard.
 			 *
-			 * Allows users to add their own scripts or content.
+			 * Allows users to add their own scripts.
 			 *
 			 * @since 4.0
 			 */
@@ -151,7 +161,6 @@ class WPSEO_Configuration_Page {
 		</body>
 		</html>
 		<?php
-
 	}
 
 	/**
@@ -160,9 +169,7 @@ class WPSEO_Configuration_Page {
 	 * @return array The API endpoint config.
 	 */
 	public function get_config() {
-		$translations = $this->get_translations();
-		$service = new WPSEO_GSC_Service();
-		$config  = array(
+		$config = [
 			'namespace'         => WPSEO_Configuration_Endpoint::REST_NAMESPACE,
 			'endpoint_retrieve' => WPSEO_Configuration_Endpoint::ENDPOINT_RETRIEVE,
 			'endpoint_store'    => WPSEO_Configuration_Endpoint::ENDPOINT_STORE,
@@ -170,27 +177,18 @@ class WPSEO_Configuration_Page {
 			'root'              => esc_url_raw( rest_url() ),
 			'ajaxurl'           => admin_url( 'admin-ajax.php' ),
 			'finishUrl'         => admin_url( 'admin.php?page=wpseo_dashboard&configuration=finished' ),
-			'gscAuthURL'        => $service->get_client()->createAuthUrl(),
-			'gscProfiles'       => $service->get_sites(),
-			'gscNonce'          => wp_create_nonce( 'wpseo-gsc-ajax-security' ),
-			'translations'      => $translations,
-		);
+		];
 
 		return $config;
 	}
 
 	/**
-	 * Returns the translations necessary for the configuration wizard.
+	 * Checks if the current page is the configuration page.
 	 *
-	 * @returns array The translations for the configuration wizard.
+	 * @return bool
 	 */
-	public function get_translations() {
-		$file = plugin_dir_path( WPSEO_FILE ) . 'languages/yoast-components-' . WPSEO_Utils::get_user_locale() . '.json';
-		if ( file_exists( $file ) && $file = file_get_contents( $file ) ) {
-			return json_decode( $file, true );
-		}
-
-		return array();
+	protected function is_config_page() {
+		return ( filter_input( INPUT_GET, 'page' ) === self::PAGE_IDENTIFIER );
 	}
 
 	/**
@@ -215,8 +213,11 @@ class WPSEO_Configuration_Page {
 	 * @return Yoast_Notification
 	 */
 	private static function get_notification() {
-		$message = sprintf(
-			__( 'Since you are new to %1$s you can configure the %2$splugin%3$s', 'wordpress-seo' ),
+		$message  = __( 'The configuration wizard helps you to easily configure your site to have the optimal SEO settings.', 'wordpress-seo' );
+		$message .= '<br/>';
+		$message .= sprintf(
+			/* translators: %1$s resolves to Yoast SEO, %2$s resolves to the starting tag of the link to the wizard, %3$s resolves to the closing link tag */
+			__( 'We have detected that you have not finished this wizard yet, so we recommend you to %2$sstart the configuration wizard to configure %1$s%3$s.', 'wordpress-seo' ),
 			'Yoast SEO',
 			'<a href="' . admin_url( '?page=' . self::PAGE_IDENTIFIER ) . '">',
 			'</a>'
@@ -224,12 +225,12 @@ class WPSEO_Configuration_Page {
 
 		$notification = new Yoast_Notification(
 			$message,
-			array(
+			[
 				'type'         => Yoast_Notification::WARNING,
 				'id'           => 'wpseo-dismiss-onboarding-notice',
-				'capabilities' => 'manage_options',
+				'capabilities' => 'wpseo_manage_options',
 				'priority'     => 0.8,
-			)
+			]
 		);
 
 		return $notification;
@@ -241,28 +242,13 @@ class WPSEO_Configuration_Page {
 	 * @return bool
 	 */
 	private function should_add_notification() {
-		$options = $this->get_options();
-
-		return $options['show_onboarding_notice'] === true;
+		return ( WPSEO_Options::get( 'show_onboarding_notice' ) === true );
 	}
 
 	/**
 	 * Remove the options that triggers the notice for the configuration wizard.
 	 */
 	private function remove_notification_option() {
-		$options = $this->get_options();
-
-		$options['show_onboarding_notice'] = false;
-
-		update_option( 'wpseo', $options );
-	}
-
-	/**
-	 * Returns the set options
-	 *
-	 * @return mixed|void
-	 */
-	private function get_options() {
-		return get_option( 'wpseo' );
+		WPSEO_Options::set( 'show_onboarding_notice', false );
 	}
 }

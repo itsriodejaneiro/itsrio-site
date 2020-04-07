@@ -173,10 +173,6 @@ class Author extends Element
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $author_url = $this->url ? $this->url : null;
         $is_fb_author = strpos($author_url, 'facebook.com') !== false;
 

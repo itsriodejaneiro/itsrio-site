@@ -18,12 +18,12 @@ use Facebook\InstantArticles\Validators\Type;
  *
  * @see {link:https://developers.intern.facebook.com/docs/instant-articles/reference/body-text}
  */
-abstract class TextContainer extends Element implements Container
+abstract class TextContainer extends Element implements ChildrenContainer
 {
     /**
      * @var array The content is a list of strings and FormattingElements
      */
-    private $textChildren = [];
+    private $textChildren = array();
 
     /**
      * Adds content to the formatted text.
@@ -38,6 +38,14 @@ abstract class TextContainer extends Element implements Container
         $this->textChildren[] = $child;
 
         return $this;
+    }
+
+    /**
+     * Clears the text.
+     */
+    public function clearText()
+    {
+        $this->textChildren = array();
     }
 
     /**
@@ -69,7 +77,7 @@ abstract class TextContainer extends Element implements Container
                 $text = $document->createTextNode($content);
                 $fragment->appendChild($text);
             } else {
-                $fragment->appendChild($content->toDOMElement($document));
+                Element::appendChild($fragment, $content, $document);
             }
         }
 
@@ -78,6 +86,27 @@ abstract class TextContainer extends Element implements Container
         }
 
         return $fragment;
+    }
+
+    /**
+     * Build up a string with the content from children text container
+     *
+     * @return string the unformated plain text content from children
+     */
+    public function getPlainText()
+    {
+        $text = '';
+
+        // Generate markup
+        foreach ($this->textChildren as $content) {
+            if (Type::is($content, Type::STRING)) {
+                $text .= $content;
+            } else {
+                $text .= $content->getPlainText();
+            }
+        }
+
+        return $text;
     }
 
     /**
@@ -95,7 +124,9 @@ abstract class TextContainer extends Element implements Container
             if (Type::is($content, TextContainer::getClassName()) && $content->isValid()) {
                 return true;
             // If is string content, concat to check if it is not only a bunch of empty chars.
-            } elseif (Type::is($content, Type::STRING)) {
+            }
+
+            if (Type::is($content, Type::STRING)) {
                 $textContent = $textContent.$content;
             }
         }
@@ -104,9 +135,9 @@ abstract class TextContainer extends Element implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of TextContainer
      */
     public function getContainerChildren()

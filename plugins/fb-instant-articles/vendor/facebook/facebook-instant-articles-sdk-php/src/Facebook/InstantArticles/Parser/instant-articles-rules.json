@@ -57,6 +57,10 @@
                 "selector" : "i"
             },
             {
+                "class": "EmphasizedRule",
+                "selector" : "em"
+            },
+            {
                 "class": "BoldRule",
                 "selector" : "b"
             },
@@ -130,6 +134,10 @@
                 "selector" : "header"
             },
             {
+                "class": "FooterSmallRule",
+                "selector": "small"
+            },
+            {
                 "class": "FooterRule",
                 "selector" : "footer"
             },
@@ -187,6 +195,16 @@
                         "type" : "xpath",
                         "selector" : "//meta[@property='fb:use_automatic_ad_placement']",
                         "attribute": "content"
+                    },
+                    "article.recirculation.ad" : {
+                        "type" : "xpath",
+                        "selector" : "//meta[@property='fb:op-recirculation-ads']",
+                        "attribute": "content"
+                    },
+                    "article.style" : {
+                        "type" : "xpath",
+                        "selector": "//meta[@property='fb:article_style']",
+                        "attribute": "content"
                     }
 
                 }
@@ -236,6 +254,15 @@
             {
                 "class": "AuthorRule",
                 "selector" : "address",
+                "properties" : {
+                    "author.name" : {
+                        "type" : "string"
+                    }
+                }
+            },
+            {
+                "class": "AuthorRule",
+                "selector" : "//header/address[a]",
                 "properties" : {
                     "author.url" : {
                         "type" : "string",
@@ -438,11 +465,6 @@
                         "selector" : "img",
                         "attribute": "src"
                     },
-                    "image.like" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:likes']",
-                        "attribute": "data-feedback"
-                    },
                     "aspect-fit": {
                         "type": "exists",
                         "selector" : "figure[data-mode=aspect-fit]"
@@ -458,11 +480,6 @@
                     "non-interactive": {
                         "type": "exists",
                         "selector" : "figure[data-mode=non-interactive]"
-                    },
-                    "image.comments" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:comments']",
-                        "attribute": "data-feedback"
                     }
                 }
             },
@@ -506,16 +523,6 @@
                         "type": "exists",
                         "selector" : "video",
                         "attribute": "data-fb-disable-autoplay"
-                    },
-                    "video.like" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:likes']",
-                        "attribute": "data-feedback"
-                    },
-                    "video.comments" : {
-                        "type" : "exists",
-                        "selector" : "figure[data-feedback*='fb:comments']",
-                        "attribute": "data-feedback"
                     }
                 }
             },
@@ -525,7 +532,7 @@
             },
             {
                 "class": "GeoTagRule",
-                "selector" : "script.op-geotag",
+                "selector" : "script",
                 "properties" : {
                     "map.geotag" : {
                         "type" : "string",

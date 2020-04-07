@@ -15,7 +15,7 @@ namespace Facebook\InstantArticles\Elements;
  *     <li>Audio</li>
 *      <li>Image</li>
  *     <li>Video</li>
- *     <li>SlideShow</li>
+ *     <li>Slideshow</li>
  *     <li>Map</li>
  * </ul>.
  *
@@ -28,7 +28,7 @@ namespace Facebook\InstantArticles\Elements;
  * @see Audio
  * @see Image
  * @see Video
- * @see SlideShow
+ * @see Slideshow
  * @see Map
  * @see {link:https://developers.intern.facebook.com/docs/instant-articles/reference/animated-gif}
  */

@@ -1,7 +1,4 @@
-window.rwmb = window.rwmb || {};
-
-jQuery( function ( $ )
-{
+( function ( $, rwmb ) {
 	'use strict';
 
 	var views = rwmb.views = rwmb.views || {},
@@ -29,15 +26,18 @@ jQuery( function ( $ )
 		}
 	} );
 
-	/**
-	 * Initialize image fields
-	 * @return void
-	 */
-	function initVideoField()
-	{
-		new VideoField( { input: this, el: $( this ).siblings( 'div.rwmb-media-view' ) } );
+	function initVideoField() {
+		var $this = $( this ),
+			view = new VideoField( { input: this } );
+		$this.siblings( '.rwmb-media-view' ).remove();
+		$this.after( view.el );
 	}
-	$( ':input.rwmb-video' ).each( initVideoField );
-	$( '.rwmb-input' )
-		.on( 'clone', ':input.rwmb-video', initVideoField )
-} );
+
+	function init( e ) {
+		$( e.target ).find( '.rwmb-video' ).each( initVideoField );
+	}
+
+	rwmb.$document
+		.on( 'mb_ready', init )
+		.on( 'clone', '.rwmb-video', initVideoField );
+} )( jQuery, rwmb );

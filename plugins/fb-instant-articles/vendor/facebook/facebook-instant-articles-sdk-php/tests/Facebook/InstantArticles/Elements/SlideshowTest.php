@@ -8,22 +8,24 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class SlideshowTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class SlideshowTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
-        $slideshow = SlideShow::create();
+        $slideshow = Slideshow::create();
 
         $expected = '';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
     {
         $slideshow =
-            SlideShow::create()
+            Slideshow::create()
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home2.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home3.jpg'));
@@ -42,13 +44,13 @@ class SlideshowTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLikeAndComments()
     {
         $slideshow =
-            SlideShow::create()
+            Slideshow::create()
                 ->addImage(
                     Image::create()
                         ->withURL('https://jpeg.org/images/jpegls-home.jpg')
@@ -68,25 +70,25 @@ class SlideshowTest extends \PHPUnit_Framework_TestCase
 
         $expected =
             '<figure class="op-slideshow">'.
-                '<figure data-feedback="fb:likes">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home.jpg"/>'.
                 '</figure>'.
-                '<figure data-feedback="fb:comments">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home2.jpg"/>'.
                 '</figure>'.
-                '<figure data-feedback="fb:likes,fb:comments">'.
+                '<figure>'.
                     '<img src="https://jpeg.org/images/jpegls-home3.jpg"/>'.
                 '</figure>'.
             '</figure>';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithCaption()
     {
         $slideshow =
-            SlideShow::create()
+            Slideshow::create()
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home2.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home3.jpg'))
@@ -110,7 +112,7 @@ class SlideshowTest extends \PHPUnit_Framework_TestCase
             '</figure>';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithGeotag()
@@ -132,7 +134,7 @@ class SlideshowTest extends \PHPUnit_Framework_TestCase
 JSON;
 
         $slideshow =
-            SlideShow::create()
+            Slideshow::create()
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home2.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home3.jpg'))
@@ -155,7 +157,7 @@ JSON;
             '</figure>';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithAudio()
@@ -173,7 +175,7 @@ JSON;
             '</audio>';
 
         $slideshow =
-            SlideShow::create()
+            Slideshow::create()
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home2.jpg'))
                 ->addImage(Image::create()->withURL('https://jpeg.org/images/jpegls-home3.jpg'))
@@ -194,6 +196,6 @@ JSON;
             '</figure>';
 
         $rendered = $slideshow->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

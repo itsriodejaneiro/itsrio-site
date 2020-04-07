@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class BlockquoteTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class BlockquoteTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -32,7 +34,7 @@ class BlockquoteTest extends \PHPUnit_Framework_TestCase
             '</blockquote>';
 
         $rendered = $blockquote->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithBoldStrongItalicEm()
@@ -53,6 +55,6 @@ class BlockquoteTest extends \PHPUnit_Framework_TestCase
             '</blockquote>';
 
         $rendered = $blockquote->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

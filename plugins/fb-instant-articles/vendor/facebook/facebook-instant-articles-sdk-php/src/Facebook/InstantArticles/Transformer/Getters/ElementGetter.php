@@ -33,7 +33,7 @@ class ElementGetter extends AbstractGetter
     {
         $domXPath = new \DOMXPath($node->ownerDocument);
         $converter = new CssSelectorConverter();
-        $xpath = $converter->toXPath($selector);
+        $xpath = $converter->toXPath($selector === null ? "" : $selector);
         return $domXPath->query($xpath, $node);
     }
 
@@ -55,7 +55,7 @@ class ElementGetter extends AbstractGetter
         $elements = self::findAll($node, $this->selector);
         if (!empty($elements) && property_exists($elements, 'length') && $elements->length !== 0) {
             Transformer::markAsProcessed($elements->item(0));
-            return Transformer::cloneNode($elements->item(0));
+            return $elements->item(0);
         }
         return null;
     }

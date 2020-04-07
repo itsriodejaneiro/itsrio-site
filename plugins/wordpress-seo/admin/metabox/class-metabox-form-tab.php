@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin
  */
 
@@ -9,42 +11,58 @@
 class WPSEO_Metabox_Form_Tab implements WPSEO_Metabox_Tab {
 
 	/**
+	 * The tab identifier.
+	 *
 	 * @var string
 	 */
 	private $name;
 
 	/**
+	 * The tab content.
+	 *
 	 * @var string
 	 */
 	private $content;
 
 	/**
+	 * The tab link content.
+	 *
 	 * @var string
 	 */
 	private $link_content;
 
 	/**
+	 * Additional tab content class.
+	 *
 	 * @var string
 	 */
 	private $tab_class;
 
 	/**
+	 * Additional tab link class.
+	 *
 	 * @var string
 	 */
 	private $link_class;
 
 	/**
+	 * Title attribute on the link span.
+	 *
 	 * @var string
 	 */
 	private $link_title;
 
 	/**
+	 * Arial label attribute on the link span.
+	 *
 	 * @var string
 	 */
 	private $link_aria_label;
 
 	/**
-	 * @var boolean
+	 * Does it contain a single tab.
+	 *
+	 * @var bool
 	 */
 	private $single;
 
@@ -56,14 +74,15 @@ class WPSEO_Metabox_Form_Tab implements WPSEO_Metabox_Tab {
 	 * @param string $link_content The text content of the tab link.
 	 * @param array  $options      Optional link attributes.
 	 */
-	public function __construct( $name, $content, $link_content, array $options = array() ) {
-		$default_options = array(
+	public function __construct( $name, $content, $link_content, array $options = [] ) {
+		$default_options = [
 			'tab_class'       => '',
 			'link_class'      => '',
 			'link_title'      => '',
 			'link_aria_label' => '',
 			'single'          => false,
-		);
+		];
+
 		$options = array_merge( $default_options, $options );
 
 		$this->name            = $name;
@@ -92,10 +111,10 @@ class WPSEO_Metabox_Form_Tab implements WPSEO_Metabox_Tab {
 		return sprintf(
 			$html,
 			esc_attr( $this->name ),
-			( '' !== $this->tab_class ) ? ' ' . esc_attr( $this->tab_class ) : '',
-			( '' !== $this->link_class ) ? ' ' . esc_attr( $this->link_class ) : '',
-			( '' !== $this->link_title ) ? ' title="' . esc_attr( $this->link_title ) . '"' : '',
-			( '' !== $this->link_aria_label ) ? ' aria-label="' . esc_attr( $this->link_aria_label ) . '"' : '',
+			( $this->tab_class !== '' ) ? ' ' . esc_attr( $this->tab_class ) : '',
+			( $this->link_class !== '' ) ? ' ' . esc_attr( $this->link_class ) : '',
+			( $this->link_title !== '' ) ? ' title="' . esc_attr( $this->link_title ) . '"' : '',
+			( $this->link_aria_label !== '' ) ? ' aria-label="' . esc_attr( $this->link_aria_label ) . '"' : '',
 			$this->link_content
 		);
 	}
@@ -107,7 +126,8 @@ class WPSEO_Metabox_Form_Tab implements WPSEO_Metabox_Tab {
 	 */
 	public function content() {
 		return sprintf(
-			'<div id="wpseo_%1$s" class="wpseotab %1$s">%2$s</div>',
+			'<div id="%1$s" class="wpseotab %2$s">%3$s</div>',
+			esc_attr( 'wpseo_' . $this->name ),
 			esc_attr( $this->name ),
 			$this->content
 		);

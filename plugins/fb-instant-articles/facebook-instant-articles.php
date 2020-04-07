@@ -4,7 +4,7 @@
  * Description: Add support for Instant Articles for Facebook to your WordPress site.
  * Author: Automattic, Dekode, Facebook
  * Author URI: https://vip.wordpress.com/plugins/instant-articles/
- * Version: 3.3.3
+ * Version: 4.2.0
  * Text Domain: instant-articles
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,60 +12,35 @@
  * @package default
  */
 
+/**
+* Prints error about incompatible version. Extracted as function issue: #390
+*
+* @since 3.3.4
+*/
+function show_version_incompatible_warning() {
+	echo '<div class="error"><p>' .
+		esc_html__( 'Instant Articles for WP requires PHP 5.4 to function properly. Please upgrade PHP or deactivate Instant Articles for WP.', 'instant-articles' ) . '</p></div>';
+}
 if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 	add_action(
 		'admin_notices',
-		function () {
-			echo '<div class="error"><p>' .
-				esc_html__( 'Instant Articles for WP requires PHP 5.4 to function properly. Please upgrade PHP or deactivate Instant Articles for WP.', 'instant-articles' ) . '</p></div>';
-		}
+		'show_version_incompatible_warning'
 	);
 	return;
 } else {
 
 	$autoloader = require __DIR__ . '/vendor/autoload.php';
 	$autoloader->add( 'Facebook\\', __DIR__ . '/vendor/facebook/facebook-instant-articles-sdk-php/src' );
-
-	// Configures log to go through console.
-	\Logger::configure(
-		array(
-			'rootLogger' => array(
-				'appenders' => array( 'facebook-instantarticles-transformer' ),
-			),
-			'appenders' => array(
-				'facebook-instantarticles-transformer' => array(
-					'class' => 'LoggerAppenderConsole',
-					'threshold' => 'INFO',
-					'layout' => array(
-						'class' => 'LoggerLayoutSimple',
-					),
-				),
-				'facebook-instantarticles-client' => array(
-					'class' => 'LoggerAppenderConsole',
-					'threshold' => 'INFO',
-					'layout' => array(
-						'class' => 'LoggerLayoutSimple',
-					),
-				),
-				'instantarticles-wp-plugin' => array(
-					'class' => 'LoggerAppenderConsole',
-					'threshold' => 'INFO',
-					'layout' => array(
-						'class' => 'LoggerLayoutSimple',
-					),
-				),
-			),
-		)
-	);
-
+	$autoloader->add( 'Facebook\\', __DIR__ . '/vendor/facebook/facebook-instant-articles-sdk-extensions-in-php/src' );
 
 	defined( 'ABSPATH' ) || die( 'Shame on you' );
 
-	define( 'IA_PLUGIN_VERSION', '3.3.3' );
+	define( 'IA_PLUGIN_VERSION', '4.2.0' );
 	define( 'IA_PLUGIN_PATH_FULL', __FILE__ );
 	define( 'IA_PLUGIN_PATH', plugin_basename( __FILE__ ) );
 	define( 'IA_PLUGIN_FILE_BASENAME', pathinfo( __FILE__, PATHINFO_FILENAME ) );
 	define( 'IA_PLUGIN_TEXT_DOMAIN', 'instant-articles' );
+	define( 'IA_PLUGIN_FORCE_SUBMIT_KEY', 'instant_articles_force_submit' );
 
 	// Let users define their own feed slug.
 	if ( ! defined( 'INSTANT_ARTICLES_SLUG' ) ) {
@@ -76,7 +51,8 @@ if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 	require_once( dirname( __FILE__ ) . '/class-instant-articles-post.php' );
 	require_once( dirname( __FILE__ ) . '/wizard/class-instant-articles-wizard.php' );
 	require_once( dirname( __FILE__ ) . '/meta-box/class-instant-articles-meta-box.php' );
-	require_once( dirname( __FILE__ ) . '/class-instant-articles-publisher.php' );
+	require_once( dirname( __FILE__ ) . '/class-instant-articles-amp-markup.php' );
+	require_once( dirname( __FILE__ ) . '/class-instant-articles-signer.php' );
 
 	/**
 	 * Plugin activation hook to add our rewrite rules.
@@ -96,7 +72,7 @@ if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 	add_action( 'network_admin_notices', 'instant_articles_setup_admin_notice' ); // also show message on multisite
 	function instant_articles_setup_admin_notice() {
 		global $pagenow;
-		if ( $pagenow === 'plugins.php' && Instant_Articles_Wizard_State::get_current_state() !== Instant_Articles_Wizard_State::STATE_REVIEW_SUBMISSION ) {
+		if ( $pagenow === 'plugins.php' && ! Instant_Articles_Option_FB_Page::get_option_decoded()[ "page_id" ] ) {
 			$settings_url = Instant_Articles_Wizard::get_url();
 			echo '<div class="updated settings-error notice is-dismissible">';
 			echo '<p>Congrats, you\'ve installed the Instant Articles for WP plugin. Now <a href="' . esc_url_raw($settings_url) . '">set it up</a> to start publishing Instant Articles.';
@@ -253,55 +229,68 @@ if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 	function instant_articles_register_scripts() {
 		wp_register_style(
 			'instant-articles-meta-box',
-			plugins_url( '/css/instant-articles-meta-box.css', __FILE__ )
+			plugins_url( '/css/instant-articles-meta-box.css', __FILE__ ),
+			null,
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_style(
 			'instant-articles-settings',
-			plugins_url( '/css/instant-articles-settings.css', __FILE__ )
+			plugins_url( '/css/instant-articles-settings.css', __FILE__ ),
+			null,
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_style(
 			'instant-articles-wizard',
-			plugins_url( '/css/instant-articles-wizard.css', __FILE__ )
+			plugins_url( '/css/instant-articles-wizard.css', __FILE__ ),
+			null,
+			IA_PLUGIN_VERSION,
+			false
 		);
+		wp_register_style(
+			'instant-articles-index-column',
+			plugins_url( '/css/instant-articles-index-column.css', __FILE__ ),
+			null,
+			IA_PLUGIN_VERSION,
+			false
+		);
+
 
 		wp_register_script(
 			'instant-articles-meta-box',
-			plugins_url( '/js/instant-articles-meta-box.js', __FILE__ )
+			plugins_url( '/js/instant-articles-meta-box.js', __FILE__ ),
+			null,
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_script(
 			'instant-articles-option-ads',
 			plugins_url( '/js/instant-articles-option-ads.js', __FILE__ ),
 			null,
-			null,
-			true
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_script(
 			'instant-articles-option-analytics',
 			plugins_url( '/js/instant-articles-option-analytics.js', __FILE__ ),
 			null,
-			null,
-			true
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_script(
 			'instant-articles-option-publishing',
 			plugins_url( '/js/instant-articles-option-publishing.js', __FILE__ ),
 			null,
-			null,
-			true
+			IA_PLUGIN_VERSION,
+			false
 		);
 		wp_register_script(
 			'instant-articles-settings',
 			plugins_url( '/js/instant-articles-settings.js', __FILE__ ),
 			null,
-			null,
-			true
-		);
-		wp_register_script(
-			'instant-articles-wizard',
-			plugins_url( '/js/instant-articles-wizard.js', __FILE__ ),
-			null,
-			null,
-			true
+			IA_PLUGIN_VERSION,
+			false
 		);
 	}
 	add_action( 'init', 'instant_articles_register_scripts' );
@@ -316,6 +305,7 @@ if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 		wp_enqueue_style( 'instant-articles-settings-wizard' );
 		wp_enqueue_style( 'instant-articles-settings' );
 		wp_enqueue_style( 'instant-articles-wizard' );
+		wp_enqueue_style( 'instant-articles-index-column' );
 
 		wp_enqueue_script( 'instant-articles-meta-box' );
 		wp_enqueue_script( 'instant-articles-option-ads' );
@@ -336,20 +326,261 @@ if ( version_compare( PHP_VERSION, '5.4', '<' ) ) {
 		$publishing_settings = Instant_Articles_Option_Publishing::get_option_decoded();
 		$fb_page_settings = Instant_Articles_Option_FB_Page::get_option_decoded();
 
-		if ( isset( $fb_page_settings['page_id'] ) ) {
+		if ( isset( $fb_page_settings[ 'page_id' ] ) ) {
 			?>
-			<meta property="fb:pages" content="<?php echo esc_attr( $fb_page_settings['page_id'] ); ?>" />
+			<meta property="fb:pages" content="<?php echo esc_attr( $fb_page_settings[ 'page_id' ] ); ?>" />
 			<?php
 		}
 	}
 	add_action( 'wp_head', 'inject_url_claiming_meta_tag' );
 
+	/**
+	 * Automatically add meta tag for Instant Articles Open Publish scraper
+	 *
+	 * @since 4.0
+	 */
+	function inject_ia_markup_meta_tag() {
+		$post = get_post();
+
+		// If there's no current post, return
+		if ( ! $post ) {
+			return;
+		}
+
+		// Transform the post to an Instant Article.
+		$adapter = new Instant_Articles_Post( $post );
+		if ( $adapter->should_submit_post() ) {
+			$url = $adapter->get_canonical_url();
+			$url = add_query_arg( 'ia_markup', '1', $url );
+			$fb_page_settings = Instant_Articles_Option_FB_Page::get_option_decoded();
+			$publishing_settings = Instant_Articles_Option_Publishing::get_option_decoded();
+			$dev_mode = isset( $publishing_settings['dev_mode'] )
+				? ( $publishing_settings['dev_mode'] ? true : false )
+				: false;
+
+			if ( $dev_mode ) {
+				?>
+				<meta property="ia:markup_url_dev" content="<?php echo esc_attr( $url ); ?>" />
+				<?php
+			} else {
+				?>
+				<meta property="ia:markup_url" content="<?php echo esc_attr( $url ); ?>" />
+				<?php
+			}
+		}
+	}
+	add_action( 'wp_head', 'inject_ia_markup_meta_tag' );
+
+	// Injects the <link rel...> tag if the AMP Markup is enabled
+	add_action( 'wp_head', array('Instant_Articles_AMP_Markup', 'inject_link_rel') );
+
 	// Initialize the Instant Articles meta box.
 	Instant_Articles_Meta_Box::init();
 
-	// Initialize the Instant Articles publisher.
-	Instant_Articles_Publisher::init();
+	function ia_markup_version( ) {
+		$post = get_post();
 
-	// Initialize the Instant Articles Wizard page.
+		if (isset( $_GET[ 'ia_markup' ] ) && $_GET[ 'ia_markup' ]) {
+			// Transform the post to an Instant Article.
+			$adapter = new Instant_Articles_Post( $post );
+			$article = $adapter->to_instant_article();
+			echo $article->render( null, true );
+
+			die();
+		}
+	}
+	add_action( 'wp', 'ia_markup_version' );
+
+	// Add hook for generating the AMP markup
+	add_action( 'wp', array('Instant_Articles_AMP_Markup', 'markup_version') );
+
 	Instant_Articles_Wizard::init();
+	Instant_Articles_Signer::init();
+
+	function invalidate_post_transformation_info_cache( $post_id, $post ) {
+		// These post metas are caches on the calculations made to decide if
+		// a post is in good state to be converted to an Instant Article or not
+		delete_post_meta( $post_id, '_has_warnings_after_transformation' );
+		delete_post_meta( $post_id, '_is_empty_after_transformation' );
+	}
+	add_action( 'save_post', 'invalidate_post_transformation_info_cache', 10, 2 );
+
+	// We also need to invalidate the transformation caches when the option containing
+	// the custom transformer rules is updated
+	function invalidate_all_posts_transformation_info_cache( $option ) {
+		if ( $option === Instant_Articles_Option_Publishing::OPTION_KEY ) {
+			// These post metas are caches on the calculations made to decide if
+			// a post is in good state to be converted to an Instant Article or not
+			delete_post_meta_by_key( '_has_warnings_after_transformation' );
+			delete_post_meta_by_key( '_is_empty_after_transformation' );
+		}
+	}
+	add_action( 'updated_option', 'invalidate_all_posts_transformation_info_cache', 10, 1 );
+
+	function fbia_indicator_column_heading( $columns ) {
+		$publishing_settings = Instant_Articles_Option_Publishing::get_option_decoded();
+		$display_warning_column = $publishing_settings[ 'display_warning_column' ];
+
+		if( "1" === $display_warning_column ) {
+			$columns[ 'FBIA' ] = "<span title='Facebook Instant Article Distribution Status' class='fbia-col-heading'>FB IA Status</span>";
+		}
+		return $columns;
+	}
+	add_filter( 'manage_posts_columns', 'fbia_indicator_column_heading' );
+
+	function fbia_indication_column( $column_name, $post_ID ) {
+		$publishing_settings = Instant_Articles_Option_Publishing::get_option_decoded();
+		$display_warning_column = $publishing_settings[ 'display_warning_column' ];
+
+		if( "1" === $display_warning_column ) {
+			$red_light = '<span title="Instant article is empty after transformation." class="instant-articles-col-status error"></span>';
+
+			$yellow_light = '<span title="Instant article has warnings after transformation." class="instant-articles-col-status warning"></span>';
+
+			$green_light = '<span title="Instant article transformed successfully." class="instant-articles-col-status ok"></span>';
+
+			if ( $column_name === "FBIA" ) {
+				$post = get_post( $post_ID );
+				$instant_articles_post = new \Instant_Articles_Post( $post );
+
+				$is_empty = $instant_articles_post->is_empty_after_transformation();
+				if ( true === $is_empty ) {
+					echo wp_kses_post( $red_light );
+					return;
+				}
+
+				$has_warnings = $instant_articles_post->has_warnings_after_transformation();
+				if ( true === $has_warnings ) {
+					echo wp_kses_post( $yellow_light );
+					return;
+				}
+
+				echo wp_kses_post( $green_light );
+
+				return;
+			}
+		}
+	}
+	add_action( 'manage_posts_custom_column', 'fbia_indication_column', 10, 2 );
+
+	function invalidate_scrape_on_update( $post_ID, $post_after, $post_before ) {
+		$adapter = new Instant_Articles_Post( $post_after );
+		if ( $adapter->should_submit_post() ) {
+			$fb_app_settings = Instant_Articles_Option_FB_App::get_option_decoded();
+			if (
+				( isset( $fb_app_settings[ 'page_access_token' ] ) && $fb_app_settings[ 'page_access_token' ] ) &&
+				( isset( $fb_app_settings[ 'app_id' ] ) && $fb_app_settings[ 'app_id' ] ) &&
+				( isset( $fb_app_settings[ 'app_secret' ] ) && $fb_app_settings[ 'app_secret' ] )
+			) {
+				// Fetches the right URL to invalidate
+				$url = $adapter->get_canonical_url();
+
+				// oAuth info
+				$app_id = $fb_app_settings[ 'app_id' ];
+				$app_secret = $fb_app_settings[ 'app_secret' ];
+				$access_token = $fb_app_settings[ 'page_access_token' ];
+
+				// Build Graph SDK instance
+				$fb = new \Facebook\Facebook([
+					'app_id' => $app_id,
+					'app_secret' => $app_secret,
+					'default_access_token' => $access_token
+				]);
+
+				function admin_notice__scrape_invalidation_failed() {
+					?>
+					<div class="notice notice-error is-dismissible">
+						<p>
+							<?php _e( 'It was not possible to automatically invalidate the scrape for this article.', IA_PLUGIN_TEXT_DOMAIN ) ?>
+							<?php _e( 'Please trigger a new scrape manually using the Facebook Share Debugger.', IA_PLUGIN_TEXT_DOMAIN ) ?>
+						</p>
+					</div>
+					<?php
+				}
+
+				function admin_notice__scrape_invalidation_success() {
+					?>
+					<div class="notice notice-success is-dismissible">
+						<p>
+							<?php _e( 'Successfully refreshed the Instant Articles cache for this article.', IA_PLUGIN_TEXT_DOMAIN ) ?>
+						</p>
+					</div>
+					<?php
+				}
+
+
+				// Make call
+				$graph_api_call = '/';
+				$graph_api_call = add_query_arg( 'id', rawurlencode($url), $graph_api_call);
+				$graph_api_call = add_query_arg( 'scrape', 'true', $graph_api_call);
+
+				try {
+					$fb->post( $graph_api_call, [], $access_token );
+					add_action( 'admin_notices', 'admin_notice__scrape_invalidation_success' );
+
+				} catch(Facebook\Exceptions\FacebookResponseException $e) {
+					echo '<pre>';
+					print_r($e->getTraceAsString());
+
+					add_action( 'admin_notices', 'admin_notice__scrape_invalidation_failed' );
+				} catch(Facebook\Exceptions\FacebookSDKException $e) {
+
+					add_action( 'admin_notices', 'admin_notice__scrape_invalidation_failed' );
+				}
+			}
+		}
+	}
+	add_action( 'post_updated', 'invalidate_scrape_on_update', 10, 3 );
+
+	function rescrape_article( $post_id, $post ) {
+		$adapter = new Instant_Articles_Post( $post );
+		$old_slugs = get_post_meta( $post_id, '_wp_old_slug' );
+		if ( $adapter->should_submit_post() ) {
+			$fb_app_settings = Instant_Articles_Option_FB_App::get_option_decoded();
+			if (
+				( isset( $fb_app_settings[ 'page_access_token' ] ) && $fb_app_settings[ 'page_access_token' ] ) &&
+				( isset( $fb_app_settings[ 'app_id' ] ) && $fb_app_settings[ 'app_id' ] ) &&
+				( isset( $fb_app_settings[ 'app_secret' ] ) && $fb_app_settings[ 'app_secret' ] )
+			) {
+				// Defer to access_token if configured to ensure backwards compatibility
+				return;
+			}
+
+			try {
+				if ( extension_loaded('openssl') ) {
+					$client = Facebook\HttpClients\HttpClientsFactory::createHttpClient( null );
+					$url_encoded = urlencode($adapter->get_canonical_url());
+					$client->send(
+						Instant_Articles_Signer::sign_request_path(
+							"https://graph.facebook.com/?id=$url_encoded&scrape=true"
+						),
+						'POST',
+						'',
+						array(),
+						60
+					);
+					foreach ( $old_slugs as $slug ) {
+						$clone_post = clone $post;
+						$clone_post->post_name = $slug;
+						$clone_adapter = new Instant_Articles_Post( $clone_post );
+
+						$url_encoded = urlencode($clone_adapter->get_canonical_url());
+						$client->send(
+							Instant_Articles_Signer::sign_request_path(
+								"https://graph.facebook.com/?id=$url_encoded&scrape=true"
+							),
+							'POST',
+							'',
+							array(),
+							60
+						);
+					}
+				}
+			} catch ( Exception $e ) {
+				error_log( 'Unable to submit article.'.$e->getTraceAsString()	);
+			}
+		}
+	}
+	add_action( 'save_post', 'rescrape_article', 999, 2 );
+
 }

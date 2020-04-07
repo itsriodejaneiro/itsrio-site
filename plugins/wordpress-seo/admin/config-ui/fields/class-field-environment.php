@@ -1,36 +1,39 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin\ConfigurationUI
  */
 
 /**
- * Class WPSEO_Config_Field_Environment
+ * Class WPSEO_Config_Field_Environment.
  */
 class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
+
 	/**
 	 * WPSEO_Config_Field_Environment constructor.
 	 */
 	public function __construct() {
 		parent::__construct( 'environment_type' );
 
-		/* Translators: %1$s resolves to the home_url of the blog. */
-		$this->set_property( 'label', sprintf( __( 'Please specify the environment in which this site - %1$s - is running.', 'wordpress-seo' ), get_home_url() ) );
+		$this->set_property( 'label', __( 'Please specify if your site is under construction or already active.', 'wordpress-seo' ) );
 
-		$this->add_choice( 'production', __( 'Production (this is a live site with real traffic)', 'wordpress-seo' ) );
-		$this->add_choice( 'staging', __( 'Staging (this is a copy of a live site used for testing purposes only)', 'wordpress-seo' ) );
-		$this->add_choice( 'development', __( 'Development (this site is running locally for development purposes)', 'wordpress-seo' ) );
+		$this->set_property( 'description', __( 'Choose under construction if you want to keep the site out of the index of search engines. Don\'t forget to activate it once you\'re ready to publish your site.', 'wordpress-seo' ) );
+
+		$this->add_choice( 'production', __( 'Option A: My site is live and ready to be indexed', 'wordpress-seo' ) );
+		$this->add_choice( 'staging', __( 'Option B: My site is under construction and should not be indexed', 'wordpress-seo' ) );
 	}
 
 	/**
-	 * Set adapter
+	 * Set adapter.
 	 *
 	 * @param WPSEO_Configuration_Options_Adapter $adapter Adapter to register lookup on.
 	 */
 	public function set_adapter( WPSEO_Configuration_Options_Adapter $adapter ) {
 		$adapter->add_custom_lookup(
 			$this->get_identifier(),
-			array( $this, 'get_data' ),
-			array( $this, 'set_data' )
+			[ $this, 'get_data' ],
+			[ $this, 'set_data' ]
 		);
 	}
 
@@ -40,9 +43,7 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 	 * @return string The value for the environment_type wpseo option.
 	 */
 	public function get_data() {
-		$option = WPSEO_Options::get_option( 'wpseo' );
-
-		return $option['environment_type'];
+		return WPSEO_Options::get( 'environment_type' );
 	}
 
 	/**
@@ -53,19 +54,15 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 	 * @return bool Returns whether the value is successfully set.
 	 */
 	public function set_data( $environment_type ) {
-		$option = WPSEO_Options::get_option( 'wpseo' );
-
-		if ( $option['environment_type'] !== $environment_type ) {
-			$option['environment_type'] = $environment_type;
-			update_option( 'wpseo', $option );
+		$return = true;
+		if ( $this->get_data() !== $environment_type ) {
+			$return = WPSEO_Options::set( 'environment_type', $environment_type );
 			if ( ! $this->set_indexation( $environment_type ) ) {
 				return false;
 			}
 		}
 
-		$saved_environment_option = WPSEO_Options::get_option( 'wpseo' );
-
-		return ( $saved_environment_option['environment_type'] === $option['environment_type'] );
+		return $return;
 	}
 
 	/**
@@ -88,8 +85,7 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 
 			return true;
 		}
-		$saved_blog_public_value = get_option( 'blog_public' );
 
-		return ( $saved_blog_public_value === $new_blog_public_value );
+		return ( get_option( 'blog_public' ) === $new_blog_public_value );
 	}
 }

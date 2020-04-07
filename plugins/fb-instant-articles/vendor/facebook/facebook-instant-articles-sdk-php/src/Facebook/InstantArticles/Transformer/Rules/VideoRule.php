@@ -53,7 +53,7 @@ class VideoRule extends ConfigurationSelectorRule
                 foreach ($node->childNodes as $child) {
                     $domXPath = new \DOMXPath($child->ownerDocument);
                     $converter = new CssSelectorConverter();
-                    $xpath = $converter->toXPath($this->childSelector);
+                    $xpath = $converter->toXPath($this->childSelector === null ? "" : $this->childSelector);
                     $results = $domXPath->query($xpath, $node);
                     foreach ($results as $result) {
                         if ($result === $child) {

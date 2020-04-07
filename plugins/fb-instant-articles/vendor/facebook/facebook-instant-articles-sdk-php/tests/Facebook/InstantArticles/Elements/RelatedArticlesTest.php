@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class RelatedArticlesTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class RelatedArticlesTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -18,7 +20,7 @@ class RelatedArticlesTest extends \PHPUnit_Framework_TestCase
         $expected = '';
 
         $rendered = $element->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderBasic()
@@ -37,7 +39,7 @@ class RelatedArticlesTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $element->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTitle()
@@ -57,6 +59,6 @@ class RelatedArticlesTest extends \PHPUnit_Framework_TestCase
             '</ul>';
 
         $rendered = $element->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

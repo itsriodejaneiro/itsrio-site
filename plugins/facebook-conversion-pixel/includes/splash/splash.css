@@ -1,0 +1,93 @@
+#wpwrap {
+	background-color: #fdfdfd;
+}
+#wpcontent {
+	padding: 0 !important;
+}
+#wpfooter {
+	
+}
+#fca-logo-wrapper {
+	padding: 10px 0 10px 0;
+	width: 100%;
+	border-bottom: solid 1px #d5d5d5;
+}
+#fca-logo-wrapper-inner {
+	
+	max-width: 600px;
+	width: 100%;
+	margin: auto;	
+}
+#fca-splash {
+	max-width: 900px;
+	width: 100%;
+	margin: auto;
+	background-color: #fdfdfd;
+
+	text-align: center;
+}
+#fca-splash h1 {
+	margin-top: 40px;
+	margin-bottom: 25px;
+	font-size: 26px;
+}
+#fca-splash-main {
+	padding-bottom: 0;
+}
+#fca-splash-permissions-toggle {
+	font-size: 12px;
+}
+
+#fca-splash-permissions-dropdown h3 {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+#fca-splash-permissions-dropdown p {
+	margin-top: 0;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+#fca-splash-main-text {
+	font-size: 16px;
+	padding:0;
+	margin:0;
+}
+#fca-splash-footer {
+	width: 100%;
+	padding: 15px 0;
+	border-top: 1px solid #d5d5d5;
+	border-bottom: 1px solid #d5d5d5;
+	font-size: 10px;
+	text-align: center;
+	margin-top: 238px;
+}
+#fca-pc-optout-btn{
+	background:none !important;
+	border:none; 
+	padding:0 !important;
+	font: inherit;
+	/*border is optional*/
+	color: #7f7f7f;
+	border-bottom:1px solid #7f7f7f; 
+	cursor: pointer;
+	margin-bottom: 40px;
+	font-size: 14px;
+}
+#fca-pc-submit-btn{
+	width: 180px;
+	height: 40px;
+	margin: 30px;
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+.fca-splash-box {
+	width: 100%;
+	max-width: 600px;
+	background-color: #ffffff;
+	border: solid 1px #d5d5d5;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 15px;
+	
+}

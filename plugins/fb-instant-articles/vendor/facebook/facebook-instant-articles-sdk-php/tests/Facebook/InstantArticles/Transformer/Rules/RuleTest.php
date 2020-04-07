@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Transformer\Rules;
 
-class RuleTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class RuleTest extends TestCase
 {
     public function testCreateFromPropertiesThrowsException()
     {

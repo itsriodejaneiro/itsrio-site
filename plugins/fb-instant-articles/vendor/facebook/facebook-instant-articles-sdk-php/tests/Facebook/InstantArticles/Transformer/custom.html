@@ -50,6 +50,31 @@
         <script>alert('hi & hello to you @ testing!');</script>
       </iframe>
     </div>
+    <div class="ad">
+        <iframe src="https://www.adserver.com/ss;adtype=banner300x250"></iframe>
+    </div>
+    <div class="ad">
+        <iframe height="300" width="250">
+        <script>
+          window.addEventListener('message', receiveMessage);
+
+          function receiveMessage(event) {
+            if (event.data === 'enters_viewport') {
+              // ad entered viewport
+            }
+          }
+        </script>
+        </iframe>
+    </div>
+    <div class="analytics">
+        <iframe src="https://www.myserver.com/trackingcode"></iframe>
+    </div>
+    <div class="analytics">
+      <iframe>
+        <!-- Include full analytics code here -->
+        <script>alert('testing analytics!');</script>
+      </iframe>
+    </div>
     <table width="200" height="200">
       <thead>
         <td>header 1</td>
@@ -217,5 +242,30 @@
       <img class="wp-image-22553 size-large" src="http://example.com/image.jpg" alt="alt text" width="800" height="552" srcset="http://example.com/image-800.jpg 800w, http://example.com/image-400.jpg 400w, http://example.com/image-768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" />
       <p class="wp-caption-text">caption</p>
     </div>
+    <div class="image-with-credit-and-caption">
+        <a href="http://example.com/image.jpg">
+            <img src="http://example.com/image.jpg"/>
+        </a>
+        <p class="caption">caption <i><b>bold italic</b></i> and <a href="http://domain.com">link</a></p>
+        <p class="credit">photo credit <i><b>bold italic</b></i> and <a href="http://domain.com">link</a></p>
+    </div>
+    <div class="image-with-credit-only">
+        <a href="http://example.com/credit-image.jpg">
+            <img src="http://example.com/credit-image.jpg"/>
+        </a>
+        <p class="credit">photo ONLY credit <i><b>bold italic</b></i> and <a href="http://domain.com">link</a></p>
+    </div>
+    <p>
+        <img src="http://example.com/image-inside-p.jpg"/>
+    </p>
+    <p>
+        <a>
+            <img src="http://example.com/image-inside-p-a.jpg"/>
+        </a>
+    </p>
+    <ul class="related-articles" title="Related Articles">
+        <li><a href="http://example.com/related-1.html"></a></li>
+        <li><a href="http://example.com/related-2.html"></a></li>
+    </ul>
   </body>
 </html>

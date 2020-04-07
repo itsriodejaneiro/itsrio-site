@@ -14,21 +14,22 @@ use Facebook\InstantArticles\Elements\Image;
 use Facebook\InstantArticles\Elements\Header;
 use Facebook\InstantArticles\Elements\Footer;
 use Facebook\InstantArticles\Elements\Paragraph;
-use Facebook\InstantArticles\Elements\SlideShow;
+use Facebook\InstantArticles\Elements\Slideshow;
 use Facebook\InstantArticles\Elements\InstantArticle;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test unit against InstantArticleValidator
  * @see InstantArticleValidator
  */
-class InstantArticleValidatorTest extends \PHPUnit_Framework_TestCase
+class InstantArticleValidatorTest extends TestCase
 {
     public function testInstantArticle()
     {
         $article =
             InstantArticle::create()
                 // Warning 1 - Invalid canonicalURL
-                ->withCanonicalUrl('')
+                ->withCanonicalURL('')
                 // Warning 2 - Invalid empty header
                 ->withHeader(Header::create())
                 // Paragraph1
@@ -55,7 +56,7 @@ class InstantArticleValidatorTest extends \PHPUnit_Framework_TestCase
 
                 // Slideshow
                 ->addChild(
-                    SlideShow::create()
+                    Slideshow::create()
                         ->addImage(
                             Image::create()
                                 ->withURL('https://jpeg.org/images/jpegls-home.jpg')
@@ -113,7 +114,7 @@ class InstantArticleValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
 
         $warnings = InstantArticleValidator::check($article);
-        $this->assertEquals(9, count($warnings));
+        $this->assertCount(9, $warnings);
     }
 
     public function testFooter()
@@ -125,7 +126,7 @@ class InstantArticleValidatorTest extends \PHPUnit_Framework_TestCase
 
         $warnings = array();
         InstantArticleValidator::getReport(array($footer), $warnings);
-        $this->assertEquals(1, count($warnings));
+        $this->assertCount(1, $warnings);
         $this->assertContains('Footer must have at least one of the', $warnings[0]->__toString());
     }
 }

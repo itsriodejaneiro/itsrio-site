@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Admin
  */
 
@@ -9,11 +11,8 @@
 abstract class WPSEO_Recalculate {
 
 	/**
-	 * @var array The options stored in the database
-	 */
-	protected $options;
-
-	/**
+	 * Recalculations per page.
+	 *
 	 * @var int
 	 */
 	protected $items_per_page = 20;
@@ -26,7 +25,7 @@ abstract class WPSEO_Recalculate {
 	abstract public function save_scores( array $scores );
 
 	/**
-	 * Gets the items and parses it to an response
+	 * Gets the items and parses it to an response.
 	 *
 	 * @param integer $paged The current page number.
 	 *
@@ -35,7 +34,7 @@ abstract class WPSEO_Recalculate {
 	abstract protected function get_items( $paged );
 
 	/**
-	 * Maps the items to an array for the response
+	 * Maps the items to an array for the response.
 	 *
 	 * @param mixed $item Object with data to parse.
 	 *
@@ -43,19 +42,17 @@ abstract class WPSEO_Recalculate {
 	 */
 	abstract protected function item_to_response( $item );
 
-
 	/**
-	 * Gets the items to recalculate
+	 * Gets the items to recalculate.
 	 *
 	 * @param int $paged The current page number.
 	 *
 	 * @return array Items that can be recalculated.
 	 */
 	public function get_items_to_recalculate( $paged ) {
-		$return = array();
+		$return = [];
 
 		$paged = abs( $paged );
-		$this->options = WPSEO_Options::get_all();
 
 		$items = $this->get_items( $paged );
 
@@ -70,14 +67,14 @@ abstract class WPSEO_Recalculate {
 	}
 
 	/**
-	 * Parse the posts|terms with the value we need
+	 * Parse the posts|terms with the value we need.
 	 *
 	 * @param array $items The items to parse.
 	 *
 	 * @return array
 	 */
 	protected function parse_items( array $items ) {
-		$return = array();
+		$return = [];
 		foreach ( $items as $item ) {
 			$response = $this->item_to_response( $item );
 			if ( ! empty( $response ) ) {
@@ -89,7 +86,7 @@ abstract class WPSEO_Recalculate {
 	}
 
 	/**
-	 * Get default from the options for given field
+	 * Get default from the options for given field.
 	 *
 	 * @param string $field  The field for which to get the default options.
 	 * @param string $suffix The post type.
@@ -98,8 +95,8 @@ abstract class WPSEO_Recalculate {
 	 */
 	protected function default_from_options( $field, $suffix ) {
 		$target_option_field = $field . '-' . $suffix;
-		if ( ! empty( $this->options[ $target_option_field ] ) ) {
-			return $this->options[ $target_option_field ];
+		if ( WPSEO_Options::get( $target_option_field, '' ) !== '' ) {
+			return WPSEO_Options::get( $target_option_field );
 		}
 
 		return false;

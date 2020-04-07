@@ -118,7 +118,7 @@ abstract class ConfigurationSelectorRule extends Rule
             $xpath = $this->selector;
         } else {
             $converter = new CssSelectorConverter();
-            $xpath = $converter->toXPath($this->selector);
+            $xpath = $converter->toXPath($this->selector === null ? "" : $this->selector);
         }
 
         $results = $domXPath->query($xpath);

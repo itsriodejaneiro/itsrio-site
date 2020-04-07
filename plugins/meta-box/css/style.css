@@ -1,32 +1,35 @@
-/* =Styles for 'normal' meta boxes
+/* Styles for 'normal' meta boxes
 -------------------------------------------------------------- */
 
 /* Clearfix for field */
-.rwmb-field:before,
 .rwmb-field:after {
 	content: " ";
 	display: table;
-}
-.rwmb-field:after {
 	clear: both;
 }
-.rwmb-field {
-	*zoom: 1;
-
-	margin: 0 0 10px;
+.rwmb-field:not(:last-of-type) {
+	margin: 0 0 12px;
 }
 .rwmb-label,
 .rwmb-input {
 	vertical-align: top;
 	float: left;
+	box-sizing: border-box;
 }
 .rwmb-label {
 	width: 25%;
 }
-.rwmb-label.required > span {
-	color: #c00;
+.rwmb-label > label {
+	font-weight: 600;
+}
+.rwmb-required {
+	color: #dc3232;
 	font-weight: bold;
 	margin-left: 3px;
+}
+.rwmb-input input,
+.rwmb-input select {
+	max-width: 99%;
 }
 
 /* 75% if field has label, 100% if no label */
@@ -46,7 +49,7 @@
 /* Clone */
 .rwmb-clone {
 	min-height: 24px;
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 	position: relative;
 	clear: both;
 	background: #fff;
@@ -57,13 +60,20 @@
 }
 .rwmb-button.remove-clone {
 	text-decoration: none;
-	color: #fff;
-	background: #c00;
-	border-radius: 50%;
+	color: #ccc;
 	display: inline-block;
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 20px;
+	height: 20px;
+	transition: color 200ms;
+}
+.rwmb-button.remove-clone .dashicons {
+	font-size: 20px;
+}
+.rwmb-button.remove-clone:hover {
+	color: #dc3232;
 }
 .remove-clone:focus {
 	outline: 0;
@@ -83,32 +93,65 @@
 	left: 0;
 	top: 0;
 }
-.rwmb-clone-placeholder {
-	background: #fcf8e3;
-	border: 1px solid #faebcc;
-	display: block;
-}
 .rwmb-sort-clone {
 	padding-left: 15px;
 }
 
 /* jQuery validation */
-label.error {
-	padding-left: 3px;
-	color: red;
+p.rwmb-error {
+	color: #dc3232;
+	margin: 2px 0 5px;
 }
-input.error,
-textarea.error,
-select.error {
-	border-color: #c00 !important;
-	background: #ffebe8 !important;
+input.rwmb-error.rwmb-error,
+textarea.rwmb-error,
+select.rwmb-error {
+	border-color: #dc3232;
+	background: #ffebe8;
+}
+
+/* Utilities
+-------------------------------------------------------------- */
+.rwmb-sortable-placeholder {
+	background: #fcf8e3;
+	border: 1px solid #faebcc;
+	display: block;
 }
 
 
-/* =Styles for 'side' meta boxes
+/* Styles for 'side' meta boxes
 -------------------------------------------------------------- */
 
 #side-sortables .rwmb-label,
 #side-sortables .rwmb-input {
 	width: 100%;
+}
+#side-sortables .rwmb-label {
+	margin-bottom: 3px;
+}
+
+/* Seamless style
+--------------------------------------------------------------*/
+.rwmb-seamless {
+	background: none;
+	border: none;
+	box-shadow: none;
+}
+.rwmb-seamless .inside {
+	padding-left: 0;
+	padding-right: 0;
+}
+.postbox.rwmb-seamless .hndle,
+.postbox.rwmb-seamless .handlediv {
+	display: none;
+}
+.rwmb-seamless .rwmb-clone {
+	background: none;
+}
+
+/* CSS fixes
+--------------------------------------------------------------*/
+/* Fix color picker field is hidden by the post editor at after_title position. https://metabox.io/support/topic/bug-color-picker-field-is-showed-below-the-title-field/ */
+.postarea {
+	position: relative;
+	z-index: 0;
 }

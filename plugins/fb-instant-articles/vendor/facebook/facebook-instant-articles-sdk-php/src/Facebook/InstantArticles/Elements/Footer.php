@@ -27,7 +27,7 @@ use Facebook\InstantArticles\Validators\Type;
  *
  * @see {link:https://developers.intern.facebook.com/docs/instant-articles/reference/footer}
  */
-class Footer extends Element implements Container
+class Footer extends Element implements ChildrenContainer
 {
     /**
      * @var string|Paragraph[] The text content of the credits
@@ -104,7 +104,7 @@ class Footer extends Element implements Container
      */
     public function withCopyright($copyright)
     {
-        Type::enforce($copyright, Type::STRING);
+        Type::enforce($copyright, [Type::STRING, Small::getClassName()]);
         $this->copyright = $copyright;
 
         return $this;
@@ -168,10 +168,6 @@ class Footer extends Element implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $footer = $document->createElement('footer');
 
         // Footer markup
@@ -179,7 +175,7 @@ class Footer extends Element implements Container
             $aside = $document->createElement('aside');
             if (is_array($this->credits)) {
                 foreach ($this->credits as $paragraph) {
-                    $aside->appendChild($paragraph->toDOMElement($document));
+                    Element::appendChild($aside, $paragraph, $document);
                 }
             } else {
                 $aside->appendChild($document->createTextNode($this->credits));
@@ -188,14 +184,16 @@ class Footer extends Element implements Container
         }
 
         if ($this->copyright) {
-            $small = $document->createElement('small');
-            $small->appendChild($document->createTextNode($this->copyright));
-            $footer->appendChild($small);
+            if (Type::is($this->copyright, Type::STRING)) {
+                $small = $document->createElement('small');
+                $small->appendChild($document->createTextNode($this->copyright));
+                $footer->appendChild($small);
+            } else {
+                Element::appendChild($footer, $this->copyright, $document);
+            }
         }
 
-        if ($this->relatedArticles) {
-            $footer->appendChild($this->relatedArticles->toDOMElement($document));
-        }
+        Element::appendChild($footer, $this->relatedArticles, $document);
 
         if (!$this->credits && !$this->copyright && !$this->relatedArticles) {
             $footer->appendChild($document->createTextNode(''));
@@ -219,9 +217,9 @@ class Footer extends Element implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren()
+     * @see ChildrenContainer::getContainerChildren()
      * @return array of Paragraph|RelatedArticles
      */
     public function getContainerChildren()

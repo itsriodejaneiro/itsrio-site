@@ -148,10 +148,6 @@ class Cite extends TextContainer
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $cite = $document->createElement('cite');
 
         $classes = [];

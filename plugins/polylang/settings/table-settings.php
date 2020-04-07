@@ -1,7 +1,7 @@
 <?php
 
 if ( ! class_exists( 'WP_List_Table' ) ) {
-	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' ); // since WP 3.1
+	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php'; // since WP 3.1
 }
 
 /**
@@ -16,11 +16,13 @@ class PLL_Table_Settings extends WP_List_Table {
 	 *
 	 * @since 1.8
 	 */
-	function __construct() {
-		parent::__construct( array(
-			'plural'   => 'Settings', // Do not translate ( used for css class )
-			'ajax'	   => false,
-		) );
+	public function __construct() {
+		parent::__construct(
+			array(
+				'plural' => 'Settings', // Do not translate ( used for css class )
+				'ajax'   => false,
+			)
+		);
 	}
 
 	/**
@@ -53,24 +55,19 @@ class PLL_Table_Settings extends WP_List_Table {
 
 		// Display an upgrade message if there is any, reusing css from the plugins updates
 		if ( $message = $item->get_upgrade_message() ) {
-			printf( '
-				<tr class="plugin-update-tr">
+			printf(
+				'<tr class="plugin-update-tr">
 					<td colspan="3" class="plugin-update colspanchange">%s</td>
 				</tr>',
-				sprintf(
-					version_compare( $GLOBALS['wp_version'], '4.6', '<' ) ?
-						'<div class="update-message">%s</div>' : // backward compatibility with WP < 4.6
-						'<div class="update-message notice inline notice-warning notice-alt"><p>%s</p></div>',
-					$message
-				)
+				sprintf( '<div class="update-message notice inline notice-warning notice-alt"><p>%s</p></div>', $message ) // phpcs:ignore WordPress.Security.EscapeOutput
 			);
 		}
 
 		// The settings if there are
 		// "inactive" class to reuse css from the plugins list table
 		if ( $form = $item->get_form() ) {
-			printf( '
-				<tr id="pll-configure-%s" class="pll-configure inactive inline-edit-row" style="display: none;">
+			printf(
+				'<tr id="pll-configure-%s" class="pll-configure inactive inline-edit-row" style="display: none;">
 					<td colspan="3">
 						<legend>%s</legend>
 						%s
@@ -79,7 +76,10 @@ class PLL_Table_Settings extends WP_List_Table {
 						</p>
 					</td>
 				</tr>',
-				esc_attr( $item->module ), esc_html( $item->title ), $form, implode( $item->get_buttons() )
+				esc_attr( $item->module ),
+				esc_html( $item->title ),
+				$form, // phpcs:ignore
+				implode( $item->get_buttons() ) // phpcs:ignore
 			);
 		}
 	}
@@ -92,39 +92,27 @@ class PLL_Table_Settings extends WP_List_Table {
 	 * @param object $item The current item
 	 */
 	protected function single_row_columns( $item ) {
-		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
+		$column_info = $this->get_column_info();
+		$columns     = $column_info[0];
+		$primary     = $column_info[3];
 
-		foreach ( $columns as $column_name => $column_display_name ) {
+		foreach ( array_keys( $columns ) as $column_name ) {
 			$classes = "$column_name column-$column_name";
 			if ( $primary === $column_name ) {
 				$classes .= ' column-primary';
 			}
 
-			if ( in_array( $column_name, $hidden ) ) {
-				$classes .= ' hidden';
-			}
-
 			if ( 'cb' == $column_name ) {
 				echo '<th scope="row" class="check-column">';
-				echo $this->column_cb( $item );
+				echo $this->column_cb( $item ); // phpcs:ignore WordPress.Security.EscapeOutput
 				echo '</th>';
-			}
-			else {
+			} else {
 				printf( '<td class="%s">', esc_attr( $classes ) );
-				echo $this->column_default( $item, $column_name );
+				echo $this->column_default( $item, $column_name ); // phpcs:ignore WordPress.Security.EscapeOutput
 				echo '</td>';
 			}
 		}
 	}
-
-	/**
-	 * Added for backward compatibility with WP < 4.2
-	 *
-	 * @since 1.8.2
-	 *
-	 * @param object $item
-	 */
-	protected function column_cb( $item ) {}
 
 	/**
 	 * Displays the item information in a column ( default case )
@@ -179,4 +167,13 @@ class PLL_Table_Settings extends WP_List_Table {
 		$this->_column_headers = array( $this->get_columns(), array(), $this->get_sortable_columns(), $this->get_primary_column_name() );
 		$this->items = $items;
 	}
+
+	/**
+	 * Avoids displaying an empty tablenav
+	 *
+	 * @since 2.1
+	 *
+	 * @param string $which 'top' or 'bottom'
+	 */
+	protected function display_tablenav( $which ) {}
 }

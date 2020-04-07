@@ -27,7 +27,7 @@ use Facebook\InstantArticles\Validators\Type;
  *     <li>Sleep</li>
  * </ol>
  */
-class ListElement extends Element implements Container
+class ListElement extends Element implements ChildrenContainer
 {
     /**
      * @var boolean Checks if it is ordered or unordered
@@ -158,10 +158,6 @@ class ListElement extends Element implements Container
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         if ($this->isOrdered) {
             $element = $document->createElement('ol');
         } else {
@@ -170,9 +166,7 @@ class ListElement extends Element implements Container
 
         if ($this->items) {
             foreach ($this->items as $item) {
-                if ($item) {
-                    $element->appendChild($item->toDOMElement($document));
-                }
+                Element::appendChild($element, $item, $document);
             }
         }
 
@@ -196,9 +190,9 @@ class ListElement extends Element implements Container
     }
 
     /**
-     * Implements the Container::getContainerChildren().
+     * Implements the ChildrenContainer::getContainerChildren().
      *
-     * @see Container::getContainerChildren().
+     * @see ChildrenContainer::getContainerChildren().
      * @return array of Elements contained by Image.
      */
     public function getContainerChildren()

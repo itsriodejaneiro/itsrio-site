@@ -30,14 +30,18 @@ abstract class Element
      *
      * @return string with the content rendered.
      */
-    public function render($doctype = '', $formatted = false)
+    public function render($doctype = '', $formatted = false, $validate = true)
     {
         $document = new \DOMDocument();
         $document->preserveWhiteSpace = !$formatted;
         $document->formatOutput = $formatted;
-        $element = $this->toDOMElement($document);
-        $document->appendChild($element);
-        $rendered = $doctype.$document->saveXML($element, LIBXML_NOEMPTYTAG);
+        if (!$validate || ($validate && $this->isValid())) {
+            $element = $this->toDOMElement($document);
+            $document->appendChild($element);
+            $rendered = $doctype.$document->saveXML($element, LIBXML_NOEMPTYTAG);
+        } else {
+            $rendered = '';
+        }
 
         // We can't currently use DOMDocument::saveHTML, because it doesn't produce proper HTML5 markup, so we have to strip CDATA enclosures
         // TODO Consider replacing this workaround with a parent class for elements that will be rendered and in this class use the `srcdoc` attribute to output the (escaped) markup
@@ -59,6 +63,10 @@ abstract class Element
         $rendered = str_replace('></source>', '/>', $rendered);
         $rendered = str_replace('></track>', '/>', $rendered);
         $rendered = str_replace('></wbr>', '/>', $rendered);
+        // createTextNode converts the & of html entities into &amp; - convert it back
+        // TODO (timjacobi): can we make this more elegant?
+        $rendered = preg_replace('/&amp;([^(\s|;)]*;)/', '&$1', $rendered);
+        $rendered = preg_replace_callback('/(src|href|url|link)="([^"]*)"/is', [__CLASS__, 'urlDecoder'], $rendered);
 
         return $rendered;
     }
@@ -81,19 +89,6 @@ abstract class Element
     public function isValid()
     {
         return true;
-    }
-
-    /**
-     * Method to create an empty fragment if isValid() is false in toDOMElement()
-     * @param \DOMDocument $document the document that will contain the empty element.
-     * @see self::isValid().
-     * @see self::toDOMElement().
-     */
-    protected function emptyElement($document)
-    {
-        $fragment = $document->createDocumentFragment();
-        $fragment->appendChild($document->createTextNode(''));
-        return $fragment;
     }
 
     /**
@@ -121,5 +116,17 @@ abstract class Element
     public function disableEmptyValidation()
     {
         return $this->empty_validation = false;
+    }
+
+    public static function urlDecoder($input)
+    {
+        return $input[1].'="'.htmlspecialchars_decode($input[2]).'"';
+    }
+
+    public static function appendChild($element, $child, $document = null)
+    {
+        if ($child !== null && $child->isValid()) {
+            $element->appendChild($child->toDOMElement($document));
+        }
     }
 }

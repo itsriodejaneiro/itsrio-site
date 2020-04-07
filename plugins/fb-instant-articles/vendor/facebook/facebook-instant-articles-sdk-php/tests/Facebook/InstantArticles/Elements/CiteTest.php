@@ -8,7 +8,9 @@
  */
 namespace Facebook\InstantArticles\Elements;
 
-class CiteTest extends \PHPUnit_Framework_TestCase
+use Facebook\Util\BaseHTMLTestCase;
+
+class CiteTest extends BaseHTMLTestCase
 {
     public function testRenderEmpty()
     {
@@ -32,7 +34,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPosition()
@@ -48,7 +50,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithTextAlign()
@@ -64,7 +66,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithVerticalAlign()
@@ -80,7 +82,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
           '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithPositionAndAlignment()
@@ -98,7 +100,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithUnescapedHTML()
@@ -116,7 +118,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithFormattedText()
@@ -137,7 +139,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithLink()
@@ -147,7 +149,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
                 ->appendText('Some ')
                 ->appendText(
                     Anchor::create()
-                        ->withHRef('http://foo.com')
+                        ->withHref('http://foo.com')
                         ->appendText('link')
                 )
                 ->appendText('.');
@@ -158,7 +160,7 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 
     public function testRenderWithNestedFormattedText()
@@ -178,6 +180,6 @@ class CiteTest extends \PHPUnit_Framework_TestCase
             '</cite>';
 
         $rendered = $cite->render();
-        $this->assertEquals($expected, $rendered);
+        $this->assertEqualsHtml($expected, $rendered);
     }
 }

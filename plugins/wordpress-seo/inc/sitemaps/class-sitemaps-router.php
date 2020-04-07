@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\XML_Sitemaps
  */
 
@@ -13,9 +15,9 @@ class WPSEO_Sitemaps_Router {
 	 */
 	public function __construct() {
 
-		add_action( 'init', array( $this, 'init' ), 1 );
-		add_filter( 'redirect_canonical', array( $this, 'redirect_canonical' ) );
-		add_action( 'template_redirect', array( $this, 'template_redirect' ), 0 );
+		add_action( 'init', [ $this, 'init' ], 1 );
+		add_filter( 'redirect_canonical', [ $this, 'redirect_canonical' ] );
+		add_action( 'template_redirect', [ $this, 'template_redirect' ], 0 );
 	}
 
 	/**
@@ -27,11 +29,11 @@ class WPSEO_Sitemaps_Router {
 
 		$wp->add_query_var( 'sitemap' );
 		$wp->add_query_var( 'sitemap_n' );
-		$wp->add_query_var( 'xsl' );
+		$wp->add_query_var( 'yoast-sitemap-xsl' );
 
 		add_rewrite_rule( 'sitemap_index\.xml$', 'index.php?sitemap=1', 'top' );
 		add_rewrite_rule( '([^/]+?)-sitemap([0-9]+)?\.xml$', 'index.php?sitemap=$matches[1]&sitemap_n=$matches[2]', 'top' );
-		add_rewrite_rule( '([a-z]+)?-?sitemap\.xsl$', 'index.php?xsl=$matches[1]', 'top' );
+		add_rewrite_rule( '([a-z]+)?-?sitemap\.xsl$', 'index.php?yoast-sitemap-xsl=$matches[1]', 'top' );
 	}
 
 	/**
@@ -43,7 +45,7 @@ class WPSEO_Sitemaps_Router {
 	 */
 	public function redirect_canonical( $redirect ) {
 
-		if ( get_query_var( 'sitemap' ) || get_query_var( 'xsl' ) ) {
+		if ( get_query_var( 'sitemap' ) || get_query_var( 'yoast-sitemap-xsl' ) ) {
 			return false;
 		}
 
@@ -54,22 +56,46 @@ class WPSEO_Sitemaps_Router {
 	 * Redirects sitemap.xml to sitemap_index.xml.
 	 */
 	public function template_redirect() {
+		if ( ! $this->needs_sitemap_index_redirect() ) {
+			return;
+		}
 
+		wp_safe_redirect( home_url( '/sitemap_index.xml' ), 301, 'Yoast SEO' );
+		exit;
+	}
+
+	/**
+	 * Checks whether the current request needs to be redirected to sitemap_index.xml.
+	 *
+	 * @global WP_Query $wp_query Current query.
+	 *
+	 * @return bool True if redirect is needed, false otherwise.
+	 */
+	public function needs_sitemap_index_redirect() {
 		global $wp_query;
 
-		$current_url = 'http://';
-
+		$protocol = 'http://';
 		if ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ) {
-			$current_url = 'https://';
+			$protocol = 'https://';
 		}
 
-		$current_url .= sanitize_text_field( $_SERVER['SERVER_NAME'] );
-		$current_url .= sanitize_text_field( $_SERVER['REQUEST_URI'] );
-
-		if ( home_url( '/sitemap.xml' ) === $current_url && $wp_query->is_404 ) {
-			wp_redirect( home_url( '/sitemap_index.xml' ), 301 );
-			exit;
+		$domain = '';
+		if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+			$domain = sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) );
 		}
+
+		$path = '';
+		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+			$path = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		}
+
+		// Due to different environment configurations, we need to check both SERVER_NAME and HTTP_HOST.
+		$check_urls = [ $protocol . $domain . $path ];
+		if ( ! empty( $_SERVER['HTTP_HOST'] ) ) {
+			$check_urls[] = $protocol . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . $path;
+		}
+
+		return $wp_query->is_404 && in_array( home_url( '/sitemap.xml' ), $check_urls, true );
 	}
 
 	/**
@@ -86,13 +112,16 @@ class WPSEO_Sitemaps_Router {
 		$base = $wp_rewrite->using_index_permalinks() ? 'index.php/' : '/';
 
 		/**
-		 * Filter the base URL of the sitemaps
+		 * Filter the base URL of the sitemaps.
 		 *
 		 * @param string $base The string that should be added to home_url() to make the full base URL.
 		 */
 		$base = apply_filters( 'wpseo_sitemaps_base_url', $base );
 
-		// Get the scheme from the configured home url instead of letting WordPress determine the scheme based on the requested URI.
-		return home_url( $base . $page, parse_url( get_option( 'home' ), PHP_URL_SCHEME ) );
+		/*
+		 * Get the scheme from the configured home URL instead of letting WordPress
+		 * determine the scheme based on the requested URI.
+		 */
+		return home_url( $base . $page, wp_parse_url( get_option( 'home' ), PHP_URL_SCHEME ) );
 	}
 }

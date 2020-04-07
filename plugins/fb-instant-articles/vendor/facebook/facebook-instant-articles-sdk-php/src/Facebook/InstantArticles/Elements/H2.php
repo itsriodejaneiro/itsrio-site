@@ -119,10 +119,6 @@ class H2 extends TextContainer
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $h2 = $document->createElement('h2');
 
         $classes = [];

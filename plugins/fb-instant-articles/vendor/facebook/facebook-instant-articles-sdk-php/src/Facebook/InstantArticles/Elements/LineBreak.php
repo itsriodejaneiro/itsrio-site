@@ -45,10 +45,6 @@ class LineBreak extends FormattedText
             $document = new \DOMDocument();
         }
 
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
-        }
-
         $br = $document->createElement('br');
 
         return $br;

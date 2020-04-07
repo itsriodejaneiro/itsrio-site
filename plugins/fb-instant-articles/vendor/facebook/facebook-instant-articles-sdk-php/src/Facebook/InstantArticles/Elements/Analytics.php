@@ -45,7 +45,7 @@ class Analytics extends ElementWithHTML
     }
 
     /**
-     * Sets the source for the ad.
+     * Sets the source for the analytics.
      *
      * @param string $source The source of the content for your ad.
      *
@@ -80,10 +80,6 @@ class Analytics extends ElementWithHTML
     {
         if (!$document) {
             $document = new \DOMDocument();
-        }
-
-        if (!$this->isValid()) {
-            return $this->emptyElement($document);
         }
 
         $figure = $document->createElement('figure');
