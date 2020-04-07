@@ -1,0 +1,161 @@
+footer{
+	width: 100%;
+	background-color: rgb(38, 38, 38);
+	padding: 30px 20px;
+	overflow: hidden;
+	@include breakpoint(medium) {
+		padding: 40px 30px;
+	}
+
+	.row {
+		max-width: 1280px !important;
+	}
+
+	&, p, b, li, a, input {
+		color: white;
+		font-size: 14px;
+	}
+
+	.box { 
+		&:focus, &:active, &:hover {
+			background-color: #fff;
+			color: #000;
+		}
+	}
+
+	ul {
+		display: block;
+		li {
+			display: inline-block;
+			margin-bottom: 10px;
+    		line-height: 1.3;
+			a {
+				font-weight: bold;
+				margin: 0 !important;
+			}
+		}
+	}
+
+	.social-icons {
+		margin-bottom: 40px;
+		.line {
+			background-color: #fff;
+			margin: 5px 0 15px;
+		}
+		ul {
+			display: flex;
+    		justify-content: space-between;
+    		max-width: 355px;
+    		.fa {
+    			font-size: 24px;
+    		}
+		}
+	}
+
+	.contact-wrapper {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 35px;
+	}
+
+	.contact {
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	.newsletter {
+		flex-grow: 1;
+		padding: 0 15px;
+	}
+
+	.newsletter-input {
+		border: none;
+		border-bottom: 1px solid white; 
+		background-color: transparent;
+		font-family: 'Raleway';
+		outline: none;
+		line-height: 1.5;
+		width: 100%;
+		@include breakpoint(small only) {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		@include breakpoint(medium) {
+			margin-right: 10px; 
+		}
+		&::placeholder { 
+        	color: #fff;
+        }
+        &::-webkit-input-placeholder { 
+            color: #fff;
+        }
+        &::-moz-placeholder { 
+            color: #fff;
+        }
+        &:-ms-input-placeholder { 
+            color: #fff;
+        }
+        &:-moz-placeholder { 
+            color: #fff;
+        }
+	}
+	.newsletter-button {
+		margin: 0; 
+		padding: 0 12px;
+		white-space: nowrap;
+		@include breakpoint(small only) {
+			display: inline-block;
+			margin-bottom: 50px;
+		}
+		@include breakpoint(medium) {
+			flex-grow: 0;
+		}
+	}
+
+	.social-content {
+		margin-bottom: 50px;
+		overflow: hidden;
+		.latest {
+			float: left;
+			ul li a {
+				font-family: 'Raleway';
+				font-size: 15px;
+				font-weight: 500;
+				color: #9b9b9b;
+			}
+		}
+		.articles, .videos {
+			box-sizing: border-box;
+			padding-right: 4%;
+			width: 34%;
+		}
+		.tags {
+			width: 26%;
+		}
+	}
+
+	small {
+		font-size: 10px;
+		a {
+			font-size: 10px;
+			text-decoration: underline;
+		}
+		@include breakpoint(small only) {
+			display: block; 
+			margin-top: 50px; 
+		}
+	}
+
+	.creative-commons {
+		@include breakpoint(small only) {
+			display: block;
+			margin: 50px 0 10px; 
+		}
+		@include breakpoint(medium) {
+			margin-right: 5px;
+			vertical-align: sub;
+		}
+	}
+}

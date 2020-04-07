@@ -1,23 +1,36 @@
-web:
-  image: montefuscolo/wordpress
-  volumes:
-   - ./wp-content/:/var/www/html/wp-content/
-   - ./docker/confs/htaccess_dev:/var/www/html/.htaccess
-  environment:
-   - WORDPRESS_WP_DEBUG=true
-   - WORDPRESS_WP_DEBUG_DISPLAY=true
-  links:
-   - db:mysql
-  ports:
-   - "80:80"
-   - "443:443"
-db:
-  image: mariadb
-  environment:
-   - MYSQL_USER=wordpress
-   - MYSQL_PASSWORD=wordpress
-   - MYSQL_DATABASE=wordpress
-   - MYSQL_ROOT_PASSWORD=wordpress
-   - TERM=xterm
-  volumes:
-   - ./docker/data/base.sql:/docker-entrypoint-initdb.d/base.sql
+version: '2'
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: ./compose/local/Dockerfile
+    depends_on:
+      - mariadb
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: 'wordpress'
+      WORDPRESS_DEBUG: 'true'
+    volumes:
+      - ./themes/its-rio:/var/www/html/wp-content/themes/its-rio
+      - ./config:/var/www/html/config
+      - ./themes:/var/www/html/themes
+      - ./plugins:/var/www/html/plugins
+      - ./compose/local/wordpress/wp-config.d:/var/www/html/wp-config.d
+      - ./compose/local/wordpress/htaccess:/var/www/html/.htaccess
+      - ./compose/production/wordpress/php/extra.ini:/usr/local/etc/php/conf.d/extra.ini
+  mariadb:
+    image: mariadb:10.4
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+      - ./compose/local/mariadb/data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: therootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+volumes:
+  mariadb_data:

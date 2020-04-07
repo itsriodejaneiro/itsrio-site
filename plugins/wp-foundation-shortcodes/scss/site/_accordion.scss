@@ -1,0 +1,22 @@
+.accordion-navigation {
+	>a:after {
+		content: "↡";
+		padding-left: rem-calc(5);
+		float: right;
+		font-size: rem-calc(20);
+	}
+
+	&.active a:after {
+		content: "↟";
+	}
+}
+
+[dir='rtl']{
+	.accordion-navigation {
+	        >a:after {
+                	padding-left: 0;
+                	padding-right: rem-calc(5);
+	                float: left;
+		}
+	}
+}

@@ -1,0 +1,80 @@
+.error404 {
+    #content_all {
+        height: calc(100% - 75px);
+    }
+    #content {
+        height: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.error-404-wrapper {
+    background-image: url('../images/error-404.jpg');
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .color-hover {
+        background-color: rgba(154, 36, 143, 0.6);
+        box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.19), inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .error-404-content {
+        position: relative;
+        z-index: 2;
+    }
+    h2 {
+        color: #ffffff;
+        font-family: Raleway, sans-serif;
+        font-size: 7vmax;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        text-align: center;
+        @include breakpoint(medium) {
+            font-size: 60px;
+            line-height: 1.4;
+        }
+
+        &:before {
+            color: #fbaf17;
+            content: '\f071';
+            display: block;
+            font-family: FontAwesome;
+            font-size: 10vmax;
+            margin-bottom: 5%;
+            text-align: center;
+            @include breakpoint(medium) {
+                font-size: 80px;
+                margin-bottom: 0;
+            }
+        }
+    }
+    p {
+        font-family: Raleway, sans-serif;
+        font-size: 2.5vmax;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: center;
+        color: #ffffff;
+        @include breakpoint(medium) {
+            font-size: 25px;
+        }
+    }
+    .seta-404 {
+        background-image: url('../images/seta-404.png');
+        width: 320px;
+        height: 370px;
+        position: absolute;
+        top: -100px;
+        right: -230px;
+    }
+}

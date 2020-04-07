@@ -1,0 +1,343 @@
+.curved-shadow {
+    position: absolute;
+
+    @mixin curved-shadow-active-hover {
+        /* não é possível dar @extend em classes ou placeholders
+		   dentro de media-queries, por isso o mixin */
+        &:before,
+        &:after {
+            width: 50%;
+            content: "";
+            height: 50%;
+            z-index: -1;
+            bottom: 15px;
+            max-width: 300px;
+            position: absolute;
+            box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+            -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        &:before {
+            left: 0px;
+            transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            -ms-transform: rotate(-6deg);
+            -moz-transform: rotate(-6deg);
+            -webkit-transform: rotate(-6deg);
+        }
+
+        &:after {
+            right: 0px;
+            transform: rotate(6deg);
+            -o-transform: rotate(6deg);
+            -ms-transform: rotate(6deg);
+            -moz-transform: rotate(6deg);
+            -webkit-transform: rotate(6deg);
+        }
+    }
+    &:active {
+        // mobile
+        @include breakpoint(large down) {
+            @include curved-shadow-active-hover;
+        }
+    }
+    &:hover, &:focus {
+        // desktop
+        @include breakpoint(large up) {
+            @include curved-shadow-active-hover;
+        }
+    }
+    &:active {
+        @include breakpoint(large up) {
+            &:before,
+            &:after {
+                box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+                -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+                -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
+}
+
+.area-pesquisa {
+    width: 100%;
+    overflow: hidden;
+    margin: 15px 0 0 0;
+    .slider {
+        padding: 20px;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s;
+        display: none;
+        background-position: center;
+        @include breakpoint(medium) {
+            background-size: auto 100%;
+        }
+
+        span { position: relative; }
+
+        &.no-active {
+            opacity: 1;
+        }
+        &.active {
+            opacity: 1;
+            @media #{$small-only}{
+                height: 110px;
+            }
+            .box.link {
+                display: block;
+            }
+        }
+        .box {
+            font-weight: bold;
+            margin: 0;
+            text-transform: lowercase;
+            &:not(.link) {
+                background-color: white;
+                color: black;
+                display: inline-block;
+                font-size: 19px;
+                padding: 4px 6px;
+                @media #{$small-only}{
+                    font-size: 18px;
+                    letter-spacing: -0.5px;
+                }
+            }
+            &.link {
+                border-width: 2px;
+                display: none;
+                font-size: 14px;
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                white-space: nowrap;
+                text-transform: lowercase;
+                transition: all 0.3s;
+            }
+        }
+        .slider-excerpt, .slider-text {
+            color: white;
+            display: none;
+            font-family: 'Raleway';
+            font-size: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0s;
+            transition-delay: 0s;
+        }
+        &.active .color{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    @include breakpoint(medium) {
+        margin: 25px 0 50px 0;
+        height: 300px;
+        .slider {
+            opacity: 0.6;
+            width: 20%;
+            float: left;
+            height: 100%;
+            
+            &:hover .color{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            &.no-active {
+                width: 25% !important;
+            }
+            &.active, &:not(.no-hover):hover {
+                animation-name: area-fix;
+                animation-duration: 0.4s;
+                animation-fill-mode: forwards;
+                opacity: 1;
+
+                .box {
+                    &:not(.link) {
+                        max-width: initial;
+                    }
+                    &.link {
+                        display: initial;
+                        &:hover {
+                            background-color: #fff;
+                            color: #000;
+                        }
+                    }
+
+                }
+                .slider-excerpt, .slider-text{
+                    opacity: 1;
+                    transition: opacity 0.3s;
+                    transition-delay: 0.3s;
+                }
+            }
+            .box {
+                &:not(.link) {
+                    width: 155px;
+                }
+            }
+        }
+        .slider-excerpt, .slider-text {
+            display: block !important;
+        }
+    }
+}
+
+@keyframes area-fix {
+    from { width: 25%; }
+    to { width:40%; }
+}
+
+@include breakpoint(medium down) {
+    .single-header-drop-down {
+        position: relative;
+        padding: 13px 15px;
+        margin: 0 auto;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+        flex-grow: 1;
+    }
+
+    .single-header-drop-down:after {
+        background: url('../images/cover-arrow.svg');
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 11px;
+        float: right;
+        margin-top: 8px;
+    }
+
+    .single-header-drop-down .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        list-style: none;
+        font-weight: normal;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .single-header-drop-down .dropdown ul {
+        display: initial;
+    }
+
+    .single-header-drop-down .dropdown li {
+        display: block;
+    }
+
+    .single-header-drop-down .dropdown li a {
+        display: block;
+        text-decoration: none;
+        color: #9e9e9e;
+        padding: 10px 20px;
+    }
+
+    .single-header-drop-down .dropdown li:hover a {
+        background: #f3f8f8;
+    }
+
+    .single-header-drop-down.active .dropdown {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .single-header-drop-down.active:after {
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@include breakpoint(medium down) {
+    .menu-nav.scrollable {
+        transform: translate3d(0px,0px,0px);
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 90px;
+    }
+
+    .scrollable-arrow {
+        &:after {
+            content: "\f078";
+            position: fixed;
+            left: -270px;
+            bottom: -10px;
+            text-align: center;
+            padding: 8px 0px;
+            z-index: 11100000;
+            background-color: black;
+            font-family: 'FontAwesome';
+            width: 250px;
+            background-color: #ebebeb;
+            background: -webkit-linear-gradient(top, #ebebeb 0%, #a4a4a4 100%);
+            background: linear-gradient(to bottom, #ebebeb 0%, #a4a4a4 100%);
+            -webkit-animation: bouncing ease-in-out 3s infinite;
+            animation: bouncing ease-in-out 3s infinite;
+            height: 70px;
+            opacity: 0.6;
+        }
+        &.scrollable-bottom:after{
+            content: "\f077";
+        }
+        &.active {
+            left: 0;
+        }
+    }
+}
+
+
+@keyframes bouncing{
+    0% { transform:  translate(0px,-5px); }
+    26% { transform:  translate(0px,5px); }
+    50% { transform:  translate(0px,-5px); }
+    100% { transform:  translate(0px,-5px); }
+}
+
+.reveal-overlay {
+     overflow-y: hidden !important;
+}
+
+.reveal-modal{
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 25px dimgrey;
+    @include breakpoint(768px) {
+        position: relative;
+        margin: auto;
+        width: 80%;
+        height: 80%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .close{
+        color: #262626;
+        border-color: #262626;
+        right: 10px;
+        top: 0px;
+        font-size: 30px;
+        font-family: 'Roboto Code';
+        @include breakpoint(medium) {
+            right: 20px;
+        }
+    }
+}

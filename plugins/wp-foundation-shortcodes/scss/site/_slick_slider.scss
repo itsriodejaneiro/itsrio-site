@@ -1,0 +1,5 @@
+body .slick-prev::before, body .slick-next::before{
+	color:$alert;
+	z-index:10;
+	position:relative;
+}

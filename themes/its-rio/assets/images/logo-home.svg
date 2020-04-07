@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="58px"
+   height="58px"
+   viewBox="0 0 58 58"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="logo-home.svg">
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="4.0689655"
+     inkscape:cx="29"
+     inkscape:cy="29"
+     inkscape:window-x="65"
+     inkscape:window-y="336"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">logo_ITS_home</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <rect
+     id="Rectangle-Copy"
+     x="-0.11864408"
+     y="52.956985"
+     width="58.118645"
+     height="5.0860281"
+     style="fill:#9a258f;stroke:none" />
+  <g
+     style="fill:none;stroke:none"
+     id="its_marca_horiz_roxa-03-copy">
+    <polygon
+       id="Shape-Copy-2"
+       points="22.560426,38.549481 18.273428,38.549481 18.273428,24 0,24 0,46.682866 22.560426,46.682866 "
+       style="fill:#522e91" />
+    <path
+       d="m 18.355767,0.0373053 0,24.0544577 4.285757,0 0,14.548237 4.865852,0 0,-11.350759 -3.384995,0 0,-3.178411 11.001958,0 -0.508101,3.178411 -2.877308,0 0,11.350759 4.231968,0 0,-0.240826 0,-3.055304 c 0,0 2.432926,0.635019 3.427612,0.635019 0.867661,0 1.86152,-0.211397 1.86152,-1.228588 0,-0.996466 -0.613611,-1.187137 -1.417552,-1.56931 l -0.782426,-0.360617 c -1.417966,-0.656574 -3.301415,-1.504233 -3.301415,-4.408243 0,-3.772395 2.941441,-4.514771 5.459189,-4.514771 2.305487,0 3.639045,0.636263 3.639045,0.636263 l 0,2.988154 c 0,0 -2.095295,-0.593568 -3.216593,-0.593568 -0.952069,0 -1.692291,0.232951 -1.692291,1.102579 0,0.78424 0.655815,1.123304 1.523476,1.483921 l 0.67733,0.274816 c 1.544163,0.636263 3.342377,1.56931 3.342377,4.514771 0,2.524739 -1.055509,3.747939 -2.430858,4.334875 l 14.793268,0 0,-38.6018657 -39.497813,0 0,0 z"
+       id="Shape-Copy"
+       inkscape:connector-curvature="0"
+       style="fill:#9a258f" />
+  </g>
+</svg>

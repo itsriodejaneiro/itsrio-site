@@ -1,0 +1,13 @@
+/**
+ * RTL SUPPORT
+ */
+
+ #sr-title-limiter{
+ 	background: #fff;
+ 	display: block;
+ 	color: #999;
+ 	position: absolute;
+ 	top: 2px;
+ 	left: 2px;
+ 	padding: 8px;
+ }

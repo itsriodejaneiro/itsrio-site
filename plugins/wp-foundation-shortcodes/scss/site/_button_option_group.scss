@@ -1,0 +1,44 @@
+.button-group.button-option-group.wp-foundation-shortcodes{
+	position: relative;
+	display: inline-block;
+	margin: rem-calc(16) 0;
+
+	&:before {
+		content: attr(data-grouptype);
+		z-index: 99999;
+		color: $aluminum;
+		display: block;
+		font-size: rem-calc(16);
+		padding: rem-calc(4);
+		border-radius: 50%;
+		background: $white;
+		position: absolute;
+		left: 44%;
+		top: rem-calc(10);
+	}
+	.button {
+		margin-left: rem-calc(5);
+	}
+	
+	&.size-tiny:before{
+		left: 41.5%;
+                top: rem-calc(2);
+	}
+	&.size-small:before{
+                left: 43.5%;
+                top: rem-calc(7);
+        }
+	&.size-large:before{
+                left: 44.5%;
+                top: rem-calc(15);
+        }
+}
+
+[dir='rtl']{
+	.button-group.button-option-group.wp-foundation-shortcodes{
+		.button {
+        	        margin-left: 0;
+        	        margin-right: rem-calc(5);
+	        }
+	}
+}

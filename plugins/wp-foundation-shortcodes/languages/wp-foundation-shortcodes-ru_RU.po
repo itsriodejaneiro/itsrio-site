@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Foundation Shortcodes\n"
+"POT-Creation-Date: 2016-07-03 11:27+0300\n"
+"PO-Revision-Date: 2016-07-03 11:34+0300\n"
+"Last-Translator: Adam Pery <adam@tadam.co.il>\n"
+"Language-Team: adam@tadam.co.il\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;_c;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../js/custom/foundation.min.js:19
+msgid "fndtn-"
+msgstr ""
+
+#: ../admin/pages/dashboard.php:7 ../class.foundation_plugin_admin.php:34
+msgid "WP Foundation Shortcodes"
+msgstr ""
+
+#: ../admin/pages/dashboard.php:9
+msgid "Follow us, and do not miss anything!"
+msgstr "Следуйте за нами, и ничего не пропустите!"
+
+#: ../admin/pages/dashboard.php:23
+msgid "We love stars"
+msgstr "Мы любим звезды."
+
+#: ../admin/pages/dashboard.php:25
+#, php-format
+msgid "Please write %s review %s"
+msgstr "Пожалуйста, напишите %s обзор %s"
+
+#: ../admin/pages/dashboard.php:27
+msgid "Please help us to continue develop this free wordpress plug-in"
+msgstr ""
+"Пожалуйста, помогите нам продолжать развивать этот бесплатный WordPress "
+"плагин"
+
+#: ../admin/pages/dashboard.php:37
+msgid "Enable Google Map"
+msgstr "Включить карты Google"
+
+#: ../admin/pages/dashboard.php:44
+msgid "Enable Slick Slider"
+msgstr "Включить слайдер Слик"
+
+#: ../admin/pages/dashboard.php:51
+msgid "Enable Font Awesome"
+msgstr "Включить Font Awesome"
+
+#: ../admin/pages/dashboard.php:58
+msgid ""
+"You should enable it to work <strong>[google_map]</strong>, "
+"<strong>[slick_slider]</strong> shortcodes and font awesome icons (some "
+"theme load font awesome by default). It is important to not upload "
+"unnecessary CSS and JS."
+msgstr ""
+"Вы должны включить для работы  шорткодов <strong>[google_map]</ strong>, "
+"<strong>[slick_slider]</ strong> и иконoк font awesome (некоторые темы "
+"загружают font awesome по умолчанию). Важно, чтобы не загружать ненужные CSS "
+"и JS."
+
+#: ../class.foundation_TinyMCE_shortcodes.php:90
+msgid "Cancel"
+msgstr "Отменить"
+
+#: ../class.foundation_TinyMCE_shortcodes.php:91
+msgid "Insert"
+msgstr "Вставить"
+
+#: ../class.foundation_TinyMCE_shortcodes.php:95
+msgid "Shortcode Options"
+msgstr "Опции короткого кода"
+
+#: ../class.foundation_plugable.php:99
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Оставить комментарий<span class=\"screen-reader-text\"> на %s</span>"
+
+#: ../class.foundation_plugin_admin.php:21
+msgid "Wordpress Plugin Page"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:22
+msgid "Full Documantation & Demo"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:34
+msgid "WP Foundation"
+msgstr ""
+
+#: ../class.foundation_plugin_admin.php:90
+msgid "Settings"
+msgstr "Настройки"
+
+#: ../class.foundation_shortcodes.php:166
+msgid "Alert box"
+msgstr "Предупреждающее окно"
+
+#: ../class.foundation_shortcodes.php:421
+msgid "Recommended"
+msgstr "Рекомендуемый"
+
+#: ../class.foundation_shortcodes.php:446
+#: ../class.foundation_shortcodes.php:1804
+#: ../class.foundation_shortcodes.php:1850
+msgid "Read more"
+msgstr "Читайте далее"
+
+#: ../class.foundation_shortcodes.php:474
+msgid "Label"
+msgstr "Метка"
+
+#: ../class.foundation_shortcodes.php:549
+msgid "Dropdown"
+msgstr "Выпадающее окно"
+
+#: ../class.foundation_shortcodes.php:607
+msgid "Split Button"
+msgstr "Разделенная кнопка"
+
+#: ../class.foundation_shortcodes.php:639
+msgid ""
+"Those people who think they know everything are a great annoyance to those "
+"of us who do."
+msgstr ""
+
+#: ../class.foundation_shortcodes.php:850
+#, php-format
+msgid ""
+"Warning: you should enable Google Map first. Go to <a href=\"%s\" target="
+"\"_blank\">WP Foundation Shortcodes Settings</a> page."
+msgstr ""
+"Внимание: вы должны включить карты Google в первую очередь. Перейдите на "
+"страницу <a href=\"%s\" target=\"_blank\">настройки WP Foundation "
+"Shortcodes</a>."
+
+#: ../class.foundation_shortcodes.php:988
+#: ../class.foundation_shortcodes.php:1475
+#, php-format
+msgid ""
+"Warning: you should enable Slick Slider first. Go to <a href=\"%s\" target="
+"\"_blank\">WP Foundation Shortcodes Settings</a> page."
+msgstr ""
+"Внимание: вы должны включить слайдер Слик в первую очередь. Перейдите на "
+"страницу <a href=\"%s\" target=\"_blank\">настройки WP Foundation "
+"Shortcodes</a>."
+
+#: ../class.foundation_shortcodes.php:1778
+msgid "on"
+msgstr "об"
+
+#: ../includes/post-list-content.php:49
+msgid "Continue reading..."
+msgstr "Продолжить чтение..."
+
+#: ../wp-foundation-shortcodes.php:43
+msgid "Please enable this plugin from your wp-admin."
+msgstr "Пожалуйста, включите этот модуль из вашей системы администриривания."
+
+#~ msgid ""
+#~ "You should enable it to work <strong>[google_map]</strong> and "
+#~ "<strong>[slick_slider]</strong> shortcodes. It is important to not upload "
+#~ "unnecessary CSS and JS."
+#~ msgstr ""
+#~ "Вы должны включить их для работы коротких кодов <strong>[google_map]</"
+#~ "strong> и <strong>[slick_slider]</strong>. Важно чтобы не загрузить "
+#~ "ненужные CSS и JS."
+
+#~ msgid "Posted on %s at %s."
+#~ msgstr "Опубликовано %s в %s."
+
+#~ msgid "Written by"
+#~ msgstr "Автор"
