@@ -37,5 +37,6 @@ wp-trackback.php
 xmlrpc.php
 wp-content
 compose/local/mariadb/data
-mariadb-data/
+mariadb_data/
 compose/local/mariadb/data/*
+
