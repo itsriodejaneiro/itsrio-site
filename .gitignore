@@ -38,3 +38,4 @@ xmlrpc.php
 wp-content
 compose/local/mariadb/data
 mariadb-data/
+compose/local/mariadb/data/*
