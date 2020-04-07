@@ -1,0 +1,597 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-26 12:05+0000\n"
+"PO-Revision-Date: 2018-09-26 12:49+0000\n"
+"Language-Team: German\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Last-Translator: gaspar <gaspar@flywheel.local>\n"
+"Language: de_DE"
+
+#: moove-actions.php:136
+msgid "plugin"
+msgstr "plugin"
+
+#: moove-content.php:58
+msgid ""
+"<p>This website uses cookies so that we can provide you with the best user "
+"experience possible. Cookie information is stored in your browser and "
+"performs functions such as recognising you when you return to our website "
+"and helping our team to understand which sections of the website you find "
+"most interesting and useful.</p><p>You can adjust all of your cookie "
+"settings by navigating the tabs on the left hand side.</p>"
+msgstr ""
+"<p> Diese Website verwendet Cookies, damit wir Ihnen die bestmögliche "
+"Benutzererfahrung bieten können. Cookie-Informationen werden in Ihrem "
+"Browser gespeichert und führen Funktionen aus, wie z. B. Ihre "
+"Wiedererkennung, wenn Sie zu unserer Website zurückkehren, und helfen "
+"unserem Team zu verstehen, welche Abschnitte der Website Sie am "
+"interessantesten und nützlich finden. </p> <p> Sie können Ihre Cookie-"
+"Einstellungen anpassen, indem Sie die Tabs auf der linken Seite navigieren. "
+"</p>"
+
+#: moove-content.php:68
+msgid ""
+"<p>Strictly Necessary Cookie should be enabled at all times so that we can "
+"save your preferences for cookie settings.</p>"
+msgstr ""
+"<p> Notwendige Cookies sollten immer aktiviert sein, damit wir Ihre "
+"Einstellungen für Cookie-Einstellungen speichern können. </p>"
+
+#: moove-content.php:81
+msgid ""
+"If you disable this cookie, we will not be able to save your preferences. "
+"This means that every time you visit this website you will need to enable or "
+"disable cookies again."
+msgstr ""
+"Wenn Sie diesen Cookie deaktivieren, können wir Ihre Einstellungen nicht "
+"speichern. Dies bedeutet, dass Sie jedes Mal, wenn Sie diese Website "
+"besuchen, Cookies erneut aktivieren oder deaktivieren müssen."
+
+#: moove-content.php:92
+msgid ""
+"<p>This website uses the following additional cookies:</p><p>(List the "
+"cookies that you are using on the website here.)</p>"
+msgstr ""
+"<p>Diese Website verwendet die folgenden zusätzlichen Cookies: </p><p> "
+"(Geben Sie die Cookies an, die Sie auf der Website verwenden.)</p>"
+
+#: moove-content.php:102
+msgid ""
+"<p>This website uses Google Analytics to collect anonymous information such "
+"as the number of visitors to the site, and the most popular pages.</p><p>"
+"Keeping this cookie enabled helps us to improve our website.</p>"
+msgstr ""
+"<p> Diese Website verwendet Google Analytics, um anonyme Informationen wie "
+"die Anzahl der Besucher der Website und die beliebtesten Seiten zu sammeln. "
+"</p> <p>Wenn Sie dieses Cookie aktiviert haben, können wir unsere Website "
+"verbessern</p>"
+
+#: moove-content.php:112
+msgid ""
+"<p>More information about our <a href='#' target='_blank'>Cookie Policy</a>"
+"</p>"
+msgstr ""
+"<p> Weitere Informationen zu unseren <a href='#' target='_blank'>Cookie-"
+"Richtlinien </a></p>"
+
+#: moove-content.php:130
+msgid ""
+"Please enable Strictly Necessary Cookies first so that we can save your "
+"preferences!"
+msgstr ""
+"Bitte aktivieren Sie zuerst die unbedingt notwendigen Cookies, damit wir "
+"Ihre Einstellungen speichern können!"
+
+#: moove-functions.php:22
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: moove-modules.php:52 views/moove/admin/settings/floating_button.php:66
+msgid "Change cookie settings"
+msgstr "Ändern Sie die Cookie-Einstellungen"
+
+#: moove-modules.php:63 moove-modules.php:168 moove-modules.php:338
+#: views/moove/admin/settings/privacy_overview.php:37
+#: views/moove/admin/settings/settings_page.php:80
+msgid "Privacy Overview"
+msgstr "Datenschutzübersicht"
+
+#: moove-modules.php:113
+msgid "We are using cookies to give you the best experience on our website."
+msgstr ""
+"Wir verwenden Cookies, um Ihnen das beste Erlebnis auf unserer Website zu "
+"bieten."
+
+#: moove-modules.php:114
+msgid ""
+"You can find out more about which cookies we are using or switch them off in "
+"[setting]settings[/setting]."
+msgstr ""
+"Sie können mehr darüber erfahren, welche Cookies wir verwenden, oder sie in "
+"[setting]Einstellungen[/setting] ausschalten."
+
+#: moove-modules.php:130 views/moove/admin/settings/banner_settings.php:80
+msgid "Accept"
+msgstr "Akzeptieren"
+
+#: moove-modules.php:188 moove-modules.php:342
+#: views/moove/admin/settings/settings_page.php:87
+#: views/moove/admin/settings/strictly_necessary_cookies.php:50
+msgid "Strictly Necessary Cookies"
+msgstr "Notwendige Cookies"
+
+#: moove-modules.php:201 moove-modules.php:229 moove-modules.php:255
+#: views/moove/admin/settings/general_settings.php:214
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: moove-modules.php:202 moove-modules.php:230 moove-modules.php:256
+#: views/moove/admin/settings/general_settings.php:215
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: moove-modules.php:243 moove-modules.php:298 moove-modules.php:346
+#: views/moove/admin/settings/settings_page.php:94
+#: views/moove/admin/settings/third_party_cookies.php:66
+msgid "3rd Party Cookies"
+msgstr "Drittanbieter-Cookies"
+
+#: moove-modules.php:319 views/moove/admin/settings/general_settings.php:205
+msgid "Enable All"
+msgstr "Allen aktivieren"
+
+#: moove-modules.php:320
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: moove-modules.php:350 views/moove/admin/settings/advanced_cookies.php:67
+#: views/moove/admin/settings/settings_page.php:101
+msgid "Additional Cookies"
+msgstr "Zusätzliche Cookies"
+
+#: moove-modules.php:354 views/moove/admin/settings/cookie_policy.php:45
+#: views/moove/admin/settings/settings_page.php:107
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+#: gdpr-modules/modal/content-sections/advanced.php:10
+#: gdpr-modules/modal/content-sections/strictly.php:13
+#: gdpr-modules/modal/content-sections/third_party.php:10
+msgid "disable"
+msgstr "deaktivieren"
+
+#: views/moove/admin/settings/advanced_cookies.php:77
+#: views/moove/admin/settings/cookie_policy.php:55
+#: views/moove/admin/settings/third_party_cookies.php:76
+msgid "Turn"
+msgstr "Einstellung"
+
+#: views/moove/admin/settings/advanced_cookies.php:80
+#: views/moove/admin/settings/cookie_policy.php:58
+#: views/moove/admin/settings/third_party_cookies.php:79
+msgid "On"
+msgstr "Aktiviert"
+
+#: views/moove/admin/settings/advanced_cookies.php:81
+#: views/moove/admin/settings/cookie_policy.php:59
+#: views/moove/admin/settings/third_party_cookies.php:80
+msgid "Off"
+msgstr "Deaktiviert"
+
+#: views/moove/admin/settings/advanced_cookies.php:87
+#: views/moove/admin/settings/third_party_cookies.php:86
+msgid "Enable by default"
+msgstr "Standardmäßig aktiviert"
+
+#: views/moove/admin/settings/advanced_cookies.php:90
+#: views/moove/admin/settings/general_settings.php:226
+#: views/moove/admin/settings/general_settings.php:229
+#: views/moove/admin/settings/third_party_cookies.php:89
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: views/moove/admin/settings/advanced_cookies.php:92
+#: views/moove/admin/settings/banner_settings.php:126
+#: views/moove/admin/settings/floating_button.php:53
+#: views/moove/admin/settings/floating_button.php:56
+#: views/moove/admin/settings/third_party_cookies.php:91
+msgid "Enable"
+msgstr ""
+"Aktivieren\n"
+
+#: views/moove/admin/settings/advanced_cookies.php:98
+#: views/moove/admin/settings/cookie_policy.php:65
+#: views/moove/admin/settings/privacy_overview.php:48
+#: views/moove/admin/settings/strictly_necessary_cookies.php:73
+#: views/moove/admin/settings/third_party_cookies.php:97
+msgid "Tab Title"
+msgstr "Registerkarte Titel"
+
+#: views/moove/admin/settings/advanced_cookies.php:107
+#: views/moove/admin/settings/cookie_policy.php:74
+#: views/moove/admin/settings/privacy_overview.php:57
+#: views/moove/admin/settings/strictly_necessary_cookies.php:82
+#: views/moove/admin/settings/third_party_cookies.php:106
+msgid "Tab Content"
+msgstr "Registerkarteninhalt"
+
+#: views/moove/admin/settings/advanced_cookies.php:130
+#: views/moove/admin/settings/third_party_cookies.php:129
+msgid "Please fill out at least one of these fields:"
+msgstr "Bitte füllen Sie mindestens eines dieser Felder aus:"
+
+#: views/moove/admin/settings/advanced_cookies.php:136
+#: views/moove/admin/settings/third_party_cookies.php:135
+msgid ""
+"The below script will be added to the page HEAD section if user enables this "
+"cookie."
+msgstr ""
+"Das folgende Skript wird dem Abschnitt HEAD der Seite hinzugefügt, wenn der "
+"Benutzer dieses Cookie aktiviert."
+
+#: views/moove/admin/settings/advanced_cookies.php:144
+#: views/moove/admin/settings/advanced_cookies.php:159
+#: views/moove/admin/settings/third_party_cookies.php:143
+#: views/moove/admin/settings/third_party_cookies.php:158
+msgid ""
+"For example, you can use it for Google Tag Manager script or any other 3rd "
+"party code snippets."
+msgstr ""
+"Sie können es beispielsweise für das Google Tag Manager-Skript oder andere "
+"Code-Snippets von Drittanbietern verwenden."
+
+#: views/moove/admin/settings/advanced_cookies.php:151
+#: views/moove/admin/settings/third_party_cookies.php:150
+msgid ""
+"The below script will be added right after the BODY section if user enables "
+"this cookie."
+msgstr ""
+"Das folgende Skript wird direkt nach dem BODY-Abschnitt hinzugefügt, wenn "
+"der Benutzer dieses Cookie aktiviert."
+
+#: views/moove/admin/settings/advanced_cookies.php:165
+#: views/moove/admin/settings/third_party_cookies.php:165
+msgid ""
+"The below script will be added to the page FOOTER section if user enables "
+"this cookie."
+msgstr ""
+"Das unten stehende Skript wird zur Seite FOOTER hinzugefügt, wenn der "
+"Benutzer dieses Cookie aktiviert."
+
+#: views/moove/admin/settings/advanced_cookies.php:173
+#: views/moove/admin/settings/third_party_cookies.php:173
+msgid ""
+"For example, you can use it for Google Analytics script or any other 3rd "
+"party code snippets."
+msgstr ""
+"Sie können es beispielsweise für Google Analytics-Skripte oder andere Code-"
+"Snippets von Drittanbietern verwenden."
+
+#: views/moove/admin/settings/advanced_cookies.php:181
+#: views/moove/admin/settings/banner_settings.php:147
+#: views/moove/admin/settings/cookie_policy.php:101
+#: views/moove/admin/settings/floating_button.php:127
+#: views/moove/admin/settings/general_settings.php:263
+#: views/moove/admin/settings/privacy_overview.php:82
+#: views/moove/admin/settings/strictly_necessary_cookies.php:126
+#: views/moove/admin/settings/third_party_cookies.php:181
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: views/moove/admin/settings/banner_settings.php:43
+msgid "Cookie Info Bar Settings"
+msgstr "Einstellungen für die Cookie-Infoleiste"
+
+#: views/moove/admin/settings/banner_settings.php:50
+msgid "Infobar Content"
+msgstr "Infobar Inhalt"
+
+#: views/moove/admin/settings/banner_settings.php:59
+msgid ""
+"<p>We are using cookies to give you the best experience on our website.</p>"
+"<p>You can find out more about which cookies we are using or switch them off "
+"in [setting]settings[/setting].</p>"
+msgstr ""
+"<p>Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer "
+"Website zu bieten.</p><p>Sie erfahren mehr darüber, welche Cookies wir "
+"verwenden oder schalten Sie sie in den \n"
+" [setting]Einstellungen[/setting] aus.</p>"
+
+#: views/moove/admin/settings/banner_settings.php:71
+msgid ""
+"You can use the following shortcut to link the settings modal:<br><span>"
+"<strong>[setting]</strong>settings<strong>[/setting]</strong></span>"
+msgstr ""
+"Sie können die folgende Verknüpfung verwenden, um die modalen Einstellungen "
+"zu verknüpfen:<br><span><strong>[setting]</strong>Einstellungen<strong>"
+"[/setting]</strong></span>"
+
+#: views/moove/admin/settings/banner_settings.php:77
+msgid "Accept - Button Label"
+msgstr "Akzeptieren - Tastenbeschriftung"
+
+#: views/moove/admin/settings/banner_settings.php:88
+msgid "Select your preference for Info Bar"
+msgstr "Wählen Sie Ihre Präferenz für die Info-Leiste"
+
+#: views/moove/admin/settings/banner_settings.php:92
+msgid "Visible"
+msgstr "Sichtbar"
+
+#: views/moove/admin/settings/banner_settings.php:95
+msgid "Hidden"
+msgstr "Versteckt"
+
+#: views/moove/admin/settings/banner_settings.php:105
+msgid "Info bar position"
+msgstr "Infobar Position"
+
+#: views/moove/admin/settings/banner_settings.php:109
+msgid "Top"
+msgstr "Top"
+
+#: views/moove/admin/settings/banner_settings.php:112
+msgid "Bottom"
+msgstr "Bottom"
+
+#: views/moove/admin/settings/banner_settings.php:122
+msgid "Colour scheme"
+msgstr ""
+"Farbschema\n"
+
+#: views/moove/admin/settings/banner_settings.php:128
+msgid "Dark"
+msgstr "Dunkel"
+
+#: views/moove/admin/settings/banner_settings.php:131
+msgid "Light"
+msgstr ""
+"Licht\n"
+
+#: views/moove/admin/settings/floating_button.php:42
+#: views/moove/admin/settings/settings_page.php:74
+msgid "Floating Button"
+msgstr "Schwebender Knopf"
+
+#: views/moove/admin/settings/floating_button.php:49
+msgid "Enable Floating Button"
+msgstr "Aktivieren Sie die schwebende Schaltfläche"
+
+#: views/moove/admin/settings/floating_button.php:63
+msgid "Button - Hover Label"
+msgstr "Schaltfläche - Hover Etikette"
+
+#: views/moove/admin/settings/floating_button.php:72
+msgid "Button - Custom Position (CSS)"
+msgstr "Schaltfläche - Benutzerdefinierte Position (CSS)"
+
+#: views/moove/admin/settings/floating_button.php:76
+msgid ""
+"You can align the position eg.: <strong>top: 20px; right: 20px;</strong>"
+msgstr ""
+"Sie können die Position zB ausrichten: <strong>top: 20px; right: 20px;"
+"</strong>"
+
+#: views/moove/admin/settings/floating_button.php:82
+msgid "Button - Background Colour"
+msgstr ""
+"Schaltfläche - Hintergrundfarbe\n"
+
+#: views/moove/admin/settings/floating_button.php:88
+#: views/moove/admin/settings/floating_button.php:101
+#: views/moove/admin/settings/floating_button.php:114
+#: views/moove/admin/settings/general_settings.php:64
+#: views/moove/admin/settings/general_settings.php:77
+msgid "Select"
+msgstr "Wählen"
+
+#: views/moove/admin/settings/floating_button.php:95
+msgid "Button - Hover Background Colour"
+msgstr "Schaltfläche - Hover Hintergrundfarbe"
+
+#: views/moove/admin/settings/floating_button.php:108
+msgid "Button - Font Colour"
+msgstr "Schaltfläche - Schriftfarbe"
+
+#: views/moove/admin/settings/general_settings.php:50
+msgid "Modal General Settings"
+msgstr "Modale allgemeine Einstellungen"
+
+#: views/moove/admin/settings/general_settings.php:58
+msgid "Brand Primary Colour"
+msgstr "Hauptfarbe"
+
+#: views/moove/admin/settings/general_settings.php:71
+msgid "Brand Secondary Colour"
+msgstr "Sekundärfarbe"
+
+#: views/moove/admin/settings/general_settings.php:84
+msgid "Modal Logo"
+msgstr "Modal Logo"
+
+#: views/moove/admin/settings/general_settings.php:85
+msgid "Recommended size:"
+msgstr "Empfohlene Größe:"
+
+#: views/moove/admin/settings/general_settings.php:85
+msgid "pixels"
+msgstr "pixels"
+
+#: views/moove/admin/settings/general_settings.php:132
+msgid "Logo Position"
+msgstr "Logo Position"
+
+#: views/moove/admin/settings/general_settings.php:135
+msgid "Left"
+msgstr "Left"
+
+#: views/moove/admin/settings/general_settings.php:138
+msgid "Center"
+msgstr "Center"
+
+#: views/moove/admin/settings/general_settings.php:141
+msgid "Right"
+msgstr "Right"
+
+#: views/moove/admin/settings/general_settings.php:149
+msgid "Choose your layout"
+msgstr "Wählen Sie Ihr Layout"
+
+#: views/moove/admin/settings/general_settings.php:152
+msgid "Tabs layout"
+msgstr "Tabs layout"
+
+#: views/moove/admin/settings/general_settings.php:155
+msgid "One page layout"
+msgstr "Ein Seitenlayout"
+
+#: views/moove/admin/settings/general_settings.php:164
+msgid "Choose font"
+msgstr ""
+"Schriftart wählen\n"
+
+#: views/moove/admin/settings/general_settings.php:167
+msgid "Default"
+msgstr "Standard"
+
+#: views/moove/admin/settings/general_settings.php:171
+msgid "Inherit font-family from your WordPress theme"
+msgstr "Erben Sie die Schriftfamilie aus Ihrem WordPress-Theme"
+
+#: views/moove/admin/settings/general_settings.php:175
+msgid "Specify custom font"
+msgstr "Geben Sie eine benutzerdefinierte Schriftart an"
+
+#: views/moove/admin/settings/general_settings.php:193
+msgid "Save Settings - Button Label"
+msgstr "Einstellungen speichern - Tastenbeschriftung"
+
+#: views/moove/admin/settings/general_settings.php:196
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: views/moove/admin/settings/general_settings.php:202
+msgid "Enable All - Button Label"
+msgstr "Alles aktivieren - Tastenbeschriftung"
+
+#: views/moove/admin/settings/general_settings.php:211
+msgid "Checkbox Labels"
+msgstr "Kontrollkästchen Etiketten"
+
+#: views/moove/admin/settings/general_settings.php:222
+msgid "Disable \"Powered by GDPR\""
+msgstr "Deaktivieren Sie \"Powered by GDPR\""
+
+#: views/moove/admin/settings/general_settings.php:236
+msgid "Powered by Label"
+msgstr "Powered by Label"
+
+#: views/moove/admin/settings/general_settings.php:246
+msgid "Strictly necessary required message."
+msgstr "Streng notwendige Nachricht."
+
+#: views/moove/admin/settings/general_settings.php:250
+msgid ""
+"This warning message will be displayed if the Strictly necesarry cookies are "
+"not enabled and the user try to enable the \"Third Party\" or \"Additional "
+"cookies\""
+msgstr ""
+"Diese Warnmeldung wird angezeigt, wenn die unbedingt erforderlichen Cookies "
+"nicht aktiviert sind und der Benutzer versucht, die \"Drittanbieter\" oder "
+"\"Weitere Cookies\" zu aktivieren."
+
+#: views/moove/admin/settings/settings_page.php:25
+msgid "GDPR Cookie Compliance Plugin Settings"
+msgstr "Einstellungen für das Cookie-Compliance-Plugin für DSGVO"
+
+#: views/moove/admin/settings/settings_page.php:27
+msgid "Settings saved."
+msgstr ""
+"Einstellungen gespeichert.\n"
+
+#: views/moove/admin/settings/settings_page.php:29
+#: views/moove/admin/settings/settings_page.php:38
+msgid "Dismiss this notice."
+msgstr ""
+"Ignoriere die Nachricht.\n"
+
+#: views/moove/admin/settings/settings_page.php:35
+msgid "You need to insert the relevant script for the settings to be saved!"
+msgstr ""
+"Sie müssen das entsprechende Skript für die zu speichernden Einstellungen "
+"einfügen!"
+
+#: views/moove/admin/settings/settings_page.php:42
+msgid ""
+"General Data Protection Regulation (GDPR) is a <a href=\"http://www.eugdpr."
+"org/\" target=\"_blank\">European regulation</a> to strengthen and unify the "
+"data protection of EU citizens."
+msgstr ""
+"Die Datenschutz-Grundverordnung (DSGVO) ist eine <a href=\"http://www.eugdpr."
+"org/\" target=\"_blank\"> europäische Verordnung </a> zur Stärkung und "
+"Vereinheitlichung des Datenschutzes für EU-Bürger."
+
+#: views/moove/admin/settings/settings_page.php:66
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: views/moove/admin/settings/settings_page.php:70
+msgid "Banner Settings"
+msgstr "Bannereinstellungen"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:60
+msgid "Choose functionality"
+msgstr "Wählen Sie die Funktionalität"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:64
+msgid "Optional (user selects their preferences)"
+msgstr "Optional (Benutzer wählt ihre Voreinstellungen aus)"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:66
+msgid "Always enabled (user cannot disable it but can see the content)"
+msgstr ""
+"Immer aktiviert (Benutzer kann es nicht deaktivieren, aber den Inhalt sehen)"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:68
+msgid "Always enabled and content hidden from user"
+msgstr "Immer aktiviert und Inhalt vom Benutzer ausgeblendet"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:105
+msgid "Tab Warning Message"
+msgstr "Tab Warnmeldung"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:118
+msgid "Will be displayed below the Checkbox in the front-end!"
+msgstr "Wird unterhalb der Checkbox im Frontend angezeigt!"
+
+#. Name of the plugin
+msgid "GDPR Cookie Compliance"
+msgstr "DSG-Cookie-Konformität"
+
+#. Description of the plugin
+msgid ""
+"GDPR is an EU wide legislation that specifies how user data should be "
+"handled. This plugin has settings that can assist you with GDPR cookie "
+"compliance requirements."
+msgstr ""
+"Die DSGVO ist eine EU-weite Gesetzgebung, die festlegt, wie mit "
+"Benutzerdaten umgegangen werden soll. Dieses Plugin verfügt über "
+"Einstellungen, die Ihnen bei der Einhaltung der DSGP-Cookies helfen können."
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/gdpr-cookie-compliance/"
+msgstr "https://wordpress.org/plugins/gdpr-cookie-compliance/"
+
+#. Author of the plugin
+msgid "Moove Agency"
+msgstr "Moove Agency"
+
+#. Author URI of the plugin
+msgid "https://www.mooveagency.com"
+msgstr "https://www.mooveagency.com"

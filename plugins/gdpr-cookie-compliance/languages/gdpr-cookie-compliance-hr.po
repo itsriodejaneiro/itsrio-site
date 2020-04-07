@@ -1,0 +1,583 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-26 12:05+0000\n"
+"PO-Revision-Date: 2018-09-26 13:46+0000\n"
+"Language-Team: Croatian\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Last-Translator: gaspar <gaspar@flywheel.local>\n"
+"Language: hr"
+
+#: moove-actions.php:136
+msgid "plugin"
+msgstr "uključiti"
+
+#: moove-content.php:58
+msgid ""
+"<p>This website uses cookies so that we can provide you with the best user "
+"experience possible. Cookie information is stored in your browser and "
+"performs functions such as recognising you when you return to our website "
+"and helping our team to understand which sections of the website you find "
+"most interesting and useful.</p><p>You can adjust all of your cookie "
+"settings by navigating the tabs on the left hand side.</p>"
+msgstr ""
+"<p>Naša web stranica koristi kolačiće kako bismo vam pružili najbolje moguće "
+"korisničko iskustvo. Informacije o kolačićima pohranjene su u vašem "
+"pregledniku i obavljaju funkcije kao što su prepoznavanje kada se vratite na "
+"našu web stranicu.</p><p>Sve postavke kolačića možete promijeniti na "
+"poveznicama s lijeve strane.</p>"
+
+#: moove-content.php:68
+msgid ""
+"<p>Strictly Necessary Cookie should be enabled at all times so that we can "
+"save your preferences for cookie settings.</p>"
+msgstr ""
+"<p>Neophodni kolačići trebali bi biti omogućeni uvijek kako bismo mogli "
+"spremiti vaše postavke kolačića.</p>"
+
+#: moove-content.php:81
+msgid ""
+"If you disable this cookie, we will not be able to save your preferences. "
+"This means that every time you visit this website you will need to enable or "
+"disable cookies again."
+msgstr ""
+"Ukoliko onemogućite ove kolačiće nećemo moći spremiti vaše postavke. To "
+"znači da ćete prilikom svake posjete morati odobriti ili blokirati kolačiće."
+
+#: moove-content.php:92
+msgid ""
+"<p>This website uses the following additional cookies:</p><p>(List the "
+"cookies that you are using on the website here.)</p>"
+msgstr ""
+"<p>Ova web stranica koristi sljedeće dodatne kolačiće :</p><p>(Ovdje "
+"navedite listu svih kolačiće koje još koristite)</p>"
+
+#: moove-content.php:102
+msgid ""
+"<p>This website uses Google Analytics to collect anonymous information such "
+"as the number of visitors to the site, and the most popular pages.</p><p>"
+"Keeping this cookie enabled helps us to improve our website.</p>"
+msgstr ""
+"<p>Ova web stranica koristi Google Analytics za prikupljanje anonimnih "
+"informacija za praćenje statistike stranice.</p><p>Omogućavanjem ovih "
+"kolačića pomažete nam poboljšati našu stranicu, samim time i vaše korisničko "
+"iskustvo.</p>"
+
+#: moove-content.php:112
+msgid ""
+"<p>More information about our <a href='#' target='_blank'>Cookie Policy</a>"
+"</p>"
+msgstr ""
+"<p>Više informacija pročitajte u <a href='#' target='_blank'>Politika "
+"kolačića</a></p>"
+
+#: moove-content.php:130
+msgid ""
+"Please enable Strictly Necessary Cookies first so that we can save your "
+"preferences!"
+msgstr ""
+"Najprije omogućite Strogo nužne kolačiće kako bismo mogli spremiti vaše "
+"postavke!"
+
+#: moove-functions.php:22
+msgid "Settings"
+msgstr "Postavke"
+
+#: moove-modules.php:52 views/moove/admin/settings/floating_button.php:66
+msgid "Change cookie settings"
+msgstr "Promijeni postavke kolačića"
+
+#: moove-modules.php:63 moove-modules.php:168 moove-modules.php:338
+#: views/moove/admin/settings/privacy_overview.php:37
+#: views/moove/admin/settings/settings_page.php:80
+msgid "Privacy Overview"
+msgstr "Privatnost"
+
+#: moove-modules.php:113
+msgid "We are using cookies to give you the best experience on our website."
+msgstr ""
+"Koristimo kolačiće kako bismo vam pružili najbolje iskustvo na našoj web "
+"stranici."
+
+#: moove-modules.php:114
+msgid ""
+"You can find out more about which cookies we are using or switch them off in "
+"[setting]settings[/setting]."
+msgstr ""
+"Informacije o kolačićima koje koristimo ili opcije za isključivanje kolačića "
+"možete pronaći u [seting] postavkama [/ setting]."
+
+#: moove-modules.php:130 views/moove/admin/settings/banner_settings.php:80
+msgid "Accept"
+msgstr "Prihvaćam"
+
+#: moove-modules.php:188 moove-modules.php:342
+#: views/moove/admin/settings/settings_page.php:87
+#: views/moove/admin/settings/strictly_necessary_cookies.php:50
+msgid "Strictly Necessary Cookies"
+msgstr "Neophodni kolačići"
+
+#: moove-modules.php:201 moove-modules.php:229 moove-modules.php:255
+#: views/moove/admin/settings/general_settings.php:214
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: moove-modules.php:202 moove-modules.php:230 moove-modules.php:256
+#: views/moove/admin/settings/general_settings.php:215
+msgid "Disabled"
+msgstr "Blokirano"
+
+#: moove-modules.php:243 moove-modules.php:298 moove-modules.php:346
+#: views/moove/admin/settings/settings_page.php:94
+#: views/moove/admin/settings/third_party_cookies.php:66
+msgid "3rd Party Cookies"
+msgstr "Kolačići trećih strana"
+
+#: moove-modules.php:319 views/moove/admin/settings/general_settings.php:205
+msgid "Enable All"
+msgstr "Omogući sve"
+
+#: moove-modules.php:320
+msgid "Save Settings"
+msgstr "Spremi"
+
+#: moove-modules.php:350 views/moove/admin/settings/advanced_cookies.php:67
+#: views/moove/admin/settings/settings_page.php:101
+msgid "Additional Cookies"
+msgstr "Dodatni kolačići"
+
+#: moove-modules.php:354 views/moove/admin/settings/cookie_policy.php:45
+#: views/moove/admin/settings/settings_page.php:107
+msgid "Cookie Policy"
+msgstr "Politika kolačića"
+
+#: gdpr-modules/modal/content-sections/advanced.php:10
+#: gdpr-modules/modal/content-sections/strictly.php:13
+#: gdpr-modules/modal/content-sections/third_party.php:10
+msgid "disable"
+msgstr "blokirano"
+
+#: views/moove/admin/settings/advanced_cookies.php:77
+#: views/moove/admin/settings/cookie_policy.php:55
+#: views/moove/admin/settings/third_party_cookies.php:76
+msgid "Turn"
+msgstr "Stanje"
+
+#: views/moove/admin/settings/advanced_cookies.php:80
+#: views/moove/admin/settings/cookie_policy.php:58
+#: views/moove/admin/settings/third_party_cookies.php:79
+msgid "On"
+msgstr "Uključeno"
+
+#: views/moove/admin/settings/advanced_cookies.php:81
+#: views/moove/admin/settings/cookie_policy.php:59
+#: views/moove/admin/settings/third_party_cookies.php:80
+msgid "Off"
+msgstr "Isključeno"
+
+#: views/moove/admin/settings/advanced_cookies.php:87
+#: views/moove/admin/settings/third_party_cookies.php:86
+msgid "Enable by default"
+msgstr "Omogućite prema zadanim postavkama"
+
+#: views/moove/admin/settings/advanced_cookies.php:90
+#: views/moove/admin/settings/general_settings.php:226
+#: views/moove/admin/settings/general_settings.php:229
+#: views/moove/admin/settings/third_party_cookies.php:89
+msgid "Disable"
+msgstr "Blokirano"
+
+#: views/moove/admin/settings/advanced_cookies.php:92
+#: views/moove/admin/settings/banner_settings.php:126
+#: views/moove/admin/settings/floating_button.php:53
+#: views/moove/admin/settings/floating_button.php:56
+#: views/moove/admin/settings/third_party_cookies.php:91
+msgid "Enable"
+msgstr "Omogući"
+
+#: views/moove/admin/settings/advanced_cookies.php:98
+#: views/moove/admin/settings/cookie_policy.php:65
+#: views/moove/admin/settings/privacy_overview.php:48
+#: views/moove/admin/settings/strictly_necessary_cookies.php:73
+#: views/moove/admin/settings/third_party_cookies.php:97
+msgid "Tab Title"
+msgstr "Naslov kartice"
+
+#: views/moove/admin/settings/advanced_cookies.php:107
+#: views/moove/admin/settings/cookie_policy.php:74
+#: views/moove/admin/settings/privacy_overview.php:57
+#: views/moove/admin/settings/strictly_necessary_cookies.php:82
+#: views/moove/admin/settings/third_party_cookies.php:106
+msgid "Tab Content"
+msgstr "Sadržaj kartice"
+
+#: views/moove/admin/settings/advanced_cookies.php:130
+#: views/moove/admin/settings/third_party_cookies.php:129
+msgid "Please fill out at least one of these fields:"
+msgstr "Ispunite barem jedno od sljedećih polja:"
+
+#: views/moove/admin/settings/advanced_cookies.php:136
+#: views/moove/admin/settings/third_party_cookies.php:135
+msgid ""
+"The below script will be added to the page HEAD section if user enables this "
+"cookie."
+msgstr ""
+"Donja skripta bit će dodana na stranicu HEAD, ako korisnik omogućava ovaj "
+"kolačić."
+
+#: views/moove/admin/settings/advanced_cookies.php:144
+#: views/moove/admin/settings/advanced_cookies.php:159
+#: views/moove/admin/settings/third_party_cookies.php:143
+#: views/moove/admin/settings/third_party_cookies.php:158
+msgid ""
+"For example, you can use it for Google Tag Manager script or any other 3rd "
+"party code snippets."
+msgstr ""
+"Na primjer, možete ga koristiti za skriptu Google upravitelja oznaka ili "
+"bilo koji drugi isječak koda treće strane."
+
+#: views/moove/admin/settings/advanced_cookies.php:151
+#: views/moove/admin/settings/third_party_cookies.php:150
+msgid ""
+"The below script will be added right after the BODY section if user enables "
+"this cookie."
+msgstr ""
+"Dolje će se skripta dodati odmah nakon odjeljka TIJELO ako korisnik omogući "
+"taj kolačić."
+
+#: views/moove/admin/settings/advanced_cookies.php:165
+#: views/moove/admin/settings/third_party_cookies.php:165
+msgid ""
+"The below script will be added to the page FOOTER section if user enables "
+"this cookie."
+msgstr ""
+"Dolje će se skripta dodati na stranicu OBJEKT, ako korisnik omogućava ovaj "
+"kolačić."
+
+#: views/moove/admin/settings/advanced_cookies.php:173
+#: views/moove/admin/settings/third_party_cookies.php:173
+msgid ""
+"For example, you can use it for Google Analytics script or any other 3rd "
+"party code snippets."
+msgstr ""
+"Na primjer, možete koristiti za dodavanje Google Analytics skripte ili bilo "
+"kojeg koda treće strane."
+
+#: views/moove/admin/settings/advanced_cookies.php:181
+#: views/moove/admin/settings/banner_settings.php:147
+#: views/moove/admin/settings/cookie_policy.php:101
+#: views/moove/admin/settings/floating_button.php:127
+#: views/moove/admin/settings/general_settings.php:263
+#: views/moove/admin/settings/privacy_overview.php:82
+#: views/moove/admin/settings/strictly_necessary_cookies.php:126
+#: views/moove/admin/settings/third_party_cookies.php:181
+msgid "Save changes"
+msgstr "Spremi postavke"
+
+#: views/moove/admin/settings/banner_settings.php:43
+msgid "Cookie Info Bar Settings"
+msgstr "Traka za kolačiće"
+
+#: views/moove/admin/settings/banner_settings.php:50
+msgid "Infobar Content"
+msgstr "Sadržaj trake"
+
+#: views/moove/admin/settings/banner_settings.php:59
+msgid ""
+"<p>We are using cookies to give you the best experience on our website.</p>"
+"<p>You can find out more about which cookies we are using or switch them off "
+"in [setting]settings[/setting].</p>"
+msgstr ""
+"<p>Naša web stranica koristi kolačiće kako bismo vam pružili najbolje moguće "
+"korisničko iskustvo.</p><p>Informacije o kolačićima koje koristimo ili "
+"opcije za isključivanje kolačića možete pronaći u [seting] postavkama [/ "
+"setting].</p>"
+
+#: views/moove/admin/settings/banner_settings.php:71
+msgid ""
+"You can use the following shortcut to link the settings modal:<br><span>"
+"<strong>[setting]</strong>settings<strong>[/setting]</strong></span>"
+msgstr ""
+"Za dodavanje poveznice za otvaranje popupa dodajte sljedeći kod:<br><span>"
+"<strong>[setting]</strong>postavke<strong>[/setting]</strong></span>"
+
+#: views/moove/admin/settings/banner_settings.php:77
+msgid "Accept - Button Label"
+msgstr "Prihvaćam - tekst gumba"
+
+#: views/moove/admin/settings/banner_settings.php:88
+msgid "Select your preference for Info Bar"
+msgstr "Odaberite svoju postavku za info bara"
+
+#: views/moove/admin/settings/banner_settings.php:92
+msgid "Visible"
+msgstr "Vidljiv"
+
+#: views/moove/admin/settings/banner_settings.php:95
+msgid "Hidden"
+msgstr "Skriven"
+
+#: views/moove/admin/settings/banner_settings.php:105
+msgid "Info bar position"
+msgstr "Položaj info bara"
+
+#: views/moove/admin/settings/banner_settings.php:109
+msgid "Top"
+msgstr "Vrh"
+
+#: views/moove/admin/settings/banner_settings.php:112
+msgid "Bottom"
+msgstr "Dno"
+
+#: views/moove/admin/settings/banner_settings.php:122
+msgid "Colour scheme"
+msgstr "Paleta boja"
+
+#: views/moove/admin/settings/banner_settings.php:128
+msgid "Dark"
+msgstr "Tamna"
+
+#: views/moove/admin/settings/banner_settings.php:131
+msgid "Light"
+msgstr "Svjetla"
+
+#: views/moove/admin/settings/floating_button.php:42
+#: views/moove/admin/settings/settings_page.php:74
+msgid "Floating Button"
+msgstr "Lebdeći gumb"
+
+#: views/moove/admin/settings/floating_button.php:49
+msgid "Enable Floating Button"
+msgstr "Omogući lebdeći gumb"
+
+#: views/moove/admin/settings/floating_button.php:63
+msgid "Button - Hover Label"
+msgstr "Gumb - tekst na prijelaz miša"
+
+#: views/moove/admin/settings/floating_button.php:72
+msgid "Button - Custom Position (CSS)"
+msgstr "Gumb - prilagođeni položaj (CSS)"
+
+#: views/moove/admin/settings/floating_button.php:76
+msgid ""
+"You can align the position eg.: <strong>top: 20px; right: 20px;</strong>"
+msgstr ""
+"Možete promijeniti poziciju npr.: <strong>top: 20px; right: 20px;</strong>"
+
+#: views/moove/admin/settings/floating_button.php:82
+msgid "Button - Background Colour"
+msgstr "Gumb - boja pozadine"
+
+#: views/moove/admin/settings/floating_button.php:88
+#: views/moove/admin/settings/floating_button.php:101
+#: views/moove/admin/settings/floating_button.php:114
+#: views/moove/admin/settings/general_settings.php:64
+#: views/moove/admin/settings/general_settings.php:77
+msgid "Select"
+msgstr "Izaberi"
+
+#: views/moove/admin/settings/floating_button.php:95
+msgid "Button - Hover Background Colour"
+msgstr "Gumb - lebdjeti boja pozadine"
+
+#: views/moove/admin/settings/floating_button.php:108
+msgid "Button - Font Colour"
+msgstr "Gumb - boja fonta"
+
+#: views/moove/admin/settings/general_settings.php:50
+msgid "Modal General Settings"
+msgstr "Osnove postavke popupa"
+
+#: views/moove/admin/settings/general_settings.php:58
+msgid "Brand Primary Colour"
+msgstr "Primarna boja brenda"
+
+#: views/moove/admin/settings/general_settings.php:71
+msgid "Brand Secondary Colour"
+msgstr "Sekundarna boja brenda"
+
+#: views/moove/admin/settings/general_settings.php:84
+msgid "Modal Logo"
+msgstr "Logo popupa"
+
+#: views/moove/admin/settings/general_settings.php:85
+msgid "Recommended size:"
+msgstr "Preporučena veličina:"
+
+#: views/moove/admin/settings/general_settings.php:85
+msgid "pixels"
+msgstr "piksela"
+
+#: views/moove/admin/settings/general_settings.php:132
+msgid "Logo Position"
+msgstr "Položaj logotipa"
+
+#: views/moove/admin/settings/general_settings.php:135
+msgid "Left"
+msgstr "Lijevo"
+
+#: views/moove/admin/settings/general_settings.php:138
+msgid "Center"
+msgstr "Centar"
+
+#: views/moove/admin/settings/general_settings.php:141
+msgid "Right"
+msgstr "Pravo"
+
+#: views/moove/admin/settings/general_settings.php:149
+msgid "Choose your layout"
+msgstr "Odaberite svoj izgled"
+
+#: views/moove/admin/settings/general_settings.php:152
+msgid "Tabs layout"
+msgstr "Raspored kartica"
+
+#: views/moove/admin/settings/general_settings.php:155
+msgid "One page layout"
+msgstr "Jedna stranica izgleda"
+
+#: views/moove/admin/settings/general_settings.php:164
+msgid "Choose font"
+msgstr "Odaberite font"
+
+#: views/moove/admin/settings/general_settings.php:167
+msgid "Default"
+msgstr "Zadano"
+
+#: views/moove/admin/settings/general_settings.php:171
+msgid "Inherit font-family from your WordPress theme"
+msgstr "Naslijedite font-obitelj iz WordPress teme"
+
+#: views/moove/admin/settings/general_settings.php:175
+msgid "Specify custom font"
+msgstr "Navedite prilagođeni font"
+
+#: views/moove/admin/settings/general_settings.php:193
+msgid "Save Settings - Button Label"
+msgstr "Spremi postavke - tekst gumba"
+
+#: views/moove/admin/settings/general_settings.php:196
+msgid "Save Changes"
+msgstr "Spremi postavke"
+
+#: views/moove/admin/settings/general_settings.php:202
+msgid "Enable All - Button Label"
+msgstr "Omogući sve - tekst gumba"
+
+#: views/moove/admin/settings/general_settings.php:211
+msgid "Checkbox Labels"
+msgstr "Potvrdne oznake"
+
+#: views/moove/admin/settings/general_settings.php:222
+msgid "Disable \"Powered by GDPR\""
+msgstr "Onemogući \"Powered by GDPR\""
+
+#: views/moove/admin/settings/general_settings.php:236
+msgid "Powered by Label"
+msgstr "Powered by Label"
+
+#: views/moove/admin/settings/general_settings.php:246
+msgid "Strictly necessary required message."
+msgstr "Strogo nužna obavezna poruka."
+
+#: views/moove/admin/settings/general_settings.php:250
+msgid ""
+"This warning message will be displayed if the Strictly necesarry cookies are "
+"not enabled and the user try to enable the \"Third Party\" or \"Additional "
+"cookies\""
+msgstr ""
+"Ova poruka upozorenja bit će prikazana ako kolačići Strictly necesarry nisu "
+"omogućeni i korisnik pokuša omogućiti \"Treće strane\" ili \"Dodatni "
+"kolačići\""
+
+#: views/moove/admin/settings/settings_page.php:25
+msgid "GDPR Cookie Compliance Plugin Settings"
+msgstr "GDPR Suglasnost Kolačića - Postavke dodatka"
+
+#: views/moove/admin/settings/settings_page.php:27
+msgid "Settings saved."
+msgstr "Promjene su spremljene."
+
+#: views/moove/admin/settings/settings_page.php:29
+#: views/moove/admin/settings/settings_page.php:38
+msgid "Dismiss this notice."
+msgstr "Zanemari ovu obavijest."
+
+#: views/moove/admin/settings/settings_page.php:35
+msgid "You need to insert the relevant script for the settings to be saved!"
+msgstr "Morate unijeti skriptu u postavke kako biste mogli spremiti!"
+
+#: views/moove/admin/settings/settings_page.php:42
+msgid ""
+"General Data Protection Regulation (GDPR) is a <a href=\"http://www.eugdpr."
+"org/\" target=\"_blank\">European regulation</a> to strengthen and unify the "
+"data protection of EU citizens."
+msgstr ""
+"GDPR (General Data Protection Regulation ) je <a href=\"http://www.eugdpr."
+"org/\" target=\"_blank\">Opća uredba o zaštiti osobnih podataka u Europskoj "
+"uniji, primjenjuje se od 25. svibnja 2018. godine</a>."
+
+#: views/moove/admin/settings/settings_page.php:66
+msgid "General Settings"
+msgstr "Osnovne postavke"
+
+#: views/moove/admin/settings/settings_page.php:70
+msgid "Banner Settings"
+msgstr "Postavke bannera"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:60
+msgid "Choose functionality"
+msgstr "Odaberite funkcionalnost"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:64
+msgid "Optional (user selects their preferences)"
+msgstr "Izborno (korisnik odabire njihove postavke)"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:66
+msgid "Always enabled (user cannot disable it but can see the content)"
+msgstr ""
+"Uvijek je omogućen (korisnik ga ne može onemogućiti, ali može vidjeti "
+"sadržaj)"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:68
+msgid "Always enabled and content hidden from user"
+msgstr "Uvijek je omogućen i sadržaj sakriven od korisnika"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:105
+msgid "Tab Warning Message"
+msgstr "Poruka upozorenja na kartici"
+
+#: views/moove/admin/settings/strictly_necessary_cookies.php:118
+msgid "Will be displayed below the Checkbox in the front-end!"
+msgstr "Prikazat će se ispod Checkboxa na stranici!"
+
+#. Name of the plugin
+msgid "GDPR Cookie Compliance"
+msgstr "GDPR Usklađenost kolačića"
+
+#. Description of the plugin
+msgid ""
+"GDPR is an EU wide legislation that specifies how user data should be "
+"handled. This plugin has settings that can assist you with GDPR cookie "
+"compliance requirements."
+msgstr ""
+"GDPR je opća uredba o zaštiti osobnih podataka. Ovaj dodatak ima postavke "
+"koje vam mogu pomoći sa zahtjevima za usklađivanje web kolačića prema GDPR-u."
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/gdpr-cookie-compliance/"
+msgstr "https://wordpress.org/plugins/gdpr-cookie-compliance/"
+
+#. Author of the plugin
+msgid "Moove Agency"
+msgstr "Moove Agency"
+
+#. Author URI of the plugin
+msgid "https://www.mooveagency.com"
+msgstr "https://www.mooveagency.com"
