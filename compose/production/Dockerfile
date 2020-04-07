@@ -10,7 +10,6 @@ COPY compose/production/wordpress/wp-config.d/ /var/www/html/wp-config.d
 
 #COPY custom plugins 
 COPY plugins /var/www/plugins
-COPY mu-plugins /var/www/mu-plugins
 
 
 # Fix file permissions
