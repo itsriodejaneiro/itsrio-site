@@ -4,7 +4,6 @@ COPY themes /var/www/themes
 RUN chown -R www-data: /var/www/themes
 USER www-data
 
-COPY compose/entrypoint-extra /docker-entrypoint-extra
 COPY compose/production/wordpress/php/extra.ini /usr/local/etc/php/conf.d/extra.ini
 COPY compose/production/wordpress/wp-config.d/ /var/www/html/wp-config.d
 
