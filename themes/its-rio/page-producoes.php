@@ -19,7 +19,7 @@ $cat_classes = 'black';
 				<span class="box slider-title"><?= pll__('publicações') ?></span>
 				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
 				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver produções desta área') ?></span>
+				<span class="box link"><?= pll__('ver publicações') ?></span>
 				<?php $styles .= "#slider_publicacoes_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
 			</div>
 			<div id="slider_comunicados_ctp" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
@@ -27,8 +27,24 @@ $cat_classes = 'black';
 				<span class="box slider-title"><?= pll__('comunicados') ?></span>
 				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
 				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver produções desta área') ?></span>
+				<span class="box link"><?= pll__('ver comunicados') ?></span>
 				<?php $styles .= "#slider_comunicados_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+			</div>
+			<div id="slider_videos_ctp" data-filter=".videos_ctp" area-name="#<?= pll__('vídeos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+				<div class="color"></div>
+				<span class="box slider-title"><?= pll__('vídeos') ?></span>
+				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-text"></span>
+				<span class="box link"><?= pll__('ver vídeos') ?></span>
+				<?php $styles .= "#slider_videos_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+			</div>
+			<div id="slider_artigos_ctp" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+				<div class="color"></div>
+				<span class="box slider-title"><?= pll__('artigos') ?></span>
+				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-text"></span>
+				<span class="box link"><?= pll__('ver produções desta área') ?></span>
+				<?php $styles .= "#slider_artigos_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
 			</div>
 		</div>
 	</div>
@@ -42,15 +58,14 @@ $cat_classes = 'black';
 	<div class="older-posts">
 		<?php
 		$args = array(
-			'posts_per_page' => '100',
-			'post_type' => array('publicacoes_ctp','comunicados_ctp')
+			'posts_per_page' => '2000',
+			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
 		);
 
-		query_posts($args);
-
-		if (have_posts()) {
-			while (have_posts()) {
-				the_post();
+		$query = new WP_Query($args);
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
 				include(ROOT .'inc/post-box.php');
 			}
 		}
