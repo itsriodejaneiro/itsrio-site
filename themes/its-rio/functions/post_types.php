@@ -9,9 +9,12 @@ function custom_post_type() {
 	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail'], false);
 	register_custom_post_type('areas','Área de Pesquisa','Áreas de Pesquisa', 'dashicons-marker', [ 'title', 'excerpt', 'editor', 'thumbnail'], false);
 	// register_custom_post_type('footer','Footer','Comunicados','dashicons-megaphone');
+	register_custom_post_type('videos_ctp','Vídeo','Vídeos','dashicons-video-alt2',   [ 'title', 'editor', 'excerpt', 'author'], true, array( 'category', 'post_tag' ));
+	register_custom_post_type('artigos_ctp','Artigo','Artigos','dashicons-media-text',  [ 'title', 'editor', 'excerpt', 'author'], true, array( 'category', 'post_tag' ));
+
 }
 
-function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-admin-post', $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail'], $public = true) {
+function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-admin-post', $supports = [ 'title', 'editor', 'excerpt', 'author', 'thumbnail'], $public = true, $taxonomies = array( 'category', 'post_tag' )) {
 	$labels = array(
 		'name'                  => _x( $plural, 'Post Type General Name', 'text_domain' ),
 		'singular_name'         => _x( $singular, 'Post Type Singular Name', 'text_domain' ),
@@ -44,7 +47,7 @@ function register_custom_post_type($id, $singular, $plural, $icon = 'dashicons-a
 		'description'           => __( 'Post type de varandas', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => $supports,
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => $taxonomies,
 		'hierarchical'          => false,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
