@@ -58,7 +58,7 @@ $cat_classes = 'black';
 	<div class="older-posts">
 		<?php
 		$args = array(
-			'posts_per_page' => '2000',
+			'posts_per_page' => '100',
 			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
 		);
 
