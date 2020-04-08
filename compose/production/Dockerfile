@@ -1,7 +1,7 @@
 FROM hacklab/wordpress:v5.3.2-php7.3
 # COPY custom themes
-COPY themes/its-rio /var/www/html/wp-content/themes/its-rio
-RUN chown -R www-data: /var/www/html/wp-content/themes/its-rio
+COPY themes /var/www/themes
+RUN chown -R www-data: /var/www/themes
 USER www-data
 
 COPY compose/production/wordpress/php/extra.ini /usr/local/etc/php/conf.d/extra.ini
