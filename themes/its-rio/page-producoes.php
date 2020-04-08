@@ -1,4 +1,8 @@
 <?php
+/**
+* Template Name: Página produções
+*
+*/
 get_header();
 $no_label = true;
 $cat_classes = 'black';
@@ -10,22 +14,22 @@ $cat_classes = 'black';
 			<div class="line"></div>
 		</h2>
 		<div class="area-pesquisa">
-			<?php
-			$areas = get_ctp_array('areas', true, []);
-			$styles .= "@media screen and (min-width: 769px) {";
-			foreach ($areas as $id => $area) { ?>
-			<div id="slider_<?= $id ?>" data-filter=".area-<?= $id ?>" area-name="#<?= sanitize_title($area['post_title']) ?>"  class="slider four no-active filter" <?= get_thumbnail_style($id, 'card') ?>>
+			<div id="slider_publicacoes_ctp" data-filter=".publicacoes_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
 				<div class="color"></div>
-				<span class="box slider-title"><?= $area['post_title'] ?></span>
-				<span class="slider-excerpt"><?= $area['post_excerpt'] ?></span>
+				<span class="box slider-title"><?= pll__('publicações') ?></span>
+				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver produções desta área') ?></span>
-				<?php $styles .= "#slider_$id {background-image: url('".get_thumbnail_url_full($id)."') !important;}"; ?>
+				<?php $styles .= "#slider_publicacoes_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
 			</div>
-			<?php
-			}
-			$styles .= "}";
-			?>
+			<div id="slider_comunicados_ctp" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+				<div class="color"></div>
+				<span class="box slider-title"><?= pll__('comunicados') ?></span>
+				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-text"></span>
+				<span class="box link"><?= pll__('ver produções desta área') ?></span>
+				<?php $styles .= "#slider_comunicados_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+			</div>
 		</div>
 	</div>
 	<div class="column large-12" id="projetos-ativos-title">
@@ -94,7 +98,6 @@ $cat_classes = 'black';
 
 			if($(this).hasClass('active') || (e.target == button[0] && button.text() == '<?= pll__("ver todos as produções") ?>')){
 				$grid.isotope({ filter: filterValue });
-				$grid2.isotope({ filter: '*' });
 				$('.list-title small').html('<?= pll__("mostrando tudo") ?>');
 				button.text("<?= pll__('ver produções desta área') ?>");
 				jQuery('.area-pesquisa .slider').removeClass('active').removeClass('no-hover');
@@ -124,8 +127,8 @@ $cat_classes = 'black';
 			button.text('<?= pll__("ver todos as produções") ?>');
 			var a = $( this );
 			var filterValue = a.attr('data-filter');
+			console.log(filterValue)
 			$grid.isotope({ filter: filterValue });
-			$grid2.isotope({ filter: filterValue });
 
 			if(typeof $('.older-posts[style*="height: 0px"]')[0] != 'undefined')
 				$('#'+$('.older-posts[style*="height: 0px"]')[0].id + '-title').hide();
