@@ -34,6 +34,6 @@ then
         -exec echo 'mv '$WP_THEMES'/TMP '$WP_THEMES'/$(basename {})' \; \
         -exec sh -c 'mv '$WP_THEMES'/TMP '$WP_THEMES'/$(basename {})' \;
 fi
-cp -ra /var/www/plugins/* wp-content/plugins/
-cp -ra /var/www/themes/* wp-content/themes/
+cp -ra /var/www/plugins/* /var/www/html/wp-content/plugins/
+cp -ra /var/www/themes/* /var/www/html/wp-content/themes/
 chown -R www-data:www-data /var/www/html/wp-content
