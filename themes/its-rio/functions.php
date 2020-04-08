@@ -19,6 +19,7 @@ define('YOUTUBE_KEY', 'AIzaSyCiKcRsuOdRuo0qWGR6n09UdiCiz5A4uzY');
 define('YOUTUBE_ID', 'UC61OfX5yfm-G8O1sZ7TKlGQ');
 
 include 'functions/post_types.php';
+include 'functions/custom_taxonomies.php';
 include 'functions/meta.php';
 include 'functions/ajax-calls.php';
 include 'functions/components/components.php';
