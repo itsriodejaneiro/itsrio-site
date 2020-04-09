@@ -1,16 +1,15 @@
 
-
-FROM node:12
+FROM node:11
 LABEL mantainer "hacklab/ <contato@hacklab.com.br>"
 
 COPY themes /var/www/themes
 WORKDIR /var/www/themes/its-rio 
 
 RUN npm install --global gulp-cli
-RUN npm install 
+RUN npm install
+RUN gulp
 RUN chown -R www-data: /var/www/themes
 
-WORKDIR /var/www/html
 
 FROM hacklab/wordpress:v5.3.2-php7.3
 
