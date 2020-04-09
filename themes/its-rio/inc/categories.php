@@ -1,6 +1,6 @@
 <?php 
 $categories = get_the_category(); 
-$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'comunicados'];
+$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'comunicados', 'videos_ctp' => 'vídeos', 'artigos_ctp' => 'artigos'];
 ?>
 <div class="categories <?= isset($cat_classes) ? $cat_classes : '' ?>">
 
