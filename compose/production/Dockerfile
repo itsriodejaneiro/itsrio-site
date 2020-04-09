@@ -24,8 +24,6 @@ COPY plugins /var/www/html/wp-content/plugins
 
 # Fix file permissions
 USER root
-RUN chown -R www-data:www-data /var/www/html/wp-content
-
 RUN a2enmod headers remoteip          \
     && {                              \
         date;                         \
