@@ -12,15 +12,21 @@ RUN gulp
 
 FROM hacklab/wordpress:v5.3.2-php7.3
 
+LABEL mantainer "hacklab/ <contato@hacklab.com.br>"
+
+ARG composer='--no-dev'
 USER www-data
-COPY --from=0 /var/www/themes/its-rio /var/www/html/wp-content/themes/its-rio
+
+COPY --from=0 /var/www/themes /var/www/themes
 
 COPY compose/entrypoint-extra /docker-entrypoint-extra
 COPY compose/production/wordpress/php/extra.ini /usr/local/etc/php/conf.d/extra.ini
 COPY compose/production/wordpress/wp-config.d/ /var/www/html/wp-config.d
 
-#COPY custom plugins 
-COPY plugins /var/www/html/wp-content/plugins
+COPY wp-content /var/www/html/wp-content
+COPY plugins /var/www/plugins
+COPY mu-plugins /var/www/mu-plugins
+
 
 # Fix file permissions
 USER root
