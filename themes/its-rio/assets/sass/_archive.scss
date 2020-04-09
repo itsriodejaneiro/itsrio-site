@@ -337,7 +337,7 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 	}
 }
 
-.post-type-archive-projetos_ctp {
+.post-type-archive-projetos_ctp, .page-template-page-producoes {
 	@include breakpoint(small only) {
 		.main-carousel-wrapper .list-title {
 			margin: 15px !important;
