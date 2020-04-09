@@ -1,18 +1,21 @@
+
+
 FROM node:12
 LABEL mantainer "hacklab/ <contato@hacklab.com.br>"
 
-COPY --from=0 /var/www/themes /var/www/themes
-RUN npm install --global gulp-cli
-WORKDIR /var/www/themes/its-rio
-RUN npm install 
-RUN gulp
-
-FROM hacklab/wordpress:v5.3.2-php7.3
-# COPY custom themes
 COPY themes /var/www/themes
+WORKDIR /var/www/themes/its-rio 
+
+RUN npm install --global gulp-cli
+RUN npm install 
 RUN chown -R www-data: /var/www/themes
 
+WORKDIR /var/www/html
+
+FROM hacklab/wordpress:v5.3.2-php7.3
+
 USER www-data
+COPY --from=0 /var/www/themes /var/www/themes
 
 COPY compose/entrypoint-extra /docker-entrypoint-extra
 COPY compose/production/wordpress/php/extra.ini /usr/local/etc/php/conf.d/extra.ini
