@@ -37,6 +37,8 @@ function my_et_builder_post_types( $post_types ) {
 	$post_types[] = 'cursos_ctp';
 	$post_types[] = 'publicacoes_ctp';
 	$post_types[] = 'comunicados_ctp';
+	$post_types[] = 'videos_ctp';
+	$post_types[] = 'artigos_ctp';
 
 	return $post_types;
 }
