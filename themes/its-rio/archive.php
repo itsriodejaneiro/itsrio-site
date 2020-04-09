@@ -57,7 +57,7 @@ get_header();
 				$label = pll__('palestrantes');
 				break;
 				case 'comunicados_ctp':
-				$bannerCards = pll__('acontece') ;
+				$bannerCards = pll__('comunicados') ;
 				break;
 
 				default:

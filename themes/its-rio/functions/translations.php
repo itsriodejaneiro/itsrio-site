@@ -20,7 +20,7 @@ if(function_exists('pll_register_string')){
     'varanda',
     'projeto',
     'publicação',
-    'acontece',
+    'comunicados',
     ]
     ];
 

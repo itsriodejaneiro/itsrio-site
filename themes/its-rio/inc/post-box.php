@@ -2,12 +2,17 @@
 <?php 
 $class = ($post->post_type == 'projetos_ctp') ? 'area-'.$meta['info_areapesquisa'][0] : '';
 $array_cpts = ['publicacoes_ctp','comunicados_ctp','videos_ctp', 'artigos_ctp' ];
-$class .= (in_array($post->post_type, $array_cpts)) ? $post->post_type : '' ?>
+$class .= (in_array($post->post_type, $array_cpts)) ? $post->post_type : '' ;
+
+print_r(get_the_term_list( $post->ID, $post->post_type.'_cat', 'People: ', ', ' )); 
+
+$class .= (in_array($post->post_type, $array_cpts)) ? $post->post_type : '' 
+?>
 <div class="list-item-wrapper column small-12 medium-4 large-4 end <?= $class; ?>">	<div <?php post_class( 'list-item' ); ?>>
 		<div class="info">
 			<p class="post-type">
 				<?php
-					$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'acontece', 'videos_ctp' => 'vídeos', 'artigos_ctp' => 'artigos'];
+					$titlesCard = ['cursos_ctp' => 'cursos', 'varandas_ctp' => 'varandas', 'projetos_ctp' => 'projetos', 'publicacoes_ctp' => 'publicações', 'comunicados_ctp' => 'comunicados', 'videos_ctp' => 'vídeos', 'artigos_ctp' => 'artigos'];
 					
 					echo pll__($titlesCard[get_post_type()]);
 				?>

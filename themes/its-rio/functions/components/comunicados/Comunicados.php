@@ -2,7 +2,7 @@
 class Comunicados extends ET_Builder_Module {
 
 	function init() {
-		$this->name = esc_html__( 'ITS - Acontece (Comunicados)', 'et_builder' );
+		$this->name = esc_html__( 'ITS - Comunicados', 'et_builder' );
 		$this->slug = 'et_pb_comunicados';
 		$this->fb_support = true;
 

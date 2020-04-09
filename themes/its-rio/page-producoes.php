@@ -43,7 +43,7 @@ $cat_classes = 'black';
 				<span class="box slider-title"><?= pll__('artigos') ?></span>
 				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
 				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver produções desta área') ?></span>
+				<span class="box link"><?= pll__('ver artigos') ?></span>
 				<?php $styles .= "#slider_artigos_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
 			</div>
 		</div>
