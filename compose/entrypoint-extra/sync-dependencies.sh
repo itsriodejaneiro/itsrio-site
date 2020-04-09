@@ -35,6 +35,3 @@ then
         -exec sh -c 'mv '$WP_THEMES'/TMP '$WP_THEMES'/$(basename {})' \;
 fi
 chown -R www-data:www-data /var/www/html/wp-content
-cd /var/www/html/wp-content/themes/its-rio
-sudo npm install 
-sudo gulp
