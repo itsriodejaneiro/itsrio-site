@@ -78,7 +78,7 @@ $color_institucionais : #522e91;
 	@include single-colors($color_publicacoes);
 }
 
-.single-projetos_ctp, .post-type-archive-projetos_ctp {
+.single-projetos_ctp, .post-type-archive-projetos_ctp, .page-template-page-producoes {
 	@include single-colors($color_projetos);
 }
 
