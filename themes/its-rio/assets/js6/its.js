@@ -319,8 +319,16 @@ new Vue({
         });
 
         //Adiciona a classe de active ao post type correspondente no menu global.
-        $("a[href*='"+post_type+"'],a[href*='"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
-
+        var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$")
+        $('.menu-nav .menu-item a').each(function(){           
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){              
+                $(this).parent().addClass('current-menu-item');
+            }
+        });
+        if ($('.menu-nav .menu-item.current-menu-item').length == 0 ) {
+            $("a[href$='"+post_type+"'],a[href$='"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
+        }
         //Smooth scroll
         $('a[href*="#"]:not([href="#"]), .single-menu ul li ').click(function() {
             var el = $(this).is('a') ? this : $(this).find('a')[0];
