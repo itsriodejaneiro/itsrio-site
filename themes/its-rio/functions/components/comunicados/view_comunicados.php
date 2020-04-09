@@ -2,7 +2,7 @@
 	<div class="related-content content-area comunicados" id="tab_<?= array_search(pll__('comunicados'), $data['its_tabs']) ?>">
 		<div class="row">
 			<h2 class="list-title">
-				<?= pll__('acontece') ?> <a href="/<?= $lang ?>/comunicados"><?= pll__('ver todos') ?></a>
+				<?= pll__('comunicados') ?> <a href="/<?= $lang ?>/comunicados"><?= pll__('ver todos') ?></a>
 				<div class="line"></div>
 			</h2>
 			<div class="related-post list-item-wrapper">
