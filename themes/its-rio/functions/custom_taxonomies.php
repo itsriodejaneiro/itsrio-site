@@ -6,10 +6,7 @@
 add_action( 'init', 'custom_taxonomy', 0 );
 
 function custom_taxonomy(){
-    register_custom_taxonomy('videos_ctp_cat', 'videos_ctp', 'Categoria de vídeo', 'Categoria de vídeos', "Categorias de vídeos");
-    register_custom_taxonomy('artigos_ctp_cat', 'artigos_ctp', 'Categoria de Artigo', 'Categoria de artigos', "Categorias de artigos");
-    register_custom_taxonomy('publicacoes_ctp_cat', 'publicacoes_ctp', 'Categoria de publicação', 'Categoria de publicações', "Categorias de publicações");
-    register_custom_taxonomy('comunicados_ctp_cat', 'comunicados_ctp', 'Categoria de comunicado', 'Categorias de comunicados', "Categorias de comunicados");
+   
 }
 function register_custom_taxonomy($tx_slug, $tx_post_type, $tx_name, $tx_singular, $tx_plural) {
 
