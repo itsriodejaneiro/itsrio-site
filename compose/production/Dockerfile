@@ -8,7 +8,6 @@ WORKDIR /var/www/themes/its-rio
 RUN npm install --global gulp-cli
 RUN npm install
 RUN gulp
-RUN chown -R www-data: /var/www/themes
 
 
 FROM hacklab/wordpress:v5.3.2-php7.3

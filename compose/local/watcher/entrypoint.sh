@@ -1,5 +1,5 @@
 #!/bin/bash
 
 npm install
-
-npm run watch
+npm install --global gulp-cli
+gulp watch
