@@ -7,6 +7,11 @@ wp-content/gallery-bank/
 wp-content/languages/
 wp-content/themes/divi3*
 .sass-cache/
+themes/its-rio/assets/css/its.css
+themes/its-rio/assets/css/its.css.map
+themes/its-rio/assets/css/wp-map.css
+themes/its-rio/assets/css/wp-map.css.map
+themes/its-rio/package-lock.json
 
 # Wordpress
 index.php
@@ -39,4 +44,3 @@ wp-content
 compose/local/mariadb/data
 mariadb_data/
 compose/local/mariadb/data/*
-
