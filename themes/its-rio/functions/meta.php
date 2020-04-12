@@ -16,6 +16,13 @@ function its_meta_boxes($meta_boxes) {
 			['id' 	=> 'formbutton_text', 'name' => 'Texto do botão de inscrição', 'type' => 'text'],
 			),
 		],
+		['id'		=> 'linkscursos',
+		'title'     => __('Informações do Curso', 'textdomain' ),
+		'post_types'=> ['cursos_ctp'],
+		'fields'    => array(
+			['id' 	=> 'formbutton_text', 'name' => 'Texto do botão de inscrição', 'type' => 'text'],
+			),
+		],
 		['id'		=> 'projetoencerrado',
 		'title'     => __('Informações do Projeto', 'textdomain' ),
 		'post_types'=> ['projetos_ctp'],
