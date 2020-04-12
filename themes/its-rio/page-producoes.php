@@ -6,7 +6,29 @@
 get_header();
 $no_label = true;
 $cat_classes = 'black';
+global $post;
+
+if( class_exists('Dynamic_Featured_Image') ) {
+	global $dynamic_featured_image;
+	$featured_images = $dynamic_featured_image->get_featured_images( );
+	
+	$n=1;
+	$attachment = get_post(get_post_thumbnail_id($post->ID));
+	$caption = $attachment->post_excerpt;
+	$descricao[0]=$caption;
+	$imagens[0]= get_thumbnail_url_full($post->ID);
+	foreach ($featured_images as $imagem) {
+		$attachment = get_post($imagem['attachment_id']);
+		$caption = $attachment->post_excerpt;
+		$descricao[$n]=$caption;
+		$imagens[$n]=$imagem['full'];	
+		$n++;
+	}
+}
+
+
 ?>
+
 <div class="row">
 	<div class="main-carousel-wrapper column large-12">
 		<h2 class="list-title">
@@ -17,34 +39,34 @@ $cat_classes = 'black';
 			<div id="slider_publicacoes_ctp" data-filter=".publicacoes_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('publicações') ?></span>
-				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-excerpt"><?= $descricao[0] ? $descricao[0] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver publicações') ?></span>
-				<?php $styles .= "#slider_publicacoes_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+				<?php $styles .= "#slider_publicacoes_ctp {background-image: url('".($imagens[0] ? $imagens[0] : '')."') !important;}"; ?>
 			</div>
-			<div id="slider_comunicados_ctp" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+			<div id="slider_comunicados_ctp" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style($featured_images[0]['attachment_id'], 'card') ?>>
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('comunicados') ?></span>
-				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-excerpt"><?= $descricao[1] ? $descricao[1] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver comunicados') ?></span>
-				<?php $styles .= "#slider_comunicados_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+				<?php $styles .= "#slider_comunicados_ctp {background-image: url('".($imagens[1] ? $imagens[1] : '')."') !important;}"; ?>
 			</div>
 			<div id="slider_videos_ctp" data-filter=".videos_ctp" area-name="#<?= pll__('vídeos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('vídeos') ?></span>
-				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-excerpt"><?= $descricao[2] ? $descricao[2] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver vídeos') ?></span>
-				<?php $styles .= "#slider_videos_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+				<?php $styles .= "#slider_videos_ctp {background-image: url('".($imagens[2] ? $imagens[2] : '')."') !important;}"; ?>
 			</div>
 			<div id="slider_artigos_ctp" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('artigos') ?></span>
-				<span class="slider-excerpt"><?= 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher ' ?></span>
+				<span class="slider-excerpt"><?= $descricao[3] ? $descricao[3] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver artigos') ?></span>
-				<?php $styles .= "#slider_artigos_ctp {background-image: url('".get_thumbnail_url_full('4256')."') !important;}"; ?>
+				<?php $styles .= "#slider_artigos_ctp {background-image: url('".($imagens[3] ? $imagens[3] : '')."') !important;}"; ?>
 			</div>
 		</div>
 	</div>
