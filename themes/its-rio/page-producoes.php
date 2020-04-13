@@ -11,22 +11,16 @@ global $post;
 if( class_exists('Dynamic_Featured_Image') ) {
 	global $dynamic_featured_image;
 	$featured_images = $dynamic_featured_image->get_featured_images( );
-	
-	$n=1;
-	$attachment = get_post(get_post_thumbnail_id($post->ID));
-	$caption = $attachment->post_excerpt;
-	$descricao[0]=$caption;
-	$imagens[0]= get_thumbnail_url_full($post->ID);
+	$n=0;
 	foreach ($featured_images as $imagem) {
 		$attachment = get_post($imagem['attachment_id']);
 		$caption = $attachment->post_excerpt;
 		$descricao[$n]=$caption;
-		$imagens[$n]=$imagem['full'];	
+		$imagens[$n]['full']=$imagem['full'];	
+		$imagens[$n]['thumb']=$imagem['thumb'];	
 		$n++;
 	}
 }
-
-
 ?>
 
 <div class="row">
@@ -36,39 +30,42 @@ if( class_exists('Dynamic_Featured_Image') ) {
 			<div class="line"></div>
 		</h2>
 		<div class="area-pesquisa">
-			<div id="slider_publicacoes_ctp" data-filter=".publicacoes_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+		<?php $styles .= "@media screen and (min-width: 769px) {";?>
+			<div id="slider_publicacoes_ctp_1" data-filter=".publicacoes_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" style="background-image: url('<?php echo ($imagens[1]['thumb'] ? $imagens[1]['thumb'] : '') ?>');}">
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('publicações') ?></span>
-				<span class="slider-excerpt"><?= $descricao[0] ? $descricao[0] : '' ?></span>
-				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver publicações') ?></span>
-				<?php $styles .= "#slider_publicacoes_ctp {background-image: url('".($imagens[0] ? $imagens[0] : '')."') !important;}"; ?>
-			</div>
-			<div id="slider_comunicados_ctp" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" <?= get_thumbnail_style($featured_images[0]['attachment_id'], 'card') ?>>
-				<div class="color"></div>
-				<span class="box slider-title"><?= pll__('comunicados') ?></span>
 				<span class="slider-excerpt"><?= $descricao[1] ? $descricao[1] : '' ?></span>
 				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver comunicados') ?></span>
-				<?php $styles .= "#slider_comunicados_ctp {background-image: url('".($imagens[1] ? $imagens[1] : '')."') !important;}"; ?>
+				<span class="box link"><?= pll__('ver publicações') ?></span>
+				<?php $styles .= "#slider_publicacoes_ctp_1 {background-image: url('".($imagens[0]['full'] ? $imagens[0]['full'] : '')."') !important;}"; ?>
 			</div>
-			<div id="slider_videos_ctp" data-filter=".videos_ctp" area-name="#<?= pll__('vídeos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+			<div id="slider_comunicados_ctp_2" data-filter=".comunicados_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" style="background-image: url('<?php ($imagens[3]['thumb'] ? $imagens[3]['thumb'] : '') ?>');}">
 				<div class="color"></div>
-				<span class="box slider-title"><?= pll__('vídeos') ?></span>
+				<span class="box slider-title"><?= pll__('comunicados') ?></span>
 				<span class="slider-excerpt"><?= $descricao[2] ? $descricao[2] : '' ?></span>
 				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver vídeos') ?></span>
-				<?php $styles .= "#slider_videos_ctp {background-image: url('".($imagens[2] ? $imagens[2] : '')."') !important;}"; ?>
+				<span class="box link"><?= pll__('ver comunicados') ?></span>
+				<?php $styles .= "#slider_comunicados_ctp_2 {background-image: url('".($imagens[2]['full'] ? $imagens[2]['full'] : '')."') !important;}"; ?>
 			</div>
-			<div id="slider_artigos_ctp" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" <?= get_thumbnail_style('4256', 'card') ?>>
+			<div id="slider_videos_ctp_3" data-filter=".videos_ctp" area-name="#<?= pll__('vídeos') ?>"  class="slider four no-active filter"  style="background-image: url('<?php ($imagens[5]['thumb'] ? $imagens[5]['thumb'] : '') ?>');}" >
+				<div class="color"></div>
+				<span class="box slider-title"><?= pll__('vídeos') ?></span>
+				<span class="slider-excerpt"><?= $descricao[4] ? $descricao[4] : '' ?></span>
+				<span class="slider-text"></span>
+				<span class="box link"><?= pll__('ver vídeos') ?></span>
+				<?php $styles .= "#slider_videos_ctp_3 {background-image: url('".($imagens[4]['full'] ? $imagens[4]['full'] : '')."') !important;}"; ?>
+			</div>
+			<div id="slider_artigos_ctp_4" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" style="background-image: url('<?php ($imagens[7]['thumb'] ? $imagens[7]['thumb'] : '') ?>');}">>
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('artigos') ?></span>
-				<span class="slider-excerpt"><?= $descricao[3] ? $descricao[3] : '' ?></span>
+				<span class="slider-excerpt"><?= $descricao[4] ? $descricao[4] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver artigos') ?></span>
-				<?php $styles .= "#slider_artigos_ctp {background-image: url('".($imagens[3] ? $imagens[3] : '')."') !important;}"; ?>
+				<?php $styles .= "#slider_artigos_ctp_4 {background-image: url('".($imagens[6]['full'] ? $imagens[6]['full'] : '')."') !important;}"; ?>
 			</div>
 		</div>
+		<?php $styles .= "}";?>
+
 	</div>
 	<div class="column large-12" id="projetos-ativos-title">
 		<h2 class="list-title">
@@ -80,7 +77,7 @@ if( class_exists('Dynamic_Featured_Image') ) {
 	<div class="older-posts">
 		<?php
 		$args = array(
-			'posts_per_page' => '100',
+			'posts_per_page' => '20',
 			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
 		);
 
