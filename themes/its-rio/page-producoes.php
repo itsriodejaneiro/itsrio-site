@@ -187,6 +187,13 @@ if( class_exists('Dynamic_Featured_Image') ) {
 		if(location.hash != ''){
 			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
 		}
-	},2500);
+	},1500);
+
+	window.onload = function() {
+		var $grid = $('.older-posts').isotope({
+			itemSelector: '.large-4',
+			layoutMode: 'fitRows'
+		});
+	};
 </script>
 <?php get_footer(); ?>
