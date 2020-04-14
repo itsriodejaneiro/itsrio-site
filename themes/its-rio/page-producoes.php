@@ -187,6 +187,6 @@ if( class_exists('Dynamic_Featured_Image') ) {
 		if(location.hash != ''){
 			jQuery('.area-pesquisa .slider[area-name="'+location.hash+'"]').trigger('click');
 		}
-	},1500);
+	},2500);
 </script>
 <?php get_footer(); ?>

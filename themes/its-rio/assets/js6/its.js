@@ -238,7 +238,7 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
-        }, 2000);
+        }, 1000);
 
         // $(window).resize(function(){
         //     var maxHeight = -1;
@@ -317,8 +317,7 @@ new Vue({
                 });
             }
         });
-
-        //Adiciona a classe de active ao post type correspondente no menu global.
+        //Adiciona a classe de active ao item do menu baseado na url
         var url = window.location.pathname, 
         urlRegExp = new RegExp(url.replace(/\/$/,'') + "$")
         $('.menu-nav .menu-item a').each(function(){           
@@ -326,6 +325,7 @@ new Vue({
                 $(this).parent().addClass('current-menu-item');
             }
         });
+        //Adiciona a classe de active ao correspondente no menu global na single de um cpt.
         if ($('.menu-nav .menu-item.current-menu-item').length == 0 ) {
             $("a[href$='"+post_type+"'],a[href$='"+lang+"/"+post_type+"']").parent().addClass('current-menu-item');
         }
