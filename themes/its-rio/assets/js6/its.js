@@ -238,7 +238,7 @@ new Vue({
                     $(this).height(maxHeight);
                 });
             }
-        }, 1000);
+        }, 2000);
 
         // $(window).resize(function(){
         //     var maxHeight = -1;
