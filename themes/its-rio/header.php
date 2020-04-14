@@ -26,8 +26,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0"> -->
 	<title><?php wp_title() ?></title>
 	<?php wp_head(); ?>
-	<remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);>
-	<remove_action('wp_head', 'wp_oembed_add_host_js');>
+	<?php remove_action('wp_head', 'wp_oembed_add_discovery_links', 10); ?>
+	<?php remove_action('wp_head', 'wp_oembed_add_host_js');?>
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/its.css').'?'.filemtime(ROOT.'assets/css/its.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/flickity.css') ?>">
 	<link rel="stylesheet" href="<?= esc_url_raw('/wp-content/themes/its-rio/assets/css/jquery.custom-scrollbar.css') ?>">
