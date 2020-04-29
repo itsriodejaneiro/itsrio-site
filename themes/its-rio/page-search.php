@@ -1,10 +1,10 @@
 <?php 
 get_header();
 $title = $_GET['title'];
-$post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp','comunicados_ctp'];
+$post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp','comunicados_ctp','videos_ctp', 'artigos_ctp'];
 $info_areapesquisa = $_GET['info_areapesquisa'];
 
-$args = ['title_like' => $title, 'post_type' => $post_type, 'lang' => $lang];
+$args = ['s' => $title, 'post_type' => $post_type, 'lang' => $lang];
 
 if(isset($_GET['info_areapesquisa']))
 	$args[] = ['meta_query' => ['key' => 'info_areapesquisa', 'value' => $_GET['info_areapesquisa'], 'compare' => 'IN' ] ];
