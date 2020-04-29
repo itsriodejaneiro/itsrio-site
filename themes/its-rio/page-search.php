@@ -1,11 +1,21 @@
 <?php 
 get_header();
 $title = $_GET['title'];
-$post_type = isset($_GET['cpt']) ? $_GET['cpt'] : ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp','comunicados_ctp','videos_ctp', 'artigos_ctp'];
+$all_post_types = ['cursos_ctp','publicacoes_ctp','varandas_ctp','projetos_ctp','comunicados_ctp','videos_ctp', 'artigos_ctp'];
+$query_cpts = array();
+if(isset($_GET['cpt'])){	
+	$post_types = $_GET['cpt'];
+	foreach($post_types as $post_type){
+		if(in_array($post_type, $all_post_types)){
+			array_push($query_cpts,$post_type);
+		}
+	}
+}
+else{
+	$query_cpts = $all_post_types;
+}
 $info_areapesquisa = $_GET['info_areapesquisa'];
-
-$args = ['s' => $title, 'post_type' => $post_type, 'lang' => $lang];
-
+$args = ['s' => $title, 'post_type' => $query_cpts, 'lang' => $lang];
 if(isset($_GET['info_areapesquisa']))
 	$args[] = ['meta_query' => ['key' => 'info_areapesquisa', 'value' => $_GET['info_areapesquisa'], 'compare' => 'IN' ] ];
 
