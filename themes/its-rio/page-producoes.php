@@ -25,10 +25,6 @@ if( class_exists('Dynamic_Featured_Image') ) {
 
 <div class="row">
 	<div class="main-carousel-wrapper column large-12">
-		<h2 class="list-title">
-			<?= pll__('áreas de pesquisa'); ?>
-			<div class="line"></div>
-		</h2>
 		<div class="area-pesquisa">
 		<?php $styles .= "@media screen and (min-width: 769px) {";?>
 			<div id="slider_publicacoes_ctp_1" data-filter=".publicacoes_ctp" area-name="#<?= pll__('Publicações') ?>"  class="slider four no-active filter" style="background-image: url('<?php echo ($imagens[1]['thumb'] ? $imagens[1]['thumb'] : '') ?>');}">
@@ -77,7 +73,7 @@ if( class_exists('Dynamic_Featured_Image') ) {
 	<div class="older-posts">
 		<?php
 		$args = array(
-			'posts_per_page' => -1,
+			'posts_per_page' => 500,
 			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
 		);
 
