@@ -77,7 +77,7 @@ if( class_exists('Dynamic_Featured_Image') ) {
 	<div class="older-posts">
 		<?php
 		$args = array(
-			'posts_per_page' => '20',
+			'posts_per_page' => -1,
 			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
 		);
 
