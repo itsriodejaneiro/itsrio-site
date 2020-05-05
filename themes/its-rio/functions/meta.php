@@ -10,7 +10,7 @@ function its_meta_boxes($meta_boxes) {
 	$meta_boxes = array([
 		'id'		=> 'linkscomunicados',
 		'title'     => __('Informações do Comunicado', 'textdomain' ),
-		'post_types'=> ['comunicados_ctp'],
+		'post_types'=> ['comunicados_ctp', 'videos_ctp', 'artigos_ctp'],
 		'fields'    => array(
 			['id'	=> "saiba_mais", 'name' => 'Link do Saiba Mais', 'type' => 'text'],
 			['id' 	=> 'formbutton_text', 'name' => 'Texto do botão de inscrição', 'type' => 'text'],
@@ -65,7 +65,7 @@ function its_meta_boxes($meta_boxes) {
 		],
 		[
 		'title'      => __('Typeform para Inscrições', 'textdomain' ),
-		'post_types' => ['varandas_ctp','cursos_ctp','comunicados_ctp'],
+		'post_types' => ['varandas_ctp','cursos_ctp','comunicados_ctp', 'videos_ctp', 'artigos_ctp'],
 		'fields'     => array(
 			['id'   => 'typeform_url', 'name' => 'URL do Typeform', 'type' => 'text'],
 			['id'   => 'typeform_layout', 'name' => 'Formato do form', 'type' => 'radio', 'options' => [ '2'=> 'Lateral', '1' => 'Tela cheia' ]],
@@ -100,7 +100,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'home_destaques',
 		'title'      => __( 'É um destaque na home?', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp' ],
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp', 'videos_ctp', 'artigos_ctp' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,
@@ -122,7 +122,7 @@ function its_meta_boxes($meta_boxes) {
 		[
 		'id'         => 'its_pessoas',
 		'title'      => __( 'Equipe, Palestrantes e Autores', 'batuta_' ),
-		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp' ],
+		'post_types' => [ 'varandas_ctp', 'cursos_ctp','page', 'comunicados_ctp', 'publicacoes_ctp', 'projetos_ctp', 'videos_ctp', 'artigos_ctp' ],
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'autosave'   => true,

@@ -9,8 +9,8 @@ function custom_post_type() {
 	register_custom_post_type('pessoas','Pessoa','Pessoas', 'dashicons-welcome-learn-more', [ 'title', 'editor', 'thumbnail'], false);
 	register_custom_post_type('areas','Área de Pesquisa','Áreas de Pesquisa', 'dashicons-marker', [ 'title', 'excerpt', 'editor', 'thumbnail'], false);
 	// register_custom_post_type('footer','Footer','Comunicados','dashicons-megaphone');
-	register_custom_post_type('videos_ctp','Vídeo','Vídeos','dashicons-video-alt2',   [ 'title', 'editor', 'excerpt', 'author'], true, array( 'category', 'post_tag' ));
-	register_custom_post_type('artigos_ctp','Artigo','Artigos','dashicons-media-text',  [ 'title', 'editor', 'excerpt', 'author'], true, array( 'category', 'post_tag' ));
+	register_custom_post_type('videos_ctp','Vídeo','Vídeos','dashicons-video-alt2',   [ 'title', 'editor', 'excerpt', 'author', 'thumbnail'], true, array( 'category', 'post_tag' ));
+	register_custom_post_type('artigos_ctp','Artigo','Artigos','dashicons-media-text',  [ 'title', 'editor', 'excerpt', 'author', 'thumbnail'], true, array( 'category', 'post_tag' ));
 
 }
 
