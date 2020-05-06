@@ -7,6 +7,7 @@ $no_label = true;
 		<div class="column large-12">
 			<h1><?php the_title() ?></h1>
 			<div class="show-for-medium excerpt">
+				<?php the_excerpt() ?>
 				<?= isset($meta['datapubli'][0]) && $meta['datapubli'][0] != '' ? $meta['datapubli'][0] : '' ?>
 			</div>
 			<div class="line"></div>
