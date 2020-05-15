@@ -314,9 +314,38 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 		}
 	}
 }
-
 // ajustes nas intermediárias
 .archive {
+	.info{
+		.categories{
+			display: none;
+		}
+	}
+	//&.post-type-archive-cursos_ctp{
+		.categories.show-for-medium{
+			@include breakpoint(small only) {
+				display: none!important;
+			}	
+		}
+		.info{
+			.categories{
+				display: block;
+				position: relative;
+				left:0;
+				top:0;
+				margin:5px 0;
+				ul{
+					margin-left:0;
+					li{
+						border-color:#000;
+						a{
+							color:#000;
+						}
+					}
+				}
+			}
+		}
+	//}
 	.main-carousel-wrapper {
 		@include breakpoint(small only) {
 			margin-bottom: 15px;

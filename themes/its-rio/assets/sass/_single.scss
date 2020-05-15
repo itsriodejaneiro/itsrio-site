@@ -45,7 +45,7 @@
         color: white;
         font-size: 17px;
         font-weight: 700;
-        font-family: 'Raleway';
+        font-family: 'Roboto';
 
         &.raleway{ font-weight: 400; }
     }
@@ -302,7 +302,7 @@
     }
 
     p, h3{
-        font-family: 'Raleway';
+        font-family: 'Roboto';
     }
 
     h3 { margin-bottom: 5px; }
@@ -420,7 +420,7 @@
     max-height: 0px;
     font-size: 14px;
     overflow: hidden;
-    font-family: 'Raleway';
+    font-family: 'Roboto';
     background-color: #000;
     transition: max-height .3s;
 
@@ -595,7 +595,7 @@
             display: block;
             li{
                 font-size: 15px;
-                font-family: 'Raleway';
+                font-family: 'Roboto';
             }
         }
 
@@ -641,7 +641,7 @@
 
         p.left{ font-size: 18px; }
 
-        .component-tabs-content, p.left{ font-family: 'Raleway'; }
+        .component-tabs-content, p.left{ font-family: 'Roboto'; }
 
         .component-tabs-content{
             width: 100%;
@@ -889,12 +889,12 @@
     }
 
     h1 {
-        font-family: 'Raleway';
+        font-family: 'Roboto';
         font-size: 28px;
         font-weight: normal;
         line-height: 1.33;
         font-weight: normal;
-        font-family: 'Raleway';
+        font-family: 'Roboto';
 
         @include breakpoint(small only) {
             text-align: center;
@@ -1092,7 +1092,7 @@
     color: #9a258f;
     font-size: 24px;
     font-weight: 800;
-    font-family: Raleway, sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
 .component-social-medias {

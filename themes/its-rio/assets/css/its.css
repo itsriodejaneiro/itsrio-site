@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900|Roboto+Mono");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,600,900|Roboto+Mono");
 /**
  * Foundation for Sites by ZURB
  * Version 6.2.4
@@ -2850,7 +2850,6 @@ html.is-reveal-open body {
   min-height: 100%;
   overflow: hidden;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -3144,7 +3143,7 @@ h2.list-title small i {
 }
 
 .list-item .info p {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .list-item .info p.post-type {
@@ -3338,7 +3337,7 @@ h2.list-title small i {
 }
 
 .raleway {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .submenu {
@@ -3694,7 +3693,7 @@ html {
 }
 
 .menu-container .menu-nav ul {
-  width: 700px;
+  width: 800px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -3816,7 +3815,7 @@ html {
   font-weight: 900;
   line-height: 1.2;
   position: relative;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   transform: translateY(-50%);
 }
 
@@ -3894,7 +3893,7 @@ html {
 
 .home-area h2, .home-area p {
   font-weight: normal;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .home-area h2 b, .home-area p b {
@@ -4385,6 +4384,36 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   }
 }
 
+.archive .info .categories {
+  display: none;
+}
+
+@media screen and (max-width: 48em) {
+  .archive .categories.show-for-medium {
+    display: none !important;
+  }
+}
+
+.archive .info .categories {
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0;
+  margin: 5px 0;
+}
+
+.archive .info .categories ul {
+  margin-left: 0;
+}
+
+.archive .info .categories ul li {
+  border-color: #000;
+}
+
+.archive .info .categories ul li a {
+  color: #000;
+}
+
 @media screen and (max-width: 48em) {
   .archive .main-carousel-wrapper {
     margin-bottom: 15px;
@@ -4406,18 +4435,18 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 @media screen and (max-width: 48em) {
-  .post-type-archive-projetos_ctp .main-carousel-wrapper .list-title {
+  .post-type-archive-projetos_ctp .main-carousel-wrapper .list-title, .page-template-page-producoes .main-carousel-wrapper .list-title {
     margin: 15px !important;
     line-height: 1.7;
   }
 }
 
-.post-type-archive-projetos_ctp #projetos-encerrados-title {
+.post-type-archive-projetos_ctp #projetos-encerrados-title, .page-template-page-producoes #projetos-encerrados-title {
   margin-top: 20px;
 }
 
 @media screen and (min-width: 48.0625em) {
-  .post-type-archive-projetos_ctp #projetos-encerrados-title {
+  .post-type-archive-projetos_ctp #projetos-encerrados-title, .page-template-page-producoes #projetos-encerrados-title {
     margin-top: 40px;
   }
 }
@@ -4492,7 +4521,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: white;
   font-size: 17px;
   font-weight: 700;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .header-single h1.raleway, .header-single p.raleway {
@@ -4813,7 +4842,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .content-publicacoes p, .content-publicacoes h3 {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .content-publicacoes h3 {
@@ -4933,7 +4962,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   max-height: 0px;
   font-size: 14px;
   overflow: hidden;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   background-color: #000;
   transition: max-height .3s;
 }
@@ -5146,7 +5175,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 
 .component-tabs .component-tabs-title ul li {
   font-size: 15px;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .component-tabs .component-tabs-title h5 {
@@ -5197,7 +5226,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .component-tabs .component-tabs-tab .component-tabs-content, .component-tabs .component-tabs-tab p.left {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 .component-tabs .component-tabs-tab .component-tabs-content {
@@ -5469,12 +5498,12 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 }
 
 .fazer-minha-inscricao h1 {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   font-size: 28px;
   font-weight: normal;
   line-height: 1.33;
   font-weight: normal;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
 }
 
 @media screen and (max-width: 48em) {
@@ -5712,7 +5741,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: #9a258f;
   font-size: 24px;
   font-weight: 800;
-  font-family: Raleway, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 @media screen and (max-width: 48em) {
@@ -5912,55 +5941,55 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
   color: #f5821f;
 }
 
-.single-projetos_ctp .lang li a, .post-type-archive-projetos_ctp .lang li a {
+.single-projetos_ctp .lang li a, .post-type-archive-projetos_ctp .lang li a, .page-template-page-producoes .lang li a {
   color: black !important;
   font-weight: 500;
 }
 
-.single-projetos_ctp .lang li a.selected, .post-type-archive-projetos_ctp .lang li a.selected {
+.single-projetos_ctp .lang li a.selected, .post-type-archive-projetos_ctp .lang li a.selected, .page-template-page-producoes .lang li a.selected {
   color: #522e91 !important;
   font-weight: bold;
 }
 
-.single-projetos_ctp .lang li a.selected:before, .post-type-archive-projetos_ctp .lang li a.selected:before {
+.single-projetos_ctp .lang li a.selected:before, .post-type-archive-projetos_ctp .lang li a.selected:before, .page-template-page-producoes .lang li a.selected:before {
   background-color: #522e91 !important;
 }
 
-.single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item {
+.single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item, .page-template-page-producoes .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #522e91;
   font-weight: bold;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
+  .single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .page-template-page-producoes .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #522e91;
   }
 }
 
-.single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a {
+.single-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-projetos_ctp .menu-container .menu-nav ul li.current-menu-item a, .page-template-page-producoes .menu-container .menu-nav ul li.current-menu-item a {
   color: #522e91;
 }
 
-.single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single:before, .single-projetos_ctp .content-media .color-hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .content-media .color-hover {
+.single-projetos_ctp .header-single-menu, .single-projetos_ctp .header-single:before, .single-projetos_ctp .content-media .color-hover, .post-type-archive-projetos_ctp .header-single-menu, .post-type-archive-projetos_ctp .header-single:before, .post-type-archive-projetos_ctp .content-media .color-hover, .page-template-page-producoes .header-single-menu, .page-template-page-producoes .header-single:before, .page-template-page-producoes .content-media .color-hover {
   background-color: #522e91 !important;
 }
 
-.single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1 {
+.single-projetos_ctp .fazer-minha-inscricao h1, .post-type-archive-projetos_ctp .fazer-minha-inscricao h1, .page-template-page-producoes .fazer-minha-inscricao h1 {
   color: #522e91;
 }
 
-.single-projetos_ctp .area-pesquisa .slider.active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider.active .color {
+.single-projetos_ctp .area-pesquisa .slider.active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider.active .color, .page-template-page-producoes .area-pesquisa .slider.active .color {
   background-color: rgba(82, 46, 145, 0.9);
 }
 
 @media screen and (max-width: 74.9375em) {
-  .single-projetos_ctp .area-pesquisa .slider:active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:active .color {
+  .single-projetos_ctp .area-pesquisa .slider:active .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:active .color, .page-template-page-producoes .area-pesquisa .slider:active .color {
     background-color: rgba(82, 46, 145, 0.9);
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .single-projetos_ctp .area-pesquisa .slider:hover .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:hover .color {
+  .single-projetos_ctp .area-pesquisa .slider:hover .color, .post-type-archive-projetos_ctp .area-pesquisa .slider:hover .color, .page-template-page-producoes .area-pesquisa .slider:hover .color {
     background-color: rgba(82, 46, 145, 0.9);
   }
 }
@@ -5969,41 +5998,43 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .single-projetos_ctp .area-pesquisa .slider.active .box:not(.link),
 .single-projetos_ctp .area-pesquisa .slider:not(.no-hover):hover .box:not(.link), .post-type-archive-projetos_ctp .area-pesquisa .slider .box.link:hover,
 .post-type-archive-projetos_ctp .area-pesquisa .slider.active .box:not(.link),
-.post-type-archive-projetos_ctp .area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
+.post-type-archive-projetos_ctp .area-pesquisa .slider:not(.no-hover):hover .box:not(.link), .page-template-page-producoes .area-pesquisa .slider .box.link:hover,
+.page-template-page-producoes .area-pesquisa .slider.active .box:not(.link),
+.page-template-page-producoes .area-pesquisa .slider:not(.no-hover):hover .box:not(.link) {
   color: #522e91;
 }
 
-.page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item {
+.page .menu-container .menu-nav ul li.current-menu-item, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item, .single-artigos_ctp .menu-container .menu-nav ul li.current-menu-item, .single-videos_ctp .menu-container .menu-nav ul li.current-menu-item {
   border-bottom: 5px solid #000;
   font-weight: bold;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before {
+  .page .menu-container .menu-nav ul li.current-menu-item:before, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item:before, .single-artigos_ctp .menu-container .menu-nav ul li.current-menu-item:before, .single-videos_ctp .menu-container .menu-nav ul li.current-menu-item:before {
     background-color: #000;
   }
 }
 
-.page .menu-container .menu-nav ul li.current-menu-item a, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a {
+.page .menu-container .menu-nav ul li.current-menu-item a, .single-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a, .post-type-archive-comunicados_ctp .menu-container .menu-nav ul li.current-menu-item a, .single-artigos_ctp .menu-container .menu-nav ul li.current-menu-item a, .single-videos_ctp .menu-container .menu-nav ul li.current-menu-item a {
   color: #000;
 }
 
-.page .header-single:before, .single-comunicados_ctp .header-single:before, .post-type-archive-comunicados_ctp .header-single:before {
+.page .header-single:before, .single-comunicados_ctp .header-single:before, .post-type-archive-comunicados_ctp .header-single:before, .single-artigos_ctp .header-single:before, .single-videos_ctp .header-single:before {
   background-color: #9a258f !important;
 }
 
-.page .header-single-menu, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .content-media .color-hover, .post-type-archive-comunicados_ctp .header-single-menu, .post-type-archive-comunicados_ctp .content-media .color-hover {
+.page .header-single-menu, .page .content-media .color-hover, .single-comunicados_ctp .header-single-menu, .single-comunicados_ctp .content-media .color-hover, .post-type-archive-comunicados_ctp .header-single-menu, .post-type-archive-comunicados_ctp .content-media .color-hover, .single-artigos_ctp .header-single-menu, .single-artigos_ctp .content-media .color-hover, .single-videos_ctp .header-single-menu, .single-videos_ctp .content-media .color-hover {
   background-color: #522e91 !important;
 }
 
 @media screen and (max-width: 74.9375em) {
-  .page .list-item:active, .single-comunicados_ctp .list-item:active, .post-type-archive-comunicados_ctp .list-item:active {
+  .page .list-item:active, .single-comunicados_ctp .list-item:active, .post-type-archive-comunicados_ctp .list-item:active, .single-artigos_ctp .list-item:active, .single-videos_ctp .list-item:active {
     background-color: #262626 !important;
   }
 }
 
 @media screen and (min-width: 64.0625em) {
-  .page .list-item:hover, .single-comunicados_ctp .list-item:hover, .post-type-archive-comunicados_ctp .list-item:hover {
+  .page .list-item:hover, .single-comunicados_ctp .list-item:hover, .post-type-archive-comunicados_ctp .list-item:hover, .single-artigos_ctp .list-item:hover, .single-videos_ctp .list-item:hover {
     background-color: #262626 !important;
   }
 }
@@ -6450,7 +6481,7 @@ a.flickity-prev-next-button, a.flickity-prev-next-button:focus, a.flickity-prev-
 .area-pesquisa .slider .slider-excerpt, .area-pesquisa .slider .slider-text {
   color: white;
   display: none;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   font-size: 15px;
   margin-top: 20px;
   opacity: 0;
@@ -6750,7 +6781,7 @@ footer .newsletter-input {
   border: none;
   border-bottom: 1px solid white;
   background-color: transparent;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   outline: none;
   line-height: 1.5;
   width: 100%;
@@ -6822,7 +6853,7 @@ footer .social-content .latest {
 }
 
 footer .social-content .latest ul li a {
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   font-size: 15px;
   font-weight: 500;
   color: #9b9b9b;
@@ -6927,7 +6958,7 @@ footer small a {
   display: inline-block;
   border: 1px solid #000;
   vertical-align: middle;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .search-box .search-label {
@@ -6963,7 +6994,7 @@ footer small a {
   padding-bottom: 5px;
   background-color: transparent;
   border-bottom: 4px solid #000;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media screen and (min-width: 415px) {
@@ -7095,7 +7126,7 @@ footer small a {
 
 .search-box .filter-options h3 {
   float: left;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
 }
 
@@ -7191,7 +7222,7 @@ footer small a {
 
 .error-404-wrapper h2 {
   color: #ffffff;
-  font-family: Raleway, sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 7vmax;
   font-weight: 900;
   line-height: 1.1;
@@ -7224,7 +7255,7 @@ footer small a {
 }
 
 .error-404-wrapper p {
-  font-family: Raleway, sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 2.5vmax;
   font-weight: 500;
   line-height: 1.4;
