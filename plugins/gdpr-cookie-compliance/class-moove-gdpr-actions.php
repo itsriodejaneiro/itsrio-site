@@ -377,30 +377,35 @@ class Moove_GDPR_Actions {
 	 */
 	public function moove_frontend_gdpr_scripts() {
 
-		$load_lity = apply_filters( 'gdpr_enqueue_lity_nojs', true );
-		if ( ! $load_lity ) :
+		$load_lity 		= apply_filters( 'gdpr_enqueue_lity_nojs', true );
+		$disable_lity = apply_filters( 'gdpr_disable_lity_enqueue', false );
+		if ( ! $load_lity && ! $disable_lity ) :
 			wp_enqueue_style( 'moove_gdpr_lity', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/styles/lity.css', '', MOOVE_GDPR_VERSION );
 			wp_enqueue_script( 'moove_gdpr_lity', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/scripts/lity.js', array( 'jquery' ), MOOVE_GDPR_VERSION, true );
 		endif;
 
-		wp_enqueue_script( 'moove_gdpr_frontend', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/scripts/main.js', array( 'jquery' ), MOOVE_GDPR_VERSION, true );
+		$disable_main_assets = apply_filters( 'gdpr_disable_main_assets_enqueue', false );
+		if ( ! $disable_main_assets ) :
+			wp_enqueue_script( 'moove_gdpr_frontend', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/scripts/main.js', array( 'jquery' ), MOOVE_GDPR_VERSION, true );
+		
 
-		$gdpr_default_content = new Moove_GDPR_Content();
-		$option_name          = $gdpr_default_content->moove_gdpr_get_option_name();
-		$modal_options        = get_option( $option_name );
-		$wpml_lang            = $gdpr_default_content->moove_gdpr_get_wpml_lang();
-		$css_file             = 'gdpr-main.css';
-		if ( isset( $modal_options['moove_gdpr_plugin_font_type'] ) ) :
-			if ( '1' === $modal_options['moove_gdpr_plugin_font_type'] ) :
-				$css_file = 'gdpr-main.css';
-			elseif ( '2' === $modal_options['moove_gdpr_plugin_font_type'] ) :
-				$css_file = 'gdpr-main-nf.css';
-			else :
-				$css_file = isset( $modal_options['moove_gdpr_plugin_font_family'] ) && $modal_options['moove_gdpr_plugin_font_family'] && false === strpos( strtolower( $modal_options['moove_gdpr_plugin_font_family'] ), 'nunito' ) ? 'gdpr-main-nf.css' : 'gdpr-main.css';
+			$gdpr_default_content = new Moove_GDPR_Content();
+			$option_name          = $gdpr_default_content->moove_gdpr_get_option_name();
+			$modal_options        = get_option( $option_name );
+			$wpml_lang            = $gdpr_default_content->moove_gdpr_get_wpml_lang();
+			$css_file             = 'gdpr-main.css';
+			if ( isset( $modal_options['moove_gdpr_plugin_font_type'] ) ) :
+				if ( '1' === $modal_options['moove_gdpr_plugin_font_type'] ) :
+					$css_file = 'gdpr-main.css';
+				elseif ( '2' === $modal_options['moove_gdpr_plugin_font_type'] ) :
+					$css_file = 'gdpr-main-nf.css';
+				else :
+					$css_file = isset( $modal_options['moove_gdpr_plugin_font_family'] ) && $modal_options['moove_gdpr_plugin_font_family'] && false === strpos( strtolower( $modal_options['moove_gdpr_plugin_font_family'] ), 'nunito' ) ? 'gdpr-main-nf.css' : 'gdpr-main.css';
+				endif;
 			endif;
+			wp_enqueue_style( 'moove_gdpr_frontend', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/styles/' . $css_file, '', MOOVE_GDPR_VERSION );
+			$this->moove_localize_script( 'moove_gdpr_frontend' );
 		endif;
-		wp_enqueue_style( 'moove_gdpr_frontend', plugins_url( basename( dirname( __FILE__ ) ) ) . '/dist/styles/' . $css_file, '', MOOVE_GDPR_VERSION );
-		$this->moove_localize_script( 'moove_gdpr_frontend' );
 	}
 
 	/**

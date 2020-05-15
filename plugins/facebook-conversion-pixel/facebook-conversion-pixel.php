@@ -8,7 +8,7 @@
 	Author: Fatcat Apps
 	Author URI: https://fatcatapps.com/
 	License: GPLv2
-	Version: 2.5.1
+	Version: 2.5.2
 */
 
 
@@ -71,7 +71,7 @@ if ( !$upgraded && $has_legacy_save ) {
 
 	//DEFINE SOME USEFUL CONSTANTS
 	define( 'FCA_PC_DEBUG', FALSE );
-	define( 'FCA_PC_PLUGIN_VER', '2.5.1' );
+	define( 'FCA_PC_PLUGIN_VER', '2.5.2' );
 	define( 'FCA_PC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'FCA_PC_PLUGINS_URL', plugins_url( '', __FILE__ ) );
 	define( 'FCA_PC_PLUGINS_BASENAME', plugin_basename(__FILE__) );
@@ -312,7 +312,6 @@ if ( !$upgraded && $has_legacy_save ) {
 			$dismiss_url = add_query_arg( 'fca_pc_dismiss_no_pixel', true );
 
 			echo '<div id="fca-pc-setup-notice" class="notice notice-success is-dismissible" style="padding-bottom: 8px; padding-top: 8px;">';
-				echo '<img style="float:left; margin-right: 16px;" height="120" width="120" src="' . FCA_PC_PLUGINS_URL . '/assets/pixelcat_icon_128_128_360.png' . '">';
 				echo '<p><strong>' . __( "Thank you for installing Pixel Cat.", 'facebook-conversion-pixel' ) . '</strong></p>';
 				echo '<p>' . __( "It looks like you haven't configured your Facebook Pixel yet. Ready to get started?", 'facebook-conversion-pixel' ) . '</p>';
 				echo "<a href='$url' class='button button-primary' style='margin-top: 25px;'>" . __( 'Set up my Pixel', 'facebook-conversion-pixel') . "</a> ";

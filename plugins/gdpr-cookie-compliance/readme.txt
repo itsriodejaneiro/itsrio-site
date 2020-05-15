@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Stable tag: trunk
 Tags: gdpr, cookie, notice, consent, law
 Requires at least: 4.5
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6 or higher
 License: GPLv2
 
@@ -216,6 +216,11 @@ The Brazilian General Data Protection Law (“Lei Geral de Proteção de Dados�
 39. GDPR Cookie Compliance - Front-end - Cookie Shortcode [Premium]
 
 == Changelog ==
+= 4.1.9: April 22, 2020 =
+* WordPress 5.4 compatibility
+* JavaScript fixes
+* Added hook to prevent Lity / main assets enqueue
+
 = 4.1.8: March 19, 2020 =
 * Cookie Settings screen keyboard accessibility improved
 * Updated plugin screenshots

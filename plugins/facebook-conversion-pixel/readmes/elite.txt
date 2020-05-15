@@ -1,21 +1,21 @@
-﻿=== Pixel Cat: Elite ===
+=== Pixel Cat: Elite ===
 Contributors: fatcatapps, davidhme, ryannovotny
 Donate link: https://fatcatapps.com/pixelcat
 Tags: facebook pixel, facebook conversion pixel, custom audiences, facebook pixel events, facebook standard events, facebook retargeting, facebook custom audiences, standard events, Facebook Pixel WooCommerce, 
 Author URI: https://fatcatapps.com/
 Plugin URI: https://fatcatapps.com/
 Requires at least: 4.0
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 
 Facebook Pixel Management Made Easy. Set Up Facebook Pixel Events, Track Conversions & Build Custom Audiences With This Facebook Pixel WordPress Plugin.
 
 == Description ==
 
 = Facebook Pixel Management Made Easy =
-Pixel Cat - Facebook Pixel Manager lets you add a Facebook Pixel to your site in a matter of minutes.
+Pixel Cat - Conversion Pixel Manager lets you add a Facebook Pixel to your site in a matter of minutes.
 
 Confused by Facebook's pixel code? Wary of pasting a script into your theme?
 
@@ -26,7 +26,7 @@ Pixel Cat is a lean, simple plugin that avoids unnecessary bloat and does one th
 * Hide your Facebook Pixel from logged-in users so you don't pollute your data.
 * Create Facebook Pixel Events using our Event Builder.
 
-= Why use Pixel Cat - Facebook Pixel Manager? =
+= Why use Pixel Cat - Conversion Pixel Manager? =
 
 There are multiple ways to add a Facebook Pixel to your WordPress site.
 
@@ -46,7 +46,7 @@ c) These plugins usually don't support hiding your Facebook Pixel from logged-in
 
 The bottom line is that Pixel Cat is the best way to add a Facebook Pixel to your WordPress site.
 
-= Does Pixel Cat - Facebook Pixel Manager support the new Facebook Pixel? =
+= Does Pixel Cat - Conversion Pixel Manager support the new Facebook Pixel? =
 Yes. Pixel Cat is built from the ground up to support the new Facebook Pixel.
 
 Pixel Cat does not work with the old "Facebook Conversion Pixel" that Facebook deprecated in 2016.
@@ -54,10 +54,10 @@ Pixel Cat does not work with the old "Facebook Conversion Pixel" that Facebook d
 = Can I hide my Facebook Pixel form logged in users? =
 Yes. You can hide your Facebook Pixels from logged in users by going to Settings -> Facebook Pixel Manager.
 
-= Is Pixel Cat - Facebook Pixel Manager easy to translate? =
+= Is Pixel Cat - Conversion Pixel Manager easy to translate? =
 Yes. Pixel Cat - Facebook Pixel Cat is fully translateable. Please let us know if you're interested in contributing.
 
-= Pixel Cat - Facebook Pixel Manager Feature Roadmap =
+= Pixel Cat - Conversion Pixel Manager Feature Roadmap =
 This is just the first version of Pixel Cat - we have tons of new features & improvements lined up. Do you have any suggestions? Please leave a comment in the support forums.
 
 = Do you integrate with WooCommerce =
@@ -68,7 +68,7 @@ Yes, our our [pro plugin](https://fatcatapps.com/pixelcat/) makes setting up a F
 
 == Installation ==
 
-1. Upload the Pixel Cat - Facebook Pixel Manager plugin file (`pixel-cat.zip`) to the `/wp-content/plugins/` directory
+1. Upload the Pixel Cat - Conversion Pixel Manager plugin file (`pixel-cat.zip`) to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Settings -> Facebook Pixel Manager to configure your Facebook Pixel
  
@@ -85,6 +85,10 @@ Your Facebook Pixel ID is located on the right hand side of this screen.
 
 
 == Changelog ==
+
+= Pixel Cat: Elite 2.5.2 =
+* Fixed missing image
+* Tested up to WordPress 5.4.1
 
 = Pixel Cat: Elite 2.5.1 =
 * UI updates 

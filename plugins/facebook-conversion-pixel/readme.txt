@@ -6,10 +6,10 @@ Tags: facebook pixel, facebook conversion pixel, facebook pixel events, facebook
 Author URI: https://fatcatapps.com/
 Plugin URI: https://fatcatapps.com/
 Requires at least: 4.0
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 
 Facebook Pixel Management Made Easy. From Facebook retargeting to conversion tracking, this plugin includes everything you need to run successful Facebook ads.
 
@@ -17,7 +17,7 @@ Facebook Pixel Management Made Easy. From Facebook retargeting to conversion tra
 
 = Facebook Pixel For WordPress Made Easy =
 
-Facebook Pixel - Pixel Cat (formerly known as "Facebook Conversion Pixel") lets you add a Facebook Pixel to your site in a matter of minutes.
+Pixel Cat - Conversion Pixel Manager (formerly known as "Facebook Conversion Pixel") lets you add a Facebook Pixel to your site in a matter of minutes.
 From Facebook Retargeting to conversion tracking, this free plugin makes setting up your Facebook Pixel a breeze.
 
 = Run Better Facebook Ad Campaigns =
@@ -75,7 +75,7 @@ Dynamic Events – a key part of many advanced Facebook marketer’s toolkits �
 
 [>> Learn more about Pixel Cat Premium here <<](https://fatcatapps.com/pixelcat/premium/) 
 
-= Why use Facebook Pixel - Pixel Cat? =
+= Why use Pixel Cat - Conversion Pixel Manager? =
 
 There are multiple ways to add a Facebook Pixel to your WordPress site.
 
@@ -96,15 +96,15 @@ And, most importantly: with Pixel Cat you can set up Facebook Pixel standard eve
 
 The bottom line is that Pixel Cat is the best way to add a Facebook Pixel to your WordPress site.
 
-= Does Facebook Pixel - Pixel Cat support the new Facebook Pixel? =
+= Does Pixel Cat - Conversion Pixel Manager support the new Facebook Pixel? =
 Yes. Pixel Cat is built from the ground up to support the new Facebook Pixel.
 
-If you're currently using v1.3.5, or later, for the old deprecated Facebook Pixel, and would like to continue doing so, no worries. Facebook Pixel - Pixel Cat will automatically detect your old settings, and will let you continue using the old version of the plugin for this purpose. You can then upgrade to the new pixel at any time.
+If you're currently using v1.3.5, or later, for the old deprecated Facebook Pixel, and would like to continue doing so, no worries. Pixel Cat - Conversion Pixel Manager will automatically detect your old settings, and will let you continue using the old version of the plugin for this purpose. You can then upgrade to the new pixel at any time.
 
 = Can I hide my Facebook Pixel form logged in users? =
 Yes. You can hide your Facebook Pixels from logged in users by going to Settings -> Facebook Pixel Manager.
 
-= Is Facebook Pixel - Pixel Cat easy to translate? =
+= Is Pixel Cat - Conversion Pixel Manager easy to translate? =
 Yes. Pixel Cat - Facebook Pixel Cat is fully translateable. Please let us know if you're interested in contributing.
 
 = Do you integrate with WooCommerce =
@@ -117,7 +117,7 @@ Please read this guide: [Facebook Pixel WordPress Installation & Best Practices:
 
 == Installation ==
 
-1. Upload the Facebook Pixel - Pixel Cat plugin file (`facebook-conversion-pixel.zip`) to the `/wp-content/plugins/` directory
+1. Upload the Pixel Cat - Conversion Pixel Manager plugin file (`facebook-conversion-pixel.zip`) to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3a. If upgrading from the v1.3.4 Go to Settings -> Facebook Pixel Manager to configure your Facebook Pixel
 
@@ -132,7 +132,7 @@ You can find the Pixel ID in the Ads Manager here: https://www.facebook.com/ads/
 Your Facebook Pixel ID is located on the right hand side of this screen.
 
 = What if I was using v1.3.5 for the old Facebook Pixel? =
-Facebook Pixel - Pixel Cat will automatically detect your old settings, and will let you continue using the old version of the plugin for this purpose. You can then upgrade to the new pixel at any time.
+Pixel Cat - Conversion Pixel Manager will automatically detect your old settings, and will let you continue using the old version of the plugin for this purpose. You can then upgrade to the new pixel at any time.
 
 == Screenshots ==
 1. Pixel Cat Settings Screen
@@ -143,80 +143,84 @@ Facebook Pixel - Pixel Cat will automatically detect your old settings, and will
 
 == Changelog ==
 
-= Facebook Pixel - Pixel Cat 2.5.1 =
+= Pixel Cat: Conversion Pixel Manager 2.5.2 =
+* Fixed missing image
+* Tested up to WordPress 5.4.1
+
+= Pixel Cat - Conversion Pixel Manager 2.5.1 =
 * Add new screenshots
 * UI updates
 
-= Facebook Pixel - Pixel Cat 2.5.0 =
+= Pixel Cat - Conversion Pixel Manager 2.5.0 =
 * Added WooCommerce & Easy Digital Downloads integrations
 * Fix search event not turning off
 * Tested up to WP 5.4.0
 
-= Facebook Pixel - Pixel Cat 2.4.0 =
+= Pixel Cat - Conversion Pixel Manager 2.4.0 =
 * Added integration with [Easy Pricing Tables](https://wordpress.org/plugins/easy-pricing-tables/)
 * Added integration with [Optin Cat](https://wordpress.org/plugins/mailchimp-wp/)
 * Added integration with [Landing Page Cat](https://wordpress.org/plugins/landing-page-cat/)
 * UI update - integrations & settings are different tabs
 
-= Facebook Pixel - Pixel Cat 2.3.1 =
+= Pixel Cat - Conversion Pixel Manager 2.3.1 =
 * Fix reported error "Can't use function return value in write context"
 
-= Facebook Pixel - Pixel Cat 2.3.0 =
+= Pixel Cat - Conversion Pixel Manager 2.3.0 =
 * Tested up to WP 4.9.2
 * Added ability to pause events
 
-= Facebook Pixel - Pixel Cat 2.2.3 =
+= Pixel Cat - Conversion Pixel Manager 2.2.3 =
 * Tested up to WordPress 4.9.1
 
-= Facebook Pixel - Pixel Cat 2.2.2 =
+= Pixel Cat - Conversion Pixel Manager 2.2.2 =
 * Improved editor navigation warning
 
-= Facebook Pixel - Pixel Cat 2.2.1 =
+= Pixel Cat - Conversion Pixel Manager 2.2.1 =
 * Added new settings tab
 * Moved events table to main tab
 * Improved various texts and tooltips
 
-= Facebook Pixel - Pixel Cat 2.2.0 =
+= Pixel Cat - Conversion Pixel Manager 2.2.0 =
 * Added support link in plugins page
 * Added WordPress/PHP filter for custom post types - fca_pc_custom_post_support
 * Fixed Quiz Cat integration only available for premium levels
 * Changed default exclusion from Admin & Editor to no default exclusion 
 
-= Facebook Pixel - Pixel Cat 2.1.0 =
+= Pixel Cat - Conversion Pixel Manager 2.1.0 =
 * Add all Facebook standard events ( Purchase, AddToCart, AddToWishlist, InitiateCheckout, AddPaymentInfo, CompleteRegistration )
 * Improved help text and upgrade information
 
-= Facebook Pixel - Pixel Cat 2.0.1 =
+= Pixel Cat - Conversion Pixel Manager 2.0.1 =
 * Fix issue with upgrade / downgrade redirect
 
-= Facebook Pixel - Pixel Cat 2.0.0 =
+= Pixel Cat - Conversion Pixel Manager 2.0.0 =
 * Merged with Pixel Cat
 * Add support for new Facebook pixel format and events
 * Added ability to downgrade to old pixel
 
-= Facebook Pixel - Pixel Cat 1.3.4 =
+= Pixel Cat - Conversion Pixel Manager 1.3.4 =
 * Fixed bug related to this plugin interfering with further admin ajax requests
 
-= Facebook Pixel - Pixel Cat 1.3.3 =
+= Pixel Cat - Conversion Pixel Manager 1.3.3 =
 * Fixed bug related to this plugin interfering with admin ajax requests
 
-= Facebook Pixel - Pixel Cat 1.3.2 =
+= Pixel Cat - Conversion Pixel Manager 1.3.2 =
 * Internationalized text strings for translation
 * Heightened security related to when conversion pixel code is output to the page
 * Made it so that only administrators can modify plugin settings
 
-= Facebook Pixel - Pixel Cat 1.3.1 =
+= Pixel Cat - Conversion Pixel Manager 1.3.1 =
 * converted special HTML entities in database back to characters before output
 
-= Facebook Pixel - Pixel Cat 1.3.0 =
+= Pixel Cat - Conversion Pixel Manager 1.3.0 =
 * Updated CMB2 to latest version, cleaned up code in main plugin file, avoiding a potential php warning
 
-= Facebook Pixel - Pixel Cat 1.2.0 =
+= Pixel Cat - Conversion Pixel Manager 1.2.0 =
 * Updated plugin to use new CMB2 version of Custom Metaboxes and Fields library
 
-= Facebook Pixel - Pixel Cat 1.1.0 =
+= Pixel Cat - Conversion Pixel Manager 1.1.0 =
 * Changed plugin so that the conversion pixel field does not appear on newly added post types until the user chooses to enable the plugin for them.
 * Excluded Revision and Navigation Menu post types from the plugin options page
 
-= Facebook Pixel - Pixel Cat 1.0.0 =
-* Initial release of Facebook Pixel - Pixel Cat.
+= Pixel Cat - Conversion Pixel Manager 1.0.0 =
+* Initial release of Pixel Cat - Conversion Pixel Manager.
