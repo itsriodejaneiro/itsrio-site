@@ -122,9 +122,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<a href="https://open.spotify.com/user/a2vvb9zp16t8aa6labdvowetf" target="_blank"><i class="fa fa-spotify"></i></a>
 							</li>
 							<li class="text">
-								<a <?= $lang == 'pt' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>>português</a>
-								|
-								<a <?= $lang == 'en' ? 'class="selected" href="#"' : 'href="'.$translationUrl.'"' ?>> english</a>
+								<?php if ($lang == 'pt'){
+									?>
+									<a class="selected" href="#">português</a>
+									<?php 
+									if ($translationUrl != get_home_url()){
+										?>
+										| <a href="<?= $translationUrl ?>"> english</a>
+										<?php
+									}
+								}
+								else{
+									if ($translationUrl != get_home_url()){
+										?>
+										<a href="<?= $translationUrl?>"> português</a> |
+										<?php
+									} 
+									?>
+									<a class="selected" href="#">english</a>
+									<?php
+								}
+								?>
 							</li>
 						</ul>
 					</div>
