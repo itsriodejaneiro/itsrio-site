@@ -2,26 +2,30 @@
 if(function_exists('pll_register_string')){
     $translations = [
     'menu' => [
-    'cursos',
-    'varandas',
-    'projetos',
-    'publicações',
-    'institucional',
+        'cursos',
+        'varandas',
+        'projetos',
+        'publicações',
+        'institucional',
+        'produções',
+        'vídeos', 
+        'artigos',
+        'pós-graduação'
     ],
     '404' => [
-    'Página não encontrada',
-    'Verifique a URL ou digite na ferramenta',
-    'de busca o que deseja encontrar.'
-    ],
-    'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:', 'buscar','filtragem de conteúdo:','área','digite sua palavra-chave'],
-    'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
-    'menu - Singular - ' => [
-    'curso',
-    'varanda',
-    'projeto',
-    'publicação',
-    'comunicados',
-    ]
+        'Página não encontrada',
+        'Verifique a URL ou digite na ferramenta',
+        'de busca o que deseja encontrar.'
+        ],
+        'busca' => ['Busca','busca avançada','categorias (assuntos)','resultados da busca','Nenhum post foi encontrado','buscar por:', 'buscar','filtragem de conteúdo:','área','digite sua palavra-chave'],
+        'Misc' => ['categorias','categoria','contato','fechar','Saiba Mais','data','ocultar'],
+        'menu - Singular - ' => [
+        'curso',
+        'varanda',
+        'projeto',
+        'publicação',
+        'comunicados',
+        ]
     ];
 
     foreach ($translations as $group => $value) {
