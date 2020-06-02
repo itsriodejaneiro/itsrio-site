@@ -8,6 +8,7 @@ if(function_exists('pll_register_string')){
         'publicações',
         'institucional',
         'produções',
+        'Produções',
         'vídeos', 
         'artigos',
         'pós-graduação'
