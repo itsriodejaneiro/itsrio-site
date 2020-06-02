@@ -73,6 +73,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			if(is_single()){
 				$translationUrl = get_permalink($polylang->model->get_translations('post', $post->ID)[$translationLang]);
 			}
+			if(is_singular('page')){
+				$translationUrl = get_permalink($polylang->model->get_translations('page', $post->ID)[$translationLang]);
+			}
 
 			/*
 			 se a url de traducao for igual a atual, significa que nao ha pagina
