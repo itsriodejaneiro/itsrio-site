@@ -15,11 +15,10 @@ $styles = '';
 $postType;
 
 define('ROOT', __DIR__.'/');
-define('YOUTUBE_KEY', 'AIzaSyCiKcRsuOdRuo0qWGR6n09UdiCiz5A4uzY');
+define('YOUTUBE_KEY',  getenv('YOUTUBE_KEY') ? getenv('YOUTUBE_KEY') : 'AIzaSyCiKcRsuOdRuo0qWGR6n09UdiCiz5A4uzY');
 define('YOUTUBE_ID', 'UC61OfX5yfm-G8O1sZ7TKlGQ');
 
 include 'functions/post_types.php';
-include 'functions/custom_taxonomies.php';
 include 'functions/meta.php';
 include 'functions/ajax-calls.php';
 include 'functions/components/components.php';
@@ -100,6 +99,8 @@ function curl($url)
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_REFERER, get_site_url());
+
     $output = curl_exec($ch);
     curl_close($ch);
     return $output;
@@ -230,6 +231,37 @@ function df_terms_clauses( $clauses, $taxonomy, $args ) {
 }
 
 add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );
+
+function parseRssFeed($url) {
+    $fileContents= file_get_contents($url);
+    $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+    $fileContents = trim(str_replace('"', "'", $fileContents));
+    $simpleXml = simplexml_load_string($fileContents);
+    $arrayItems = $simpleXml->channel->item;
+    $parsedArray = [];
+    foreach ($arrayItems as $el){
+        $item = new stdClass();
+        $item->title = (string)$el->title;
+        $item->link = (string)$el->link;
+        $parsedArray[] = $item;
+    }
+    return $parsedArray;
+}
+function getYoutubeVideos($url){
+    $cache_key = "featured-videos-" . md5($url);
+    if(!($result = get_transient($cache_key))){
+        $result =  json_decode(curl($url));
+        if(is_object($result) && !$result->error){
+            set_transient($cache_key, $result, 30 * MINUTE_IN_SECONDS);
+        } else {
+            $result = (object) ['items' => []];
+            set_transient($cache_key, $result, 3 * MINUTE_IN_SECONDS);
+        }
+    }
+    return $result;
+}
+
+
 
 //Remove as páginas de categorias do google
 // function generate_robots_txt( $post_id ) {

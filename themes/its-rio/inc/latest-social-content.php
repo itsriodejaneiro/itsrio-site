@@ -1,11 +1,9 @@
 <?php 
 $limit = 3;
 $count = 0;
-$mediumJSON = curl("https://medium.com/@ITSriodejaneiro/latest?format=json");
-$youtubeJSON = curl("https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=".YOUTUBE_ID."&key=".YOUTUBE_KEY);
+$medium = parseRssFeed("https://medium.com/feed/@ITSriodejaneiro");
+$youtube = getYoutubeVideos("https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=".YOUTUBE_ID."&key=".YOUTUBE_KEY);
 
-$medium = json_decode(str_replace('])}while(1);</x>', '', $mediumJSON))->payload->references->Post;
-$youtube = json_decode($youtubeJSON);
 ?>
 <div class="social-content show-for-medium column medium-9 large-offset-1">
 	<div class="articles latest">
@@ -17,7 +15,7 @@ $youtube = json_decode($youtubeJSON);
 					break;
 				$count++;
 				?>
-				<li><a target="_blank" href="https://feed.itsrio.org/<?= $post->slug.'-'.$post->id ?>"><?= $post->title ?></a></li>
+				<li><a target="_blank" href="<?= $post->link?>"><?= $post->title ?></a></li>
 				<?php
 			}
 			?>
