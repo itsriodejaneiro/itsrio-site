@@ -1,5 +1,0 @@
-composer.phar
-/vendor/
-*.ignored
-**/IgnoredTest.php
-.DS_Store
