@@ -16,7 +16,7 @@ services:
     volumes:
       - ./themes/its-rio:/var/www/html/wp-content/themes/its-rio
       - ./config:/var/www/html/config
-      - ./plugins:/var/www/html/plugins
+      - ./wp-content:/var/www/html/wp-content
       - ./compose/local/wordpress/wp-config.d:/var/www/html/wp-config.d
       - ./compose/local/wordpress/htaccess:/var/www/html/.htaccess
       - ./compose/production/wordpress/php/extra.ini:/usr/local/etc/php/conf.d/extra.ini
