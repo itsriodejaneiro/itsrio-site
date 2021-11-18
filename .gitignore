@@ -44,4 +44,5 @@ wp-content
 compose/local/mariadb/data
 mariadb_data/
 compose/local/mariadb/data/*
+*.sql
 ~
