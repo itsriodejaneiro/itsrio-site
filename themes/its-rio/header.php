@@ -176,6 +176,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<li id="menu-item-3621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3621">
 										<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/"><?= pll__('pós-graduação') ?></a>
 									</li>
+									<li id="menu-item-3623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3623">
+										<a href="/<?= $lang == 'en' ? 'en/comunicados' : 'pt/comunicados' ?>/"><?= pll__('comunicados') ?></a>
+									</li>
 								</ul>
 							</div>
 							<div class="line"></div>
