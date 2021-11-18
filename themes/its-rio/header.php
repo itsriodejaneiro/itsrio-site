@@ -170,9 +170,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<li id="menu-item-3620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3620">
 										<a href="/<?= $lang == 'en' ? 'en/institutional' : 'pt/institucional' ?>/"><?= pll__('institucional') ?></a>
 									</li>
-									<li id="menu-item-3622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3622">
-										<a href="/<?= $lang ?>/cursos/in-company"><?= pll__('in company') ?></a>
-									</li>
 									<li id="menu-item-3621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3621">
 										<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/"><?= pll__('pós-graduação') ?></a>
 									</li>
