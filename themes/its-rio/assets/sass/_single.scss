@@ -127,7 +127,6 @@
     transform:  translate3d(0px,0px,0px);
     @include breakpoint(medium down) {
         position: relative;
-        z-index: 10;
     }
     @include breakpoint(large) {
         height: 40px;
