@@ -245,9 +245,9 @@
 }
 
 #content{
-	margin: 75px 0px 20px;
+	margin: 75px 0px 0px;
 	@include breakpoint(medium) {
-		margin: 75px 0px;
+		margin: 75px 0px 0px;
 	}
 }
 
