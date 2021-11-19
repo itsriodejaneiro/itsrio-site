@@ -35,29 +35,21 @@ if( class_exists('Dynamic_Featured_Image') ) {
 				<span class="box link"><?= pll__('ver publicações') ?></span>
 				<?php $styles .= "#slider_publicacoes_ctp_1 {background-image: url('".($imagens[0]['full'] ? $imagens[0]['full'] : '')."') !important;}"; ?>
 			</div>
-			<div id="slider_comunicados_ctp_2" data-filter=".comunicados_ctp" area-name="#<?= pll__('comunicados') ?>"  class="slider four no-active filter" style="background-image: url('<?php echo ($imagens[3]['thumb'] ? $imagens[3]['thumb'] : '') ?>');}">
-				<div class="color"></div>
-				<span class="box slider-title"><?= pll__('comunicados') ?></span>
-				<span class="slider-excerpt"><?= $descricao[2] ? $descricao[2] : '' ?></span>
-				<span class="slider-text"></span>
-				<span class="box link"><?= pll__('ver comunicados') ?></span>
-				<?php $styles .= "#slider_comunicados_ctp_2 {background-image: url('".($imagens[2]['full'] ? $imagens[2]['full'] : '')."') !important;}"; ?>
-			</div>
-			<div id="slider_videos_ctp_3" data-filter=".videos_ctp" area-name="#<?= pll__('videos') ?>"  class="slider four no-active filter"  style="background-image: url('<?php echo ($imagens[5]['thumb'] ? $imagens[5]['thumb'] : '') ?>');}" >
+			<div id="slider_videos_ctp_2" data-filter=".videos_ctp" area-name="#<?= pll__('videos') ?>"  class="slider four no-active filter"  style="background-image: url('<?php echo ($imagens[5]['thumb'] ? $imagens[5]['thumb'] : '') ?>');}" >
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('vídeos') ?></span>
-				<span class="slider-excerpt"><?= $descricao[4] ? $descricao[4] : '' ?></span>
+				<span class="slider-excerpt"><?= $descricao[2] ? $descricao[2] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver vídeos') ?></span>
-				<?php $styles .= "#slider_videos_ctp_3 {background-image: url('".($imagens[4]['full'] ? $imagens[4]['full'] : '')."') !important;}"; ?>
+				<?php $styles .= "#slider_videos_ctp_2 {background-image: url('".($imagens[2]['full'] ? $imagens[2]['full'] : '')."') !important;}"; ?>
 			</div>
-			<div id="slider_artigos_ctp_4" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" style="background-image: url('<?php echo ($imagens[7]['thumb'] ? $imagens[7]['thumb'] : '') ?>');}">
+			<div id="slider_artigos_ctp_3" data-filter=".artigos_ctp" area-name="#<?= pll__('artigos') ?>"  class="slider four no-active filter" style="background-image: url('<?php echo ($imagens[7]['thumb'] ? $imagens[7]['thumb'] : '') ?>');}">
 				<div class="color"></div>
 				<span class="box slider-title"><?= pll__('artigos') ?></span>
 				<span class="slider-excerpt"><?= $descricao[4] ? $descricao[4] : '' ?></span>
 				<span class="slider-text"></span>
 				<span class="box link"><?= pll__('ver artigos') ?></span>
-				<?php $styles .= "#slider_artigos_ctp_4 {background-image: url('".($imagens[6]['full'] ? $imagens[6]['full'] : '')."') !important;}"; ?>
+				<?php $styles .= "#slider_artigos_ctp_3 {background-image: url('".($imagens[4]['full'] ? $imagens[4]['full'] : '')."') !important;}"; ?>
 			</div>
 		</div>
 		<?php $styles .= "}";?>
