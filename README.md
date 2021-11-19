@@ -48,3 +48,17 @@ docker-compose up
 
 ### Copiando arquivos para dentro do repositório
 O conteúdo de `wp-content` está excluído do versionamento por padrão. Para adicionar seu plugin ou tema como parte do repositório, você deve colocá-los nas pastas `plugins` ou `themes` que estão na raiz do repositório.
+
+# Compilar assets para produção
+Sem o projeto roddando, dentro da pasta do tema subir um container do node 11
+```
+docker run -it -v `pwd`:/compilar node:11 bash
+```
+Dentro do container entrar na pasta e rodar o npm e gulp
+```
+cd compilar
+npm install --global gulp-cli
+npm install
+gulp --production
+```
+
