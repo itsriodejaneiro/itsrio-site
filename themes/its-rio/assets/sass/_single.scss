@@ -4,6 +4,12 @@
     z-index: 1;
 }
 
+.postid-13883 {
+    p{    
+        &.raleway{ display: none; }
+    }
+}
+
 .header-single {
     display: flex;
     height: 300px;
