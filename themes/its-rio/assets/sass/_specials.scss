@@ -103,6 +103,7 @@
                 @media #{$small-only}{
                     font-size: 18px;
                     letter-spacing: -0.5px;
+                    border: 1px solid #000;
                 }
             }
             &.link {
