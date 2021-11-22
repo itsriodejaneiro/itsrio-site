@@ -141,7 +141,7 @@
         height: 300px;
         .slider {
             opacity: 0.6;
-            width: 20%;
+            width: 30%;
             float: left;
             height: 100%;
             
@@ -154,7 +154,7 @@
             }
 
             &.no-active {
-                width: 25% !important;
+                width: 33.33% !important;
             }
             &.active, &:not(.no-hover):hover {
                 animation-name: area-fix;
