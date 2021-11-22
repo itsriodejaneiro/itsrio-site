@@ -127,7 +127,7 @@
 			$('html,body').css('position','');
 		}else{
 			$('html,body').css('position','relative');
-			$('html,body').css('overflow-y','hidden');
+			$('html,body').css('overflow-y','unset');
 		}
 
 		$('.menu-nav').toggleClass('active');
