@@ -894,7 +894,6 @@
     }
 
     h1 {
-        font-family: 'Roboto';
         font-size: 28px;
         font-weight: normal;
         line-height: 1.33;
@@ -914,6 +913,7 @@
         font-weight: bold;
         color: black !important;
         font-family: 'Roboto Mono';
+        word-spacing: -5px;
     }
 
     a {

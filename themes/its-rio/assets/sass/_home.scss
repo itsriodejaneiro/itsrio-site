@@ -29,6 +29,7 @@
 		line-height: 1.2;
 		position: relative;
 		font-family: 'Roboto';
+		word-spacing: -5px;
 		transform: translateY(-50%);
 
 		p {
@@ -106,6 +107,7 @@
 	h2, p{
 		font-weight: normal;
 		font-family: 'Roboto';
+		word-spacing: -5px;
 		b{ 
 			color: #00958a;  	
 		}

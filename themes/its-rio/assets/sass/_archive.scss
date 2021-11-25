@@ -56,6 +56,7 @@
 		font-size: 20px;
 		line-height: 1.5;
 		transition: all .3s ease;
+		word-spacing: -5px;
 		@include breakpoint(medium) {
 			font-size: 24px;
 		}
