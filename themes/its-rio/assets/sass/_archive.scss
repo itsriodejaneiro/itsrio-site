@@ -385,13 +385,17 @@ a.flickity-prev-next-button, button.flickity-prev-next-button {
 .page-template-page-producoes {
 	#content {
 		.area-pesquisa {
-			.slider {
-				width: 30%;
-
-				&.no-active {
-					width: 33.33% !important;
+			@include breakpoint(medium) {
+				
+				.slider {
+					width: 30%;
+	
+					&.no-active {
+						width: 33.33% !important;
+					}
 				}
 			}
+			
 		}
 	}
 }
