@@ -125,6 +125,8 @@
     color: black;
     font-weight: bold;
     transform:  translate3d(0px,0px,0px);
+    z-index:9;
+
     @include breakpoint(medium down) {
         position: relative;
     }
