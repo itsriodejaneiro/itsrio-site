@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="robots" content="noindex">
-    <title>Health Check</title>
-</head>
-<body>
-    <span style="display: none;">
-        <?php echo "Ok"; ?>
-    </span>
-</body>
-</html>
+<?php
+header('Content-type: application/json');
+$array = [
+    'status'  => 200,
+    'message' => 'OK'
+];
+echo json_encode($array);
