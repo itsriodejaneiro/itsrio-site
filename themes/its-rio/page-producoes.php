@@ -66,7 +66,7 @@ if( class_exists('Dynamic_Featured_Image') ) {
 		<?php
 		$args = array(
 			'posts_per_page' => 500,
-			'post_type' => array( 'videos_ctp', 'artigos_ctp', 'comunicados_ctp','publicacoes_ctp')
+			'post_type' => array( 'videos_ctp', 'artigos_ctp','publicacoes_ctp')
 		);
 
 		$query = new WP_Query($args);
