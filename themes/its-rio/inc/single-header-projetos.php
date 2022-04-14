@@ -24,7 +24,7 @@
 		if(isset($meta['saiba_mais']) && $meta['saiba_mais'][0] != ''){
 			?>
 			<div class="sidebar">
-				<a class="button large curved-shadow" href="<?= $meta['saiba_mais'][0] ?>" target="_blank"><?= strtolower(pll__('Saiba Mais')) ?></a>
+				<a class="button large curved-shadow" target="_blank"  href="<?= $meta['saiba_mais'][0] ?>" target="_blank"><?= strtolower(pll__('Saiba Mais')) ?></a>
 			</div>
 			<?php 
 		}

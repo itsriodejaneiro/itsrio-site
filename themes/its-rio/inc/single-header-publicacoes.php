@@ -31,7 +31,7 @@ $no_label = true;
 		if(isset($meta[$lang.'_pdf']) && $meta[$lang.'_pdf'][0] != ''){
 			?>
 			<div class="sidebar">
-				<a href="<?= $meta[$lang.'_pdf'][0] ?>" target="_blank" class="button large curved-shadow"><?= pll__('leia o pdf') ?></a>
+				<a target="_blank"  href="<?= $meta[$lang.'_pdf'][0] ?>" target="_blank" class="button large curved-shadow"><?= pll__('leia o pdf') ?></a>
 			</div>
 			<?php 
 		} ?>
