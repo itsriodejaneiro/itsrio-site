@@ -20,10 +20,12 @@ $color_institucionais : #522e91;
 		}
 	}
 
-	.menu-container .menu-nav ul li.current-menu-item {
+	.menu-container .menu-nav ul.menu li.current-menu-item {
 		border-bottom: 5px solid $color;
 		font-weight: bold;
-
+		&:after{
+			color: $color;
+		}
 		&:before {
 			@include breakpoint(large down) {
 				background-color: $color;
@@ -31,6 +33,9 @@ $color_institucionais : #522e91;
 		}
 
 		a { color: $color; }
+		.sub-menu li.current-menu-item a{
+			border-bottom: 3px solid #ffffff;
+		}
 	}
 
 	.header-single-menu, .header-single:before, .content-media .color-hover {
