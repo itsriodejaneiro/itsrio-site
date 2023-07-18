@@ -323,6 +323,9 @@ new Vue({
         $('.menu-nav .menu-item a').each(function(){           
             if(urlRegExp.test(this.href.replace(/\/$/,''))){              
                 $(this).parent().addClass('current-menu-item');
+                if ($(this).parent().parent().hasClass('submenu')){
+                    $(this).parent().parent().parent().addClass('current-menu-item')
+                }
             }
         });
         //Adiciona a classe de active ao correspondente no menu global na single de um cpt.
@@ -407,3 +410,18 @@ function mobileAndTabletcheck() {
 
     return check;
 }
+
+var menuItem = document.getElementById('menu-item-3621');
+menuItem.addEventListener('mouseover', function() {
+    this.getElementsByClassName('sub-menu')[0].style.display = 'block';
+    this.classList.add('sub-menu-open');
+});
+menuItem.addEventListener('mouseout', function() {
+    this.getElementsByClassName('sub-menu')[0].style.display = 'none';
+    this.classList.remove('sub-menu-open');
+});
+
+var parentLink = document.querySelector('#menu-item-3621 > a');
+parentLink.addEventListener('click', function(event) {
+    event.preventDefault();
+});
