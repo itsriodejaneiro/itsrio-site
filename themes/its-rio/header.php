@@ -171,7 +171,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<a href="/<?= $lang == 'en' ? 'en/institutional' : 'pt/institucional' ?>/"><?= pll__('institucional') ?></a>
 									</li>
 									<li id="menu-item-3621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3621">
-										<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/"><?= pll__('pós-graduação') ?></a>
+										<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/">
+											<?= pll__('pós-graduação') ?>
+										</a>
+
+										<ul id="menu-pos" class="sub-menu">
+											<li id="menu-item-3624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3624">
+												<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/">
+												<?= pll__('direito digital') ?>
+											</a>
+											</li>
+											<li id="menu-item-3625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3625">
+												<a href="/<?= $lang == 'en' ? 'en/cursos/internet-policy' : 'pt/cursos/internet-policy' ?>/"><?= pll__('internet policy') ?></a>
+											</li>
+										</ul>
 									</li>
 									<li id="menu-item-3623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3623">
 										<a href="/<?= $lang == 'en' ? 'en/comunicados' : 'pt/comunicados' ?>/"><?= pll__('comunicados') ?></a>
