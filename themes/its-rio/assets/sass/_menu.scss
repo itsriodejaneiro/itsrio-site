@@ -172,7 +172,7 @@
 				background-color: #9a258f;
 				width: auto;
 				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-				width: 220px;
+				width: 250px;
 				margin-left: -50px;
 				margin-top: 10px;
 				@media #{$big-screen} {
@@ -243,6 +243,15 @@
 							overflow: hidden;
 							position: absolute;
 							background-color: black;
+							
+						}
+					}
+					.sub-menu{
+						.current-menu-item {
+							&:before {
+								width: 6px!important;
+								left: -15px;
+							}	
 						}
 					}
 				}

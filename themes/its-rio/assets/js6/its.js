@@ -321,9 +321,10 @@ new Vue({
         var url = window.location.pathname, 
         urlRegExp = new RegExp(url.replace(/\/$/,'') + "$")
         $('.menu-nav .menu-item a').each(function(){           
-            if(urlRegExp.test(this.href.replace(/\/$/,''))){              
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){         
+     
                 $(this).parent().addClass('current-menu-item');
-                if ($(this).parent().parent().hasClass('submenu')){
+                if ($(this).parent().parent().hasClass('sub-menu')){
                     $(this).parent().parent().parent().addClass('current-menu-item')
                 }
             }

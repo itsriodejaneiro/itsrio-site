@@ -177,12 +177,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 										<ul id="menu-pos" class="sub-menu">
 											<li id="menu-item-3624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3624">
-												<a href="/<?= $lang == 'en' ? 'en/cursos/pos-graduacao' : 'pt/cursos/pos-graduacao' ?>/">
+												<a href="/<?= $lang == 'en' ? 'en/cursos/postgraduation-in-digital-law-2' : 'pt/cursos/pos-graduacao' ?>/">
 												<?= pll__('direito digital') ?>
 											</a>
 											</li>
 											<li id="menu-item-3625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3625">
-												<a href="/<?= $lang == 'en' ? 'en/cursos/internet-policy' : 'pt/cursos/internet-policy' ?>/"><?= pll__('internet policy') ?></a>
+												<a href="/<?= $lang == 'en' ? 'en/cursos/pos-internet-policy-en' : 'pt/cursos/pos-internet-policy'?>/">
+													<?= pll__('internet policy') ?>
+												</a>
 											</li>
 										</ul>
 									</li>
